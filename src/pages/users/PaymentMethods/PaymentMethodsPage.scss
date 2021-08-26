@@ -1,0 +1,32 @@
+.PaymentsContainer {
+  display: grid;
+  grid-template-columns: 840px 264px;
+  grid-template-areas: 'Payments-Card Profile-Card';
+  justify-content: center;
+  gap: 1.67vw 1.67vw;
+  .Profile-Card {
+    height: 680px;
+  }
+  .Payments-Card {
+    background-color: #ffffff;
+    min-height: 698px;
+    height: fit-content;
+    .spinnerContainer {
+      margin: auto;
+    }
+  }
+  grid-template-areas:
+    'Payments-Card Profile-Card'
+    'Payments-Card .';
+  @media (max-width: 1130px) {
+    grid-template-columns: 60vw 30vw;
+    gap: 25px 25px;
+    grid-template-areas: 'Payments-Card Profile-Card';
+  }
+
+  @media (max-width: 768px) {
+    gap: 0px 0px;
+    grid-template-columns: 100%;
+    grid-template-areas: 'Payments-Card';
+  }
+}

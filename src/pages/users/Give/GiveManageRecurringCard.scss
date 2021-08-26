@@ -1,0 +1,84 @@
+.GiveManageRecurringCard {
+  grid-area: Give-Card;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  min-height: 698px;
+  padding: 52px;
+  @media (max-width: 768px) {
+    background-color: #efeff0;
+    min-height: auto;
+    padding: 26px;
+  }
+  .PaymentMethodCardGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 26px;
+    @media (max-width: 1160px) {
+      grid-template-columns: 1fr;
+    }
+    @media (max-width: 768px) {
+      background-color: #efeff0;
+    }
+    .PaymentMethodCard {
+      padding: 43px 37px 44px 30px;
+      background-color: white;
+      border: solid 2px #c8c8c8;
+      display: flex;
+      flex-direction: column;
+      min-height: 567px;
+      .PaymentMethodCardHeader {
+        margin-bottom: 34px;
+        font-size: 56px;
+        letter-spacing: -0.5px;
+        line-height: 56px;
+        font-weight: 300;
+      }
+      .PaymentMethodCardLabel {
+        margin: 0;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: 0.5px;
+      }
+      .PaymentMethodCardButtonContainer {
+        display: flex;
+        flex-direction: row;
+        margin-top: 50px;
+        :nth-child(even) {
+          margin-left: 15px;
+        }
+        .PaymentMethodCardButton {
+          text-align: center;
+          flex: 1;
+          cursor: pointer;
+          background-color: #1a1a1a;
+          font-weight: 700;
+          padding: 12px;
+          color: white;
+          font-size: 12px;
+          margin-bottom: 8px;
+          &.white {
+            background-color: white;
+            border: 4px solid black;
+            color: #1a1a1a;
+          }
+          &:active {
+            color: #fff;
+            background-color: #545b62;
+            transition: color 0.15s ease-in-out,
+              background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+              box-shadow 0.15s ease-in-out;
+          }
+        }
+        @media (max-width: 1160px) {
+          flex-direction: column-reverse;
+          :nth-child(even) {
+            margin-left: unset;
+          }
+        }
+      }
+    }
+  }
+}

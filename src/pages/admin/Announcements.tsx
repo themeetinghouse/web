@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-import { AmplifyAuthenticator } from '@aws-amplify/ui-react';
-import AdminMenu from '../../components/Menu/AdminMenu';
 import './Announcements.scss';
 import Amplify from 'aws-amplify';
 import awsmobile from '../../aws-exports';
@@ -27,9 +25,6 @@ import {
 import DataLoader, { LocationData } from 'components/RenderRouter/DataLoader';
 
 Amplify.configure(awsmobile);
-const federated = {
-  facebookAppId: '579712102531269',
-};
 type AnnouncementData = CreateAnnouncementMutationVariables['input'];
 
 type NonNullAnnouncements = NonNullable<
@@ -891,8 +886,7 @@ export default function Announcements(): JSX.Element {
     fetchAnnouncements();
   }, [showExpired]);
   return (
-    <AmplifyAuthenticator federated={federated}>
-      <AdminMenu></AdminMenu>
+    <>
       <div className="announcementHeader">
         <p className="announcementHeaderText">Announcements</p>
 
@@ -950,6 +944,6 @@ export default function Announcements(): JSX.Element {
         ) : null}
         {openEditModal ? <EditAnnouncementModal></EditAnnouncementModal> : null}
       </div>
-    </AmplifyAuthenticator>
+    </>
   );
 }

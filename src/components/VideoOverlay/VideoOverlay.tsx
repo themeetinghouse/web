@@ -56,16 +56,35 @@ export default class VideoPlayer extends React.Component<Props, State> {
       }
     }
   }
-
   render() {
     const { content } = this.state;
     const { data, onClose } = this.props;
     const logoIsBlack = content?.page?.pageConfig?.logoColor === 'black';
+    const isGivePage = content?.page?.name === 'give';
+    console.log(isGivePage);
+    const modalClasses = {
+      modalClass: isGivePage
+        ? 'GiveModal'
+        : logoIsBlack
+        ? 'modal-video white'
+        : 'modal-video',
+      modalBody: isGivePage
+        ? 'modal-body'
+        : logoIsBlack
+        ? 'modal-body white'
+        : 'modal-body',
+      modalFooter: logoIsBlack ? 'modal-footer white' : 'modal-footer',
+      closeButtonImg: logoIsBlack
+        ? '/static/svg/Close-Cancel.svg'
+        : '/static/svg/Close-Cancel-White.svg',
+    };
+    const { modalClass, modalBody, modalFooter, closeButtonImg } = modalClasses;
+
     return (
       <div>
         {content ? (
           <Modal
-            className={logoIsBlack ? 'modal-video white' : 'modal-video'}
+            className={modalClass}
             isOpen={!!data}
             modalClassName={
               (content.page.content as any[]).find(
@@ -75,9 +94,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
                 : ''
             }
           >
-            <ModalBody
-              className={logoIsBlack ? 'modal-body white' : 'modal-body'}
-            >
+            <ModalBody className={modalBody}>
               <button
                 className="CloseButton"
                 onClick={() => {
@@ -87,20 +104,14 @@ export default class VideoPlayer extends React.Component<Props, State> {
               >
                 <img
                   className="VideoOverlayClose"
-                  src={
-                    logoIsBlack
-                      ? '/static/svg/Close-Cancel.svg'
-                      : '/static/svg/Close-Cancel-White.svg'
-                  }
+                  src={closeButtonImg}
                   alt=""
                 />
               </button>
 
               <RenderRouter data={data} content={content}></RenderRouter>
             </ModalBody>
-            <ModalFooter
-              className={logoIsBlack ? 'modal-footer white' : 'modal-footer'}
-            />
+            <ModalFooter className={modalFooter} />
           </Modal>
         ) : null}
       </div>

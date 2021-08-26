@@ -1,0 +1,12 @@
+{
+  "page": {
+    "name": "custom-links",
+    "pageConfig": {},
+    "content": [
+      {
+        "description": "Custom links for account portal navigation bar",
+        "items": [{ "label": "", "link": "", "custom": true }]
+      }
+    ]
+  }
+}

@@ -265,6 +265,73 @@ export type DeleteWebPageInput = {
   id: string,
 };
 
+export type CreateF1AssignmentsInput = {
+  id?: string | null,
+  personId?: string | null,
+  uri?: string | null,
+  type?: F1ListAssignmentType3Input | null,
+  person?: F1ListAssignmentType2Input | null,
+  activity?: F1ListAssignmentType3Input | null,
+  schedule?: F1ListAssignmentType2Input | null,
+  roster?: F1ListAssignmentType2Input | null,
+  rosterFolder?: F1ListAssignmentType2Input | null,
+};
+
+export type F1ListAssignmentType3Input = {
+  name?: string | null,
+  id?: string | null,
+  uri?: string | null,
+};
+
+export type F1ListAssignmentType2Input = {
+  id?: string | null,
+  uri?: string | null,
+};
+
+export type F1Assignments = {
+  __typename: "F1Assignments",
+  id?: string | null,
+  personId?: string | null,
+  uri?: string | null,
+  type?: F1ListAssignmentType3,
+  person?: F1ListAssignmentType2,
+  activity?: F1ListAssignmentType3,
+  schedule?: F1ListAssignmentType2,
+  roster?: F1ListAssignmentType2,
+  rosterFolder?: F1ListAssignmentType2,
+  createdAt?: string,
+  updatedAt?: string,
+};
+
+export type F1ListAssignmentType3 = {
+  __typename: "F1ListAssignmentType3",
+  name?: string | null,
+  id?: string | null,
+  uri?: string | null,
+};
+
+export type F1ListAssignmentType2 = {
+  __typename: "F1ListAssignmentType2",
+  id?: string | null,
+  uri?: string | null,
+};
+
+export type UpdateF1AssignmentsInput = {
+  id: string,
+  personId?: string | null,
+  uri?: string | null,
+  type?: F1ListAssignmentType3Input | null,
+  person?: F1ListAssignmentType2Input | null,
+  activity?: F1ListAssignmentType3Input | null,
+  schedule?: F1ListAssignmentType2Input | null,
+  roster?: F1ListAssignmentType2Input | null,
+  rosterFolder?: F1ListAssignmentType2Input | null,
+};
+
+export type DeleteF1AssignmentsInput = {
+  id: string,
+};
+
 export type CreateF1ListGroup2Input = {
   id?: string | null,
   name?: string | null,
@@ -1703,6 +1770,97 @@ export type DeleteCommentInput = {
   id: string,
 };
 
+export type CreateTMHUserInput = {
+  id?: string | null,
+  given_name: string,
+  family_name: string,
+  email?: string | null,
+  phone?: string | null,
+  owner?: string | null,
+  stripeCustomerID?: string | null,
+  stripeSubscriptionID?: string | null,
+  billingAddress?: AddressInput | null,
+  profileImage?: PrivateImageInput | null,
+  joined?: string | null,
+  f1PersonId?: string | null,
+  f1HouseholdId?: string | null,
+};
+
+export type AddressInput = {
+  city?: string | null,
+  country?: string | null,
+  line1?: string | null,
+  line2?: string | null,
+  postal_code?: string | null,
+  state?: string | null,
+};
+
+export type PrivateImageInput = {
+  userId?: string | null,
+  filenameSmall?: string | null,
+  filenameMedium?: string | null,
+  filenameLarge?: string | null,
+  filenameUpload?: string | null,
+};
+
+export type TMHUser = {
+  __typename: "TMHUser",
+  id?: string,
+  given_name?: string,
+  family_name?: string,
+  owner?: string | null,
+  profileImage?: PrivateImage,
+  joined?: string | null,
+  createdAt?: string,
+  updatedAt?: string,
+  email?: string | null,
+  phone?: string | null,
+  stripeCustomerID?: string | null,
+  stripeSubscriptionID?: string | null,
+  billingAddress?: Address,
+  f1PersonId?: string | null,
+  f1HouseholdId?: string | null,
+};
+
+export type PrivateImage = {
+  __typename: "PrivateImage",
+  userId?: string | null,
+  filenameSmall?: string | null,
+  filenameMedium?: string | null,
+  filenameLarge?: string | null,
+  filenameUpload?: string | null,
+};
+
+export type Address = {
+  __typename: "Address",
+  city?: string | null,
+  country?: string | null,
+  line1?: string | null,
+  line2?: string | null,
+  postal_code?: string | null,
+  state?: string | null,
+};
+
+export type UpdateTMHUserInput = {
+  id: string,
+  given_name?: string | null,
+  family_name?: string | null,
+  email?: string | null,
+  phone?: string | null,
+  owner?: string | null,
+  stripeCustomerID?: string | null,
+  stripeSubscriptionID?: string | null,
+  billingAddress?: AddressInput | null,
+  profileImage?: PrivateImageInput | null,
+  joined?: string | null,
+  f1PersonId?: string | null,
+  f1HouseholdId?: string | null,
+};
+
+export type DeleteTMHUserInput = {
+  id: string,
+};
+
 export type BibleResponse = {
   __typename: "BibleResponse",
   data?: BibleData,
@@ -2074,6 +2232,27 @@ export type fuzzySearchableVideoConnection = {
   nextToken?: string | null,
 };
 
+export type F1ListActivities = {
+  __typename: "F1ListActivities",
+  id?: string | null,
+  uri?: string | null,
+  name?: string | null,
+  description?: string | null,
+  hasCheckin?: string | null,
+  checkinMinutesBefore?: string | null,
+  hasNameTag?: string | null,
+  hasReceipt?: string | null,
+  startAge?: string | null,
+  endAge?: string | null,
+  confidential?: string | null,
+  requiresRegistration?: string | null,
+  rosterBySchedule?: string | null,
+  assignmentsOverrideClosedRoom?: string | null,
+  autoAssignmentOption?: string | null,
+  pagerEnabled?: string | null,
+  webEnabled?: string | null,
+};
+
 export type F1ListGroupTypes = {
   __typename: "F1ListGroupTypes",
   groupTypes?: F1ListGroupType,
@@ -2174,6 +2353,122 @@ export type emailResponse = {
 export type pdfRes = {
   __typename: "pdfRes",
   objectKey?: string | null,
+};
+
+export type F1SearchContributionReceiptsType = {
+  __typename: "F1SearchContributionReceiptsType",
+  results?: F1SearchContributionReceiptsResultType,
+};
+
+export type F1SearchContributionReceiptsResultType = {
+  __typename: "F1SearchContributionReceiptsResultType",
+  contributionReceipt?:  Array<F1ContributionReceipt | null > | null,
+};
+
+export type F1ContributionReceipt = {
+  __typename: "F1ContributionReceipt",
+  id?: string | null,
+  accountReference?: string | null,
+  amount?: string | null,
+  receivedDate?: string | null,
+  transmitDate?: string | null,
+  returnDate?: string | null,
+  retransmitDate?: string | null,
+  glPostDate?: string | null,
+  isSplit?: string | null,
+  memo?: string | null,
+  fund?: F1ContributionReceiptFund,
+  subFund?: F1ContributionReceiptSubFund,
+  account?: F1ContributionReceiptAccount,
+  contributionType?: F1ContributionReceiptContributionType,
+  contributionSubType?: F1ContributionReceiptContributionSubType,
+};
+
+export type F1ContributionReceiptFund = {
+  __typename: "F1ContributionReceiptFund",
+  id?: string | null,
+  name?: string | null,
+  fundTypeID?: string | null,
+};
+
+export type F1ContributionReceiptSubFund = {
+  __typename: "F1ContributionReceiptSubFund",
+  id?: string | null,
+  name?: string | null,
+};
+
+export type F1ContributionReceiptAccount = {
+  __typename: "F1ContributionReceiptAccount",
+  id?: string | null,
+};
+
+export type F1ContributionReceiptContributionType = {
+  __typename: "F1ContributionReceiptContributionType",
+  id?: string | null,
+  name?: string | null,
+};
+
+export type F1ContributionReceiptContributionSubType = {
+  __typename: "F1ContributionReceiptContributionSubType",
+  id?: string | null,
+  name?: string | null,
+};
+
+export type StripeAddressInput = {
+  city?: string | null,
+  country?: string | null,
+  line1?: string | null,
+  line2?: string | null,
+  postal_code?: string | null,
+  state?: string | null,
+};
+
+export type StripeCustomerData = {
+  __typename: "StripeCustomerData",
+  customer?: StripeCustomer,
+};
+
+export type StripeCustomer = {
+  __typename: "StripeCustomer",
+  id?: string | null,
+  object?: string | null,
+  address?: string | null,
+  balance?: string | null,
+  created?: string | null,
+  currency?: string | null,
+  default_source?: string | null,
+  delinquent?: string | null,
+  description?: string | null,
+  discount?: string | null,
+  email?: string | null,
+  invoice_prefix?: string | null,
+  invoice_settings?: StripeInvoiceSettings,
+  livemode?: string | null,
+  metadata?: string | null,
+  name?: string | null,
+  next_invoice_sequence?: string | null,
+  phone?: string | null,
+  preferred_locales?: string | null,
+  shipping?: string | null,
+  tax_exempt?: string | null,
+};
+
+export type StripeInvoiceSettings = {
+  __typename: "StripeInvoiceSettings",
+  custom_fields?: string | null,
+  default_payment_method?: string | null,
+  footer?: string | null,
+};
+
+export type StripePaymentMethodsData = {
+  __typename: "StripePaymentMethodsData",
+  paymentMethods?:  Array<StripePaymentMethod | null > | null,
+};
+
+export type StripePaymentMethod = {
+  __typename: "StripePaymentMethod",
+  id?: string | null,
+  type?: string | null,
 };
 
 export type ModelTNSeriesFilterInput = {
@@ -2337,6 +2632,31 @@ export type SearchableWebPageConnection = {
   items?:  Array<WebPage | null > | null,
   nextToken?: string | null,
   total?: number | null,
+};
+
+export type ModelF1AssignmentsFilterInput = {
+  id?: ModelStringFilterInput | null,
+  personId?: ModelStringFilterInput | null,
+  uri?: ModelStringFilterInput | null,
+  and?: Array< ModelF1AssignmentsFilterInput | null > | null,
+  or?: Array< ModelF1AssignmentsFilterInput | null > | null,
+  not?: ModelF1AssignmentsFilterInput | null,
+};
+
+export type ModelF1AssignmentsConnection = {
+  __typename: "ModelF1AssignmentsConnection",
+  items?:  Array<F1Assignments | null > | null,
+  nextToken?: string | null,
+};
+
+export type ModelStringKeyConditionInput = {
+  eq?: string | null,
+  le?: string | null,
+  lt?: string | null,
+  ge?: string | null,
+  gt?: string | null,
+  between?: Array< string | null > | null,
+  beginsWith?: string | null,
 };
 
 export type ModelF1ListGroup2FilterInput = {
@@ -2557,16 +2877,6 @@ export type ModelSeriesConnection = {
   __typename: "ModelSeriesConnection",
   items?:  Array<Series | null > | null,
   nextToken?: string | null,
-};
-
-export type ModelStringKeyConditionInput = {
-  eq?: string | null,
-  le?: string | null,
-  lt?: string | null,
-  ge?: string | null,
-  gt?: string | null,
-  between?: Array< string | null > | null,
-  beginsWith?: string | null,
 };
 
 export type SearchableSeriesFilterInput = {
@@ -3079,6 +3389,29 @@ export type SearchableCommentConnection = {
   items?:  Array<Comment | null > | null,
   nextToken?: string | null,
   total?: number | null,
+};
+
+export type ModelTMHUserFilterInput = {
+  id?: ModelIDFilterInput | null,
+  given_name?: ModelStringFilterInput | null,
+  family_name?: ModelStringFilterInput | null,
+  email?: ModelStringFilterInput | null,
+  phone?: ModelStringFilterInput | null,
+  owner?: ModelStringFilterInput | null,
+  stripeCustomerID?: ModelStringFilterInput | null,
+  stripeSubscriptionID?: ModelStringFilterInput | null,
+  joined?: ModelStringFilterInput | null,
+  f1PersonId?: ModelStringFilterInput | null,
+  f1HouseholdId?: ModelStringFilterInput | null,
+  and?: Array< ModelTMHUserFilterInput | null > | null,
+  or?: Array< ModelTMHUserFilterInput | null > | null,
+  not?: ModelTMHUserFilterInput | null,
+};
+
+export type ModelTMHUserConnection = {
+  __typename: "ModelTMHUserConnection",
+  items?:  Array<TMHUser | null > | null,
+  nextToken?: string | null,
 };
 
 export type CreateTnSeriesMutationVariables = {
@@ -3951,6 +4284,147 @@ export type DeleteWebPageMutation = {
         } | null,
         showLocationSearch?: boolean | null,
       } | null > | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type CreateF1AssignmentsMutationVariables = {
+  input?: CreateF1AssignmentsInput,
+};
+
+export type CreateF1AssignmentsMutation = {
+  createF1Assignments?:  {
+    __typename: "F1Assignments",
+    id?: string | null,
+    personId?: string | null,
+    uri?: string | null,
+    type?:  {
+      __typename: "F1ListAssignmentType3",
+      name?: string | null,
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    person?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    activity?:  {
+      __typename: "F1ListAssignmentType3",
+      name?: string | null,
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    schedule?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    roster?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    rosterFolder?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type UpdateF1AssignmentsMutationVariables = {
+  input?: UpdateF1AssignmentsInput,
+};
+
+export type UpdateF1AssignmentsMutation = {
+  updateF1Assignments?:  {
+    __typename: "F1Assignments",
+    id?: string | null,
+    personId?: string | null,
+    uri?: string | null,
+    type?:  {
+      __typename: "F1ListAssignmentType3",
+      name?: string | null,
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    person?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    activity?:  {
+      __typename: "F1ListAssignmentType3",
+      name?: string | null,
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    schedule?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    roster?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    rosterFolder?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type DeleteF1AssignmentsMutationVariables = {
+  input?: DeleteF1AssignmentsInput,
+};
+
+export type DeleteF1AssignmentsMutation = {
+  deleteF1Assignments?:  {
+    __typename: "F1Assignments",
+    id?: string | null,
+    personId?: string | null,
+    uri?: string | null,
+    type?:  {
+      __typename: "F1ListAssignmentType3",
+      name?: string | null,
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    person?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    activity?:  {
+      __typename: "F1ListAssignmentType3",
+      name?: string | null,
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    schedule?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    roster?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    rosterFolder?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
     } | null,
     createdAt: string,
     updatedAt: string,
@@ -43932,6 +44406,126 @@ export type DeleteCommentMutation = {
   } | null,
 };
 
+export type CreateTmhUserMutationVariables = {
+  input?: CreateTMHUserInput,
+};
+
+export type CreateTmhUserMutation = {
+  createTMHUser?:  {
+    __typename: "TMHUser",
+    id: string,
+    given_name: string,
+    family_name: string,
+    owner?: string | null,
+    profileImage?:  {
+      __typename: "PrivateImage",
+      userId?: string | null,
+      filenameSmall?: string | null,
+      filenameMedium?: string | null,
+      filenameLarge?: string | null,
+      filenameUpload?: string | null,
+    } | null,
+    joined?: string | null,
+    createdAt: string,
+    updatedAt: string,
+    email?: string | null,
+    phone?: string | null,
+    stripeCustomerID?: string | null,
+    stripeSubscriptionID?: string | null,
+    billingAddress?:  {
+      __typename: "Address",
+      city?: string | null,
+      country?: string | null,
+      line1?: string | null,
+      line2?: string | null,
+      postal_code?: string | null,
+      state?: string | null,
+    } | null,
+    f1PersonId?: string | null,
+    f1HouseholdId?: string | null,
+  } | null,
+};
+
+export type UpdateTmhUserMutationVariables = {
+  input?: UpdateTMHUserInput,
+};
+
+export type UpdateTmhUserMutation = {
+  updateTMHUser?:  {
+    __typename: "TMHUser",
+    id: string,
+    given_name: string,
+    family_name: string,
+    owner?: string | null,
+    profileImage?:  {
+      __typename: "PrivateImage",
+      userId?: string | null,
+      filenameSmall?: string | null,
+      filenameMedium?: string | null,
+      filenameLarge?: string | null,
+      filenameUpload?: string | null,
+    } | null,
+    joined?: string | null,
+    createdAt: string,
+    updatedAt: string,
+    email?: string | null,
+    phone?: string | null,
+    stripeCustomerID?: string | null,
+    stripeSubscriptionID?: string | null,
+    billingAddress?:  {
+      __typename: "Address",
+      city?: string | null,
+      country?: string | null,
+      line1?: string | null,
+      line2?: string | null,
+      postal_code?: string | null,
+      state?: string | null,
+    } | null,
+    f1PersonId?: string | null,
+    f1HouseholdId?: string | null,
+  } | null,
+};
+
+export type DeleteTmhUserMutationVariables = {
+  input?: DeleteTMHUserInput,
+};
+
+export type DeleteTmhUserMutation = {
+  deleteTMHUser?:  {
+    __typename: "TMHUser",
+    id: string,
+    given_name: string,
+    family_name: string,
+    owner?: string | null,
+    profileImage?:  {
+      __typename: "PrivateImage",
+      userId?: string | null,
+      filenameSmall?: string | null,
+      filenameMedium?: string | null,
+      filenameLarge?: string | null,
+      filenameUpload?: string | null,
+    } | null,
+    joined?: string | null,
+    createdAt: string,
+    updatedAt: string,
+    email?: string | null,
+    phone?: string | null,
+    stripeCustomerID?: string | null,
+    stripeSubscriptionID?: string | null,
+    billingAddress?:  {
+      __typename: "Address",
+      city?: string | null,
+      country?: string | null,
+      line1?: string | null,
+      line2?: string | null,
+      postal_code?: string | null,
+      state?: string | null,
+    } | null,
+    f1PersonId?: string | null,
+    f1HouseholdId?: string | null,
+  } | null,
+};
+
 export type GetBiblePassageQueryVariables = {
   bibleId?: string | null,
   passage?: string | null,
@@ -46815,6 +47409,81 @@ export type FuzzySearchVideosByTypeQuery = {
   } | null,
 };
 
+export type F1ListActivitiesQueryVariables = {
+  page?: string | null,
+};
+
+export type F1ListActivitiesQuery = {
+  F1ListActivities?:  Array< {
+    __typename: "F1ListActivities",
+    id?: string | null,
+    uri?: string | null,
+    name?: string | null,
+    description?: string | null,
+    hasCheckin?: string | null,
+    checkinMinutesBefore?: string | null,
+    hasNameTag?: string | null,
+    hasReceipt?: string | null,
+    startAge?: string | null,
+    endAge?: string | null,
+    confidential?: string | null,
+    requiresRegistration?: string | null,
+    rosterBySchedule?: string | null,
+    assignmentsOverrideClosedRoom?: string | null,
+    autoAssignmentOption?: string | null,
+    pagerEnabled?: string | null,
+    webEnabled?: string | null,
+  } | null > | null,
+};
+
+export type F1ListAssignmentsQueryVariables = {
+  itemId?: string | null,
+  page?: string | null,
+};
+
+export type F1ListAssignmentsQuery = {
+  F1ListAssignments?:  Array< {
+    __typename: "F1Assignments",
+    id?: string | null,
+    personId?: string | null,
+    uri?: string | null,
+    type?:  {
+      __typename: "F1ListAssignmentType3",
+      name?: string | null,
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    person?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    activity?:  {
+      __typename: "F1ListAssignmentType3",
+      name?: string | null,
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    schedule?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    roster?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    rosterFolder?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null > | null,
+};
+
 export type F1ListGroupTypesQuery = {
   F1ListGroupTypes?:  {
     __typename: "F1ListGroupTypes",
@@ -47086,6 +47755,125 @@ export type GeneratePdfQuery = {
   generatePdf?:  {
     __typename: "pdfRes",
     objectKey?: string | null,
+  } | null,
+};
+
+export type TmhF1LinkUserQuery = {
+  tmhF1LinkUser?: boolean | null,
+};
+
+export type TmhF1SyncGroupPermissionsQuery = {
+  tmhF1SyncGroupPermissions?: boolean | null,
+};
+
+export type TmhF1SearchContributionReceiptsQueryVariables = {
+  pageId?: string | null,
+};
+
+export type TmhF1SearchContributionReceiptsQuery = {
+  tmhF1SearchContributionReceipts?:  {
+    __typename: "F1SearchContributionReceiptsType",
+    results?:  {
+      __typename: "F1SearchContributionReceiptsResultType",
+      contributionReceipt?:  Array< {
+        __typename: "F1ContributionReceipt",
+        id?: string | null,
+        accountReference?: string | null,
+        amount?: string | null,
+        receivedDate?: string | null,
+        transmitDate?: string | null,
+        returnDate?: string | null,
+        retransmitDate?: string | null,
+        glPostDate?: string | null,
+        isSplit?: string | null,
+        memo?: string | null,
+        fund:  {
+          __typename: "F1ContributionReceiptFund",
+          id?: string | null,
+          name?: string | null,
+          fundTypeID?: string | null,
+        },
+        subFund:  {
+          __typename: "F1ContributionReceiptSubFund",
+          id?: string | null,
+          name?: string | null,
+        },
+        account:  {
+          __typename: "F1ContributionReceiptAccount",
+          id?: string | null,
+        },
+        contributionType:  {
+          __typename: "F1ContributionReceiptContributionType",
+          id?: string | null,
+          name?: string | null,
+        },
+        contributionSubType:  {
+          __typename: "F1ContributionReceiptContributionSubType",
+          id?: string | null,
+          name?: string | null,
+        },
+      } | null > | null,
+    } | null,
+  } | null,
+};
+
+export type TmhStripeAddCustomerQueryVariables = {
+  idempotency?: string | null,
+  phone?: string | null,
+  email?: string | null,
+  firstName?: string | null,
+  lastName?: string | null,
+  orgName?: string | null,
+  billingAddress?: StripeAddressInput | null,
+};
+
+export type TmhStripeAddCustomerQuery = {
+  tmhStripeAddCustomer?:  {
+    __typename: "StripeCustomerData",
+    customer?:  {
+      __typename: "StripeCustomer",
+      id?: string | null,
+      object?: string | null,
+      address?: string | null,
+      balance?: string | null,
+      created?: string | null,
+      currency?: string | null,
+      default_source?: string | null,
+      delinquent?: string | null,
+      description?: string | null,
+      discount?: string | null,
+      email?: string | null,
+      invoice_prefix?: string | null,
+      invoice_settings?:  {
+        __typename: "StripeInvoiceSettings",
+        custom_fields?: string | null,
+        default_payment_method?: string | null,
+        footer?: string | null,
+      } | null,
+      livemode?: string | null,
+      metadata?: string | null,
+      name?: string | null,
+      next_invoice_sequence?: string | null,
+      phone?: string | null,
+      preferred_locales?: string | null,
+      shipping?: string | null,
+      tax_exempt?: string | null,
+    } | null,
+  } | null,
+};
+
+export type TmhStripeListPaymentMethodsQueryVariables = {
+  pageId?: string | null,
+};
+
+export type TmhStripeListPaymentMethodsQuery = {
+  tmhStripeListPaymentMethods?:  {
+    __typename: "StripePaymentMethodsData",
+    paymentMethods?:  Array< {
+      __typename: "StripePaymentMethod",
+      id?: string | null,
+      type?: string | null,
+    } | null > | null,
   } | null,
 };
 
@@ -49025,6 +49813,162 @@ export type SearchWebPagesQuery = {
     } | null > | null,
     nextToken?: string | null,
     total?: number | null,
+  } | null,
+};
+
+export type GetF1AssignmentsQueryVariables = {
+  id?: string,
+};
+
+export type GetF1AssignmentsQuery = {
+  getF1Assignments?:  {
+    __typename: "F1Assignments",
+    id?: string | null,
+    personId?: string | null,
+    uri?: string | null,
+    type?:  {
+      __typename: "F1ListAssignmentType3",
+      name?: string | null,
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    person?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    activity?:  {
+      __typename: "F1ListAssignmentType3",
+      name?: string | null,
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    schedule?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    roster?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    rosterFolder?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type ListF1AssignmentssQueryVariables = {
+  filter?: ModelF1AssignmentsFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListF1AssignmentssQuery = {
+  listF1Assignmentss?:  {
+    __typename: "ModelF1AssignmentsConnection",
+    items?:  Array< {
+      __typename: "F1Assignments",
+      id?: string | null,
+      personId?: string | null,
+      uri?: string | null,
+      type?:  {
+        __typename: "F1ListAssignmentType3",
+        name?: string | null,
+        id?: string | null,
+        uri?: string | null,
+      } | null,
+      person?:  {
+        __typename: "F1ListAssignmentType2",
+        id?: string | null,
+        uri?: string | null,
+      } | null,
+      activity?:  {
+        __typename: "F1ListAssignmentType3",
+        name?: string | null,
+        id?: string | null,
+        uri?: string | null,
+      } | null,
+      schedule?:  {
+        __typename: "F1ListAssignmentType2",
+        id?: string | null,
+        uri?: string | null,
+      } | null,
+      roster?:  {
+        __typename: "F1ListAssignmentType2",
+        id?: string | null,
+        uri?: string | null,
+      } | null,
+      rosterFolder?:  {
+        __typename: "F1ListAssignmentType2",
+        id?: string | null,
+        uri?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null > | null,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type GetAssignmentsByPersonIdQueryVariables = {
+  personId?: string | null,
+  id?: ModelStringKeyConditionInput | null,
+  sortDirection?: ModelSortDirection | null,
+  filter?: ModelF1AssignmentsFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type GetAssignmentsByPersonIdQuery = {
+  getAssignmentsByPersonId?:  {
+    __typename: "ModelF1AssignmentsConnection",
+    items?:  Array< {
+      __typename: "F1Assignments",
+      id?: string | null,
+      personId?: string | null,
+      uri?: string | null,
+      type?:  {
+        __typename: "F1ListAssignmentType3",
+        name?: string | null,
+        id?: string | null,
+        uri?: string | null,
+      } | null,
+      person?:  {
+        __typename: "F1ListAssignmentType2",
+        id?: string | null,
+        uri?: string | null,
+      } | null,
+      activity?:  {
+        __typename: "F1ListAssignmentType3",
+        name?: string | null,
+        id?: string | null,
+        uri?: string | null,
+      } | null,
+      schedule?:  {
+        __typename: "F1ListAssignmentType2",
+        id?: string | null,
+        uri?: string | null,
+      } | null,
+      roster?:  {
+        __typename: "F1ListAssignmentType2",
+        id?: string | null,
+        uri?: string | null,
+      } | null,
+      rosterFolder?:  {
+        __typename: "F1ListAssignmentType2",
+        id?: string | null,
+        uri?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null > | null,
+    nextToken?: string | null,
   } | null,
 };
 
@@ -70802,6 +71746,92 @@ export type SearchCommentsQuery = {
   } | null,
 };
 
+export type GetTmhUserQueryVariables = {
+  id?: string,
+};
+
+export type GetTmhUserQuery = {
+  getTMHUser?:  {
+    __typename: "TMHUser",
+    id: string,
+    given_name: string,
+    family_name: string,
+    owner?: string | null,
+    profileImage?:  {
+      __typename: "PrivateImage",
+      userId?: string | null,
+      filenameSmall?: string | null,
+      filenameMedium?: string | null,
+      filenameLarge?: string | null,
+      filenameUpload?: string | null,
+    } | null,
+    joined?: string | null,
+    createdAt: string,
+    updatedAt: string,
+    email?: string | null,
+    phone?: string | null,
+    stripeCustomerID?: string | null,
+    stripeSubscriptionID?: string | null,
+    billingAddress?:  {
+      __typename: "Address",
+      city?: string | null,
+      country?: string | null,
+      line1?: string | null,
+      line2?: string | null,
+      postal_code?: string | null,
+      state?: string | null,
+    } | null,
+    f1PersonId?: string | null,
+    f1HouseholdId?: string | null,
+  } | null,
+};
+
+export type ListTmhUsersQueryVariables = {
+  filter?: ModelTMHUserFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListTmhUsersQuery = {
+  listTMHUsers?:  {
+    __typename: "ModelTMHUserConnection",
+    items?:  Array< {
+      __typename: "TMHUser",
+      id: string,
+      given_name: string,
+      family_name: string,
+      owner?: string | null,
+      profileImage?:  {
+        __typename: "PrivateImage",
+        userId?: string | null,
+        filenameSmall?: string | null,
+        filenameMedium?: string | null,
+        filenameLarge?: string | null,
+        filenameUpload?: string | null,
+      } | null,
+      joined?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      email?: string | null,
+      phone?: string | null,
+      stripeCustomerID?: string | null,
+      stripeSubscriptionID?: string | null,
+      billingAddress?:  {
+        __typename: "Address",
+        city?: string | null,
+        country?: string | null,
+        line1?: string | null,
+        line2?: string | null,
+        postal_code?: string | null,
+        state?: string | null,
+      } | null,
+      f1PersonId?: string | null,
+      f1HouseholdId?: string | null,
+    } | null > | null,
+    nextToken?: string | null,
+  } | null,
+};
+
 export type OnCreateTnSeriesSubscription = {
   onCreateTNSeries?:  {
     __typename: "TNSeries",
@@ -71636,6 +72666,135 @@ export type OnDeleteWebPageSubscription = {
         } | null,
         showLocationSearch?: boolean | null,
       } | null > | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnCreateF1AssignmentsSubscription = {
+  onCreateF1Assignments?:  {
+    __typename: "F1Assignments",
+    id?: string | null,
+    personId?: string | null,
+    uri?: string | null,
+    type?:  {
+      __typename: "F1ListAssignmentType3",
+      name?: string | null,
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    person?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    activity?:  {
+      __typename: "F1ListAssignmentType3",
+      name?: string | null,
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    schedule?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    roster?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    rosterFolder?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnUpdateF1AssignmentsSubscription = {
+  onUpdateF1Assignments?:  {
+    __typename: "F1Assignments",
+    id?: string | null,
+    personId?: string | null,
+    uri?: string | null,
+    type?:  {
+      __typename: "F1ListAssignmentType3",
+      name?: string | null,
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    person?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    activity?:  {
+      __typename: "F1ListAssignmentType3",
+      name?: string | null,
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    schedule?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    roster?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    rosterFolder?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnDeleteF1AssignmentsSubscription = {
+  onDeleteF1Assignments?:  {
+    __typename: "F1Assignments",
+    id?: string | null,
+    personId?: string | null,
+    uri?: string | null,
+    type?:  {
+      __typename: "F1ListAssignmentType3",
+      name?: string | null,
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    person?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    activity?:  {
+      __typename: "F1ListAssignmentType3",
+      name?: string | null,
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    schedule?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    roster?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    rosterFolder?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
     } | null,
     createdAt: string,
     updatedAt: string,
@@ -111422,5 +112581,125 @@ export type OnDeleteCommentSubscription = {
     owner: string,
     createdAt: string,
     updatedAt: string,
+  } | null,
+};
+
+export type OnCreateTmhUserSubscriptionVariables = {
+  owner?: string | null,
+};
+
+export type OnCreateTmhUserSubscription = {
+  onCreateTMHUser?:  {
+    __typename: "TMHUser",
+    id: string,
+    given_name: string,
+    family_name: string,
+    owner?: string | null,
+    profileImage?:  {
+      __typename: "PrivateImage",
+      userId?: string | null,
+      filenameSmall?: string | null,
+      filenameMedium?: string | null,
+      filenameLarge?: string | null,
+      filenameUpload?: string | null,
+    } | null,
+    joined?: string | null,
+    createdAt: string,
+    updatedAt: string,
+    email?: string | null,
+    phone?: string | null,
+    stripeCustomerID?: string | null,
+    stripeSubscriptionID?: string | null,
+    billingAddress?:  {
+      __typename: "Address",
+      city?: string | null,
+      country?: string | null,
+      line1?: string | null,
+      line2?: string | null,
+      postal_code?: string | null,
+      state?: string | null,
+    } | null,
+    f1PersonId?: string | null,
+    f1HouseholdId?: string | null,
+  } | null,
+};
+
+export type OnUpdateTmhUserSubscriptionVariables = {
+  owner?: string | null,
+};
+
+export type OnUpdateTmhUserSubscription = {
+  onUpdateTMHUser?:  {
+    __typename: "TMHUser",
+    id: string,
+    given_name: string,
+    family_name: string,
+    owner?: string | null,
+    profileImage?:  {
+      __typename: "PrivateImage",
+      userId?: string | null,
+      filenameSmall?: string | null,
+      filenameMedium?: string | null,
+      filenameLarge?: string | null,
+      filenameUpload?: string | null,
+    } | null,
+    joined?: string | null,
+    createdAt: string,
+    updatedAt: string,
+    email?: string | null,
+    phone?: string | null,
+    stripeCustomerID?: string | null,
+    stripeSubscriptionID?: string | null,
+    billingAddress?:  {
+      __typename: "Address",
+      city?: string | null,
+      country?: string | null,
+      line1?: string | null,
+      line2?: string | null,
+      postal_code?: string | null,
+      state?: string | null,
+    } | null,
+    f1PersonId?: string | null,
+    f1HouseholdId?: string | null,
+  } | null,
+};
+
+export type OnDeleteTmhUserSubscriptionVariables = {
+  owner?: string | null,
+};
+
+export type OnDeleteTmhUserSubscription = {
+  onDeleteTMHUser?:  {
+    __typename: "TMHUser",
+    id: string,
+    given_name: string,
+    family_name: string,
+    owner?: string | null,
+    profileImage?:  {
+      __typename: "PrivateImage",
+      userId?: string | null,
+      filenameSmall?: string | null,
+      filenameMedium?: string | null,
+      filenameLarge?: string | null,
+      filenameUpload?: string | null,
+    } | null,
+    joined?: string | null,
+    createdAt: string,
+    updatedAt: string,
+    email?: string | null,
+    phone?: string | null,
+    stripeCustomerID?: string | null,
+    stripeSubscriptionID?: string | null,
+    billingAddress?:  {
+      __typename: "Address",
+      city?: string | null,
+      country?: string | null,
+      line1?: string | null,
+      line2?: string | null,
+      postal_code?: string | null,
+      state?: string | null,
+    } | null,
+    f1PersonId?: string | null,
+    f1HouseholdId?: string | null,
   } | null,
 };

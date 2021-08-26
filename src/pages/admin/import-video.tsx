@@ -1,12 +1,10 @@
 import React from 'react';
-import AdminMenu from '../../components/Menu/AdminMenu';
 import * as adminQueries from './queries';
 import * as customQueries from '../../graphql-custom/customQueries';
 import * as mutations from '../../graphql/mutations';
 import * as customMutations from '../../graphql-custom/customMutations';
 import Amplify from 'aws-amplify';
 import { API } from 'aws-amplify';
-import { AmplifyAuthenticator } from '@aws-amplify/ui-react';
 import './import-video.scss';
 import awsmobile from '../../aws-exports';
 import { v4 as uuidv4 } from 'uuid';
@@ -17,9 +15,6 @@ import { DeleteCustomPlaylistMutation } from 'API';
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 
 Amplify.configure(awsmobile);
-const federated = {
-  facebookAppId: '579712102531269',
-};
 interface State {
   getVideoQueryId: any;
   videoTypes: any;
@@ -1619,24 +1614,21 @@ class Index extends React.Component<EmptyProps, State> {
   }
   render() {
     return (
-      <AmplifyAuthenticator federated={federated}>
-        <div>
-          <AdminMenu></AdminMenu>
-          {this.renderHeader()}
-          <div className="videoSelectBox">
-            {this.renderVideos()}
-            {this.renderYoutube()}
-          </div>
-          {this.renderVideoEditor()}
-          {this.renderAddSpeaker()}
-          {this.renderManageSpeaker()}
-          {this.renderAddSeries()}
-          {this.renderDeleteVideo()}
-          {this.renderDeletePlaylist()}
-          {this.renderAddCustomPlaylist()}
-          <div style={{ color: '#ff0000' }}>{this.state.showError}</div>
+      <div>
+        {this.renderHeader()}
+        <div className="videoSelectBox">
+          {this.renderVideos()}
+          {this.renderYoutube()}
         </div>
-      </AmplifyAuthenticator>
+        {this.renderVideoEditor()}
+        {this.renderAddSpeaker()}
+        {this.renderManageSpeaker()}
+        {this.renderAddSeries()}
+        {this.renderDeleteVideo()}
+        {this.renderDeletePlaylist()}
+        {this.renderAddCustomPlaylist()}
+        <div style={{ color: '#ff0000' }}>{this.state.showError}</div>
+      </div>
     );
   }
 }

@@ -1,0 +1,88 @@
+.GiveCard {
+  grid-area: Give-Card;
+  flex-direction: column;
+  display: flex;
+  background-color: white;
+  padding: 52px;
+  label {
+    margin-bottom: 16px;
+    font-size: 20px;
+    font-weight: 400;
+    @media (max-width: 768px) {
+      font-weight: 700;
+      font-size: 14px;
+    }
+  }
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+  }
+  .GiveAmountInput {
+    border: none;
+    width: 7ch;
+    font-size: 48px;
+    margin-bottom: 36px;
+    @media (max-width: 768px) {
+      background-color: #efeff0;
+    }
+  }
+  .GiveAmountInput:focus {
+    border: none;
+    outline: none;
+  }
+
+  @media (max-width: 768px) {
+    background-color: #efeff0;
+    padding: 26px;
+  }
+  .GiveInput {
+    width: calc(130px + 30%);
+    margin-bottom: 32px;
+    height: 56px;
+    padding: 17px 30px;
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+    border: 2px solid #c8c8c8;
+    background-color: white;
+  }
+
+  .GiveButtonContainer {
+    display: flex;
+    flex-direction: row;
+    .ManageRecurringButton {
+      flex: 1;
+      @media (max-width: 768px) {
+        margin-top: 20px;
+        text-align: center;
+      }
+    }
+    .GiveNowButton {
+      margin: 0;
+      width: 190px;
+      cursor: pointer;
+      text-align: center;
+      background-color: #1a1a1a;
+      font-weight: 700;
+      color: white;
+      font-size: 16px;
+      line-height: unset;
+      height: unset;
+      padding: 16px 24px;
+      &.disabled {
+        background-color: grey;
+        color: lightgrey;
+      }
+    }
+    @media (max-width: 768px) {
+      flex-direction: column-reverse;
+      .GiveNowButton {
+        width: 100%;
+        font-size: 14px;
+      }
+    }
+  }
+}

@@ -2530,6 +2530,66 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
     }
   }
 `;
+export const f1ListActivities = /* GraphQL */ `
+  query F1ListActivities($page: String) {
+    F1ListActivities(page: $page) {
+      id
+      uri
+      name
+      description
+      hasCheckin
+      checkinMinutesBefore
+      hasNameTag
+      hasReceipt
+      startAge
+      endAge
+      confidential
+      requiresRegistration
+      rosterBySchedule
+      assignmentsOverrideClosedRoom
+      autoAssignmentOption
+      pagerEnabled
+      webEnabled
+    }
+  }
+`;
+export const f1ListAssignments = /* GraphQL */ `
+  query F1ListAssignments($itemId: String, $page: String) {
+    F1ListAssignments(itemId: $itemId, page: $page) {
+      id
+      personId
+      uri
+      type {
+        name
+        id
+        uri
+      }
+      person {
+        id
+        uri
+      }
+      activity {
+        name
+        id
+        uri
+      }
+      schedule {
+        id
+        uri
+      }
+      roster {
+        id
+        uri
+      }
+      rosterFolder {
+        id
+        uri
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const f1ListGroupTypes = /* GraphQL */ `
   query F1ListGroupTypes {
     F1ListGroupTypes {
@@ -2762,6 +2822,115 @@ export const generatePdf = /* GraphQL */ `
       userId: $userId
     ) {
       objectKey
+    }
+  }
+`;
+export const tmhF1LinkUser = /* GraphQL */ `
+  query TmhF1LinkUser {
+    tmhF1LinkUser
+  }
+`;
+export const tmhF1SyncGroupPermissions = /* GraphQL */ `
+  query TmhF1SyncGroupPermissions {
+    tmhF1SyncGroupPermissions
+  }
+`;
+export const tmhF1SearchContributionReceipts = /* GraphQL */ `
+  query TmhF1SearchContributionReceipts($pageId: String) {
+    tmhF1SearchContributionReceipts(pageId: $pageId) {
+      results {
+        contributionReceipt {
+          id
+          accountReference
+          amount
+          receivedDate
+          transmitDate
+          returnDate
+          retransmitDate
+          glPostDate
+          isSplit
+          memo
+          fund {
+            id
+            name
+            fundTypeID
+          }
+          subFund {
+            id
+            name
+          }
+          account {
+            id
+          }
+          contributionType {
+            id
+            name
+          }
+          contributionSubType {
+            id
+            name
+          }
+        }
+      }
+    }
+  }
+`;
+export const tmhStripeAddCustomer = /* GraphQL */ `
+  query TmhStripeAddCustomer(
+    $idempotency: String
+    $phone: String
+    $email: String
+    $firstName: String
+    $lastName: String
+    $orgName: String
+    $billingAddress: StripeAddressInput
+  ) {
+    tmhStripeAddCustomer(
+      idempotency: $idempotency
+      phone: $phone
+      email: $email
+      firstName: $firstName
+      lastName: $lastName
+      orgName: $orgName
+      billingAddress: $billingAddress
+    ) {
+      customer {
+        id
+        object
+        address
+        balance
+        created
+        currency
+        default_source
+        delinquent
+        description
+        discount
+        email
+        invoice_prefix
+        invoice_settings {
+          custom_fields
+          default_payment_method
+          footer
+        }
+        livemode
+        metadata
+        name
+        next_invoice_sequence
+        phone
+        preferred_locales
+        shipping
+        tax_exempt
+      }
+    }
+  }
+`;
+export const tmhStripeListPaymentMethods = /* GraphQL */ `
+  query TmhStripeListPaymentMethods($pageId: String) {
+    tmhStripeListPaymentMethods(pageId: $pageId) {
+      paymentMethods {
+        id
+        type
+      }
     }
   }
 `;
@@ -4524,6 +4693,141 @@ export const searchWebPages = /* GraphQL */ `
       }
       nextToken
       total
+    }
+  }
+`;
+export const getF1Assignments = /* GraphQL */ `
+  query GetF1Assignments($id: ID!) {
+    getF1Assignments(id: $id) {
+      id
+      personId
+      uri
+      type {
+        name
+        id
+        uri
+      }
+      person {
+        id
+        uri
+      }
+      activity {
+        name
+        id
+        uri
+      }
+      schedule {
+        id
+        uri
+      }
+      roster {
+        id
+        uri
+      }
+      rosterFolder {
+        id
+        uri
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listF1Assignmentss = /* GraphQL */ `
+  query ListF1Assignmentss(
+    $filter: ModelF1AssignmentsFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listF1Assignmentss(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        personId
+        uri
+        type {
+          name
+          id
+          uri
+        }
+        person {
+          id
+          uri
+        }
+        activity {
+          name
+          id
+          uri
+        }
+        schedule {
+          id
+          uri
+        }
+        roster {
+          id
+          uri
+        }
+        rosterFolder {
+          id
+          uri
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getAssignmentsByPersonId = /* GraphQL */ `
+  query GetAssignmentsByPersonId(
+    $personId: String
+    $id: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelF1AssignmentsFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    getAssignmentsByPersonId(
+      personId: $personId
+      id: $id
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        personId
+        uri
+        type {
+          name
+          id
+          uri
+        }
+        person {
+          id
+          uri
+        }
+        activity {
+          name
+          id
+          uri
+        }
+        schedule {
+          id
+          uri
+        }
+        roster {
+          id
+          uri
+        }
+        rosterFolder {
+          id
+          uri
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
     }
   }
 `;
@@ -24034,6 +24338,81 @@ export const searchComments = /* GraphQL */ `
       }
       nextToken
       total
+    }
+  }
+`;
+export const getTmhUser = /* GraphQL */ `
+  query GetTmhUser($id: ID!) {
+    getTMHUser(id: $id) {
+      id
+      given_name
+      family_name
+      owner
+      profileImage {
+        userId
+        filenameSmall
+        filenameMedium
+        filenameLarge
+        filenameUpload
+      }
+      joined
+      createdAt
+      updatedAt
+      email
+      phone
+      stripeCustomerID
+      stripeSubscriptionID
+      billingAddress {
+        city
+        country
+        line1
+        line2
+        postal_code
+        state
+      }
+      f1PersonId
+      f1HouseholdId
+    }
+  }
+`;
+export const listTmhUsers = /* GraphQL */ `
+  query ListTmhUsers(
+    $filter: ModelTMHUserFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listTMHUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        given_name
+        family_name
+        owner
+        profileImage {
+          userId
+          filenameSmall
+          filenameMedium
+          filenameLarge
+          filenameUpload
+        }
+        joined
+        createdAt
+        updatedAt
+        email
+        phone
+        stripeCustomerID
+        stripeSubscriptionID
+        billingAddress {
+          city
+          country
+          line1
+          line2
+          postal_code
+          state
+        }
+        f1PersonId
+        f1HouseholdId
+      }
+      nextToken
     }
   }
 `;

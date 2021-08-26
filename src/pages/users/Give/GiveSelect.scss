@@ -1,0 +1,11 @@
+.GiveInput {
+  width: calc(130px + 30%);
+  margin-bottom: 32px;
+  height: 56px;
+  padding: 17px 30px;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+  border: 2px solid #c8c8c8;
+  background-color: white;
+}

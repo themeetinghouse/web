@@ -205,3 +205,22 @@
     padding-left: 0 !important;
   }
 }
+.GiveModal {
+  .navbar-custom.white {
+    background-color: #1a1a1a !important;
+  }
+  max-width: unset !important;
+  margin: 0px;
+  min-height: 100% !important;
+  .modal-video {
+    width: 100% !important;
+  }
+  .modal-body {
+    width: 100% !important;
+    margin-top: 0px !important;
+    background-color: #1a1a1a !important;
+  }
+  .modal-footer {
+    display: none;
+  }
+}

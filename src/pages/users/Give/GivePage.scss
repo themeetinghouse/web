@@ -1,0 +1,28 @@
+.GiveContainer {
+  display: grid;
+  grid-template-columns: 840px 264px;
+  grid-template-areas: 'Give-Card Profile-Card';
+  justify-content: center;
+  gap: 1.67vw 1.67vw;
+  .Profile-Card {
+    min-height: 698px;
+    height: fit-content;
+    .spinnerContainer {
+      margin: auto;
+    }
+  }
+  grid-template-areas:
+    'Give-Card Profile-Card'
+    '. Profile-Card';
+  @media (max-width: 1130px) {
+    grid-template-columns: 49vw 27vw;
+    gap: 25px 25px;
+  }
+
+  @media (max-width: 768px) {
+    height: 93vh;
+    gap: 0px 0px;
+    grid-template-columns: 100%;
+    grid-template-areas: 'Give-Card';
+  }
+}

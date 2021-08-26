@@ -18,6 +18,11 @@ const awsmobile = {
             "name": "image",
             "endpoint": "https://95i5crqja0.execute-api.us-east-1.amazonaws.com/tmhprod",
             "region": "us-east-1"
+        },
+        {
+            "name": "AdminQueries",
+            "endpoint": "https://tchlhrimna.execute-api.us-east-1.amazonaws.com/tmhprod",
+            "region": "us-east-1"
         }
     ],
     "aws_content_delivery_bucket": "heeetingouse-20190312104205-hostingbucket-tmhprod",

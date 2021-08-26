@@ -1,0 +1,47 @@
+.Payments {
+  padding: 39px 38px;
+  background-color: white;
+  grid-area: Payments;
+  h3 {
+    font-weight: 700;
+    font-size: 24px;
+    flex: 1;
+    margin-bottom: 19px;
+  }
+  .cardContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    .paymentCard {
+      display: flex;
+      padding: 16px;
+      .plusIcon {
+        margin-top: 12px;
+        margin-right: 8px;
+        align-self: center;
+        margin-bottom: 14px;
+      }
+      .checkIcon {
+        margin-top: 8px;
+        margin-right: 8px;
+        align-self: flex-end;
+      }
+      flex-direction: column;
+      font-size: 16px;
+      border: 1.5px solid #c8c8c8;
+      height: 161px;
+      text-align: center;
+    }
+    .grey {
+      cursor: pointer;
+      background-color: #efeff0;
+    }
+    .grey:hover {
+      background-color: lightgrey;
+    }
+  }
+  @media (max-width: 768px) {
+    padding: 24px;
+  }
+}

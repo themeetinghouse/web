@@ -67,19 +67,21 @@ export default class Menu extends React.Component<EmptyProps, State> {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink to="/admin/livestream">Livestream</NavLink>
+                <NavLink to="/account/admin/livestream">Livestream</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="/admin/create-notes">Notes</NavLink>
+                <NavLink to="/account/admin/create-notes">Notes</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="/admin/create-blog">Blog</NavLink>
+                <NavLink to="/account/admin/create-blog">Blog</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="/admin/import-video">Import Video</NavLink>
+                <NavLink to="/account/admin/import-video">Import Video</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="/admin/announcements">Announcements</NavLink>
+                <NavLink to="/account/admin/announcements">
+                  Announcements
+                </NavLink>
               </NavItem>
               <NavItem>
                 <RSNavLink href="https://github.com/themeetinghouse">

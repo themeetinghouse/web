@@ -1,0 +1,31 @@
+{
+    "compilerOptions": {
+      "target": "es2017",
+      "module": "CommonJS",
+      "allowJs": true,
+      "moduleResolution": "node",
+      "allowSyntheticDefaultImports": true,
+      "noUnusedLocals": false,
+      "strictNullChecks": false,
+      "noUnusedParameters": false,
+      "removeComments": false,
+      "preserveConstEnums": true,
+      "sourceMap": true,
+      "skipLibCheck": true,
+
+      "lib": ["dom", "esnext"],
+      "esModuleInterop": true,
+      "strict": true,
+      "forceConsistentCasingInFileNames": true,
+      "resolveJsonModule": true,
+      "noEmit": false,
+      "isolatedModules": true,
+      "noFallthroughCasesInSwitch": true,
+      "outDir": "./build",
+      "noImplicitAny": false,
+     
+    },
+ 
+    "exclude": ["./build"]
+  
+}

@@ -1,0 +1,35 @@
+.Profile-Card {
+  .profilePicture {
+    margin-bottom: 33px;
+    width: 116px;
+    height: 108px;
+    align-self: center;
+  }
+  h3 {
+    margin-bottom: 36px;
+    font-weight: 400;
+    font-size: 24px;
+  }
+  span {
+    font-weight: 700;
+  }
+  p {
+    margin-bottom: 30px;
+  }
+  .AddressContainer {
+    p {
+      margin-bottom: unset;
+    }
+    :last-child {
+      margin-bottom: 20px;
+    }
+  }
+  display: flex;
+  flex-direction: column;
+  padding: 36px;
+  background-color: white;
+  grid-area: Profile-Card;
+  @media (max-width: 768px) {
+    display: none;
+  }
+}

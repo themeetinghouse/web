@@ -779,6 +779,117 @@ export const onDeleteWebPage = /* GraphQL */ `
     }
   }
 `;
+export const onCreateF1Assignments = /* GraphQL */ `
+  subscription OnCreateF1Assignments {
+    onCreateF1Assignments {
+      id
+      personId
+      uri
+      type {
+        name
+        id
+        uri
+      }
+      person {
+        id
+        uri
+      }
+      activity {
+        name
+        id
+        uri
+      }
+      schedule {
+        id
+        uri
+      }
+      roster {
+        id
+        uri
+      }
+      rosterFolder {
+        id
+        uri
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateF1Assignments = /* GraphQL */ `
+  subscription OnUpdateF1Assignments {
+    onUpdateF1Assignments {
+      id
+      personId
+      uri
+      type {
+        name
+        id
+        uri
+      }
+      person {
+        id
+        uri
+      }
+      activity {
+        name
+        id
+        uri
+      }
+      schedule {
+        id
+        uri
+      }
+      roster {
+        id
+        uri
+      }
+      rosterFolder {
+        id
+        uri
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteF1Assignments = /* GraphQL */ `
+  subscription OnDeleteF1Assignments {
+    onDeleteF1Assignments {
+      id
+      personId
+      uri
+      type {
+        name
+        id
+        uri
+      }
+      person {
+        id
+        uri
+      }
+      activity {
+        name
+        id
+        uri
+      }
+      schedule {
+        id
+        uri
+      }
+      roster {
+        id
+        uri
+      }
+      rosterFolder {
+        id
+        uri
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreateF1ListGroup2 = /* GraphQL */ `
   subscription OnCreateF1ListGroup2 {
     onCreateF1ListGroup2 {
@@ -36518,6 +36629,108 @@ export const onDeleteComment = /* GraphQL */ `
       owner
       createdAt
       updatedAt
+    }
+  }
+`;
+export const onCreateTmhUser = /* GraphQL */ `
+  subscription OnCreateTmhUser($owner: String) {
+    onCreateTMHUser(owner: $owner) {
+      id
+      given_name
+      family_name
+      owner
+      profileImage {
+        userId
+        filenameSmall
+        filenameMedium
+        filenameLarge
+        filenameUpload
+      }
+      joined
+      createdAt
+      updatedAt
+      email
+      phone
+      stripeCustomerID
+      stripeSubscriptionID
+      billingAddress {
+        city
+        country
+        line1
+        line2
+        postal_code
+        state
+      }
+      f1PersonId
+      f1HouseholdId
+    }
+  }
+`;
+export const onUpdateTmhUser = /* GraphQL */ `
+  subscription OnUpdateTmhUser($owner: String) {
+    onUpdateTMHUser(owner: $owner) {
+      id
+      given_name
+      family_name
+      owner
+      profileImage {
+        userId
+        filenameSmall
+        filenameMedium
+        filenameLarge
+        filenameUpload
+      }
+      joined
+      createdAt
+      updatedAt
+      email
+      phone
+      stripeCustomerID
+      stripeSubscriptionID
+      billingAddress {
+        city
+        country
+        line1
+        line2
+        postal_code
+        state
+      }
+      f1PersonId
+      f1HouseholdId
+    }
+  }
+`;
+export const onDeleteTmhUser = /* GraphQL */ `
+  subscription OnDeleteTmhUser($owner: String) {
+    onDeleteTMHUser(owner: $owner) {
+      id
+      given_name
+      family_name
+      owner
+      profileImage {
+        userId
+        filenameSmall
+        filenameMedium
+        filenameLarge
+        filenameUpload
+      }
+      joined
+      createdAt
+      updatedAt
+      email
+      phone
+      stripeCustomerID
+      stripeSubscriptionID
+      billingAddress {
+        city
+        country
+        line1
+        line2
+        postal_code
+        state
+      }
+      f1PersonId
+      f1HouseholdId
     }
   }
 `;

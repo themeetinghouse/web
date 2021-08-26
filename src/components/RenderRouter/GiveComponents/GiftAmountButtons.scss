@@ -1,0 +1,20 @@
+.OptionButton {
+  background-color: white;
+  border: 2px solid #c8c8c8;
+  color: black;
+  font-size: 24px;
+  height: 64px;
+  line-height: 32px;
+  flex: 1;
+  min-width: 152px;
+  &.active {
+    background-color: black;
+    border-color: black;
+    color: white;
+  }
+}
+.OptionButtonContainer {
+  display: grid;
+  gap: 17px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 0.9fr));
+}

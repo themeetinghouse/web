@@ -52,10 +52,15 @@
       "konami",
       "mdbreact",
       "onclickoutside",
+      "qandeh",
       "themeetinghouse",
       "themeetinghousea",
+      "themeetinghousetmh",
+      "LIBVIPS",
+      "hostingbucket",
       "tmhprod",
       "todt",
+      "triggerd",
       "youtube"
     ],
     "cSpell.ignorePaths": [
@@ -66,7 +71,8 @@
       "Untitled.code-workspace",
       ".vscode",
       ".vscode-insiders",
-      ".code-workspace"
+      ".code-workspace",
+      "package.json"
     ]
   }
 }

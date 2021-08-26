@@ -1,0 +1,50 @@
+.dashboardContainer {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 406px 408px 264px;
+  gap: 1.67vw 1.67vw;
+  grid-template-rows: 368px 288px;
+  grid-template-areas:
+    'First-Column Recent-Trans Profile-Card'
+    'First-Column Payments Profile-Card';
+}
+
+@media (max-width: 1130px) {
+  .dashboardContainer {
+    grid-template-columns: 330px 330px;
+    gap: 12px 12px;
+    grid-template-areas:
+      'First-Column Profile-Card'
+      'First-Column Profile-Card'
+      'Payments Recent-Trans';
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboardContainer {
+    gap: 12px 0px;
+    grid-template-columns: 406px;
+    grid-template-areas:
+      'First-Column'
+      'First-Column'
+      'Profile-Card'
+      'Recent-Trans'
+      'Payments';
+  }
+}
+
+@media (max-width: 420px) {
+  .dashboardContainer {
+    gap: 0px 0px;
+    grid-template-columns: 100%;
+    grid-template-areas:
+      'First-Column'
+      'First-Column'
+      'Profile-Card'
+      'Recent-Trans'
+      'Payments';
+  }
+  .dashboardContainer > :nth-child(even) {
+    background-color: #efeff0;
+  }
+}

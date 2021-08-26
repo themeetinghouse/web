@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "api": {
+      "themeetinghouse": [
+        "read",
+        "update"
+      ]
+    }
+  },
+  "lambdaLayers": [
+    {
+      "type": "ProjectLayer",
+      "resourceName": "themeetinghousetmhShared",
+      "env": "tmhprod",
+      "version": "Always choose latest version",
+      "isLatestVersionSelected": true
+    }
+  ]
+}

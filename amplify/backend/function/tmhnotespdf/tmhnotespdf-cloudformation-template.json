@@ -17,6 +17,12 @@
     "storagetmhusercontentBucketName": {
       "Type": "String",
       "Default": "storagetmhusercontentBucketName"
+    },
+    "deploymentBucketName": {
+      "Type": "String"
+    },
+    "s3Key": {
+      "Type": "String"
     }
   },
   "Conditions": {
@@ -82,8 +88,12 @@
         "Layers": [],
         "Timeout": "25",
         "Code": {
-          "S3Bucket": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "S3Key": "amplify-builds/tmhnotespdf-2b747838667a75697831-build.zip"
+          "S3Bucket": {
+            "Ref": "deploymentBucketName"
+          },
+          "S3Key": {
+            "Ref": "s3Key"
+          }
         }
       }
     },
