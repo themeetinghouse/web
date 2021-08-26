@@ -11,6 +11,7 @@ body {
     color: grey;
   }
 }
+
 .MyAccountContainer {
   background-color: #e5e5e5;
   min-height: 100vh;
@@ -18,6 +19,7 @@ body {
     padding-bottom: 50px;
   }
 }
+
 .spinnerContainer {
   height: 100%;
   display: flex;
@@ -29,7 +31,7 @@ body {
 
 .DashboardContent {
   z-index: 1000;
-  margin-top: -12vh;
+  margin-top: clamp(-130px, -10vh, -100px);
   min-height: 100%;
 }
 
