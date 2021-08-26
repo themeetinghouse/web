@@ -166,7 +166,7 @@ export default class Authenticator extends React.Component<
       const { attributes } = this.user;
 
       const handleUser = async (getUser: GraphQLResult<GetTmhUserQuery>) => {
-        console.log(getUser);
+        console.log({ getUser: getUser });
         if (getUser.data == null || getUser.data == undefined) {
           //  Sentry.captureEvent(getUser);
           console.log({ Errors: getUser.errors });
@@ -205,9 +205,12 @@ export default class Authenticator extends React.Component<
           console.log('User exists');
         }
       };
-      const z = API.graphql(
-        graphqlOperation(queries.getTmhUser, { id: this.user['username'] })
-      ) as Promise<GraphQLResult<GetTmhUserQuery>>;
+      console.log({ username: this.user['username'] });
+      const z = API.graphql({
+        query: queries.getTmhUser,
+        variables: { id: this.user['username'] },
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      }) as Promise<GraphQLResult<GetTmhUserQuery>>;
       await z.then(handleUser).catch(handleUser);
 
       console.log({ userExists: userExists });

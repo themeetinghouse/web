@@ -60,7 +60,7 @@
     },
     "userPoolGroups": true,
     "adminQueries": true,
-    "triggers": "{\n  \"PreSignup\": [\n    \"custom\"\n  ]\n}",
+    "triggers": "{\n  \"PreSignup\": [\n    \"custom\"\n  ],\n  \"PreTokenGeneration\": [\n    \"custom\"\n  ]\n}",
     "hostedUI": false,
     "userPoolGroupList": [
         "admin"
@@ -76,6 +76,15 @@
         {
             "category": "function",
             "resourceName": "cognitodevtmhPreSignup",
+            "triggerProvider": "Cognito",
+            "attributes": [
+                "Arn",
+                "Name"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "cognitodevtmhPreTokenGeneration",
             "triggerProvider": "Cognito",
             "attributes": [
                 "Arn",

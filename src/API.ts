@@ -265,6 +265,73 @@ export type DeleteWebPageInput = {
   id: string,
 };
 
+export type CreateF1AssignmentsInput = {
+  id?: string | null,
+  personId?: string | null,
+  uri?: string | null,
+  type?: F1ListAssignmentType3Input | null,
+  person?: F1ListAssignmentType2Input | null,
+  activity?: F1ListAssignmentType3Input | null,
+  schedule?: F1ListAssignmentType2Input | null,
+  roster?: F1ListAssignmentType2Input | null,
+  rosterFolder?: F1ListAssignmentType2Input | null,
+};
+
+export type F1ListAssignmentType3Input = {
+  name?: string | null,
+  id?: string | null,
+  uri?: string | null,
+};
+
+export type F1ListAssignmentType2Input = {
+  id?: string | null,
+  uri?: string | null,
+};
+
+export type F1Assignments = {
+  __typename: "F1Assignments",
+  id?: string | null,
+  personId?: string | null,
+  uri?: string | null,
+  type?: F1ListAssignmentType3,
+  person?: F1ListAssignmentType2,
+  activity?: F1ListAssignmentType3,
+  schedule?: F1ListAssignmentType2,
+  roster?: F1ListAssignmentType2,
+  rosterFolder?: F1ListAssignmentType2,
+  createdAt?: string,
+  updatedAt?: string,
+};
+
+export type F1ListAssignmentType3 = {
+  __typename: "F1ListAssignmentType3",
+  name?: string | null,
+  id?: string | null,
+  uri?: string | null,
+};
+
+export type F1ListAssignmentType2 = {
+  __typename: "F1ListAssignmentType2",
+  id?: string | null,
+  uri?: string | null,
+};
+
+export type UpdateF1AssignmentsInput = {
+  id: string,
+  personId?: string | null,
+  uri?: string | null,
+  type?: F1ListAssignmentType3Input | null,
+  person?: F1ListAssignmentType2Input | null,
+  activity?: F1ListAssignmentType3Input | null,
+  schedule?: F1ListAssignmentType2Input | null,
+  roster?: F1ListAssignmentType2Input | null,
+  rosterFolder?: F1ListAssignmentType2Input | null,
+};
+
+export type DeleteF1AssignmentsInput = {
+  id: string,
+};
+
 export type CreateF1ListGroup2Input = {
   id?: string | null,
   name?: string | null,
@@ -2165,6 +2232,27 @@ export type fuzzySearchableVideoConnection = {
   nextToken?: string | null,
 };
 
+export type F1ListActivities = {
+  __typename: "F1ListActivities",
+  id?: string | null,
+  uri?: string | null,
+  name?: string | null,
+  description?: string | null,
+  hasCheckin?: string | null,
+  checkinMinutesBefore?: string | null,
+  hasNameTag?: string | null,
+  hasReceipt?: string | null,
+  startAge?: string | null,
+  endAge?: string | null,
+  confidential?: string | null,
+  requiresRegistration?: string | null,
+  rosterBySchedule?: string | null,
+  assignmentsOverrideClosedRoom?: string | null,
+  autoAssignmentOption?: string | null,
+  pagerEnabled?: string | null,
+  webEnabled?: string | null,
+};
+
 export type F1ListGroupTypes = {
   __typename: "F1ListGroupTypes",
   groupTypes?: F1ListGroupType,
@@ -2544,6 +2632,21 @@ export type SearchableWebPageConnection = {
   items?:  Array<WebPage | null > | null,
   nextToken?: string | null,
   total?: number | null,
+};
+
+export type ModelF1AssignmentsFilterInput = {
+  id?: ModelStringFilterInput | null,
+  personId?: ModelStringFilterInput | null,
+  uri?: ModelStringFilterInput | null,
+  and?: Array< ModelF1AssignmentsFilterInput | null > | null,
+  or?: Array< ModelF1AssignmentsFilterInput | null > | null,
+  not?: ModelF1AssignmentsFilterInput | null,
+};
+
+export type ModelF1AssignmentsConnection = {
+  __typename: "ModelF1AssignmentsConnection",
+  items?:  Array<F1Assignments | null > | null,
+  nextToken?: string | null,
 };
 
 export type ModelF1ListGroup2FilterInput = {
@@ -4181,6 +4284,147 @@ export type DeleteWebPageMutation = {
         } | null,
         showLocationSearch?: boolean | null,
       } | null > | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type CreateF1AssignmentsMutationVariables = {
+  input?: CreateF1AssignmentsInput,
+};
+
+export type CreateF1AssignmentsMutation = {
+  createF1Assignments?:  {
+    __typename: "F1Assignments",
+    id?: string | null,
+    personId?: string | null,
+    uri?: string | null,
+    type?:  {
+      __typename: "F1ListAssignmentType3",
+      name?: string | null,
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    person?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    activity?:  {
+      __typename: "F1ListAssignmentType3",
+      name?: string | null,
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    schedule?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    roster?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    rosterFolder?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type UpdateF1AssignmentsMutationVariables = {
+  input?: UpdateF1AssignmentsInput,
+};
+
+export type UpdateF1AssignmentsMutation = {
+  updateF1Assignments?:  {
+    __typename: "F1Assignments",
+    id?: string | null,
+    personId?: string | null,
+    uri?: string | null,
+    type?:  {
+      __typename: "F1ListAssignmentType3",
+      name?: string | null,
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    person?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    activity?:  {
+      __typename: "F1ListAssignmentType3",
+      name?: string | null,
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    schedule?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    roster?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    rosterFolder?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type DeleteF1AssignmentsMutationVariables = {
+  input?: DeleteF1AssignmentsInput,
+};
+
+export type DeleteF1AssignmentsMutation = {
+  deleteF1Assignments?:  {
+    __typename: "F1Assignments",
+    id?: string | null,
+    personId?: string | null,
+    uri?: string | null,
+    type?:  {
+      __typename: "F1ListAssignmentType3",
+      name?: string | null,
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    person?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    activity?:  {
+      __typename: "F1ListAssignmentType3",
+      name?: string | null,
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    schedule?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    roster?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    rosterFolder?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
     } | null,
     createdAt: string,
     updatedAt: string,
@@ -47165,6 +47409,81 @@ export type FuzzySearchVideosByTypeQuery = {
   } | null,
 };
 
+export type F1ListActivitiesQueryVariables = {
+  page?: string | null,
+};
+
+export type F1ListActivitiesQuery = {
+  F1ListActivities?:  Array< {
+    __typename: "F1ListActivities",
+    id?: string | null,
+    uri?: string | null,
+    name?: string | null,
+    description?: string | null,
+    hasCheckin?: string | null,
+    checkinMinutesBefore?: string | null,
+    hasNameTag?: string | null,
+    hasReceipt?: string | null,
+    startAge?: string | null,
+    endAge?: string | null,
+    confidential?: string | null,
+    requiresRegistration?: string | null,
+    rosterBySchedule?: string | null,
+    assignmentsOverrideClosedRoom?: string | null,
+    autoAssignmentOption?: string | null,
+    pagerEnabled?: string | null,
+    webEnabled?: string | null,
+  } | null > | null,
+};
+
+export type F1ListAssignmentsQueryVariables = {
+  itemId?: string | null,
+  page?: string | null,
+};
+
+export type F1ListAssignmentsQuery = {
+  F1ListAssignments?:  Array< {
+    __typename: "F1Assignments",
+    id?: string | null,
+    personId?: string | null,
+    uri?: string | null,
+    type?:  {
+      __typename: "F1ListAssignmentType3",
+      name?: string | null,
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    person?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    activity?:  {
+      __typename: "F1ListAssignmentType3",
+      name?: string | null,
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    schedule?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    roster?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    rosterFolder?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null > | null,
+};
+
 export type F1ListGroupTypesQuery = {
   F1ListGroupTypes?:  {
     __typename: "F1ListGroupTypes",
@@ -49494,6 +49813,106 @@ export type SearchWebPagesQuery = {
     } | null > | null,
     nextToken?: string | null,
     total?: number | null,
+  } | null,
+};
+
+export type GetF1AssignmentsQueryVariables = {
+  id?: string,
+};
+
+export type GetF1AssignmentsQuery = {
+  getF1Assignments?:  {
+    __typename: "F1Assignments",
+    id?: string | null,
+    personId?: string | null,
+    uri?: string | null,
+    type?:  {
+      __typename: "F1ListAssignmentType3",
+      name?: string | null,
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    person?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    activity?:  {
+      __typename: "F1ListAssignmentType3",
+      name?: string | null,
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    schedule?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    roster?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    rosterFolder?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type ListF1AssignmentssQueryVariables = {
+  filter?: ModelF1AssignmentsFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListF1AssignmentssQuery = {
+  listF1Assignmentss?:  {
+    __typename: "ModelF1AssignmentsConnection",
+    items?:  Array< {
+      __typename: "F1Assignments",
+      id?: string | null,
+      personId?: string | null,
+      uri?: string | null,
+      type?:  {
+        __typename: "F1ListAssignmentType3",
+        name?: string | null,
+        id?: string | null,
+        uri?: string | null,
+      } | null,
+      person?:  {
+        __typename: "F1ListAssignmentType2",
+        id?: string | null,
+        uri?: string | null,
+      } | null,
+      activity?:  {
+        __typename: "F1ListAssignmentType3",
+        name?: string | null,
+        id?: string | null,
+        uri?: string | null,
+      } | null,
+      schedule?:  {
+        __typename: "F1ListAssignmentType2",
+        id?: string | null,
+        uri?: string | null,
+      } | null,
+      roster?:  {
+        __typename: "F1ListAssignmentType2",
+        id?: string | null,
+        uri?: string | null,
+      } | null,
+      rosterFolder?:  {
+        __typename: "F1ListAssignmentType2",
+        id?: string | null,
+        uri?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null > | null,
+    nextToken?: string | null,
   } | null,
 };
 
@@ -72191,6 +72610,135 @@ export type OnDeleteWebPageSubscription = {
         } | null,
         showLocationSearch?: boolean | null,
       } | null > | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnCreateF1AssignmentsSubscription = {
+  onCreateF1Assignments?:  {
+    __typename: "F1Assignments",
+    id?: string | null,
+    personId?: string | null,
+    uri?: string | null,
+    type?:  {
+      __typename: "F1ListAssignmentType3",
+      name?: string | null,
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    person?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    activity?:  {
+      __typename: "F1ListAssignmentType3",
+      name?: string | null,
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    schedule?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    roster?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    rosterFolder?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnUpdateF1AssignmentsSubscription = {
+  onUpdateF1Assignments?:  {
+    __typename: "F1Assignments",
+    id?: string | null,
+    personId?: string | null,
+    uri?: string | null,
+    type?:  {
+      __typename: "F1ListAssignmentType3",
+      name?: string | null,
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    person?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    activity?:  {
+      __typename: "F1ListAssignmentType3",
+      name?: string | null,
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    schedule?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    roster?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    rosterFolder?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnDeleteF1AssignmentsSubscription = {
+  onDeleteF1Assignments?:  {
+    __typename: "F1Assignments",
+    id?: string | null,
+    personId?: string | null,
+    uri?: string | null,
+    type?:  {
+      __typename: "F1ListAssignmentType3",
+      name?: string | null,
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    person?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    activity?:  {
+      __typename: "F1ListAssignmentType3",
+      name?: string | null,
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    schedule?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    roster?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
+    } | null,
+    rosterFolder?:  {
+      __typename: "F1ListAssignmentType2",
+      id?: string | null,
+      uri?: string | null,
     } | null,
     createdAt: string,
     updatedAt: string,

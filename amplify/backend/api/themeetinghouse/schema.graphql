@@ -16,8 +16,14 @@ type Query {
   getTakenoteNotes(sermonId:String,noteType:String):TakeNoteNotes
   fuzzySearchVideos(filter: String, sort: fuzzySearchableVideoSortInput, limit: Int, nextToken: String):fuzzySearchableVideoConnection
   fuzzySearchVideosByType(videoType: String, filter: String, sort: fuzzySearchableVideoSortInput, limit: Int, nextToken: String):fuzzySearchableVideoConnection
+
+  F1ListActivities(page:String):[F1ListActivities] @function(name:"F1ListActivities")
+  F1ListAssignments(itemId:String,page:String):[F1Assignments] @function(name:"F1ListAssignments")
+
   F1ListGroupTypes:F1ListGroupTypes @function(name:"F1ListGroupTypes")
   F1ListGroups(itemId:String):F1ListGroups @function(name:"F1ListGroups")
+
+
   F1ListEventSchedules(itemId:[String]):[F1ListEvent] @function(name:"F1ListEventSchedules")
   F1ListTimezones(itemId:[String]):[F1ListTimezones] @function(name:"F1ListTimezones")
   emailHomeChurch(name:String,email:String,message:String,homeChurchId:String):emailResponse @function(name:"emailHomeChurch-${env}")
@@ -85,6 +91,55 @@ type F1SearchContributionReceiptsType @aws_cognito_user_pools{
 }
 type F1SearchContributionReceiptsResultType @aws_cognito_user_pools{
   contributionReceipt:[F1ContributionReceipt]
+}
+type F1ListActivities
+{
+  id: String
+  uri: String
+  name: String
+  description: String
+  hasCheckin: String
+  checkinMinutesBefore: String
+  hasNameTag:String
+  hasReceipt: String
+  startAge:String
+  endAge: String
+  confidential: String
+  requiresRegistration: String
+  rosterBySchedule: String
+  assignmentsOverrideClosedRoom: String
+  autoAssignmentOption:String
+  pagerEnabled:String
+  webEnabled:String
+
+}
+type F1ListAssignmentType3{
+  name:String
+  id:String
+  uri:String
+}
+type F1ListAssignmentType2{
+  id:String
+  uri:String
+}
+type F1Assignments
+@model
+ @key(name: "assignmentByPersonId", fields: ["personId","id"],queryField:"getAssignmentsByPersonId")
+ @auth(rules:[
+   {allow:public, operations:[read]},
+   {allow:private, operations:[read],provider:iam},
+   {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
+ ])
+{
+  id: String
+  personId:String
+  uri: String
+  type:F1ListAssignmentType3
+  person: F1ListAssignmentType2
+  activity:F1ListAssignmentType3  
+  schedule:F1ListAssignmentType2
+  roster: F1ListAssignmentType2
+  rosterFolder:F1ListAssignmentType2
 }
 type F1ContributionReceipt @aws_cognito_user_pools{
   id:String
@@ -382,6 +437,7 @@ type F1ListGroup2A
   location:F1ListGroup2Location
   schedule:F1ListEventSchedule2
 }
+
 type F1ListGroup2 
  @model
  @auth(rules:[

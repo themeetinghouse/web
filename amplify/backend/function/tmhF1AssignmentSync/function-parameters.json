@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "api": {
+      "themeetinghouse": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}

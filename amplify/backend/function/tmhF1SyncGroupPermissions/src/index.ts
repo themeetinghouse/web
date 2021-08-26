@@ -89,12 +89,12 @@ export const handler = async (event) => {
         return { statusCode: 402, error: { message: 'No Household Id found' } };
       const result = await f1ListPeopleGroups(user.f1PersonId);
       console.log(result);
-      const z = {
+      const response = {
         statusCode: 200,
-        results: result.results,
+        body: JSON.stringify(true),
       };
-      console.log(z);
-      return z;
+      console.log(response);
+      return response;
     } catch (e) {
       console.log({ error: e });
       return { statusCode: '401', error: 'Login Error' + e };
