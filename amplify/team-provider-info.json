@@ -240,7 +240,7 @@
         },
         "AdminQueriesa1b7e2e8": {
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "s3Key": "amplify-builds/AdminQueriesa1b7e2e8-795270765254726e5159-build.zip"
+          "s3Key": "amplify-builds/AdminQueriesa1b7e2e8-70653256727570787251-build.zip"
         }
       },
       "notifications": {
