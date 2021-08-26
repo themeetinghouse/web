@@ -2649,6 +2649,16 @@ export type ModelF1AssignmentsConnection = {
   nextToken?: string | null,
 };
 
+export type ModelStringKeyConditionInput = {
+  eq?: string | null,
+  le?: string | null,
+  lt?: string | null,
+  ge?: string | null,
+  gt?: string | null,
+  between?: Array< string | null > | null,
+  beginsWith?: string | null,
+};
+
 export type ModelF1ListGroup2FilterInput = {
   id?: ModelStringFilterInput | null,
   name?: ModelStringFilterInput | null,
@@ -2867,16 +2877,6 @@ export type ModelSeriesConnection = {
   __typename: "ModelSeriesConnection",
   items?:  Array<Series | null > | null,
   nextToken?: string | null,
-};
-
-export type ModelStringKeyConditionInput = {
-  eq?: string | null,
-  le?: string | null,
-  lt?: string | null,
-  ge?: string | null,
-  gt?: string | null,
-  between?: Array< string | null > | null,
-  beginsWith?: string | null,
 };
 
 export type SearchableSeriesFilterInput = {
@@ -49871,6 +49871,62 @@ export type ListF1AssignmentssQueryVariables = {
 
 export type ListF1AssignmentssQuery = {
   listF1Assignmentss?:  {
+    __typename: "ModelF1AssignmentsConnection",
+    items?:  Array< {
+      __typename: "F1Assignments",
+      id?: string | null,
+      personId?: string | null,
+      uri?: string | null,
+      type?:  {
+        __typename: "F1ListAssignmentType3",
+        name?: string | null,
+        id?: string | null,
+        uri?: string | null,
+      } | null,
+      person?:  {
+        __typename: "F1ListAssignmentType2",
+        id?: string | null,
+        uri?: string | null,
+      } | null,
+      activity?:  {
+        __typename: "F1ListAssignmentType3",
+        name?: string | null,
+        id?: string | null,
+        uri?: string | null,
+      } | null,
+      schedule?:  {
+        __typename: "F1ListAssignmentType2",
+        id?: string | null,
+        uri?: string | null,
+      } | null,
+      roster?:  {
+        __typename: "F1ListAssignmentType2",
+        id?: string | null,
+        uri?: string | null,
+      } | null,
+      rosterFolder?:  {
+        __typename: "F1ListAssignmentType2",
+        id?: string | null,
+        uri?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null > | null,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type GetAssignmentsByPersonIdQueryVariables = {
+  personId?: string | null,
+  id?: ModelStringKeyConditionInput | null,
+  sortDirection?: ModelSortDirection | null,
+  filter?: ModelF1AssignmentsFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type GetAssignmentsByPersonIdQuery = {
+  getAssignmentsByPersonId?:  {
     __typename: "ModelF1AssignmentsConnection",
     items?:  Array< {
       __typename: "F1Assignments",

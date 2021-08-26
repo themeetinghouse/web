@@ -4777,6 +4777,60 @@ export const listF1Assignmentss = /* GraphQL */ `
     }
   }
 `;
+export const getAssignmentsByPersonId = /* GraphQL */ `
+  query GetAssignmentsByPersonId(
+    $personId: String
+    $id: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelF1AssignmentsFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    getAssignmentsByPersonId(
+      personId: $personId
+      id: $id
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        personId
+        uri
+        type {
+          name
+          id
+          uri
+        }
+        person {
+          id
+          uri
+        }
+        activity {
+          name
+          id
+          uri
+        }
+        schedule {
+          id
+          uri
+        }
+        roster {
+          id
+          uri
+        }
+        rosterFolder {
+          id
+          uri
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const getF1ListGroup2 = /* GraphQL */ `
   query GetF1ListGroup2($id: ID!) {
     getF1ListGroup2(id: $id) {

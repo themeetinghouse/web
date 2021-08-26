@@ -96,7 +96,7 @@
         },
         {
           "category": "function",
-          "resourceName": "AdminQueriesb1fe1491",
+          "resourceName": "AdminQueriesa1b7e2e8",
           "attributes": [
             "Arn",
             "Name"
@@ -409,6 +409,20 @@
           ]
         }
       ]
+    },
+    "AdminQueriesa1b7e2e8": {
+      "service": "Lambda",
+      "providerPlugin": "awscloudformation",
+      "build": true,
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "cognitodevtmh",
+          "attributes": [
+            "UserPoolId"
+          ]
+        }
+      ]
     }
   },
   "analytics": {
@@ -416,45 +430,6 @@
       "service": "Pinpoint",
       "providerPlugin": "awscloudformation"
     }
-  },
-  "tmhF1LinkUser": {
-    "build": true,
-    "providerPlugin": "awscloudformation",
-    "service": "Lambda",
-    "dependsOn": [
-      {
-        "category": "auth",
-        "resourceName": "cognitodevtmh",
-        "attributes": [
-          "UserPoolId"
-        ]
-      },
-      {
-        "category": "api",
-        "resourceName": "themeetinghouse",
-        "attributes": [
-          "GraphQLAPIIdOutput",
-          "GraphQLAPIEndpointOutput",
-          "GraphQLAPIKeyOutput"
-        ]
-      }
-    ]
-  },
-  "tmhF1SearchContributionReceipts": {
-    "build": true,
-    "providerPlugin": "awscloudformation",
-    "service": "Lambda",
-    "dependsOn": [
-      {
-        "category": "api",
-        "resourceName": "themeetinghouse",
-        "attributes": [
-          "GraphQLAPIIdOutput",
-          "GraphQLAPIEndpointOutput",
-          "GraphQLAPIKeyOutput"
-        ]
-      }
-    ]
   },
   "storage": {
     "tmhusercontent": {

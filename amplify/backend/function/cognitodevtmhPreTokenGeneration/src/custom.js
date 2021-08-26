@@ -1,4 +1,4 @@
-import * as aws from 'aws-sdk';
+/*import * as aws from 'aws-sdk';
 import API, { GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import Amplify from '@aws-amplify/core';
 import * as queries from './queries';
@@ -38,7 +38,7 @@ async function getUser(id) {
     console.log(e);
   }
 }
-
+*/
 exports.handler = (event, context, callback) => {
   console.log(event);
   console.log(event.request);
