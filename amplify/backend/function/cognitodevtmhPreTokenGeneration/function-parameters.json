@@ -13,5 +13,21 @@
   "triggerEventPath": "PreTokenGeneration.event.json",
   "roleName": "cognitodevtmhPreTokenGeneration",
   "skipEdit": true,
-  "enableCors": false
+  "enableCors": false,
+  "permissions": {
+    "api": {
+      "themeetinghouse": [
+        "read"
+      ]
+    }
+  },
+  "lambdaLayers": [
+    {
+      "type": "ProjectLayer",
+      "resourceName": "themeetinghousetmhShared",
+      "env": "tmhprod",
+      "version": "Always choose latest version",
+      "isLatestVersionSelected": true
+    }
+  ]
 }

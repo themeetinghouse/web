@@ -1,0 +1,11 @@
+{
+    "features": {
+      
+      "auth": {
+       
+        "breakCircularDependency": true
+      }
+      
+    }
+  }
+  

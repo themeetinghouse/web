@@ -43,7 +43,8 @@ async function getUser(id: string) {
     });
     return json.data.getTMHUser;
   } catch (e) {
-    console.log(e);
+    console.log({ error: e });
+    if (e.data.getTMHUser) return e.data.getTMHUser;
   }
 }
 async function updateUser(item) {

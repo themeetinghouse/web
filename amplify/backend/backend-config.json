@@ -400,6 +400,13 @@
       "service": "Lambda",
       "dependsOn": [
         {
+          "category": "function",
+          "resourceName": "themeetinghousetmhShared",
+          "attributes": [
+            "Arn"
+          ]
+        },
+        {
           "category": "api",
           "resourceName": "themeetinghouse",
           "attributes": [
@@ -420,6 +427,26 @@
           "resourceName": "cognitodevtmh",
           "attributes": [
             "UserPoolId"
+          ]
+        }
+      ]
+    },
+    "tmhF1LinkUser": {
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "cognitodevtmh",
+          "attributes": [
+            "UserPoolId"
+          ]
+        },
+        {
+          "category": "api",
+          "resourceName": "themeetinghouse",
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
           ]
         }
       ]

@@ -12,7 +12,11 @@ export const handler = async (event) => {
   // TODO implement
   const user = await TMHDB.getUser(event.identity.username);
   if (user.stripeCustomerID)
-    return TMHStripe.listPaymentMethods('', user.stripeCustomerID, 'card');
+    return await TMHStripe.listPaymentMethods(
+      '',
+      user.stripeCustomerID,
+      'card'
+    );
   const response = {
     statusCode: 200,
     //  Uncomment below to enable CORS requests

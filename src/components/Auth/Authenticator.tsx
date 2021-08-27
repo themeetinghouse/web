@@ -83,9 +83,9 @@ export default class Authenticator extends React.Component<
     try {
       await this.updateGroups();
     } catch (e) {
-      console.log(e);
+      console.log({ UpdateGroupsError: e });
     }
-    console.log(this.props.location.pathname);
+    console.log({ pathname: this.props.location.pathname });
     if (this.props.location.pathname == '/signin') {
       this.setState({ authState: 'signIn' });
       console.log('SIGNIN');
@@ -120,6 +120,7 @@ export default class Authenticator extends React.Component<
     else return false;
   };
   updateGroups = async (): Promise<void> => {
+    console.log('Starting Update Groups');
     try {
       const currentUser =
         (await Auth.currentAuthenticatedUser()) as TMHCognitoUser;
@@ -138,12 +139,12 @@ export default class Authenticator extends React.Component<
         groupsLoaded: true,
       });
       console.log({
-        'DONE ': user.getSignInUserSession()?.getAccessToken().payload[
+        'Access Groups': user.getSignInUserSession()?.getAccessToken().payload[
           'cognito:groups'
         ],
       });
     } catch (e) {
-      console.log(e);
+      console.log({ updateGroupsError: e });
     }
   };
   async performStartup(): Promise<void> {
@@ -221,7 +222,7 @@ export default class Authenticator extends React.Component<
   async createStripeUser(billingAddress: any): Promise<boolean> {
     try {
       const user = (await Auth.currentAuthenticatedUser()) as TMHCognitoUser;
-      console.log(user);
+      console.log({ stripeUser: user });
       /*const customer = (await API.graphql({
         query: mutations.createCustomer,
         variables: {
@@ -239,7 +240,7 @@ export default class Authenticator extends React.Component<
       return true;
       //customerId = customer.data.createCustomer.customer.id;
     } catch (e) {
-      console.log(e);
+      console.log({ createstripeusererror: e });
       return false;
     }
   }
@@ -280,11 +281,12 @@ export default class Authenticator extends React.Component<
   }
   recheckUserState = async (): Promise<void> => {
     console.log('recheckUserState');
+    await this.updateGroups();
     await this.ensureUserExists(async (): Promise<void> => {
       //   const paidStatus = await this.checkIfPaid();
       const linkF1 = await this.checkIfF1Linked();
-      const syncF1 = await this.syncF1GroupPermissions();
-      console.log({ sync: syncF1 });
+      //const syncF1 = await this.syncF1GroupPermissions();
+      //console.log({ sync: syncF1 });
       const profileStatus = await this.checkIfCompletedProfile();
       this.setState(
         {
@@ -393,7 +395,7 @@ export default class Authenticator extends React.Component<
         userAttributes,
       });
     } catch (error) {
-      console.log(error);
+      console.log({ trackUserIdError: error });
     }
   };
   getReceipts = async (): Promise<any> => {

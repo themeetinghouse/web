@@ -25,6 +25,7 @@
     "requiredAttributes": [
         "email"
     ],
+    "aliasAttributes": [],
     "userpoolClientGenerateSecret": true,
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [
@@ -70,7 +71,7 @@
     "parentStack": {
         "Ref": "AWS::StackId"
     },
-    "breakCircularDependency": false,
+    "breakCircularDependency": true,
     "permissions": [],
     "dependsOn": [
         {
@@ -91,5 +92,6 @@
                 "Name"
             ]
         }
-    ]
+    ],
+    "authTriggerConnections": "[\n  {\n    \"triggerType\": \"PreSignUp\",\n    \"lambdaFunctionName\": \"cognitodevtmhPreSignup\"\n  },\n  {\n    \"triggerType\": \"PreTokenGeneration\",\n    \"lambdaFunctionName\": \"cognitodevtmhPreTokenGeneration\"\n  }\n]"
 }

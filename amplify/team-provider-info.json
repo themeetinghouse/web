@@ -171,7 +171,7 @@
           "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
           "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "s3Key": "amplify-builds/cognitodevtmhPreTokenGeneration-732b5970556d62344933-build.zip"
+          "s3Key": "amplify-builds/cognitodevtmhPreTokenGeneration-505461413971464f736a-build.zip"
         },
         "tmhStripeDeleteSubscription": {
           "userPoolId": "us-east-1_KiJzP2dH5",
@@ -199,7 +199,7 @@
           "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
           "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "s3Key": "amplify-builds/tmhStripeAddPaymentMethod-2f537876624b4e6d3576-build.zip"
+          "s3Key": "amplify-builds/tmhStripeAddPaymentMethod-73677237336a6e777350-build.zip"
         },
         "getBiblePassage": {
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
@@ -218,7 +218,7 @@
           "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
           "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "s3Key": "amplify-builds/tmhF1LinkUser-6142466d516c646f7446-build.zip"
+          "s3Key": "amplify-builds/tmhF1LinkUser-356b5448702b7070375a-build.zip"
         },
         "tmhF1SearchContributionReceipts": {
           "userPoolId": "us-east-1_KiJzP2dH5",
@@ -232,7 +232,7 @@
           "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
           "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "s3Key": "amplify-builds/tmhF1AssignmentSync-2f36755356662b477775-build.zip"
+          "s3Key": "amplify-builds/tmhF1AssignmentSync-48434a6472704d4f2b42-build.zip"
         },
         "themeetinghousetmhShared": {
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
@@ -240,7 +240,7 @@
         },
         "AdminQueriesa1b7e2e8": {
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "s3Key": "amplify-builds/AdminQueriesa1b7e2e8-70653256727570787251-build.zip"
+          "s3Key": "amplify-builds/AdminQueriesa1b7e2e8-795270765254726e5159-build.zip"
         }
       },
       "notifications": {

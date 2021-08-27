@@ -9,6 +9,27 @@ const awsmobile = {
     "aws_user_pools_web_client_id": "3pf37ngd57hsk9ld12aha9bm2f",
     "oauth": {},
     "federationTarget": "COGNITO_IDENTITY_POOLS",
+    "aws_cognito_login_mechanisms": [
+        "FACEBOOK",
+        "GOOGLE",
+        "AMAZON"
+    ],
+    "aws_cognito_signup_attributes": [
+        "EMAIL"
+    ],
+    "aws_cognito_mfa_configuration": "OPTIONAL",
+    "aws_cognito_mfa_types": [
+        "TOTP"
+    ],
+    "aws_cognito_password_protection_settings": {
+        "passwordPolicyMinLength": 8,
+        "passwordPolicyCharacters": [
+            "REQUIRES_LOWERCASE",
+            "REQUIRES_UPPERCASE",
+            "REQUIRES_NUMBERS",
+            "REQUIRES_SYMBOLS"
+        ]
+    },
     "aws_appsync_graphqlEndpoint": "https://qt6manqtzbhkvd6tcxvchusmyq.appsync-api.us-east-1.amazonaws.com/graphql",
     "aws_appsync_region": "us-east-1",
     "aws_appsync_authenticationType": "API_KEY",

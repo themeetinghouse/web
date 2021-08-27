@@ -1,3 +1,4 @@
+
 AWSTemplateFormatVersion: 2010-09-09
 
 Parameters:
@@ -91,6 +92,10 @@ Parameters:
       
         
   requiredAttributes:
+    Type: CommaDelimitedList
+      
+        
+  aliasAttributes:
     Type: CommaDelimitedList
       
   
@@ -203,6 +208,10 @@ Parameters:
     Type: String
   
             
+  authTriggerConnections:
+    Type: String
+  
+            
 Conditions:
   ShouldNotCreateEnvResources: !Equals [ !Ref env, NONE ]
   
@@ -260,23 +269,11 @@ Resources:
         
       
       
-      LambdaConfig:
-        
-        
-        
-        
-        
-        
-        
-          PreSignUp: !Ref functioncognitodevtmhPreSignupArn
-        
-        
-          PreTokenGeneration: !Ref functioncognitodevtmhPreTokenGenerationArn
-        
-        
       
+      AutoVerifiedAttributes:
       
-      AutoVerifiedAttributes: !Ref autoVerifiedAttributes
+        - email
+      
       
       
       EmailVerificationMessage: !Ref emailVerificationMessage
@@ -290,6 +287,7 @@ Resources:
           RequireSymbols: true
           RequireUppercase: true
       
+      
       MfaConfiguration: !Ref mfaConfiguration
       SmsVerificationMessage: !Ref smsVerificationMessage
       SmsAuthenticationMessage: !Ref smsAuthenticationMessage
@@ -299,36 +297,6 @@ Resources:
     
     DependsOn: SNSRole
     
-  
-  
-  
-  
-  
-  
-  
-  
-  UserPoolPreSignupLambdaInvokePermission:
-    Type: "AWS::Lambda::Permission"
-    DependsOn: UserPool
-    Properties:
-      Action: "lambda:invokeFunction"
-      Principal: "cognito-idp.amazonaws.com"
-      FunctionName: !Ref functioncognitodevtmhPreSignupName
-      SourceArn: !GetAtt UserPool.Arn
-  
-  
-  UserPoolPreTokenGenerationLambdaInvokePermission:
-    Type: "AWS::Lambda::Permission"
-    DependsOn: UserPool
-    Properties:
-      Action: "lambda:invokeFunction"
-      Principal: "cognito-idp.amazonaws.com"
-      FunctionName: !Ref functioncognitodevtmhPreTokenGenerationName
-      SourceArn: !GetAtt UserPool.Arn
-  
-  
-  # Updating lambda role with permissions to Cognito
-  
   
   UserPoolClientWeb:
   # Created provide application access to user pool
@@ -399,7 +367,7 @@ Resources:
             - '};'
       Handler: index.handler
       Runtime: nodejs12.x
-      Timeout: '300'
+      Timeout: 300
       Role: !GetAtt
         - UserPoolClientRole
         - Arn
@@ -483,6 +451,15 @@ Resources:
               Action:
                 - 'iam:PassRole'
               Resource: !If [ShouldNotCreateEnvResources, 'arn:aws:iam:::role/cognit79c0e771_totp_lambda_role', !Join ['',['arn:aws:iam:::role/cognit79c0e771_totp_lambda_role', '-', !Ref env]]]
+      - PolicyName: cognit79c0e771_sns_pass_role_policy
+        PolicyDocument:
+          Version: 2012-10-17
+          Statement:
+            - Effect: Allow
+              Action:
+                - 'iam:PassRole'
+              Resource: !GetAtt SNSRole.Arn
+    DependsOn: SNSRole
   MFALambda:
   # Lambda which sets MFA config values
   # Depends on MFALambdaRole for role ARN
@@ -527,7 +504,7 @@ Resources:
             - '};'
       Handler: index.handler
       Runtime: nodejs12.x
-      Timeout: '300'
+      Timeout: 300
       Role: !GetAtt
         - MFALambdaRole
         - Arn
@@ -615,6 +592,7 @@ Resources:
         
         www.amazon.com: !Ref amazonAppId
         
+        
       
       AllowUnauthenticatedIdentities: !Ref allowUnauthenticatedIdentities
       
@@ -680,5 +658,6 @@ Outputs :
   
   AmazonWebClient:
     Value: !Ref amazonAppId
+  
   
   
