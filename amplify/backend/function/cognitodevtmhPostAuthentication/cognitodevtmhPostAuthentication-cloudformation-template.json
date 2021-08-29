@@ -216,7 +216,8 @@
               "Effect": "Allow",
               "Action": [
                 "dynamodb:Query",
-                "dynamodb:Update"
+                "dynamodb:Update",
+                "dynamodb:PutItem"
               ],
               "Resource": [
                 {

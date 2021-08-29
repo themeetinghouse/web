@@ -60,7 +60,6 @@ async function getUser(id: string, event: any) {
 async function updateUser(item, event) {
   console.log('Starting updateUser');
   try {
-    console.log('Starting Get User');
     AWS.config.update({ region: event.region });
     var ddb = new AWS.DynamoDB({ apiVersion: '2012-08-10' });
 
@@ -73,15 +72,58 @@ async function updateUser(item, event) {
       Key: {
         id: item.id,
       },
-      UpdateExpression: 'set f1UserId = :r, f1HouseholdId=:p',
+      UpdateExpression: 'set f1PersonId = :r, f1HouseholdId=:p',
       ExpressionAttributeValues: {
-        ':r': item.f1UserId,
+        ':r': item.f1PersonId,
         ':p': item.f1HouseholdId,
       },
       ReturnValues: 'UPDATED_NEW',
     };
 
     const result = await ddb.updateItem(params).promise();
+    console.log({ getUser: result });
+    if (result.Items.length > 0) return result.Items[0];
+    else return null;
+  } catch (e) {
+    console.log({ error: e });
+    return null;
+  }
+}
+async function createUser(item, event) {
+  console.log('Starting createUser');
+  try {
+    AWS.config.update({ region: event.region });
+    var ddb = new AWS.DynamoDB({ apiVersion: '2012-08-10' });
+    var date = new Date().toISOString();
+    var item: any = {
+      id: { S: item.id },
+      __typename: { S: 'TMHUser' },
+      billingAddress: {
+        M: {},
+      },
+      given_name: { S: '' },
+      family_name: { S: '' },
+      createdAt: { S: date },
+      updatedAt: { S: date },
+      joined: { S: date },
+      owner: { S: item.id },
+      f1PersonId: { S: item.f1PersonId },
+      f1HouseholdId: { S: item.f1HouseholdId },
+      email: { S: item.email },
+      phone: { S: item.phone_number },
+    };
+
+    console.log({ item: item });
+    var params = {
+      TableName:
+        'TMHUser-' +
+        process.env.API_THEMEETINGHOUSE_GRAPHQLAPIIDOUTPUT +
+        '-' +
+        process.env.ENV,
+      Item: item,
+    };
+
+    const result = await ddb.putItem(params).promise();
     console.log({ getUser: result });
     if (result.Items.length > 0) return result.Items[0];
     else return null;
@@ -164,30 +206,46 @@ export const handler = async (event) => {
       const user = await getUser(cognitoUser.Username, event);
       console.log({ user: user });
       if (
-        user != null &&
-        (user.f1PersonId == null || user.f1HouseholdId == null)
+        user == null ||
+        (user != null &&
+          (user.f1PersonId == null || user.f1HouseholdId == null))
       ) {
         console.log('Not sure if user is in f1');
         const people = await f1SearchPeople(cognitoUser.email);
-        const f1UserId = people.results.person[0].id;
+        const f1PersonId = people.results.person[0].id;
         const f1HouseholdId = people.results.person[0]['@householdID'];
         console.log({
           cognitoUser: cognitoUser,
-          f1UserId: f1UserId,
+          f1UserId: f1PersonId,
           f1HouseholdId: f1HouseholdId,
         });
 
         console.log('Updating');
-        const updatedUser = await updateUser(
-          {
-            id: cognitoUser.Username,
-            f1PersonId: f1UserId,
-            f1HouseholdId: f1HouseholdId,
-          },
-          event
-        );
-        console.log('User is in f1, added info to dynamo');
-        console.log({ updatedUser: updatedUser });
+        if (user == null) {
+          const createdUser = await createUser(
+            {
+              id: cognitoUser.Username,
+              f1PersonId: f1PersonId,
+              f1HouseholdId: f1HouseholdId,
+              email: cognitoUser.email,
+              phone_number: cognitoUser.phone_number,
+            },
+            event
+          );
+          console.log('User is in f1, created user in dynamo');
+          console.log({ createdUser: createdUser });
+        } else {
+          const updatedUser = await updateUser(
+            {
+              id: cognitoUser.Username,
+              f1PersonId: f1PersonId,
+              f1HouseholdId: f1HouseholdId,
+            },
+            event
+          );
+          console.log('User is in f1, added info to dynamo');
+          console.log({ updatedUser: updatedUser });
+        }
       } else {
         console.log('User is in F1');
       }
