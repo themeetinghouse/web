@@ -32,6 +32,16 @@ Parameters:
   
   
   
+  functioncognitodevtmhPostAuthenticationArn:
+    Type: String
+    Default: functioncognitodevtmhPostAuthenticationArn
+  
+  functioncognitodevtmhPostAuthenticationName:
+    Type: String
+    Default: functioncognitodevtmhPostAuthenticationName
+  
+  
+  
 
     
   identityPoolName:
@@ -196,6 +206,10 @@ Parameters:
   dependsOn:
     Type: CommaDelimitedList
       
+  authTriggerConnections:
+    Type: String
+  
+            
   facebookAppId:
     Type: String
   
@@ -205,10 +219,6 @@ Parameters:
   
             
   amazonAppId:
-    Type: String
-  
-            
-  authTriggerConnections:
     Type: String
   
             

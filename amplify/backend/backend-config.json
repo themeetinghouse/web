@@ -21,6 +21,15 @@
             "Arn",
             "Name"
           ]
+        },
+        {
+          "category": "function",
+          "resourceName": "cognitodevtmhPostAuthentication",
+          "triggerProvider": "Cognito",
+          "attributes": [
+            "Arn",
+            "Name"
+          ]
         }
       ]
     },
@@ -440,6 +449,22 @@
             "UserPoolId"
           ]
         },
+        {
+          "category": "api",
+          "resourceName": "themeetinghouse",
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ]
+        }
+      ]
+    },
+    "cognitodevtmhPostAuthentication": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
         {
           "category": "api",
           "resourceName": "themeetinghouse",

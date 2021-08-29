@@ -171,7 +171,7 @@
           "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
           "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "s3Key": "amplify-builds/cognitodevtmhPreTokenGeneration-505461413971464f736a-build.zip"
+          "s3Key": "amplify-builds/cognitodevtmhPreTokenGeneration-6764725134386a556736-build.zip"
         },
         "tmhStripeDeleteSubscription": {
           "userPoolId": "us-east-1_KiJzP2dH5",
@@ -241,6 +241,13 @@
         "AdminQueriesa1b7e2e8": {
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
           "s3Key": "amplify-builds/AdminQueriesa1b7e2e8-795270765254726e5159-build.zip"
+        },
+        "cognitodevtmhPostAuthentication": {
+          "userPoolId": "us-east-1_KiJzP2dH5",
+          "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
+          "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/cognitodevtmhPostAuthentication-5553696341536d732f65-build.zip"
         }
       },
       "notifications": {

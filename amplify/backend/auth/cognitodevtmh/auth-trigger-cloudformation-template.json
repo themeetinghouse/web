@@ -11,6 +11,12 @@
     "userpoolArn": {
       "Type": "String"
     },
+    "functioncognitodevtmhPostAuthenticationName": {
+      "Type": "String"
+    },
+    "functioncognitodevtmhPostAuthenticationArn": {
+      "Type": "String"
+    },
     "functioncognitodevtmhPreSignupName": {
       "Type": "String"
     },
@@ -35,6 +41,19 @@
     }
   },
   "Resources": {
+    "UserPoolPostAuthenticationLambdaInvokePermission": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Ref": "functioncognitodevtmhPostAuthenticationName"
+        },
+        "Principal": "cognito-idp.amazonaws.com",
+        "SourceArn": {
+          "Ref": "userpoolArn"
+        }
+      }
+    },
     "UserPoolPreSignUpLambdaInvokePermission": {
       "Type": "AWS::Lambda::Permission",
       "Properties": {
@@ -149,6 +168,13 @@
           "Ref": "userpoolId"
         },
         "lambdaConfig": [
+          {
+            "triggerType": "PostAuthentication",
+            "lambdaFunctionName": "cognitodevtmhPostAuthentication",
+            "lambdaFunctionArn": {
+              "Ref": "functioncognitodevtmhPostAuthenticationArn"
+            }
+          },
           {
             "triggerType": "PreSignUp",
             "lambdaFunctionName": "cognitodevtmhPreSignup",

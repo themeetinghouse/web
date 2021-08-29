@@ -1,0 +1,26 @@
+{
+  "trigger": true,
+  "modules": [
+    "custom"
+  ],
+  "parentResource": "cognitodevtmh",
+  "functionName": "cognitodevtmhPostAuthentication",
+  "resourceName": "cognitodevtmhPostAuthentication",
+  "parentStack": "auth",
+  "triggerEnvs": "[]",
+  "triggerDir": "/usr/local/lib/node_modules/@aws-amplify/cli/node_modules/amplify-category-auth/provider-utils/awscloudformation/triggers/PostAuthentication",
+  "triggerTemplate": "PostAuthentication.json.ejs",
+  "triggerEventPath": "PostAuthentication.event.json",
+  "roleName": "cognitodevtmhPostAuthentication",
+  "skipEdit": true,
+  "enableCors": false,
+  "permissions": {
+    "api": {
+      "themeetinghouse": [
+        "create",
+        "read",
+        "update"
+      ]
+    }
+  }
+}
