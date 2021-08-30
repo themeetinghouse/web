@@ -74,7 +74,17 @@ export default function NewGiveItem(props: Props): JSX.Element {
         >
           Online Banking
         </button>
-        <Link style={{ color: 'white', margin: 'auto 30px' }} to="/signin">
+        <Link
+          style={{
+            color: 'white',
+            width: 260,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            fontSize: 12,
+          }}
+          to="/signin"
+        >
           Login to manage your giving
         </Link>
       </div>

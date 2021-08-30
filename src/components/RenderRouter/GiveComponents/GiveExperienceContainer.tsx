@@ -9,6 +9,7 @@ import PaymentAddMethod from 'pages/users/PaymentMethods/PaymentAddMethod';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import ProfileForm from 'pages/users/ProfilePage/ProfileForm';
+import { useEffect } from 'react';
 let env = 'unknown';
 if (window.location === undefined) env = 'mobile';
 else if (window.location.hostname === 'localhost') env = 'dev';
@@ -65,6 +66,17 @@ export default function GiveExperienceContainer() {
 
   const PageTwo = () => {
     const [form, setForm] = useState({});
+    const isProfileValid = () => {
+      return true;
+    };
+    const isPaymentValid = () => {
+      return true;
+    };
+    isPaymentValid();
+    isProfileValid();
+    useEffect(() => {
+      console.log('Updated form:', form);
+    }, [form]);
     return (
       <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 60 }}>
         <ProfileForm
@@ -77,6 +89,18 @@ export default function GiveExperienceContainer() {
           dispatch={dispatch}
           closeCard={() => null}
         ></PaymentAddMethod>
+      </div>
+    );
+  };
+  const CompletionPage = () => {
+    return (
+      <div>
+        <h1>Thank You</h1>
+        <p>
+          A few clicks later and you are now part of this great missing of
+          growing loving communities of Jesus followers who live and share his
+          irreligious message.
+        </p>
       </div>
     );
   };
@@ -184,6 +208,8 @@ export default function GiveExperienceContainer() {
           <PageOne></PageOne>
         ) : state.currentPage === GEPage.PAYMENT_INFO ? (
           <PageTwo></PageTwo>
+        ) : state.currentPage === GEPage.COMPLETED ? (
+          <CompletionPage></CompletionPage>
         ) : state.currentPage === GEPage.ONLINE_BANKING ? (
           <OnlineBankingInfo content={state.content}></OnlineBankingInfo>
         ) : state.currentPage === GEPage.REQUEST_ACCOUNT ? (

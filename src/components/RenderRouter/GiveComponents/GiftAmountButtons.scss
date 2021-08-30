@@ -6,15 +6,16 @@
   height: 64px;
   line-height: 32px;
   flex: 1;
-  min-width: 152px;
+  min-width: 115px;
   &.active {
     background-color: black;
     border-color: black;
     color: white;
   }
 }
+
 .OptionButtonContainer {
   display: grid;
   gap: 17px;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 0.9fr));
+  grid-template-columns: repeat(auto-fit, minmax(115px, 1fr));
 }

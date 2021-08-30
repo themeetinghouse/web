@@ -3,7 +3,7 @@ import './ProfilePage.scss';
 
 type Props = {
   form: any;
-  setForm?: (a: any) => void;
+  setForm: (a: any) => void;
   uploadRef?: any;
   isFromGive?: boolean;
 };
@@ -11,7 +11,9 @@ export default function ProfileForm(props: Props): JSX.Element {
   const countries = countryList();
   const states = stateList();
   const provinces = provinceList();
-  const { uploadRef, form, isFromGive } = props;
+
+  const { uploadRef, form, isFromGive, setForm } = props;
+
   return (
     <div className="LeftContainer">
       <input
@@ -20,6 +22,7 @@ export default function ProfileForm(props: Props): JSX.Element {
           //  setForm({ ...form, selectedFile: e.target.files[0] });
         }}
         ref={uploadRef}
+        name="upload"
         type="file"
         id="file"
         style={{ display: 'none' }}
@@ -41,23 +44,21 @@ export default function ProfileForm(props: Props): JSX.Element {
         <div className="NameItem">
           <label>First Name</label>
           <input
+            name="firstname"
             className="ProfileInput"
             data-testID="FirstName"
             value={form?.given_name}
-            /* onChange={(e) =>
-              setForm({ ...form, given_name: e.target.value })
-            }*/
+            onChange={(e) => setForm({ ...form, given_name: e.target.value })}
           ></input>
         </div>
         <div className="NameItem">
           <label>Last Name</label>
           <input
+            name="lastname"
             className="ProfileInput"
             data-testID="LastName"
             value={form?.family_name}
-            /* onChange={(e) =>
-              setForm({ ...form, family_name: e.target.value })
-            }*/
+            onChange={(e) => setForm({ ...form, family_name: e.target.value })}
           ></input>
         </div>
       </div>
@@ -65,22 +66,25 @@ export default function ProfileForm(props: Props): JSX.Element {
       <input
         className="ProfileInput"
         data-testID="Email"
+        name="email"
         value={form?.email ?? ''}
-        //   onChange={(e) => setForm({ ...form, email: e.target.value })}
+        onChange={(e) => setForm({ ...form, email: e.target.value })}
       ></input>
       <label>Mobile</label>
       <input
         data-testID="Mobile"
+        name="phone"
         className="ProfileInput"
         value={form?.phone ?? ''}
-        // onChange={(e) => setForm({ ...form, phone: e.target.value })}
+        onChange={(e) => setForm({ ...form, phone: e.target.value })}
       ></input>
       <label>Stress Address</label>
       <input
         data-testID="Address"
         className="ProfileInput"
+        name="address"
         value={form?.billingAddress?.line1 ?? ''}
-        /* onChange={(e) =>
+        onChange={(e) =>
           setForm({
             ...form,
             billingAddress: {
@@ -89,14 +93,15 @@ export default function ProfileForm(props: Props): JSX.Element {
               line1: e.target.value,
             },
           })
-        }*/
+        }
       ></input>
       <label>City</label>
       <input
         data-testID="City"
         className="ProfileInput"
+        name="city"
         value={form?.billingAddress?.city ?? ''}
-        /* onChange={(e) =>
+        onChange={(e) =>
           setForm({
             ...form,
             billingAddress: {
@@ -105,16 +110,17 @@ export default function ProfileForm(props: Props): JSX.Element {
               city: e.target.value,
             },
           })
-        }*/
+        }
       ></input>
       <div className="LocationContainer">
         <div className="LocationItem">
           <label htmlFor="country-select">Country</label>
           <select
+            name="country"
             data-testID="Country"
             id="country-select"
             className="ProfileInput"
-            /* onChange={(e) =>
+            onChange={(e) =>
               setForm({
                 ...form,
                 billingAddress: {
@@ -123,8 +129,7 @@ export default function ProfileForm(props: Props): JSX.Element {
                   country: e.target.value,
                 },
               })
-            }*/
-            name="country"
+            }
           >
             <option value={''} defaultValue="">
               Select a country
@@ -145,11 +150,12 @@ export default function ProfileForm(props: Props): JSX.Element {
             form?.billingAddress?.country === 'United States of America (the)'
           ) ? (
             <input
+              name="province"
               data-testID="Province"
               id="province-select"
               className="ProfileInput"
               value={form?.billingAddress?.state ?? ''}
-              /*    onChange={(e) =>
+              onChange={(e) =>
                 setForm({
                   ...form,
                   billingAddress: {
@@ -158,14 +164,15 @@ export default function ProfileForm(props: Props): JSX.Element {
                     state: e.target.value,
                   },
                 })
-              }*/
+              }
             ></input>
           ) : (
             <select
               data-testID="Province"
+              name="province"
               id="province-select"
               className="ProfileInput"
-              /* onChange={(e) =>
+              onChange={(e) =>
                 setForm({
                   ...form,
                   billingAddress: {
@@ -174,8 +181,7 @@ export default function ProfileForm(props: Props): JSX.Element {
                     state: e.target.value,
                   },
                 })
-              }*/
-              name="province"
+              }
             >
               <option selected>Select a province/state</option>
               {form.billingAddress?.country === 'Canada'
@@ -202,10 +208,11 @@ export default function ProfileForm(props: Props): JSX.Element {
         <div className="LocationItem">
           <label>Postal Code/Zip Code</label>
           <input
+            name="postalcode"
             data-testID="PostalCode"
             className="ProfileInput"
             value={form?.billingAddress?.postal_code ?? ''}
-            /*onChange={(e) =>
+            onChange={(e) =>
               setForm({
                 ...form,
                 billingAddress: {
@@ -214,7 +221,7 @@ export default function ProfileForm(props: Props): JSX.Element {
                   postal_code: e.target.value,
                 },
               })
-            }*/
+            }
           ></input>
         </div>
       </div>

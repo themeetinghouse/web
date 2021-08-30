@@ -7,25 +7,35 @@ type GiftAmountButtonProps = {
 export default function GiftAmountButton(props: GiftAmountButtonProps) {
   const { setForm } = props;
   const fieldRef = createRef<HTMLInputElement>();
+  const [otherValue, setOtherValue] = useState<string>('');
   const [options] = useState<Array<Options>>([
-    '$25',
-    '$50',
-    '$100',
-    '$500',
+    '25',
+    '50',
+    '100',
+    '500',
     'Other',
   ]);
+
   const [selectedOption, setSelectedOption] = useState<Options>(null);
   useEffect(() => {
     if (selectedOption === 'Other') {
       fieldRef?.current?.focus();
+      setForm((prev: any) => ({ ...prev, amount: otherValue }));
     } else {
       if (fieldRef?.current) fieldRef.current.value = '';
+      setForm((prev: any) => ({ ...prev, amount: selectedOption }));
     }
-    setForm((prev: any) => ({ ...prev, amount: selectedOption }));
-  }, [selectedOption]);
+  }, [selectedOption, otherValue]);
   return (
     <div style={{ marginTop: 60 }}>
-      <h1 style={{ fontSize: 24, lineHeight: '32px', fontWeight: 300 }}>
+      <h1
+        style={{
+          fontSize: 24,
+          lineHeight: '32px',
+          fontWeight: 300,
+          marginBottom: 0,
+        }}
+      >
         Choose your gift amount
       </h1>
       <div className="OptionButtonContainer">
@@ -51,17 +61,34 @@ export default function GiftAmountButton(props: GiftAmountButtonProps) {
                   $
                 </span>
               ) : null}
-              <input
-                ref={fieldRef}
-                placeholder={selectedOption === 'Other' ? '0.00' : 'Other'}
-                style={{
-                  flex: 1,
-                  fontSize: 24,
-                  maxWidth: '40%',
-                  textAlign: 'left',
-                  border: 'none',
-                }}
-              ></input>
+
+              {selectedOption !== 'Other' ? (
+                <span
+                  style={{
+                    flex: 1,
+                    fontSize: 24,
+                    maxWidth: '6ch',
+                    textAlign: 'center',
+                    border: 'none',
+                  }}
+                >
+                  Other
+                </span>
+              ) : (
+                <input
+                  ref={fieldRef}
+                  placeholder={'0.00'}
+                  value={otherValue}
+                  onChange={(e) => setOtherValue(e.target.value)}
+                  style={{
+                    flex: 1,
+                    fontSize: 24,
+                    maxWidth: '6ch',
+                    textAlign: 'center',
+                    border: 'none',
+                  }}
+                ></input>
+              )}
             </div>
           ) : (
             <button
@@ -71,7 +98,7 @@ export default function GiftAmountButton(props: GiftAmountButtonProps) {
               } `}
               onClick={() => setSelectedOption(option)}
             >
-              {option}
+              ${option}
             </button>
           );
         })}
