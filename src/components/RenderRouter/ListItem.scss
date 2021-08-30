@@ -372,7 +372,7 @@
     background-color: #ffffff;
     text-align: left;
     border: none;
-    :hover {
+    &:hover {
       .ListItemPlayImageOverlay {
         opacity: 0.75;
       }
@@ -1035,7 +1035,7 @@
     display: inline-block;
     vertical-align: top;
     position: relative;
-    :hover {
+    &:hover {
       .ListItemPlayImageOverlay {
         opacity: 0.75;
       }
@@ -1773,7 +1773,7 @@
     background-color: #ffffff;
     text-align: left;
     border: none;
-    :hover {
+    &:hover {
       .ListItemPlayImageOverlay {
         opacity: 0.75;
       }
