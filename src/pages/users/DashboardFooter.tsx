@@ -1,7 +1,8 @@
 import './DashboardFooter.scss';
 export default function DashboardFooter(): JSX.Element {
+  const hideFooter = window?.location?.href?.includes('admin');
   return (
-    <div className="Footer">
+    <div className="Footer" style={hideFooter ? { display: 'none' } : {}}>
       <div style={{ flexDirection: 'column', margin: '0px 32px 0px 0px' }}>
         <p className="footerText">2020 Tax Receipt</p>
         <p className="subText">

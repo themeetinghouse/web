@@ -337,7 +337,9 @@ export default function Announcements(): JSX.Element {
               );
             return null;
           })}
-        {announcementsLength === 0 ? <h2>No Announcements found</h2> : null}
+        {announcementsLength === 0 ? (
+          <h2 style={{ textAlign: 'center' }}>No active announcements</h2>
+        ) : null}
         {announcementsLength > count ? (
           <div
             style={{
@@ -415,14 +417,11 @@ export default function Announcements(): JSX.Element {
               Description:{' '}
               {!announcement.description ? (
                 <b style={{ color: 'red' }}>*</b>
-              ) : (
-                <small>{announcement.description.length}/300 characters</small>
-              )}
+              ) : null}
               <textarea
                 className="genericTextArea"
                 name="description"
                 required
-                maxLength={300}
                 rows={5}
                 value={announcement.description}
                 onChange={(e) =>
@@ -667,13 +666,10 @@ export default function Announcements(): JSX.Element {
               Description:{' '}
               {!announcement.description ? (
                 <b style={{ color: 'red' }}>*</b>
-              ) : (
-                <small>{announcement.description.length}/300 characters</small>
-              )}
+              ) : null}
               <textarea
                 className="genericTextArea"
                 name="description"
-                maxLength={300}
                 rows={5}
                 value={announcement.description}
                 onChange={(e) =>
