@@ -14,7 +14,7 @@ Amplify.configure(awsmobile);
 class Admin extends React.Component {
   render() {
     return (
-      <div>
+      <div style={{ backgroundColor: '#e5e5e5', minHeight: 300 }}>
         <AdminMenu />
         <Switch>
           <Route
