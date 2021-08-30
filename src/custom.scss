@@ -85,6 +85,7 @@ html {
 
 @media (min-width: 768px) {
   body {
+    overflow-x: hidden;
     padding-top: 90px;
     font-family: Graphik Web;
     font-size: 16px;
@@ -122,6 +123,7 @@ html {
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   body {
+    overflow-x: hidden;
     padding-top: 90px;
     font-family: Graphik Web;
     font-size: 16px;
@@ -165,6 +167,7 @@ html {
 
 @media (max-width: 767px) {
   body {
+    overflow-x: hidden;
     padding-top: 12vw;
     font-family: Graphik Web;
     font-size: 16px;
