@@ -119,11 +119,6 @@
           "type": "link",
           "title": "Rentals and Events Administrator",
           "navigateTo": "/static/pdfs/careers/Rentals and Events Administrator.pdf"
-        },
-        {
-          "type": "link",
-          "title": "Brantford Administrator Role",
-          "navigateTo": "/static/pdfs/careers/Brantford Parish Administrator.pdf"
         }
       ],
         "image1": [
