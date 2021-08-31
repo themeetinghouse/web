@@ -81,7 +81,7 @@
             {
               "title": "Home Church",
               "text": "We'll have in-person and online Home Churches across all our parishes where you can share life, grow deeper spiritual friendships, ask questions, and talk about Jesus together. Click here to find a group you can connect with.",
-              "imageSrc": "/static/images/corona-3.jpg",
+              "imageSrc": "/static/images/homechurch-1-2.jpg",
               "imageAlt": "Online home church meeting using zoom.",
               "navigateTo": "/home-church"
             },
