@@ -3,7 +3,7 @@ import './NewGiveItem.scss';
 import ReactGA from 'react-ga';
 import { Link } from 'components/Link/Link';
 import { GEContext } from './GiveComponents/GEContext';
-import GiveExperienceContainer from './GiveComponents/GiveExperienceContainer';
+import GiveExperience from './GiveComponents/GiveExperience';
 import { GEActionType, GEPage } from './GiveComponents/GETypes';
 
 interface Props {
@@ -110,7 +110,7 @@ export default function NewGiveItem(props: Props): JSX.Element {
 
       <div className="giveItemDiv2">
         <div className="giveItemDiv3">
-          {state.currentPage ? <GiveExperienceContainer /> : null}
+          {state.currentPage ? <GiveExperience /> : null}
           {renderGiveOtherWays()}
         </div>
       </div>

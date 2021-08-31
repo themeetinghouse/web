@@ -2,7 +2,7 @@ import { GEContext } from './GEContext';
 import { useContext, useState } from 'react';
 import { GEPage, GEActionType } from './GETypes';
 import GiveToggleButton from 'pages/users/Give/GiveToggleButton';
-import GiftAmountButton from './GiftAmountButtons';
+import GiftAmountButton from './GiftAmountButton';
 import GiveSelect from 'pages/users/Give/GiveSelect';
 import './GiveExperience.scss';
 import PaymentAddMethod from 'pages/users/PaymentMethods/PaymentAddMethod';
@@ -10,16 +10,15 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import ProfileForm from 'pages/users/ProfilePage/ProfileForm';
 import { useEffect } from 'react';
+import GiveAmountBanner from './GiveAmountBanner';
+import GiveOnlineBankingInfo from './GiveOnlineBankingInfo';
 let env = 'unknown';
 if (window.location === undefined) env = 'mobile';
 else if (window.location.hostname === 'localhost') env = 'dev';
 else if (window.location.hostname.includes('beta')) env = 'beta';
 else if (window.location.hostname.includes('dev')) env = 'dev';
 else env = 'prod';
-type OnlineBankingInfoProps = {
-  content: any;
-};
-export default function GiveExperienceContainer() {
+export default function GiveExperience() {
   const [stripePromise] = useState(() =>
     loadStripe(
       env == 'beta'
@@ -44,6 +43,7 @@ export default function GiveExperienceContainer() {
             lineHeight: '32px',
             marginTop: 48,
             fontWeight: 300,
+            marginBottom: 12,
           }}
         >
           Where would you like to give?
@@ -79,6 +79,10 @@ export default function GiveExperienceContainer() {
     }, [form]);
     return (
       <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 60 }}>
+        <GiveAmountBanner
+          goBack={() => dispatch({ type: GEActionType.NAVIGATE_GIVE_NOW })}
+          amount={state.content.amount}
+        ></GiveAmountBanner>
         <ProfileForm
           setForm={setForm}
           isFromGive={true}
@@ -104,102 +108,6 @@ export default function GiveExperienceContainer() {
       </div>
     );
   };
-  const OnlineBankingInfo = (props: OnlineBankingInfoProps) => {
-    // TODO: STYLING
-    const { content } = props;
-    return (
-      <div>
-        <h1
-          style={{
-            fontSize: 24,
-            lineHeight: '32px',
-            fontWeight: 300,
-          }}
-        >
-          {state?.content?.header1}
-        </h1>
-        <div style={{ marginLeft: '1em' }}>
-          <p
-            onClick={() => dispatch({ type: 'NAVIGATE_TO_REQUEST_ACCOUNT' })}
-            style={{
-              marginBottom: 0,
-              marginTop: 20,
-              textIndent: '-1em',
-              textDecoration: 'underline',
-              cursor: 'pointer',
-            }}
-          >
-            {content?.text1}
-          </p>
-          <p style={{ marginBottom: 0, textIndent: '-1em' }}>
-            {content?.text2}
-          </p>
-          <p style={{ marginBottom: 0, textIndent: '-1em' }}>
-            {content?.text3}
-          </p>
-          <p style={{ marginBottom: 0, textIndent: '-1em' }}>
-            {content?.text4}
-          </p>
-          <p style={{ marginBottom: 0, textIndent: '-1em' }}>
-            {content?.text5}
-          </p>
-          {content?.text5Options.map((option: string) => (
-            <p style={{ textIndent: '2em', marginBottom: 0 }} key={option}>
-              {option}
-            </p>
-          ))}
-          <p style={{ marginBottom: 0, textIndent: '-1em' }}>
-            {content?.text6}
-          </p>
-
-          <div
-            style={{
-              marginLeft: '-1em',
-            }}
-          >
-            <p style={{ marginTop: 25, marginBottom: 55, fontWeight: 700 }}>
-              {content?.text7}
-            </p>
-            <h1
-              style={{
-                fontSize: 24,
-                lineHeight: '32px',
-                fontWeight: 300,
-              }}
-            >
-              {content?.header2}
-            </h1>
-            {content?.textLines2?.map((text: string, index: number) => {
-              return (
-                <p
-                  onClick={
-                    index === content.textLines2.length - 1
-                      ? () =>
-                          dispatch({
-                            type: GEActionType.NAVIGATE_TO_PREAUTHORIZED_WITHDRAWAL,
-                          })
-                      : () => null
-                  }
-                  style={
-                    content.textLines2.length - 1 === index
-                      ? {
-                          marginBottom: 0,
-                          textDecoration: 'underline',
-                          cursor: 'pointer',
-                        }
-                      : { marginBottom: 0 }
-                  }
-                  key={text}
-                >
-                  {text}
-                </p>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-    );
-  };
 
   return (
     <Elements stripe={stripePromise}>
@@ -211,7 +119,10 @@ export default function GiveExperienceContainer() {
         ) : state.currentPage === GEPage.COMPLETED ? (
           <CompletionPage></CompletionPage>
         ) : state.currentPage === GEPage.ONLINE_BANKING ? (
-          <OnlineBankingInfo content={state.content}></OnlineBankingInfo>
+          <GiveOnlineBankingInfo
+            dispatch={dispatch}
+            content={state.content}
+          ></GiveOnlineBankingInfo>
         ) : state.currentPage === GEPage.REQUEST_ACCOUNT ? (
           <iframe
             src={'https://meeting.formstack.com/forms/request_account_number'}

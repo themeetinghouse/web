@@ -1,5 +1,5 @@
 import { createRef, useEffect, useState } from 'react';
-import './GiftAmountButtons.scss';
+import './GiftAmountButton.scss';
 type Options = string | number | null;
 type GiftAmountButtonProps = {
   setForm: (prev: any) => void;
@@ -33,7 +33,7 @@ export default function GiftAmountButton(props: GiftAmountButtonProps) {
           fontSize: 24,
           lineHeight: '32px',
           fontWeight: 300,
-          marginBottom: 0,
+          marginBottom: 12,
         }}
       >
         Choose your gift amount
