@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import './VideoPlayerLive.scss';
 import * as queries from '../../graphql/queries';
 import * as customQueries from '../../graphql-custom/customQueries';
@@ -6,28 +6,9 @@ import { API } from 'aws-amplify';
 import moment from 'moment-timezone';
 import { ListLivestreamsQuery } from '../../API';
 import { Link, LinkButton } from 'components/Link/Link';
-import { isMobile, isMobileOnly } from 'react-device-detect';
+import { isMobile } from 'react-device-detect';
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
-
-import {
-  Dropdown,
-  DropdownItem,
-  DropdownMenu,
-  DropdownToggle,
-  Fade,
-} from 'reactstrap';
-import {
-  FacebookShareButton,
-  EmailShareButton,
-  TwitterShareButton,
-  TelegramShareButton,
-  WhatsappShareButton,
-  FacebookIcon,
-  EmailIcon,
-  TwitterIcon,
-  TelegramIcon,
-  WhatsappIcon,
-} from 'react-share';
+import ShareDropdown from 'components/Share/ShareDropdown';
 
 type LiveData = NonNullable<
   NonNullable<NonNullable<ListLivestreamsQuery['listLivestreams']>['items']>[0]
@@ -222,93 +203,6 @@ export default class VideoPlayer extends React.Component<Props, State> {
     clearInterval(this.interval);
   }
 
-  shareButton() {
-    const { shareOpen } = this.state;
-    return (
-      <Dropdown
-        isOpen={shareOpen}
-        toggle={() => this.setState({ shareOpen: !this.state.shareOpen })}
-      >
-        <DropdownToggle id="share-custom">
-          <img className="button-icon" src="/static/svg/Share.svg" alt="" />
-          Share
-        </DropdownToggle>
-        <Fade timeout={1000}>
-          <DropdownMenu className="ShareMenu">
-            <FacebookShareButton
-              className="ShareOption"
-              url="https://www.themeetinghouse.com/live"
-              quote="The Meeting House Livestream"
-            >
-              <DropdownItem className="dropitem">
-                <FacebookIcon className="social-share-icon" size={32} round />
-                Facebook
-              </DropdownItem>
-            </FacebookShareButton>
-
-            <TwitterShareButton
-              className="ShareOption"
-              url="https://www.themeetinghouse.com/live"
-              title="The Meeting House Livestream"
-              via="TheMeetingHouse"
-              related={['TheMeetingHouse']}
-            >
-              <DropdownItem className="dropitem">
-                <TwitterIcon className="social-share-icon" size={32} round />
-                Twitter
-              </DropdownItem>
-            </TwitterShareButton>
-
-            <EmailShareButton
-              className="ShareOption"
-              url="https://www.themeetinghouse.com/live"
-              subject="The Meeting House Livestream"
-            >
-              <DropdownItem className="dropitem">
-                <EmailIcon className="social-share-icon" size={32} round />
-                Email
-              </DropdownItem>
-            </EmailShareButton>
-
-            {isMobileOnly ? (
-              <Fragment>
-                <WhatsappShareButton
-                  className="ShareOption"
-                  url="https://www.themeetinghouse.com/live"
-                  title="The Meeting House Livestream"
-                >
-                  <DropdownItem className="dropitem">
-                    <WhatsappIcon
-                      className="social-share-icon"
-                      size={32}
-                      round
-                    />
-                    WhatsApp
-                  </DropdownItem>
-                </WhatsappShareButton>
-
-                <TelegramShareButton
-                  className="ShareOption"
-                  url="https://www.themeetinghouse.com/live"
-                  title="The Meeting House Livestream"
-                >
-                  <DropdownItem className="dropitem">
-                    <TelegramIcon
-                      className="social-share-icon"
-                      size={32}
-                      round
-                    />
-                    Telegram
-                  </DropdownItem>
-                </TelegramShareButton>
-              </Fragment>
-            ) : null}
-          </DropdownMenu>
-        </Fade>
-      </Dropdown>
-    );
-  }
-
   render() {
     const featuredItem = this.state.liveEvent?.menu?.filter(
       (a) => a?.linkType.toLowerCase() === 'featured'
@@ -343,7 +237,13 @@ export default class VideoPlayer extends React.Component<Props, State> {
               )}
               <div className="LiveVideoPlayerTitle">
                 Church Livestream
-                <div className="ShareButtonDesktop">{this.shareButton()}</div>
+                <div className="ShareButtonDesktop">
+                  <ShareDropdown
+                    bgColor="white-bg"
+                    shareType="livestream"
+                    buttonType="wide"
+                  />
+                </div>
               </div>
               <br />
             </div>
@@ -420,7 +320,11 @@ export default class VideoPlayer extends React.Component<Props, State> {
             </div>
           ) : null}
           <div className="ShareButtonMobile">
-            {this.shareButton()}
+            <ShareDropdown
+              bgColor="white-bg"
+              shareType="livestream"
+              buttonType="wide"
+            />
             {featuredItem && featuredItem?.length > 0 && featuredItem[0] ? (
               <LinkButton
                 className="FeaturedButton"

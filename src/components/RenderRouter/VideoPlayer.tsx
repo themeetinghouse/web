@@ -1,27 +1,8 @@
 import React from 'react';
 import './VideoPlayer.scss';
-import {
-  Dropdown,
-  DropdownItem,
-  DropdownMenu,
-  DropdownToggle,
-  Fade,
-} from 'reactstrap';
 import YouTube from 'react-youtube';
-import { isMobileOnly } from 'react-device-detect';
-import {
-  FacebookShareButton,
-  EmailShareButton,
-  TwitterShareButton,
-  TelegramShareButton,
-  WhatsappShareButton,
-  FacebookIcon,
-  EmailIcon,
-  TwitterIcon,
-  TelegramIcon,
-  WhatsappIcon,
-} from 'react-share';
 import { Link } from 'components/Link/Link';
+import ShareDropdown from 'components/Share/ShareDropdown';
 
 interface Props {
   content: any;
@@ -86,150 +67,6 @@ export default class VideoPlayer extends React.Component<Props, State> {
     return `${hours.toString()}h ${duration.toString()}m`;
   }
 
-  shareButton() {
-    return (
-      <Dropdown
-        isOpen={this.state.shareOpen}
-        toggle={() => this.setState({ shareOpen: !this.state.shareOpen })}
-      >
-        <DropdownToggle id="share-custom">
-          <img className="button-icon" src="/static/svg/Share.svg" alt="" />
-          Share
-        </DropdownToggle>
-        <Fade timeout={1000}>
-          <DropdownMenu className="ShareMenu">
-            <FacebookShareButton
-              className="ShareOption"
-              // if the data is null (unlikely), window.location.href will work for ~98% of situations. the rest of the time the user is sent to https://www.themeetinghouse.com/teaching
-              url={
-                this.state.data.seriesTitle && this.state.data.id
-                  ? 'https://www.themeetinghouse.com/videos/' +
-                    this.state.data.seriesTitle.replace(/\s/g, '%20') +
-                    '/' +
-                    this.state.data.id
-                  : window.location.href
-              }
-              quote={
-                this.state.data.Youtube
-                  ? this.state.data.Youtube.snippet.title +
-                    ' from The Meeting House'
-                  : 'Check out this video from The Meeting House'
-              }
-            >
-              <DropdownItem className="dropitem">
-                <FacebookIcon className="social-share-icon" size={32} round />
-                Facebook
-              </DropdownItem>
-            </FacebookShareButton>
-            <TwitterShareButton
-              className="ShareOption"
-              url={
-                this.state.data.seriesTitle && this.state.data.id
-                  ? 'https://www.themeetinghouse.com/videos/' +
-                    this.state.data.seriesTitle.replace(/\s/g, '%20') +
-                    '/' +
-                    this.state.data.id
-                  : window.location.href
-              }
-              title={
-                this.state.data.Youtube
-                  ? this.state.data.Youtube.snippet.title +
-                    ' from The Meeting House'
-                  : 'Check out this video from The Meeting House'
-              }
-              via={'TheMeetingHouse'}
-              related={['TheMeetingHouse']}
-            >
-              <DropdownItem className="dropitem">
-                <TwitterIcon className="social-share-icon" size={32} round />
-                Twitter
-              </DropdownItem>
-            </TwitterShareButton>
-            <EmailShareButton
-              className="ShareOption"
-              url={
-                this.state.data.seriesTitle && this.state.data.id
-                  ? 'https://www.themeetinghouse.com/videos/' +
-                    this.state.data.seriesTitle.replace(/\s/g, '%20') +
-                    '/' +
-                    this.state.data.id
-                  : window.location.href
-              }
-              subject={
-                this.state.data.Youtube
-                  ? 'Check out ' +
-                    this.state.data.Youtube.snippet.title +
-                    ' from The Meeting House'
-                  : 'Check out this video from The Meeting House'
-              }
-              body={'I wanted to share this video with you:'}
-            >
-              <DropdownItem className="dropitem">
-                <EmailIcon className="social-share-icon" size={32} round />
-                Email
-              </DropdownItem>
-            </EmailShareButton>
-            {isMobileOnly ? (
-              <div>
-                <WhatsappShareButton
-                  className="ShareOption"
-                  url={
-                    this.state.data.seriesTitle && this.state.data.id
-                      ? 'https://www.themeetinghouse.com/videos/' +
-                        this.state.data.seriesTitle.replace(/\s/g, '%20') +
-                        '/' +
-                        this.state.data.id
-                      : window.location.href
-                  }
-                  title={
-                    this.state.data.Youtube
-                      ? this.state.data.Youtube.snippet.title
-                      : 'Check out this video from The Meeting House'
-                  }
-                >
-                  <DropdownItem className="dropitem">
-                    <WhatsappIcon
-                      className="social-share-icon"
-                      size={32}
-                      round
-                    />
-                    WhatsApp
-                  </DropdownItem>
-                </WhatsappShareButton>
-
-                <TelegramShareButton
-                  className="ShareOption"
-                  url={
-                    this.state.data.seriesTitle && this.state.data.id
-                      ? 'https://www.themeetinghouse.com/videos/' +
-                        this.state.data.seriesTitle.replace(/\s/g, '%20') +
-                        '/' +
-                        this.state.data.id
-                      : window.location.href
-                  }
-                  title={
-                    this.state.data.Youtube
-                      ? this.state.data.Youtube.snippet.title
-                      : 'Check out this video from The Meeting House'
-                  }
-                >
-                  <DropdownItem className="dropitem">
-                    <TelegramIcon
-                      className="social-share-icon"
-                      size={32}
-                      round
-                    />
-                    Telegram
-                  </DropdownItem>
-                </TelegramShareButton>
-              </div>
-            ) : null}
-          </DropdownMenu>
-        </Fade>
-      </Dropdown>
-    );
-  }
-
   render() {
     return (
       <div className="VideoPlayerDiv">
@@ -252,7 +89,14 @@ export default class VideoPlayer extends React.Component<Props, State> {
         ></YouTube>
         <div className="VideoPlayerEpisodeTitle">
           {this.state.data.episodeTitle}
-          <div className="ShareButtonDesktop">{this.shareButton()}</div>
+          <div className="ShareButtonDesktop">
+            <ShareDropdown
+              shareType="teaching"
+              buttonType={'wide'}
+              bgColor={'white-bg'}
+              data={this.state.data}
+            />
+          </div>
         </div>
         <div className="VideoPlayerDetails">
           {this.state.data.seriesTitle != null ? (
@@ -330,7 +174,14 @@ export default class VideoPlayer extends React.Component<Props, State> {
           ) : null}
           <div className="VideoPlayerClear"></div>
         </div>
-        <div className="ShareButtonMobile">{this.shareButton()}</div>
+        <div className="ShareButtonMobile">
+          <ShareDropdown
+            shareType="teaching"
+            buttonType={'wide'}
+            bgColor={'white-bg'}
+            data={this.state.data}
+          />
+        </div>
       </div>
     );
   }

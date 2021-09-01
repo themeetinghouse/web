@@ -1,0 +1,139 @@
+@media (min-width: 768px) {
+  .ShareButton {
+    font-size: 16px;
+    padding: 7px;
+    border-radius: 0;
+    font-family: Graphik Web;
+    font-weight: bold;
+    margin-top: 5px;
+    border: none;
+    &.wide {
+      width: 200px;
+    }
+    &.short {
+      width: 134px;
+      height: 56px;
+    }
+    &.black-bg {
+      color: #ffffff;
+      background-color: #1a1a1a;
+      border-color: #1a1a1a;
+    }
+    &.white-bg {
+      color: #000000;
+      background-color: #ffffff;
+      border-color: #ffffff;
+    }
+  }
+  .social-share-icon {
+    margin-right: 20px;
+  }
+  .ShareMenu {
+    position: absolute;
+    display: flex;
+    z-index: 10000;
+    flex-direction: column;
+    border-radius: 0;
+    margin-top: -0.35vw;
+    border: 0.5px solid #c8c8c8;
+    border-top: none;
+    background-clip: unset;
+    padding: 0px;
+    &.wide {
+      width: 200px;
+    }
+    &.short {
+      width: 134px;
+    }
+    &.black-bg {
+      color: #ffffff;
+      background-color: #1a1a1a;
+      border-color: #1a1a1a;
+    }
+    &.white-bg {
+      color: #000000;
+      background-color: #ffffff;
+      border-color: #ffffff;
+    }
+  }
+  .ShareItem {
+    flex: 1;
+    font-size: 16px;
+    padding: 8px 16px;
+    border-top: 0.5px solid #c8c8c8;
+  }
+  .ShareItem:hover {
+    background-color: #c8c8c8;
+    border-top: 0.5px solid #c8c8c8;
+  }
+  .ShareOption {
+    text-align: left;
+  }
+}
+
+@media (max-width: 767px) {
+  .ShareButton {
+    border-radius: 0;
+    color: #000000;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    font-family: Graphik Web;
+    font-weight: bold;
+    padding: 6px 12px;
+    box-shadow: none;
+    &.short {
+      width: 125px;
+    }
+    &.white-bg {
+      color: #000000;
+      background-color: #ffffff;
+      border-color: #ffffff;
+    }
+  }
+  .button-icon {
+    margin-right: 16px;
+  }
+  .dropdown-toggle:after {
+    display: none;
+  }
+  .social-share-icon {
+    margin-right: 20px;
+  }
+  .ShareMenu {
+    position: absolute;
+    z-index: 10000;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0;
+    padding: 0px;
+    width: 180px;
+    &.wide {
+      width: 180px;
+    }
+    &.black-bg {
+      color: #ffffff;
+      background-color: #1a1a1a;
+      border-color: #1a1a1a;
+    }
+    &.white-bg {
+      color: #000000;
+      background-color: #ffffff;
+      border-color: #ffffff;
+    }
+  }
+  .ShareItem {
+    flex: 1;
+    font-size: 16px;
+    padding: 8px 16px;
+    border: 0.5px solid #c8c8c8;
+    border-top: none;
+  }
+  .ShareItem:hover {
+    background-color: #c8c8c8;
+    border-bottom: 0.5px solid #c8c8c8;
+  }
+  .ShareOption {
+    text-align: left;
+  }
+}

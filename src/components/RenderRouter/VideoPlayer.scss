@@ -8,25 +8,21 @@
     padding: 0;
     margin-bottom: 5vw;
   }
-
   .VideoPlayerDetails {
     left: 10vw;
     position: relative;
     max-width: 50vw;
   }
-
   .VideoPlayerIframe {
     margin-left: 10vw;
     padding-top: 2vw;
     width: 80vw;
     height: 45vw;
   }
-
   .VideoPlayerInfoText {
     font-family: Graphik Web;
     color: #646469;
   }
-
   .VideoPlayerEpisodeTitle {
     font-family: Graphik Web;
     font-weight: bold;
@@ -34,7 +30,6 @@
     font-size: 3vw;
     margin-left: 10vw;
   }
-
   .VideoPlayerSeriesVideo,
   .VideoPlayerSeriesAudio,
   .VideoPlayerSeriesNotes {
@@ -43,31 +38,26 @@
     color: #ffffff;
     font-family: Graphik Web;
   }
-
   .VideoPlayerSeries,
   .VideoPlayerPublished,
   .VideoPlayerDuration {
     float: left;
     margin-right: 2vw;
   }
-
   .VideoPlayerClear {
     clear: left;
   }
-
   .VideoPlayerSeriesTitle,
   .VideoPlayerPublishedTitle,
   .VideoPlayerDurationTitle {
     font-family: Graphik Web;
     color: #c8c8c8;
   }
-
   .VideoPlayerExtra {
     margin-top: 3vw;
     position: relative;
     left: 10vw;
   }
-
   .VideoPlayerDescription {
     font-family: Graphik Web;
     color: #c8c8c8;
@@ -76,62 +66,24 @@
     margin-top: 2vw;
     width: 50vw;
   }
-
   .DownloadLink {
     color: #ffffff !important;
     border-bottom: solid;
     padding-bottom: 1px;
     text-decoration: none !important;
   }
-
   .button-icon {
     margin-right: 16px;
   }
-
   .dropdown-toggle:after {
     display: none;
   }
-
-  #share-custom {
-    border-radius: 0;
-    color: #000000;
-    background-color: #ffffff;
-    border-color: #ffffff;
-    font-family: Graphik Web;
-    font-weight: bold;
-    width: 200px;
-    margin-top: 5px;
-    box-shadow: none !important;
-  }
-
   .ShareButtonDesktop {
     float: right;
     margin-right: 10vw;
   }
-
   .ShareButtonMobile {
     display: none;
-  }
-
-  .social-share-icon {
-    margin-right: 20px;
-  }
-
-  .ShareMenu {
-    border-radius: 0;
-  }
-
-  .dropitem {
-    width: 200px;
-  }
-
-  .dropitem:hover {
-    background-color: #c8c8c8;
-    border: none;
-  }
-
-  .ShareOption {
-    text-align: left;
   }
 }
 
@@ -145,25 +97,21 @@
     padding: 0;
     margin-bottom: 5vw;
   }
-
   .VideoPlayerDetails {
     left: 10vw;
     position: relative;
     max-width: 50vw;
   }
-
   .VideoPlayerIframe {
     margin-left: 10vw;
     padding-top: 2vw;
     width: 80vw;
     height: 45vw;
   }
-
   .VideoPlayerInfoText {
     font-family: Graphik Web;
     color: #646469;
   }
-
   .VideoPlayerEpisodeTitle {
     font-family: Graphik Web;
     font-weight: bold;
@@ -171,7 +119,6 @@
     font-size: 3vw;
     margin-left: 10vw;
   }
-
   .VideoPlayerSeriesVideo,
   .VideoPlayerSeriesAudio,
   .VideoPlayerSeriesNotes {
@@ -180,31 +127,26 @@
     color: #ffffff;
     font-family: Graphik Web;
   }
-
   .VideoPlayerSeries,
   .VideoPlayerPublished,
   .VideoPlayerDuration {
     float: left;
     margin-right: 2vw;
   }
-
   .VideoPlayerClear {
     clear: left;
   }
-
   .VideoPlayerSeriesTitle,
   .VideoPlayerPublishedTitle,
   .VideoPlayerDurationTitle {
     font-family: Graphik Web;
     color: #c8c8c8;
   }
-
   .VideoPlayerExtra {
     margin-top: 3vw;
     position: relative;
     left: 10vw;
   }
-
   .VideoPlayerDescription {
     font-family: Graphik Web;
     color: #c8c8c8;
@@ -226,7 +168,6 @@
     margin-bottom: 10vw;
     margin-top: 20vw;
   }
-
   .VideoPlayerDetails {
     left: 0vw;
     position: relative;
@@ -234,19 +175,16 @@
     padding-right: 5vw;
     margin-top: 3vw;
   }
-
   .VideoPlayerIframe {
     margin-left: 0vw;
     padding-top: 2vw;
     width: 100%;
     height: 58vw;
   }
-
   .VideoPlayerInfoText {
     font-family: Graphik Web;
     color: #646469;
   }
-
   .VideoPlayerEpisodeTitle {
     font-family: Graphik Web;
     font-weight: bold;
@@ -258,7 +196,6 @@
     padding-right: 5vw;
     margin-top: 7vw;
   }
-
   .VideoPlayerSeriesVideo,
   .VideoPlayerSeriesAudio,
   .VideoPlayerSeriesNotes {
@@ -268,35 +205,29 @@
     font-family: Graphik Web;
     margin-bottom: 10vw;
   }
-
   .VideoPlayerSeries,
   .VideoPlayerPublished,
   .VideoPlayerDuration {
     float: left;
     margin-right: 2vw;
   }
-
   .VideoPlayerSeries {
     margin-right: 12vw;
   }
-
   .VideoPlayerClear {
     clear: left;
   }
-
   .VideoPlayerSeriesTitle,
   .VideoPlayerPublishedTitle,
   .VideoPlayerDurationTitle {
     font-family: Graphik Web;
     color: #c8c8c8;
   }
-
   .VideoPlayerExtra {
     margin-top: 3vw;
     position: relative;
     left: 5vw;
   }
-
   .VideoPlayerDescription {
     font-family: Graphik Web;
     color: #c8c8c8;
@@ -307,7 +238,6 @@
     padding-left: 5vw;
     padding-right: 5vw;
   }
-
   .DownloadLink {
     color: #ffffff !important;
     border-bottom: solid;
@@ -315,53 +245,16 @@
     text-decoration: none !important;
     margin-right: 5vw;
   }
-
   .button-icon {
     margin-right: 16px;
   }
-
   .dropdown-toggle:after {
     display: none;
   }
-
-  #share-custom {
-    border-radius: 0;
-    color: #000000;
-    background-color: #ffffff;
-    border-color: #ffffff;
-    font-family: Graphik Web;
-    font-weight: bold;
-    width: 125px;
-    box-shadow: none !important;
-  }
-
   .ShareButtonDesktop {
     display: none;
   }
-
   .ShareButtonMobile {
     margin-left: 5vw;
-  }
-
-  .social-share-icon {
-    margin-right: 20px;
-  }
-
-  .ShareMenu {
-    border-radius: 0;
-    width: 180px;
-  }
-
-  .dropitem {
-    width: 178px;
-  }
-
-  .dropitem:hover {
-    background-color: #c8c8c8;
-    border: none;
-  }
-
-  .ShareOption {
-    text-align: left;
   }
 }
