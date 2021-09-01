@@ -1,10 +1,12 @@
 @media (min-width: 768px) {
-  .share-custom {
+  .ShareButton {
+    font-size: 16px;
+    padding: 7px;
     border-radius: 0;
     font-family: Graphik Web;
     font-weight: bold;
     margin-top: 5px;
-    box-shadow: none !important;
+    border: none;
     &.wide {
       width: 200px;
     }
@@ -27,18 +29,38 @@
     margin-right: 20px;
   }
   .ShareMenu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
     border-radius: 0;
-    border: 0.5px solid #c8c8c8 !important;
-    border-top: none !important;
+    border: 0.5px solid #c8c8c8;
+    border-top: none;
     background-clip: unset;
-    padding: 0px !important;
+    padding: 0px;
+    &.wide {
+      width: 200px;
+    }
+    &.short {
+      width: 134px;
+    }
+    &.black-bg {
+      color: #ffffff;
+      background-color: #1a1a1a;
+      border-color: #1a1a1a;
+    }
+    &.white-bg {
+      color: #000000;
+      background-color: #ffffff;
+      border-color: #ffffff;
+    }
   }
-  .dropitem {
-    width: 200px;
+  .ShareItem {
+    flex: 1;
+    font-size: 16px;
     padding: 8px 16px;
     border-top: 0.5px solid #c8c8c8;
   }
-  .dropitem:hover {
+  .ShareItem:hover {
     background-color: #c8c8c8;
     border-top: 0.5px solid #c8c8c8;
   }
@@ -48,16 +70,15 @@
 }
 
 @media (max-width: 767px) {
-  .share-custom {
+  .ShareButton {
     border-radius: 0;
     color: #000000;
     background-color: #ffffff;
     border-color: #ffffff;
     font-family: Graphik Web;
     font-weight: bold;
-    box-shadow: none !important;
-    &.wide {
-    }
+    padding: 6px 12px;
+    box-shadow: none;
     &.short {
       width: 125px;
     }
@@ -77,15 +98,36 @@
     margin-right: 20px;
   }
   .ShareMenu {
+    position: absolute;
+    z-index: 10000;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
     border-radius: 0;
-    padding: 0px !important;
+    padding: 0px;
     width: 180px;
+    &.wide {
+      width: 180px;
+    }
+    &.black-bg {
+      color: #ffffff;
+      background-color: #1a1a1a;
+      border-color: #1a1a1a;
+    }
+    &.white-bg {
+      color: #000000;
+      background-color: #ffffff;
+      border-color: #ffffff;
+    }
   }
-  .dropitem {
-    width: 178px;
+  .ShareItem {
+    flex: 1;
+    font-size: 16px;
     padding: 8px 16px;
+    border: 0.5px solid #c8c8c8;
+    border-top: none;
   }
-  .dropitem:hover {
+  .ShareItem:hover {
     background-color: #c8c8c8;
     border-bottom: 0.5px solid #c8c8c8;
   }

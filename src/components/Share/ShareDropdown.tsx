@@ -12,7 +12,6 @@ import {
   WhatsappIcon,
   WhatsappShareButton,
 } from 'react-share';
-import { Dropdown, DropdownMenu, DropdownToggle, Fade } from 'reactstrap';
 import './ShareDropdown.scss';
 type ShareDropdownColor = 'white-bg' | 'black-bg';
 
@@ -72,8 +71,8 @@ export default function ShareDropdown(props: ShareDropdownProps) {
   const shareKind = useMemo(() => getShareKind(shareType), []);
 
   return (
-    <Dropdown isOpen={shareOpen} toggle={() => setShareOpen(!shareOpen)}>
-      <DropdownToggle className={`share-custom ${bgColor} ${buttonType}`}>
+    <div onClick={() => setShareOpen(!shareOpen)}>
+      <button className={`ShareButton ${bgColor} ${buttonType}`}>
         <img
           className="button-icon"
           src={`/static/svg/${
@@ -82,16 +81,16 @@ export default function ShareDropdown(props: ShareDropdownProps) {
           alt=""
         />
         Share
-      </DropdownToggle>
-      <Fade timeout={1000}>
-        <DropdownMenu className="ShareMenu">
+      </button>
+      {shareOpen ? (
+        <div className={`ShareMenu ${bgColor} ${buttonType}`}>
           <FacebookShareButton
             className="ShareOption"
             // if the data is null (unlikely), window.location.href will work for ~98% of situations. the rest of the time the user is sent to https://www.themeetinghouse.com/teaching
             url={shareUrl}
             quote={shareMessage}
           >
-            <div className="dropitem">
+            <div className="ShareItem">
               <FacebookIcon className="social-share-icon" size={32} round />
               Facebook
             </div>
@@ -103,7 +102,7 @@ export default function ShareDropdown(props: ShareDropdownProps) {
             via={'TheMeetingHouse'}
             related={['TheMeetingHouse']}
           >
-            <div className="dropitem">
+            <div className="ShareItem">
               <TwitterIcon className="social-share-icon" size={32} round />
               Twitter
             </div>
@@ -114,19 +113,19 @@ export default function ShareDropdown(props: ShareDropdownProps) {
             subject={shareMessage}
             body={`I wanted to share this ${shareKind} with you:`}
           >
-            <div className="dropitem">
+            <div className="ShareItem">
               <EmailIcon className="social-share-icon" size={32} round />
               Email
             </div>
           </EmailShareButton>
           {isMobileOnly ? (
-            <div>
+            <>
               <WhatsappShareButton
                 className="ShareOption"
                 url={shareUrl}
                 title={shareMessage}
               >
-                <div className="dropitem">
+                <div className="ShareItem">
                   <WhatsappIcon className="social-share-icon" size={32} round />
                   WhatsApp
                 </div>
@@ -137,15 +136,15 @@ export default function ShareDropdown(props: ShareDropdownProps) {
                 url={shareUrl}
                 title={shareMessage}
               >
-                <div className="dropitem">
+                <div className="ShareItem">
                   <TelegramIcon className="social-share-icon" size={32} round />
                   Telegram
                 </div>
               </TelegramShareButton>
-            </div>
+            </>
           ) : null}
-        </DropdownMenu>
-      </Fade>
-    </Dropdown>
+        </div>
+      ) : null}
+    </div>
   );
 }
