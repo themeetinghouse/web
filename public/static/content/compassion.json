@@ -102,6 +102,7 @@
         "text1": "This fund provides us with an opportunity to further invest financially in local organizations we partner with across southern Ontario who are having a positive impact in our community.",
         "list": [
           {
+            
             "type": "link",
             "title": "Final Report 2020-21",
             "navigateTo": "https://meeting.formstack.com/forms/tmh_local_compassion_fund_final_report_copy"
@@ -110,11 +111,6 @@
             "type": "link",
             "title": "Final Report 2019-20",
             "navigateTo": "https://meeting.formstack.com/forms/tmh_local_compassion_fund_final_report"
-          },
-          {
-            "type": "link",
-            "title": "Final Report 2018-19",
-            "navigateTo": "https://meeting.formstack.com/forms/lcf_final_report_2018_19"
           }
         ],
 
@@ -134,22 +130,35 @@
           {
             "type": "link",
             "title": "Grant Application Guidelines",
-            "navigateTo": "https://drive.google.com/file/d/1XboiREfidgTnOshJ6An6DfNwfCQSfvev/view"
+            "navigateTo": "/static/pdfs/compassion/2021-22 Grant Application Guidelines.pdf",
+            "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Assessment Criteria",
-            "navigateTo": "https://drive.google.com/file/d/1ixMjhR49-ENUICZdpzpYJpc1K6fxLkEf/view"
+            "navigateTo": "/static/pdfs/compassion/2021-22 Assessment Criteria.pdf",
+            "openNewBrowser": true
+          },
+          {
+            "type": "link",
+            "title": "Local Compassion Funds FAQ",
+            "navigateTo": "/static/pdfs/compassion/Local Compassion Fund FAQ.pdf",
+            "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Application Process Tutorial Video",
-            "navigateTo": "https://www.youtube.com/watch?v=EMzAgs7eHV4"
+            "navigateTo": "https://www.youtube.com/watch?v=VpqnMVWoxJI"
           },
           {
             "type": "link",
             "title": "Grant Application",
-            "navigateTo": "https://meeting.formstack.com/forms/tmh_local_compassion_fund_application_2021_22_proposed"
+            "navigateTo": "https://meeting.formstack.com/forms/tmh_local_compassion_fund_application_2021_22_window2"
+          }, 
+          {
+            "type": "link",
+            "title": "Local Compassion Budget Template 2021-22",
+            "navigateTo": "https://drive.google.com/file/d/1TVomtt6kZ2cnr02kZdOdoMAZQX2-9wQ0/view"
           }
         ],
 
