@@ -71,8 +71,11 @@ export default function ShareDropdown(props: ShareDropdownProps) {
   const shareKind = useMemo(() => getShareKind(shareType), []);
 
   return (
-    <div onClick={() => setShareOpen(!shareOpen)}>
-      <button className={`ShareButton ${bgColor} ${buttonType}`}>
+    <div>
+      <button
+        onClick={() => setShareOpen(!shareOpen)}
+        className={`ShareButton ${bgColor} ${buttonType}`}
+      >
         <img
           className="button-icon"
           src={`/static/svg/${
