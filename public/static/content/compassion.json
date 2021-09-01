@@ -58,27 +58,7 @@
           }
         ]
       },
-      {
-        "type": "content",
-        "style": "oneImageBlackRight",
-        "header1": "Peacemakers",
-        "header2": "We did it!",
-        "text1": "Thanks to the incredible generosity of our community we were able to raise $271,844 for our 2021 Peacemakers campaign!",
-        "list": [
-          {
-            "type": "link",
-            "title": "Lookback at our Plan",
-            "navigateTo": "/peacemakers"
-          }
-        ],
-        "image1": [
-          {
-            "src": "/static/images/compassion-peacemakers-celebrate.jpg",
-            "alt": "Meeting House Pastor Jimmy Rushton is similing on camera surrounded by confetti and balloons as we celebrate our Peacemakers 2021 campaign."
-          }
-        ]
-      },
-      {
+     {
         "type": "list",
         "style": "vertical",
         "class": "compassion",
@@ -104,6 +84,11 @@
           {
             
             "type": "link",
+            "title": "Final Report 2021-22",
+            "navigateTo": "https://meeting.formstack.com/forms/tmh_local_compassion_fund_final_report_2021_22"
+          },
+          {
+            "type": "link",
             "title": "Final Report 2020-21",
             "navigateTo": "https://meeting.formstack.com/forms/tmh_local_compassion_fund_final_report_copy"
           },
@@ -125,7 +110,7 @@
         "type": "content",
         "style": "oneImageBlackRight",
         "header1": "Local Compassion Fund Application",
-        "text1": "The applications for the Spring 2021 application window are due by June 4, 2021.",
+        "text1": "The grant window for the Fall 2021 is open. Applications are due by October 8, 2021.",
         "list": [
           {
             "type": "link",
