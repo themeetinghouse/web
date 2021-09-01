@@ -31,8 +31,10 @@
   .ShareMenu {
     position: absolute;
     display: flex;
+    z-index: 10000;
     flex-direction: column;
     border-radius: 0;
+    margin-top: -0.35vw;
     border: 0.5px solid #c8c8c8;
     border-top: none;
     background-clip: unset;
