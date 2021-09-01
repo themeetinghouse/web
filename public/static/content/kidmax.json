@@ -45,26 +45,26 @@
         "image1": [
           {
             "src": "/static/images/EYBigIdeaAug.jpg",
-            "alt": "This month's big idea: Love looks like love, joy, peace, patience, kindness, goodness, faithfulness, gentleness and self control."
+            "alt": "This month's big idea: Put God first."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/EYLessonAug29.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYLessonSep5.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/EYActivityAug29.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYActivitySep5.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Key Verse Colouring Page",
-            "navigateTo": "/static/pdfs/kidmax-files/EYAugustColouringPage.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYSeptemberColouringPage.pdf",
             "openNewBrowser": true
           }
         ]
@@ -87,26 +87,26 @@
         "image1": [
           {
             "src": "/static/images/KidsBigIdeaAug29.jpg",
-            "alt": "This week's big idea is: Kindness is treating others the way God wants us to treat them."
+            "alt": "This week's big idea is: God cares about what's on the inside."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonAug29.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonSep5.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activity",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsActivityAug29.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesSep5.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Key Verse Colouring Page",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsAugustColouring.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsSeptemberColouring.pdf",
             "openNewBrowser": true
           }
         ]
