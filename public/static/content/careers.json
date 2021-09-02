@@ -99,28 +99,33 @@
         "style": "oneImageBlackRight",
         "header1": "Part-time Careers",
         "text1": "Send your resume and cover letter to resumes@themeetinghouse.com",
-        "list": [          
-        {
-          "type": "link",
-          "title": "Kitchener Kidmax Coordinator",
-          "navigateTo": "/static/pdfs/careers/Kidmax Coordinator KIT 2 - Adapted for COVID.pdf"
-        },
-        {
-          "type": "link",
-          "title": "Alliston Family Engagement Coordinator",
-          "navigateTo": "/static/pdfs/careers/Family Engagement Coordinator (Part-Time).pdf"
-        },
-        {
-          "type": "link",
-          "title": "Events Associate",
-          "navigateTo": "/static/pdfs/careers/Events Associate.pdf"
-        },
-        {
-          "type": "link",
-          "title": "Rentals and Events Administrator",
-          "navigateTo": "/static/pdfs/careers/Rentals and Events Administrator.pdf"
-        }
-      ],
+        "list": [
+          {
+            "type": "link",
+            "title": "Kitchener Kidmax Coordinator",
+            "navigateTo": "/static/pdfs/careers/Kidmax Coordinator KIT 2 - Adapted for COVID.pdf"
+          },
+          {
+            "type": "link",
+            "title": "Alliston Family Engagement Coordinator",
+            "navigateTo": "/static/pdfs/careers/Family Engagement Coordinator (Part-Time).pdf"
+          },
+          {
+            "type": "link",
+            "title": "Events Associate",
+            "navigateTo": "/static/pdfs/careers/Events Associate.pdf"
+          },
+          {
+            "type": "link",
+            "title": "Rentals and Events Administrator",
+            "navigateTo": "/static/pdfs/careers/Rentals and Events Administrator.pdf"
+          },
+          {
+            "type": "link",
+            "title": "Online Youth Ministry Coordinator",
+            "navigateTo": "/static/pdfs/careers/Online Youth Ministry Coordinator.pdf"
+          }
+        ],
         "image1": [
           {
             "src": "/static/images/careers-3.jpg",
