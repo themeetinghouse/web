@@ -141,7 +141,7 @@
         "type": "list",
         "style": "horizontal",
         "class": "videos",
-        "subclass": "tech training",
+        "subclass": "Tech Training",
         "limit": 25,
         "sortOrder": "DESC",
         "header1": "Tech Video"
