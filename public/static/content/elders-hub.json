@@ -65,6 +65,15 @@
           "type": "list",
           "style": "horizontal",
           "class": "videos",
+          "subclass": "FallHC2021",
+          "limit": 25,
+          "sortOrder": "DESC",
+          "header1": "Fall Home Church Videos"
+        },
+        {
+          "type": "list",
+          "style": "horizontal",
+          "class": "videos",
           "subclass": "HC101",
           "limit": 25,
           "sortOrder": "DESC",
