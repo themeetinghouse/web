@@ -76,7 +76,7 @@
     "FirstName": "Carrissa",
     "LastName": "Reffell",
     "Phone": "905.287.7000",
-    "Position": "Communications Administrator and Project Manager",
+    "Position": "Communications Administrator and Project Manager (on Mat leave)",
     "sites": ["Communications"],
     "Email": "Carrissa@themeetinghouse.com"
   },
@@ -106,6 +106,15 @@
     "Position": "Creative Manager",
     "sites": ["Communications"],
     "Email": "Chris.vanDijk@themeetinghouse.com"
+  },
+  {
+    "Staff": true,
+    "FirstName": "Christie",
+    "LastName": "Penner Worden",
+    "Phone": "905.287.7000",
+    "Position": "Cross-Regional Kids Pastor",
+    "sites": ["Pastoral", "Children"],
+    "Email": "christie.pennerworden@themeetinghouse.com"
   },
   {
     "Staff": true,
@@ -355,7 +364,7 @@
     "FirstName": "Lauren",
     "LastName": "Germain",
     "Phone": "905.287.7000",
-    "Position": "Curriculum Project Coordinator & Administrator ",
+    "Position": "Communications & Curriculum Administrator",
     "sites": ["Communications", "Children"],
     "Email": "Lauren.Germain@themeetinghouse.com"
   },
@@ -391,7 +400,7 @@
     "FirstName": "Louise",
     "LastName": "McBride",
     "Phone": "905.287.7000, ext. 820",
-    "Position": "Site Leadership Administrator",
+    "Position": "Operations Support Manager",
     "sites": ["Site Leadership"],
     "Email": "Louise.McBride@themeetinghouse.com"
   },
@@ -490,9 +499,9 @@
     "FirstName": "Natalia",
     "LastName": "D'Amico",
     "Phone": "905.287.7000, ext. 825",
-    "Position": "Curriculum Project Coordinator & Administrator",
+    "Position": "Communications & Curriculum Project Coordinator",
     "sites": ["Communications", "Children"],
-    "Email": "Natalia.D'Amico@themeetinghouse.com"
+    "Email": "Natalia.Damico@themeetinghouse.com"
   },
   {
     "Staff": true,
@@ -600,7 +609,7 @@
     "Phone": "905.287.7000",
     "Position": "Toronto Youth Pastor",
     "sites": ["Youth", "Pastoral"],
-    "Email": "sarah.lowe@themeetinghouse.com"
+    "Email": "Sarah.Lyew@themeetinghouse.com"
   },
   {
     "Staff": true,
@@ -619,6 +628,15 @@
     "Position": "Leadership Pastor",
     "sites": ["NMKT", "Pastoral"],
     "Email": "Simon.Downey@themeetinghouse.com"
+  },
+  {
+    "Staff": true,
+    "FirstName": "Steve",
+    "LastName": "MacDouell",
+    "Phone": "905.287.7000",
+    "Position": "Downtown Toronto Lead Pastor",
+    "sites": ["TODT", "Pastoral"],
+    "Email": "Steve.Macdouell@themeetinghouse.com"
   },
   {
     "Staff": true,
