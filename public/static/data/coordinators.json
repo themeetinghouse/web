@@ -541,12 +541,6 @@
     "Position": "Welcome Coordinator"
   },
   {
-    "FirstName": "Christine",
-    "LastName": "Hall",
-    "sites": ["TOUP"],
-    "Position": "Welcome Coordinator"
-  },
-  {
     "FirstName": "Sue",
     "LastName": "Yoo",
     "sites": ["TOUP"],
@@ -636,10 +630,17 @@
     "Position": "Youth Coordinator"
   },
   {
-    "FirstName": "Alyssa",
-    "LastName": "Esparaz",
+    "FirstName": "Jeremy",
+    "LastName": "Trites",
     "sites": ["TOUP"],
-    "Email": "alyssa.esparaz@themeetinghouse.com",
-    "Position": "Youth Coordinator"
+    "Email": "jeremy.trites@themeetinghouse.com",
+    "Position": "Tech Coordinator"
+  },
+  {
+    "FirstName": "Sarah",
+    "LastName": "Lyew",
+    "sites": ["TOUP"],
+    "Email": "sarah.lyew@themeetinghouse.com",
+    "Position": "Toronto Youth Pastor"
   }
 ]
