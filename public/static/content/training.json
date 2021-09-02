@@ -137,25 +137,15 @@
             }
           ]
         },
-        {
-          "type": "content",
-          "style": "oneImage",
-          "header1": "Tech Team",
-          "text1":"Training and equipping resources for tech teams.",
-          "list": [
-            {
-              "type": "link",
-              "title": "How to connect to the livestream",
-              "navigateTo": "/make-a-difference"
-            }
-          ],
-          "image1": [
-            {
-              "src": "/static/images/make-a-difference-3.jpg",
-              "alt": "A woman is on her phone outside."
-            }
-          ]
-        },
+{
+        "type": "list",
+        "style": "horizontal",
+        "class": "videos",
+        "subclass": "tech training",
+        "limit": 25,
+        "sortOrder": "DESC",
+        "header1": "Tech Video"
+      },
         {
           "type": "content",
           "style": "oneImageBlackRight",

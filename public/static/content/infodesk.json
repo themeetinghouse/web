@@ -26,12 +26,12 @@
           "style": "full",
           "image1": [
             {
-              "src": "/static/images/covid-1-1.jpg",
-              "alt": "Young woman in a face mask is sitting and smiling off camera as she talks to a friend."
+              "src": "/static/images/Info-Desk-1.jpg",
+              "alt": "Woman sitting and talking to a friend."
             },
             {
-              "src": "/static/images/covid-1-2.jpg",
-              "alt": "Young man in a face mask is sitting and talking with friends."
+              "src": "/static/images/Info-Desk-2.jpg",
+              "alt": "Man sitting and talking to a friend."
             }
           ],
           "header1": "Online Info Desk.",
