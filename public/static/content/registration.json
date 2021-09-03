@@ -40,12 +40,12 @@
                 {
                     "title": "Mind the numbers",
                     "description": "Capacity limits mean we will only be able to allow a set number of kids, youth, and adults.",
-                    "image": "/static/svg/Regather-Icon-05.svg"
+                    "image": "/static/svg/Regather-Mind_the_numbers.svg"
                 },
                 {
                     "title": "Health check",
                     "description": "To ensure everyone’s safety, you’ll need to confirm your wellness prior to entry.",
-                    "image": "/static/svg/Regather-Icon-03.svg"
+                    "image": "/static/svg/Regather-Health_check.svg"
                 },
                 {
                     "title": "Wear a mask",
@@ -60,7 +60,7 @@
                 {
                     "title": "No singing",
                     "description": "Public health has asked that no one sings along to the music.",
-                    "image": "/static/svg/Regather-Icon-06.svg"
+                    "image": "/static/svg/Regather-No_singing.svg"
                 }
             ],
             "header4": "Livestream",
