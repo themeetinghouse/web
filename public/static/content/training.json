@@ -78,6 +78,15 @@
           "header1": "Parish Leadership Videos"
         },
         {
+          "type": "list",
+          "style": "horizontal",
+          "class": "videos",
+          "subclass": "compassion-training",
+          "limit": 25,
+          "sortOrder": "DESC",
+          "header1": "Compassion Videos"
+        },
+        {
           "type": "content",
           "style": "oneImage",
           "header1": "Home Church Resources",
