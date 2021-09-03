@@ -8,7 +8,7 @@
       "latitude": 44.149035,
       "address": "Gibson Centre, 63 Tupper Street West"
     },
-    "serviceTimes": ["10:00"],
+    "serviceTimes": ["10:30"],
     "youth": {
       "age": "Youth | Grades 6 – 12",
       "location": {
@@ -53,7 +53,7 @@
     "location": {
       "longitude": -79.768112,
       "latitude": 43.733024,
-      "address": "Loafer's Lake Recreation Centre, 30 Loafer's Lake Lane"
+      "address": "SilverCity Brampton, 50 Great Lakes Drive"
     },
     "serviceTimes": ["10:00"]
   },
@@ -66,7 +66,7 @@
       "latitude": 43.182376,
       "address": "Grace Anglican Church, 4 Pearl Street"
     },
-    "serviceTimes": ["10:00"]
+    "serviceTimes": ["9:30"]
   },
   {
     "id": "burlington",
@@ -86,7 +86,7 @@
     "location": {
       "longitude": -79.8702504,
       "latitude": 43.26213,
-      "address": "130 Victoria Avenue North"
+      "address": "Gasworks, 141 Park Avenue North"
     },
     "serviceTimes": ["10:00"]
   },
@@ -108,7 +108,7 @@
     "location": {
       "longitude": -79.808856,
       "latitude": 43.193331,
-      "address": "SilverCity Hamilton Mountain, 795 Paramount Drive"
+      "address": "SilverCity Ancaster, 771 Golf Links Road"
     },
     "serviceTimes": ["10:00"]
   },
@@ -130,7 +130,7 @@
     "location": {
       "longitude": -79.4744334,
       "latitude": 43.6578297,
-      "address": "125 Evelyn Crescent"
+      "address": "Humbercrest Church, 16 Baby Point Road"
     },
     "serviceTimes": ["10:00"]
   },
@@ -202,7 +202,7 @@
       "latitude": 45.431384,
       "address": "Riverside United Church, 3191 Riverside Drive"
     },
-    "serviceTimes": ["10:00"]
+    "serviceTimes": ["15:00"]
   },
 
   {
@@ -247,7 +247,7 @@
       "latitude": 43.725822,
       "address": "Yorkdale Cineplex, 3401 Dufferin Street"
     },
-    "serviceTimes": ["10:00"]
+    "serviceTimes": ["9:30"]
   },
   {
     "id": "waterloo",
