@@ -20,7 +20,7 @@ export default function RegatherItem(props: Props): JSX.Element {
     if (moment().weekday() === 4)
       if (moment().isBefore(moment('17:00', 'HH:mm'))) return true;
     if (moment().weekday() === 0)
-      if (moment().isAfter(moment('17:00', 'HH:mm'))) return true;
+      if (moment().isSameOrAfter(moment('18:00', 'HH:mm'))) return true;
     return false;
   };
 
@@ -171,12 +171,12 @@ export default function RegatherItem(props: Props): JSX.Element {
                 flexDirection: 'column',
               }}
             >
-              <h2 className="RegatherItemH2">Registration is closed</h2>
+              <h2 className="RegatherItemH2">Registration is now closed.</h2>
               <p style={{ marginTop: 24 }}>
-                Registration for this week is now closed. If you’d like to
-                attend next Sunday, please register Monday – Thursday.
+                To register for Sunday, check back from Sunday at 6pm until
+                Thursday at 5pm when registration is open.
               </p>
-              <p>Please join us on the livestream Sunday at 10am.</p>
+              <p>Please join us on the livestream Sundays at 10am.</p>
               <button
                 onClick={() => history.push('/live')}
                 className={`RegatherButton solid`}
