@@ -194,6 +194,23 @@ class Index extends React.Component<EmptyProps, State> {
         this.listNotes(listNotess.data.listNotess.nextToken);
     } catch (e) {
       console.error(e);
+      this.setState({
+        notesList: this.state.notesList
+          ?.concat(e.data?.listNotess?.items)
+          .sort(function (a: any, b: any) {
+            const nameA = a.id.toUpperCase();
+            const nameB = b.id.toUpperCase();
+            if (nameA < nameB) {
+              return 1;
+            }
+            if (nameA > nameB) {
+              return -1;
+            }
+            return 0;
+          }),
+      });
+      if (e.data?.listNotess?.nextToken)
+        this.listNotes(e.data.listNotess.nextToken);
     }
   }
 
