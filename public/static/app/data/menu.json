@@ -1,6 +1,15 @@
-[{
+[
+  {
+    "name": "Sunday Registration",
+    "subtext": "Register to attend a Sunday gathering.",
+    "location": "https://www.themeetinghouse.com/registration",
+    "groups": ["default"],
+    "external": true,
+    "icon": "https://www.themeetinghouse.com/static/icons/Register-white.png"
+  },
+{
   "name": "Elders Resources",
-  "subtext": "Resource for elders",
+  "subtext": "Find all of your elder resources.",
   "location": "https://www.themeetinghouse.com/elders-hub",
   "groups": ["Elder"],
   "external": true,
@@ -8,7 +17,7 @@
 },
 {
   "name": "Give",
-  "subtext": "Donate to The Meeting House",
+  "subtext": "Donate to The Meeting House.",
   "location": "https://www.themeetinghouse.com/give",
   "groups": ["default"],
   "external": true,
@@ -26,7 +35,7 @@
 
 {
   "name": "Staff Team",
-  "subtext": "Contact a staff member directly",
+  "subtext": "Contact a staff member directly.",
   "location": "StaffList",
   "groups": ["default"],
   "external": false,
@@ -35,7 +44,7 @@
 
 {
   "name": "My Parish Team",
-  "subtext": "Contact a parish team member",
+  "subtext": "Contact a parish team member.",
   "location": "ParishTeam",
   "groups": ["default"],
   "external": false,
@@ -44,7 +53,7 @@
 
 {
   "name": "Home Church",
-  "subtext": "Find a home church near you",
+  "subtext": "Find a home church near you.",
   "location": "HomeChurchScreen",
   "groups": ["default"],
   "external": false,
