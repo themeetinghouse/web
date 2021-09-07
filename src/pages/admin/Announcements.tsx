@@ -77,6 +77,7 @@ export default function Announcements(): JSX.Element {
     });
     if (data) {
       const locationArr = [
+        { label: 'No Location', value: 'No Location' },
         { label: 'Cross-Regional', value: 'Cross-Regional' },
       ];
       const transformedLocations = [
