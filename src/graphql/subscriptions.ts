@@ -890,6 +890,78 @@ export const onDeleteF1Assignments = /* GraphQL */ `
     }
   }
 `;
+export const onCreateHomeChurchInfo = /* GraphQL */ `
+  subscription OnCreateHomeChurchInfo($owner: String) {
+    onCreateHomeChurchInfo(owner: $owner) {
+      id
+      elders
+      vacinationRequired
+      hasChildcare
+      isOnline
+      onlineConnectUrl
+      ageGroups
+      petFree
+      transitAccessible
+      accessCode
+      gender
+      extendedDescription
+      imgageUrl
+      imageAlt
+      videoUrl
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onUpdateHomeChurchInfo = /* GraphQL */ `
+  subscription OnUpdateHomeChurchInfo($owner: String) {
+    onUpdateHomeChurchInfo(owner: $owner) {
+      id
+      elders
+      vacinationRequired
+      hasChildcare
+      isOnline
+      onlineConnectUrl
+      ageGroups
+      petFree
+      transitAccessible
+      accessCode
+      gender
+      extendedDescription
+      imgageUrl
+      imageAlt
+      videoUrl
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onDeleteHomeChurchInfo = /* GraphQL */ `
+  subscription OnDeleteHomeChurchInfo($owner: String) {
+    onDeleteHomeChurchInfo(owner: $owner) {
+      id
+      elders
+      vacinationRequired
+      hasChildcare
+      isOnline
+      onlineConnectUrl
+      ageGroups
+      petFree
+      transitAccessible
+      accessCode
+      gender
+      extendedDescription
+      imgageUrl
+      imageAlt
+      videoUrl
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
 export const onCreateF1ListGroup2 = /* GraphQL */ `
   subscription OnCreateF1ListGroup2 {
     onCreateF1ListGroup2 {

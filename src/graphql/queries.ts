@@ -4831,6 +4831,61 @@ export const getAssignmentsByPersonId = /* GraphQL */ `
     }
   }
 `;
+export const getHomeChurchInfo = /* GraphQL */ `
+  query GetHomeChurchInfo($id: ID!) {
+    getHomeChurchInfo(id: $id) {
+      id
+      elders
+      vacinationRequired
+      hasChildcare
+      isOnline
+      onlineConnectUrl
+      ageGroups
+      petFree
+      transitAccessible
+      accessCode
+      gender
+      extendedDescription
+      imgageUrl
+      imageAlt
+      videoUrl
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const listHomeChurchInfos = /* GraphQL */ `
+  query ListHomeChurchInfos(
+    $filter: ModelHomeChurchInfoFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listHomeChurchInfos(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        elders
+        vacinationRequired
+        hasChildcare
+        isOnline
+        onlineConnectUrl
+        ageGroups
+        petFree
+        transitAccessible
+        accessCode
+        gender
+        extendedDescription
+        imgageUrl
+        imageAlt
+        videoUrl
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
 export const getF1ListGroup2 = /* GraphQL */ `
   query GetF1ListGroup2($id: ID!) {
     getF1ListGroup2(id: $id) {

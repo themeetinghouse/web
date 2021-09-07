@@ -890,6 +890,78 @@ export const deleteF1Assignments = /* GraphQL */ `
     }
   }
 `;
+export const createHomeChurchInfo = /* GraphQL */ `
+  mutation CreateHomeChurchInfo($input: CreateHomeChurchInfoInput!) {
+    createHomeChurchInfo(input: $input) {
+      id
+      elders
+      vacinationRequired
+      hasChildcare
+      isOnline
+      onlineConnectUrl
+      ageGroups
+      petFree
+      transitAccessible
+      accessCode
+      gender
+      extendedDescription
+      imgageUrl
+      imageAlt
+      videoUrl
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const updateHomeChurchInfo = /* GraphQL */ `
+  mutation UpdateHomeChurchInfo($input: UpdateHomeChurchInfoInput!) {
+    updateHomeChurchInfo(input: $input) {
+      id
+      elders
+      vacinationRequired
+      hasChildcare
+      isOnline
+      onlineConnectUrl
+      ageGroups
+      petFree
+      transitAccessible
+      accessCode
+      gender
+      extendedDescription
+      imgageUrl
+      imageAlt
+      videoUrl
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const deleteHomeChurchInfo = /* GraphQL */ `
+  mutation DeleteHomeChurchInfo($input: DeleteHomeChurchInfoInput!) {
+    deleteHomeChurchInfo(input: $input) {
+      id
+      elders
+      vacinationRequired
+      hasChildcare
+      isOnline
+      onlineConnectUrl
+      ageGroups
+      petFree
+      transitAccessible
+      accessCode
+      gender
+      extendedDescription
+      imgageUrl
+      imageAlt
+      videoUrl
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
 export const createF1ListGroup2 = /* GraphQL */ `
   mutation CreateF1ListGroup2($input: CreateF1ListGroup2Input!) {
     createF1ListGroup2(input: $input) {
