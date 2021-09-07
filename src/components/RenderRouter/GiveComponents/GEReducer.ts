@@ -4,6 +4,17 @@ export default function giveExperienceReducer(
   action: GEAction
 ): GEState {
   switch (action.type) {
+    case GEActionType.NAVIGATE_TO_COMPLETED:
+      return {
+        ...state,
+        currentPage: GEPage.COMPLETED,
+        status: action.payload.status,
+      };
+    case GEActionType.UPDATE_FORM_DATA:
+      return {
+        ...state,
+        formData: action.payload,
+      };
     case GEActionType.NAVIGATE_TO_PREAUTHORIZED_WITHDRAWAL:
       return { ...state, currentPage: GEPage.PREAUTHORIZED_WITHDRAWAL };
     case GEActionType.NAVIGATE_TO_REQUEST_ACCOUNT:

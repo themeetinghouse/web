@@ -1,0 +1,55 @@
+.GiveAmountBannerContainer {
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  padding: 43px 80px 32px;
+  margin-top: -43px;
+  margin-left: -80px;
+  min-width: calc(100% + 160px);
+  & small {
+    margin-left: 16px;
+    font-size: 0.375em;
+  }
+}
+
+.GiveAmountBannerLabel {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+
+.GiveAmountBannerValue {
+  font-size: 56px;
+  line-height: 56px;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+}
+
+.GiveAmountBannerEditButton {
+  background-color: #fff;
+  font-size: calc(12px + 0.1vw);
+  border: none;
+  text-decoration: underline;
+  color: #646469;
+}
+
+.GiveAmountBannerLabelContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+@media (max-width: 767px) {
+  .GiveAmountBannerLabelContainer {
+    flex-direction: row;
+  }
+  .GiveAmountBannerLabel,
+  .GiveAmountBannerValue {
+    line-height: unset;
+    font-size: 24px;
+  }
+  .GiveAmountBannerValue {
+    margin-left: 8px;
+  }
+}

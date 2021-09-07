@@ -11,7 +11,7 @@ export default function ProfilePage() {
   const [isUpdating] = useState(false);
   const uploadRef = useRef<any>(null);
   const { userActions, userState } = useContext(UserContext);
-  const form = userState?.user;
+  const [form, setForm] = useState(userState?.user);
   const { getCurrentUserProfile } = userActions;
   useEffect(() => {
     // is this needed? gets pulled in home screen
@@ -23,7 +23,11 @@ export default function ProfilePage() {
   return form != null && form.billingAddress != null ? (
     <div className="ProfilePageContainer">
       <div className="ProfilePage">
-        <ProfileForm form={form} uploadRef={uploadRef}></ProfileForm>
+        <ProfileForm
+          setForm={setForm}
+          form={form}
+          uploadRef={uploadRef}
+        ></ProfileForm>
         <div className="LeftButtonContainer">
           <button
             onClick={() => history.goBack()}
