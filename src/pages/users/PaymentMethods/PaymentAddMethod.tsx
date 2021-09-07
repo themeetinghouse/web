@@ -10,6 +10,7 @@ import {
 } from '@stripe/stripe-js';
 import {
   GEAction,
+  GEActionType,
   GEPage,
   GEState,
 } from 'components/RenderRouter/GiveComponents/GETypes';
@@ -26,7 +27,7 @@ type AddPaymentMethodCardProps = {
 export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
   // TODO:
   /* Immediate payment vs adding card to payment methods */
-  const { closeCard, state } = props;
+  const { closeCard, state, dispatch } = props;
   const [addingCard, setAddingCard] = useState(false);
   const [stripeValidation, setStripeValidation] = useState({
     cardNumber: false,
@@ -93,6 +94,11 @@ export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
     setAddingCard(true);
     setTimeout(() => {
       setAddingCard(false);
+      if (dispatch)
+        dispatch({
+          type: GEActionType.NAVIGATE_TO_COMPLETED,
+          payload: { status: 'SUCCESS' },
+        });
       closeCard(cardDataForm);
     }, 1000);
   };
@@ -176,7 +182,7 @@ export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
               Adding card...
             </>
           ) : state?.currentPage === GEPage?.PAYMENT_INFO ? (
-            `Make my ${state?.content?.amount} gift`
+            `Make my $${state?.content?.amount} gift`
           ) : (
             'Add new credit card'
           )}

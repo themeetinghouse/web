@@ -1,9 +1,9 @@
 import React, { createContext, Dispatch, useReducer } from 'react';
 import giveExperienceReducer from './GEReducer';
-import { GEAction, GEState } from './GETypes';
+import { GEAction, GEPage, GEState } from './GETypes';
 
 const initialState = {
-  currentPage: null,
+  currentPage: GEPage.GIVE_NOW,
 };
 
 const GEContext = createContext<{

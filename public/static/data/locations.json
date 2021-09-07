@@ -62,8 +62,8 @@
     "name": "Brantford",
     "pastorEmail": "Natalie.Frisk@themeetinghouse.com",
     "location": {
-      "longitude": -80.278012,
-      "latitude": 43.182376,
+      "longitude": -80.268426,
+      "latitude": 43.141719,
       "address": "Grace Anglican Church, 4 Pearl Street"
     },
     "serviceTimes": ["9:30"]
@@ -106,8 +106,8 @@
     "name": "Hamilton Mountain",
     "pastorEmail": "Dagmar.Morgan-Sinclair@themeetinghouse.com",
     "location": {
-      "longitude": -79.808856,
-      "latitude": 43.193331,
+      "longitude": -79.95394369999997,
+      "latitude": 43.2272571,
       "address": "SilverCity Ancaster, 771 Golf Links Road"
     },
     "serviceTimes": ["10:00"]
@@ -128,8 +128,8 @@
     "name": "Toronto - High Park",
     "pastorEmail": "Rob.Schlenberg@themeetinghouse.com",
     "location": {
-      "longitude": -79.4744334,
-      "latitude": 43.6578297,
+      "longitude": -79.4921797,
+      "latitude": 43.6584924,
       "address": "Humbercrest Church, 16 Baby Point Road"
     },
     "serviceTimes": ["10:00"]
@@ -198,8 +198,8 @@
     "name": "Ottawa",
     "pastorEmail": "Eric.Versluis@themeetinghouse.com",
     "location": {
-      "longitude": -75.613528,
-      "latitude": 45.431384,
+      "longitude": -75.6901723,
+      "latitude": 45.3591095,
       "address": "Riverside United Church, 3191 Riverside Drive"
     },
     "serviceTimes": ["15:00"]

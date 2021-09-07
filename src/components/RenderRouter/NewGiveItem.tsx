@@ -3,7 +3,7 @@ import './NewGiveItem.scss';
 import ReactGA from 'react-ga';
 import { Link } from 'components/Link/Link';
 import { GEContext } from './GiveComponents/GEContext';
-import GiveExperienceContainer from './GiveComponents/GiveExperienceContainer';
+import GiveExperience from './GiveComponents/GiveExperience';
 import { GEActionType, GEPage } from './GiveComponents/GETypes';
 
 interface Props {
@@ -74,7 +74,17 @@ export default function NewGiveItem(props: Props): JSX.Element {
         >
           Online Banking
         </button>
-        <Link style={{ color: 'white', margin: 'auto 30px' }} to="/signin">
+        <Link
+          style={{
+            color: 'white',
+            width: 260,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            fontSize: 12,
+          }}
+          to="/signin"
+        >
           Login to manage your giving
         </Link>
       </div>
@@ -100,7 +110,7 @@ export default function NewGiveItem(props: Props): JSX.Element {
 
       <div className="giveItemDiv2">
         <div className="giveItemDiv3">
-          {state.currentPage ? <GiveExperienceContainer /> : null}
+          {state.currentPage ? <GiveExperience /> : null}
           {renderGiveOtherWays()}
         </div>
       </div>
