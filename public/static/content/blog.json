@@ -43,7 +43,7 @@
         "status": "Live",
         "sortOrder": "DESC",
         "skipFirstPost": true,
-        "loadPer": 10
+        "loadPer": 50
       }
     ]
   }
