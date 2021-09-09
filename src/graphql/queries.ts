@@ -2825,6 +2825,139 @@ export const generatePdf = /* GraphQL */ `
     }
   }
 `;
+export const tmhPinpointListSegments = /* GraphQL */ `
+  query TmhPinpointListSegments($nextToken: String) {
+    tmhPinpointListSegments(nextToken: $nextToken) {
+      Item {
+        Name
+        Dimensions {
+          Demographic {
+            Channel {
+              DimensionType
+              Values
+            }
+            Platform {
+              DimensionType
+              Values
+            }
+            DeviceType {
+              DimensionType
+              Values
+            }
+            AppVersion {
+              DimensionType
+              Values
+            }
+            Make {
+              DimensionType
+              Values
+            }
+            Model {
+              DimensionType
+              Values
+            }
+          }
+          Location {
+            Country {
+              DimensionType
+              Values
+            }
+            GPSPoint {
+              Coordinates {
+                Latitude
+                Longitude
+              }
+              RangeInKilometers
+            }
+          }
+          Behavior {
+            Recency {
+              RecencyType
+              Duration
+            }
+          }
+          Attributes
+          Metrics
+          UserAttributes
+        }
+        SegmentGroups {
+          Include
+          Groups {
+            Type
+            Dimensions {
+              Demographic {
+                Channel {
+                  DimensionType
+                  Values
+                }
+                Platform {
+                  DimensionType
+                  Values
+                }
+                DeviceType {
+                  DimensionType
+                  Values
+                }
+                AppVersion {
+                  DimensionType
+                  Values
+                }
+                Make {
+                  DimensionType
+                  Values
+                }
+                Model {
+                  DimensionType
+                  Values
+                }
+              }
+              Location {
+                Country {
+                  DimensionType
+                  Values
+                }
+                GPSPoint {
+                  RangeInKilometers
+                }
+              }
+              Behavior {
+                Recency {
+                  RecencyType
+                  Duration
+                }
+              }
+              Attributes
+              Metrics
+              UserAttributes
+            }
+            SourceType
+            SourceSegments {
+              Id
+              Version
+            }
+          }
+        }
+        Id
+        ApplicationId
+        CreationDate
+        LastModifiedDate
+        Version
+        SegmentType
+        ImportDefinition {
+          Size
+          S3Url
+          RoleArn
+          ExternalId
+          Format
+          ChannelCounts
+        }
+        Arn
+        tags
+      }
+      NextToken
+    }
+  }
+`;
 export const tmhPinpointCreateCampaign = /* GraphQL */ `
   query TmhPinpointCreateCampaign(
     $name: String

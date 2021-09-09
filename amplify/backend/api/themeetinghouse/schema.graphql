@@ -29,7 +29,7 @@ type Query {
   emailHomeChurch(name:String,email:String,message:String,homeChurchId:String):emailResponse @function(name:"emailHomeChurch-${env}")
   askQuestion(email:String,body:String):emailResponse @function(name:"QandEh-${env}")
   generatePdf(notes:String,questions:String,week:String,title:String,userId:String):pdfRes @function(name:"tmhnotespdf-${env}")
-
+  tmhPinpointListSegments(nextToken:String):PinpointSegmentList @function(name:"tmhPinpointListSegments-${env}")
   tmhPinpointCreateCampaign(
     name:String,
     description:String,
@@ -57,36 +57,36 @@ enum PinpointRecencyDurationType
   DAY_14 
   DAY_30
 }
-input PinpointChannel
+type PinpointChannel
 {
   DimensionType: PinpointEventTypeDimensionType
   Values: [String]
 }
-input PinpointCoordinates
+type PinpointCoordinates
 {
   Latitude:Float
   Longitude:Float
 }
-input PinpointGPSPoint
+type PinpointGPSPoint
 {
   Coordinates: PinpointCoordinates
   RangeInKilometers: Float
 }
-input PinpointLocation
+type PinpointLocation
 {
   Country: PinpointChannel
   GPSPoint: PinpointGPSPoint
 }
-input PinpointRecency 
+type PinpointRecency 
 {
   RecencyType: PinpointRecencyType
   Duration: PinpointRecencyDurationType
 }
-input PinpointBehaviour
+type PinpointBehaviour
 {
   Recency:PinpointRecency
 }
-input PinpointDemographic
+type PinpointDemographic
 {
   Channel: PinpointChannel
   Platform:PinpointChannel
@@ -95,7 +95,7 @@ input PinpointDemographic
   Make:PinpointChannel
   Model:PinpointChannel
 }
-input PinpointDimensions
+type PinpointDimensions
 {
   Demographic: PinpointDemographic
   Location: PinpointLocation
@@ -105,7 +105,7 @@ input PinpointDimensions
   UserAttributes:AWSJSON
 
 }
-input PinpointSourceSegment
+type PinpointSourceSegment
 {
   Id: String
   Version:Int
@@ -116,14 +116,14 @@ enum PinpointSegmentGroupType
   ANY
   NONE
 }
-input PinpointSegmentGroup 
+type PinpointSegmentGroup 
 {
   Type: PinpointSegmentGroupType
   Dimensions: [PinpointDimensions]
   SourceType: PinpointSegmentGroupType
   SourceSegments: [PinpointSourceSegment]
 }
-input PinpointSegmentGroups
+type PinpointSegmentGroups
 {
   Include: PinpointSegmentGroupType
   Groups: [PinpointSegmentGroup]
@@ -133,7 +133,7 @@ enum PinpointImportDefinitionFormat
   CSV 
   JSON
 }
-input PinpointImportDefinition
+type PinpointImportDefinition
 {
   Size: Int
   S3Url: String
@@ -147,7 +147,7 @@ enum PinpointSegmentType
   DIMENSIONAL 
   IMPORT
 }
-input PinpointSegmentItem
+type PinpointSegmentItem
 {
   Name:String
   Dimensions: PinpointDimensions
@@ -162,7 +162,7 @@ input PinpointSegmentItem
   Arn: String
   tags: AWSJSON
 }
-input PinpointSegmentList
+type PinpointSegmentList
 {
   Item:[PinpointSegmentItem]
   NextToken:String
