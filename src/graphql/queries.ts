@@ -2825,6 +2825,27 @@ export const generatePdf = /* GraphQL */ `
     }
   }
 `;
+export const tmhPinpointCreateCampaign = /* GraphQL */ `
+  query TmhPinpointCreateCampaign(
+    $name: String
+    $description: String
+    $segmentId: String
+    $segmentVersion: String
+    $schedule: PinpointScheduleInput
+    $appleMessage: PinpointMessageInput
+    $androidMessage: PinpointMessageInput
+  ) {
+    tmhPinpointCreateCampaign(
+      name: $name
+      description: $description
+      segmentId: $segmentId
+      segmentVersion: $segmentVersion
+      schedule: $schedule
+      appleMessage: $appleMessage
+      androidMessage: $androidMessage
+    )
+  }
+`;
 export const tmhF1LinkUser = /* GraphQL */ `
   query TmhF1LinkUser {
     tmhF1LinkUser

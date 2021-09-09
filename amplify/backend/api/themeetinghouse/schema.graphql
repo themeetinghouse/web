@@ -29,22 +29,231 @@ type Query {
   emailHomeChurch(name:String,email:String,message:String,homeChurchId:String):emailResponse @function(name:"emailHomeChurch-${env}")
   askQuestion(email:String,body:String):emailResponse @function(name:"QandEh-${env}")
   generatePdf(notes:String,questions:String,week:String,title:String,userId:String):pdfRes @function(name:"tmhnotespdf-${env}")
+
+  tmhPinpointCreateCampaign(
+    name:String,
+    description:String,
+    segmentId:String,
+    segmentVersion:String,
+    schedule:PinpointScheduleInput,
+    appleMessage:PinpointMessageInput,
+    androidMessage:PinpointMessageInput):Boolean @function(name:"tmhPinpointCreateCampaign-${env}")
+
   tmhF1LinkUser:Boolean @function(name:"tmhF1LinkUser-${env}") @aws_cognito_user_pools
   tmhF1SyncGroupPermissions:Boolean @function(name:"tmhF1SyncGroupPermissions-${env}") @aws_cognito_user_pools
   tmhF1SearchContributionReceipts(pageId:String):F1SearchContributionReceiptsType @function(name:"tmhF1SearchContributionReceipts-${env}") @aws_cognito_user_pools
   tmhStripeAddCustomer(idempotency:String,phone:String,email:String,firstName:String,lastName:String,orgName:String,billingAddress:StripeAddressInput):StripeCustomerData @function(name:"tmhStripeAddCustomer-${env}") @aws_cognito_user_pools
   tmhStripeListPaymentMethods(pageId:String):StripePaymentMethodsData @function(name:"tmhStripeListPaymentMethods-${env}") @aws_cognito_user_pools
 }
+enum PinpointRecencyType
+{
+  ACTIVE 
+  INACTIVE
+}
+enum PinpointRecencyDurationType
+{
+  HR_24 
+  DAY_7 
+  DAY_14 
+  DAY_30
+}
+input PinpointChannel
+{
+  DimensionType: PinpointEventTypeDimensionType
+  Values: [String]
+}
+input PinpointCoordinates
+{
+  Latitude:Float
+  Longitude:Float
+}
+input PinpointGPSPoint
+{
+  Coordinates: PinpointCoordinates
+  RangeInKilometers: Float
+}
+input PinpointLocation
+{
+  Country: PinpointChannel
+  GPSPoint: PinpointGPSPoint
+}
+input PinpointRecency 
+{
+  RecencyType: PinpointRecencyType
+  Duration: PinpointRecencyDurationType
+}
+input PinpointBehaviour
+{
+  Recency:PinpointRecency
+}
+input PinpointDemographic
+{
+  Channel: PinpointChannel
+  Platform:PinpointChannel
+  DeviceType:PinpointChannel
+  AppVersion:PinpointChannel
+  Make:PinpointChannel
+  Model:PinpointChannel
+}
+input PinpointDimensions
+{
+  Demographic: PinpointDemographic
+  Location: PinpointLocation
+  Behavior: PinpointBehaviour
+  Attributes:AWSJSON
+  Metrics: AWSJSON
+  UserAttributes:AWSJSON
+
+}
+input PinpointSourceSegment
+{
+  Id: String
+  Version:Int
+}
+enum PinpointSegmentGroupType
+{
+  ALL 
+  ANY
+  NONE
+}
+input PinpointSegmentGroup 
+{
+  Type: PinpointSegmentGroupType
+  Dimensions: [PinpointDimensions]
+  SourceType: PinpointSegmentGroupType
+  SourceSegments: [PinpointSourceSegment]
+}
+input PinpointSegmentGroups
+{
+  Include: PinpointSegmentGroupType
+  Groups: [PinpointSegmentGroup]
+}
+enum PinpointImportDefinitionFormat
+{
+  CSV 
+  JSON
+}
+input PinpointImportDefinition
+{
+  Size: Int
+  S3Url: String
+  RoleArn: String
+  ExternalId: String
+  Format: PinpointImportDefinitionFormat
+  ChannelCounts: AWSJSON
+}
+enum PinpointSegmentType
+{
+  DIMENSIONAL 
+  IMPORT
+}
+input PinpointSegmentItem
+{
+  Name:String
+  Dimensions: PinpointDimensions
+  SegmentGroups: PinpointSegmentGroups
+  Id: String
+  ApplicationId: String
+  CreationDate: String
+  LastModifiedDate: String
+  Version: Int
+  SegmentType: PinpointSegmentType
+  ImportDefinition: PinpointImportDefinition
+  Arn: String
+  tags: AWSJSON
+}
+input PinpointSegmentList
+{
+  Item:[PinpointSegmentItem]
+  NextToken:String
+}
+enum PinpointFrequency
+{
+  ONCE 
+  HOURLY
+  DAILY
+  WEEKLY
+  MONTHLY
+  EVENT
+  IN_APP_EVENT
+}
+input PinpointQuietTime
+{
+  Start: String
+  End: String
+}
+enum PinpointDimensionType
+{
+  INCLUSIVE
+  EXCLUSIVE
+}
+enum PinpointEventTypeDimensionType
+{
+  INCLUSIVE
+  EXCLUSIVE
+}
+input PinpointEventType
+{
+  DimensionType: PinpointEventTypeDimensionType
+  Values: [String]
+}
+input PinpointDimension
+{
+  EventType: PinpointEventType
+  Attributes: AWSJSON
+  Metrics: AWSJSON
+}
+enum PinpointFilterType
+{
+  SYSTEM 
+  ENDPOINT
+}
+input PinpointEventFilter
+{
+  Dimensions: PinpointDimension
+  FilterType: PinpointFilterType    
+}
+input PinpointScheduleInput
+{
+  StartTime: String
+  EndTime: String
+  Frequency: PinpointFrequency
+  IsLocalTime: Boolean
+  Timezone: String
+  QuietTime: PinpointQuietTime
+  EventFilter: PinpointEventFilter
+}
+enum PinpointAction
+{
+  OPEN_APP 
+  DEEP_LINK 
+  URL
+}
+input PinpointMessageInput
+{
+  Body: String
+  Title: String
+  ImageUrl:String
+  ImageIconUrl: String
+  ImageSmallIconUrl:String
+  MediaUrl: String
+  Action: PinpointAction
+  Url: String
+  SilentPush: Boolean
+  JsonBody: String
+  RawContent: String
+  TimeToLive: Int
+}
 input StripeAddressInput
 {
-    city:String
-    country:String
-    line1:String
-    line2:String
-    postal_code:String
-    state:String
-  }
-  type StripeCustomerData{
+  city:String
+  country:String
+  line1:String
+  line2:String
+  postal_code:String
+  state:String
+}
+type StripeCustomerData{
   customer:StripeCustomer
 }
 type StripePaymentMethodsData{

@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "analytics": {
+      "themeetinghouse": [
+        "create",
+        "read",
+        "update"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}

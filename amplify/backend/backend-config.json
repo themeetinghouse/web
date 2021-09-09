@@ -475,6 +475,36 @@
           ]
         }
       ]
+    },
+    "tmhPinpointCreateCampaign": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "analytics",
+          "resourceName": "themeetinghouse",
+          "attributes": [
+            "Id",
+            "Region"
+          ]
+        }
+      ]
+    },
+    "tmhPinpointListSegments": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "analytics",
+          "resourceName": "themeetinghouse",
+          "attributes": [
+            "Id",
+            "Region"
+          ]
+        }
+      ]
     }
   },
   "analytics": {
