@@ -247,7 +247,7 @@
           "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
           "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "s3Key": "amplify-builds/cognitodevtmhPostAuthentication-77337844384b496e4d67-build.zip"
+          "s3Key": "amplify-builds/cognitodevtmhPostAuthentication-346567327133314c7153-build.zip"
         },
         "tmhPinpointCreateCampaign": {
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",

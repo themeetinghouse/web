@@ -107,10 +107,10 @@ async function createUser(item, event) {
       updatedAt: { S: date },
       joined: { S: date },
       owner: { S: item.id },
-      f1PersonId: { S: item.f1PersonId },
-      f1HouseholdId: { S: item.f1HouseholdId },
+      f1PersonId: item.f1PersonId ? { S: item.f1PersonId } : null,
+      f1HouseholdId: item.f1PersonId ? { S: item.f1HouseholdId } : null,
       email: { S: item.email },
-      phone: { S: item.phone_number },
+      phone: item.phone_number ? { S: item.phone_number } : null,
     };
 
     console.log({ item: item });
