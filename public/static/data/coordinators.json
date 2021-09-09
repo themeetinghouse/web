@@ -642,5 +642,12 @@
     "sites": ["TOUP"],
     "Email": "sarah.lyew@themeetinghouse.com",
     "Position": "Toronto Youth Pastor"
+  },
+  {
+    "FirstName": "Kelly",
+    "LastName": "Dunwell",
+    "sites": ["TOUP"],
+    "Email": "kelly.dunwell@themeetinghouse.com",
+    "Position": "Kidmax Coordinator"
   }
 ]
