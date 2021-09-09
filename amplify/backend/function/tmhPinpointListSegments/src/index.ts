@@ -5,37 +5,18 @@
 	REGION
 Amplify Params - DO NOT EDIT */
 import * as aws from 'aws-sdk';
-import API, { GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
-import Amplify from '@aws-amplify/core';
-
 export const handler = async (event) => {
-  var secretName = 'tmhweb/' + process.env.ENV + '/secrets',
-    secret,
-    decodedBinarySecret;
-  // Create a Secrets Manager client
-  var client = new aws.SecretsManager({
-    region: process.env.REGION,
-  });
   try {
-    const data = await client
-      .getSecretValue({ SecretId: secretName })
-      .promise();
+    const pinpoint = new aws.Pinpoint({ apiVersion: '2016-12-01' });
+    var params = {
+      ApplicationId: process.env.ANALYTICS_THEMEETINGHOUSE_ID /* required */,
+      PageSize: '20',
+      Token: event.arguments.nextToken,
+    };
 
-    if ('SecretString' in data) {
-      secret = JSON.parse(data.SecretString);
-    } else {
-      decodedBinarySecret = data.SecretBinary.toString('base64');
-    }
-    console.log('Loading Secret Done');
-
-    await Amplify.Auth.signIn(secret.adminUser, secret.adminPW);
-    const currentSession = await Amplify.Auth.currentSession();
-    Amplify.configure({
-      Authorization: currentSession.getIdToken().getJwtToken(),
-    });
-    console.log('Logged in');
-    console.log({ event: event });
-
+    const segments = await pinpoint.getSegments(params).promise();
+    console.log(segments);
+    console.log(segments.SegmentsResponse.Item);
     const response = {
       statusCode: 200,
       //  Uncomment below to enable CORS requests
@@ -44,7 +25,7 @@ export const handler = async (event) => {
       //      "Access-Control-Allow-Headers": "*"
       //  },
 
-      body: JSON.stringify(true),
+      body: JSON.stringify(segments.SegmentsResponse),
     };
     return response;
   } catch (error) {
