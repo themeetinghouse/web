@@ -379,9 +379,12 @@ export default class Authenticator extends React.Component<
   trackUserId = async (): Promise<void> => {
     console.log('Setting up Analytics');
     try {
-      const { attributes } =
+      const cognitoUser =
         (await Auth.currentAuthenticatedUser()) as TMHCognitoUser;
+      const { attributes } = cognitoUser;
       const userAttributes = mapToArrayOfStrings(attributes);
+      const groups = cognitoUser.getSignInUserSession()?.getAccessToken()
+        ?.payload?.['cognito:groups'];
       console.log({
         Email: attributes?.email,
         Sub: attributes?.sub,
@@ -393,6 +396,9 @@ export default class Authenticator extends React.Component<
         optOut: 'NONE',
         userId: attributes?.sub,
         userAttributes,
+        attributes: {
+          groups,
+        },
       });
     } catch (error) {
       console.log({ trackUserIdError: error });
