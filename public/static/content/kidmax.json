@@ -52,13 +52,13 @@
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/EYLessonSep5.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYLessonSep12.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/EYActivitySep5.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesSep12.pdf",
             "openNewBrowser": true
           },
           {
@@ -87,20 +87,20 @@
         "image1": [
           {
             "src": "/static/images/KidsBigIdeaSep5.jpg",
-            "alt": "This week's big idea is: God cares about what's on the inside."
+            "alt": "This week's big idea is: God created us to live in peace."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonSep5.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonSep12.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activity",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesSep5.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitySep12.pdf",
             "openNewBrowser": true
           },
           {
