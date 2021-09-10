@@ -27,39 +27,39 @@
         "content": [{
             "type": "regather",
             "mainHeader": "Sunday Worship",
-            "subHeader1": "Welcome home. We’re excited to see you again.",
+            "subHeader1": "Welcome home — we’re excited to see you again.",
             "divider": true,
-            "text1": "In this current season, we are offering weekend worship experiences online and gatherings for in-person weekend services on Sundays. In light of public health guidelines intended to limit the spread of COVID-19 in our community, we have made a number of changes to our in-person experiences, including limiting capacity and requiring online registration. Our livestream service will continue, and everyone is encouraged to choose the worship experience that is right for them.",
-            "text2": "We invite you to read the details below and join us in caring for one another as best we can. There will be an option to register for in-person gatherings at the end of this page as well as a link to the livestream should you prefer that option.",
+            "text1": "This season, we’re offering Sunday morning experiences online and in person. To follow public health guidelines, we’ve made some changes to in-person gatherings like limiting capacity and asking people to register online.",
+            "text2": "Keep scrolling for more details and links to register or join the livestream.",
             "header3": "What to expect",
             "graphicItems": [{
-                    "title": "Please Register",
-                    "description": "Registration is required to ensure a safe gathering environment.",
+                    "title": "Please register",
+                    "description": "Registration is required for a safe gathering environment.",
                     "image": "/static/svg/Regather-Icon-01.svg"
                 },
                 {
                     "title": "Mind the numbers",
-                    "description": "Capacity limits mean we will only be able to allow a set number of kids, youth, and adults.",
+                    "description": "Capacity limits mean we can only have a set number of kids, youth, and adults.",
                     "image": "/static/svg/Regather-Mind_the_numbers.svg"
                 },
                 {
                     "title": "Health check",
-                    "description": "To ensure everyone’s safety, you’ll need to confirm your wellness prior to entry.",
+                    "description": "Please confirm your own wellness before entering.",
                     "image": "/static/svg/Regather-Health_check.svg"
                 },
                 {
                     "title": "Wear a mask",
-                    "description": "A mask is required throughout the service. If you do not have one, one will be provided.",
+                    "description": "A mask is required during the service. (If you don’t have one, we’ve got you covered.)",
                     "image": "/static/svg/Regather-Icon-04.svg"
                 },
                 {
                     "title": "Lovingly apart",
-                    "description": "We are still required to stay six feet apart from people who are not in our household.",
+                    "description": "Stay six feet apart from people not in your household.",
                     "image": "/static/svg/Regather-Icon-07.svg"
                 },
                 {
-                    "title": "Congregational singing",
-                    "description": "Please check your local Parish page to find out what your Parish is planning for congregational singing.",
+                    "title": "To sing or not to sing",
+                    "description": "Please check your local parish page for singing guidelines.",
                     "image": "/static/svg/Regather-No_singing.svg"
                 }
             ],
@@ -70,8 +70,8 @@
                 "type": "outline notmobile"
             },
             "header5": "Online Registration",
-            "text3": "Anyone attending a Sunday gathering will be required to pre-register online. We do this to ensure we aren’t exceeding the number of people that can safely attend. The online registrations window will be open each week from 5pm on Sunday to 5pm on Thursday.",
-            "text4": "During the registration process we will ask for contact information in case we need to contact you due to a COVID related issue. When you arrive on a Sunday morning you’ll proceed to the check in area where a friendly volunteer will check you in and confirm your health screening.",
+            "text3": "Anyone attending an in-person gathering will need to pre-register online. The registration window will be open each week from 5pm on Sunday to 5pm on Thursday.",
+            "text4": "We’ll ask for your contact info in case we need to reach you about a COVID related issue. When you show up on a Sunday morning, one of our amazing volunteers will check you in and confirm your health screening.",
             "button3": {
                 "text": "Register Now",
                 "type": "solid mobile"
