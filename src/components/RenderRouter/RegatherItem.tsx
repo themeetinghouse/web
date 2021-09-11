@@ -49,7 +49,7 @@ export default function RegatherItem(props: Props): JSX.Element {
   useEffect(() => {
     if (isCancel) {
       setFormUrl(
-        `https://rsvp.themeetinghouse.com/beta1/cancelReg.php?transCode=${
+        `https://rsvp.themeetinghouse.com/regather210910/cancelReg.php?transCode=${
           window.location.href?.split('transCode=')?.[1]
         }`
       );
@@ -57,7 +57,7 @@ export default function RegatherItem(props: Props): JSX.Element {
         setIsOpen(true);
       } else formRef.current?.scrollIntoView({ behavior: 'smooth' });
     } else {
-      setFormUrl('https://rsvp.themeetinghouse.com/beta1/');
+      setFormUrl('https://rsvp.themeetinghouse.com/regather210910/');
     }
   }, []);
   return (
@@ -209,7 +209,7 @@ export default function RegatherItem(props: Props): JSX.Element {
               style={{ position: 'absolute', right: '16px' }}
               onClick={() => {
                 setIsOpen(false);
-                setFormUrl('https://rsvp.themeetinghouse.com/beta1/');
+                setFormUrl('https://rsvp.themeetinghouse.com/regather210910/');
               }}
               aria-label="Close modal"
             >
