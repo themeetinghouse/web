@@ -65,7 +65,8 @@ export class DistanceGroupItem extends React.Component<Props, State> {
       })
       .then((myJson) => {
         this.setState({ listData: myJson });
-      });
+      })
+      .catch((e) => console.log(e));
   }
   navigate(to: string) {
     this.props.history.push(to, 'as');

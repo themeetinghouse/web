@@ -71,7 +71,8 @@ class HomeMenu extends React.Component<Props, State> {
       })
       .then((myJson) => {
         this.setState({ MainMenuItems: myJson });
-      });
+      })
+      .catch((e) => console.log(e));
 
     this.toggle = this.toggle.bind(this);
     this.state = {

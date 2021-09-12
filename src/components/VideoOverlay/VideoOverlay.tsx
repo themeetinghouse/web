@@ -3,23 +3,23 @@ import RenderRouter from '../RenderRouter/RenderRouter';
 import { Modal, ModalBody, ModalFooter } from 'reactstrap';
 import './VideoOverlay.scss';
 
-const searchPageContent = fetch('/static/content/search.json').then(function (
-  response
-) {
-  return response.json();
-});
-
-const playerPageContent = fetch('/static/content/video-player.json').then(
-  function (response) {
+const searchPageContent = fetch('/static/content/search.json')
+  .then(function (response) {
     return response.json();
-  }
-);
+  })
+  .catch((e) => console.log(e));
 
-const playlistPageContent = fetch('/static/content/video-playlist.json').then(
-  function (response) {
+const playerPageContent = fetch('/static/content/video-player.json')
+  .then(function (response) {
     return response.json();
-  }
-);
+  })
+  .catch((e) => console.log(e));
+
+const playlistPageContent = fetch('/static/content/video-playlist.json')
+  .then(function (response) {
+    return response.json();
+  })
+  .catch((e) => console.log(e));
 
 interface Props {
   data: any;

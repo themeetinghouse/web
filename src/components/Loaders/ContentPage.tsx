@@ -6,9 +6,9 @@ import { useHistory, useLocation } from 'react-router-dom';
 const RenderRouter = React.lazy(() => import('../RenderRouter/RenderRouter'));
 const VideoOverlay = React.lazy(() => import('../VideoOverlay/VideoOverlay'));
 
-const notFoundPageContent = fetch('/static/content/404.json').then((response) =>
-  response.json()
-);
+const notFoundPageContent = fetch('/static/content/404.json')
+  .then((response) => response.json())
+  .catch((e) => console.log(e));
 
 export default function ContentPage(): ReactElement | null {
   const history = useHistory();
