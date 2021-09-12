@@ -25,14 +25,12 @@ else ReactGA.initialize('UA-4554612-3');
 
 Amplify.configure(awsconfig);
 
-const redirectData = fetch('/static/data/redirect.json')
-  .then<
-    Array<{
-      id: string;
-      to: string;
-    }>
-  >((response) => response.json())
-  .catch((e) => console.log(e));
+const redirectData = fetch('/static/data/redirect.json').then<
+  Array<{
+    id: string;
+    to: string;
+  }>
+>((response) => response.json());
 
 export interface RouteParams {
   id?: string;
