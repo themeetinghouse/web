@@ -9,32 +9,25 @@ import API, { GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import Amplify from '@aws-amplify/core';
 
 export const handler = async (event) => {
-  var secretName = 'tmhweb/' + process.env.ENV + '/secrets',
-    secret,
-    decodedBinarySecret;
-  // Create a Secrets Manager client
-  var client = new aws.SecretsManager({
-    region: process.env.REGION,
-  });
   try {
-    const data = await client
-      .getSecretValue({ SecretId: secretName })
-      .promise();
-
-    if ('SecretString' in data) {
-      secret = JSON.parse(data.SecretString);
-    } else {
-      decodedBinarySecret = data.SecretBinary.toString('base64');
-    }
-    console.log('Loading Secret Done');
-
-    await Amplify.Auth.signIn(secret.adminUser, secret.adminPW);
-    const currentSession = await Amplify.Auth.currentSession();
-    Amplify.configure({
-      Authorization: currentSession.getIdToken().getJwtToken(),
-    });
-    console.log('Logged in');
-    console.log({ event: event });
+    const pinpoint = new aws.Pinpoint({ apiVersion: '2016-12-01' });
+    var params: aws.Pinpoint.CreateCampaignRequest = {
+      ApplicationId: process.env.ANALYTICS_THEMEETINGHOUSE_ID /* required */,
+      WriteCampaignRequest: {
+        /* required */ Name: event.arguments.name,
+        Description: event.arguments.description,
+        SegmentId: event.arguments.segmentId,
+        SegmentVersion: event.arguments.segmentVersion,
+        IsPaused: false,
+        MessageConfiguration: {
+          APNSMessage: event.arguments.appleMessage,
+          GCMMessage: event.arguments.androidMessage,
+        },
+        Schedule: event.arguments.schedule,
+      },
+    };
+    const campaign = await pinpoint.createCampaign(params).promise();
+    console.log(campaign);
 
     const response = {
       statusCode: 200,

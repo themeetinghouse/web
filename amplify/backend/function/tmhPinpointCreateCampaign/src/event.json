@@ -1,5 +1,28 @@
 {
-  "key1": "value1",
-  "key2": "value2",
-  "key3": "value3"
+  "arguments": {
+    "name":"Test Campaign A1",
+    "description":"Testing lambda",
+    "segmentId":"8f969d2a365740b28ffd094c111c333f",
+    "segmentVersion":"1",
+    "schedule":{
+      "StartTime": "IMMEDIATE", 
+      "Frequency": "ONCE"
+    },
+    "appleMessage":{
+      "Action": "URL",
+      "Title": "Welcome Home",
+      "Url": "https://www.themeetinghouse.com/fall2021",
+      "Body": "Sunday morning services start this Sunday!",
+      "SilentPush": false
+    },
+    "androidMessage":{
+      "Action": "URL",
+      "Title": "Welcome Home",
+      "Url": "https://www.themeetinghouse.com/fall2021",
+      "Body": "Sunday morning services start this Sunday!",
+      "SilentPush": false
+    }
+
+  }
+  
 }
