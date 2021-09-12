@@ -31,6 +31,14 @@
           {
             "src": "/static/images/youth/Sunday.jpg",
             "alt": "Man sitting outside on a backyard patio talking and laughing with a group of friends.."
+          },
+          {
+            "src": "/static/images/youth/Color.jpg",
+            "alt": "Man sitting outside on a backyard patio talking and laughing with a group of friends.."
+          },
+          {
+            "src": "/static/images/youth/Midweek.jpg",
+            "alt": "Man sitting outside on a backyard patio talking and laughing with a group of friends.."
           }
         ],
         "header1": "My Dudes!",
@@ -129,9 +137,9 @@
       {
         "type": "content",
         "style": "oneImageBlackRight",
-        "header1": "COVID-19 Updates",
+        "header1": "All the COVID-19 Updates",
         "header2": "",
-        "text1": "We've made significant changes in response to the COVID-19 pandemic. Whether you're a new visitor or an old timer, find out what's changing at The Meeting House as we head into the fall.",
+        "text1": "We've made significant changes in response to the COVID-19 pandemic. Find out what's changing as we head into the fall.",
         "list": [
           {
             "type": "link",
@@ -156,7 +164,7 @@
             "alt": "A map representing locations of The Meeting House churches."
           }
         ],
-        "header1": "Locations",
+        "header1": "Find us",
         "text1": "It's pretty simple: we get together to build relationships, and find ways to love and serve our neighbourhoods as we learn to follow Jesus.",
         "text2": "Find local, connect online.",
         "link1Text": "Show Map",
