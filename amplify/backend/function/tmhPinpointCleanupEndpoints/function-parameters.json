@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "auth": {
+      "cognitodevtmh": [
+        "read"
+      ]
+    },
+    "analytics": {
+      "themeetinghouse": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}

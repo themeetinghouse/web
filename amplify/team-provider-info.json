@@ -251,11 +251,15 @@
         },
         "tmhPinpointCreateCampaign": {
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "s3Key": "amplify-builds/tmhPinpointCreateCampaign-754f65576a45326e3344-build.zip"
+          "s3Key": "amplify-builds/tmhPinpointCreateCampaign-7341777a7457464d336f-build.zip"
         },
         "tmhPinpointListSegments": {
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
           "s3Key": "amplify-builds/tmhPinpointListSegments-4c6839646b4b316a7064-build.zip"
+        },
+        "tmhPinpointCleanupEndpoints": {
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/tmhPinpointCleanupEndpoints-73364b6e723878354137-build.zip"
         }
       },
       "notifications": {

@@ -23,6 +23,7 @@
     "amplify:cognitodevtmhPostAuthentication": "cd amplify/backend/function/cognitodevtmhPostAuthentication/src && tsc && cd -",
     "amplify:tmhPinpointCreateCampaign": "cd amplify/backend/function/tmhPinpointCreateCampaign/src && tsc && cd -",
     "amplify:tmhPinpointListSegments": "cd amplify/backend/function/tmhPinpointListSegments/src && tsc && cd -",
+    "amplify:tmhPinpointCleanupEndpoints": "cd amplify/backend/function/tmhPinpointCleanupEndpoints/src && tsc && cd -",
     "amplify:tmhStripeAddCustomer": "cd amplify/backend/function/tmhStripeAddCustomer/src && tsc && cd -",
     "amplify:tmhStripeAddPaymentMethod": "cd amplify/backend/function/tmhStripeAddPaymentMethod/src && tsc && cd -",
     "amplify:tmhStripeAddSubscription": "cd amplify/backend/function/tmhStripeAddSubscription/src && tsc && cd -",

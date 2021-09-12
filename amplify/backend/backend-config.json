@@ -505,6 +505,28 @@
           ]
         }
       ]
+    },
+    "tmhPinpointCleanupEndpoints": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "cognitodevtmh",
+          "attributes": [
+            "UserPoolId"
+          ]
+        },
+        {
+          "category": "analytics",
+          "resourceName": "themeetinghouse",
+          "attributes": [
+            "Id",
+            "Region"
+          ]
+        }
+      ]
     }
   },
   "analytics": {
