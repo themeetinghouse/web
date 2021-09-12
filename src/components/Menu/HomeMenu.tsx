@@ -65,14 +65,24 @@ interface State {
 class HomeMenu extends React.Component<Props, State> {
   constructor(props: any) {
     super(props);
-    fetch('/static/data/MainMenu.json')
-      .then(function (response) {
-        return response.json();
-      })
-      .then((myJson) => {
-        this.setState({ MainMenuItems: myJson });
-      })
-      .catch((e) => console.log(e));
+    if (this.props.pageConfig.menuType == 'youth')
+      fetch('/static/data/YouthMenu.json')
+        .then(function (response) {
+          return response.json();
+        })
+        .then((myJson) => {
+          this.setState({ MainMenuItems: myJson });
+        })
+        .catch((e) => console.log(e));
+    else
+      fetch('/static/data/MainMenu.json')
+        .then(function (response) {
+          return response.json();
+        })
+        .then((myJson) => {
+          this.setState({ MainMenuItems: myJson });
+        })
+        .catch((e) => console.log(e));
 
     this.toggle = this.toggle.bind(this);
     this.state = {
