@@ -68,11 +68,6 @@
           },
           {
             "type": "link",
-            "title": "Live Production Technical Producer",
-            "navigateTo": "/static/pdfs/careers/LiveProduction.pdf"
-          },
-          {
-            "type": "link",
             "title": "Facilities Assistant",
             "navigateTo": "/static/pdfs/careers/Facility Assistant 2021.pdf"
           },
