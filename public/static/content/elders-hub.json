@@ -100,11 +100,11 @@
         {
           "type": "content",
           "style": "oneImage",
-          "header1": "Elders Toolbox",
+          "header1": "Other Resources",
           "list": [
             {
               "type": "link",
-              "title": "Access the toolbox",
+              "title": "Elders Toolbox",
               "navigateTo": "https://drive.google.com/drive/folders/0B-JVWCBiOuinfmFGb3A3eTZ1LTU1cTl2d08wa09wMmJIbWhzTzlEUTAtelZTSmVxVnhJUVU?resourcekey=0-8aDPoskI5t0tbs7BEdMK6g&usp=sharing"
             }
           ],
