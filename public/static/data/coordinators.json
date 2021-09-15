@@ -581,17 +581,17 @@
     "Position": "Youth Coordinator"
   },
   {
-    "FirstName": "Angela",
-    "LastName": "Rose",
-    "sites": ["NMKT"],
-    "Email": "angela.rose@themeetinghouse.com",
-    "Position": "Youth Coordinator"
-  },
-  {
     "FirstName": "Kylah",
     "LastName": "Adams",
     "sites": ["NMKT"],
     "Email": "kylah.adams@themeetinghouse.com",
+    "Position": "Youth Coordinator"
+  },
+  {
+    "FirstName": "Barry",
+    "LastName": "Smith",
+    "sites": ["NMKT"],
+    "Email": "barry.smith@themeetinghouse.com",
     "Position": "Youth Coordinator"
   },
   {
