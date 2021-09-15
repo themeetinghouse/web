@@ -157,7 +157,7 @@ export default class ImportYoutube {
             authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
           })) as GraphQLResult<CreateVideoMutation>;
           console.log({ 'Success mutations.createVideo': createVideo.data });
-        } catch (e) {
+        } catch (e: any) {
           /* ignore errors if mutation succeeds */
           if (e.data?.createVideo?.id) {
             console.log({ 'Success mutations.createVideo': e.data });
@@ -199,7 +199,7 @@ export default class ImportYoutube {
               console.log({
                 'Success mutations.updateVideo': updateVideo.data,
               });
-            } catch (e) {
+            } catch (e: any) {
               /* ignore errors if mutation succeeds */
               if (e.data?.updateVideo?.id) {
                 console.log({ 'Success mutations.updateVideo': e.data });

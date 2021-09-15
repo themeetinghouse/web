@@ -1,15 +1,6 @@
 import React, { ReactElement } from 'react';
-import {
-  Link as RRLink,
-  NavLink as RRNavLink,
-  LinkProps,
-  NavLinkProps,
-} from 'react-router-dom';
-import {
-  ButtonProps as RSButtonProps,
-  Button,
-  NavLink as RSNavLink,
-} from 'reactstrap';
+import { Link as RRLink, LinkProps } from 'react-router-dom';
+import { ButtonProps as RSButtonProps, Button } from 'reactstrap';
 import './Link.scss';
 
 const newWindowProps = {
@@ -35,14 +26,6 @@ export function Link({ to, newWindow, ...props }: Props): ReactElement<Props> {
     <RRLink to={to} {...props}>
       {props.children}
     </RRLink>
-  );
-}
-
-export function NavLink(props: NavLinkProps): ReactElement<NavLinkProps> {
-  return (
-    <RSNavLink tag={RRNavLink} {...props}>
-      {props.children}
-    </RSNavLink>
   );
 }
 

@@ -8,14 +8,16 @@ import {
   Button,
   NavItem,
 } from 'reactstrap';
+import { NavLink as RRNavLink } from 'react-router-dom';
 import { API } from 'aws-amplify';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import HamburgerMenu from 'react-hamburger-menu';
 import './menu.scss';
+import { NavLink as RSNavLink } from 'reactstrap';
 import moment from 'moment-timezone';
 import * as queries from '../../graphql/queries';
 import { ListLivestreamsQuery } from '../../API';
-import { Link, NavLink } from 'components/Link/Link';
+import { Link } from 'components/Link/Link';
 import { LiveEvents } from '../types';
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 const VideoOverlay = React.lazy(() => import('../VideoOverlay/VideoOverlay'));
@@ -345,15 +347,18 @@ class HomeMenu extends React.Component<Props, State> {
                             );
                           return (
                             <NavItem key={item.location}>
-                              <NavLink
+                              <RSNavLink
+                                tag={RRNavLink}
                                 className="bigNav"
                                 activeStyle={{ fontWeight: 'bold' }}
-                                style={{ display: 'inline-block' }}
+                                style={{
+                                  display: 'inline-block',
+                                }}
                                 key={item.location}
                                 to={item.location}
                               >
                                 {item.name}
-                              </NavLink>
+                              </RSNavLink>
                               {item.children != null ? (
                                 <Button
                                   aria-label="Expand Menu"
@@ -391,14 +396,15 @@ class HomeMenu extends React.Component<Props, State> {
                                         : true
                                     )
                                     .map((item2) => (
-                                      <NavLink
+                                      <RSNavLink
+                                        tag={RRNavLink}
                                         className="smallNav"
                                         key={item2.location}
                                         to={item2.location}
                                         activeStyle={{ fontWeight: 'bold' }}
                                       >
                                         {item2.name}
-                                      </NavLink>
+                                      </RSNavLink>
                                     ))
                                 : null}
                             </NavItem>

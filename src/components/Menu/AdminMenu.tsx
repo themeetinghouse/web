@@ -1,7 +1,7 @@
 ﻿import 'bootstrap/dist/css/bootstrap.min.css';
 import { Auth } from 'aws-amplify';
 import React from 'react';
-import { NavLink } from '../Link/Link';
+import { Link } from '../Link/Link';
 import {
   Collapse,
   Navbar,
@@ -67,21 +67,19 @@ export default class Menu extends React.Component<EmptyProps, State> {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink to="/account/admin/livestream">Livestream</NavLink>
+                <Link to="/account/admin/livestream">Livestream</Link>
               </NavItem>
               <NavItem>
-                <NavLink to="/account/admin/create-notes">Notes</NavLink>
+                <Link to="/account/admin/create-notes">Notes</Link>
               </NavItem>
               <NavItem>
-                <NavLink to="/account/admin/create-blog">Blog</NavLink>
+                <Link to="/account/admin/create-blog">Blog</Link>
               </NavItem>
               <NavItem>
-                <NavLink to="/account/admin/import-video">Import Video</NavLink>
+                <Link to="/account/admin/import-video">Import Video</Link>
               </NavItem>
               <NavItem>
-                <NavLink to="/account/admin/announcements">
-                  Announcements
-                </NavLink>
+                <Link to="/account/admin/announcements">Announcements</Link>
               </NavItem>
               <NavItem>
                 <RSNavLink href="https://github.com/themeetinghouse">

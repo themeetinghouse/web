@@ -55,7 +55,7 @@ export default class ConfirmSignUp extends React.Component<Props, State> {
           email: this.state.email.toLowerCase(),
         });
       });
-    } catch (e) {
+    } catch (e: any) {
       this.setState({ authError: e.message, sendingData: false });
       Sentry.configureScope((scope) => {
         scope.setUser(null);

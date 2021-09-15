@@ -71,7 +71,7 @@ class RequireNewPassword extends React.Component<EmptyProps, State> {
         .catch((e) => {
           console.log({ Error: e });
         });
-    } catch (e) {
+    } catch (e: any) {
       this.setState({ authError: e.message, resetting: false });
     }
   }

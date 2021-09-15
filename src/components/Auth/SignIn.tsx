@@ -95,7 +95,7 @@ export default class SignIn extends React.Component<Props, State> {
             }
           }
         );
-      } catch (err) {
+      } catch (err: any) {
         this.setState({ authError: err.message });
         Sentry.configureScope((scope: any) => {
           scope.setUser(null);

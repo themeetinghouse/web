@@ -363,7 +363,7 @@ export default class DataLoader {
           json.data.getVideoByVideoType.nextToken
         );
       }
-    } catch (e) {
+    } catch (e: any) {
       console.error({ 'Error: ': e });
       if (!query.selector || query.selector === 'all' || query.limit) {
         if (e.data) {
@@ -445,7 +445,7 @@ export default class DataLoader {
           )
         );
       }
-    } catch (e) {
+    } catch (e: any) {
       console.error({ 'Error: ': e });
       if (e.data?.getVideoByVideoType?.items) {
         if (query.numberOfVideos) {

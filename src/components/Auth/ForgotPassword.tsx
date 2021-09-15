@@ -57,7 +57,7 @@ class ForgotPassword extends React.Component<Props, State> {
       await Auth.forgotPassword(this.state.email.toLowerCase()).then(() =>
         this.setState({ codeSent: true })
       );
-    } catch (e) {
+    } catch (e: any) {
       this.setState({ authError: e.message, sendingCode: false });
       Sentry.configureScope((scope) => {
         scope.setUser(null);
@@ -81,7 +81,7 @@ class ForgotPassword extends React.Component<Props, State> {
       ).then(async () => {
         await this.changeAuthState(actions, 'signIn');
       });
-    } catch (e) {
+    } catch (e: any) {
       this.setState({ authError: e.message, resetting: false });
       Sentry.configureScope((scope) => {
         scope.setUser(null);

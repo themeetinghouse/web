@@ -1,5 +1,5 @@
-﻿import { NavLink as RSNavLink, Container, Row, Col } from 'reactstrap';
-import { NavLink } from 'components/Link/Link';
+﻿import { Container, Row, Col } from 'reactstrap';
+import { Link } from 'components/Link/Link';
 import './HomeFooter.scss';
 
 export default function HomeFooter() {
@@ -42,23 +42,23 @@ export default function HomeFooter() {
         <Row>
           <Col md="6">
             <div className="text-left">
-              <NavLink className="FooterNavLink" to="/connect">
+              <Link className="FooterNavLink" to="/connect">
                 Connect
-              </NavLink>
-              <NavLink className="FooterNavLink" to="/about-us">
+              </Link>
+              <Link className="FooterNavLink" to="/about-us">
                 About Us
-              </NavLink>
-              <NavLink className="FooterNavLink" to="/careers">
+              </Link>
+              <Link className="FooterNavLink" to="/careers">
                 Staff &amp; Careers
-              </NavLink>
-              <RSNavLink
+              </Link>
+              <Link
                 className="FooterNavLink"
                 target="_blank"
                 rel="noopener noreferrer"
-                href="http://www.tmhrentals.com"
+                to="http://www.tmhrentals.com"
               >
                 Oakville Facility Rentals
-              </RSNavLink>
+              </Link>
             </div>
             <br />
             <br />

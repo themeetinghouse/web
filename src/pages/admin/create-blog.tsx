@@ -335,7 +335,7 @@ class Index extends React.Component<EmptyProps, State> {
           understand: '',
           showAlert: `⚠️ Deleted: ${deleteBlog?.data?.deleteBlog?.id}`,
         });
-      } catch (e) {
+      } catch (e: any) {
         if (e.data?.deleteBlog) {
           this.setState({
             delete: '',
@@ -366,7 +366,7 @@ class Index extends React.Component<EmptyProps, State> {
           understandBlogSeries: '',
           showAlert: `⚠️ Deleted: ${deleteBlogSeries?.data?.deleteBlogSeries?.id} `,
         });
-      } catch (e) {
+      } catch (e: any) {
         if (e.data?.deleteBlogSeries) {
           this.setState({
             deleteBlogSeries: '',
@@ -472,7 +472,7 @@ class Index extends React.Component<EmptyProps, State> {
         showAlert: `✅ Saved: ${updateBlog?.data?.updateBlog?.id}`,
       });
       console.log({ 'Success mutations.updateBlog: ': updateBlog });
-    } catch (e) {
+    } catch (e: any) {
       if (e.data?.updateBlog) {
         this.setState({ showAlert: `✅ Saved: ${e.data?.updateBlog?.id}` });
       }
@@ -487,7 +487,7 @@ class Index extends React.Component<EmptyProps, State> {
           showAlert: `✅ Created: ${createBlog?.data?.createBlog?.id}`,
         });
         console.log({ 'Success mutations.createBlog: ': createBlog });
-      } catch (e) {
+      } catch (e: any) {
         if (e.data?.createBlog) {
           this.setState({ showAlert: `✅ Created: ${e.data?.createBlog?.id}` });
         }
@@ -651,7 +651,7 @@ class Index extends React.Component<EmptyProps, State> {
         this.setState({
           showAlert: `✅ Created blog series: ${saveBlogSeries?.data?.createBlogSeries?.id}`,
         });
-      } catch (e) {
+      } catch (e: any) {
         if (e.data?.createBlogSeries)
           this.setState({
             showAlert: `✅ Created blog series: ${e.data?.createBlogSeries?.id}`,

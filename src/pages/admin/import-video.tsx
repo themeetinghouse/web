@@ -555,7 +555,7 @@ class Index extends React.Component<EmptyProps, State> {
       console.log({ 'Success customQueries.getVideoCustomPlaylists: ': json });
       if (json.data.getVideo.customPlaylistIDs)
         this.setState({ addToPlaylists: json.data.getVideo.customPlaylistIDs });
-    } catch (e) {
+    } catch (e: any) {
       console.error(e);
       if (e?.data?.getVideo?.customPlaylistIDs)
         this.setState({ addToPlaylists: e.data.getVideo.customPlaylistIDs });
@@ -621,7 +621,7 @@ class Index extends React.Component<EmptyProps, State> {
         });
         console.log({ 'Success queries.updateVideo: ': updateVideo });
         this.setState({ showError: 'Saved' });
-      } catch (e) {
+      } catch (e: any) {
         if (!e.errors[0].message.includes('access'))
           this.setState({ showError: e.errors[0].message });
         else if (e.data) this.setState({ showError: 'Saved' });
@@ -653,7 +653,7 @@ class Index extends React.Component<EmptyProps, State> {
         });
         console.log(deleteSpeakerVideo);
         this.setState({ showError: 'Deleted Speaker from Video' });
-      } catch (e) {
+      } catch (e: any) {
         if (!e.errors[0].message.includes('access')) console.log('error');
       }
       this.setState({
@@ -673,7 +673,7 @@ class Index extends React.Component<EmptyProps, State> {
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       });
       return getVideoInfo.data.getVideo.speakers.items;
-    } catch (e) {
+    } catch (e: any) {
       if (!e.errors[0].message.includes('access')) console.log('error');
     }
   }
@@ -711,7 +711,7 @@ class Index extends React.Component<EmptyProps, State> {
       console.log({
         'Success mutations.createSpeakerVideo: ': createSpeakerVideo,
       });
-    } catch (e) {
+    } catch (e: any) {
       if (!e.errors[0].message.includes('access'))
         this.setState({ showError: e.errors[0].message });
       else if (e.data) this.setState({ showError: 'Saved' });
@@ -786,7 +786,7 @@ class Index extends React.Component<EmptyProps, State> {
           showError: `Deleted: ${deletePlaylist?.data?.deleteCustomPlaylist?.id}`,
           showDeletePlaylist: false,
         });
-      } catch (e) {
+      } catch (e: any) {
         if (e.data && e.data.deleteCustomPlaylist) {
           this.setState({
             toDeletePlaylist: '',
@@ -816,7 +816,7 @@ class Index extends React.Component<EmptyProps, State> {
           showError: `Deleted: ${deleteVideo.data.deleteVideo.id}`,
           showDeleteVideo: false,
         });
-      } catch (e) {
+      } catch (e: any) {
         if (e.data && e.data.deleteVideo) {
           this.setState({
             toDeleteVideo: '',
@@ -1376,13 +1376,13 @@ class Index extends React.Component<EmptyProps, State> {
             Hide Speaker
           </div>
           <button
-            onClick={() => {
-              if (this.saveSpeaker())
-                this.setState({
-                  showAddSpeaker: false,
-                  speakerFieldValue: '',
-                  hiddenSpeaker: false,
-                });
+            onClick={async () => {
+              await this.saveSpeaker();
+              this.setState({
+                showAddSpeaker: false,
+                speakerFieldValue: '',
+                hiddenSpeaker: false,
+              });
             }}
           >
             Save
@@ -1448,13 +1448,13 @@ class Index extends React.Component<EmptyProps, State> {
             Hide Speaker
           </div>
           <button
-            onClick={() => {
-              if (this.updateSpeaker())
-                this.setState({
-                  showManageSpeaker: false,
-                  hiddenSpeaker: false,
-                  speakerFieldValue: '',
-                });
+            onClick={async () => {
+              await this.updateSpeaker();
+              this.setState({
+                showManageSpeaker: false,
+                hiddenSpeaker: false,
+                speakerFieldValue: '',
+              });
             }}
           >
             Save
@@ -1473,13 +1473,13 @@ class Index extends React.Component<EmptyProps, State> {
           </button>
           <button
             style={{ background: 'red' }}
-            onClick={() => {
-              if (this.deleteSpeaker())
-                this.setState({
-                  showManageSpeaker: false,
-                  hiddenSpeaker: false,
-                  speakerFieldValue: '',
-                });
+            onClick={async () => {
+              await this.deleteSpeaker();
+              this.setState({
+                showManageSpeaker: false,
+                hiddenSpeaker: false,
+                speakerFieldValue: '',
+              });
             }}
           >
             Delete

@@ -192,7 +192,7 @@ class Index extends React.Component<EmptyProps, State> {
       });
       if (listNotess.data?.listNotess?.nextToken)
         this.listNotes(listNotess.data.listNotess.nextToken);
-    } catch (e) {
+    } catch (e: any) {
       console.error(e);
       this.setState({
         notesList: this.state.notesList
@@ -269,7 +269,7 @@ class Index extends React.Component<EmptyProps, State> {
       })) as GraphQLResult<GetNotesQuery>;
       if (getNotes.data?.getNotes?.verses?.items)
         oldVerses = getNotes.data.getNotes.verses.items;
-    } catch (e) {
+    } catch (e: any) {
       if (e.data?.getNotes?.verses?.items)
         oldVerses = e.data.getNotes.verses.items;
       console.error(e);
@@ -461,7 +461,7 @@ class Index extends React.Component<EmptyProps, State> {
       this.setState({
         showAlert: `✅ Saved: ${updateNotes.data?.updateNotes?.id}. Please don't forget to click the Bible passages button.`,
       });
-    } catch (e) {
+    } catch (e: any) {
       console.error(e);
       if (e.data?.updateNotes?.id) {
         this.setState({
@@ -478,7 +478,7 @@ class Index extends React.Component<EmptyProps, State> {
         this.setState({
           showAlert: `✅ Created: ${createNotes.data?.createNotes?.id}. Please don't forget to click the Bible passages button.`,
         });
-      } catch (e) {
+      } catch (e: any) {
         console.error(e);
         if (e.data?.createNotes?.id) {
           this.setState({
