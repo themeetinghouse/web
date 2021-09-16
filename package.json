@@ -88,7 +88,7 @@
     "react-share": "^4.3.1",
     "react-youtube": "^7.13.0",
     "reactstrap": "^8.10.0",
-    "sass": "^1.41.0",
+    "sass": "^1.35.2",
     "use-onclickoutside": "^0.3.1",
     "uuid": "^8.3.2"
   },
