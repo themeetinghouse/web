@@ -241,6 +241,18 @@
     "Position": "Kidmax Coordinator"
   },
   {
+    "FirstName": "Dave",
+    "LastName": "Beauchamp",
+    "sites": ["OTTA"],
+    "Position": "Setup Coordinator"
+  },
+  {
+    "FirstName": "Mark",
+    "LastName": "Yandt",
+    "sites": ["OTTA"],
+    "Position": "Connect Coordinator"
+  },
+  {
     "FirstName": "Amy M.",
     "LastName": "Langeman",
     "sites": ["OWSN"],
