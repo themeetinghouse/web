@@ -11,7 +11,9 @@
     "@babel/plugin-transform-typescript": "^7.14.6",
     "@babel/preset-flow": "^7.14.5",
     "babel-plugin-add-module-exports": "^1.0.4",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1",
+    "aws-sdk": "^2.655.0"
+
   },
   "scripts": {
     "compile": "tsc",
@@ -24,7 +26,6 @@
     "@types/aws-lambda": "^8.10.51",
     "@types/domhandler": "2.4.2",
     "@types/node": "^16.3.1",
-    "aws-sdk": "^2.655.0",
     "typescript": "^4.3.5"
   }
 }
