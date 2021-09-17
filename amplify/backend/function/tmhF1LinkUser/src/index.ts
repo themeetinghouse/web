@@ -42,7 +42,7 @@ async function getUser(id: string) {
       authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
     });
     return json.data.getTMHUser;
-  } catch (e) {
+  } catch (e: any) {
     console.log({ error: e });
     if (e.data.getTMHUser) return e.data.getTMHUser;
   }
@@ -56,7 +56,7 @@ async function updateUser(item) {
       variables: { input: item },
     });
     return json.data.updateTMHUser;
-  } catch (json) {
+  } catch (json: any) {
     console.log({ 'Error getting updateGroup': json.errors });
     console.log(json);
   }
@@ -163,7 +163,7 @@ export const handler = async (event) => {
       body: JSON.stringify(true),
     };
     return response;
-  } catch (error) {
+  } catch (error: any) {
     console.log({ ERROR: error });
     return { statusCode: '402', error: { message: error.message } };
   }
