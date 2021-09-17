@@ -52,13 +52,13 @@
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/EYLessonSep12.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYLessonSep19.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesSep12.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesSep19.pdf",
             "openNewBrowser": true
           },
           {
@@ -86,21 +86,21 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaSep12.jpg",
-            "alt": "This week's big idea is: God created us to live in peace."
+            "src": "/static/images/KidsBigIdeaSep19.jpg",
+            "alt": "This week's big idea is: When we follow God's way, it sets us apart."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonSep12.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonSep19.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activity",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitySep12.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesSep19.pdf",
             "openNewBrowser": true
           },
           {
