@@ -40,7 +40,7 @@ export const handler = async (event) => {
       body: JSON.stringify(true),
     };
     return response;
-  } catch (error) {
+  } catch (error: any) {
     console.log({ ERROR: error });
     return { statusCode: '402', error: { message: error.message } };
   }
