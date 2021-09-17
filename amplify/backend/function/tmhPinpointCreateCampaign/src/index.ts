@@ -5,8 +5,6 @@
 	REGION
 Amplify Params - DO NOT EDIT */
 import * as aws from 'aws-sdk';
-import API, { GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
-import Amplify from '@aws-amplify/core';
 
 export const handler = async (event) => {
   try {

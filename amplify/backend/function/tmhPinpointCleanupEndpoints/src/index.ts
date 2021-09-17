@@ -5,11 +5,6 @@
 	REGION
 Amplify Params - DO NOT EDIT */
 import * as aws from 'aws-sdk';
-import API, { GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
-import Amplify from '@aws-amplify/core';
-import { env } from 'process';
-import { zhCN } from 'date-fns/locale';
-
 async function getUsers(nextToken) {
   const cognito = new aws.CognitoIdentityServiceProvider();
   var params = {
