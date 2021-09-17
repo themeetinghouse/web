@@ -47,11 +47,11 @@ export default class TMHDB {
         });
         console.log('Logged in');
         return null;
-      } catch (e) {
+      } catch (e: any) {
         console.log({ error: e });
         return { statusCode: '401', error: 'Login Error' + e };
       }
-    } catch (error) {
+    } catch (error: any) {
       console.log({ ERROR: error });
       return { statusCode: '402', error: { message: error.message } };
     }
@@ -69,7 +69,7 @@ export default class TMHDB {
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       });
       return json.data.getTMHUser;
-    } catch (e) {
+    } catch (e: any) {
       console.log({ error: e });
       return null;
     }
@@ -95,7 +95,7 @@ export default class TMHDB {
       var json = await Amplify.API.graphql(queryA);
       console.log('Done Update Users');
       return true;
-    } catch (json) {
+    } catch (json: any) {
       if (json && json.data && json.data.getUser) {
         return true;
       }
