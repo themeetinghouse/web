@@ -18,7 +18,7 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "testPayments": "START_SERVER_AND_TEST_INSECURE=1 start-server-and-test start https://localhost:3006 cy:open",
-    "amplify:themeetinghousetmhShared": "cd amplify/backend/function/themeetinghousetmhShared/opt && tsc && cd -",
+    "amplify:themeetinghousetmhShared": "cd amplify/backend/function/themeetinghousetmhShared/lib/nodejs && tsc && cd -",
     "amplify:cognitodevtmhPreTokenGeneration": "cd amplify/backend/function/cognitodevtmhPreTokenGeneration/src && tsc && cd -",
     "amplify:cognitodevtmhPostAuthentication": "cd amplify/backend/function/cognitodevtmhPostAuthentication/src && tsc && cd -",
     "amplify:tmhPinpointCreateCampaign": "cd amplify/backend/function/tmhPinpointCreateCampaign/src && tsc && cd -",

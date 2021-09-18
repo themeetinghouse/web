@@ -5,11 +5,11 @@
 	ENV
 	REGION
 Amplify Params - DO NOT EDIT */
-import TMHDB from '../../themeetinghousetmhShared/opt/TMHDB';
-import TMHStripe from '../../themeetinghousetmhShared/opt/TMHStripe';
+import Stripe from 'stripe';
+import TMHDB from '../../themeetinghousetmhShared/lib/nodejs/TMHDB';
+import TMHStripe from '../../themeetinghousetmhShared/lib/nodejs/TMHStripe';
 export const handler = async (event) => {
-  const stripeSecret = '';
-  const customer = {
+  const customer: Stripe.CustomerCreateParams = {
     name: event.arguments.firstName + ' ' + event.arguments.lastName,
     phone: event.arguments.phone,
     address: event.arguments.billingAddress,
@@ -25,11 +25,7 @@ export const handler = async (event) => {
   const userInfo = await TMHDB.getUser(userID);
   var customerResult;
   if (userInfo.stripeCustomerID == null) {
-    customerResult = await TMHStripe.createCustomer(
-      stripeSecret,
-      customer,
-      idempotency
-    );
+    customerResult = await TMHStripe.createCustomer(customer, idempotency);
     const updateUserA = TMHDB.updateUser(
       userID,
       'stripeCustomerID',
@@ -39,7 +35,6 @@ export const handler = async (event) => {
     console.log(userInfo.stripeCustomerID);
     customerResult = await TMHStripe.updateCustomer(
       userInfo.stripeCustomerID,
-      stripeSecret,
       customer,
       idempotency
     );
