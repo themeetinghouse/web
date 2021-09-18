@@ -10,7 +10,7 @@
     {
       "type": "ProjectLayer",
       "resourceName": "themeetinghousetmhShared",
-      "env": "tmhprod",
+      "env": "payments",
       "version": "Always choose latest version",
       "isLatestVersionSelected": true
     }

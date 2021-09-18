@@ -4,10 +4,10 @@
 	ENV
 	REGION
 Amplify Params - DO NOT EDIT */
-import * as aws from 'aws-sdk';
+var AWS = require('aws-sdk');
 export const handler = async (event) => {
   try {
-    const pinpoint = new aws.Pinpoint({ apiVersion: '2016-12-01' });
+    const pinpoint = new AWS.Pinpoint({ apiVersion: '2016-12-01' });
     var params = {
       ApplicationId: process.env.ANALYTICS_THEMEETINGHOUSE_ID /* required */,
       PageSize: '20',

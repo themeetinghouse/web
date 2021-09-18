@@ -314,7 +314,7 @@
         },
         "themeetinghousea5cd4619": {
           "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
-          "s3Key": "amplify-builds/themeetinghousea5cd4619-77724630356a52537731-build.zip"
+          "s3Key": "amplify-builds/themeetinghousea5cd4619-477847666768795a566a-build.zip"
         },
         "tmhMetadataFacebook": {
           "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
@@ -333,7 +333,7 @@
           "userPoolWebClientId": "5gpi0b6rgnm5dh8orcj0088b9n",
           "identityPoolId": "us-east-1:cd5572cc-a312-4d62-b971-8d5ede70c133",
           "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
-          "s3Key": "amplify-builds/tmhF1LinkUser-685775774c563879664b-build.zip"
+          "s3Key": "amplify-builds/tmhF1LinkUser-39543341396334457457-build.zip"
         },
         "tmhF1SearchContributionReceipts": {
           "userPoolId": "us-east-1_tKp1OdyuZ",
@@ -347,11 +347,11 @@
           "userPoolWebClientId": "5gpi0b6rgnm5dh8orcj0088b9n",
           "identityPoolId": "us-east-1:cd5572cc-a312-4d62-b971-8d5ede70c133",
           "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
-          "s3Key": "amplify-builds/tmhF1SyncGroupPermissions-4f56546f4b74426c5877-build.zip"
+          "s3Key": "amplify-builds/tmhF1SyncGroupPermissions-71726c54483659485153-build.zip"
         },
         "themeetinghousetmhShared": {
           "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
-          "s3Key": "amplify-builds/themeetinghousetmhShared-LambdaLayerVersiondc0e8318-build.zip"
+          "s3Key": "amplify-builds/themeetinghousetmhShared-LambdaLayerVersion13c91170-build.zip"
         },
         "tmhStripeListPaymentMethods": {
           "userPoolId": "us-east-1_tKp1OdyuZ",
@@ -393,7 +393,7 @@
           "userPoolWebClientId": "5gpi0b6rgnm5dh8orcj0088b9n",
           "identityPoolId": "us-east-1:cd5572cc-a312-4d62-b971-8d5ede70c133",
           "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
-          "s3Key": "amplify-builds/tmhStripeAddPaymentMethod-2f537876624b4e6d3576-build.zip"
+          "s3Key": "amplify-builds/tmhStripeAddPaymentMethod-5a3531396e4b5a5a6636-build.zip"
         },
         "cognitodevtmhPreSignup": {
           "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
@@ -408,14 +408,31 @@
           "userPoolWebClientId": "5gpi0b6rgnm5dh8orcj0088b9n",
           "identityPoolId": "us-east-1:cd5572cc-a312-4d62-b971-8d5ede70c133",
           "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
-          "s3Key": "amplify-builds/tmhF1AssignmentSync-2f36755356662b477775-build.zip"
+          "s3Key": "amplify-builds/tmhF1AssignmentSync-437656686a70722f4a76-build.zip"
         },
         "cognitodevtmhPreTokenGeneration": {
           "userPoolId": "us-east-1_tKp1OdyuZ",
           "userPoolWebClientId": "5gpi0b6rgnm5dh8orcj0088b9n",
           "identityPoolId": "us-east-1:cd5572cc-a312-4d62-b971-8d5ede70c133",
           "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
-          "s3Key": "amplify-builds/cognitodevtmhPreTokenGeneration-524a796573694c456666-build.zip"
+          "s3Key": "amplify-builds/cognitodevtmhPreTokenGeneration-6b574f486e6f5a496e39-build.zip"
+        },
+        "AdminQueriesa1b7e2e8": {},
+        "cognitodevtmhPostAuthentication": {
+          "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
+          "s3Key": "amplify-builds/cognitodevtmhPostAuthentication-4f316c55487566513642-build.zip"
+        },
+        "tmhPinpointCreateCampaign": {
+          "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
+          "s3Key": "amplify-builds/tmhPinpointCreateCampaign-366b73707446374a7346-build.zip"
+        },
+        "tmhPinpointListSegments": {
+          "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
+          "s3Key": "amplify-builds/tmhPinpointListSegments-674d754d6f59324d504d-build.zip"
+        },
+        "tmhPinpointCleanupEndpoints": {
+          "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
+          "s3Key": "amplify-builds/tmhPinpointCleanupEndpoints-5a654e68494f58647563-build.zip"
         }
       }
     }

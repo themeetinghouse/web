@@ -6,7 +6,7 @@
 	ENV
 	REGION
 Amplify Params - DO NOT EDIT */
-import * as aws from 'aws-sdk';
+var AWS = require('aws-sdk');
 import API, { GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import Amplify from '@aws-amplify/core';
 import * as queries from './queries';
@@ -27,7 +27,7 @@ Amplify.configure({
     identityPoolId: process.env.identityPoolId,
   },
 });
-const cognitoClient = new aws.CognitoIdentityServiceProvider({
+const cognitoClient = new AWS.CognitoIdentityServiceProvider({
   //UserPoolId: process.env.AUTH_COGNITODEVTMH_USERPOOLID,
 });
 
@@ -83,7 +83,7 @@ async function getCognitoUser(event) {
 }
 async function f1SearchPeople(email: string) {
   console.log('f1SearchPeople invoke started');
-  var lambda = new aws.Lambda({
+  var lambda = new AWS.Lambda({
     region: process.env.REGION, //change to your region
   });
   const payload = { arguments: { itemId: email } };
@@ -103,7 +103,7 @@ export const handler = async (event) => {
     secret,
     decodedBinarySecret;
   // Create a Secrets Manager client
-  var client = new aws.SecretsManager({
+  var client = new AWS.SecretsManager({
     region: process.env.REGION,
   });
   try {
