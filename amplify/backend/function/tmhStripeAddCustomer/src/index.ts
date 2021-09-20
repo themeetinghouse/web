@@ -26,7 +26,7 @@ export const handler = async (event) => {
   var customerResult;
   if (userInfo.stripeCustomerID == null) {
     customerResult = await TMHStripe.createCustomer(customer, idempotency);
-    const updateUserA = TMHDB.updateUser(
+    const updateUserA = await TMHDB.updateUser(
       userID,
       'stripeCustomerID',
       customerResult.id

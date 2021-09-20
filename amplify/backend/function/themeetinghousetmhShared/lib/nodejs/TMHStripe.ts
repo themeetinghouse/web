@@ -1,12 +1,40 @@
 import Stripe from 'stripe';
-if (process.env.ENV == 'payments') var stripeSecret = 'abc';
-else var stripeSecret = 'def';
 export default class TMHStripe {
+  static async getSecret(name: string) {
+    try {
+      var AWS = require('aws-sdk'),
+        region = 'us-east-1',
+        secretName = 'tmhweb/' + process.env.ENV + '/secrets',
+        secret,
+        decodedBinarySecret;
+
+      // Create a Secrets Manager client
+      var client = new AWS.SecretsManager({
+        region: region,
+      });
+      const data = await client
+        .getSecretValue({ SecretId: secretName })
+        .promise();
+
+      if ('SecretString' in data) {
+        secret = JSON.parse(data.SecretString);
+      } else {
+        let buff = new Buffer(data.SecretBinary, 'base64');
+        decodedBinarySecret = buff.toString('ascii');
+      }
+      console.log('Loading Secret Done');
+
+      return secret[name];
+    } catch (e) {
+      console.log({ error: e });
+      throw 'Secret not loaded';
+    }
+  }
   static async createCustomer(
     customer: Stripe.CustomerCreateParams,
     idempotency: string
-  ) {
-    const stripe = new Stripe(stripeSecret, {
+  ): Promise<Stripe.Response<Stripe.Customer>> {
+    const stripe = new Stripe(await this.getSecret('stripSecret'), {
       apiVersion: '2020-08-27',
     });
     const customerResult = await stripe.customers.create(customer, {
@@ -18,8 +46,8 @@ export default class TMHStripe {
     stripeCustomerID: string,
     customer: Stripe.CustomerUpdateParams,
     idempotency: string
-  ) {
-    const stripe = new Stripe(stripeSecret, {
+  ): Promise<Stripe.Response<Stripe.Customer>> {
+    const stripe = new Stripe(await this.getSecret('stripSecret'), {
       apiVersion: '2020-08-27',
     });
     const customerResult = await stripe.customers.update(
@@ -36,7 +64,7 @@ export default class TMHStripe {
     paymentMethod: Stripe.PaymentMethodCreateParams,
     idempotency: string
   ): Promise<Stripe.Response<Stripe.PaymentMethod>> {
-    const stripe = new Stripe(stripeSecret, {
+    const stripe = new Stripe(await this.getSecret('stripSecret'), {
       apiVersion: '2020-08-27',
     });
     const paymentMethodResult = await stripe.paymentMethods.create(
@@ -51,7 +79,7 @@ export default class TMHStripe {
     stripeCustomerID: string,
     type: Stripe.PaymentMethodListParams.Type
   ): Promise<Stripe.Response<Stripe.ApiList<Stripe.PaymentMethod>>> {
-    const stripe = new Stripe(stripeSecret, {
+    const stripe = new Stripe(await this.getSecret('stripSecret'), {
       apiVersion: '2020-08-27',
     });
     const customerResult = await stripe.paymentMethods.list({
@@ -65,7 +93,7 @@ export default class TMHStripe {
     subscription: Stripe.SubscriptionCreateParams,
     idempotency: string
   ): Promise<Stripe.Response<Stripe.Subscription>> {
-    const stripe = new Stripe(stripeSecret, {
+    const stripe = new Stripe(await this.getSecret('stripSecret'), {
       apiVersion: '2020-08-27',
     });
     const subscriptionResult = await stripe.subscriptions.create(subscription, {
@@ -78,7 +106,7 @@ export default class TMHStripe {
     subscriptionId: string,
     idempotency: string
   ): Promise<Stripe.Response<Stripe.Subscription>> {
-    const stripe = new Stripe(stripeSecret, {
+    const stripe = new Stripe(await this.getSecret('stripSecret'), {
       apiVersion: '2020-08-27',
     });
     const subscriptionResult = await stripe.subscriptions.del(subscriptionId, {
@@ -90,7 +118,7 @@ export default class TMHStripe {
     subscription: Stripe.SubscriptionListParams,
     idempotency: string
   ): Promise<Stripe.Response<Stripe.ApiList<Stripe.Subscription>>> {
-    const stripe = new Stripe(stripeSecret, {
+    const stripe = new Stripe(await this.getSecret('stripSecret'), {
       apiVersion: '2020-08-27',
     });
     const subscriptionResult = await stripe.subscriptions.list(subscription, {
