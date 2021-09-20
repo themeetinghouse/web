@@ -106,7 +106,8 @@
           "facebookAppId": "abc",
           "googleClientId": "def",
           "amazonAppId": "ghi"
-        }
+        },
+        "userPoolGroups": {}
       },
       "function": {
         "themeetinghousea5cd4619": {
