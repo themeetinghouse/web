@@ -4,10 +4,10 @@
 	ENV
 	REGION
 Amplify Params - DO NOT EDIT */
-import * as aws from 'aws-sdk';
+var AWS = require('aws-sdk');
 export const handler = async (event) => {
   try {
-    const pinpoint = new aws.Pinpoint({ apiVersion: '2016-12-01' });
+    const pinpoint = new AWS.Pinpoint({ apiVersion: '2016-12-01' });
     var params = {
       ApplicationId: process.env.ANALYTICS_THEMEETINGHOUSE_ID /* required */,
       PageSize: '20',
@@ -19,16 +19,11 @@ export const handler = async (event) => {
     console.log(segments.SegmentsResponse.Item);
     const response = {
       statusCode: 200,
-      //  Uncomment below to enable CORS requests
-      //  headers: {
-      //      "Access-Control-Allow-Origin": "*",
-      //      "Access-Control-Allow-Headers": "*"
-      //  },
-
-      body: JSON.stringify(segments.SegmentsResponse),
+      Item: segments.SegmentsResponse.Item,
+      NextToken: segments.SegmentsResponse.NextToken,
     };
     return response;
-  } catch (error) {
+  } catch (error: any) {
     console.log({ ERROR: error });
     return { statusCode: '402', error: { message: error.message } };
   }

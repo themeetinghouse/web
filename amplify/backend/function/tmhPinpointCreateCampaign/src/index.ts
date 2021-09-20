@@ -4,14 +4,11 @@
 	ENV
 	REGION
 Amplify Params - DO NOT EDIT */
-import * as aws from 'aws-sdk';
-import API, { GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
-import Amplify from '@aws-amplify/core';
-
+var AWS = require('aws-sdk');
 export const handler = async (event) => {
   try {
-    const pinpoint = new aws.Pinpoint({ apiVersion: '2016-12-01' });
-    var params: aws.Pinpoint.CreateCampaignRequest = {
+    const pinpoint = new AWS.Pinpoint({ apiVersion: '2016-12-01' });
+    var params = {
       ApplicationId: process.env.ANALYTICS_THEMEETINGHOUSE_ID /* required */,
       WriteCampaignRequest: {
         /* required */ Name: event.arguments.name,
@@ -29,18 +26,8 @@ export const handler = async (event) => {
     const campaign = await pinpoint.createCampaign(params).promise();
     console.log(campaign);
 
-    const response = {
-      statusCode: 200,
-      //  Uncomment below to enable CORS requests
-      //  headers: {
-      //      "Access-Control-Allow-Origin": "*",
-      //      "Access-Control-Allow-Headers": "*"
-      //  },
-
-      body: JSON.stringify(true),
-    };
-    return response;
-  } catch (error) {
+    return true;
+  } catch (error: any) {
     console.log({ ERROR: error });
     return { statusCode: '402', error: { message: error.message } };
   }

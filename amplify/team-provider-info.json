@@ -256,7 +256,7 @@
         },
         "tmhPinpointListSegments": {
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "s3Key": "amplify-builds/tmhPinpointListSegments-4c6839646b4b316a7064-build.zip"
+          "s3Key": "amplify-builds/tmhPinpointListSegments-446a764862646666636a-build.zip"
         },
         "tmhPinpointCleanupEndpoints": {
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
