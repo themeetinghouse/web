@@ -135,6 +135,7 @@ export default function GivePageCard(props: GivePageCardProps) {
           $
         </span>
         <input
+          data-testID="Amount"
           type="number"
           placeholder="0.00"
           value={form.giveAmount}
@@ -153,6 +154,7 @@ export default function GivePageCard(props: GivePageCardProps) {
         <>
           <label htmlFor="frequency">Frequency</label>
           <select
+            data-testID="Frequency"
             value={form.frequency}
             onChange={(e) => setForm({ ...form, frequency: e.target.value })}
             className="GiveInput"
@@ -164,7 +166,12 @@ export default function GivePageCard(props: GivePageCardProps) {
             <option value={`1st & 15th monthly`}>{'1st & 15th monthly'}</option>
           </select>
           <label htmlFor="date">Starting</label>
-          <input className="GiveInput" placeholder={'YYYY-MM-DD'} type="date" />
+          <input
+            data-testID="StartDate"
+            className="GiveInput"
+            placeholder={'YYYY-MM-DD'}
+            type="date"
+          />
         </>
       ) : null}
       <div>

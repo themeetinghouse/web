@@ -128,6 +128,7 @@ export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
 
         <p>Name on card</p>
         <input
+          data-testID="NameOnCard"
           onChange={(e) =>
             setCardDataForm({
               ...cardDataForm,
@@ -139,6 +140,7 @@ export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
         />
         <p>Credit card number</p>
         <CardNumberElement
+          data-testID="CreditCardNum"
           className="NewCardInput"
           onChange={(el) => stripeFieldValidation(el, 'cardNumber')}
           options={CARD_ELEMENT_OPTIONS}
@@ -150,6 +152,7 @@ export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
           <div style={{ flex: 1 }}>
             <p>Expiry</p>
             <CardExpiryElement
+              data-testID="CreditCardExpiry"
               onChange={(el) => stripeFieldValidation(el, 'expiryDate')}
               options={CARD_ELEMENT_OPTIONS}
             />
@@ -157,6 +160,7 @@ export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
           <div style={{ flex: 1, marginLeft: 33 }}>
             <p>CVC</p>
             <CardCvcElement
+              data-testID="CreditCardCVC"
               onChange={(el) => stripeFieldValidation(el, 'cvc')}
               options={CARD_ELEMENT_OPTIONS}
             />

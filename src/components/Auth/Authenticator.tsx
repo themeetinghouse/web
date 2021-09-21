@@ -390,16 +390,23 @@ export default class Authenticator extends React.Component<
         Sub: attributes?.sub,
         userAttributes: userAttributes,
       });
-      Analytics.updateEndpoint({
-        address: attributes?.email,
-        channelType: 'EMAIL',
-        optOut: 'NONE',
-        userId: attributes?.sub,
-        userAttributes,
-        attributes: {
-          groups,
-        },
-      });
+      if (groups == undefined)
+        Analytics.updateEndpoint({
+          address: attributes?.email,
+          channelType: 'EMAIL',
+          optOut: 'NONE',
+          userId: attributes?.sub,
+          userAttributes,
+        });
+      else
+        Analytics.updateEndpoint({
+          address: attributes?.email,
+          channelType: 'EMAIL',
+          optOut: 'NONE',
+          userId: attributes?.sub,
+          userAttributes,
+          attributes: { groups },
+        });
     } catch (error) {
       console.log({ trackUserIdError: error });
     }
