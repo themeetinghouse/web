@@ -53,7 +53,7 @@ export default function GiveManageRecurringCard(
           </p>
 
           <br />
-          <Spinner></Spinner>
+          <Spinner />
         </div>
       ) : (
         <>

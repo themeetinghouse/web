@@ -38,7 +38,7 @@ export default function TransactionsPage(): JSX.Element {
           </p>
 
           <br />
-          <Spinner></Spinner>
+          <Spinner />
         </div>
       ) : (
         <>

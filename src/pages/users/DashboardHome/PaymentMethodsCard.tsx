@@ -16,7 +16,7 @@ export default function PaymentMethodsCard(): JSX.Element {
       <h3>Payment Methods</h3>
       {isLoading ? (
         <div className="spinnerContainer" style={{ marginTop: -54 }}>
-          <Spinner></Spinner>
+          <Spinner />
         </div>
       ) : (
         <div className="cardContainer">

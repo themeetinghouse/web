@@ -29,7 +29,7 @@ export default function RecentTransactionsCard(): JSX.Element {
           </p>
 
           <br />
-          <Spinner></Spinner>
+          <Spinner />
         </div>
       ) : lastTransacs?.length ? (
         <>

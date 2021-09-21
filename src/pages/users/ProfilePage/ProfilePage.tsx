@@ -80,7 +80,7 @@ export default function ProfilePage() {
             <b>Loading profile data..</b>
           </p>
           <br></br>
-          <Spinner></Spinner>
+          <Spinner />
         </div>
       </div>
     </div>

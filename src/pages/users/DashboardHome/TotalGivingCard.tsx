@@ -38,7 +38,7 @@ export default function TotalGivingCard(): JSX.Element {
             alignSelf: 'center',
           }}
         >
-          <Spinner></Spinner>
+          <Spinner />
         </div>
       ) : (
         <p

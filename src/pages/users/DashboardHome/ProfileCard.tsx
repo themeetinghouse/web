@@ -23,7 +23,7 @@ export default function ProfileCard(): JSX.Element {
             <b>Loading profile data..</b>
           </p>
           <br></br>
-          <Spinner></Spinner>
+          <Spinner />
         </div>
       ) : (
         <>

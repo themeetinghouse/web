@@ -58,7 +58,7 @@ export default function PaymentsCard() {
           </p>
 
           <br />
-          <Spinner></Spinner>
+          <Spinner />
         </div>
       ) : (
         <div>
