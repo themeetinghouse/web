@@ -70,7 +70,8 @@ export default class TMHDB {
       });
       return json.data.getTMHUser;
     } catch (e: any) {
-      console.log({ error: e });
+      console.log({ error: e.errors });
+      if (e.data.getTMHUser != null) return e.data.getTMHUser;
       return null;
     }
   }

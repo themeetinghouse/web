@@ -1565,8 +1565,8 @@ type TMHUser
   @model
   @auth(
     rules: [
-      { allow: owner, ownerField: "owner" }
-      { allow: groups, groups: ["PaymentService"] } 
+      { allow: owner, ownerField: "owner" , operations: [create, update, delete, read]}
+      { allow: groups, groups: ["PaymentService"] , operations: [create, update, delete, read]} 
     ]
   ) {
   
@@ -1574,13 +1574,13 @@ type TMHUser
   given_name: String!
   family_name: String!
   email: String @auth(rules: [{ allow: owner, ownerField: "owner" },{allow:groups,groups:["PaymentService"],operations:[read]}])
-  phone: String @auth(rules: [{ allow: owner, ownerField: "owner" }])
+  phone: String @auth(rules: [{ allow: owner, ownerField: "owner" },{allow:groups,groups:["PaymentService"],operations:[read]}])
   owner: String
 
   stripeCustomerID:String @auth(rules: [{ allow: owner, ownerField: "owner" ,operations:[read]},{allow:groups,groups:["PaymentService"]}])
   stripeSubscriptionID:String @auth(rules: [{ allow: owner, ownerField: "owner" ,operations:[read]},{allow:groups,groups:["PaymentService"]}])
 
-  billingAddress: Address @auth(rules: [{ allow: owner, ownerField: "owner" }])
+  billingAddress: Address @auth(rules: [{ allow: owner, ownerField: "owner" },{allow:groups,groups:["PaymentService"],operations:[read]}])
 
   profileImage: PrivateImage
   joined: String

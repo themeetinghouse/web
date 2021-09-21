@@ -20,7 +20,7 @@
     }
   },
   "Resources": {
-    "LambdaLayerVersion0640eaae": {
+    "LambdaLayerVersion29b16104": {
       "Type": "AWS::Lambda::LayerVersion",
       "Properties": {
         "CompatibleRuntimes": {
@@ -51,13 +51,87 @@
       "DeletionPolicy": "Delete",
       "UpdateReplacePolicy": "Retain"
     },
-    "LambdaLayerPermissionPrivate0640eaae": {
+    "LambdaLayerPermissionPrivate29b16104": {
       "Type": "AWS::Lambda::LayerVersionPermission",
       "Properties": {
         "Action": "lambda:GetLayerVersion",
         "LayerVersionArn": {
-          "Ref": "LambdaLayerVersion0640eaae"
+          "Ref": "LambdaLayerVersion29b16104"
         },
+        "Principal": {
+          "Ref": "AWS::AccountId"
+        }
+      }
+    },
+    "LambdaLayerVersiona2d6172e": {
+      "Type": "AWS::Lambda::LayerVersion",
+      "Properties": {
+        "CompatibleRuntimes": [
+          "nodejs14.x"
+        ],
+        "Content": {
+          "S3Bucket": {
+            "Ref": "deploymentBucketName"
+          },
+          "S3Key": "amplify-builds/themeetinghousetmhShared-LambdaLayerVersiona2d6172e-build.zip"
+        },
+        "Description": "Updated layer version 2021-09-21T07:33:04.175Z",
+        "LayerName": {
+          "Fn::Sub": [
+            "themeetinghousetmhShared-${env}",
+            {
+              "env": {
+                "Ref": "env"
+              }
+            }
+          ]
+        }
+      },
+      "DeletionPolicy": "Delete",
+      "UpdateReplacePolicy": "Retain"
+    },
+    "LambdaLayerPermissionPrivatea2d6172e": {
+      "Type": "AWS::Lambda::LayerVersionPermission",
+      "Properties": {
+        "Action": "lambda:GetLayerVersion",
+        "LayerVersionArn": "arn:aws:lambda:us-east-1:119330689042:layer:themeetinghousetmhShared-payments:24",
+        "Principal": {
+          "Ref": "AWS::AccountId"
+        }
+      }
+    },
+    "LambdaLayerVersion0640eaae": {
+      "Type": "AWS::Lambda::LayerVersion",
+      "Properties": {
+        "CompatibleRuntimes": [
+          "nodejs14.x"
+        ],
+        "Content": {
+          "S3Bucket": {
+            "Ref": "deploymentBucketName"
+          },
+          "S3Key": "amplify-builds/themeetinghousetmhShared-LambdaLayerVersion0640eaae-build.zip"
+        },
+        "Description": "Updated layer version 2021-09-20T05:16:23.159Z",
+        "LayerName": {
+          "Fn::Sub": [
+            "themeetinghousetmhShared-${env}",
+            {
+              "env": {
+                "Ref": "env"
+              }
+            }
+          ]
+        }
+      },
+      "DeletionPolicy": "Delete",
+      "UpdateReplacePolicy": "Retain"
+    },
+    "LambdaLayerPermissionPrivate0640eaae": {
+      "Type": "AWS::Lambda::LayerVersionPermission",
+      "Properties": {
+        "Action": "lambda:GetLayerVersion",
+        "LayerVersionArn": "arn:aws:lambda:us-east-1:119330689042:layer:themeetinghousetmhShared-payments:23",
         "Principal": {
           "Ref": "AWS::AccountId"
         }
@@ -733,7 +807,7 @@
   "Outputs": {
     "Arn": {
       "Value": {
-        "Ref": "LambdaLayerVersion0640eaae"
+        "Ref": "LambdaLayerVersion29b16104"
       }
     }
   }

@@ -60,8 +60,9 @@ describe('Create User', () => {
         'UserA'
       );
       cy.get('input[data-TestId="LastName"]').type('UserA');
-      cy.get('input[data-TestId="Email"]').type('a@a.com');
-      cy.get('input[data-TestId="Mobile"]').type('123-456-7899');
+      //      cy.get('input[data-TestId="Email"]').type('a@a.com');
+      cy.get('input[data-TestId="Mobile"]').clear().type('123-456-7899');
+      //      cy.get('input[data-TestId="Mobile"]').clear().type('123-456-78992323232312312');
       cy.get('input[data-TestId="Address"]').type('123 Sesame St.');
       cy.get('input[data-TestId="City"]').type('Toronto');
       cy.get('[data-TestId="Country"]').select('Canada');

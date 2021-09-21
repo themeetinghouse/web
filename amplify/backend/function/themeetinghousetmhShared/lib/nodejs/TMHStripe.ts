@@ -34,7 +34,7 @@ export default class TMHStripe {
     customer: Stripe.CustomerCreateParams,
     idempotency: string
   ): Promise<Stripe.Response<Stripe.Customer>> {
-    const stripe = new Stripe(await this.getSecret('stripSecret'), {
+    const stripe = new Stripe(await this.getSecret('stripeSecret'), {
       apiVersion: '2020-08-27',
     });
     const customerResult = await stripe.customers.create(customer, {
@@ -47,7 +47,7 @@ export default class TMHStripe {
     customer: Stripe.CustomerUpdateParams,
     idempotency: string
   ): Promise<Stripe.Response<Stripe.Customer>> {
-    const stripe = new Stripe(await this.getSecret('stripSecret'), {
+    const stripe = new Stripe(await this.getSecret('stripeSecret'), {
       apiVersion: '2020-08-27',
     });
     const customerResult = await stripe.customers.update(
@@ -64,7 +64,7 @@ export default class TMHStripe {
     paymentMethod: Stripe.PaymentMethodCreateParams,
     idempotency: string
   ): Promise<Stripe.Response<Stripe.PaymentMethod>> {
-    const stripe = new Stripe(await this.getSecret('stripSecret'), {
+    const stripe = new Stripe(await this.getSecret('stripeSecret'), {
       apiVersion: '2020-08-27',
     });
     const paymentMethodResult = await stripe.paymentMethods.create(
@@ -79,7 +79,7 @@ export default class TMHStripe {
     stripeCustomerID: string,
     type: Stripe.PaymentMethodListParams.Type
   ): Promise<Stripe.Response<Stripe.ApiList<Stripe.PaymentMethod>>> {
-    const stripe = new Stripe(await this.getSecret('stripSecret'), {
+    const stripe = new Stripe(await this.getSecret('stripeSecret'), {
       apiVersion: '2020-08-27',
     });
     const customerResult = await stripe.paymentMethods.list({
@@ -93,7 +93,7 @@ export default class TMHStripe {
     subscription: Stripe.SubscriptionCreateParams,
     idempotency: string
   ): Promise<Stripe.Response<Stripe.Subscription>> {
-    const stripe = new Stripe(await this.getSecret('stripSecret'), {
+    const stripe = new Stripe(await this.getSecret('stripeSecret'), {
       apiVersion: '2020-08-27',
     });
     const subscriptionResult = await stripe.subscriptions.create(subscription, {
@@ -106,7 +106,7 @@ export default class TMHStripe {
     subscriptionId: string,
     idempotency: string
   ): Promise<Stripe.Response<Stripe.Subscription>> {
-    const stripe = new Stripe(await this.getSecret('stripSecret'), {
+    const stripe = new Stripe(await this.getSecret('stripeSecret'), {
       apiVersion: '2020-08-27',
     });
     const subscriptionResult = await stripe.subscriptions.del(subscriptionId, {
@@ -118,7 +118,7 @@ export default class TMHStripe {
     subscription: Stripe.SubscriptionListParams,
     idempotency: string
   ): Promise<Stripe.Response<Stripe.ApiList<Stripe.Subscription>>> {
-    const stripe = new Stripe(await this.getSecret('stripSecret'), {
+    const stripe = new Stripe(await this.getSecret('stripeSecret'), {
       apiVersion: '2020-08-27',
     });
     const subscriptionResult = await stripe.subscriptions.list(subscription, {
