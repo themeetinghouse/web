@@ -80,6 +80,11 @@
             "type": "link",
             "title": "Human Resources Manager",
             "navigateTo": "/static/pdfs/careers/Human Resources Manager.pdf"
+          },
+          {
+            "type": "link",
+            "title": "Sandbanks Lead Pastor",
+            "navigateTo": "/static/pdfs/careers/Sandbanks Lead Pastor.pdf"
           }
         ],
         "image1": [
