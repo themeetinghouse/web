@@ -296,28 +296,28 @@
   {
     "FirstName": "Madeleine",
     "LastName": "Neufeld",
-    "sites": ["WATL"],
+    "sites": ["WAT"],
     "Email": "kidmax.waterloo@themeetinghouse.com",
     "Position": "Kidmax Coordinator"
   },
   {
     "FirstName": "Jeremiah",
     "LastName": "McLeary",
-    "sites": ["WATL"],
+    "sites": ["WAT"],
     "Email": "Mcclearj@uoguelph.ca",
     "Position": "Compassion Coordinator"
   },
   {
     "FirstName": "Max",
     "LastName": "Chute",
-    "sites": ["WATL"],
+    "sites": ["WAT"],
     "Email": "kidmax.waterloo@themeetinghouse.com",
     "Position": "Kidmax Coordinator"
   },
   {
     "FirstName": "Pamela",
     "LastName": "Carlin",
-    "sites": ["WATL"],
+    "sites": ["WAT"],
     "Position": "Weekend Service Producer"
   },
   {
@@ -443,7 +443,7 @@
   {
     "FirstName": "Savanna",
     "LastName": "Edwards",
-    "sites": ["WATL"],
+    "sites": ["WAT"],
     "Email": "savanna.edwards@themeetinghouse.com",
     "Position": "Parish Communications and Media Coordinator"
   },
