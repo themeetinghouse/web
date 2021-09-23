@@ -95,6 +95,13 @@ describe('Create User', () => {
 
       cy.contains('Transactions').click();
       cy.contains('Payment Methods').click();
+      cy.contains('Add New Credit Card', { timeout: 30000 }).click();
+      cy.get('input[data-TestId="NameOnCard"]').type('Dave Chicken');
+      cy.getWithinIframe(0, '[name="cardnumber"]').type('4242424242424242');
+      cy.getWithinIframe(1, '[name="exp-date"]').type('424');
+      cy.getWithinIframe(2, '[name="cvc"]').type('242');
+      cy.contains('Add new credit card').click();
+
       cy.contains('Profile').click();
       cy.contains('Home').click();
       cy.contains('Give Now').click();

@@ -2,7 +2,13 @@ import {
   CardCvcElement,
   CardExpiryElement,
   CardNumberElement,
+  useElements,
+  useStripe,
 } from '@stripe/react-stripe-js';
+import { v4 as uuidv4 } from 'uuid';
+
+import * as queries from '../../../../src/graphql/queries';
+
 import {
   StripeCardCvcElementChangeEvent,
   StripeCardExpiryElementChangeEvent,
@@ -18,6 +24,8 @@ import { useState } from 'react';
 import { Spinner } from 'reactstrap';
 import { CardInfo } from '../Give/GivePageCard';
 import './PaymentCard.scss';
+import API, { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
+import { TmhStripeAttachPaymentMethodQuery } from 'API';
 
 type AddPaymentMethodCardProps = {
   closeCard: (card?: CardInfo) => void;
@@ -90,17 +98,52 @@ export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
     cvc: '',
     cardType: '',
   });
+  const stripe = useStripe();
+  const elements = useElements();
+  const stripeAttachPaymentMethod = async (id: string) => {
+    try {
+      const tmhStripeLinkUser = (await API.graphql({
+        query: queries.tmhStripeAttachPaymentMethod,
+        variables: { idempotency: uuidv4(), id: id },
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      })) as GraphQLResult<TmhStripeAttachPaymentMethodQuery>;
+      console.log(tmhStripeLinkUser);
+      return true;
+    } catch (e: any) {
+      console.log({ Error: e });
+      return false;
+    }
+  };
+  const stripeAddPaymentMethod = async () => {
+    if (!stripe || !elements) {
+      return;
+    }
+    const elNumber = elements.getElement(CardNumberElement);
+    if (elNumber == null) return;
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: 'card',
+      card: elNumber,
+      billing_details: { name: cardDataForm.nameOnCard },
+    });
+
+    if (error) {
+      console.log('[error]', error);
+    } else {
+      console.log('[PaymentMethod]', paymentMethod);
+      if (paymentMethod == null) return;
+      await stripeAttachPaymentMethod(paymentMethod.id);
+    }
+  };
   const addNewPaymentMethod = async () => {
     setAddingCard(true);
-    setTimeout(() => {
-      setAddingCard(false);
-      if (dispatch)
-        dispatch({
-          type: GEActionType.NAVIGATE_TO_COMPLETED,
-          payload: { status: 'SUCCESS' },
-        });
-      closeCard(cardDataForm);
-    }, 1000);
+    await stripeAddPaymentMethod();
+    setAddingCard(false);
+    if (dispatch)
+      dispatch({
+        type: GEActionType.NAVIGATE_TO_COMPLETED,
+        payload: { status: 'SUCCESS' },
+      });
+    closeCard(cardDataForm);
   };
   return (
     <>

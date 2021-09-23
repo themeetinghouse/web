@@ -3078,12 +3078,38 @@ export const tmhStripeAddCustomer = /* GraphQL */ `
     }
   }
 `;
+export const tmhStripeAttachPaymentMethod = /* GraphQL */ `
+  query TmhStripeAttachPaymentMethod($id: String, $idempotency: String) {
+    tmhStripeAttachPaymentMethod(id: $id, idempotency: $idempotency)
+  }
+`;
 export const tmhStripeListPaymentMethods = /* GraphQL */ `
   query TmhStripeListPaymentMethods($pageId: String) {
     tmhStripeListPaymentMethods(pageId: $pageId) {
-      paymentMethods {
+      data {
         id
         type
+        card {
+          brand
+          last4
+          exp_year
+          exp_month
+          funding
+          country
+        }
+        billing_details {
+          email
+          name
+          phone
+          address {
+            city
+            country
+            line1
+            line2
+            postal_code
+            state
+          }
+        }
       }
     }
   }

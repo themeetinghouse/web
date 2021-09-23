@@ -13,16 +13,9 @@ export const handler = async (event) => {
   // TODO implement
 
   const user = await TMHDB.getUser(event.identity.username);
-  if (user.stripeCustomerID)
-    return TMHStripe.listPaymentMethods(user.stripeCustomerID, 'card');
-  const response = {
-    statusCode: 200,
-    //  Uncomment below to enable CORS requests
-    //  headers: {
-    //      "Access-Control-Allow-Origin": "*",
-    //      "Access-Control-Allow-Headers": "*"
-    //  },
-    body: JSON.stringify('Hello from Lambda!'),
-  };
-  return response;
+  if (user.stripeCustomerID) {
+    const z = await TMHStripe.listPaymentMethods(user.stripeCustomerID, 'card');
+    console.log(z);
+    return z;
+  } else return null;
 };

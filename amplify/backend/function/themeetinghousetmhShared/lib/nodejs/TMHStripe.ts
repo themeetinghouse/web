@@ -60,6 +60,18 @@ export default class TMHStripe {
     return customerResult;
   }
 
+  static async createSetupIntent(
+    setupIntent: Stripe.SetupIntentCreateParams,
+    idempotency: string
+  ): Promise<Stripe.Response<Stripe.SetupIntent>> {
+    const stripe = new Stripe(await this.getSecret('stripeSecret'), {
+      apiVersion: '2020-08-27',
+    });
+    const paymentMethodResult = await stripe.setupIntents.create(setupIntent, {
+      idempotencyKey: idempotency + 'CC',
+    });
+    return paymentMethodResult;
+  }
   static async createPaymentMethod(
     paymentMethod: Stripe.PaymentMethodCreateParams,
     idempotency: string

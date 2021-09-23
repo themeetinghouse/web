@@ -43,6 +43,7 @@ type Query {
   tmhF1SyncGroupPermissions:Boolean @function(name:"tmhF1SyncGroupPermissions-${env}") @aws_cognito_user_pools
   tmhF1SearchContributionReceipts(pageId:String):F1SearchContributionReceiptsType @function(name:"tmhF1SearchContributionReceipts-${env}") @aws_cognito_user_pools
   tmhStripeAddCustomer(idempotency:String,phone:String,email:String,firstName:String,lastName:String,orgName:String,billingAddress:StripeAddressInput):StripeCustomerData @function(name:"tmhStripeAddCustomer-${env}") @aws_cognito_user_pools
+  tmhStripeAttachPaymentMethod(id:String, idempotency:String):Boolean @function(name:"tmhStripeAddPaymentMethod-${env}") @aws_cognito_user_pools
   tmhStripeListPaymentMethods(pageId:String):StripePaymentMethodsData @function(name:"tmhStripeListPaymentMethods-${env}") @aws_cognito_user_pools
 }
 enum PinpointRecencyType
@@ -256,12 +257,40 @@ input StripeAddressInput
 type StripeCustomerData{
   customer:StripeCustomer
 }
-type StripePaymentMethodsData{
-   paymentMethods:[StripePaymentMethod]
+type StripePaymentMethodsData @aws_cognito_user_pools{
+   data:[StripePaymentMethod]
 }
-type StripePaymentMethod{
+type StripeCard  @aws_cognito_user_pools
+{
+  brand: String
+  last4:String
+  exp_year:Int
+  exp_month:Int
+  funding:String
+  country:String
+}
+
+type StripeBillingDetails  @aws_cognito_user_pools
+{
+  email:String
+  name:String
+  phone:String
+  address:StripeAddress
+}
+type StripeAddress @aws_cognito_user_pools
+{
+  city:String
+    country:String
+    line1:String
+    line2:String
+    postal_code:String
+    state:String
+}
+type StripePaymentMethod @aws_cognito_user_pools{
   id:String
   type:String
+  card:StripeCard
+  billing_details:StripeBillingDetails
 }
 type StripeCustomer{
   
