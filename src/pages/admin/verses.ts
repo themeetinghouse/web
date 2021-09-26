@@ -80,6 +80,8 @@ const bookCodes: Record<string, string> = {
   revelation: 'REV',
 };
 
+const hasInvalidData = (...args: string[]) => args.some((arg) => !arg);
+
 export const INVALID_QUERY = 'invalid';
 
 export const getQueryString = (
@@ -134,6 +136,10 @@ export const getQueryString = (
       // bookCode = GEN
       // chapterAndVerseNoSpaces = 3
 
+      if (hasInvalidData(chapterAndVerseNoSpaces)) {
+        return INVALID_QUERY;
+      }
+
       return {
         youVersionUri: `https://www.bible.com/bible/111/${bookCode}.${chapterAndVerseNoSpaces}.NIV`,
         queryString: `${bookCode}.${chapterAndVerseNoSpaces}`,
@@ -144,6 +150,10 @@ export const getQueryString = (
       // chapterAndVerseNoSpaces = 3-4
 
       const [startChapter, endChapter] = chapterAndVerseNoSpaces.split('-');
+
+      if (hasInvalidData(startChapter, endChapter)) {
+        return INVALID_QUERY;
+      }
 
       return {
         youVersionUri: `https://www.bible.com/bible/111/${bookCode}.${startChapter}.NIV`,
@@ -158,6 +168,13 @@ export const getQueryString = (
         ':',
         '.'
       );
+
+      if (
+        chapterAndVerseFormatted.endsWith('.') ||
+        chapterAndVerseFormatted.startsWith('.')
+      ) {
+        return INVALID_QUERY;
+      }
 
       return {
         youVersionUri: `https://www.bible.com/bible/111/${bookCode}.${chapterAndVerseFormatted}.NIV`,
@@ -175,6 +192,17 @@ export const getQueryString = (
         '.'
       );
 
+      if (
+        chapterAndVerseFormatted.endsWith('.') ||
+        chapterAndVerseFormatted.startsWith('.')
+      ) {
+        return INVALID_QUERY;
+      }
+
+      if (hasInvalidData(chapter, startVerse, endVerse)) {
+        return INVALID_QUERY;
+      }
+
       return {
         youVersionUri: `https://www.bible.com/bible/111/${bookCode}.${chapterAndVerseFormatted}.NIV`,
         queryString: `${bookCode}.${chapter}.${startVerse}-${bookCode}.${chapter}.${endVerse}`,
@@ -189,6 +217,10 @@ export const getQueryString = (
 
       const [startChapter, startVerse] = startChapterVerse.split(':'); // ['3', '20']
       const [endChapter, endVerse] = endChapterVerse.split(':'); // ['4', '20']
+
+      if (hasInvalidData(startChapter, endChapter, startVerse, endVerse)) {
+        return INVALID_QUERY;
+      }
 
       return {
         youVersionUri: `https://www.bible.com/bible/111/${bookCode}.${startChapter}.NIV`,

@@ -268,88 +268,100 @@ const invalidReferences = [
   {
     testDescription: '1 Corinthians 8:10—9:7 [emdash]',
     reference: '1 Corinthians 8:10—9:7',
-    expected: 'invalid',
   },
   {
     testDescription: 'Mark 7:1—2 [emdash]',
     reference: 'Mark 7:1—2',
-    expected: 'invalid',
   },
   {
     testDescription: '1 Corinthians 8:10–9:7 [endash]',
     reference: '1 Corinthians 8:10–9:7',
-    expected: 'invalid',
   },
   {
     testDescription: 'Mark 7:1–2 [endash]',
     reference: 'Mark 7:1–2',
-    expected: 'invalid',
   },
   {
     testDescription: '1 Corinthians 8;10-9:7 [invalid character]',
     reference: '1 Corinthians 8;10-9:7',
-    expected: 'invalid',
   },
   {
     testDescription: '1 Corinthians 8:10=9:7 [invalid character]',
     reference: '1 Corinthians 8:10=9:7',
-    expected: 'invalid',
   },
   {
     testDescription: '1 Corinthians 8:10_9:7 [invalid character]',
     reference: '1 Corinthians 8:10_9:7',
-    expected: 'invalid',
   },
   {
     testDescription: 'Matthew 7:21, 24-27 [invalid format]',
     reference: 'Matthew 7:21, 24-27',
-    expected: 'invalid',
   },
   {
     testDescription: '1:1 Genesis [invalid format]',
     reference: '1:1 Genesis',
-    expected: 'invalid',
   },
-  { reference: 'Jon 3:16', expected: 'invalid' },
-  { reference: 'Lucas 10:1-11:15', expected: 'invalid' },
-  { reference: '🔥 12', expected: 'invalid' },
-  { reference: '🔥🔥🔥', expected: 'invalid' },
-  { reference: '😀', expected: 'invalid' },
-  { reference: '😀 10:27', expected: 'invalid' },
-  { reference: '10:27', expected: 'invalid' },
-  { reference: '10:27-11:2', expected: 'invalid' },
-  { reference: 'abcdef%%61239asdkji', expected: 'invalid' },
-  { testDescription: 'Empty string', reference: '', expected: 'invalid' },
-  { testDescription: 'Array', reference: [], expected: 'invalid' },
+  {
+    reference: 'Mark',
+  },
+  {
+    reference: 'Mark -4',
+  },
+  {
+    reference: 'Luke 3-',
+  },
+  {
+    reference: 'Matthew 3:',
+  },
+  {
+    reference: 'James :5',
+  },
+  {
+    reference: 'Mark 3:2-',
+  },
+  {
+    reference: 'Mark :2-7',
+  },
+  {
+    reference: 'John 3:22-4:',
+  },
+  {
+    reference: 'John 3:-4:5',
+  },
+  { reference: 'Jon 3:16' },
+  { reference: 'Lucas 10:1-11:15' },
+  { reference: '🔥 12' },
+  { reference: '🔥🔥🔥' },
+  { reference: '😀' },
+  { reference: '😀 10:27' },
+  { reference: '10:27' },
+  { reference: '10:27-11:2' },
+  { reference: 'abcdef%%61239asdkji' },
+  { testDescription: 'Empty string', reference: '' },
+  { testDescription: 'Array', reference: [] },
   {
     testDescription: 'Function',
     reference: () => console.log('test'),
-    expected: 'invalid',
   },
   {
     testDescription: 'Object',
     reference: { a: 1, b: 2 },
-    expected: 'invalid',
   },
   {
     testDescription: 'Map',
     reference: new Map(),
-    expected: 'invalid',
   },
   {
     testDescription: 'Number',
     reference: 107,
-    expected: 'invalid',
   },
   {
     testDescription: 'null',
     reference: null,
-    expected: 'invalid',
   },
   {
     testDescription: 'undefined',
     reference: undefined,
-    expected: 'invalid',
   },
 ];
 
@@ -363,9 +375,9 @@ describe('getQueryString', () => {
   });
 
   describe("Does not parse invalid references; returns 'invalid'", () => {
-    invalidReferences.forEach(({ testDescription, reference, expected }) => {
+    invalidReferences.forEach(({ testDescription, reference }) => {
       test(testDescription ?? reference, () => {
-        expect(getQueryString(reference)).toEqual(expected);
+        expect(getQueryString(reference)).toEqual('invalid');
       });
     });
   });
