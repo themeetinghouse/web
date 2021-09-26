@@ -328,6 +328,48 @@ const invalidReferences = [
   {
     reference: 'John 3:-4:5',
   },
+  {
+    reference: 'John 3xyz',
+  },
+  {
+    reference: 'John abc3',
+  },
+  {
+    reference: 'John 3:16z',
+  },
+  {
+    reference: 'John z3:16',
+  },
+  {
+    reference: 'John 3b:16',
+  },
+  {
+    reference: 'John 3:1a6',
+  },
+  {
+    reference: 'Matthew 7:21s',
+  },
+  {
+    reference: 'Matthew 7:21-23s',
+  },
+  {
+    reference: 'Matthew 7:21x-23',
+  },
+  {
+    reference: 'Matthew abc7:21-23',
+  },
+  {
+    reference: 'Matthew 7:21-8:2a',
+  },
+  {
+    reference: 'Matthew a7:21-8:2',
+  },
+  {
+    reference: 'Matthew 7:21-8-2',
+  },
+  {
+    reference: 'Matthew 7:a',
+  },
   { reference: 'Jon 3:16' },
   { reference: 'Lucas 10:1-11:15' },
   { reference: '🔥 12' },

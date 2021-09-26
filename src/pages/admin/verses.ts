@@ -80,8 +80,6 @@ const bookCodes: Record<string, string> = {
   revelation: 'REV',
 };
 
-const hasInvalidData = (...args: string[]) => args.some((arg) => !arg);
-
 export const INVALID_QUERY = 'invalid';
 
 export const getQueryString = (
@@ -96,9 +94,6 @@ export const getQueryString = (
     }
 
     const referenceLowercase = reference.trim().toLowerCase();
-    const colons = (referenceLowercase.match(/:/g) || []).length;
-    const hyphens = (referenceLowercase.match(/-/g) || []).length;
-
     const invalidCharacters = RegExp(/[^\w :-]|_/g);
 
     // check for invalid charaters (anything other than alpha numerics, spaces, colon and hyphen)
@@ -131,35 +126,27 @@ export const getQueryString = (
     // remove all spaces
     const chapterAndVerseNoSpaces = chapterAndVerse.replace(/\s/g, '');
 
-    if (colons === 0 && hyphens === 0) {
+    if (/^\d+$/.test(chapterAndVerseNoSpaces)) {
       // Genesis 3
       // bookCode = GEN
       // chapterAndVerseNoSpaces = 3
-
-      if (hasInvalidData(chapterAndVerseNoSpaces)) {
-        return INVALID_QUERY;
-      }
 
       return {
         youVersionUri: `https://www.bible.com/bible/111/${bookCode}.${chapterAndVerseNoSpaces}.NIV`,
         queryString: `${bookCode}.${chapterAndVerseNoSpaces}`,
       };
-    } else if (colons === 0 && hyphens === 1) {
+    } else if (/^\d+-\d+$/.test(chapterAndVerseNoSpaces)) {
       // Genesis 3-4
       // bookCode = GEN
       // chapterAndVerseNoSpaces = 3-4
 
       const [startChapter, endChapter] = chapterAndVerseNoSpaces.split('-');
 
-      if (hasInvalidData(startChapter, endChapter)) {
-        return INVALID_QUERY;
-      }
-
       return {
         youVersionUri: `https://www.bible.com/bible/111/${bookCode}.${startChapter}.NIV`,
         queryString: `${bookCode}.${startChapter}-${bookCode}.${endChapter}`,
       };
-    } else if (colons === 1 && hyphens === 0) {
+    } else if (/^\d+:\d+$/.test(chapterAndVerseNoSpaces)) {
       // Genesis 3:1
       // bookCode = GEN
       // chapterAndVerseNoSpaces = 3:1
@@ -169,18 +156,11 @@ export const getQueryString = (
         '.'
       );
 
-      if (
-        chapterAndVerseFormatted.endsWith('.') ||
-        chapterAndVerseFormatted.startsWith('.')
-      ) {
-        return INVALID_QUERY;
-      }
-
       return {
         youVersionUri: `https://www.bible.com/bible/111/${bookCode}.${chapterAndVerseFormatted}.NIV`,
         queryString: `${bookCode}.${chapterAndVerseFormatted}`,
       };
-    } else if (colons === 1 && hyphens === 1) {
+    } else if (/^\d+:\d+-\d+$/.test(chapterAndVerseNoSpaces)) {
       // Genesis 3:1-2
       // bookCode = GEN
       // chapterAndVerseNoSpaces = 3:1-2
@@ -192,22 +172,11 @@ export const getQueryString = (
         '.'
       );
 
-      if (
-        chapterAndVerseFormatted.endsWith('.') ||
-        chapterAndVerseFormatted.startsWith('.')
-      ) {
-        return INVALID_QUERY;
-      }
-
-      if (hasInvalidData(chapter, startVerse, endVerse)) {
-        return INVALID_QUERY;
-      }
-
       return {
         youVersionUri: `https://www.bible.com/bible/111/${bookCode}.${chapterAndVerseFormatted}.NIV`,
         queryString: `${bookCode}.${chapter}.${startVerse}-${bookCode}.${chapter}.${endVerse}`,
       };
-    } else if (colons === 2 && hyphens === 1) {
+    } else if (/^\d+:\d+-\d+:\d+$/.test(chapterAndVerseNoSpaces)) {
       // Genesis 3:20-4:20
       // bookCode = GEN
       // chapterAndVerseNoSpaces = 3:20-4:20
@@ -217,10 +186,6 @@ export const getQueryString = (
 
       const [startChapter, startVerse] = startChapterVerse.split(':'); // ['3', '20']
       const [endChapter, endVerse] = endChapterVerse.split(':'); // ['4', '20']
-
-      if (hasInvalidData(startChapter, endChapter, startVerse, endVerse)) {
-        return INVALID_QUERY;
-      }
 
       return {
         youVersionUri: `https://www.bible.com/bible/111/${bookCode}.${startChapter}.NIV`,
