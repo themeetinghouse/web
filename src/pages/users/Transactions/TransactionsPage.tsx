@@ -95,7 +95,7 @@ export default function TransactionsPage(): JSX.Element {
                               {moment(x?.receivedDate).format('YYYY-MM-DD')}
                             </td>
 
-                            <td>{x?.amount}</td>
+                            <td>{parseFloat(x?.amount ?? '0').toFixed(2)}</td>
                             <td>{x?.accountReference}</td>
                             <td>{x?.fund?.name}</td>
                           </tr>
