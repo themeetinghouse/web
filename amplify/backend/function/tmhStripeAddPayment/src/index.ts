@@ -15,17 +15,24 @@ export const handler = async (event) => {
   const amount = event.arguments.amount;
   const fund = event.arguments.fund;
   const user = await TMHDB.getUser(event.identity.username);
-  const payment: Stripe.PaymentIntentCreateParams = {
+  const invoiceItem: Stripe.InvoiceItemCreateParams = {
     customer: user.stripeCustomerID,
-    amount: amount,
-    currency: 'cad',
-    confirm: true,
-    description: fund,
+    price_data: {
+      currency: 'cad',
+      product: fund,
+      unit_amount: amount,
+      tax_behavior: 'inclusive',
+    },
+    quantity: 1,
     metadata: { WebDonation: 'true' },
-    statement_descriptor: 'TMH Web Donation',
   };
-  if (user.stripeCustomerID)
-    return TMHStripe.createPayment(payment, idempotency);
-
+  const invoice: Stripe.InvoiceCreateParams = {
+    customer: user.stripeCustomerID,
+    auto_advance: true,
+  };
+  if (user.stripeCustomerID) {
+    await TMHStripe.createInvoiceItem(invoiceItem, idempotency);
+    return await TMHStripe.createInvoice(invoice, idempotency + '2');
+  }
   return null;
 };

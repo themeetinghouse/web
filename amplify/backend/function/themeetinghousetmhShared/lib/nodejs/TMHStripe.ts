@@ -100,6 +100,30 @@ export default class TMHStripe {
     });
     return customerResult;
   }
+  static async createInvoiceItem(
+    payment: Stripe.InvoiceItemCreateParams,
+    idempotency: string
+  ): Promise<Stripe.Response<Stripe.InvoiceItem>> {
+    const stripe = new Stripe(await this.getSecret('stripeSecret'), {
+      apiVersion: '2020-08-27',
+    });
+    const subscriptionResult = await stripe.invoiceItems.create(payment, {
+      idempotencyKey: idempotency + 'CC',
+    });
+    return subscriptionResult;
+  }
+  static async createInvoice(
+    payment: Stripe.InvoiceCreateParams,
+    idempotency: string
+  ): Promise<Stripe.Response<Stripe.Invoice>> {
+    const stripe = new Stripe(await this.getSecret('stripeSecret'), {
+      apiVersion: '2020-08-27',
+    });
+    const subscriptionResult = await stripe.invoices.create(payment, {
+      idempotencyKey: idempotency + 'CC',
+    });
+    return subscriptionResult;
+  }
   static async createPayment(
     payment: Stripe.PaymentIntentCreateParams,
     idempotency: string

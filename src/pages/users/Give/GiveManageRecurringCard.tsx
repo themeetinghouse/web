@@ -79,7 +79,7 @@ export default function GiveManageRecurringCard(
                     ${giving.giveAmount}
                   </p>
                   <p className="PaymentMethodCardLabel">Fund</p>
-                  <p>{giving.fund.name} fund</p>
+                  <p>{giving.fund.name}</p>
                   <p className="PaymentMethodCardLabel">Next payment</p>
                   <p>undefined</p>
                   <p className="PaymentMethodCardLabel">Frequency:</p>

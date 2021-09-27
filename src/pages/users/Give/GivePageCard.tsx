@@ -85,6 +85,7 @@ export default function GivePageCard(props: GivePageCardProps) {
   const createPayment = async () => {
     try {
       if (selection == 'Recurring') {
+        console.log({ recurring: selection });
         const tmhStripeAddSubscription = (await API.graphql({
           query: queries.tmhStripeAddSubscription,
           variables: {
@@ -98,6 +99,8 @@ export default function GivePageCard(props: GivePageCardProps) {
         console.log(tmhStripeAddSubscription);
         return true;
       } else {
+        console.log({ 'ONE TIME': selection });
+
         const tmhStripeAddPayment = (await API.graphql({
           query: queries.tmhStripeAddPayment,
           variables: {

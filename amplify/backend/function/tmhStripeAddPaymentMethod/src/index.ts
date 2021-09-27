@@ -20,9 +20,19 @@ export const handler = async (event) => {
     payment_method: paymentId,
   };
   if (user.stripeCustomerID) {
-    const z = await TMHStripe.createSetupIntent(setupIntent, idempotency);
-    console.log(z);
-    return z;
+    const setupIntentResult = await TMHStripe.createSetupIntent(
+      setupIntent,
+      idempotency
+    );
+    await TMHStripe.updateCustomer(
+      user.stripeCustomerID,
+      {
+        invoice_settings: { default_payment_method: paymentId },
+      },
+      idempotency + '2'
+    );
+    console.log(setupIntentResult);
+    return setupIntentResult;
   }
   const response = {
     statusCode: 200,
