@@ -3114,6 +3114,148 @@ export const tmhStripeListPaymentMethods = /* GraphQL */ `
     }
   }
 `;
+export const tmhStripeListSubscriptions = /* GraphQL */ `
+  query TmhStripeListSubscriptions($pageId: String) {
+    tmhStripeListSubscriptions(pageId: $pageId) {
+      data {
+        id
+        type
+        card {
+          brand
+          last4
+          exp_year
+          exp_month
+          funding
+          country
+        }
+        billing_details {
+          email
+          name
+          phone
+          address {
+            city
+            country
+            line1
+            line2
+            postal_code
+            state
+          }
+        }
+      }
+    }
+  }
+`;
+export const tmhStripeDeleteSubscription = /* GraphQL */ `
+  query TmhStripeDeleteSubscription($pageId: String) {
+    tmhStripeDeleteSubscription(pageId: $pageId) {
+      data {
+        id
+        type
+        card {
+          brand
+          last4
+          exp_year
+          exp_month
+          funding
+          country
+        }
+        billing_details {
+          email
+          name
+          phone
+          address {
+            city
+            country
+            line1
+            line2
+            postal_code
+            state
+          }
+        }
+      }
+    }
+  }
+`;
+export const tmhStripeAddSubscription = /* GraphQL */ `
+  query TmhStripeAddSubscription(
+    $idempotency: String
+    $amount: String
+    $fund: String
+    $frequency: String
+  ) {
+    tmhStripeAddSubscription(
+      idempotency: $idempotency
+      amount: $amount
+      fund: $fund
+      frequency: $frequency
+    ) {
+      data {
+        id
+        type
+        card {
+          brand
+          last4
+          exp_year
+          exp_month
+          funding
+          country
+        }
+        billing_details {
+          email
+          name
+          phone
+          address {
+            city
+            country
+            line1
+            line2
+            postal_code
+            state
+          }
+        }
+      }
+    }
+  }
+`;
+export const tmhStripeAddPayment = /* GraphQL */ `
+  query TmhStripeAddPayment(
+    $idempotency: String
+    $amount: String
+    $fund: String
+  ) {
+    tmhStripeAddPayment(
+      idempotency: $idempotency
+      amount: $amount
+      fund: $fund
+    ) {
+      data {
+        id
+        type
+        card {
+          brand
+          last4
+          exp_year
+          exp_month
+          funding
+          country
+        }
+        billing_details {
+          email
+          name
+          phone
+          address {
+            city
+            country
+            line1
+            line2
+            postal_code
+            state
+          }
+        }
+      }
+    }
+  }
+`;
 export const getTnSeries = /* GraphQL */ `
   query GetTnSeries($id: ID!) {
     getTNSeries(id: $id) {

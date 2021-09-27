@@ -100,7 +100,18 @@ export default class TMHStripe {
     });
     return customerResult;
   }
-
+  static async createPayment(
+    payment: Stripe.PaymentIntentCreateParams,
+    idempotency: string
+  ): Promise<Stripe.Response<Stripe.PaymentIntent>> {
+    const stripe = new Stripe(await this.getSecret('stripeSecret'), {
+      apiVersion: '2020-08-27',
+    });
+    const subscriptionResult = await stripe.paymentIntents.create(payment, {
+      idempotencyKey: idempotency + 'CC',
+    });
+    return subscriptionResult;
+  }
   static async createSubscription(
     subscription: Stripe.SubscriptionCreateParams,
     idempotency: string
