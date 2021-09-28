@@ -651,5 +651,12 @@
     "sites": ["TOUP"],
     "Email": "kelly.dunwell@themeetinghouse.com",
     "Position": "Kidmax Coordinator"
+  },
+  {
+    "FirstName": "Heidi",
+    "LastName": "Rushton",
+    "sites": ["HMDT"],
+    "Email": "heidi.rushton@themeetinghouse.com",
+    "Position": "Kidmax Coordinator"
   }
 ]
