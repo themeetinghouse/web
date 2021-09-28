@@ -294,25 +294,24 @@
     "Position": "Kidmax Coordinator"
   },
   {
-    "FirstName": "Madeleine",
-    "LastName": "Neufeld",
-    "sites": ["WATL"],
-    "Email": "kidmax.waterloo@themeetinghouse.com",
-    "Position": "Kidmax Coordinator"
-  },
-  {
     "FirstName": "Jeremiah",
     "LastName": "McLeary",
-    "sites": ["WATL"],
+    "sites": ["WAT"],
     "Email": "Mcclearj@uoguelph.ca",
     "Position": "Compassion Coordinator"
   },
   {
     "FirstName": "Max",
     "LastName": "Chute",
-    "sites": ["WATL"],
+    "sites": ["WAT"],
     "Email": "kidmax.waterloo@themeetinghouse.com",
     "Position": "Kidmax Coordinator"
+  },
+  {
+    "FirstName": "Pamela",
+    "LastName": "Carlin",
+    "sites": ["WAT"],
+    "Position": "Weekend Service Producer"
   },
   {
     "FirstName": "Esther",
@@ -414,18 +413,11 @@
     "Position": "Music Coordinator"
   },
   {
-    "FirstName": "Scott",
-    "LastName": "McConnell",
-    "sites": ["BRAM"],
-    "Email": "scott.mcconnell@themeetinghouse.com",
-    "Position": "Weekend Service Producer"
-  },
-  {
     "FirstName": "Brian",
     "LastName": "Ramoutar",
     "sites": ["BRAM"],
-    "Email": "brian.ramoutar@themeetinghouse.com",
-    "Position": "Kidmax Coordinator"
+    "Email": "hello.brampton@themeetinghouse.com",
+    "Position": "Communications Coordinator"
   },
   {
     "FirstName": "Joyce",
@@ -437,7 +429,7 @@
   {
     "FirstName": "Savanna",
     "LastName": "Edwards",
-    "sites": ["WATL"],
+    "sites": ["WAT"],
     "Email": "savanna.edwards@themeetinghouse.com",
     "Position": "Parish Communications and Media Coordinator"
   },

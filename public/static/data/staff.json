@@ -283,8 +283,8 @@
     "FirstName": "Jordan",
     "LastName": "Duerrstein",
     "Phone": "905.287.7000, ext. 867",
-    "Position": "Waterloo Lead Pastor",
-    "sites": ["WAT", "Pastoral"],
+    "Position": "Kitchener-Waterloo Lead Pastor",
+    "sites": ["WAT", "KIT", "Pastoral"],
     "Email": "Jordan.Duerrstein@themeetinghouse.com"
   },
   {
@@ -626,7 +626,7 @@
     "LastName": "Downey",
     "Phone": "905.287.7000, ext. 845",
     "Position": "Leadership Pastor",
-    "sites": ["NMKT", "Pastoral"],
+    "sites": ["Pastoral"],
     "Email": "Simon.Downey@themeetinghouse.com"
   },
   {

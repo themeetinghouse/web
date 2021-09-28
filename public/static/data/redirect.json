@@ -128,6 +128,10 @@
     "to": "/static/pdfs/Policies-and-Statements/Data_Privacy_Policy_v.11.2019.pdf"
   },
   {
+    "id": "policies",
+    "to": "/static/pdfs/Policies-and-Statements/Data_Privacy_Policy_v.11.2019.pdf"
+  },
+  {
     "id": "kids",
     "to": "http://parents.themeetinghouse.com/"
   },
@@ -729,6 +733,6 @@
   },
   {
     "id": "parishstream",
-    "to": "https://youtu.be/onb5L4nB8Yc"
+    "to": "https://youtu.be/WIfZaDoDk_Q"
   }
 ]
