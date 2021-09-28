@@ -33,7 +33,7 @@
             "text2": "Keep scrolling for more details and links to register or join the livestream.",
             "header3": "What to expect",
             "graphicItems": [{
-                    "title": "Please register",
+                    "title": "Register ahead of time to reserve your spot. (Walk-ins are welcome as capacity allows.)",
                     "description": "Registration is required for a safe gathering environment.",
                     "image": "/static/svg/Regather-Icon-01.svg"
                 },
@@ -70,7 +70,7 @@
                 "type": "outline notmobile"
             },
             "header5": "Online Registration",
-            "text3": "Anyone attending an in-person gathering will need to pre-register online. The registration window will be open each week from 5pm on Sunday to 5pm on Thursday.",
+            "text3": "To attend an in-person gathering, please pre-register online to reserve your spot. If you forget, you can always walk in and we’ll seat you if we’ve got space within our capacity limits. The registration window will be open each week from 5pm on Sunday to 5pm on Thursday.",
             "text4": "We’ll ask for your contact info in case we need to reach you about a COVID related issue. When you show up on a Sunday morning, one of our amazing volunteers will check you in and confirm your health screening.",
             "button3": {
                 "text": "Register Now",
