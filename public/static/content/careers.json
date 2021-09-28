@@ -95,6 +95,11 @@
             "type": "link",
             "title": "Burlington Lead Pastor",
             "navigateTo": "/static/pdfs/careers/Burlington Lead Pastor.pdf"
+          },
+          {
+            "type": "link",
+            "title": "Oakville Kids Pastor",
+            "navigateTo": "/static/pdfs/careers/Oakville Kids Pastor.pdf"
           }
         ],
         "image1": [
