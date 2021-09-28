@@ -314,20 +314,6 @@
     "Position": "Weekend Service Producer"
   },
   {
-    "FirstName": "Esther",
-    "LastName": "Hazzard",
-    "sites": ["BRAM"],
-    "Email": "esther.hazzard@themeetinghouse.com",
-    "Position": "Music Coordinator"
-  },
-  {
-    "FirstName": "Dwayne",
-    "LastName": "Jackson",
-    "sites": ["BRAM"],
-    "Email": "dwayne.jackson@themeetinghouse.com",
-    "Position": "Music Coordinator"
-  },
-  {
     "FirstName": "Bram",
     "LastName": "Van den Heuvel",
     "sites": ["BRFD"],
