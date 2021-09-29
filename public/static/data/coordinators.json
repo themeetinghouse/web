@@ -607,8 +607,7 @@
     "FirstName": "Carol",
     "LastName": "Babcock",
     "sites": ["SAND"],
-    "Email": "sandbanks.youth@themeetinghouse.com",
-    "Position": "Youth Coordinator"
+    "Position": "Tech Coordinator"
   },
   {
     "FirstName": "Liz",
@@ -644,5 +643,18 @@
     "sites": ["HMDT"],
     "Email": "heidi.rushton@themeetinghouse.com",
     "Position": "Kidmax Coordinator"
+  },
+  {
+    "FirstName": "Leslie",
+    "LastName": "Walcott",
+    "sites": ["SAND"],
+    "Position": "Prayer Coordinator"
+  },
+  {
+    "FirstName": "Paul",
+    "LastName": "Pryce",
+    "sites": ["SAND"],
+    "Email": "sandbanks.youth@themeetinghouse.com",
+    "Position": "Youth Coordinator"
   }
 ]
