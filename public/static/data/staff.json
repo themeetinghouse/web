@@ -532,15 +532,6 @@
   },
   {
     "Staff": true,
-    "FirstName": "Patti",
-    "LastName": "Larsen",
-    "Phone": "905.287.7000",
-    "Position": "Interim Pastoral Associate",
-    "sites": ["Site Leadership", "KIT", "Pastoral"],
-    "Email": "Patti.Larsen@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
     "FirstName": "Phil",
     "LastName": "Prendergast",
     "Phone": "905.287.7000, ext. 849",
