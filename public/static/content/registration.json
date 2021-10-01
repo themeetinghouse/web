@@ -61,6 +61,10 @@
                     "title": "To sing or not to sing",
                     "description": "Please check your local parish page for singing guidelines.",
                     "image": "/static/svg/Regather-No_singing.svg"
+                },
+                {
+                    "title": "Vaccine Passport",
+                    "description": "Some of our rental locations require vaccine passports to attend. Please check your local parish page for updates."
                 }
             ],
             "header4": "Livestream",
