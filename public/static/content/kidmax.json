@@ -44,27 +44,27 @@
         "text1": "Here's what we're learning in early years this week:",
         "image1": [
           {
-            "src": "/static/images/EYBigIdeaSep.jpg",
-            "alt": "This month's big idea: Put God first."
+            "src": "/static/images/EYBigIdeaOct.jpg",
+            "alt": "This month's big idea: Listen to God."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/EYLessonSep26.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYLessonOct3.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesSep26.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesOct3.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Key Verse Colouring Page",
-            "navigateTo": "/static/pdfs/kidmax-files/EYSeptemberColouringPage.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYOctoberColouringPage.pdf",
             "openNewBrowser": true
           }
         ]
@@ -86,27 +86,27 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaSep26.jpg",
-            "alt": "This week's big idea is: God cares about all of his creation."
+            "src": "/static/images/KidsBigIdeaOct3.jpg",
+            "alt": "This week's big idea is: God's way is the best way."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonSep26.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonOct3.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activity",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitySep26.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesOct3.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Key Verse Colouring Page",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsSeptemberColouring.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsOctoberColouring.pdf",
             "openNewBrowser": true
           }
         ]
