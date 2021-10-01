@@ -134,11 +134,6 @@
             "type": "link",
             "title": "Rentals and Events Administrator",
             "navigateTo": "/static/pdfs/careers/Rentals and Events Administrator.pdf"
-          },
-          {
-            "type": "link",
-            "title": "Online Youth Ministry Coordinator",
-            "navigateTo": "/static/pdfs/careers/Online Youth Ministry Coordinator.pdf"
           }
         ],
         "image1": [
