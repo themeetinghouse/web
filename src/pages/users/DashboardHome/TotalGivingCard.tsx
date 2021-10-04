@@ -1,17 +1,17 @@
 import { useEffect } from 'react';
-import { useState } from 'react';
+//import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Spinner } from 'reactstrap';
+//import { Spinner } from 'reactstrap';
 import { LinkButton } from '../../../components/Link/Link';
 import './TotalGivingCard.scss';
 export default function TotalGivingCard(): JSX.Element {
   const history = useHistory();
-  const [total, setTotal] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
+  //  const [total, setTotal] = useState(0);
+  //  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => {
-      setTotal(200);
-      setIsLoading(false);
+      //      setTotal(200);
+      //      setIsLoading(false);
     }, 700);
   }, []);
   return (
@@ -23,8 +23,13 @@ export default function TotalGivingCard(): JSX.Element {
           fontSize: 24,
         }}
       >
-        My Total Giving
+        Giving Portal
+        {/*My Total Giving*/}
       </h3>
+      <br />
+      <br />
+      <br />
+      {/*
       <h4 style={{ marginBottom: 41, fontWeight: 700, fontSize: 14 }}>
         January 1, 2021 - Today
       </h4>
@@ -49,7 +54,7 @@ export default function TotalGivingCard(): JSX.Element {
         >
           ${total ?? 0}
         </p>
-      )}
+        )*/}
       <LinkButton
         style={{
           margin: 'auto',
