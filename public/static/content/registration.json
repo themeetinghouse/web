@@ -64,7 +64,8 @@
                 },
                 {
                     "title": "Vaccine Passport",
-                    "description": "Some of our rental locations require vaccine passports to attend. Please check your local parish page for updates."
+                    "description": "Some of our rental locations require vaccine passports to attend. Please check your local parish page for updates.",
+                    "image": "/static/svg/Regather-Syringe.svg"
                 }
             ],
             "header4": "Livestream",
