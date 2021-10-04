@@ -6,6 +6,7 @@ import './GivePageCard.scss';
 import API, { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import * as queries from '../../../../src/graphql/queries';
 import { v4 as uuidv4 } from 'uuid';
+import moment from 'moment-timezone';
 
 import {
   GiveAction,
@@ -147,7 +148,7 @@ export default function GivePageCard(props: GivePageCardProps) {
       cvc: '',
     });
   };
-
+  const today = moment().format('YYYY-MM-DD');
   console.log('currentPayload', currentPayload);
   return (
     <div className="GiveCard">
@@ -208,6 +209,7 @@ export default function GivePageCard(props: GivePageCardProps) {
           </select>
           <label htmlFor="date">Starting</label>
           <input
+            min={today}
             data-testID="StartDate"
             className="GiveInput"
             placeholder={'YYYY-MM-DD'}

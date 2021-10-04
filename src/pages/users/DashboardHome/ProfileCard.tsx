@@ -36,7 +36,9 @@ export default function ProfileCard(): JSX.Element {
             {userData.given_name} {userData.family_name}
           </h3>
           <span>Email</span>
-          {userData.email && <p>{userData.email}</p>}
+          {userData.email && (
+            <p style={{ overflowWrap: 'anywhere' }}>{userData.email}</p>
+          )}
           <span>Mobile</span>
           <p>{userData.phone}</p>
           <div className="AddressContainer">
