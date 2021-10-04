@@ -58,6 +58,23 @@ export default function homechurch(): JSX.Element {
   //     );
   //   });
   // };
+  const onChangeOption = async (event: any): Promise<void> => {
+    // this is null. should also pass homechurchinfo id
+    console.log(event.target.value, 'called');
+    if (false) updateHomeChurchInfo(event.target.value);
+  };
+  const updateHomeChurchInfo = async (fieldsToUpdate: any): Promise<void> => {
+    try {
+      const updateHMInfo = (await API.graphql({
+        query: mutations.updateHomeChurchInfo,
+        variables: { input: fieldsToUpdate },
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      })) as GraphQLResult<ListHomeChurchInfosQuery>;
+      console.log({ updated: { updateHMInfo } });
+    } catch (err) {
+      console.log({ err });
+    }
+  };
   const injectF1Data = (f1HomeChurches: any, homeChurchInfos: any) => {
     return homeChurchInfos.map((homeChurchInfo: any) => {
       const inF1Table = f1HomeChurches.find(
@@ -148,7 +165,7 @@ export default function homechurch(): JSX.Element {
             }}
           >
             <thead>
-              <tr>
+              <tr style={{ backgroundColor: 'white', margin: 16 }}>
                 <th colSpan={11}>
                   <input
                     placeholder="Search by name.."
@@ -158,7 +175,7 @@ export default function homechurch(): JSX.Element {
                       setSearch(e.target.value);
                     }}
                     style={{
-                      width: '40%',
+                      width: '60%',
                       margin: '16px 0px',
                       padding: 8,
                     }}
@@ -204,28 +221,60 @@ export default function homechurch(): JSX.Element {
                       <td>{hm?.id}</td>
                       <td>{hm?.F1ItemData?.name}</td>
                       <td style={{ textAlign: 'center' }}>
-                        <input className="HomeChurchCheckbox" type="checkbox" />
+                        <input
+                          onChange={onChangeOption}
+                          className="HomeChurchCheckbox"
+                          type="checkbox"
+                        />
                       </td>
                       <td style={{ textAlign: 'center' }}>
-                        <input className="HomeChurchCheckbox" type="checkbox" />
+                        <input
+                          onChange={onChangeOption}
+                          className="HomeChurchCheckbox"
+                          type="checkbox"
+                        />
                       </td>
                       <td style={{ textAlign: 'center' }}>
-                        <input className="HomeChurchCheckbox" type="checkbox" />
+                        <input
+                          onChange={onChangeOption}
+                          className="HomeChurchCheckbox"
+                          type="checkbox"
+                        />
                       </td>
                       <td style={{ textAlign: 'center' }}>
-                        <input className="HomeChurchCheckbox" type="checkbox" />
+                        <input
+                          onChange={onChangeOption}
+                          className="HomeChurchCheckbox"
+                          type="checkbox"
+                        />
                       </td>
                       <td style={{ textAlign: 'center' }}>
-                        <input className="HomeChurchCheckbox" type="checkbox" />
+                        <input
+                          onChange={onChangeOption}
+                          className="HomeChurchCheckbox"
+                          type="checkbox"
+                        />
                       </td>
                       <td style={{ textAlign: 'center' }}>
-                        <input className="HomeChurchCheckbox" type="checkbox" />
+                        <input
+                          onChange={onChangeOption}
+                          className="HomeChurchCheckbox"
+                          type="checkbox"
+                        />
                       </td>
                       <td style={{ textAlign: 'center' }}>
-                        <input className="HomeChurchCheckbox" type="checkbox" />
+                        <input
+                          onChange={onChangeOption}
+                          className="HomeChurchCheckbox"
+                          type="checkbox"
+                        />
                       </td>
                       <td style={{ textAlign: 'center' }}>
-                        <input className="HomeChurchCheckbox" type="checkbox" />
+                        <input
+                          onChange={onChangeOption}
+                          className="HomeChurchCheckbox"
+                          type="checkbox"
+                        />
                       </td>
                       <td style={{ textAlign: 'center' }}>
                         <button
@@ -247,7 +296,7 @@ export default function homechurch(): JSX.Element {
                 })}
             </tbody>
             <tfoot>
-              <tr>
+              <tr style={{ backgroundColor: 'white' }}>
                 <td style={{ paddingBottom: 16 }} colSpan={11}>
                   <TransactionPaginate
                     paginationIndex={page}

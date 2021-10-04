@@ -3,6 +3,10 @@ td {
   padding: 0;
   padding-left: 16px;
   line-height: 28px;
+  max-width: 220px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 th {
