@@ -730,9 +730,5 @@
   {
     "id": "appannouncement",
     "to": "https://meeting.formstack.com/forms/announcements_on_the_app"
-  },
-  {
-    "id": "parishstream",
-    "to": "https://youtu.be/k3tPf78CmjE"
   }
 ]
