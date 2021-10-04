@@ -46,11 +46,12 @@ type Query {
   tmhStripeAttachPaymentMethod(id:String, idempotency:String):Boolean @function(name:"tmhStripeAddPaymentMethod-${env}") @aws_cognito_user_pools
   tmhStripeListPaymentMethods(pageId:String):StripePaymentMethodsData @function(name:"tmhStripeListPaymentMethods-${env}") @aws_cognito_user_pools
 
-  tmhStripeListSubscriptions(pageId:String):StripePaymentMethodsData @function(name:"tmhStripeListSubscriptions-${env}") @aws_cognito_user_pools
-  tmhStripeDeleteSubscription(pageId:String):StripePaymentMethodsData @function(name:"tmhStripeDeleteSubscription-${env}") @aws_cognito_user_pools
+  tmhStripeListSubscriptions(starting_after:String):StripeSubscriptionsListData @function(name:"tmhStripeListSubscriptions-${env}") @aws_cognito_user_pools
+  tmhStripeDeleteSubscription(subscriptionId:String):Boolean @function(name:"tmhStripeDeleteSubscription-${env}") @aws_cognito_user_pools
   tmhStripeAddSubscription(idempotency:String,amount:String,fund:String,frequency:String):StripePaymentMethodsData @function(name:"tmhStripeAddSubscription-${env}") @aws_cognito_user_pools
   tmhStripeAddPayment(idempotency:String,amount:String,fund:String):StripePaymentMethodsData @function(name:"tmhStripeAddPayment-${env}") @aws_cognito_user_pools
-}
+  tmhStripeDeletePaymentMethod(paymentMethodId:String):Boolean @function(name:"tmhStripeDeletePaymentMethod-${env}") @aws_cognito_user_pools
+  }
 enum PinpointRecencyType
 {
   ACTIVE 
@@ -261,6 +262,36 @@ input StripeAddressInput
 }
 type StripeCustomerData{
   customer:StripeCustomer
+}
+type StripeSubscriptionsListData @aws_cognito_user_pools{
+   data:[StripeSubscriptionsList]
+   has_more:Boolean
+}
+type StripeSubscriptionsList @aws_cognito_user_pools{
+  id:String
+  default_source:String
+  items:StripeSubscriptionItemsData
+  next_pending_invoice_item_invoice:Int
+  start_date:Int
+  status:String
+}
+type StripeSubscriptionItems @aws_cognito_user_pools{
+  id:String
+  price:String
+  plan:StripeSubscriptionPlan
+}
+type StripeSubscriptionPlan @aws_cognito_user_pools{
+  id:String
+  interval:String
+  interval_count:Int
+  active:Boolean
+  amount:Float
+  number_decimal:String
+  currency:String
+  product:String
+}
+type StripeSubscriptionItemsData @aws_cognito_user_pools{
+  data:[StripeSubscriptionItems]
 }
 type StripePaymentMethodsData @aws_cognito_user_pools{
    data:[StripePaymentMethod]

@@ -100,6 +100,26 @@ export default class TMHStripe {
     });
     return customerResult;
   }
+  static async getPaymentMethod(
+    paymentMethodId: string
+  ): Promise<Stripe.Response<Stripe.PaymentMethod>> {
+    const stripe = new Stripe(await this.getSecret('stripeSecret'), {
+      apiVersion: '2020-08-27',
+    });
+    const customerResult = await stripe.paymentMethods.retrieve(
+      paymentMethodId
+    );
+    return customerResult;
+  }
+  static async detatchPaymentMethod(
+    paymentMethodId: string
+  ): Promise<Stripe.Response<Stripe.PaymentMethod>> {
+    const stripe = new Stripe(await this.getSecret('stripeSecret'), {
+      apiVersion: '2020-08-27',
+    });
+    const customerResult = await stripe.paymentMethods.detach(paymentMethodId);
+    return customerResult;
+  }
   static async createInvoiceItem(
     payment: Stripe.InvoiceItemCreateParams,
     idempotency: string
@@ -148,7 +168,17 @@ export default class TMHStripe {
     });
     return subscriptionResult;
   }
-
+  static async getSubscription(
+    subscriptionId: string
+  ): Promise<Stripe.Response<Stripe.Subscription>> {
+    const stripe = new Stripe(await this.getSecret('stripeSecret'), {
+      apiVersion: '2020-08-27',
+    });
+    const subscriptionResult = await stripe.subscriptions.retrieve(
+      subscriptionId
+    );
+    return subscriptionResult;
+  }
   static async deleteSubscription(
     subscriptionId: string,
     idempotency: string

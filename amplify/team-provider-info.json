@@ -351,7 +351,7 @@
         },
         "themeetinghousetmhShared": {
           "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
-          "s3Key": "amplify-builds/themeetinghousetmhShared-LambdaLayerVersion3c13429a-build.zip"
+          "s3Key": "amplify-builds/themeetinghousetmhShared-LambdaLayerVersion6acf6440-build.zip"
         },
         "tmhStripeListPaymentMethods": {
           "userPoolId": "us-east-1_tKp1OdyuZ",
@@ -372,14 +372,14 @@
           "userPoolWebClientId": "5gpi0b6rgnm5dh8orcj0088b9n",
           "identityPoolId": "us-east-1:cd5572cc-a312-4d62-b971-8d5ede70c133",
           "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
-          "s3Key": "amplify-builds/tmhStripeDeleteSubscription-61786d6c6e4458614a55-build.zip"
+          "s3Key": "amplify-builds/tmhStripeDeleteSubscription-764875766e707a79414c-build.zip"
         },
         "tmhStripeListSubscriptions": {
           "userPoolId": "us-east-1_tKp1OdyuZ",
           "userPoolWebClientId": "5gpi0b6rgnm5dh8orcj0088b9n",
           "identityPoolId": "us-east-1:cd5572cc-a312-4d62-b971-8d5ede70c133",
           "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
-          "s3Key": "amplify-builds/tmhStripeListSubscriptions-506d4b51617361754545-build.zip"
+          "s3Key": "amplify-builds/tmhStripeListSubscriptions-6f7145377a58422f3158-build.zip"
         },
         "tmhStripeAddSubscription": {
           "userPoolId": "us-east-1_tKp1OdyuZ",
@@ -440,6 +440,13 @@
           "identityPoolId": "us-east-1:cd5572cc-a312-4d62-b971-8d5ede70c133",
           "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
           "s3Key": "amplify-builds/tmhStripeAddPayment-6e584e6a795373594c56-build.zip"
+        },
+        "tmhStripeDeletePaymentMethod": {
+          "userPoolId": "us-east-1_tKp1OdyuZ",
+          "userPoolWebClientId": "5gpi0b6rgnm5dh8orcj0088b9n",
+          "identityPoolId": "us-east-1:cd5572cc-a312-4d62-b971-8d5ede70c133",
+          "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
+          "s3Key": "amplify-builds/tmhStripeDeletePaymentMethod-3532596d503254394e32-build.zip"
         }
       }
     }

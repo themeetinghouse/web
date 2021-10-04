@@ -3115,65 +3115,38 @@ export const tmhStripeListPaymentMethods = /* GraphQL */ `
   }
 `;
 export const tmhStripeListSubscriptions = /* GraphQL */ `
-  query TmhStripeListSubscriptions($pageId: String) {
-    tmhStripeListSubscriptions(pageId: $pageId) {
+  query TmhStripeListSubscriptions($starting_after: String) {
+    tmhStripeListSubscriptions(starting_after: $starting_after) {
       data {
         id
-        type
-        card {
-          brand
-          last4
-          exp_year
-          exp_month
-          funding
-          country
-        }
-        billing_details {
-          email
-          name
-          phone
-          address {
-            city
-            country
-            line1
-            line2
-            postal_code
-            state
+        default_source
+        items {
+          data {
+            id
+            price
+            plan {
+              id
+              interval
+              interval_count
+              active
+              amount
+              number_decimal
+              currency
+              product
+            }
           }
         }
+        next_pending_invoice_item_invoice
+        start_date
+        status
       }
+      has_more
     }
   }
 `;
 export const tmhStripeDeleteSubscription = /* GraphQL */ `
-  query TmhStripeDeleteSubscription($pageId: String) {
-    tmhStripeDeleteSubscription(pageId: $pageId) {
-      data {
-        id
-        type
-        card {
-          brand
-          last4
-          exp_year
-          exp_month
-          funding
-          country
-        }
-        billing_details {
-          email
-          name
-          phone
-          address {
-            city
-            country
-            line1
-            line2
-            postal_code
-            state
-          }
-        }
-      }
-    }
+  query TmhStripeDeleteSubscription($subscriptionId: String) {
+    tmhStripeDeleteSubscription(subscriptionId: $subscriptionId)
   }
 `;
 export const tmhStripeAddSubscription = /* GraphQL */ `
@@ -3254,6 +3227,11 @@ export const tmhStripeAddPayment = /* GraphQL */ `
         }
       }
     }
+  }
+`;
+export const tmhStripeDeletePaymentMethod = /* GraphQL */ `
+  query TmhStripeDeletePaymentMethod($paymentMethodId: String) {
+    tmhStripeDeletePaymentMethod(paymentMethodId: $paymentMethodId)
   }
 `;
 export const getTnSeries = /* GraphQL */ `
