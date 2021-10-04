@@ -7,7 +7,7 @@ import { Spinner } from 'reactstrap';
 import * as queries from '../../graphql/queries';
 import * as mutations from '../../graphql/mutations';
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api-graphql';
-import moment from 'moment';
+// import moment from 'moment';
 import { ListHomeChurchInfosQuery } from 'API';
 import TransactionPaginate from 'pages/users/Transactions/TransactionsPaginate';
 import './homechurch.scss';
@@ -111,12 +111,17 @@ export default function homechurch(): JSX.Element {
         <Modal size="lg" isOpen={edit}>
           <div>
             <p>Name: {edit?.F1ItemData.name}</p>
-            <p>Transit Accessible: {edit?.F1ItemData.name}</p>
-            <p>Has Childcare: {edit?.F1ItemData.name}</p>
-            <p>Is Online: {edit?.F1ItemData.name}</p>
-            <p>Elders: {edit?.F1ItemData.name}</p>
-            <p>Gender: {edit?.F1ItemData.name}</p>
-            <p>Transit Accessible: {edit?.F1ItemData.name}</p>
+            <p>Transit Accessible: {edit?.transitAccessible}</p>
+            <p>Has Childcare: {edit?.hasChildcare}</p>
+            <p>Is Online: {edit?.isOnline}</p>
+            <p>Online Connect URL: {edit?.onlineConnectUrl}</p>
+            <p>Elders: {edit?.elders?.map((elder: string) => elder + ', ')}</p>
+            <p>Gender: {edit?.gender}</p>
+            <p>Pet Free: {edit?.petFree}</p>
+            <p>Age Groups: {edit?.ageGroups}</p>
+            <p>Extended Description: {edit?.extendedDescription} </p>
+            <p>Vaccination Required: {edit?.vaccinationRequired}</p>
+            <p></p>
             <button onClick={() => setEdit(null)}>Save</button>
             <button onClick={() => setEdit(null)}>Close</button>
           </div>
@@ -135,7 +140,7 @@ export default function homechurch(): JSX.Element {
           <Spinner />
         </div>
       ) : (
-        <div style={{ margin: 'auto', width: '50vw' }}>
+        <div style={{ margin: 'auto', width: '90vw' }}>
           <table
             style={{
               backgroundColor: '#efefef',
@@ -144,7 +149,7 @@ export default function homechurch(): JSX.Element {
           >
             <thead>
               <tr>
-                <th colSpan={3}>
+                <th colSpan={11}>
                   <input
                     placeholder="Search by name.."
                     value={search}
@@ -152,15 +157,26 @@ export default function homechurch(): JSX.Element {
                       if (page !== 0) setPage(0);
                       setSearch(e.target.value);
                     }}
-                    style={{ width: '100%', margin: '16px 0px', padding: 8 }}
+                    style={{
+                      width: '40%',
+                      margin: '16px 0px',
+                      padding: 8,
+                    }}
                   />
                 </th>
               </tr>
               <tr>
                 <th>id</th>
                 <th>Name</th>
-                <th>Last Updated</th>
-                <th></th>
+                <th style={{ textAlign: 'center' }}>Pet Free</th>
+                <th style={{ textAlign: 'center' }}>Transit Accessible</th>
+                <th style={{ textAlign: 'center' }}>Has Childcare</th>
+                <th style={{ textAlign: 'center' }}>Vaccination Required</th>
+                <th style={{ textAlign: 'center' }}>Young Adult</th>
+                <th style={{ textAlign: 'center' }}>Family Friendly</th>
+                <th style={{ textAlign: 'center' }}>Is Online</th>
+                <th style={{ textAlign: 'center' }}>Is Hybrid</th>
+                <th>Update</th>
               </tr>
             </thead>
             <tbody>
@@ -187,10 +203,31 @@ export default function homechurch(): JSX.Element {
                     >
                       <td>{hm?.id}</td>
                       <td>{hm?.F1ItemData?.name}</td>
-                      <td>
-                        {moment(hm.updatedAt).format('YYYY-MM-DD hh:mm a')}
+                      <td style={{ textAlign: 'center' }}>
+                        <input className="HomeChurchCheckbox" type="checkbox" />
                       </td>
-                      <td>
+                      <td style={{ textAlign: 'center' }}>
+                        <input className="HomeChurchCheckbox" type="checkbox" />
+                      </td>
+                      <td style={{ textAlign: 'center' }}>
+                        <input className="HomeChurchCheckbox" type="checkbox" />
+                      </td>
+                      <td style={{ textAlign: 'center' }}>
+                        <input className="HomeChurchCheckbox" type="checkbox" />
+                      </td>
+                      <td style={{ textAlign: 'center' }}>
+                        <input className="HomeChurchCheckbox" type="checkbox" />
+                      </td>
+                      <td style={{ textAlign: 'center' }}>
+                        <input className="HomeChurchCheckbox" type="checkbox" />
+                      </td>
+                      <td style={{ textAlign: 'center' }}>
+                        <input className="HomeChurchCheckbox" type="checkbox" />
+                      </td>
+                      <td style={{ textAlign: 'center' }}>
+                        <input className="HomeChurchCheckbox" type="checkbox" />
+                      </td>
+                      <td style={{ textAlign: 'center' }}>
                         <button
                           onClick={() => setEdit(hm)}
                           style={{
@@ -211,7 +248,7 @@ export default function homechurch(): JSX.Element {
             </tbody>
             <tfoot>
               <tr>
-                <td colSpan={3}>
+                <td style={{ paddingBottom: 16 }} colSpan={11}>
                   <TransactionPaginate
                     paginationIndex={page}
                     setPaginationIndex={setPage}
