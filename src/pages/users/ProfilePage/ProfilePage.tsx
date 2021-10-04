@@ -98,14 +98,14 @@ export default function ProfilePage() {
         </div>
         <div className="RightContainer">
           <div className="RightProfilePicture">
-            <img
+            {/* <img
               role="button"
               aria-label="Upload Profile Picture"
               style={{ cursor: 'pointer' }}
               onClick={() => uploadRef.current.click()}
               alt="User Profile"
               src="/static/svg/ProfileUpload.svg"
-            ></img>
+           ></img>*/}
           </div>
           <div className="RightButtonContainer">
             <button className="ProfileButton white">Back</button>

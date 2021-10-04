@@ -27,11 +27,11 @@ export default function ProfileCard(): JSX.Element {
         </div>
       ) : (
         <>
-          <img
+          {/* <img
             alt="User Profile"
             className="profilePicture"
             src="/static/svg/Profile.svg"
-          ></img>
+         ></img>*/}
           <h3>
             {userData.given_name} {userData.family_name}
           </h3>
