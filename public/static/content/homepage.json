@@ -93,6 +93,11 @@
             "type": "link",
             "title": "See our plan",
             "navigateTo": "/fall2021"
+          },
+          {
+            "type": "link",
+            "title": "Sunday Registration",
+            "navigateTo": "/registration"
           }
         ],
         "image1": [
