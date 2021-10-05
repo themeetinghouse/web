@@ -180,14 +180,14 @@
       {
         "type": "content",
         "style": "oneImageBlackRight",
-        "header1": "COVID-19 Updates",
+        "header1": "Go",
         "header2": "",
-        "text1": "We've made significant changes in response to the COVID-19 pandemic. Whether you're a new visitor or an old timer, find out what's changing at The Meeting House as we head into the fall.",
+        "text1": "We're excited to invest in a number of special projects over the next few years that are generating stories of impact. Find out how you can make a difference.",
         "list": [
           {
             "type": "link",
-            "title": "Read Latest Updates",
-            "navigateTo": "/covid"
+            "title": "See the impact",
+            "navigateTo": "/go"
           }
         ],
         "image1": [
