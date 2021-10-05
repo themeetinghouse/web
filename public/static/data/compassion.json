@@ -390,24 +390,6 @@
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
-    "id": 44,
-    "sites": ["toronto-east"],
-    "name": "Mercy City Church",
-    "description": "Mercy City serves the Dawes Road community of East Toronto. Their ministries include camps, after school programs, family nights, community dinners, and Sunday services with the goal of sharing the gospel and building relationships.",
-    "website": "https://mercycitychurch.com",
-    "image": "/static/images/compassion/none.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 45,
-    "sites": ["toronto-east"],
-    "name": "Red Door Family Shelter",
-    "description": "The Red Door Family Shelter provides safe and supportive emergency housing to individuals and families in need of refuge from domestic violence and to those who find themselves without accommodation.",
-    "website": "https://www.reddoorshelter.ca",
-    "image": "/static/images/compassion/none.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
     "id": 46,
     "sites": ["toronto-downtown"],
     "name": "Yonge Street Mission",
