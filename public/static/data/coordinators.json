@@ -230,12 +230,6 @@
     "Position": "Kidmax Coordinator"
   },
   {
-    "FirstName": "Natalie",
-    "LastName": "Kuurstra",
-    "sites": ["LOND"],
-    "Position": "Kidmax Coordinator"
-  },
-  {
     "FirstName": "Jacqueline",
     "LastName": "Lo",
     "sites": ["NMKT"],
@@ -333,6 +327,13 @@
     "LastName": "Van den Heuvel",
     "sites": ["BRFD"],
     "Position": "Music Coordinator"
+  },
+  {
+    "FirstName": "Kristin",
+    "LastName": "Van Hoeve",
+    "sites": ["BRFD"],
+    "Email":"kristinvanhoeve@gmail.com",
+    "Position": "Kidmax Coordinator"
   },
   {
     "FirstName": "Adam",
@@ -448,13 +449,6 @@
     "Position": "Weekend Service Producer"
   },
   {
-    "FirstName": "Sheryl",
-    "LastName": "Bailey",
-    "sites": ["LOND"],
-    "Email": "sheryl.bailey@themeetinghouse.com",
-    "Position": "Weekend Service Producer"
-  },
-  {
     "FirstName": "Sarah",
     "LastName": "Dyer",
     "sites": ["NMKT"],
@@ -505,13 +499,6 @@
     "FirstName": "Jason",
     "LastName": "Lise",
     "sites": ["HMDT"],
-    "Position": "Welcome Coordinator"
-  },
-  {
-    "FirstName": "Melissa",
-    "LastName": "Beldman",
-    "sites": ["LOND"],
-    "Email": "melissa.beldman@themeetinghouse.com",
     "Position": "Welcome Coordinator"
   },
   {
