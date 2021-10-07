@@ -64,18 +64,21 @@
     "FirstName": "April",
     "LastName": "Yorke",
     "sites": ["OTTA"],
+    "Email": "april.yorke@themeetinghouse.com",
     "Position": "Compassion Coordinator"
   },
   {
     "FirstName": "Jasmine",
     "LastName": "Duckworth",
     "sites": ["OTTA"],
+    "Email": "jasmine.duckworth@themeetinghouse.com",
     "Position": "Accessibility Coordinator"
   },
   {
     "FirstName": "Megan",
     "LastName": "McEwen",
     "sites": ["OTTA"],
+    "Email": "megan.mcewen@themeetinghouse.com",
     "Position": "Tech Coordinator"
   },
   {
