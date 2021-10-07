@@ -52,13 +52,13 @@
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/EYLessonOct3.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYLessonOct10.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesOct3.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesOct10.pdf",
             "openNewBrowser": true
           },
           {
@@ -86,21 +86,21 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaOct3.jpg",
-            "alt": "This week's big idea is: God's way is the best way."
+            "src": "/static/images/KidsBigIdeaOct10.jpg",
+            "alt": "This week's big idea is: God's kindness brings people together."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonOct3.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonOct10.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activity",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesOct3.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsActivityOct10.pdf",
             "openNewBrowser": true
           },
           {
