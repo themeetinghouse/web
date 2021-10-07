@@ -1,6 +1,15 @@
 [
   {
     "Staff": true,
+    "FirstName": "Aaron",
+    "LastName": "Sawczak",
+    "Phone": "905.287.7000",
+    "Position": "Production Tech Coordinator",
+    "sites": ["Communications"],
+    "Email": "Aaron.Sawczak@themeetinghouse.com"
+  },
+  {
+    "Staff": true,
     "FirstName": "Alex",
     "LastName": "Briere",
     "Phone": "905.287.7000",
@@ -346,7 +355,7 @@
     "FirstName": "Laura",
     "LastName": "Jory",
     "Phone": "905.287.7000, ext. 829",
-    "Position": "Oakville Kidmax Coordinator, Grade 1-5 (On Leave)",
+    "Position": "Oakville Kidmax Coordinator, Grade 1-5",
     "sites": ["OAKV", "Children"],
     "Email": "Laura.Jory@themeetinghouse.com"
   },
@@ -508,7 +517,7 @@
     "FirstName": "Natalie",
     "LastName": "Burtch",
     "Phone": "905.287.7000, ext. 835",
-    "Position": "Live Production Manager",
+    "Position": "Live Production Manager (On Leave)",
     "sites": ["OAKV"],
     "Email": "Natalie.Burtch@themeetinghouse.com"
   },
@@ -520,6 +529,15 @@
     "Position": "Curriculum Pastor & Brantford Lead Pastor",
     "sites": ["BRFD", "Communications", "Pastoral", "Children"],
     "Email": "Natalie.Frisk@themeetinghouse.com"
+  },
+  {
+    "Staff": true,
+    "FirstName": "Nick",
+    "LastName": "Reis",
+    "Phone": "905.287.7000",
+    "Position": "Associate Producer",
+    "sites": ["Communications"],
+    "Email": "Nick.Reis@themeetinghouse.com"
   },
   {
     "Staff": true,

@@ -67,6 +67,18 @@
     "Position": "Compassion Coordinator"
   },
   {
+    "FirstName": "Jasmine",
+    "LastName": "Duckworth",
+    "sites": ["OTTA"],
+    "Position": "Accessibility Coordinator"
+  },
+  {
+    "FirstName": "Megan",
+    "LastName": "McEwen",
+    "sites": ["OTTA"],
+    "Position": "Tech Coordinator"
+  },
+  {
     "FirstName": "Amanda",
     "LastName": "Shaw",
     "sites": ["PAR"],
@@ -444,12 +456,6 @@
     "LastName": "Dyer",
     "sites": ["NMKT"],
     "Email": "sarah.dyer@themeetinghouse.com",
-    "Position": "Weekend Service Producer"
-  },
-  {
-    "FirstName": "Fiona",
-    "LastName": "Lau",
-    "sites": ["OTTA"],
     "Position": "Weekend Service Producer"
   },
   {
