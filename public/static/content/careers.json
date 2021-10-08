@@ -122,18 +122,13 @@
           },
           {
             "type": "link",
+            "title": "Hamilton Kidmax Coordinator",
+            "navigateTo": "/static/pdfs/careers/Hamilton Kidmax Coordinator.pdf"
+          },
+          {
+            "type": "link",
             "title": "Alliston Family Engagement Coordinator",
             "navigateTo": "/static/pdfs/careers/Family Engagement Coordinator (Part-Time).pdf"
-          },
-          {
-            "type": "link",
-            "title": "Events Associate",
-            "navigateTo": "/static/pdfs/careers/Events Associate.pdf"
-          },
-          {
-            "type": "link",
-            "title": "Rentals and Events Administrator",
-            "navigateTo": "/static/pdfs/careers/Rentals and Events Administrator.pdf"
           }
         ],
         "image1": [
