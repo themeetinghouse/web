@@ -73,11 +73,6 @@
           },
           {
             "type": "link",
-            "title": "Human Resources Manager",
-            "navigateTo": "/static/pdfs/careers/Human Resources Manager.pdf"
-          },
-          {
-            "type": "link",
             "title": "Kitchener Waterloo Pastor",
             "navigateTo": "/static/pdfs/careers/Kitchener Waterloo Pastor.pdf"
           },
@@ -90,11 +85,6 @@
             "type": "link",
             "title": "Ancaster Lead Pastor",
             "navigateTo": "/static/pdfs/careers/Ancaster Lead Pastor.pdf"
-          },
-          {
-            "type": "link",
-            "title": "Burlington Lead Pastor",
-            "navigateTo": "/static/pdfs/careers/Burlington Lead Pastor.pdf"
           },
           {
             "type": "link",
