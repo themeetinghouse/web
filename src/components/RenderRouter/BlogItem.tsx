@@ -134,6 +134,16 @@ const BlogItem = ({ content }: Props) => {
       );
   }, []);
 
+  const sortAndSetBlogs = (
+    blogs: BlogSeriesPost[] | Blog[] | VideoSeriesBlog[]
+  ) => {
+    setBlogs(
+      blogs.sort((a, b) =>
+        (b?.publishedDate ?? '').localeCompare(a?.publishedDate ?? '')
+      )
+    );
+  };
+
   const fetchBlogsByVideo = async (): Promise<void> => {
     const id = params?.episode;
 
@@ -169,7 +179,9 @@ const BlogItem = ({ content }: Props) => {
             }
           });
 
-          setBlogs((publishedOnly?.filter(Boolean) ?? []) as VideoSeriesBlog[]);
+          sortAndSetBlogs(
+            (publishedOnly?.filter(Boolean) ?? []) as VideoSeriesBlog[]
+          );
         }
       } catch (e) {
         console.error(e);
@@ -189,7 +201,7 @@ const BlogItem = ({ content }: Props) => {
         sortDirection: ModelSortDirection[sortOrder ?? 'DESC'],
         limit: limit,
         filter: { hiddenMainIndex: { ne: true } },
-        nextToken: nextToken,
+        nextToken,
       };
       const json = (await API.graphql({
         query: getBlogByBlogStatus,
@@ -206,7 +218,7 @@ const BlogItem = ({ content }: Props) => {
               post?.expirationDate === 'none' ||
               moment(post?.expirationDate, 'YYYY-MM-DD').isAfter(today)
           );
-          setBlogs(blogs.concat(dateChecked.filter(Boolean)));
+          sortAndSetBlogs(blogs.concat(dateChecked.filter(Boolean)));
         }
 
         if (
@@ -252,7 +264,7 @@ const BlogItem = ({ content }: Props) => {
               return item?.blogPost;
             }
           });
-          setBlogs(publishedOnly.filter(Boolean));
+          sortAndSetBlogs(publishedOnly.filter(Boolean));
         }
       }
     } catch (e) {
