@@ -59,146 +59,66 @@
           "header1": "Leaders' Day 2021",
           "text1": "When’s the last time someone asked you what you believe? You know—about the big things in life. We’re a church that loves to ask questions, and loves people with questions. We don’t have all the answers, but exploring together is pretty much our favourite thing.",
           "button1": {
-            "text": "Why Jesus?",
-            "action": "/spirituality",
-            "description": "Got questions about Spirituality?"
+            "text": "Watch live",
+            "action": "/live",
+            "description": "Click to watch leaders day live"
           }
-        },
-        {
-          "type": "content",
-          "style": "oneImage",
-          "header1": "We're On Your Team",
-          "text1": "Community is a party and we want to make sure everyone's invited. Ready to connect with people who want to do this together?",
-          "list": [
-            {
-              "type": "link",
-              "title": "Find Community",
-              "navigateTo": "/community"
-            }
-          ],
-          "image1": [
-            {
-              "src": "/static/images/homepage-2-new.jpg",
-              "alt": "Group of friends from church sitting together, and talking."
-            }
-          ]
-        },
-        {
-          "type": "content",
-          "style": "oneImageBlackRight",
-          "header1": "Fall 2021",
-          "text1": "Church is going to look different this fall. Whether you're watching online or planning to join our in-person gatherings, keep checking back here for all the details on how you can get engaged.",
-          "list": [
-            {
-              "type": "link",
-              "title": "See our plan",
-              "navigateTo": "/fall2021"
-            },
-            {
-              "type": "link",
-              "title": "Sunday Registration",
-              "navigateTo": "/registration"
-            }
-          ],
-          "image1": [
-            {
-              "src": "/static/images/Fall2021-1.jpg",
-              "alt": "Two men inside of a building smiling and hugging."
-            }
-          ]
         },
         {
           "type": "list",
           "style": "imageList",
           "class": "user-defined",
-          "header1": "Teaching",
-          "text1": "Explore the life and teaching of Jesus as well as practical applications for your daily life.",
+          "header1": "Choose your own adventure",
+          "text1": "AS we look back at this past year, what have we learned? What does it mean to lead in your context? How do we care for people including those with disabilities and/or accessibility issues? How do we equip people in their spiritual life? What will we continue doing virtually? Join a breakout room to learn from one another and hear from one of our speakers.",
           "list": [
             {
-              "title": "Sunday Teaching",
-              "text": "All of our teaching videos and series, including notes, questions, audio, and additional content. Check out what we're learning, or find what you're looking for in our video playlists.",
+              "title": "Creating spaces that work for the whole family - Natalie Frisk",
+              "text": "When we talk about ‘the whole family,’ we aren't just talking about a nuclear family, but every age and stage. Every sibling in Christ from the very youngest to the eldest. With this in mind, we'll learn together by considering discipleship together through a lens of intergenerational experiences and discover how we can really connect in meaningful ways.",
               "imageSrc": "/static/images/homepage-4-1-new.jpg",
               "imageAlt": "Young woman sitting at a table and looking at her notes from Sunday teaching at The Meeting House.",
               "navigateTo": "/teaching"
             },
             {
-              "title": "Livestream",
-              "text": "We're live every Sunday at 10:00am EDT. A one hour livestream experience with stories, music, and teaching. If you're looking for a good first step, this is it. See you this Sunday!",
+              "title": "Creating Community In An Online World - Jordan Duerrstein and Mary Kate",
+              "text": "In March 2020, we transitioned really quickly to shift the vast majority of our church life into an online space. Zoom calls, WhatsApp groups, Discord servers … for some of us, this was new territory. For others, this had been our home for years. Come learn and discuss some best practices for creating environments online that are accessible, engaging, and spiritually transformative.",
               "imageSrc": "/static/images/corona-2.jpg",
               "imageAlt": "Screen shot of Bruxy teaching during Sunday morning livestream at The Meeting House.",
               "navigateTo": "/live"
             },
             {
-              "title": "Podcasts",
-              "text": "All of our Sunday teaching in one place. We've also got The After Party podcast where we chat with special guests about theology and culture and The Roundtable podcast where we discuss church life with our leaders, staff, and special guests.",
+              "title": "Caring for others while caring for yourself - Kathy Bernard & Marty Whittaker",
+              "text": "Setting healthy boundaries can be one of the most loving things you can do - join us as we look at how to set boundaries in a Jesus way.",
               "imageSrc": "/static/images/homepage-4-2-new.jpg",
               "imageAlt": "Team of pastors from The Meeting House sitting around a table and recording a podcast.",
               "navigateTo": "/teaching-podcasts"
             },
             {
-              "title": "Kids & Youth Curriculum",
-              "text": "Through Sunday morning teaching, midweek group resources, and The Parent Blog, our kids and youth curriculum is designed to partner with parents and leaders and equip them with resources to disciple their kids and youth well.",
+              "title": "What are Fresh Expressions of Church? - Jon Hand & Stephen Kidd",
+              "text": "How do we share our faith with friends, neighbours, coworkers, or family who aren’t into church or even into a church for those not into church? Spoiler alert! If people won’t come to church, we take the church to them. Fresh Expressions are innovative ways to build community and introduce spiritually curious to people to the Jesus-centred life. This workshop will give you an overview of Fresh Expressions of church and share a few stories, tools, postures, and approaches to help us pioneer new ways of being the church for those not into church.",
               "imageSrc": "/static/images/homepage-4-4-new.jpg",
               "imageAlt": "Kids gathering around a smartphone to watch a video from The Meeting House Kids and Youth curriculum.",
               "navigateTo": "/teaching-kids-youth"
-            }
-          ]
-        },
-        {
-          "type": "blog",
-          "style": "multiImage",
-          "status": "Live",
-          "header1": "Recent Blog Entries",
-          "sortOrder": "DESC",
-          "limit": 2,
-          "button1Action": "/blogs"
-        },
-        {
-          "type": "content",
-          "style": "mad",
-          "header1": "Make a Difference",
-          "text1": "Volunteering, giving, and compassion around the block or around the world. We want to use our money, time, and resources to love and serve people on the margins. Are you looking to get involved?",
-          "list": [
-            {
-              "type": "arrow",
-              "title": "Volunteer",
-              "navigateTo": "/volunteering"
             },
             {
-              "type": "arrow",
-              "title": "Compassion",
-              "navigateTo": "/compassion"
+              "title": "Idea sharing lobby: Coordinators connect",
+              "text": "How do we share our faith with friends, neighbours, coworkers, or family who aren’t into church or even into a church for those not into church? Spoiler alert! If people won’t come to church, we take the church to them. Fresh Expressions are innovative ways to build community and introduce spiritually curious to people to the Jesus-centred life. This workshop will give you an overview of Fresh Expressions of church and share a few stories, tools, postures, and approaches to help us pioneer new ways of being the church for those not into church.",
+              "imageSrc": "/static/images/homepage-4-4-new.jpg",
+              "imageAlt": "Kids gathering around a smartphone to watch a video from The Meeting House Kids and Youth curriculum.",
+              "navigateTo": "/teaching-kids-youth"
             },
             {
-              "type": "arrow",
-              "title": "Give",
-              "navigateTo": "/give"
-            }
-          ],
-          "image1": [
+              "title": " Walking Through Divisive Days as A Leader - Chris Chase",
+              "text": "Jesus’ prayer in John 17 was for his disciples across all generations to be unified as an expression of God’s love for the world. And yet, we find ourselves in days of deep division, difficult conversations, and the struggle to maintain the loving unity Jesus longs for us. How do we model grace and acceptance when people feel “othered”? How do we “keep the main thing the main thing”? Come listen and share your learnings as we “make every effort to keep the unity of the Spirit through the bond of peace.” Eph 4:3-6.",
+              "imageSrc": "/static/images/homepage-4-4-new.jpg",
+              "imageAlt": "Kids gathering around a smartphone to watch a video from The Meeting House Kids and Youth curriculum.",
+              "navigateTo": "/teaching-kids-youth"
+            },
             {
-              "src": "/static/images/homepage-6-new.jpg",
-              "alt": "Friends walking together across the street talking about volunteering, compassion, and giving at The Meeting House."
-            }
-          ]
-        },
-        {
-          "type": "content",
-          "style": "oneImageBlackRight",
-          "header1": "Go",
-          "header2": "",
-          "text1": "We're excited to invest in a number of special projects over the next few years that are generating stories of impact. Find out how you can make a difference.",
-          "list": [
-            {
-              "type": "link",
-              "title": "See the impact",
-              "navigateTo": "/go"
-            }
-          ],
-          "image1": [
-            {
-              "src": "/static/images/homepage-covid-1.jpg",
-              "alt": "A woman wearing a mask looking directly at the camera."
+              "title": "Simple Ways to Become More Invested in Your Neighbourhood - Steve MacDouell, Sandy MacLean, and Carol MacLean",
+              "text": "What might it look like to become a more present, attentive, and engaged presence in our neighbourhoods? Together, we’ll explore some small-scale, practical ways that we can begin to pivot toward our neighbourhoods and the people that we share them with. ",
+              "imageSrc": "/static/images/homepage-4-4-new.jpg",
+              "imageAlt": "Kids gathering around a smartphone to watch a video from The Meeting House Kids and Youth curriculum.",
+              "navigateTo": "/teaching-kids-youth"
             }
           ]
         },
