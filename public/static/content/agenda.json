@@ -57,12 +57,75 @@
             }
           ],
           "header1": "Leaders' Day 2021",
-          "text1": "When’s the last time someone asked you what you believe? You know—about the big things in life. We’re a church that loves to ask questions, and loves people with questions. We don’t have all the answers, but exploring together is pretty much our favourite thing.",
+          "text1": "Our theme is Parish Mindset.",
           "button1": {
             "text": "Watch live",
             "action": "/live",
             "description": "Click to watch leaders day live"
           }
+        },
+        {
+          "type": "content",
+          "style": "oneImageBlackRight",
+          "header1": "Agenda",
+          "list": [
+            {
+              "type": "link",
+              "title": "9:00am - Welcome",
+              "navigateTo": "/leadersdaylive"
+            },
+            {
+              "type": "link",
+              "title": "9:10am - Spiritual Practice",
+              "navigateTo": "/leadersdaylive"
+            },
+            {
+              "type": "link",
+              "title": "9:20am - Storytelling",
+              "navigateTo": "/leadersdaylive"
+            },
+            {
+              "type": "link",
+              "title": "9:40am - Breakout Sessions #1",
+              "navigateTo": "/leadersdaylive"
+            },
+            {
+              "type": "link",
+              "title": "10:25am - Break",
+              "navigateTo": "/leadersdaylive"
+            },
+            {
+              "type": "link",
+              "title": "10:30am - Storytelling",
+              "navigateTo": "/leadersdaylive"
+            },
+            {
+              "type": "link",
+              "title": "10:45am - Breakout Sessions #2",
+              "navigateTo": "/leadersdaylive"
+            },
+            {
+              "type": "link",
+              "title": "11:25am - Break",
+              "navigateTo": "/leadersdaylive"
+            },
+            {
+              "type": "link",
+              "title": "11:30am - Encouragement and Prayer",
+              "navigateTo": "/leadersdaylive"
+            },
+            {
+              "type": "link",
+              "title": "11:45am - Parish Communion",
+              "navigateTo": "/leadersdaylive"
+            }
+          ],
+          "image1": [
+            {
+              "src": "/static/images/LeadersDay.jpg",
+              "alt": "Two men inside of a building smiling and hugging."
+            }
+          ]
         },
         {
           "type": "list",
