@@ -678,7 +678,7 @@
     "sites": ["connect"],
     "name": "Tech/WSP/Setup - Ian Jongema",
     "description": "As parishes have regathered, it’s taken tons of local innovation to deal with the logistical challenges that come from resuming in-person gatherings during a pandemic.  From the literal nuts and bolts of set-up cases, to the digital nuts and bolts of simulcasting a livestream, this space is a place for WSP’s, set-up and tech volunteers to talk together about what’s been working in their parishes so far and help each other develop solutions to some of the challenges we’ve encountered along the way.",
-    "image": "/static/photos/compassion/land.jpg",
+    "image": "static/photos/staff/Ian_Jongema_app.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
@@ -686,7 +686,7 @@
     "sites": ["connect"],
     "name": "Music - Anna Lakatos",
     "description": "With masks, no singing and provincial limitations, the task of creating worshipful experience may seem daunting. Let’s start the creative discussion on how to make our musical and overall worship elements still participatory and engaging experiences, in our post pandemic realities.",
-    "image": "/static/photos/compassion/land.jpg",
+    "image": "static/photos/staff/Anna_Lakatos_app.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
@@ -694,7 +694,7 @@
     "sites": ["connect"],
     "name": "Prayer - Rob Schellenberg",
     "description": "During these uncertain times we need to focus more than ever on prayer. Join us for a convo around how to start a prayer team in your parish and how to navigate the challenges that prayer ministries often face.",
-    "image": "/static/photos/compassion/land.jpg",
+    "image": "static/photos/staff/Rob_Schellenberg_app.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
@@ -702,7 +702,7 @@
     "sites": ["connect"],
     "name": "Compassion - Matt Thompson & Megan Enns",
     "description": "​​During Leaders Day we will look at what it means to be parish-minded within Compassion by taking a step back to analyze our parishes and the neighbourhoods we live in.",
-    "image": "/static/photos/compassion/land.jpg",
+    "image": "static/photos/leadersdaypictures/MeganEnns.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
@@ -710,7 +710,7 @@
     "sites": ["connect"],
     "name": "Kids - Christie Penner Worden",
     "description": "Kidmax: What have we learned this past year? What are we taking with us into the future, and what are we leaving behind?",
-    "image": "/static/photos/compassion/land.jpg",
+    "image": "static/photos/leadersdaypictures/ChristiePennerWorden.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
@@ -718,7 +718,7 @@
     "sites": ["connect"],
     "name": "Youth - Chris Murphy & Emma Field",
     "description": "Calling all Youth Leaders! Join us for a time of encouragement through story-sharing as we highlight some of the things we’ve learned throughout the pandemic season that will help give us confidence moving into the rest of this semester.",
-    "image": "/static/photos/compassion/land.jpg",
+    "image": "static/photos/leadersdaypictures/Chris Murphy.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   }
 ]
