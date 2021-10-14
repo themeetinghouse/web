@@ -100,13 +100,6 @@
               "navigateTo": "/teaching-kids-youth"
             },
             {
-              "title": "Idea sharing lobby: Coordinators connect",
-              "text": "How do we share our faith with friends, neighbours, coworkers, or family who aren’t into church or even into a church for those not into church? Spoiler alert! If people won’t come to church, we take the church to them. Fresh Expressions are innovative ways to build community and introduce spiritually curious to people to the Jesus-centred life. This workshop will give you an overview of Fresh Expressions of church and share a few stories, tools, postures, and approaches to help us pioneer new ways of being the church for those not into church.",
-              "imageSrc": "/static/images/homepage-4-4-new.jpg",
-              "imageAlt": "Kids gathering around a smartphone to watch a video from The Meeting House Kids and Youth curriculum.",
-              "navigateTo": "/teaching-kids-youth"
-            },
-            {
               "title": " Walking Through Divisive Days as A Leader - Chris Chase",
               "text": "Jesus’ prayer in John 17 was for his disciples across all generations to be unified as an expression of God’s love for the world. And yet, we find ourselves in days of deep division, difficult conversations, and the struggle to maintain the loving unity Jesus longs for us. How do we model grace and acceptance when people feel “othered”? How do we “keep the main thing the main thing”? Come listen and share your learnings as we “make every effort to keep the unity of the Spirit through the bond of peace.” Eph 4:3-6.",
               "imageSrc": "/static/images/homepage-4-4-new.jpg",
@@ -130,42 +123,6 @@
           "text1": "Connect with coordinators in each of your areas.",
           "filterField": "sites",
           "filterValue": "connect"
-        },
-        {
-          "type": "hero",
-          "style": "connect",
-          "image1": [
-            {
-              "src": "/static/images/email-connect-1.jpg",
-              "alt": "Two women drinking coffee."
-            },
-            {
-              "src": "/static/images/email-connect-3.jpg",
-              "alt": "A young woman is talking to her friends in the church lobby."
-            }
-          ],
-          "header1": "So, what now?",
-          "header2": "",
-          "text2": "Taking all this in can feel pretty overwhelming. Drop your email below and we'll send you some of our favourite starting content and suggest a practical next step.",
-          "hasFooter": true
-        },
-        {
-          "type": "hero",
-          "style": "partialNoFooter",
-          "image1": [
-            {
-              "src": "/static/svg/Map.svg",
-              "alt": "A map representing locations of The Meeting House churches."
-            }
-          ],
-          "header1": "Locations",
-          "text1": "It's pretty simple: we get together to build relationships, and find ways to love and serve our neighbourhoods as we learn to follow Jesus.",
-          "text2": "Find local, connect online.",
-          "link1Text": "Show Map",
-          "link1AriaLabel": "View a map of all church locations",
-          "link1Action": "/find-sunday-morning",
-          "class": "locations",
-          "showLocationSearch": true
         }
       ]
     }
