@@ -123,6 +123,15 @@
           ]
         },
         {
+          "type": "list",
+          "style": "vertical",
+          "class": "compassion",
+          "header1": "Idea sharing lobby: Coordinators connect",
+          "text1": "Connect with coordinators in each of your areas.",
+          "filterField": "sites",
+          "filterValue": "connect"
+        },
+        {
           "type": "hero",
           "style": "connect",
           "image1": [
