@@ -343,6 +343,15 @@
   },
   {
     "Staff": true,
+    "FirstName": "Kim",
+    "LastName": "Knight",
+    "Phone": "905.287.7000",
+    "Position": "Human Resources Manager",
+    "sites": ["Operations"],
+    "Email": "kim.knight@themeetinghouse.com"
+  },
+  {
+    "Staff": true,
     "FirstName": "Laura",
     "LastName": "Hanna",
     "Phone": "905.287.7000, ext. 815",
