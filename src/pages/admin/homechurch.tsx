@@ -1,35 +1,48 @@
 import './Announcements.scss';
 import Amplify, { API } from 'aws-amplify';
 import awsmobile from '../../aws-exports';
-import DataLoader from 'components/RenderRouter/DataLoader';
+import DataLoader, {
+  ListF1ListGroup2sData,
+} from 'components/RenderRouter/DataLoader';
 import { useEffect, useState } from 'react';
 import { Spinner } from 'reactstrap';
 import * as queries from '../../graphql/queries';
 import * as mutations from '../../graphql/mutations';
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api-graphql';
-// import moment from 'moment';
-import { ListHomeChurchInfosQuery } from 'API';
+import {
+  CreateHomeChurchInfoMutationVariables,
+  HomeChurchInfo,
+  ListHomeChurchInfosQuery,
+} from 'API';
 import TransactionPaginate from 'pages/users/Transactions/TransactionsPaginate';
 import './homechurch.scss';
 import { Modal } from 'reactstrap';
 
 Amplify.configure(awsmobile);
+
 type HMInfoEdit = {
   onlineConnectUrl: string;
-  ageGroups: string;
   extendedDescription: string;
 };
+
+type HomeChurchInfoAndF1 = HomeChurchInfo & {
+  F1ItemData: ListF1ListGroup2sData;
+};
+
+type HomeChurchAndF1Data = Array<HomeChurchInfoAndF1>;
+
 export default function homechurch(): JSX.Element {
-  const [homeChurch, setHomeChurch] = useState<any>([]);
+  const [homeChurch, setHomeChurch] = useState<HomeChurchAndF1Data>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isUpdating, setIsUpdating] = useState(false);
   const [search, setSearch] = useState('');
-  const [edit, setEdit] = useState<any>(null);
+  const [edit, setEdit] = useState<HomeChurchInfoAndF1 | null>(null);
   const [page, setPage] = useState(0);
   const [error, setError] = useState(false);
-  const createhmHM = async (firstHm: any) => {
-    const homeChurchInfo: any = {
-      id: firstHm.id,
+
+  const createhmHM = async (f1HomeChurch: ListF1ListGroup2sData) => {
+    const homeChurchInfo: CreateHomeChurchInfoMutationVariables['input'] = {
+      id: f1HomeChurch?.id,
     };
     try {
       const addHM = (await API.graphql({
@@ -43,14 +56,15 @@ export default function homechurch(): JSX.Element {
       console.log({ create: err });
     }
   };
+
   const shouldCreateHomeChurchInfoData = async (
-    f1HomeChurchData: any,
-    homeChurchInfoData: any
+    f1HomeChurchData: Array<ListF1ListGroup2sData>,
+    homeChurchInfoData: Array<HomeChurchInfo>
   ) => {
-    const createHomeChurchInfoPromises: any = [];
-    f1HomeChurchData.forEach((f1HomeChurch: any) => {
+    const createHomeChurchInfoPromises: Array<Promise<void>> = [];
+    f1HomeChurchData.forEach((f1HomeChurch) => {
       const inHomeChurchInfosTable = homeChurchInfoData.find(
-        (homeChurchInfo: any) => {
+        (homeChurchInfo) => {
           if (homeChurchInfo?.id === f1HomeChurch?.id)
             return homeChurchInfo?.id === f1HomeChurch?.id;
         }
@@ -63,13 +77,14 @@ export default function homechurch(): JSX.Element {
     if (createHomeChurchInfoPromises.length) return true;
     return false;
   };
+
   const onChangeOption = async (event: any) => {
     const newHomeChurch = [...homeChurch];
-    const hmParams = event.target.name.split('-');
+    const hmParams: Array<keyof HomeChurchInfo> = event.target.name.split('-');
     const fieldName = hmParams[0];
     const hmId = hmParams[1];
-    const hmIndex = newHomeChurch.findIndex((hm: any) => hm?.id === hmId);
-    let fieldVal;
+    const hmIndex = newHomeChurch.findIndex((hm) => hm?.id === hmId);
+    let fieldVal: any;
     if (event.target.checked) fieldVal = 'Yes';
     else fieldVal = 'No';
     if (newHomeChurch[hmIndex][fieldName] !== fieldVal) {
@@ -83,10 +98,11 @@ export default function homechurch(): JSX.Element {
         setHomeChurch(newHomeChurch);
       } else
         alert(
-          `An error occurred while updating ${homeChurch[hmIndex].F1ItemData.name}. \nCannot set ${fieldName} to ${fieldVal}.`
+          `An error occurred while updating ${homeChurch[hmIndex]?.F1ItemData?.name}. \nCannot set ${fieldName} to ${fieldVal}.`
         );
     }
   };
+
   const updateHomeChurchInfo = async (
     fieldsToUpdate: any
   ): Promise<boolean> => {
@@ -106,7 +122,11 @@ export default function homechurch(): JSX.Element {
       setIsUpdating(false);
     }
   };
-  const injectF1Data = (f1HomeChurches: any, homeChurchInfos: any) => {
+
+  const injectF1Data = (
+    f1HomeChurches: Array<ListF1ListGroup2sData>,
+    homeChurchInfos: Array<HomeChurchInfo>
+  ): HomeChurchAndF1Data => {
     return homeChurchInfos.map((homeChurchInfo: any) => {
       const inF1Table = f1HomeChurches.find(
         (f1HomeChurch: any) => f1HomeChurch?.id === homeChurchInfo?.id
@@ -115,9 +135,12 @@ export default function homechurch(): JSX.Element {
       return homeChurchInfo;
     });
   };
+
   useEffect(() => {
-    const fetchHomeChurchInfoData = async (): Promise<any> => {
-      const data: Array<any> = [];
+    const fetchHomeChurchInfoData = async (): Promise<
+      Array<HomeChurchInfo>
+    > => {
+      const data: Array<HomeChurchInfo> = [];
       const fetchNext = async (next: string | null = null) => {
         try {
           const json = (await API.graphql({
@@ -130,7 +153,7 @@ export default function homechurch(): JSX.Element {
           });
           if (json?.data?.listHomeChurchInfos?.items?.length) {
             json?.data?.listHomeChurchInfos?.items?.forEach((hmInfo) => {
-              data.push(hmInfo);
+              if (hmInfo) data.push(hmInfo);
             });
           }
           if (json?.data?.listHomeChurchInfos?.nextToken)
@@ -142,8 +165,10 @@ export default function homechurch(): JSX.Element {
       await fetchNext(null);
       return data;
     };
-    const fetchF1HomeChurchData = async (): Promise<Array<any>> => {
-      let data: Array<any> = [];
+    const fetchF1HomeChurchData = async (): Promise<
+      Array<ListF1ListGroup2sData>
+    > => {
+      let data: Array<ListF1ListGroup2sData> = [];
       await DataLoader.listHomeChurches(
         (items) => {
           data = [...data, ...items];
@@ -168,7 +193,7 @@ export default function homechurch(): JSX.Element {
         loadInitialData();
       }
 
-      const injectedF1HomeChurchData = injectF1Data(
+      const injectedF1HomeChurchData: HomeChurchAndF1Data = injectF1Data(
         f1HomeChurchData,
         homeChurchInfoData
       );
@@ -180,13 +205,12 @@ export default function homechurch(): JSX.Element {
   const EditHomeChurchInfo = (props: any) => {
     const { edit } = props;
     const [newHmInfo, setNewHmInfo] = useState<HMInfoEdit>({
-      onlineConnectUrl: edit?.onlineConnectUrl,
-      ageGroups: edit?.ageGroups,
-      extendedDescription: edit?.extendedDescription,
+      onlineConnectUrl: edit?.onlineConnectUrl ?? '',
+      extendedDescription: edit?.extendedDescription ?? '',
     });
     const saveChanges = async () => {
       const updateProps: any = { id: edit.id };
-      Object.keys(newHmInfo).forEach((k: string) => {
+      Object.keys(newHmInfo).map((k) => {
         const fieldName = k;
         const fieldValue = newHmInfo[k as keyof HMInfoEdit];
         if (
@@ -205,7 +229,8 @@ export default function homechurch(): JSX.Element {
         );
         if (homeChurchIndex !== -1) {
           Object.keys(updateProps).forEach((key) => {
-            tempHomeChurch[homeChurchIndex][key] = updateProps[key];
+            tempHomeChurch[homeChurchIndex][key as keyof HomeChurchInfo] =
+              updateProps[key];
           });
           setHomeChurch(tempHomeChurch);
         }
@@ -340,7 +365,7 @@ export default function homechurch(): JSX.Element {
             </thead>
             <tbody>
               {homeChurch
-                .filter((hm: any) => {
+                .filter((hm) => {
                   if (!hm?.F1ItemData) return false; // removes HM not in f1
                   if (search) {
                     if (
@@ -354,6 +379,7 @@ export default function homechurch(): JSX.Element {
                 })
                 .slice(page, page + 10)
                 ?.map((hm: any, index: number) => {
+                  // remove any once schema updated
                   return (
                     <tr
                       key={index}
@@ -384,7 +410,7 @@ export default function homechurch(): JSX.Element {
                       <td style={{ textAlign: 'center' }}>
                         <input
                           name={`isFamilyFriendly-${hm?.id}`}
-                          checked={hm?.hasChildcare === 'Yes'}
+                          checked={hm?.isFamilyFriendly === 'Yes'}
                           onChange={(e) => onChangeOption(e)}
                           className={`HomeChurchCheckbox`}
                           type="checkbox"
@@ -402,7 +428,7 @@ export default function homechurch(): JSX.Element {
                       <td style={{ textAlign: 'center' }}>
                         <input
                           name={`isYoungAdults-${hm?.id}`}
-                          checked={hm?.isYoungAdults === `Young Adult`}
+                          checked={hm?.isYoungAdult === `Yes`}
                           onChange={(e) => onChangeOption(e)}
                           className={`HomeChurchCheckbox`}
                           type="checkbox"
@@ -448,7 +474,7 @@ export default function homechurch(): JSX.Element {
             <tfoot>
               <tr style={{ backgroundColor: 'white' }}>
                 <td colSpan={4}>
-                  {homeChurch.filter((hm: any) => hm?.F1ItemData).length}{' '}
+                  {homeChurch.filter((hm) => hm?.F1ItemData).length}{' '}
                   homechurches
                 </td>
                 <td style={{ paddingBottom: 16 }} colSpan={6}>
