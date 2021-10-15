@@ -20,7 +20,7 @@
           "image": "/static/images/og-images/homepage.jpg",
           "url": "https://www.themeetinghouse.com",
           "title": "Leaders' Day 2021 Agenda",
-          "description": "We've got some exciting breakout opportunities for you at leaders' day this year."
+          "description": "This Leader’s Day we’re diving deeper into the concept of 'Parish Mindedness' by learning from the foremost experts on our local Parishes…each other!  You can expect to hear lots of great stories about ways our parishes have been serving their communities, plus you’ll have opportunities to engage in focused breakout sessions with other leaders like you about best practices for how to care for the people and places that God has positioned you to love."
         },
         {
           "type": "hero",
@@ -57,7 +57,7 @@
             }
           ],
           "header1": "Leaders' Day 2021",
-          "text1": "Our theme is Parish Mindset.",
+          "text1": "This Leader’s Day we’re diving deeper into the concept of 'Parish Mindedness' by learning from the foremost experts on our local Parishes…each other!  You can expect to hear lots of great stories about ways our parishes have been serving their communities, plus you’ll have opportunities to engage in focused breakout sessions with other leaders like you about best practices for how to care for the people and places that God has positioned you to love.",
           "button1": {
             "text": "Watch live",
             "action": "/live",
@@ -122,8 +122,26 @@
           ],
           "image1": [
             {
-              "src": "/static/images/LeadersDay.jpg",
+              "src": "/static/images/LeadersDay1.jpg",
               "alt": "Two men inside of a building smiling and hugging."
+            }
+          ]
+        },
+        {
+          "type": "content",
+          "style": "oneImage",
+          "header1": "Bingo Card",
+          "list": [
+            {
+              "type": "link",
+              "title": "Download Bingo Card",
+              "navigateTo": "/community"
+            }
+          ],
+          "image1": [
+            {
+              "src": "/static/images/homepage-2-new.jpg",
+              "alt": "Group of friends from church sitting together, and talking."
             }
           ]
         },
@@ -132,7 +150,7 @@
           "style": "imageList",
           "class": "user-defined",
           "header1": "Choose your own adventure",
-          "text1": "AS we look back at this past year, what have we learned? What does it mean to lead in your context? How do we care for people including those with disabilities and/or accessibility issues? How do we equip people in their spiritual life? What will we continue doing virtually? Join a breakout room to learn from one another and hear from one of our speakers.",
+          "text1": "You’re the expert in what will be helpful for you to learn about, so that’s why we’re spending the bulk of our Leader’s Day in Breakout Sessions led by leaders from our local parishes.  From how to build community online to handling divisive conversations without losing your cool, there’s a wide range of practical topics for you to choose from during both of our Breakout Sessions.",
           "list": [
             {
               "title": "Creating spaces that work for the whole family - Natalie Frisk",
@@ -183,7 +201,7 @@
           "style": "vertical",
           "class": "compassion",
           "header1": "Idea sharing lobby: Coordinators connect",
-          "text1": "Connect with coordinators in each of your areas.",
+          "text1": "If you’ve got practical questions or are just looking to have some REALLY nuts and bolts convos about leading things like Tech, Set-Up, Music, Compassion, Kids, Prayer or Youth during this wild regathering season, hop in the Idea Sharing Lobby during Breakout Session #1 to talk with other people in your role about the challenges and successes that they are having.",
           "filterField": "sites",
           "filterValue": "connect"
         }
