@@ -119,6 +119,11 @@
             "type": "link",
             "title": "Alliston Family Engagement Coordinator",
             "navigateTo": "/static/pdfs/careers/Family Engagement Coordinator (Part-Time).pdf"
+          },
+          {
+            "type": "link",
+            "title": "Interim Hamilton Youth Coordinator",
+            "navigateTo": "/static/pdfs/careers/Interim Hamilton Youth Coordinator.pdf"
           }
         ],
         "image1": [
