@@ -8,7 +8,7 @@ import * as queries from '../../graphql/queries';
 import * as mutations from '../../graphql/mutations';
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api-graphql';
 // import moment from 'moment';
-import { HomeChurchInfo, ListHomeChurchInfosQuery } from 'API';
+import { ListHomeChurchInfosQuery } from 'API';
 import TransactionPaginate from 'pages/users/Transactions/TransactionsPaginate';
 import './homechurch.scss';
 import { Modal } from 'reactstrap';
@@ -26,15 +26,11 @@ export default function homechurch(): JSX.Element {
   const [search, setSearch] = useState('');
   const [edit, setEdit] = useState<any>(null);
   const [page, setPage] = useState(0);
+  const [error, setError] = useState(false);
   const createhmHM = async (firstHm: any) => {
-    const homeChurchInfo: HomeChurchInfo = {
-      __typename: 'HomeChurchInfo',
+    const homeChurchInfo: any = {
       id: firstHm.id,
     };
-    if (firstHm.name.includes('Young Adult'))
-      homeChurchInfo.isYoungAdult = 'Yes';
-    if (firstHm.name.includes('Family Friendly'))
-      homeChurchInfo.isFamilyFriendly = 'Yes';
     try {
       const addHM = (await API.graphql({
         query: mutations.createHomeChurchInfo,
@@ -43,6 +39,7 @@ export default function homechurch(): JSX.Element {
       })) as GraphQLResult<ListHomeChurchInfosQuery>;
       console.log({ added: { addHM } });
     } catch (err) {
+      setError(true);
       console.log({ create: err });
     }
   };
@@ -60,7 +57,7 @@ export default function homechurch(): JSX.Element {
       );
       if (!inHomeChurchInfosTable) {
         createHomeChurchInfoPromises.push(createhmHM(f1HomeChurch));
-      } else console.log('Already exists');
+      }
     });
     await Promise.all(createHomeChurchInfoPromises);
     if (createHomeChurchInfoPromises.length) return true;
@@ -159,10 +156,11 @@ export default function homechurch(): JSX.Element {
       const f1HomeChurchData = await fetchF1HomeChurchData();
       const homeChurchInfoData = await fetchHomeChurchInfoData();
       if (
-        await shouldCreateHomeChurchInfoData(
+        (await shouldCreateHomeChurchInfoData(
           f1HomeChurchData,
           homeChurchInfoData
-        )
+        )) &&
+        !error
       ) {
         console.log(
           'At least one new HomeChurchInfo has been added. Fetch again'
@@ -181,7 +179,6 @@ export default function homechurch(): JSX.Element {
   }, []);
   const EditHomeChurchInfo = (props: any) => {
     const { edit } = props;
-    console.log({ edit });
     const [newHmInfo, setNewHmInfo] = useState<HMInfoEdit>({
       onlineConnectUrl: edit?.onlineConnectUrl,
       ageGroups: edit?.ageGroups,
@@ -199,7 +196,6 @@ export default function homechurch(): JSX.Element {
         )
           updateProps[fieldName] = fieldValue;
       });
-      if (updateProps) console.log(updateProps);
 
       const success = await updateHomeChurchInfo(updateProps);
       if (success) {
