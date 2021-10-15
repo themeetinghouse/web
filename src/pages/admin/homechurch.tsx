@@ -8,23 +8,33 @@ import * as queries from '../../graphql/queries';
 import * as mutations from '../../graphql/mutations';
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api-graphql';
 // import moment from 'moment';
-import { ListHomeChurchInfosQuery } from 'API';
+import { HomeChurchInfo, ListHomeChurchInfosQuery } from 'API';
 import TransactionPaginate from 'pages/users/Transactions/TransactionsPaginate';
 import './homechurch.scss';
 import { Modal } from 'reactstrap';
 
 Amplify.configure(awsmobile);
-
+type HMInfoEdit = {
+  onlineConnectUrl: string;
+  ageGroups: string;
+  extendedDescription: string;
+};
 export default function homechurch(): JSX.Element {
   const [homeChurch, setHomeChurch] = useState<any>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isUpdating, setIsUpdating] = useState(false);
   const [search, setSearch] = useState('');
   const [edit, setEdit] = useState<any>(null);
   const [page, setPage] = useState(0);
   const createhmHM = async (firstHm: any) => {
-    const homeChurchInfo = {
-      id: firstHm.id, // PK
+    const homeChurchInfo: HomeChurchInfo = {
+      __typename: 'HomeChurchInfo',
+      id: firstHm.id,
     };
+    if (firstHm.name.includes('Young Adult'))
+      homeChurchInfo.isYoungAdult = 'Yes';
+    if (firstHm.name.includes('Family Friendly'))
+      homeChurchInfo.isFamilyFriendly = 'Yes';
     try {
       const addHM = (await API.graphql({
         query: mutations.createHomeChurchInfo,
@@ -33,37 +43,57 @@ export default function homechurch(): JSX.Element {
       })) as GraphQLResult<ListHomeChurchInfosQuery>;
       console.log({ added: { addHM } });
     } catch (err) {
-      console.log({ err });
+      console.log({ create: err });
     }
   };
-  const shouldCreateHomeChurchInfo = (
-    f1HomeChurches: any,
-    homeChurchInfos: any
+  const shouldCreateHomeChurchInfoData = async (
+    f1HomeChurchData: any,
+    homeChurchInfoData: any
   ) => {
-    f1HomeChurches.forEach((f1HomeChurch: any) => {
-      const inHomeChurchInfosTable = homeChurchInfos.find(
-        (homeChurchInfo: any) => homeChurchInfo?.id === f1HomeChurch?.id
+    const createHomeChurchInfoPromises: any = [];
+    f1HomeChurchData.forEach((f1HomeChurch: any) => {
+      const inHomeChurchInfosTable = homeChurchInfoData.find(
+        (homeChurchInfo: any) => {
+          if (homeChurchInfo?.id === f1HomeChurch?.id)
+            return homeChurchInfo?.id === f1HomeChurch?.id;
+        }
       );
-      if (!inHomeChurchInfosTable) createhmHM(f1HomeChurch);
-      else console.log('Already exists');
+      if (!inHomeChurchInfosTable) {
+        createHomeChurchInfoPromises.push(createhmHM(f1HomeChurch));
+      } else console.log('Already exists');
     });
+    await Promise.all(createHomeChurchInfoPromises);
+    if (createHomeChurchInfoPromises.length) return true;
+    return false;
   };
-  // const shouldUpdateHomeChurchInfo = (
-  //   f1HomeChurches: any,
-  //   homeChurchInfos: any
-  // ) => {
-  //   homeChurchInfos.forEach((homeChurchInfo: any) => {
-  //     const inF1Table = f1HomeChurches.find(
-  //       (f1HomeChurch: any) => f1HomeChurch?.id === homeChurchInfo?.id
-  //     );
-  //   });
-  // };
-  const onChangeOption = async (event: any): Promise<void> => {
-    // this is null. should also pass homechurchinfo id
-    console.log(event.target.value, 'called');
-    if (false) updateHomeChurchInfo(event.target.value);
+  const onChangeOption = async (event: any) => {
+    const newHomeChurch = [...homeChurch];
+    const hmParams = event.target.name.split('-');
+    const fieldName = hmParams[0];
+    const hmId = hmParams[1];
+    const hmIndex = newHomeChurch.findIndex((hm: any) => hm?.id === hmId);
+    let fieldVal;
+    if (event.target.checked) fieldVal = 'Yes';
+    else fieldVal = 'No';
+    if (newHomeChurch[hmIndex][fieldName] !== fieldVal) {
+      const hmData = {
+        id: hmId,
+        [fieldName]: fieldVal,
+      };
+      const success = await updateHomeChurchInfo(hmData);
+      if (success) {
+        newHomeChurch[hmIndex][fieldName] = fieldVal;
+        setHomeChurch(newHomeChurch);
+      } else
+        alert(
+          `An error occurred while updating ${homeChurch[hmIndex].F1ItemData.name}. \nCannot set ${fieldName} to ${fieldVal}.`
+        );
+    }
   };
-  const updateHomeChurchInfo = async (fieldsToUpdate: any): Promise<void> => {
+  const updateHomeChurchInfo = async (
+    fieldsToUpdate: any
+  ): Promise<boolean> => {
+    setIsUpdating(true);
     try {
       const updateHMInfo = (await API.graphql({
         query: mutations.updateHomeChurchInfo,
@@ -71,8 +101,12 @@ export default function homechurch(): JSX.Element {
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       })) as GraphQLResult<ListHomeChurchInfosQuery>;
       console.log({ updated: { updateHMInfo } });
+      return true;
     } catch (err) {
-      console.log({ err });
+      console.log({ failed: err });
+      return false;
+    } finally {
+      setIsUpdating(false);
     }
   };
   const injectF1Data = (f1HomeChurches: any, homeChurchInfos: any) => {
@@ -85,21 +119,33 @@ export default function homechurch(): JSX.Element {
     });
   };
   useEffect(() => {
-    const fetchHomeChurchInfoChurches = async (): Promise<any> => {
-      try {
-        const hms = (await API.graphql({
-          query: queries.listHomeChurchInfos,
-          variables: { limit: 200 },
-          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-        })) as GraphQLResult<ListHomeChurchInfosQuery>;
-        console.log('hms', hms);
-        return hms?.data?.listHomeChurchInfos?.items;
-      } catch (err) {
-        console.log({ err });
-        return { items: [] };
-      }
+    const fetchHomeChurchInfoData = async (): Promise<any> => {
+      const data: Array<any> = [];
+      const fetchNext = async (next: string | null = null) => {
+        try {
+          const json = (await API.graphql({
+            query: queries.listHomeChurchInfos,
+            variables: { nextToken: next },
+            authMode: GRAPHQL_AUTH_MODE.API_KEY,
+          })) as GraphQLResult<ListHomeChurchInfosQuery>;
+          console.log({
+            'Success queries.listHomeChurchInfos': json,
+          });
+          if (json?.data?.listHomeChurchInfos?.items?.length) {
+            json?.data?.listHomeChurchInfos?.items?.forEach((hmInfo) => {
+              data.push(hmInfo);
+            });
+          }
+          if (json?.data?.listHomeChurchInfos?.nextToken)
+            await fetchNext(json?.data?.listHomeChurchInfos?.nextToken);
+        } catch (e) {
+          console.error(e);
+        }
+      };
+      await fetchNext(null);
+      return data;
     };
-    const fetchF1ListGroup2sChurches = async (): Promise<Array<any>> => {
+    const fetchF1HomeChurchData = async (): Promise<Array<any>> => {
       let data: Array<any> = [];
       await DataLoader.listHomeChurches(
         (items) => {
@@ -109,41 +155,137 @@ export default function homechurch(): JSX.Element {
       );
       return data;
     };
-    const load = async () => {
-      const f1HomeChurchItems = await fetchF1ListGroup2sChurches();
-      const homeChurchInfoItems = await fetchHomeChurchInfoChurches();
-      shouldCreateHomeChurchInfo(f1HomeChurchItems, homeChurchInfoItems);
-      const injectedHomeChurchInfoData = injectF1Data(
-        f1HomeChurchItems,
-        homeChurchInfoItems
+    const loadInitialData = async () => {
+      const f1HomeChurchData = await fetchF1HomeChurchData();
+      const homeChurchInfoData = await fetchHomeChurchInfoData();
+      if (
+        await shouldCreateHomeChurchInfoData(
+          f1HomeChurchData,
+          homeChurchInfoData
+        )
+      ) {
+        console.log(
+          'At least one new HomeChurchInfo has been added. Fetch again'
+        );
+        loadInitialData();
+      }
+
+      const injectedF1HomeChurchData = injectF1Data(
+        f1HomeChurchData,
+        homeChurchInfoData
       );
-      setHomeChurch(injectedHomeChurchInfoData);
+      setHomeChurch(injectedF1HomeChurchData);
       setIsLoading(false);
     };
-    load();
+    loadInitialData();
   }, []);
+  const EditHomeChurchInfo = (props: any) => {
+    const { edit } = props;
+    console.log({ edit });
+    const [newHmInfo, setNewHmInfo] = useState<HMInfoEdit>({
+      onlineConnectUrl: edit?.onlineConnectUrl,
+      ageGroups: edit?.ageGroups,
+      extendedDescription: edit?.extendedDescription,
+    });
+    const saveChanges = async () => {
+      const updateProps: any = { id: edit.id };
+      Object.keys(newHmInfo).forEach((k: string) => {
+        const fieldName = k;
+        const fieldValue = newHmInfo[k as keyof HMInfoEdit];
+        if (
+          (fieldValue &&
+            newHmInfo[fieldName as keyof HMInfoEdit] !== edit?.[fieldName]) ||
+          (edit?.[fieldName] && fieldValue === '')
+        )
+          updateProps[fieldName] = fieldValue;
+      });
+      if (updateProps) console.log(updateProps);
+
+      const success = await updateHomeChurchInfo(updateProps);
+      if (success) {
+        const tempHomeChurch = [...homeChurch];
+        const homeChurchIndex = tempHomeChurch.findIndex(
+          (hm) => hm?.id === updateProps.id
+        );
+        if (homeChurchIndex !== -1) {
+          Object.keys(updateProps).forEach((key) => {
+            tempHomeChurch[homeChurchIndex][key] = updateProps[key];
+          });
+          setHomeChurch(tempHomeChurch);
+        }
+        alert(`Successfully updated.`);
+        setEdit(null);
+      } else alert(`An error occurred.`);
+    };
+    return (
+      <Modal size="lg" isOpen={edit}>
+        <div style={{ padding: 24 }}>
+          <p style={{ fontSize: 16, fontWeight: 'bold', marginBottom: 2 }}>
+            Name:
+          </p>
+          <p style={{ fontSize: 20, fontWeight: 'bold' }}>
+            {' '}
+            {edit?.F1ItemData.name}
+          </p>
+          <p style={{ fontSize: 16, fontWeight: 'bold', marginBottom: 4 }}>
+            Online Connect URL:{' '}
+          </p>
+          <input
+            style={{ width: '100%', fontSize: 16, marginBottom: '1rem' }}
+            onChange={(e) => {
+              e.persist();
+              setNewHmInfo((prev) => ({
+                ...prev,
+                onlineConnectUrl: e?.target?.value,
+              }));
+            }}
+            value={newHmInfo?.onlineConnectUrl}
+          />
+          <p style={{ fontSize: 16, fontWeight: 'bold', marginBottom: 4 }}>
+            Extended Description:{' '}
+            <textarea
+              rows={6}
+              style={{ width: '100%', fontSize: 16, marginBottom: '1rem' }}
+              onChange={(e) => {
+                e.persist();
+                setNewHmInfo((prev) => ({
+                  ...prev,
+                  extendedDescription: e?.target?.value,
+                }));
+              }}
+              value={newHmInfo?.extendedDescription}
+            />
+          </p>
+          {/*
+          <p style={{ color: 'gray' }}>
+            Custom Pills:
+            {edit?.customPills?.map((pill: string) => pill)}
+          </p>*/}
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'flex-end',
+            }}
+          >
+            <button
+              className="hmEditButton white"
+              style={{ marginRight: 8 }}
+              onClick={() => setEdit(null)}
+            >
+              Close
+            </button>
+            <button className="hmEditButton" onClick={() => saveChanges()}>
+              Save
+            </button>
+          </div>
+        </div>
+      </Modal>
+    );
+  };
   return (
     <div>
-      {edit ? (
-        <Modal size="lg" isOpen={edit}>
-          <div>
-            <p>Name: {edit?.F1ItemData.name}</p>
-            <p>Transit Accessible: {edit?.transitAccessible}</p>
-            <p>Has Childcare: {edit?.hasChildcare}</p>
-            <p>Is Online: {edit?.isOnline}</p>
-            <p>Online Connect URL: {edit?.onlineConnectUrl}</p>
-            <p>Elders: {edit?.elders?.map((elder: string) => elder + ', ')}</p>
-            <p>Gender: {edit?.gender}</p>
-            <p>Pet Free: {edit?.petFree}</p>
-            <p>Age Groups: {edit?.ageGroups}</p>
-            <p>Extended Description: {edit?.extendedDescription} </p>
-            <p>Vaccination Required: {edit?.vaccinationRequired}</p>
-            <p></p>
-            <button onClick={() => setEdit(null)}>Save</button>
-            <button onClick={() => setEdit(null)}>Close</button>
-          </div>
-        </Modal>
-      ) : null}
+      <EditHomeChurchInfo edit={edit} />
       {isLoading ? (
         <div
           style={{
@@ -166,31 +308,35 @@ export default function homechurch(): JSX.Element {
           >
             <thead>
               <tr style={{ backgroundColor: 'white', margin: 16 }}>
-                <th colSpan={11}>
-                  <input
-                    placeholder="Search by name.."
-                    value={search}
-                    onChange={(e) => {
-                      if (page !== 0) setPage(0);
-                      setSearch(e.target.value);
-                    }}
-                    style={{
-                      width: '60%',
-                      margin: '16px 0px',
-                      padding: 8,
-                    }}
-                  />
+                <th colSpan={9}>
+                  <div className="hmSearchInput">
+                    <img
+                      width="15"
+                      height="15"
+                      src="/static/svg/Search.svg"
+                      alt="Search"
+                    />
+                    <input
+                      className="hmSearchInput"
+                      placeholder="Search by name.."
+                      value={search}
+                      onChange={(e) => {
+                        if (page !== 0) setPage(0);
+                        setSearch(e.target.value);
+                      }}
+                    />
+                  </div>
                 </th>
+                <th colSpan={2}>{isUpdating ? <Spinner /> : null}</th>
               </tr>
               <tr>
                 <th>id</th>
                 <th>Name</th>
                 <th style={{ textAlign: 'center' }}>Pet Free</th>
                 <th style={{ textAlign: 'center' }}>Transit Accessible</th>
-                <th style={{ textAlign: 'center' }}>Has Childcare</th>
+                <th style={{ textAlign: 'center' }}>Family Friendly</th>
                 <th style={{ textAlign: 'center' }}>Vaccination Required</th>
                 <th style={{ textAlign: 'center' }}>Young Adult</th>
-                <th style={{ textAlign: 'center' }}>Family Friendly</th>
                 <th style={{ textAlign: 'center' }}>Is Online</th>
                 <th style={{ textAlign: 'center' }}>Is Hybrid</th>
                 <th>Update</th>
@@ -199,6 +345,7 @@ export default function homechurch(): JSX.Element {
             <tbody>
               {homeChurch
                 .filter((hm: any) => {
+                  if (!hm?.F1ItemData) return false; // removes HM not in f1
                   if (search) {
                     if (
                       hm?.F1ItemData?.name
@@ -222,57 +369,64 @@ export default function homechurch(): JSX.Element {
                       <td>{hm?.F1ItemData?.name}</td>
                       <td style={{ textAlign: 'center' }}>
                         <input
-                          onChange={onChangeOption}
-                          className="HomeChurchCheckbox"
+                          name={`petFree-${hm?.id}`}
+                          checked={hm?.petFree === 'Yes'}
+                          onChange={(e) => onChangeOption(e)}
+                          className={`HomeChurchCheckbox`}
                           type="checkbox"
                         />
                       </td>
                       <td style={{ textAlign: 'center' }}>
                         <input
-                          onChange={onChangeOption}
-                          className="HomeChurchCheckbox"
+                          name={`transitAccessible-${hm?.id}`}
+                          checked={hm?.transitAccessible === 'Yes'}
+                          onChange={(e) => onChangeOption(e)}
+                          className={`HomeChurchCheckbox`}
                           type="checkbox"
                         />
                       </td>
                       <td style={{ textAlign: 'center' }}>
                         <input
-                          onChange={onChangeOption}
-                          className="HomeChurchCheckbox"
+                          name={`isFamilyFriendly-${hm?.id}`}
+                          checked={hm?.hasChildcare === 'Yes'}
+                          onChange={(e) => onChangeOption(e)}
+                          className={`HomeChurchCheckbox`}
                           type="checkbox"
                         />
                       </td>
                       <td style={{ textAlign: 'center' }}>
                         <input
-                          onChange={onChangeOption}
-                          className="HomeChurchCheckbox"
+                          name={`vaccinationRequired-${hm?.id}`}
+                          checked={hm?.vaccinationRequired === 'Yes'}
+                          onChange={(e) => onChangeOption(e)}
+                          className={`HomeChurchCheckbox`}
                           type="checkbox"
                         />
                       </td>
                       <td style={{ textAlign: 'center' }}>
                         <input
-                          onChange={onChangeOption}
-                          className="HomeChurchCheckbox"
+                          name={`isYoungAdults-${hm?.id}`}
+                          checked={hm?.isYoungAdults === `Young Adult`}
+                          onChange={(e) => onChangeOption(e)}
+                          className={`HomeChurchCheckbox`}
                           type="checkbox"
                         />
                       </td>
                       <td style={{ textAlign: 'center' }}>
                         <input
-                          onChange={onChangeOption}
-                          className="HomeChurchCheckbox"
+                          name={`isOnline-${hm?.id}`}
+                          checked={hm?.isOnline === 'Yes'}
+                          onChange={(e) => onChangeOption(e)}
+                          className={`HomeChurchCheckbox`}
                           type="checkbox"
                         />
                       </td>
                       <td style={{ textAlign: 'center' }}>
                         <input
-                          onChange={onChangeOption}
-                          className="HomeChurchCheckbox"
-                          type="checkbox"
-                        />
-                      </td>
-                      <td style={{ textAlign: 'center' }}>
-                        <input
-                          onChange={onChangeOption}
-                          className="HomeChurchCheckbox"
+                          name={`isHybrid-${hm?.id}`}
+                          checked={hm?.isHybrid === 'Yes'}
+                          onChange={(e) => onChangeOption(e)}
+                          className={`HomeChurchCheckbox`}
                           type="checkbox"
                         />
                       </td>
@@ -297,7 +451,11 @@ export default function homechurch(): JSX.Element {
             </tbody>
             <tfoot>
               <tr style={{ backgroundColor: 'white' }}>
-                <td style={{ paddingBottom: 16 }} colSpan={11}>
+                <td colSpan={4}>
+                  {homeChurch.filter((hm: any) => hm?.F1ItemData).length}{' '}
+                  homechurches
+                </td>
+                <td style={{ paddingBottom: 16 }} colSpan={6}>
                   <TransactionPaginate
                     paginationIndex={page}
                     setPaginationIndex={setPage}

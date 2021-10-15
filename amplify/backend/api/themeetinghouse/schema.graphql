@@ -657,9 +657,12 @@ type HomeChurchInfo
  {
    id:String
    elders:[String]
-   vacinationRequired:String
-   hasChildcare:String
+   customPills:[String]
+   vaccinationRequired:String
    isOnline:String
+   isYoungAdult: String
+   isFamilyFriendly: String
+   isHybrid:String
    onlineConnectUrl:String
    ageGroups:String
    petFree:String
@@ -667,7 +670,7 @@ type HomeChurchInfo
    accessCode:String
    gender:String
    extendedDescription:String
-   imgageUrl:String
+   imageUrl:String
    imageAlt:String
    videoUrl:String
  }
