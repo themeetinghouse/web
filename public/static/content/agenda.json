@@ -1,7 +1,7 @@
 {
     "page": {
       "name": "agenda",
-      "title": "Leaders' Day 2021 Agenda",
+      "title": "Leaders Day 2021 Agenda",
       "keywords":"",
       "description": "We’re exploring what it means to be Parish Minded with our local Parish experts, aka you. Let’s hang out, share stories, and learn from each other about how we can best lead and care for our communities.",
       "pageConfig": {
@@ -19,7 +19,7 @@
           "type": "og-tags",
           "image": "/static/images/og-images/homepage.jpg",
           "url": "https://www.themeetinghouse.com",
-          "title": "Leaders' Day 2021 Agenda",
+          "title": "Leaders Day 2021 Agenda",
           "description": "We’re exploring what it means to be Parish Minded with our local Parish experts, aka you. Let’s hang out, share stories, and learn from each other about how we can best lead and care for our communities."
         },
         {
@@ -56,7 +56,7 @@
               "alt": "Young woman in a face mask is sitting and talking to a friend off camera."
             }
           ],
-          "header1": "Leaders' Day 2021",
+          "header1": "Leaders Day 2021",
           "text1": "We’re exploring what it means to be Parish Minded with our local Parish experts, aka you. Let’s hang out, share stories, and learn from each other about how we can best lead and care for our communities.",
           "button1": {
             "text": "Watch live",
