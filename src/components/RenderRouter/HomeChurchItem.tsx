@@ -1,5 +1,11 @@
-import { F1ListEventSchedulesQuery, F1ListGroupsQuery } from 'API';
-import Amplify from 'aws-amplify';
+import {
+  F1ListEventSchedulesQuery,
+  F1ListGroupsQuery,
+  ListHomeChurchInfosQuery,
+} from 'API';
+import Amplify, { API } from 'aws-amplify';
+import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
+import * as queries from '../../graphql/queries';
 import Badge from 'components/Badge/Badge';
 import HomeChurchContactModal from 'components/HomeChurchContactModal/HomeChurchContactModal';
 import { HomeChurchItemContent } from 'components/types';
@@ -70,6 +76,7 @@ interface State {
   mapBounds: google.maps.LatLngBounds | null;
   locations: LocationData[];
   groups: any[];
+  groupsExtra: any[];
   currentLatLng: google.maps.LatLngLiteral;
   showContactModal: boolean;
   selectedDay: {
@@ -127,6 +134,7 @@ export class ContentItem extends React.Component<Props, State> {
       mapBounds: null,
       locations: [],
       groups: [],
+      groupsExtra: [],
       currentLatLng: DEFAULT_LAT_LNG,
       showContactModal: false,
       activePill: undefined,
@@ -141,21 +149,69 @@ export class ContentItem extends React.Component<Props, State> {
     });
 
     if (this.props.content.class === 'home-church') {
-      DataLoader.listHomeChurches(
-        (items) => {
-          this.setState({ groups: [...this.state.groups, ...items] });
-        },
-        async () => {
-          this.setState({ allLocationsLoaded: true });
-          await this.updateGeoLocation(false);
-          this.updateMap(
-            this.state.locationFilter,
-            this.state.currentLatLng,
-            true,
-            this.state.currentLatLng !== DEFAULT_LAT_LNG
-          );
-        }
-      );
+      const loadHomeChurchInfo = async () => {
+        const data: Array<any> = [];
+        const fetchNext = async (next: string | null = null) => {
+          try {
+            const json = (await API.graphql({
+              query: queries.listHomeChurchInfos,
+              variables: { nextToken: next },
+              authMode: GRAPHQL_AUTH_MODE.API_KEY,
+            })) as GraphQLResult<ListHomeChurchInfosQuery>;
+            console.log({
+              'Success queries.listHomeChurchInfos': json,
+            });
+            if (json?.data?.listHomeChurchInfos?.items?.length) {
+              json?.data?.listHomeChurchInfos?.items?.forEach((hmInfo) => {
+                data.push(hmInfo);
+              });
+            }
+            if (json?.data?.listHomeChurchInfos?.nextToken)
+              fetchNext(json?.data?.listHomeChurchInfos?.nextToken);
+          } catch (e) {
+            console.error(e);
+          }
+        };
+        await fetchNext(null);
+        this.setState({ groupsExtra: data });
+      };
+
+      loadHomeChurchInfo().then(() => {
+        DataLoader.listHomeChurches(
+          (items) => {
+            this.setState({ groups: [...this.state.groups, ...items] });
+          },
+          async () => {
+            const injectHomeChurchInfoData = (
+              f1HomeChurches: any,
+              homeChurchInfos: any
+            ) => {
+              return f1HomeChurches.map((f1HomeChurch: any) => {
+                const inHomeChurchInfosTable = homeChurchInfos.find(
+                  (homeChurchInfo: any) =>
+                    f1HomeChurch?.id === homeChurchInfo?.id
+                );
+                f1HomeChurch.extraData = inHomeChurchInfosTable;
+                return f1HomeChurch;
+              });
+            };
+            const injected = injectHomeChurchInfoData(
+              this.state.groups,
+              this.state.groupsExtra
+            );
+            console.log({ injected });
+            injectHomeChurchInfoData(this.state.groups, this.state.groupsExtra);
+            this.setState({ allLocationsLoaded: true });
+            await this.updateGeoLocation(false);
+            this.updateMap(
+              this.state.locationFilter,
+              this.state.currentLatLng,
+              true,
+              this.state.currentLatLng !== DEFAULT_LAT_LNG
+            );
+          }
+        );
+      });
     }
   }
 
@@ -479,7 +535,24 @@ export class ContentItem extends React.Component<Props, State> {
     );
 
     filteredGroups.sort(this.distanceSorter);
-
+    const badgeHelper = (keyName: string) => {
+      switch (keyName) {
+        case 'vacinationRequired':
+          return 'Vaccination Required';
+        case 'hasChildcare':
+          return 'Family Friendly';
+        case 'isOnline':
+          return 'Online';
+        case 'isHybrid':
+          return 'Hybrid';
+        case 'petFree':
+          return 'Pet Free';
+        case 'transitAccessible':
+          return 'Transit Accessible';
+        default:
+          return keyName;
+      }
+    };
     return (
       <div className="HomeChurchItem">
         <div className="HomeChurchItemDiv1">
@@ -747,7 +820,10 @@ export class ContentItem extends React.Component<Props, State> {
                         {item.name}
                       </button>
                       <div className="HomeChurchAddress">
-                        {item.description}
+                        {item?.extraData?.extendedDescription &&
+                        item?.extraData?.extendedDescription !== ''
+                          ? item?.extraData?.extendedDescription
+                          : item.description}
                       </div>
 
                       <div
@@ -759,40 +835,40 @@ export class ContentItem extends React.Component<Props, State> {
                           flexWrap: 'wrap',
                         }}
                       >
-                        {item?.churchCampus?.name ? (
+                        <div style={{ minWidth: '100%', marginBottom: 4 }}>
+                          {item?.churchCampus?.name ? (
+                            <div
+                              className="HomeChurchSiteAffiliation"
+                              style={{ marginLeft: 4, marginRight: 4 }}
+                            >
+                              <Badge>{item.churchCampus?.name}</Badge>
+                            </div>
+                          ) : null}
+
                           <div
-                            className="HomeChurchSiteAffiliation"
+                            className="HomeChurchDayOfWeek"
                             style={{ marginLeft: 4, marginRight: 4 }}
                           >
-                            <Badge>{item.churchCampus?.name}</Badge>
+                            <Badge>{this.getDayOfWeek(item.schedule)}</Badge>
                           </div>
-                        ) : null}
-                        <div
-                          className="HomeChurchDayOfWeek"
-                          style={{ marginLeft: 4, marginRight: 4 }}
-                        >
-                          <Badge>{this.getDayOfWeek(item.schedule)}</Badge>
                         </div>
-                        {item.name.includes('Young Adult') ? (
-                          <div
-                            className="HomeChurchDayOfWeek"
-                            style={{ marginLeft: 4, marginRight: 4 }}
-                          >
-                            <Badge style={{ backgroundColor: '#A0E2BA' }}>
-                              Young Adult
-                            </Badge>
-                          </div>
-                        ) : null}
-                        {item.name.includes('Family Friendly') ? (
-                          <div
-                            className="HomeChurchDayOfWeek"
-                            style={{ marginLeft: 4, marginRight: 4 }}
-                          >
-                            <Badge style={{ backgroundColor: '#A0E2BA' }}>
-                              Family Friendly
-                            </Badge>
-                          </div>
-                        ) : null}
+                        {item?.extraData
+                          ? Object.keys(item?.extraData)
+                              ?.filter((value: string) => {
+                                return item?.extraData?.[value] === 'Yes';
+                              })
+                              .map((homeChurchKey) => (
+                                <div
+                                  key={homeChurchKey}
+                                  className="HomeChurchSiteAffiliation"
+                                  style={{ marginLeft: 4, marginRight: 4 }}
+                                >
+                                  <Badge style={{ backgroundColor: '#A0E2BA' }}>
+                                    {badgeHelper(homeChurchKey)}
+                                  </Badge>
+                                </div>
+                              ))
+                          : null}
                       </div>
                       <div className="HomeChurchTimeOfDay">
                         {moment

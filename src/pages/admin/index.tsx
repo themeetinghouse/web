@@ -9,6 +9,7 @@ const CreateNotes = lazy(() => import('../../pages/admin/create-notes'));
 const AddLive = lazy(() => import('../../pages/admin/livestream'));
 const GetInsta = lazy(() => import('../../pages/admin/instagram'));
 const Announcements = lazy(() => import('../../pages/admin/Announcements'));
+const HomeChurch = lazy(() => import('../../pages/admin/homechurch'));
 Amplify.configure(awsmobile);
 
 class Admin extends React.Component {
@@ -34,6 +35,10 @@ class Admin extends React.Component {
           <Route
             path="/account/admin/announcements"
             render={() => <Announcements />}
+          />
+          <Route
+            path="/account/admin/homechurches"
+            render={() => <HomeChurch />}
           />
         </Switch>
       </div>
