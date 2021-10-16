@@ -3,7 +3,7 @@
       "name": "agenda",
       "title": "Leaders' Day 2021 Agenda",
       "keywords":"",
-      "description": "We've got some exciting breakout opportunities for you at leaders' day this year.",
+      "description": "We’re exploring what it means to be Parish Minded with our local Parish experts, aka you. Let’s hang out, share stories, and learn from each other about how we can best lead and care for our communities.",
       "pageConfig": {
         "showLive": true,
         "movingMenu": true,
@@ -20,7 +20,7 @@
           "image": "/static/images/og-images/homepage.jpg",
           "url": "https://www.themeetinghouse.com",
           "title": "Leaders' Day 2021 Agenda",
-          "description": "This Leader’s Day we’re diving deeper into the concept of 'Parish Mindedness' by learning from the foremost experts on our local Parishes…each other!  You can expect to hear lots of great stories about ways our parishes have been serving their communities, plus you’ll have opportunities to engage in focused breakout sessions with other leaders like you about best practices for how to care for the people and places that God has positioned you to love."
+          "description": "We’re exploring what it means to be Parish Minded with our local Parish experts, aka you. Let’s hang out, share stories, and learn from each other about how we can best lead and care for our communities."
         },
         {
           "type": "hero",
@@ -57,7 +57,7 @@
             }
           ],
           "header1": "Leaders' Day 2021",
-          "text1": "This Leader’s Day we’re diving deeper into the concept of 'Parish Mindedness' by learning from the foremost experts on our local Parishes…each other!  You can expect to hear lots of great stories about ways our parishes have been serving their communities, plus you’ll have opportunities to engage in focused breakout sessions with other leaders like you about best practices for how to care for the people and places that God has positioned you to love.",
+          "text1": "We’re exploring what it means to be Parish Minded with our local Parish experts, aka you. Let’s hang out, share stories, and learn from each other about how we can best lead and care for our communities.",
           "button1": {
             "text": "Watch live",
             "action": "/live",
@@ -132,41 +132,41 @@
           "style": "imageList",
           "class": "user-defined",
           "header1": "Choose your own adventure",
-          "text1": "You’re the expert in what will be helpful for you to learn about, so that’s why we’re spending the bulk of our Leader’s Day in Breakout Sessions led by leaders from our local parishes.  From how to build community online to handling divisive conversations without losing your cool, there’s a wide range of practical topics for you to choose from during both of our Breakout Sessions.",
+          "text1": "We’ve got lots of practical topics for you to explore and choose from in your two breakout sessions. Where do you want to lean in?",
           "list": [
             {
               "title": "Creating spaces that work for the whole family - Natalie Frisk",
-              "text": "When we talk about ‘the whole family,’ we aren't just talking about a nuclear family, but every age and stage. Every sibling in Christ from the very youngest to the eldest. With this in mind, we'll learn together by considering discipleship together through a lens of intergenerational experiences and discover how we can really connect in meaningful ways.",
+              "text": "We’re not just talking about a nuclear family, but every age and stage. We’ll look at discipleship through a lens of intergenerational experiences and discover how we can really connect in meaningful ways.",
               "imageSrc": "/static/photos/leadersdaypictures/Natalie1.jpg",
               "imageAlt": "Young woman sitting at a table and looking at her notes from Sunday teaching at The Meeting House."
             },
             {
               "title": "Creating Community In An Online World - Jordan Duerrstein and Mary Kate",
-              "text": "In March 2020, we transitioned really quickly to shift the vast majority of our church life into an online space. Zoom calls, WhatsApp groups, Discord servers … for some of us, this was new territory. For others, this had been our home for years. Come learn and discuss some best practices for creating environments online that are accessible, engaging, and spiritually transformative.",
+              "text": "March 2020 was a big shift in our church life. Come learn and discuss some best practices for creating environments online that are accessible, engaging, and spiritually transformative.",
               "imageSrc": "/static/photos/leadersdaypictures/JordanD.jpg",
               "imageAlt": "Screen shot of Bruxy teaching during Sunday morning livestream at The Meeting House."
             },
             {
               "title": "Caring for others while caring for yourself - Kathy Bernard & Marty Whittaker",
-              "text": "Setting healthy boundaries can be one of the most loving things you can do - join us as we look at how to set boundaries in a Jesus way.",
+              "text": "Setting healthy boundaries can be one of the most loving things you can do. Join us as we look at how to set boundaries in a Jesus-centred way.",
               "imageSrc": "/static/photos/leadersdaypictures/Kathy.jpg",
               "imageAlt": "Team of pastors from The Meeting House sitting around a table and recording a podcast."
             },
             {
               "title": "What are Fresh Expressions of Church? - Jon Hand & Stephen Kidd",
-              "text": "How do we share our faith with friends, neighbours, coworkers, or family who aren’t into church or even into a church for those not into church? Spoiler alert! If people won’t come to church, we take the church to them. Fresh Expressions are innovative ways to build community and introduce spiritually curious to people to the Jesus-centred life. This workshop will give you an overview of Fresh Expressions of church and share a few stories, tools, postures, and approaches to help us pioneer new ways of being the church for those not into church.",
+              "text": "Fresh Expressions are innovative ways to build community and introduce spiritually curious people to the Jesus-centred life. We’ll share stories and tools to help us be the church for those not into church.",
               "imageSrc": "/static/photos/leadersdaypictures/JonandStephen.jpg",
               "imageAlt": "Kids gathering around a smartphone to watch a video from The Meeting House Kids and Youth curriculum."
             },
             {
               "title": " Walking Through Divisive Days as A Leader - Chris Chase",
-              "text": "Jesus’ prayer in John 17 was for his disciples across all generations to be unified as an expression of God’s love for the world. And yet, we find ourselves in days of deep division, difficult conversations, and the struggle to maintain the loving unity Jesus longs for us. How do we model grace and acceptance when people feel “othered”? How do we “keep the main thing the main thing”? Come listen and share your learnings as we “make every effort to keep the unity of the Spirit through the bond of peace.” Eph 4:3-6.",
+              "text": "In days of deep division, how do we model grace and acceptance when people feel othered? Let’s listen and share about ways we can “keep the main thing the main thing” and work toward unity together.",
               "imageSrc": "/static/photos/leadersdaypictures/ChrisChase1.jpg",
               "imageAlt": "Kids gathering around a smartphone to watch a video from The Meeting House Kids and Youth curriculum."
             },
             {
               "title": "Simple Ways to Become More Invested in Your Neighbourhood - Steve MacDouell, Sandy MacLean, and Carol MacLean",
-              "text": "What might it look like to become a more present, attentive, and engaged presence in our neighbourhoods? Together, we’ll explore some small-scale, practical ways that we can begin to pivot toward our neighbourhoods and the people that we share them with. ",
+              "text": "Together, we’ll explore some small-scale, practical ways we can start to become more present, attentive, and engaged in our neighbourhoods and the people we share them with.",
               "imageSrc": "/static/photos/leadersdaypictures/SteveCarolSandy.jpg",
               "imageAlt": "Kids gathering around a smartphone to watch a video from The Meeting House Kids and Youth curriculum."
             }
@@ -177,7 +177,7 @@
           "style": "vertical",
           "class": "compassion",
           "header1": "Idea sharing lobby: Coordinators connect",
-          "text1": "If you’ve got practical questions or are just looking to have some REALLY nuts and bolts convos about leading things like Tech, Set-Up, Music, Compassion, Kids, Prayer or Youth during this wild regathering season, hop in the Idea Sharing Lobby during Breakout Session #1 to talk with other people in your role about the challenges and successes that they are having.",
+          "text1": "If you’ve got questions or want to have some practical convos about leading things like Tech, Set-Up, Music, Compassion, Kids, Prayer, or Youth this season, hop in the Idea Sharing Lobby during Breakout Session #1 to chat with other folks in your role.",
           "filterField": "sites",
           "filterValue": "connect"
         }
