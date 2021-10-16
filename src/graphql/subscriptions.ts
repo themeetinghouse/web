@@ -895,9 +895,12 @@ export const onCreateHomeChurchInfo = /* GraphQL */ `
     onCreateHomeChurchInfo(owner: $owner) {
       id
       elders
-      vacinationRequired
-      hasChildcare
+      customPills
+      vaccinationRequired
       isOnline
+      isYoungAdult
+      isFamilyFriendly
+      isHybrid
       onlineConnectUrl
       ageGroups
       petFree
@@ -905,7 +908,7 @@ export const onCreateHomeChurchInfo = /* GraphQL */ `
       accessCode
       gender
       extendedDescription
-      imgageUrl
+      imageUrl
       imageAlt
       videoUrl
       createdAt
@@ -919,9 +922,12 @@ export const onUpdateHomeChurchInfo = /* GraphQL */ `
     onUpdateHomeChurchInfo(owner: $owner) {
       id
       elders
-      vacinationRequired
-      hasChildcare
+      customPills
+      vaccinationRequired
       isOnline
+      isYoungAdult
+      isFamilyFriendly
+      isHybrid
       onlineConnectUrl
       ageGroups
       petFree
@@ -929,7 +935,7 @@ export const onUpdateHomeChurchInfo = /* GraphQL */ `
       accessCode
       gender
       extendedDescription
-      imgageUrl
+      imageUrl
       imageAlt
       videoUrl
       createdAt
@@ -943,9 +949,12 @@ export const onDeleteHomeChurchInfo = /* GraphQL */ `
     onDeleteHomeChurchInfo(owner: $owner) {
       id
       elders
-      vacinationRequired
-      hasChildcare
+      customPills
+      vaccinationRequired
       isOnline
+      isYoungAdult
+      isFamilyFriendly
+      isHybrid
       onlineConnectUrl
       ageGroups
       petFree
@@ -953,7 +962,7 @@ export const onDeleteHomeChurchInfo = /* GraphQL */ `
       accessCode
       gender
       extendedDescription
-      imgageUrl
+      imageUrl
       imageAlt
       videoUrl
       createdAt

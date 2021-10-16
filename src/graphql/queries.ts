@@ -4990,9 +4990,12 @@ export const getHomeChurchInfo = /* GraphQL */ `
     getHomeChurchInfo(id: $id) {
       id
       elders
-      vacinationRequired
-      hasChildcare
+      customPills
+      vaccinationRequired
       isOnline
+      isYoungAdult
+      isFamilyFriendly
+      isHybrid
       onlineConnectUrl
       ageGroups
       petFree
@@ -5000,7 +5003,7 @@ export const getHomeChurchInfo = /* GraphQL */ `
       accessCode
       gender
       extendedDescription
-      imgageUrl
+      imageUrl
       imageAlt
       videoUrl
       createdAt
@@ -5019,9 +5022,12 @@ export const listHomeChurchInfos = /* GraphQL */ `
       items {
         id
         elders
-        vacinationRequired
-        hasChildcare
+        customPills
+        vaccinationRequired
         isOnline
+        isYoungAdult
+        isFamilyFriendly
+        isHybrid
         onlineConnectUrl
         ageGroups
         petFree
@@ -5029,7 +5035,7 @@ export const listHomeChurchInfos = /* GraphQL */ `
         accessCode
         gender
         extendedDescription
-        imgageUrl
+        imageUrl
         imageAlt
         videoUrl
         createdAt
