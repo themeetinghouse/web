@@ -1,6 +1,6 @@
-import Amplify from 'aws-amplify';
-import React, { ReactNode } from 'react';
+import React from 'react';
 import ReactGA from 'react-ga';
+import Amplify from 'aws-amplify';
 import {
   Route,
   Switch,
@@ -8,6 +8,8 @@ import {
   Redirect,
   RouteComponentProps,
 } from 'react-router-dom';
+import { captureException } from '@sentry/browser';
+import { getRedirect, Redirect as RedirectType } from './getRedirects';
 import awsconfig from '../../src/aws-exports';
 import '../custom.scss';
 const ContentPage = React.lazy(() => import('components/Loaders/ContentPage'));
@@ -25,13 +27,6 @@ else ReactGA.initialize('UA-4554612-3');
 
 Amplify.configure(awsconfig);
 
-const redirectData = fetch('/static/data/redirect.json').then<
-  Array<{
-    id: string;
-    to: string;
-  }>
->((response) => response.json());
-
 export interface RouteParams {
   id?: string;
   blog?: string;
@@ -43,7 +38,7 @@ export interface RouteParams {
 }
 
 interface State {
-  redirects?: Array<{ id: string; to: string }>;
+  redirect?: RedirectType;
 }
 
 class HomePage extends React.Component<RouteComponentProps, State> {
@@ -55,9 +50,20 @@ class HomePage extends React.Component<RouteComponentProps, State> {
   }
 
   componentDidMount() {
-    redirectData.then((redirects) => {
-      this.setState({ redirects });
-    });
+    getRedirect(window.location.pathname.slice(1))
+      .then(({ data }) => {
+        if (data?.getRedirect?.id && data?.getRedirect?.to) {
+          this.setState({ redirect: data.getRedirect });
+        } else {
+          // set non-null state as we want the rest of the app to load
+          this.setState({ redirect: { id: '', to: '' } as RedirectType });
+        }
+      })
+      .catch((e) => {
+        captureException(e);
+        // set non-null state as we want the rest of the app to load
+        this.setState({ redirect: { id: '', to: '' } as RedirectType });
+      });
 
     this.unregisterGAListener = this.props.history.listen((location) => {
       ReactGA.pageview(location.pathname + location.search);
@@ -69,34 +75,29 @@ class HomePage extends React.Component<RouteComponentProps, State> {
   }
 
   render() {
-    const { redirects } = this.state;
-    const regex = new RegExp(/https?:|\.pdf/);
-    if (!redirects) {
+    const { redirect } = this.state;
+    const externalRedirectRegex = new RegExp(/https?:|\.pdf/);
+
+    if (!redirect) {
       return null;
     }
 
     return (
       <Switch location={this.props.location}>
-        {redirects.map((redirect) => {
-          return regex.test(redirect.to) ? (
+        {redirect.id.length > 0 && redirect.to.length > 0 ? (
+          externalRedirectRegex.test(redirect.to) ? (
             <Route
-              key={redirect.id}
               exact
               path={'/' + redirect.id}
-              render={(): ReactNode | undefined => {
+              render={() => {
                 window.location.href = redirect.to;
-                return undefined;
+                return null;
               }}
             />
           ) : (
-            <Redirect
-              key={redirect.id}
-              exact
-              from={'/' + redirect.id}
-              to={redirect.to}
-            />
-          );
-        })}
+            <Redirect exact from={'/' + redirect.id} to={redirect.to} />
+          )
+        ) : null}
         <Route
           path={['/videos/:series/:episode', '/videos/:series']}
           component={Videos}
