@@ -1155,7 +1155,6 @@ type Redirect
 {
   id: ID!
   to: String!
-  from: String!
 }
 
 type Announcement
