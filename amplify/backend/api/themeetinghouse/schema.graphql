@@ -1145,6 +1145,19 @@ type Livestream
   homepageLink: String
 }
 
+type Redirect
+ @model
+ @auth(rules: [
+   { allow: public, operations: [read] },
+   { allow: private, operations: [read], provider: iam },
+   { allow: groups, operations: [read, update, delete, create], groups: ["Admin"], provider: userPools }
+ ])
+{
+  id: ID!
+  to: String!
+  from: String!
+}
+
 type Announcement
  @model
  @auth(rules:[
