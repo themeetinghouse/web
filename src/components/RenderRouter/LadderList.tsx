@@ -5,6 +5,7 @@ import './LadderList.scss';
 
 interface Props extends RouteComponentProps {
   darkMode?: boolean;
+  children?: (JSX.Element | null)[];
 }
 interface State {
   numPages: number;
