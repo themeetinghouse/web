@@ -10,6 +10,8 @@ const AddLive = lazy(() => import('../../pages/admin/livestream'));
 const GetInsta = lazy(() => import('../../pages/admin/instagram'));
 const Announcements = lazy(() => import('../../pages/admin/Announcements'));
 const HomeChurch = lazy(() => import('../../pages/admin/homechurch'));
+const Redirect = lazy(() => import('../../pages/admin/Redirect'));
+
 Amplify.configure(awsmobile);
 
 class Admin extends React.Component {
@@ -40,6 +42,7 @@ class Admin extends React.Component {
             path="/account/admin/homechurches"
             render={() => <HomeChurch />}
           />
+          <Route path="/account/admin/redirects" render={() => <Redirect />} />
         </Switch>
       </div>
     );
