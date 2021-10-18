@@ -4,7 +4,7 @@ import awsmobile from '../../aws-exports';
 import DataLoader, {
   ListF1ListGroup2sData,
 } from 'components/RenderRouter/DataLoader';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Spinner } from 'reactstrap';
 import * as queries from '../../graphql/queries';
 import * as mutations from '../../graphql/mutations';
@@ -247,7 +247,7 @@ export default function homechurch(): JSX.Element {
             {edit?.F1ItemData?.name}
           </p>
           <p style={{ fontSize: 16, fontWeight: 'bold', marginBottom: 4 }}>
-            Online Connect URL:{' '}
+            Home Church URL:{' '}
           </p>
           <input
             style={{ width: '100%', fontSize: 16, marginBottom: '1rem' }}
@@ -261,7 +261,10 @@ export default function homechurch(): JSX.Element {
             value={newHmInfo?.onlineConnectUrl}
           />
           <p style={{ fontSize: 16, fontWeight: 'bold', marginBottom: 4 }}>
-            Extended Description:{' '}
+            Description:{' '}
+            <small style={{ fontWeight: 'normal', fontSize: 12 }}>
+              (this will override Fellowship One description)
+            </small>
             <textarea
               rows={6}
               style={{ width: '100%', fontSize: 16, marginBottom: '1rem' }}
@@ -302,6 +305,26 @@ export default function homechurch(): JSX.Element {
       </Modal>
     );
   };
+
+  const shownHomeChurches = useMemo(
+    () =>
+      homeChurch.filter((hm) => {
+        if (!hm?.F1ItemData) return false; // removes HM not in f1
+        if (search) {
+          if (
+            hm?.F1ItemData?.name
+              ?.toLowerCase()
+              .includes(search.toLocaleLowerCase())
+          )
+            return true;
+          return false;
+        } else return true;
+      }),
+    [homeChurch, search]
+  );
+  const archivedHomeChurchCount = useMemo(() => {
+    return homeChurch.filter((hm) => !hm?.F1ItemData).length;
+  }, [homeChurch]);
   return (
     <div>
       <EditHomeChurchInfo edit={!!edit} />
@@ -351,33 +374,20 @@ export default function homechurch(): JSX.Element {
               <tr>
                 <th>id</th>
                 <th>Name</th>
-                <th style={{ textAlign: 'center' }}>Pet Free</th>
-                <th style={{ textAlign: 'center' }}>Transit Accessible</th>
-                <th style={{ textAlign: 'center' }}>Family Friendly</th>
-                <th style={{ textAlign: 'center' }}>Vaccination Required</th>
-                <th style={{ textAlign: 'center' }}>Young Adult</th>
-                <th style={{ textAlign: 'center' }}>Is Online</th>
-                <th style={{ textAlign: 'center' }}>Is Hybrid</th>
-                <th>Update</th>
+                <th>Pet Free</th>
+                <th>Transit Accessible</th>
+                <th>Family Friendly</th>
+                <th>Vaccination Required</th>
+                <th>Young Adult</th>
+                <th>Is Online</th>
+                <th>Is Hybrid</th>
+                <th>Edit</th>
               </tr>
             </thead>
             <tbody>
-              {homeChurch
-                .filter((hm) => {
-                  if (!hm?.F1ItemData) return false; // removes HM not in f1
-                  if (search) {
-                    if (
-                      hm?.F1ItemData?.name
-                        ?.toLowerCase()
-                        .includes(search.toLocaleLowerCase())
-                    )
-                      return true;
-                    return false;
-                  } else return true;
-                })
+              {shownHomeChurches
                 .slice(page, page + 10)
-                ?.map((hm: any, index: number) => {
-                  // remove any once schema updated
+                ?.map((hm, index: number) => {
                   return (
                     <tr
                       key={index}
@@ -387,7 +397,7 @@ export default function homechurch(): JSX.Element {
                     >
                       <td>{hm?.id}</td>
                       <td>{hm?.F1ItemData?.name}</td>
-                      <td style={{ textAlign: 'center' }}>
+                      <td>
                         <input
                           name={`petFree-${hm?.id}`}
                           checked={hm?.petFree === 'Yes'}
@@ -396,7 +406,7 @@ export default function homechurch(): JSX.Element {
                           type="checkbox"
                         />
                       </td>
-                      <td style={{ textAlign: 'center' }}>
+                      <td>
                         <input
                           name={`transitAccessible-${hm?.id}`}
                           checked={hm?.transitAccessible === 'Yes'}
@@ -405,7 +415,7 @@ export default function homechurch(): JSX.Element {
                           type="checkbox"
                         />
                       </td>
-                      <td style={{ textAlign: 'center' }}>
+                      <td>
                         <input
                           name={`isFamilyFriendly-${hm?.id}`}
                           checked={hm?.isFamilyFriendly === 'Yes'}
@@ -414,7 +424,7 @@ export default function homechurch(): JSX.Element {
                           type="checkbox"
                         />
                       </td>
-                      <td style={{ textAlign: 'center' }}>
+                      <td>
                         <input
                           name={`vaccinationRequired-${hm?.id}`}
                           checked={hm?.vaccinationRequired === 'Yes'}
@@ -423,16 +433,16 @@ export default function homechurch(): JSX.Element {
                           type="checkbox"
                         />
                       </td>
-                      <td style={{ textAlign: 'center' }}>
+                      <td>
                         <input
-                          name={`isYoungAdults-${hm?.id}`}
+                          name={`isYoungAdult-${hm?.id}`}
                           checked={hm?.isYoungAdult === `Yes`}
                           onChange={(e) => onChangeOption(e)}
                           className={`HomeChurchCheckbox`}
                           type="checkbox"
                         />
                       </td>
-                      <td style={{ textAlign: 'center' }}>
+                      <td>
                         <input
                           name={`isOnline-${hm?.id}`}
                           checked={hm?.isOnline === 'Yes'}
@@ -441,7 +451,7 @@ export default function homechurch(): JSX.Element {
                           type="checkbox"
                         />
                       </td>
-                      <td style={{ textAlign: 'center' }}>
+                      <td>
                         <input
                           name={`isHybrid-${hm?.id}`}
                           checked={hm?.isHybrid === 'Yes'}
@@ -450,18 +460,20 @@ export default function homechurch(): JSX.Element {
                           type="checkbox"
                         />
                       </td>
-                      <td style={{ textAlign: 'center' }}>
+                      <td>
                         <button
                           onClick={() => setEdit(hm)}
                           style={{
                             backgroundColor: 'transparent',
                             border: 'none',
+                            display: 'flex',
+                            alignSelf: 'flex-start',
                           }}
                         >
                           <img
                             width={20}
                             height={20}
-                            src="/static/icons/Register-white.png"
+                            src="/static/svg/Register.svg"
                           />
                         </button>
                       </td>
@@ -470,29 +482,21 @@ export default function homechurch(): JSX.Element {
                 })}
             </tbody>
             <tfoot>
-              <tr style={{ backgroundColor: 'white' }}>
+              <tr>
                 <td colSpan={4}>
-                  {homeChurch.filter((hm) => hm?.F1ItemData).length}{' '}
+                  {page + 1} -{' '}
+                  {page + 10 > shownHomeChurches.length
+                    ? shownHomeChurches.length
+                    : page + 10}{' '}
+                  out of {homeChurch.length - archivedHomeChurchCount}{' '}
                   homechurches
                 </td>
-                <td style={{ paddingBottom: 16 }} colSpan={6}>
+                <td colSpan={6}>
                   <TransactionPaginate
                     paginationIndex={page}
                     setPaginationIndex={setPage}
-                    length={
-                      homeChurch.filter((hm) => {
-                        if (!hm?.F1ItemData) return false;
-                        if (search) {
-                          if (
-                            hm?.F1ItemData?.name
-                              ?.toLowerCase()
-                              .includes(search.toLocaleLowerCase())
-                          )
-                            return true;
-                          return false;
-                        } else return true;
-                      }).length
-                    }
+                    paginateCount={10}
+                    length={shownHomeChurches.length}
                   ></TransactionPaginate>
                 </td>
               </tr>
