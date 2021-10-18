@@ -537,9 +537,9 @@ export class ContentItem extends React.Component<Props, State> {
     filteredGroups.sort(this.distanceSorter);
     const badgeHelper = (keyName: string) => {
       switch (keyName) {
-        case 'vacinationRequired':
+        case 'vaccinationRequired':
           return 'Vaccination Required';
-        case 'hasChildcare':
+        case 'isFamilyFriendly':
           return 'Family Friendly';
         case 'isOnline':
           return 'Online';
@@ -547,6 +547,8 @@ export class ContentItem extends React.Component<Props, State> {
           return 'Hybrid';
         case 'petFree':
           return 'Pet Free';
+        case 'isYoungAdult':
+          return 'Young Adult';
         case 'transitAccessible':
           return 'Transit Accessible';
         default:
