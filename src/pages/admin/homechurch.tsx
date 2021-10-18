@@ -244,7 +244,7 @@ export default function homechurch(): JSX.Element {
           </p>
           <p style={{ fontSize: 20, fontWeight: 'bold' }}>
             {' '}
-            {edit?.F1ItemData.name}
+            {edit?.F1ItemData?.name}
           </p>
           <p style={{ fontSize: 16, fontWeight: 'bold', marginBottom: 4 }}>
             Online Connect URL:{' '}
