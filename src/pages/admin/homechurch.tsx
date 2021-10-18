@@ -38,7 +38,6 @@ export default function homechurch(): JSX.Element {
   const [search, setSearch] = useState('');
   const [edit, setEdit] = useState<HomeChurchInfoAndF1 | null>(null);
   const [page, setPage] = useState(0);
-  const [error, setError] = useState(false);
 
   const createhmHM = async (f1HomeChurch: ListF1ListGroup2sData) => {
     const homeChurchInfo: CreateHomeChurchInfoMutationVariables['input'] = {
@@ -52,8 +51,7 @@ export default function homechurch(): JSX.Element {
       })) as GraphQLResult<ListHomeChurchInfosQuery>;
       console.log({ added: { addHM } });
     } catch (err) {
-      setError(true);
-      console.log({ create: err });
+      console.error({ failed: err });
     }
   };
 
@@ -116,7 +114,7 @@ export default function homechurch(): JSX.Element {
       console.log({ updated: { updateHMInfo } });
       return true;
     } catch (err) {
-      console.log({ failed: err });
+      console.error({ failed: err });
       return false;
     } finally {
       setIsUpdating(false);
@@ -177,22 +175,22 @@ export default function homechurch(): JSX.Element {
       );
       return data;
     };
-    const loadInitialData = async () => {
+    const loadInitialData = async (shouldCreate = true) => {
       const f1HomeChurchData = await fetchF1HomeChurchData();
       const homeChurchInfoData = await fetchHomeChurchInfoData();
-      if (
-        (await shouldCreateHomeChurchInfoData(
-          f1HomeChurchData,
-          homeChurchInfoData
-        )) &&
-        !error
-      ) {
-        console.log(
-          'At least one new HomeChurchInfo has been added. Fetch again'
-        );
-        loadInitialData();
+      if (shouldCreate) {
+        if (
+          await shouldCreateHomeChurchInfoData(
+            f1HomeChurchData,
+            homeChurchInfoData
+          )
+        ) {
+          console.log(
+            'At least one new HomeChurchInfo has been added. Fetch again'
+          );
+          loadInitialData(false);
+        }
       }
-
       const injectedF1HomeChurchData: HomeChurchAndF1Data = injectF1Data(
         f1HomeChurchData,
         homeChurchInfoData
@@ -306,7 +304,7 @@ export default function homechurch(): JSX.Element {
   };
   return (
     <div>
-      <EditHomeChurchInfo edit={edit} />
+      <EditHomeChurchInfo edit={!!edit} />
       {isLoading ? (
         <div
           style={{
