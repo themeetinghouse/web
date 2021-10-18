@@ -1406,6 +1406,36 @@ export const deleteLivestream = /* GraphQL */ `
     }
   }
 `;
+export const createRedirect = /* GraphQL */ `
+  mutation CreateRedirect($input: CreateRedirectInput!) {
+    createRedirect(input: $input) {
+      id
+      to
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateRedirect = /* GraphQL */ `
+  mutation UpdateRedirect($input: UpdateRedirectInput!) {
+    updateRedirect(input: $input) {
+      id
+      to
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteRedirect = /* GraphQL */ `
+  mutation DeleteRedirect($input: DeleteRedirectInput!) {
+    deleteRedirect(input: $input) {
+      id
+      to
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const createAnnouncement = /* GraphQL */ `
   mutation CreateAnnouncement($input: CreateAnnouncementInput!) {
     createAnnouncement(input: $input) {

@@ -5480,6 +5480,33 @@ export const listLivestreams = /* GraphQL */ `
     }
   }
 `;
+export const getRedirect = /* GraphQL */ `
+  query GetRedirect($id: ID!) {
+    getRedirect(id: $id) {
+      id
+      to
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listRedirects = /* GraphQL */ `
+  query ListRedirects(
+    $filter: ModelRedirectFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listRedirects(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        to
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const getAnnouncement = /* GraphQL */ `
   query GetAnnouncement($id: ID!) {
     getAnnouncement(id: $id) {

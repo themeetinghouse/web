@@ -1406,6 +1406,36 @@ export const onDeleteLivestream = /* GraphQL */ `
     }
   }
 `;
+export const onCreateRedirect = /* GraphQL */ `
+  subscription OnCreateRedirect {
+    onCreateRedirect {
+      id
+      to
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateRedirect = /* GraphQL */ `
+  subscription OnUpdateRedirect {
+    onUpdateRedirect {
+      id
+      to
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteRedirect = /* GraphQL */ `
+  subscription OnDeleteRedirect {
+    onDeleteRedirect {
+      id
+      to
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreateAnnouncement = /* GraphQL */ `
   subscription OnCreateAnnouncement {
     onCreateAnnouncement {
