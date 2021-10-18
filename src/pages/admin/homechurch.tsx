@@ -480,7 +480,8 @@ export default function homechurch(): JSX.Element {
                     paginationIndex={page}
                     setPaginationIndex={setPage}
                     length={
-                      homeChurch.filter((hm: any) => {
+                      homeChurch.filter((hm) => {
+                        if (!hm?.F1ItemData) return false;
                         if (search) {
                           if (
                             hm?.F1ItemData?.name
