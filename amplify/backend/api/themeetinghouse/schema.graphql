@@ -1119,7 +1119,7 @@ type ZoomItem {
   title: String!
   link: String!
 }
-type Heading {
+type LivestreamSection {
   title: String!
   links: [ZoomItem]
 }
@@ -1145,7 +1145,7 @@ type Livestream
   externalEventUrl: String
   menu: [LiveMenu]
   zoom: [ZoomItem]
-  headings: [Heading]
+  livestreamSections: [LivestreamSection]
   titles: [String]
   homepageLink: String
 }
