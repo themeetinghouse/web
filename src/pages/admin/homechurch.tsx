@@ -237,7 +237,7 @@ export default function homechurch(): JSX.Element {
       } else alert(`An error occurred.`);
     };
     return (
-      <Modal size="lg" isOpen={edit}>
+      <Modal size="lg" isOpen={!!edit}>
         <div style={{ padding: 24 }}>
           <p style={{ fontSize: 16, fontWeight: 'bold', marginBottom: 2 }}>
             Name:
@@ -327,7 +327,7 @@ export default function homechurch(): JSX.Element {
   }, [homeChurch]);
   return (
     <div>
-      <EditHomeChurchInfo edit={!!edit} />
+      <EditHomeChurchInfo edit={edit} />
       {isLoading ? (
         <div
           style={{
@@ -466,8 +466,6 @@ export default function homechurch(): JSX.Element {
                           style={{
                             backgroundColor: 'transparent',
                             border: 'none',
-                            display: 'flex',
-                            alignSelf: 'flex-start',
                           }}
                         >
                           <img
