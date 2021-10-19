@@ -1119,6 +1119,10 @@ type ZoomItem {
   title: String!
   link: String!
 }
+type LivestreamSection {
+  title: String!
+  links: [ZoomItem]
+}
 type Livestream
  @model
  @auth(rules:[
@@ -1141,6 +1145,7 @@ type Livestream
   externalEventUrl: String
   menu: [LiveMenu]
   zoom: [ZoomItem]
+  livestreamSections: [LivestreamSection]
   titles: [String]
   homepageLink: String
 }
