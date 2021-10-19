@@ -5435,6 +5435,13 @@ export const getLivestream = /* GraphQL */ `
         title
         link
       }
+      livestreamSections {
+        title
+        links {
+          title
+          link
+        }
+      }
       titles
       homepageLink
       createdAt
@@ -5470,6 +5477,13 @@ export const listLivestreams = /* GraphQL */ `
         zoom {
           title
           link
+        }
+        livestreamSections {
+          title
+          links {
+            title
+            link
+          }
         }
         titles
         homepageLink

@@ -1337,6 +1337,13 @@ export const createLivestream = /* GraphQL */ `
         title
         link
       }
+      livestreamSections {
+        title
+        links {
+          title
+          link
+        }
+      }
       titles
       homepageLink
       createdAt
@@ -1368,6 +1375,13 @@ export const updateLivestream = /* GraphQL */ `
         title
         link
       }
+      livestreamSections {
+        title
+        links {
+          title
+          link
+        }
+      }
       titles
       homepageLink
       createdAt
@@ -1398,6 +1412,13 @@ export const deleteLivestream = /* GraphQL */ `
       zoom {
         title
         link
+      }
+      livestreamSections {
+        title
+        links {
+          title
+          link
+        }
       }
       titles
       homepageLink
