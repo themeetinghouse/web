@@ -14,7 +14,7 @@
     "name": "Regeneration Outreach",
     "description": "Regeneration is a caring community that continually strives to provide dignity for those in need, as an expression of Christian love in action. They serve those living in extreme poverty and homelessness by meeting their physical and spiritual needs.",
     "website": "https://regenbrampton.com/",
-    "image": "/static/images/compassion/Regeneration.png",
+    "image": "/static/images/compassion/Regeneration.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
@@ -23,7 +23,7 @@
     "name": "Dismas Fellowship Brampton",
     "description": "Dismas Fellowship provides a safe community to worship for persons with a history of offence.",
     "website": "https://www.friendsofdismas.com/what-i-do/dismas-fellowship-brampton-dates/",
-    "image": "/static/images/compassion/Dismas Fellowship.png",
+    "image": "/static/images/compassion/Dismas Fellowship.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
@@ -32,6 +32,7 @@
     "name": "Brantford Blessing Centre",
     "description": "The Brantford Blessing Centre provides access to food for marginalized communities. We make and serve meals twice a month and assist with additional projects as they come up.",
     "image": "/static/images/compassion/none.jpg",
+    "website":"https://www.brantfordblessingcentre.org/",
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
@@ -39,6 +40,7 @@
     "sites": ["brantford"],
     "name": "Friendship House",
     "description": "Friendship House is a drop-in centre that works to support the physical, emotional, and spiritual needs of guests. We support them primarily by donating to their food bank.",
+    "website":"https://www.friendship-house-of-brant.org/",
     "image": "/static/images/compassion/none.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   },
@@ -96,15 +98,6 @@
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
-    "id": 13,
-    "sites": ["hamilton-downtown"],
-    "name": "TrueCity",
-    "description": "TrueCity is a network of Hamilton churches. We contribute to their Christmas hampers which support families in need, and we provide regular donations to The Giving Closet, a not-for-profit thrift store in Crown Point neighbourhood.",
-    "website": "https://truecityhamilton.ca/",
-    "image": "/static/photos/compassion/True City.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
     "id": 14,
     "sites": ["hamilton-downtown"],
     "name": "Indwell",
@@ -134,15 +127,6 @@
   {
     "id": 17,
     "sites": ["hamilton-mountain"],
-    "name": "Crossroads Prison Ministries Canada",
-    "description": "Crossroads Prison Ministries cultivates Christ-centred relationships between those inside and outside prison walls. We offer financial support and mentorship for students through their Bible study courses.",
-    "website": "https://cpministries.ca/",
-    "image": "/static/photos/compassion/crossroads.png",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 17,
-    "sites": ["hamilton-mountain"],
     "name": "Helping Hands Street Mission",
     "description": "Helping Hands Street Mission works to aid people living in the Barton Street Community. We come along side HHSM by providing support for programs to guarantee their continuation and success through volunteering and donations.",
     "website": "https://www.hhsmhamilton.com/",
@@ -164,15 +148,6 @@
     "name": "Life Centre Guelph",
     "description": "The Life Centre is a downtown mission in Guelph, Ontario that provides a safe and loving environment for anyone who is in need. Each week they provide up to 600 meals, and a variety of programs at no charge. ",
     "website": "https://www.thelifecentre.ca/",
-    "image": "/static/images/compassion/none.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 20,
-    "sites": ["london"],
-    "name": "Dismas Fellowship London",
-    "description": "To provide a safe and welcoming place where people who have been incarcerated and were friends can experience Christian community.\n",
-    "website": "https://www.friendsofdismas.com/",
     "image": "/static/images/compassion/none.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   },
@@ -363,15 +338,6 @@
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
-    "id": 42,
-    "sites": ["richmond-hill"],
-    "name": "Fight4Freedom",
-    "description": "Fight4Freedom is dedicated to battling human trafficking in the sex trade, seeing survivors set free, and giving beauty from ashes. We've been able to provide donation items to support outreach kits, and promote their work.",
-    "website": "https://www.fight4freedom.ca/",
-    "image": "/static/photos/compassion/Fight4Freedom.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
     "id": 43,
     "sites": ["toronto-east"],
     "name": "Glen Rhodes Community Dinners",
@@ -514,14 +480,6 @@
     "sites": ["london"],
     "name": "St. John's the Evangelist",
     "description": "The London site partners with St. John's the Evanglist in serving hospitality meals on Saturday nights.",
-    "image": "/static/images/compassion/none.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 62,
-    "sites": ["london"],
-    "name": "AVONA",
-    "description": "AVONA provides safe places, shelter, support, counselling, and resources for abused women, their children, and all oppressed individuals to find a new start.",
     "image": "/static/images/compassion/none.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   },
