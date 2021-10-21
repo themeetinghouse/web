@@ -380,7 +380,49 @@ export default class VideoPlayer extends React.Component<Props, State> {
               })}
             </div>
           ) : null}
-
+          {this.state.liveEvent.livestreamSections &&
+          this.state.liveEvent.livestreamSections.length ? (
+            <div style={{ marginTop: '5vw' }}>
+              {this.state.liveEvent?.livestreamSections?.map(
+                (liveStreamSection) => (
+                  <div
+                    style={{ marginBottom: '5vw' }}
+                    key={liveStreamSection?.title}
+                  >
+                    <div className="LiveVideoPlayerTitle">
+                      {liveStreamSection?.title}
+                      <div className="ZoomGrid" style={{ marginLeft: 0 }}>
+                        {liveStreamSection?.links?.map((item, index) => {
+                          const watchText = item?.link
+                            .toLowerCase()
+                            .includes('zoom')
+                            ? 'Watch on Zoom'
+                            : item?.link.toLowerCase().includes('youtube') ||
+                              item?.link.toLowerCase().includes('youtu.be')
+                            ? 'Watch on YouTube'
+                            : item?.link.toLowerCase().includes('crowdcast')
+                            ? 'Watch on Crowdcast'
+                            : 'Watch';
+                          return (
+                            <a
+                              className="ZoomItem"
+                              key={index}
+                              href={item?.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <div className="ZoomText">{item?.title}</div>
+                              <div className="WatchVideoTag">{watchText}</div>
+                            </a>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                )
+              )}
+            </div>
+          ) : null}
           {this.state.liveEvent.showKids ? (
             <div>
               <div className="LiveVideoPlayerEpisodeTitle">Preschool</div>
