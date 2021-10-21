@@ -69,15 +69,6 @@
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
-    "id": 9,
-    "sites": ["burlington"],
-    "name": "Crossroads Prison Ministries Canada",
-    "description": "Crossroads Prison Ministries cultivates Christ-centred relationships between those inside and outside prison walls. Many at our site volunteer as mentors for students and we actively promote their year-round fundraisers.",
-    "website": "https://cpministries.ca/",
-    "image": "/static/photos/compassion/crossroads.png",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
     "id": 10,
     "sites": ["ancaster"],
     "name": "541 Eatery & Exchange",
@@ -555,6 +546,7 @@
     "sites": ["burlington"],
     "name": "Eagles Nest Ministries",
     "description": "Eagles Nest offers counselling, support groups, and educational programs within the community. We promote their programs and services, regularly volunteer at fundraising events, and volunteer throughout the year.",
+    "website": "https://www.eaglesnestofwaterdown.ca/",
     "image": "/static/photos/compassion/eagles nest.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   },
