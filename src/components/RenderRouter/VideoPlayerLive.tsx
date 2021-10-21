@@ -236,7 +236,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
                 ></iframe>
               )}
               <div className="LiveVideoPlayerTitle">
-                Church Livestream
+                Livestream
                 <div className="ShareButtonDesktop">
                   <ShareDropdown
                     bgColor="white-bg"
@@ -261,9 +261,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
                 frameBorder="0"
                 allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               ></iframe>
-              <div className="LiveVideoPlayerTitle">
-                Church Livestream Pre-Show
-              </div>
+              <div className="LiveVideoPlayerTitle">Livestream Pre-Show</div>
               <br />
             </div>
           )}
@@ -352,7 +350,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
               }
             ></iframe>
           ) : (
-            <div style={{ height: '10vw' }} />
+            <div style={{ height: '5vw' }} />
           )}
           {this.state.liveEvent.zoom && this.state.liveEvent.zoom.length > 0 ? (
             <div className="ZoomGrid">
@@ -503,7 +501,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
             allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           ></iframe>
           <br />
-          <div className="LiveVideoPlayerTitle">Church Livestream</div>
+          <div className="LiveVideoPlayerTitle">Livestream</div>
           <div className="LiveVideoPlayerDescription" style={{ margin: 0 }}>
             We aren&apos;t live right now. Join us on Sundays at 10:00am
             Eastern.

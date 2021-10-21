@@ -648,7 +648,7 @@ class Index extends React.Component<EmptyProps, State> {
     });
   }
   createliveStreamSection() {
-    const title = `Section`;
+    const title = ``;
     const sections = [
       ...(this.state.liveObject?.livestreamSections ?? []),
       {
@@ -1206,7 +1206,7 @@ class Index extends React.Component<EmptyProps, State> {
           <div
             style={{ display: 'flex', flexDirection: 'row', marginBottom: 32 }}
           >
-            <span style={{ flex: 1 }}>Zoom Links with headings</span>
+            <h5 style={{ flex: 1 }}>Link Grids with Headings</h5>
             <button onClick={() => this.createliveStreamSection()}>+</button>
           </div>
 
@@ -1223,7 +1223,7 @@ class Index extends React.Component<EmptyProps, State> {
                   <input
                     onChange={(e) => this.changeSectionTitle(e, index)}
                     style={{ flex: 1 }}
-                    placeholder="title"
+                    placeholder="Heading Title"
                     value={section?.title}
                   />
                   <button
@@ -1233,6 +1233,7 @@ class Index extends React.Component<EmptyProps, State> {
                     -
                   </button>
                   <button
+                    style={{ marginLeft: 4 }}
                     onClick={() => this.createLiveStreamSectionZoomLink(index)}
                   >
                     +
@@ -1256,7 +1257,7 @@ class Index extends React.Component<EmptyProps, State> {
                             onChange={(e) =>
                               this.changeZoomTitle(e, index, linkIndex)
                             }
-                            placeholder="Title"
+                            placeholder="Link Title"
                             value={zoomLink?.title ?? ''}
                           />
                           <input
