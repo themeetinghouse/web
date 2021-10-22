@@ -90,6 +90,11 @@
             "type": "link",
             "title": "Oakville Kids Pastor",
             "navigateTo": "/static/pdfs/careers/Oakville Kids Pastor.pdf"
+          },
+          {
+            "type": "link",
+            "title": "Oakville & Live Stream Worship Arts Pastor",
+            "navigateTo": "/static/pdfs/careers/Oakville & Live Stream Worship Arts Pastor.pdf"
           }
         ],
         "image1": [
@@ -124,6 +129,11 @@
             "type": "link",
             "title": "Interim Hamilton Youth Coordinator",
             "navigateTo": "/static/pdfs/careers/Interim Hamilton Youth Coordinator.pdf"
+          },
+          {
+            "type": "link",
+            "title": "Waterloo Region Parish Administrator",
+            "navigateTo": "/static/pdfs/careers/Waterloo Region Parish Administrator.pdf"
           }
         ],
         "image1": [
