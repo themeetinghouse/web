@@ -236,7 +236,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
                 ></iframe>
               )}
               <div className="LiveVideoPlayerTitle">
-                Church Livestream
+                Livestream
                 <div className="ShareButtonDesktop">
                   <ShareDropdown
                     bgColor="white-bg"
@@ -261,9 +261,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
                 frameBorder="0"
                 allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               ></iframe>
-              <div className="LiveVideoPlayerTitle">
-                Church Livestream Pre-Show
-              </div>
+              <div className="LiveVideoPlayerTitle">Livestream Pre-Show</div>
               <br />
             </div>
           )}
@@ -352,7 +350,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
               }
             ></iframe>
           ) : (
-            <div style={{ height: '10vw' }} />
+            <div style={{ height: '5vw' }} />
           )}
           {this.state.liveEvent.zoom && this.state.liveEvent.zoom.length > 0 ? (
             <div className="ZoomGrid">
@@ -380,7 +378,49 @@ export default class VideoPlayer extends React.Component<Props, State> {
               })}
             </div>
           ) : null}
-
+          {this.state.liveEvent.livestreamSections &&
+          this.state.liveEvent.livestreamSections.length ? (
+            <div style={{ marginTop: '5vw' }}>
+              {this.state.liveEvent?.livestreamSections?.map(
+                (liveStreamSection) => (
+                  <div
+                    style={{ marginBottom: '5vw' }}
+                    key={liveStreamSection?.title}
+                  >
+                    <div className="LiveVideoPlayerTitle">
+                      {liveStreamSection?.title}
+                      <div className="ZoomGrid" style={{ marginLeft: 0 }}>
+                        {liveStreamSection?.links?.map((item, index) => {
+                          const watchText = item?.link
+                            .toLowerCase()
+                            .includes('zoom')
+                            ? 'Watch on Zoom'
+                            : item?.link.toLowerCase().includes('youtube') ||
+                              item?.link.toLowerCase().includes('youtu.be')
+                            ? 'Watch on YouTube'
+                            : item?.link.toLowerCase().includes('crowdcast')
+                            ? 'Watch on Crowdcast'
+                            : 'Watch';
+                          return (
+                            <a
+                              className="ZoomItem"
+                              key={index}
+                              href={item?.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <div className="ZoomText">{item?.title}</div>
+                              <div className="WatchVideoTag">{watchText}</div>
+                            </a>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                )
+              )}
+            </div>
+          ) : null}
           {this.state.liveEvent.showKids ? (
             <div>
               <div className="LiveVideoPlayerEpisodeTitle">Preschool</div>
@@ -461,7 +501,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
             allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           ></iframe>
           <br />
-          <div className="LiveVideoPlayerTitle">Church Livestream</div>
+          <div className="LiveVideoPlayerTitle">Livestream</div>
           <div className="LiveVideoPlayerDescription" style={{ margin: 0 }}>
             We aren&apos;t live right now. Join us on Sundays at 10:00am
             Eastern.
