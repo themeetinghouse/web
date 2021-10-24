@@ -1,11 +1,11 @@
 @use '../../theme';
 
 @mixin whiteBlack {
-  &.black,
+  &.black-blog,
   &.tmh-black {
     color: theme.$onyxblacktext;
   }
-  &.white,
+  &.white-blog,
   &.tmh-white {
     color: white;
   }
@@ -58,10 +58,10 @@ $preview-image-ratio: 0.745;
   }
 
   .featured-blog-container {
-    &.black {
+    &.black-blog {
       background: theme.$onyxblacktext;
     }
-    &.white {
+    &.white-blog {
       background: theme.$white;
     }
     padding: 136px 0;
@@ -87,7 +87,7 @@ $preview-image-ratio: 0.745;
     line-height: 1.125rem;
     color: theme.$coolgray11;
     &.watch-page-blog,
-    &.feat-blog.white {
+    &.feat-blog.white-blog {
       color: theme.$coolgray3;
     }
   }
@@ -108,10 +108,10 @@ $preview-image-ratio: 0.745;
     font-family: Graphik Web;
     font-weight: normal;
     max-width: 700px;
-    &.black {
+    &.black-blog {
       color: theme.$coolgray3;
     }
-    &.white {
+    &.white-blog {
       color: theme.$onyxblacktext;
     }
   }
@@ -195,7 +195,7 @@ $preview-image-ratio: 0.745;
       width: 80vw;
       left: 20vw;
       margin-bottom: 5vw;
-      &.black {
+      &.black-blog {
         padding-left: 5vw;
       }
     }
@@ -313,7 +313,7 @@ $preview-image-ratio: 0.745;
 
     .featured-blog-container {
       padding: 136px 0 136px 28px;
-      &.white {
+      &.white-blog {
         padding: 136px 0;
       }
     }

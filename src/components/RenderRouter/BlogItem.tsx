@@ -43,7 +43,7 @@ const BlogPreviewText = ({
 }: BlogPreviewTextProps) => (
   <div className={`BlogPreviewTextContainer ${style}`}>
     <div className={`BlogPreviewTitle tmh-${color}`}>{title}</div>
-    <div className={`BlogPreviewAuthorDate ${style} ${color}`}>
+    <div className={`BlogPreviewAuthorDate ${style} ${color}-blog`}>
       by <span className={`BlogPreviewAuthor tmh-${color}`}>{author}</span> on{' '}
       {publishedDate}
     </div>
