@@ -88,6 +88,11 @@
           },
           {
             "type": "link",
+            "title": "Richmond Hill Lead Pastor",
+            "navigateTo": "/static/pdfs/careers/Richmond Hill Lead Pastor.pdf"
+          },
+          {
+            "type": "link",
             "title": "Oakville Kids Pastor",
             "navigateTo": "/static/pdfs/careers/Oakville Kids Pastor.pdf"
           },
