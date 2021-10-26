@@ -14,13 +14,6 @@
     "Position": "Sandbanks Lead Pastor"
   },
   {
-    "FirstName": "Don",
-    "LastName": "Walcott",
-    "sites": ["SAND"],
-    "Email": "don.walcott@themeetinghouse.com",
-    "Position": "Sandbanks Associate Pastor"
-  },
-  {
     "FirstName": "Amy",
     "LastName": "Thompson",
     "sites": ["ALLI"],
@@ -409,11 +402,11 @@
     "Position": "Music & Kidmax Coordinator"
   },
   {
-    "FirstName": "Bob",
-    "LastName": "Snider",
+    "FirstName": "Casey",
+    "LastName": "Heintzman",
     "sites": ["SAND"],
     "Email": "sandbanks.music@themeetinghouse.com",
-    "Position": "Music Coordinator"
+    "Position": "Music Coordinator and Indigenous Settler-Relations"
   },
   {
     "FirstName": "Matt",
