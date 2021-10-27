@@ -361,6 +361,15 @@
   },
   {
     "Staff": true,
+    "FirstName": "Korede",
+    "LastName": "Agbenla",
+    "Phone": "905.287.7000",
+    "Position": "Finance Director",
+    "sites": ["Operations"],
+    "Email": "korede.agbenla@themeetinghouse.com"
+  },
+  {
+    "Staff": true,
     "FirstName": "Laura",
     "LastName": "Hanna",
     "Phone": "905.287.7000, ext. 815",
