@@ -567,6 +567,13 @@
     "Position": "Youth Coordinator"
   },
   {
+    "FirstName": "Sarah",
+    "LastName": "Innes",
+    "sites": ["LOND"],
+    "Email": "sarah.innes@themeetinghouse.com",
+    "Position": "Kidmax Coordinator"
+  },
+  {
     "FirstName": "Kylah",
     "LastName": "Adams",
     "sites": ["NMKT"],
