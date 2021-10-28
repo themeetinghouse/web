@@ -52,13 +52,13 @@
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/EYLessonOct24.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYLessonOct31.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesOct24.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesOct31.pdf",
             "openNewBrowser": true
           },
           {
@@ -86,21 +86,21 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaOct24.jpg",
-            "alt": "This week's big idea is: God uses us despite our weaknesses."
+            "src": "/static/images/KidsBigIdeaOct31.jpg",
+            "alt": "This week's big idea is: God uses creative ways to get people's attention."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonOct24.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonOct31.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesOct24.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesOct31.pdf",
             "openNewBrowser": true
           },
           {
