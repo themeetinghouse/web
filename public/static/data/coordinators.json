@@ -82,17 +82,24 @@
     "Position": "Tech Coordinator"
   },
   {
+    "FirstName": "Jeremy",
+    "LastName": "McClung",
+    "sites": ["PAR"],
+    "Email": "jeremy.mcclung@themeetinghouse.com",
+    "Position": "Parry Sound Lead Pastor"
+  },
+  {
+    "FirstName": "Rosi",
+    "LastName": "Simon",
+    "sites": ["PAR"],
+    "Email": "rosi.simon@themeetinghouse.com",
+    "Position": "Parish Administrator"
+  },
+  {
     "FirstName": "Amanda",
     "LastName": "Shaw",
     "sites": ["PAR"],
     "Email": "amanda.shaw@themeetinghouse.com",
-    "Position": "Compassion Coordinator"
-  },
-  {
-    "FirstName": "Cristal",
-    "LastName": "Laanstra",
-    "sites": ["SAND"],
-    "Email": "sandbanks.compassion@themeetinghouse.com",
     "Position": "Compassion Coordinator"
   },
   {
@@ -456,13 +463,6 @@
     "Position": "Weekend Service Producer"
   },
   {
-    "FirstName": "Rosi",
-    "LastName": "Simon",
-    "sites": ["PAR"],
-    "Email": "rosi.simon@themeetinghouse.com",
-    "Position": "Parish Administrator"
-  },
-  {
     "FirstName": "Anthony",
     "LastName": "Mak",
     "sites": ["RHLL"],
@@ -537,12 +537,6 @@
     "LastName": "Woodward",
     "sites": ["BRFD"],
     "Email": "josh.woodward@themeetinghouse.com",
-    "Position": "Youth Coordinator"
-  },
-  {
-    "FirstName": "Nick",
-    "LastName": "Barone",
-    "sites": ["HMMT"],
     "Position": "Youth Coordinator"
   },
   {
