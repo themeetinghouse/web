@@ -156,6 +156,12 @@
             "title": "2018 - Annual Report",
             "navigateTo": "/static/pdfs/annual-reports/2018AnnualReport_WEB1.pdf",
             "openNewBrowser": true
+          },
+          {
+            "type": "link",
+            "title": "2021 - Annual Report and AGM Document",
+            "navigateTo": "/static/pdfs/annual-reports/TMH_AnnualReport_Documents_2021.pdf",
+            "openNewBrowser": true
           }
         ]
       },
