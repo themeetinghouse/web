@@ -323,8 +323,8 @@
     "Position": "Weekend Service Producer"
   },
   {
-    "FirstName": "Bram",
-    "LastName": "Van den Heuvel",
+    "FirstName": "Laura",
+    "LastName": "Brinks",
     "sites": ["BRFD"],
     "Position": "Music Coordinator"
   },
@@ -420,13 +420,6 @@
     "sites": ["BRAM"],
     "Email": "hello.brampton@themeetinghouse.com",
     "Position": "Communications Coordinator"
-  },
-  {
-    "FirstName": "Joyce",
-    "LastName": "Baker",
-    "sites": ["BRFD"],
-    "Email": "joyce.baker@themeetinghouse.com",
-    "Position": "Parish Administrator"
   },
   {
     "FirstName": "Savanna",
@@ -530,7 +523,7 @@
     "LastName": "Woodward",
     "sites": ["BRFD"],
     "Email": "josh.woodward@themeetinghouse.com",
-    "Position": "Youth Coordinator"
+    "Position": "Ministry Associate & Youth Coordinator"
   },
   {
     "FirstName": "Maddy",
