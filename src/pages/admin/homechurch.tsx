@@ -308,18 +308,24 @@ export default function homechurch(): JSX.Element {
 
   const shownHomeChurches = useMemo(
     () =>
-      homeChurch.filter((hm) => {
-        if (!hm?.F1ItemData) return false; // removes HM not in f1
-        if (search) {
-          if (
-            hm?.F1ItemData?.name
-              ?.toLowerCase()
-              .includes(search.toLocaleLowerCase())
-          )
-            return true;
-          return false;
-        } else return true;
-      }),
+      homeChurch
+        .filter((hm) => {
+          if (!hm?.F1ItemData) return false; // removes HM not in f1
+          if (search) {
+            if (
+              hm?.F1ItemData?.name
+                ?.toLowerCase()
+                .includes(search.toLocaleLowerCase())
+            )
+              return true;
+            return false;
+          } else return true;
+        })
+        .sort((hm1, hm2) => {
+          if (hm1?.F1ItemData?.name && hm2?.F1ItemData?.name)
+            return hm1.F1ItemData.name.localeCompare(hm2.F1ItemData.name);
+          return 0;
+        }),
     [homeChurch, search]
   );
   const archivedHomeChurchCount = useMemo(() => {
