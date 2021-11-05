@@ -500,6 +500,12 @@
     "Position": "Welcome Coordinator"
   },
   {
+    "FirstName": "Samson",
+    "LastName": "Chiu",
+    "sites": ["RHLL"],
+    "Position": "Tech Coordinator"
+  },
+  {
     "FirstName": "Sue",
     "LastName": "Yoo",
     "sites": ["TOUP"],
