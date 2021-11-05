@@ -615,8 +615,8 @@
     "Staff": true,
     "FirstName": "Rod",
     "LastName": "Tombs",
+    "Position": "",
     "Phone": "905.287.7000, ext. 827",
-    "Position": "Executive Pastor",
     "sites": ["Operations", "Pastoral"],
     "Email": "Rod.Tombs@themeetinghouse.com"
   },
