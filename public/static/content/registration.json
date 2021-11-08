@@ -29,7 +29,7 @@
             "mainHeader": "Sunday Worship",
             "subHeader1": "Welcome home — we’re excited to see you again.",
             "divider": true,
-            "text1": "This season, we’re offering Sunday morning experiences online and in person. To follow public health guidelines, we’ve made some changes to in-person gatherings like limiting capacity and asking people to register online.",
+            "text1": "This season, we’re offering Sunday experiences online and in person. To follow public health guidelines, we’ve made some changes to in-person gatherings like limiting capacity and asking people to register online.",
             "text2": "Keep scrolling for more details and links to register or join the livestream.",
             "header3": "What to expect",
             "graphicItems": [{
@@ -76,7 +76,7 @@
             },
             "header5": "Online Registration",
             "text3": "To attend an in-person gathering, please pre-register online to reserve your spot. If you forget, you can always walk in and we’ll seat you if we’ve got space within our capacity limits. The registration window will be open each week from 5pm on Sunday to 5pm on Thursday.",
-            "text4": "We’ll ask for your contact info in case we need to reach you about a COVID related issue. When you show up on a Sunday morning, one of our amazing volunteers will check you in and confirm your health screening.",
+            "text4": "We’ll ask for your contact info in case we need to reach you about a COVID related issue. When you show up on a Sunday, one of our amazing volunteers will check you in and confirm your health screening.",
             "button3": {
                 "text": "Register Now",
                 "type": "solid mobile"
