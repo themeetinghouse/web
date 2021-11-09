@@ -51,13 +51,13 @@
         "list": [
           {
             "type": "link",
-            "title": "Download Jr High Lesson",
+            "title": "Download Weekend Lesson",
             "navigateTo": "/static/pdfs/kidmax-files/EYLessonNov7.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
-            "title": "Download Jr High Activities",
+            "title": "Download Weekend Activities",
             "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesNov7.pdf",
             "openNewBrowser": true
           }
@@ -87,13 +87,13 @@
         "list": [
           {
             "type": "link",
-            "title": "Download Jr High Midweek Lesson",
+            "title": "Download Midweek Lesson",
             "navigateTo": "/static/pdfs/kidmax-files/KidsLessonNov7.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
-            "title": "Download Jr High Midweek Small Group Leader Notes",
+            "title": "Download Midweek Small Group Leader Notes",
             "navigateTo": "/static/pdfs/kidmax-files/KidsNovemberColouring.pdf",
             "openNewBrowser": true
           }
