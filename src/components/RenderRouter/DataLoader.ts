@@ -868,9 +868,7 @@ export default class DataLoader {
       case 'ottawa':
         id = '17841408719847486';
         break;
-      case 'owen-sound':
-        id = '17841400321603203';
-        break;
+
       case 'parry-sound':
         id = '17841443108276837';
         break;

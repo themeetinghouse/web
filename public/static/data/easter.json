@@ -180,17 +180,6 @@
   },
 
   {
-    "id": "owen-sound",
-    "name": "Owen Sound",
-    "pastorEmail": "",
-    "location": {
-      "longitude": -80.933555,
-      "latitude": 44.573804,
-      "address": "St. Mary's High School, 555 15th Street East"
-    },
-    "serviceTimes": ["April 10 - 10am", "April 12 - 10am"]
-  },
-  {
     "id": "parry-sound",
     "name": "Parry Sound",
     "pastorEmail": "Heidi.Konig@themeetinghouse.com",

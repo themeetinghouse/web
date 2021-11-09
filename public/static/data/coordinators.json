@@ -171,13 +171,7 @@
     "sites": ["TOUP"],
     "Position": "Compassion Coordinator"
   },
-  {
-    "FirstName": "Denis",
-    "LastName": "Audette",
-    "sites": ["OWSN"],
-    "Email": "denis.audette@themeetinghouse.com",
-    "Position": "Community Coordinator"
-  },
+
   {
     "FirstName": "Janette",
     "LastName": "Cridland",
@@ -255,13 +249,7 @@
     "sites": ["OTTA"],
     "Position": "Connect Coordinator"
   },
-  {
-    "FirstName": "Amy M.",
-    "LastName": "Langeman",
-    "sites": ["OWSN"],
-    "Email": "amy.langeman@themeetinghouse.com",
-    "Position": "Kidmax Coordinator"
-  },
+
   {
     "FirstName": "Winfer",
     "LastName": "Foster",
@@ -326,7 +314,7 @@
     "FirstName": "Kristin",
     "LastName": "Van Hoeve",
     "sites": ["BRFD"],
-    "Email":"kristinvanhoeve@gmail.com",
+    "Email": "kristinvanhoeve@gmail.com",
     "Position": "Kidmax Coordinator"
   },
   {

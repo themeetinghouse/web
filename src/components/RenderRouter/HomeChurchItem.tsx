@@ -51,7 +51,6 @@ const Location_ID_to_F1_Group_Type_Map: Record<string, string> = {
   newmarket: '58069',
   oakville: '58082',
   ottawa: '58255',
-  'owen-sound': '58252',
   'parry-sound': '58256',
   'richmond-hill': '58081',
   sandbanks: '62947',

@@ -374,29 +374,7 @@
     },
     "visible": true
   },
-  {
-    "_id": "5445a40c930e50914554dab6",
-    "id": "OWEN_SOUND",
-    "url": "owen-sound",
-    "site_name": "Owen Sound",
-    "service_time": "10:30 am-11:30 am – Music and Teaching",
-    "childcare": "(includes program for Infants to Grade 4)",
-    "directions": "",
-    "welcome": "",
-    "welcome_img": "",
-    "welcome_vid_youtube": "",
-    "phone": "",
-    "email": "",
-    "instagram": "",
-    "twitter": "",
-    "facebook": "",
-    "location": {
-      "longitude": -80.933555,
-      "latitude": 44.573804,
-      "address": "St. Mary's High School, 555 15th Street East"
-    },
-    "visible": true
-  },
+
   {
     "_id": "5445a40c930e50914554dab0",
     "id": "PARRY_SOUND",
