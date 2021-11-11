@@ -52,13 +52,13 @@
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/EYLessonNov7.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYLessonNov14.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesNov7.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesNov14.pdf",
             "openNewBrowser": true
           },
           {
@@ -86,21 +86,21 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaNov7.jpg",
-            "alt": "This week's big idea is: God is with us wherever we go."
+            "src": "/static/images/KidsBigIdeaNov14.jpg",
+            "alt": "This week's big idea is: God's peace can heal relationships."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonNov7.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonNov14.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesNov7.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesNov14.pdf",
             "openNewBrowser": true
           },
           {
