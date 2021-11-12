@@ -37,6 +37,15 @@
         "button1Action": "/kidmax-connect"
       },
       {
+        "type": "list",
+        "style": "horizontal",
+        "class": "videos",
+        "subclass": "youth-watchparty",
+        "limit": 25,
+        "sortOrder": "DESC",
+        "header1": "Youth Watch Parties"
+      },
+      {
         "type": "content",
         "style": "oneImage",
         "header1": "Jr High Weekend",
