@@ -53,21 +53,21 @@
         "text1": "Here's what we're learning in Jr High Weekend this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaNov7.jpg",
-            "alt": "This week's big idea is: God is with us wherever we go."
+            "src": "/static/images/KidsBigIdeaNov14.jpg",
+            "alt": "This week's big idea is: God's peace can heal relationships."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Weekend Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/EYLessonNov7.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk2RelationshipsJHWeekend.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Weekend Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesNov7.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk2Scenario Cards.pdf",
             "openNewBrowser": true
           }
         ]
@@ -89,21 +89,21 @@
         "text1": "Here's what our Jr High Midweek students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaNov7.jpg",
-            "alt": "This week's big idea is: God is with us wherever we go."
+            "src": "/static/images/KidsBigIdeaNov14.jpg",
+            "alt": "This week's big idea is: God's peace can heal relationships."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Midweek Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonNov7.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk2RelationshipsJHMidweek.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Midweek Small Group Leader Notes",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsNovemberColouring.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk2RelationshipsJHMidweekSGLNotes.pdf",
             "openNewBrowser": true
           }
         ]
