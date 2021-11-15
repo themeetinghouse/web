@@ -404,11 +404,17 @@
     "Position": "Communications Coordinator"
   },
   {
-    "FirstName": "Savanna",
+    "FirstName": "Savannah",
     "LastName": "Edwards",
     "sites": ["WAT"],
-    "Email": "savanna.edwards@themeetinghouse.com",
+    "Email": "savannah.edwards@themeetinghouse.com",
     "Position": "Parish Communications and Media Coordinator"
+  },
+  {
+    "FirstName": "Stephen",
+    "LastName": "Tosh",
+    "sites": ["WAT"],
+    "Position": "Tech Coordinator"
   },
   {
     "FirstName": "Jamie",
