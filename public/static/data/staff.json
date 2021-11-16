@@ -505,6 +505,15 @@
   },
   {
     "Staff": true,
+    "FirstName": "Megan",
+    "LastName": "Enns",
+    "Phone": "905.287.7000",
+    "Position": "Compassion Project Coordinator and Administrator",
+    "sites": ["Site Leadership"],
+    "Email": "Megan.enns@themeetinghouse.com"
+  },
+  {
+    "Staff": true,
     "FirstName": "Melissa",
     "LastName": "Ytsma",
     "Phone": "905.287.7000, ext. 851",
@@ -556,6 +565,15 @@
     "Position": "Curriculum Pastor & Brantford Lead Pastor",
     "sites": ["BRFD", "Communications", "Pastoral", "Children"],
     "Email": "Natalie.Frisk@themeetinghouse.com"
+  },
+  {
+    "Staff": true,
+    "FirstName": "Nelmari",
+    "LastName": "Davidse",
+    "Phone": "905.287.7000",
+    "Position": "Production Coordinator",
+    "sites": ["Communications"],
+    "Email": "nelmari.davidse@themeetinghouse.com"
   },
   {
     "Staff": true,
