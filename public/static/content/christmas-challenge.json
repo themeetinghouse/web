@@ -41,22 +41,22 @@
       },
       {
         "type": "content",
-        "style": "greyTwoText",
+        "style": "oneImage",
         "header1": "The Christmas challenge is about JESUS.",
         "header2": "",
-        "text1": "December is one of the busiest and most chaotic months for people. And yet, it is the month we set aside to focus on Jesus and what His presence and life means to us. What if we centered Jesus in the midst of chaos? What if we made room in our lives and calendars and hearts for Him? It could be the best Christmas ever. How?",
-        "text2": "LIVED OUT and PRACTICED FAITH leads to mutual transformation. The Christmas Challenge is designed to take our beliefs and LIVE THEM OUT in community.",
-        "text3": "• Daily Prayer",
-        "text4": "• Spiritual Practices",
-        "text5": "• Healthy Rhythms",
-        "text6": "• and Meaningful Connection",
-        "text7": "are part of what it takes to put Jesus at the center of our everyday lives and take us all deeper and wider together.",
-        "List": [
+        "text1": "Copy goes here.",
+        "image1": [
+          {
+            "src": "/static/images/peacemakers-6.jpg",
+            "alt": "A woman with hands over her mouth making a loud announcement."
+          }
+        ],
+        "list": [
           {
             "type": "link",
-            "title": "Start the Christmas Challenge",
-            "navigateTo": "https://meeting.formstack.com/forms/weddings",
-            "openNewBrowser": true
+            "title": "Sign up for the Christmas Challenge",
+            "navigateTo": "/videos/compassion/iPmw29QsbTk",
+            "description": "Link to sign up for the Christmas Challenge."
           }
         ]
       },
@@ -66,18 +66,18 @@
         "header1": "What is Infinitum?",
         "header2": "",
         "text1": "Copy goes here.",
-        "List": [
-          {
-            "type": "link",
-            "title": "Learn More",
-            "navigateTo": "https://infinitumlife.com/",
-            "openNewBrowser": true
-          }
-        ],
         "image1": [
           {
-            "src": "/static/images/peacemakers-4.jpg",
-            "alt": "Volunteers working together to pack Peacemakers relief kits."
+            "src": "/static/images/spirituality-3.jpg",
+            "alt": "Two people sitting and talking during Home Church"
+          }
+        ],
+        "list": [
+          {
+            "type": "link",
+            "title": "Register Here",
+            "navigateTo": "https://www.crowdcast.io/e/peacemakers",
+            "description": "Registration link for the Christmas Challenge."
           }
         ]
       }
