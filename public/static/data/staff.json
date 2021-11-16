@@ -37,6 +37,15 @@
   },
   {
     "Staff": true,
+    "FirstName": "Angela",
+    "LastName": "Lam",
+    "Phone": "905.287.7000",
+    "Position": "Partner Liaison",
+    "sites": ["Operations"],
+    "Email": "angela.lam@themeetinghouse.com"
+  },
+  {
+    "Staff": true,
     "FirstName": "Anna",
     "LastName": "Lakatos",
     "Phone": "905.287.7000, ext. 842",
@@ -190,6 +199,15 @@
   },
   {
     "Staff": true,
+    "FirstName": "Denley",
+    "LastName": "McIntosh",
+    "Phone": "905.287.7000",
+    "Position": "Inclusion & Understanding Advisor",
+    "sites": ["Pastoral"],
+    "Email": "Denley.McIntosh@themeetinghouse.com"
+  },
+  {
+    "Staff": true,
     "FirstName": "Emma",
     "LastName": "Field",
     "Phone": "905.287.7000, ext. 811",
@@ -267,7 +285,7 @@
     "Phone": "905.287.7000",
     "Position": "Burlington Lead Pastor",
     "sites": ["BURL", "Pastoral"],
-    "Email": "Jordan.taylora@themeetinghouse.com"
+    "Email": "Jordan.taylor@themeetinghouse.com"
   },
   {
     "Staff": true,
