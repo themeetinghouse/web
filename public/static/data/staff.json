@@ -190,15 +190,6 @@
   },
   {
     "Staff": true,
-    "FirstName": "Diane",
-    "LastName": "Klassen",
-    "Phone": "905.287.7000, ext. 809",
-    "Position": "Oakville Preschool Pastor",
-    "sites": ["OAKV", "Pastoral"],
-    "Email": "Diane.Klassen@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
     "FirstName": "Emma",
     "LastName": "Field",
     "Phone": "905.287.7000, ext. 811",
@@ -271,12 +262,12 @@
   },
   {
     "Staff": true,
-    "FirstName": "John",
-    "LastName": "Latta",
-    "Phone": "905.287.7000, ext. 857",
+    "FirstName": "Jordan",
+    "LastName": "Taylor",
+    "Phone": "905.287.7000",
     "Position": "Burlington Lead Pastor",
     "sites": ["BURL", "Pastoral"],
-    "Email": "John.Latta@themeetinghouse.com"
+    "Email": "Jordan.taylora@themeetinghouse.com"
   },
   {
     "Staff": true,
@@ -640,6 +631,15 @@
   },
   {
     "Staff": true,
+    "FirstName": "Samuel",
+    "LastName": "Sarpiya",
+    "Phone": "905.287.7000",
+    "Position": "Discipleship Pastor",
+    "sites": ["Operations"],
+    "Email": "Samuel.Sarpiya@themeetinghouse.com"
+  },
+  {
+    "Staff": true,
     "FirstName": "Sarah",
     "LastName": "Wills",
     "Phone": "905.287.7000, ext. 7090",
@@ -682,6 +682,15 @@
     "Position": "Curriculum Assistant",
     "sites": ["Operations"],
     "Email": "Tammy.Lembo@themeetinghouse.com"
+  },
+  {
+    "Staff": true,
+    "FirstName": "Valentina",
+    "LastName": "Cestra",
+    "Phone": "905.287.7000",
+    "Position": "Event Coordinator",
+    "sites": ["Operations"],
+    "Email": "valentina.cestra@themeetinghouse.com"
   },
   {
     "Staff": true,
