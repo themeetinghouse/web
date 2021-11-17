@@ -55,7 +55,7 @@
           {
             "type": "link",
             "title": "Sign up for the Christmas Challenge",
-            "navigateTo": "/videos/compassion/iPmw29QsbTk",
+            "navigateTo": "https://meeting.formstack.com/forms/weddings",
             "description": "Link to sign up for the Christmas Challenge."
           }
         ]
@@ -75,8 +75,8 @@
         "list": [
           {
             "type": "link",
-            "title": "Register Here",
-            "navigateTo": "https://www.crowdcast.io/e/peacemakers",
+            "title": "Learn More",
+            "navigateTo": "https://infinitumlife.com/",
             "description": "Registration link for the Christmas Challenge."
           }
         ]
