@@ -32,7 +32,7 @@
         ],
         "header1": "Christmas Challenge",
         "header2": "",
-        "text1": "Copy about Christmas goes here.",
+        "text1": "December is one of the busiest and most chaotic months for people. And yet, it is the month we set aside to focus on Jesus and what His presence and life means to us.",
         "button1": {
           "text": "Watch Video",
           "action": "https://youtu.be/UmReW5gq9zw",
@@ -44,7 +44,7 @@
         "style": "oneImage",
         "header1": "The Christmas challenge is about JESUS.",
         "header2": "",
-        "text1": "Copy goes here.",
+        "text1": "What does it mean to follow Jesus every day? It sounds easy right? But many of us know that practicing our faith (discipleship) can be quite simple, but never easy! For many people discipleship has been equated with belief, highlighting more knowledge at the expense of lived experience. But what if applying what we believe is the primary thing we focused on? LIVED OUT and PRACTICED FAITH leads to mutual transformation. The 30 Day Challenge is designed to take our beliefs and LIVE THEM OUT in community.",
         "image1": [
           {
             "src": "/static/images/peacemakers-6.jpg",
@@ -64,8 +64,8 @@
         "type": "content",
         "style": "oneImageBlackRight",
         "header1": "What is Infinitum?",
-        "header2": "",
-        "text1": "Copy goes here.",
+        "header2": "Infinitum began as a conversation",
+        "text1": "Infinitum was founded by a small group of friends in 2015 out of a deep desire to pursue Jesus more authentically and intentionally. Leaning on the monastic examples from generations before, Infinitum became a practice and posture for discipleship in the modern world.",
         "image1": [
           {
             "src": "/static/images/spirituality-3.jpg",
