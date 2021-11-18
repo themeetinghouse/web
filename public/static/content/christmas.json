@@ -1,8 +1,8 @@
 {
   "page": {
-    "name": "christmas challenge",
-    "title": "Christmas Challenge",
-    "keywords": "peacemakers",
+    "name": "christmas",
+    "title": "Christmas",
+    "keywords": "christmas",
     "description": "The page for The Meeting House 2021 Christmas Challenge in partnership with Infinitum.",
     "pageConfig": {
       "showLive": true,
@@ -16,9 +16,9 @@
     "content": [
       {
         "type": "og-tags",
-        "image": "/static/images/peacemakers-1.jpg",
-        "url": "https://www.themeetinghouse.com/christmas-challenge",
-        "title": "Christmas Challenge",
+        "image": "/static/images/Web-BG.jpg",
+        "url": "https://www.themeetinghouse.com/christmas",
+        "title": "Christmas",
         "description": ""
       },
       {
@@ -26,8 +26,8 @@
         "style": "full",
         "image1": [
           {
-            "src": "/static/images/peacemakers-1.jpg",
-            "alt": "Man sharing First Nations peace practices and rituals with a group."
+            "src": "/static/images/Web-BG.jpg",
+            "alt": "Words in pink on a darker pink background."
           }
         ],
         "header1": "Christmas",
@@ -47,8 +47,8 @@
         "text1": "Many of us know that practising our faith can be quite simple, but never easy! For some, discipleship is equated with belief, trading in more knowledge at the expense of lived experience. But what if applying what we believe could be our primary focus? The 30 Day Challenge is designed to take our beliefs and live them out in community.",
         "image1": [
           {
-            "src": "/static/images/peacemakers-6.jpg",
-            "alt": "A woman with hands over her mouth making a loud announcement."
+            "src": "/static/images/ChristmasChallenge_Graphic.jpg",
+            "alt": "Infinitum Christmas Challenge in white on a red background."
           }
         ],
         "list": [
@@ -69,7 +69,7 @@
         "image1": [
           {
             "src": "/static/images/spirituality-3.jpg",
-            "alt": "Two people sitting and talking during Home Church"
+            "alt": "Black and white photo of two people sitting on a couch and talking."
           }
         ],
         "list": [
