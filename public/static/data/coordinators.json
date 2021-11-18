@@ -286,7 +286,7 @@
   },
   {
     "FirstName": "Jeremiah",
-    "LastName": "McLeary",
+    "LastName": "McCleary",
     "sites": ["WAT"],
     "Email": "Mcclearj@uoguelph.ca",
     "Position": "Compassion Coordinator"
@@ -404,11 +404,17 @@
     "Position": "Communications Coordinator"
   },
   {
-    "FirstName": "Savanna",
+    "FirstName": "Savannah",
     "LastName": "Edwards",
     "sites": ["WAT"],
-    "Email": "savanna.edwards@themeetinghouse.com",
+    "Email": "savannah.edwards@themeetinghouse.com",
     "Position": "Parish Communications and Media Coordinator"
+  },
+  {
+    "FirstName": "Stephen",
+    "LastName": "Tosh",
+    "sites": ["WAT"],
+    "Position": "Tech Coordinator"
   },
   {
     "FirstName": "Jamie",
@@ -516,9 +522,16 @@
   {
     "FirstName": "Maddy",
     "LastName": "Neufeld",
-    "sites": ["KIT", "WAT"],
+    "sites": ["WAT"],
     "Email": "mmkneufeld@gmail.com",
-    "Position": "Youth Coordinator and Kidmax Cordinator "
+    "Position": "Youth Coordinator and Kidmax Coordinator "
+  },
+  {
+    "FirstName": "Maddy",
+    "LastName": "Neufeld",
+    "sites": ["KIT"],
+    "Email": "mmkneufeld@gmail.com",
+    "Position": "Youth Coordinator and Kidmax Coordinator "
   },
   {
     "FirstName": "Ryan",

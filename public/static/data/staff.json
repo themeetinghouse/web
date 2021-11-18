@@ -37,6 +37,15 @@
   },
   {
     "Staff": true,
+    "FirstName": "Angela",
+    "LastName": "Lam",
+    "Phone": "905.287.7000",
+    "Position": "Partner Liaison",
+    "sites": ["Operations"],
+    "Email": "angela.lam@themeetinghouse.com"
+  },
+  {
+    "Staff": true,
     "FirstName": "Anna",
     "LastName": "Lakatos",
     "Phone": "905.287.7000, ext. 842",
@@ -190,12 +199,12 @@
   },
   {
     "Staff": true,
-    "FirstName": "Diane",
-    "LastName": "Klassen",
-    "Phone": "905.287.7000, ext. 809",
-    "Position": "Oakville Preschool Pastor",
-    "sites": ["OAKV", "Pastoral"],
-    "Email": "Diane.Klassen@themeetinghouse.com"
+    "FirstName": "Denley",
+    "LastName": "McIntosh",
+    "Phone": "905.287.7000",
+    "Position": "Inclusion & Understanding Advisor",
+    "sites": ["Pastoral"],
+    "Email": "Denley.McIntosh@themeetinghouse.com"
   },
   {
     "Staff": true,
@@ -271,12 +280,12 @@
   },
   {
     "Staff": true,
-    "FirstName": "John",
-    "LastName": "Latta",
-    "Phone": "905.287.7000, ext. 857",
+    "FirstName": "Jordan",
+    "LastName": "Taylor",
+    "Phone": "905.287.7000",
     "Position": "Burlington Lead Pastor",
     "sites": ["BURL", "Pastoral"],
-    "Email": "John.Latta@themeetinghouse.com"
+    "Email": "Jordan.taylor@themeetinghouse.com"
   },
   {
     "Staff": true,
@@ -496,6 +505,15 @@
   },
   {
     "Staff": true,
+    "FirstName": "Megan",
+    "LastName": "Enns",
+    "Phone": "905.287.7000",
+    "Position": "Compassion Project Coordinator and Administrator",
+    "sites": ["Site Leadership"],
+    "Email": "Megan.enns@themeetinghouse.com"
+  },
+  {
+    "Staff": true,
     "FirstName": "Melissa",
     "LastName": "Ytsma",
     "Phone": "905.287.7000, ext. 851",
@@ -547,6 +565,15 @@
     "Position": "Curriculum Pastor & Brantford Lead Pastor",
     "sites": ["BRFD", "Communications", "Pastoral", "Children"],
     "Email": "Natalie.Frisk@themeetinghouse.com"
+  },
+  {
+    "Staff": true,
+    "FirstName": "Nelmari",
+    "LastName": "Davidse",
+    "Phone": "905.287.7000",
+    "Position": "Production Coordinator",
+    "sites": ["Communications"],
+    "Email": "nelmari.davidse@themeetinghouse.com"
   },
   {
     "Staff": true,
@@ -640,6 +667,15 @@
   },
   {
     "Staff": true,
+    "FirstName": "Samuel",
+    "LastName": "Sarpiya",
+    "Phone": "905.287.7000",
+    "Position": "Discipleship Pastor",
+    "sites": ["Operations"],
+    "Email": "Samuel.Sarpiya@themeetinghouse.com"
+  },
+  {
+    "Staff": true,
     "FirstName": "Sarah",
     "LastName": "Wills",
     "Phone": "905.287.7000, ext. 7090",
@@ -682,6 +718,15 @@
     "Position": "Curriculum Assistant",
     "sites": ["Operations"],
     "Email": "Tammy.Lembo@themeetinghouse.com"
+  },
+  {
+    "Staff": true,
+    "FirstName": "Valentina",
+    "LastName": "Cestra",
+    "Phone": "905.287.7000",
+    "Position": "Event Coordinator",
+    "sites": ["Operations"],
+    "Email": "valentina.cestra@themeetinghouse.com"
   },
   {
     "Staff": true,
