@@ -10,6 +10,7 @@ import HomeMenu from 'components/Menu/HomeMenu';
 import HomeFooter from 'components/Menu/HomeFooter';
 import AppPromo from '../AppPromo/AppPromo';
 import { GEProvider } from './GiveComponents/GEContext';
+import moment from 'moment';
 
 const SimpleItem = React.lazy(() => import('./SimpleItem'));
 const SearchItem = React.lazy(() => import('./SearchItem'));
@@ -45,8 +46,17 @@ interface Props extends RouteComponentProps {
 }
 
 class RenderRouter extends React.Component<Props> {
-  renderItemNow(item: any, index: any) {
+  renderItemNow(item: any, index: any): JSX.Element | null {
     switch (item.type) {
+      case 'timer':
+        if (moment(item.after) > moment())
+          return item.contentNow.map((item: any, index2: any) =>
+            this.renderItemNow(item, index + 'now' + index2)
+          );
+        else
+          return item.contentFuture.map((item: any, index2: any) =>
+            this.renderItemNow(item, index + 'now' + index2)
+          );
       case 'video-archive':
       case 'series-archive':
         return (
