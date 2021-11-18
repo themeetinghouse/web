@@ -1,11 +1,10 @@
 {
-    "features": {
-      
-      "auth": {
-       
-        "breakCircularDependency": true
-      }
-      
+  "features": {
+    "auth": {
+      "breakCircularDependency": true
+    },
+    "project": {
+      "overrides": true
     }
   }
-  
+}
