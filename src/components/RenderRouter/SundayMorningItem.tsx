@@ -402,8 +402,8 @@ export class SundayMorningItem extends React.Component<Props, State> {
                           <div className="SundayMorningMapInfoWindowAddress">
                             {this.state.selectedPlace.location.address}
                           </div>
-                          {this.props.content.alternate ===
-                          'christmas' ? null : (
+                          {this.props.content.alternate === 'christmas' ||
+                          this.props.content.alternate === 'youth' ? null : (
                             <div className="SundayMorningMapInfoWindowDay">
                               Sundays
                             </div>
@@ -548,6 +548,7 @@ export class SundayMorningItem extends React.Component<Props, State> {
                                   : null}
                               </div>
                               {this.props.content.alternate === 'christmas' ||
+                              this.props.content.alternate === 'youth' ||
                               this.props.content.alternate ===
                                 'easter' ? null : (
                                 <div className="SundayMorningServiceDay">
@@ -563,9 +564,13 @@ export class SundayMorningItem extends React.Component<Props, State> {
                                 </div>
                               ) : (
                                 <div className="SundayMorningServiceTimes">
-                                  {item.serviceTimes
-                                    .map((t) => t + ' am')
-                                    .join(', ')}
+                                  {this.props.content.alternate === 'youth'
+                                    ? item.serviceTimes
+                                        .map((t) => t + '')
+                                        .join(', ')
+                                    : item.serviceTimes
+                                        .map((t) => t + ' am')
+                                        .join(', ')}
                                 </div>
                               )}
                             </div>
