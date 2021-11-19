@@ -16,8 +16,8 @@
     "content": [
       {
         "type": "og-tags",
-        "image": "/static/images/sunday-morning-1.jpg",
-        "url": "https://www.themeetinghouse.com/juniorhigh-test",
+        "image": "/static/images/kidsyouth-1-1.jpg",
+        "url": "https://www.themeetinghouse.com/youth",
         "title": "Jr High",
         "description": "What we're learning this week in Jr High."
       },
@@ -26,8 +26,8 @@
         "style": "full",
         "image1": [
           {
-            "src": "/static/images/sunday-morning-1.jpg",
-            "alt": "A mother is holding her young child and smiling at the camera."
+            "src": "/static/images/kidsyouth-1-1.jpg",
+            "alt": "Youth running in colourful powder."
           }
         ],
         "header1": "Junior High",
