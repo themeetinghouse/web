@@ -80,6 +80,19 @@
             "description": "Registration link for the Christmas Challenge."
           }
         ]
+    },
+    {
+      "type": "content",
+      "style": "oneImage",
+      "header1": "What Really Matters",
+      "header2": "Christmas Gatherings",
+      "text1": "Details Coming Soon.",
+      "image1": [
+        {
+          "src": "/static/images/WhatReallyMatters.jpg",
+          "alt": "Blue background with red and blue text."
+        }
+      ]
       }
     ]
   }
