@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Modal, ModalBody } from 'reactstrap';
 import { isMobileOnly } from 'react-device-detect';
-import moment from 'moment-timezone';
 import './RegatherItem.scss';
 interface Props {
   content: any;
@@ -15,15 +14,6 @@ export default function RegatherItem(props: Props): JSX.Element {
   const [isOpen, setIsOpen] = useState(!isMobileOnly);
   const [formUrl, setFormUrl] = useState('');
 
-  const checkRegistrationState = () => {
-    if (moment().weekday() > 0 && moment().weekday() < 4) return true;
-    if (moment().weekday() === 4)
-      if (moment().isBefore(moment('17:00', 'HH:mm'))) return true;
-    if (moment().weekday() === 0)
-      if (moment().isSameOrAfter(moment('17:00', 'HH:mm'))) return true;
-    return false;
-  };
-
   const checkIfIsCancel = () => {
     if (window.location.href.includes('transCode')) {
       const transCode = window.location.href?.split('transCode=')?.[1];
@@ -34,15 +24,12 @@ export default function RegatherItem(props: Props): JSX.Element {
     return false;
   };
 
-  const registrationOpen = checkRegistrationState();
   const isCancel = checkIfIsCancel();
 
   const openForm = () => {
-    if (registrationOpen) {
-      setIsOpen(true);
-      if (isOpen) {
-        formRef.current?.scrollIntoView({ behavior: 'smooth' });
-      }
+    setIsOpen(true);
+    if (isOpen) {
+      formRef.current?.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -91,23 +78,14 @@ export default function RegatherItem(props: Props): JSX.Element {
             );
           } else if (contentItem.includes('button')) {
             const { action, text, type } = content[contentItem];
-            const checkedText =
-              text.includes('Register Now') && !registrationOpen
-                ? 'Registration Closed'
-                : text;
-            const disabled =
-              text.includes('Register Now') && !registrationOpen ? true : false;
 
             return (
               <button
                 key={contentItem}
                 onClick={action ? () => history.push(action) : () => openForm()}
-                className={`RegatherButton ${type} ${
-                  disabled ? 'disabled' : ''
-                }`}
-                disabled={disabled}
+                className={`RegatherButton ${type}`}
               >
-                {checkedText}
+                {text}
               </button>
             );
           } else if (contentItem.includes('text')) {
@@ -141,51 +119,18 @@ export default function RegatherItem(props: Props): JSX.Element {
       </div>
 
       <div
-        style={
-          isOpen
-            ? !registrationOpen
-              ? { height: 'unset' }
-              : {}
-            : { display: 'none' }
-        }
+        style={isOpen ? { height: 'unset' } : { display: 'none' }}
         className="RegatherItemContainer2"
       >
         <div className="RegatherFormOffsetContainer">
-          {registrationOpen || isCancel ? (
-            <iframe
-              ref={formRef}
-              src={formUrl}
-              title="The Meeting House - Forms"
-              scrolling="auto"
-              className="RegatherFormIframe"
-              style={{ height: 1000 }}
-            ></iframe>
-          ) : (
-            <div
-              style={{
-                padding: '68px 80px',
-                marginLeft: '20vw',
-                width: '60vw',
-                backgroundColor: '#EFEFF0',
-                display: 'flex',
-                flexDirection: 'column',
-              }}
-            >
-              <h2 className="RegatherItemH2">Registration is now closed.</h2>
-              <p style={{ marginTop: 24 }}>
-                To register for Sunday, check back from Sunday at 5pm until
-                Thursday at 5pm when registration is open.
-              </p>
-              <p>Please join us on the livestream Sundays at 10am.</p>
-              <button
-                onClick={() => history.push('/live')}
-                className={`RegatherButton solid`}
-                style={{ backgroundColor: '#1a1a1a', alignSelf: 'center' }}
-              >
-                Watch Livestream
-              </button>
-            </div>
-          )}
+          <iframe
+            ref={formRef}
+            src={formUrl}
+            title="The Meeting House - Forms"
+            scrolling="auto"
+            className="RegatherFormIframe"
+            style={{ height: 1000 }}
+          ></iframe>
         </div>
       </div>
       {isMobileOnly ? (
