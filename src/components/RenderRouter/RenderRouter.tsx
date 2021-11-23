@@ -148,7 +148,7 @@ class RenderRouter extends React.Component<Props> {
   renderItem() {
     if (this.props.content != null)
       return this.props.content.page.content.map((item: any, index: any) => {
-        console.log(item.type);
+        console.log({ type: item.type });
         return (
           <ErrorBoundary key={index}>
             {this.renderItemNow(item, index)}

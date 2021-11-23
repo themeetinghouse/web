@@ -61,7 +61,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
     const { data, onClose } = this.props;
     const logoIsBlack = content?.page?.pageConfig?.logoColor === 'black';
     const isGivePage = content?.page?.name === 'give';
-    console.log(isGivePage);
+
     const modalClasses = {
       modalClass: isGivePage
         ? 'GiveModal'

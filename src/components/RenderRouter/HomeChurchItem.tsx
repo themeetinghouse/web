@@ -124,7 +124,6 @@ export class ContentItem extends React.Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
-    console.log(props);
     this.state = {
       selectedPlace: null,
       locationFilter: null,

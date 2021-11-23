@@ -885,7 +885,6 @@ class ContentItem extends React.Component<Props, State> {
               />
             </div>
             <div className="VideoType">
-              {console.log(this.state.videoTypeParser)}
               {this.state.videoTypeParser &&
                 this.state.videoTypeParser[item.videoTypes]}
             </div>

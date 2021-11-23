@@ -234,7 +234,6 @@ class TeachingItem extends React.Component<Props, State> {
   render() {
     // const [cookies, setCookie] = useCookies([this.props.content.group]);
     if (this.state.content.style === 'hero') {
-      console.log(this.props.content.class);
       return this.state.listData !== null ? (
         this.state.listData.length === this.props.content.options.length ||
         this.props.content.options.length === 0 ? (

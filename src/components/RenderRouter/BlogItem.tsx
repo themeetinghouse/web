@@ -112,7 +112,6 @@ const BlogItem = ({ content }: Props) => {
   const [sliceIndex, setSliceIndex] = useState(3);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const params = useParams<{ episode: string }>();
-
   useEffect(() => {
     const fetchData = async () => {
       if (content.blogSeries) {
@@ -199,7 +198,7 @@ const BlogItem = ({ content }: Props) => {
         publishedDate: { le: todayString },
         blogStatus: status,
         sortDirection: ModelSortDirection[sortOrder ?? 'DESC'],
-        limit: limit,
+        limit: 100,
         filter: { hiddenMainIndex: { ne: true } },
         nextToken,
       };
@@ -210,19 +209,21 @@ const BlogItem = ({ content }: Props) => {
       })) as GraphQLResult<GetBlogByBlogStatusQuery>;
 
       if (json.data?.getBlogByBlogStatus?.items) {
-        const blogs = json.data.getBlogByBlogStatus.items;
+        const blogsData = json.data.getBlogByBlogStatus.items;
 
-        if (blogs.length > 0) {
-          const dateChecked = blogs.filter(
+        if (blogsData.length > 0) {
+          const dateChecked = blogsData.filter(
             (post) =>
               post?.expirationDate === 'none' ||
               moment(post?.expirationDate, 'YYYY-MM-DD').isAfter(today)
           );
-          sortAndSetBlogs(blogs.concat(dateChecked.filter(Boolean)));
+          const z = [...blogs, ...dateChecked.filter(Boolean)] as Blog[];
+
+          sortAndSetBlogs(z);
         }
 
         if (
-          blogs.length < (limit ?? 2) &&
+          blogsData.length < (limit ?? 2) &&
           json.data.getBlogByBlogStatus.nextToken
         ) {
           fetchBlogsByStatus(json.data.getBlogByBlogStatus.nextToken);
@@ -363,6 +364,7 @@ const BlogItem = ({ content }: Props) => {
       <div className="blog-item">
         <div className="blog multiImage">
           <h2 className="tmh-header2 blog-multiImage-h2 b">{header1}</h2>
+
           {blogs.slice(0, limit).map((item, index) => {
             return (
               <div key={index} className="BlogMultiImageItem">

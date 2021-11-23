@@ -237,7 +237,6 @@ export class SundayMorningItem extends React.Component<Props, State> {
           travelMode: this.state.travelMode,
         },
         (res, status) => {
-          console.log(res);
           if (status === 'OK') {
             for (const distanceItem of res.rows[0].elements) {
               const site =

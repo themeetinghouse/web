@@ -41,7 +41,6 @@ const RedirectDashboard = () => {
       .then(({ data }) => {
         if (data?.listRedirects?.items) {
           setRedirects(data.listRedirects.items);
-          console.log(data);
         }
       })
       .catch((e) => {

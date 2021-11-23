@@ -8,7 +8,7 @@ const VideoOverlay = React.lazy(() => import('../VideoOverlay/VideoOverlay'));
 
 const notFoundPageContent = fetch('/static/content/404.json')
   .then((response) => response.json())
-  .catch((e) => console.log(e));
+  .catch((e) => console.log({ e: e }));
 
 export default function ContentPage(): ReactElement | null {
   const history = useHistory();
@@ -24,7 +24,7 @@ export default function ContentPage(): ReactElement | null {
       name: 'pageVisit',
       attributes: { page: jsonFile },
     }).catch((e) => {
-      console.log(e);
+      console.log({ e: e });
     });
   }, [jsonFile]);
 
@@ -52,7 +52,7 @@ export default function ContentPage(): ReactElement | null {
         name: 'error',
         attributes: { page: jsonFile },
       }).catch((e) => {
-        console.log(e);
+        console.log({ e: e });
       });
       setContent(await notFoundPageContent);
     })();

@@ -760,7 +760,7 @@ export default function Announcements(): JSX.Element {
         appleMessage: message,
         androidMessage: message,
       };
-      console.log({ notifObj });
+
       if (!validateNotif(notifObj)) {
         console.log('Validation failed');
         return;
