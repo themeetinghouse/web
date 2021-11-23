@@ -57,6 +57,12 @@
   },
   {
     "name": "Locations",
-    "location": "/locations"
+    "location": "/locations",
+    "children": [
+      {
+        "name": "Sunday Registration",
+        "location": "/registration"
+      }
+    ]
   }
 ]
