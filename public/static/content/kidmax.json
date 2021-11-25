@@ -52,13 +52,13 @@
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/EYLessonNov21.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYLessonNov28.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesNov21.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesNov28.pdf",
             "openNewBrowser": true
           },
           {
@@ -86,21 +86,21 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaNov21.jpg",
-            "alt": "This week's big idea is: God knows who we really are and wants us to know too."
+            "src": "/static/images/KidsBigIdeaNov28.jpg",
+            "alt": "This week's big idea is: Everyone has a part to play in God's big story."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonNov21.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonNov28.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesNov21.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesNov28.pdf",
             "openNewBrowser": true
           },
           {
