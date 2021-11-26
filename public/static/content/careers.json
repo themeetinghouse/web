@@ -58,13 +58,23 @@
         "list": [
           {
             "type": "link",
+            "title": "Ancaster Lead Pastor",
+            "navigateTo": "/static/pdfs/careers/Ancaster Lead Pastor.pdf"
+          },
+          {
+            "type": "link",
             "title": "Brand & Design Manager",
             "navigateTo": "/static/pdfs/careers/Brand & Design Manager.pdf"
           },
           {
             "type": "link",
-            "title": "Hamilton Youth Pastor",
-            "navigateTo": "/static/pdfs/careers/Hamilton Youth Pastor 2021.pdf"
+            "title": "Communications Director",
+            "navigateTo": "/static/pdfs/careers/Communications Director 2022.pdf"
+          },
+          {
+            "type": "link",
+            "title": "Creative Manager",
+            "navigateTo": "/static/pdfs/careers/Creative Manager 2022.pdf"
           },
           {
             "type": "link",
@@ -73,18 +83,19 @@
           },
           {
             "type": "link",
+            "title": "Hamilton Youth Pastor",
+            "navigateTo": "/static/pdfs/careers/Hamilton Youth Pastor 2021.pdf"
+          },
+          
+          {
+            "type": "link",
             "title": "Kitchener Waterloo Pastor",
             "navigateTo": "/static/pdfs/careers/Kitchener Waterloo Pastor.pdf"
           },
           {
             "type": "link",
-            "title": "Sandbanks Lead Pastor",
-            "navigateTo": "/static/pdfs/careers/Sandbanks Lead Pastor.pdf"
-          },
-          {
-            "type": "link",
-            "title": "Ancaster Lead Pastor",
-            "navigateTo": "/static/pdfs/careers/Ancaster Lead Pastor.pdf"
+            "title": "Marketing Manager",
+            "navigateTo": "/static/pdfs/careers/Marketing Manager.pdf"
           },
           {
             "type": "link",
@@ -93,8 +104,8 @@
           },
           {
             "type": "link",
-            "title": "Oakville Kids Pastor",
-            "navigateTo": "/static/pdfs/careers/Oakville Kids Pastor.pdf"
+            "title": "Sandbanks Lead Pastor",
+            "navigateTo": "/static/pdfs/careers/Sandbanks Lead Pastor.pdf"
           }
         ],
         "image1": [
@@ -112,8 +123,8 @@
         "list": [
           {
             "type": "link",
-            "title": "Kitchener Kidmax Coordinator",
-            "navigateTo": "/static/pdfs/careers/Kidmax Coordinator KIT 2 - Adapted for COVID.pdf"
+            "title": "Alliston Family Engagement Coordinator",
+            "navigateTo": "/static/pdfs/careers/Family Engagement Coordinator (Part-Time).pdf"
           },
           {
             "type": "link",
@@ -122,9 +133,10 @@
           },
           {
             "type": "link",
-            "title": "Alliston Family Engagement Coordinator",
-            "navigateTo": "/static/pdfs/careers/Family Engagement Coordinator (Part-Time).pdf"
+            "title": "Kitchener Kidmax Coordinator",
+            "navigateTo": "/static/pdfs/careers/Kidmax Coordinator KIT 2 - Adapted for COVID.pdf"
           }
+         
         ],
         "image1": [
           {
