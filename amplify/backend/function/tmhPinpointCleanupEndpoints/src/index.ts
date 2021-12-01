@@ -4,14 +4,9 @@
 	ENV
 	REGION
 Amplify Params - DO NOT EDIT */
-import * as aws from 'aws-sdk';
-import API, { GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
-import Amplify from '@aws-amplify/core';
-import { env } from 'process';
-import { zhCN } from 'date-fns/locale';
-
+var AWS = require('aws-sdk');
 async function getUsers(nextToken) {
-  const cognito = new aws.CognitoIdentityServiceProvider();
+  const cognito = new AWS.CognitoIdentityServiceProvider();
   var params = {
     UserPoolId: process.env.AUTH_COGNITODEVTMH_USERPOOLID,
     Limit: 60,
@@ -23,8 +18,8 @@ async function getUsers(nextToken) {
 }
 
 async function getAllUsers() {
-  var allUsers: aws.CognitoIdentityServiceProvider.UsersListType = [];
-  var users: aws.CognitoIdentityServiceProvider.ListUsersResponse;
+  var allUsers = [];
+  var users;
   var nextToken = null;
   do {
     users = await getUsers(nextToken);
@@ -36,8 +31,8 @@ async function getAllUsers() {
 }
 
 async function getInactiveEndpoints(user) {
-  const pinpoint = new aws.Pinpoint({ apiVersion: '2016-12-01' });
-  var params: aws.Pinpoint.GetUserEndpointsRequest = {
+  const pinpoint = new AWS.Pinpoint({ apiVersion: '2016-12-01' });
+  var params = {
     ApplicationId: process.env.ANALYTICS_THEMEETINGHOUSE_ID,
     UserId: user.Attributes.filter((e) => e.Name == 'sub')[0].Value,
   };
@@ -49,8 +44,8 @@ async function getInactiveEndpoints(user) {
   return inactiveEndpoints;
 }
 async function deleteEndpoint(endpointId) {
-  const pinpoint = new aws.Pinpoint({ apiVersion: '2016-12-01' });
-  var params: aws.Pinpoint.DeleteEndpointRequest = {
+  const pinpoint = new AWS.Pinpoint({ apiVersion: '2016-12-01' });
+  var params = {
     ApplicationId: process.env.ANALYTICS_THEMEETINGHOUSE_ID,
     EndpointId: endpointId,
   };
@@ -68,7 +63,7 @@ export const handler = async (event) => {
           return await deleteEndpoint(endpoint.Id);
         });
         await Promise.all(map2);
-      } catch (e) {
+      } catch (e: any) {
         console.log(e);
       }
       console.log('Done2');
@@ -86,7 +81,7 @@ export const handler = async (event) => {
       body: JSON.stringify(true),
     };
     return response;
-  } catch (error) {
+  } catch (error: any) {
     console.log({ ERROR: error });
     return { statusCode: '402', error: { message: error.message } };
   }

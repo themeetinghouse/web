@@ -6,17 +6,34 @@
 	REGION
 Amplify Params - DO NOT EDIT */
 
-import TMHDB from '../../themeetinghousetmhShared/opt/TMHDB';
-import TMHStripe from '../../themeetinghousetmhShared/opt/TMHStripe';
+import Stripe from 'stripe';
+import TMHDB from '../../themeetinghousetmhShared/lib/nodejs/TMHDB';
+import TMHStripe from '../../themeetinghousetmhShared/lib/nodejs/TMHStripe';
 export const handler = async (event) => {
-  // TODO implement
+  const idempotency = event.arguments.idempotency;
+  const paymentId = event.arguments.id;
+
   const user = await TMHDB.getUser(event.identity.username);
-  if (user.stripeCustomerID)
-    return await TMHStripe.listPaymentMethods(
-      '',
-      user.stripeCustomerID,
-      'card'
+  const setupIntent: Stripe.SetupIntentCreateParams = {
+    confirm: true,
+    customer: user.stripeCustomerID,
+    payment_method: paymentId,
+  };
+  if (user.stripeCustomerID) {
+    const setupIntentResult = await TMHStripe.createSetupIntent(
+      setupIntent,
+      idempotency
     );
+    await TMHStripe.updateCustomer(
+      user.stripeCustomerID,
+      {
+        invoice_settings: { default_payment_method: paymentId },
+      },
+      idempotency + '2'
+    );
+    console.log(setupIntentResult);
+    return setupIntentResult;
+  }
   const response = {
     statusCode: 200,
     //  Uncomment below to enable CORS requests

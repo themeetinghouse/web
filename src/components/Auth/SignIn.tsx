@@ -5,6 +5,7 @@ import './AuthPages.scss';
 import MyAccountNav from '../../pages/users/MyAccountNav/MyAccountNav';
 import { AuthStateData } from './AuthStateData';
 import { UserActions, UserContext } from './UserContext';
+import { Spinner } from 'reactstrap';
 
 interface Props {
   navigation?: any;
@@ -16,6 +17,7 @@ interface State {
   user: string;
   authError: string;
   fromVerified: boolean;
+  isLoading: boolean;
 }
 
 export default class SignIn extends React.Component<Props, State> {
@@ -27,6 +29,7 @@ export default class SignIn extends React.Component<Props, State> {
       user: props.route?.params?.email ?? '',
       authError: '',
       fromVerified: props.route?.params?.fromVerified ?? false,
+      isLoading: false,
     };
   }
   static UserConsumer = UserContext.Consumer;
@@ -84,6 +87,7 @@ export default class SignIn extends React.Component<Props, State> {
   async handleSignIn(actions: any): Promise<void> {
     if (this.validateLogin()) {
       try {
+        this.setState({ isLoading: true });
         Sentry.setUser({ email: this.state.user?.toLowerCase() });
         Sentry.setTag('User Email', this.state.user?.toLowerCase());
         await Auth.signIn(this.state.user.toLowerCase(), this.state.pass).then(
@@ -100,6 +104,8 @@ export default class SignIn extends React.Component<Props, State> {
         Sentry.configureScope((scope: any) => {
           scope.setUser(null);
         });
+      } finally {
+        this.setState({ isLoading: false });
       }
     }
   }
@@ -193,7 +199,13 @@ export default class SignIn extends React.Component<Props, State> {
                             await this.handleSignIn(userActions);
                           }}
                         >
-                          Sign In
+                          {this.state.isLoading ? (
+                            <>
+                              <Spinner size="sm" /> Signing in...
+                            </>
+                          ) : (
+                            'Sign In'
+                          )}
                         </button>
                       </div>
                       <button

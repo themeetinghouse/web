@@ -63,15 +63,15 @@ export default class ContentItem extends React.Component<Props, State> {
           <div>2. Where would you like to give?</div>
           <div>
             <div>
-              <input type="radio" name="fund" value="general" />
+              <input type="radio" name="fund" value="prod_KInCIvOsifKMlP" />
               General Fund
             </div>
             <div>
-              <input type="radio" name="fund" value="go-campaign" />
+              <input type="radio" name="fund" value="prod_KInZRDoUXidWHj" />
               GO Campaign Fund
             </div>
             <div>
-              <input type="radio" name="fund" value="compassion" />
+              <input type="radio" name="fund" value="prod_KInaLwdyfHnFNR" />
               Compassion Fund
             </div>
           </div>

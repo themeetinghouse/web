@@ -393,6 +393,7 @@
   {
     "FirstName": "Matt",
     "LastName": "Phinney",
+    "Email": "matt.phinney@themeetinghouse.com",
     "sites": ["TOBC"],
     "Position": "Music Coordinator"
   },
@@ -468,6 +469,13 @@
     "LastName": "Collins",
     "sites": ["HMAN"],
     "Position": "Welcome Coordinator"
+  },
+  {
+    "FirstName": "Nick",
+    "LastName": "Barone",
+    "sites": ["HMAN", "HMDT", "HMMT"],
+    "Email": "nick.barone@themeetinghouse.com",
+    "Position": "Youth Coordinator"
   },
   {
     "FirstName": "Jason",

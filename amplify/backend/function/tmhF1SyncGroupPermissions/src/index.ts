@@ -4,7 +4,7 @@
 	REGION
 Amplify Params - DO NOT EDIT */
 
-import * as aws from 'aws-sdk';
+var AWS = require('aws-sdk');
 import API, { GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import Amplify from '@aws-amplify/core';
 import * as queries from './queries';
@@ -27,7 +27,7 @@ Amplify.configure({
 
 async function f1ListPeopleGroups(personId: string) {
   console.log('f1ListPeopleGroups invoke started');
-  var lambda = new aws.Lambda({
+  var lambda = new AWS.Lambda({
     region: process.env.REGION, //change to your region
   });
   const payload = { arguments: { itemId: personId } };
@@ -63,7 +63,7 @@ export const handler = async (event) => {
     secret,
     decodedBinarySecret;
   // Create a Secrets Manager client
-  var client = new aws.SecretsManager({
+  var client = new AWS.SecretsManager({
     region: process.env.REGION,
   });
   try {
@@ -95,11 +95,11 @@ export const handler = async (event) => {
       };
       console.log(response);
       return response;
-    } catch (e) {
+    } catch (e: any) {
       console.log({ error: e });
       return { statusCode: '401', error: 'Login Error' + e };
     }
-  } catch (error) {
+  } catch (error: any) {
     console.log({ ERROR: error });
     return { statusCode: '402', error: { message: error.message } };
   }

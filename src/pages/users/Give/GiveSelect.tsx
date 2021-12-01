@@ -6,23 +6,23 @@ type GiveSelectProps = {
 };
 export default function GiveSelect(props: GiveSelectProps) {
   const { form, setForm } = props;
-  const [fundOptions, setFundOptions] = useState<Array<string>>([]);
+  const [fundOptions, setFundOptions] = useState<
+    Array<{ name: string; value: string }>
+  >([]);
   useEffect(() => {
     const loadFundOptions = async () => {
-      setTimeout(() => {
-        setFundOptions([
-          'Please make a selection',
-          'General',
-          'Compassion',
-          'Go',
-          'Curriculum',
-        ]);
-      }, 500);
+      setFundOptions([
+        { name: 'Please make a selection', value: '' },
+        { name: 'General Fund', value: 'prod_KInCIvOsifKMlP' },
+        { name: 'Compassion Fund', value: 'prod_KInaLwdyfHnFNR' },
+        { name: 'Go Fund', value: 'prod_KInZRDoUXidWHj' },
+      ]);
     };
     loadFundOptions();
   }, []);
   return (
     <select
+      data-testID="FundType"
       value={form.fund.name}
       onChange={(e) => setForm({ ...form, fund: { name: e.target.value } })}
       className="GiveInput"
@@ -33,8 +33,8 @@ export default function GiveSelect(props: GiveSelectProps) {
       ) : (
         fundOptions.map((fundName) => {
           return (
-            <option key={fundName} value={fundName}>
-              {fundName} fund
+            <option key={fundName.name} value={fundName.value}>
+              {fundName.name}
             </option>
           );
         })

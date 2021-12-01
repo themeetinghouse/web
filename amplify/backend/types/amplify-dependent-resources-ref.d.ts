@@ -213,6 +213,18 @@ export type AmplifyDependentResourcesAttributes = {
       LambdaExecutionRole: 'string';
       CloudWatchEventRule: 'string';
     };
+    tmhStripeAddPayment: {
+      Name: 'string';
+      Arn: 'string';
+      Region: 'string';
+      LambdaExecutionRole: 'string';
+    };
+    tmhStripeDeletePaymentMethod: {
+      Name: 'string';
+      Arn: 'string';
+      Region: 'string';
+      LambdaExecutionRole: 'string';
+    };
   };
   analytics: {
     themeetinghouse: {

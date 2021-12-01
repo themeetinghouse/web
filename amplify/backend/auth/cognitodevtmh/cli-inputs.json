@@ -1,0 +1,69 @@
+{
+  "version": "1",
+  "cognitoConfig": {
+    "authSelections": "identityPoolAndUserPool",
+    "requiredAttributes": [
+      "email"
+    ],
+    "resourceName": "cognitodevtmh",
+    "serviceName": "Cognito",
+    "useDefault": "manual",
+    "userpoolClientReadAttributes": [
+      "email"
+    ],
+    "userpoolClientWriteAttributes": [
+      "email"
+    ],
+    "aliasAttributes": [],
+    "resourceNameTruncated": "cognit79c0e771",
+    "userPoolGroupList": [
+      "admin"
+    ],
+    "userPoolGroups": true,
+    "userPoolName": "The Meeting House",
+    "userpoolClientRefreshTokenValidity": 30,
+    "userpoolClientSetAttributes": false,
+    "userpoolClientGenerateSecret": true,
+    "userpoolClientLambdaRole": "cognitodevtmh_userpoolclient_lambda_role",
+    "passwordPolicyCharacters": [
+      "Requires Lowercase",
+      "Requires Uppercase",
+      "Requires Numbers",
+      "Requires Symbols"
+    ],
+    "passwordPolicyMinLength": 8,
+    "adminQueries": true,
+    "adminQueryGroup": "admin",
+    "mfaConfiguration": "OPTIONAL",
+    "mfaTypes": [
+      "TOTP"
+    ],
+    "smsAuthenticationMessage": "Your authentication code is {####}",
+    "emailVerificationMessage": "Your verification code is {####}",
+    "emailVerificationSubject": "Your verification code",
+    "smsVerificationMessage": "Your verification code is {####}",
+    "autoVerifiedAttributes": [
+      "email"
+    ],
+    "hostedUI": false,
+    "thirdPartyAuth": true,
+    "identityPoolName": "tmhident",
+    "allowUnauthenticatedIdentities": true,
+    "authProviders": [
+      "graph.facebook.com",
+      "accounts.google.com",
+      "www.amazon.com"
+    ],
+    "triggers": {
+      "PostAuthentication": [
+        "custom"
+      ],
+      "PreSignup": [
+        "custom"
+      ],
+      "PreTokenGeneration": [
+        "custom"
+      ]
+    }
+  }
+}

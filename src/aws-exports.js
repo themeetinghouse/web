@@ -52,12 +52,7 @@ const awsmobile = {
     "aws_mobile_analytics_app_id": "20b026ebefc445dd82e5a853dff62770",
     "aws_mobile_analytics_app_region": "us-east-1",
     "aws_user_files_s3_bucket": "themeetinghouse-usercontentstoragetmhusercontent-tmhprod",
-    "aws_user_files_s3_bucket_region": "us-east-1",
-    "aws_cognito_login_mechanisms": [
-        "FACEBOOK",
-        "GOOGLE",
-        "AMAZON"
-    ]
+    "aws_user_files_s3_bucket_region": "us-east-1"
 };
 
 

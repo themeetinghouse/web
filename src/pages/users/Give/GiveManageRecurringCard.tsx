@@ -3,39 +3,68 @@ import { useState } from 'react';
 import { Spinner } from 'reactstrap';
 import './GiveManageRecurringCard.scss';
 import { GiveActionType } from './GivePage';
+import API, { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
+import * as queries from '../../../../src/graphql/queries';
+import { v4 as uuidv4 } from 'uuid';
+import { TmhStripeListSubscriptionsQuery } from 'API';
+
 type GiveRecurringProps = {
   giveState: any;
   dispatch: any;
 };
+type ListSubscriptions = NonNullable<
+  NonNullable<
+    GraphQLResult<TmhStripeListSubscriptionsQuery>['data']
+  >['tmhStripeListSubscriptions']
+>['data'];
+type Subscription = NonNullable<ListSubscriptions>[0];
 export default function GiveManageRecurringCard(
   props: GiveRecurringProps
 ): JSX.Element {
-  const [givings, setGivings] = useState<any>([]);
+  const [givings, setGivings] = useState<ListSubscriptions>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const deleteSubscription = async (giving: Subscription) => {
+    try {
+      (await API.graphql({
+        query: queries.tmhStripeDeleteSubscription,
+        variables: {
+          subscriptionId: giving?.id,
+        },
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      })) as GraphQLResult<TmhStripeListSubscriptionsQuery>;
+      setGivings(givings?.filter((x) => x?.id != giving?.id));
+      return true;
+    } catch (e: any) {
+      console.log({ Error: e });
+      return false;
+    }
+    return;
+  };
+  const listSubscriptions = async () => {
+    try {
+      const tmhStripeListSubscriptions = (await API.graphql({
+        query: queries.tmhStripeListSubscriptions,
+        variables: {
+          idempotency: uuidv4(),
+          starting_after: '',
+        },
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      })) as GraphQLResult<TmhStripeListSubscriptionsQuery>;
+      console.log(tmhStripeListSubscriptions);
+      setGivings(
+        tmhStripeListSubscriptions.data?.tmhStripeListSubscriptions?.data
+      );
+      return true;
+    } catch (e: any) {
+      console.log({ Error: e });
+      return false;
+    }
+    return;
+  };
   useEffect(() => {
-    setTimeout(() => {
-      setGivings([
-        {
-          id: '1',
-          giveAmount: 20,
-          fund: { name: 'Compassion' },
-          frequency: 'Every week',
-          cardType: 'visa',
-          expiry: '05/22',
-          cardNumber: '•••• •••• •••• 4021',
-        },
-        {
-          id: '2',
-          giveAmount: 100,
-          fund: { name: 'Go' },
-          frequency: 'Every month',
-          cardType: 'mastercard',
-          expiry: '05/22',
-          cardNumber: '•••• •••• •••• 5126',
-        },
-      ]);
-      setIsLoading(false);
-    }, 1300);
+    setIsLoading(true);
+    listSubscriptions();
+    setIsLoading(false);
   }, []);
   return (
     <div className="GiveManageRecurringCard">
@@ -53,7 +82,7 @@ export default function GiveManageRecurringCard(
           </p>
 
           <br />
-          <Spinner></Spinner>
+          <Spinner />
         </div>
       ) : (
         <>
@@ -72,37 +101,36 @@ export default function GiveManageRecurringCard(
           </div>
 
           <div className="PaymentMethodCardGrid">
-            {givings?.map((giving: any) => {
+            {givings?.map((giving) => {
               return (
-                <div key={giving.id} className="PaymentMethodCard">
-                  <p className="PaymentMethodCardHeader">
-                    ${giving.giveAmount}
-                  </p>
+                <div key={giving?.id} className="PaymentMethodCard">
+                  <p className="PaymentMethodCardHeader">${giving?.status}</p>
                   <p className="PaymentMethodCardLabel">Fund</p>
-                  <p>{giving.fund.name} fund</p>
+                  <p>{giving?.status}</p>
                   <p className="PaymentMethodCardLabel">Next payment</p>
                   <p>undefined</p>
                   <p className="PaymentMethodCardLabel">Frequency:</p>
-                  <p style={{ margin: 0 }}>{giving.frequency}</p>
+                  <p style={{ margin: 0 }}>{giving?.status}</p>
                   <p>Starting recurring start date</p>
                   <p className="PaymentMethodCardLabel">Payment method</p>
                   <p style={{ marginTop: 26 }}>
                     <img
                       width={46}
                       style={{ marginRight: 22 }}
-                      src={`/static/svg/${giving.cardType}.svg`}
+                      src={`/static/svg/${giving?.status}.svg`}
                     />
-                    {giving.cardNumber} Exp
-                    {giving.expiry}
+                    {giving?.status} Exp
+                    {giving?.status}
                   </p>
 
                   <div className="PaymentMethodCardButtonContainer">
                     <button
-                      onClick={() =>
+                      onClick={async () => {
+                        await deleteSubscription(giving);
                         props.dispatch({
                           type: GiveActionType.NAVIGATE_TO_GIVE,
-                        })
-                      }
+                        });
+                      }}
                       className="PaymentMethodCardButton white"
                     >
                       Cancel
