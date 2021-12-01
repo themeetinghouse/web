@@ -29,7 +29,7 @@ export default function RecentTransactionsCard(): JSX.Element {
           </p>
 
           <br />
-          <Spinner></Spinner>
+          <Spinner />
         </div>
       ) : lastTransacs?.length ? (
         <>
@@ -64,7 +64,7 @@ export default function RecentTransactionsCard(): JSX.Element {
                       <td>
                         {moment(transac?.receivedDate).format('YYYY-MM-DD')}
                       </td>
-                      <td>{transac?.amount}</td>
+                      <td>{parseFloat(transac?.amount ?? '0').toFixed(2)}</td>
                       <td>{transac?.accountReference}</td>
                     </tr>
                   ))}

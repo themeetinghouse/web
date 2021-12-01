@@ -63,7 +63,7 @@ export default class TestHelper {
             user.deleteUser();
           })
           .catch((e) => {
-            console.log({ e: error });
+            console.log({ error2: e });
           });
       });
   }

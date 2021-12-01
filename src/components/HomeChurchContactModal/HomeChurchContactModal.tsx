@@ -145,7 +145,7 @@ class HomeChurchContactModal extends React.Component<Props, State> {
         >
           {this.state.sending ? (
             <div className="FooterProgress">
-              <Spinner></Spinner> Sending message
+              <Spinner /> Sending message
             </div>
           ) : null}
           {this.state.error ? (

@@ -3078,14 +3078,160 @@ export const tmhStripeAddCustomer = /* GraphQL */ `
     }
   }
 `;
+export const tmhStripeAttachPaymentMethod = /* GraphQL */ `
+  query TmhStripeAttachPaymentMethod($id: String, $idempotency: String) {
+    tmhStripeAttachPaymentMethod(id: $id, idempotency: $idempotency)
+  }
+`;
 export const tmhStripeListPaymentMethods = /* GraphQL */ `
   query TmhStripeListPaymentMethods($pageId: String) {
     tmhStripeListPaymentMethods(pageId: $pageId) {
-      paymentMethods {
+      data {
         id
         type
+        card {
+          brand
+          last4
+          exp_year
+          exp_month
+          funding
+          country
+        }
+        billing_details {
+          email
+          name
+          phone
+          address {
+            city
+            country
+            line1
+            line2
+            postal_code
+            state
+          }
+        }
       }
     }
+  }
+`;
+export const tmhStripeListSubscriptions = /* GraphQL */ `
+  query TmhStripeListSubscriptions($starting_after: String) {
+    tmhStripeListSubscriptions(starting_after: $starting_after) {
+      data {
+        id
+        default_source
+        items {
+          data {
+            id
+            price
+            plan {
+              id
+              interval
+              interval_count
+              active
+              amount
+              number_decimal
+              currency
+              product
+            }
+          }
+        }
+        next_pending_invoice_item_invoice
+        start_date
+        status
+      }
+      has_more
+    }
+  }
+`;
+export const tmhStripeDeleteSubscription = /* GraphQL */ `
+  query TmhStripeDeleteSubscription($subscriptionId: String) {
+    tmhStripeDeleteSubscription(subscriptionId: $subscriptionId)
+  }
+`;
+export const tmhStripeAddSubscription = /* GraphQL */ `
+  query TmhStripeAddSubscription(
+    $idempotency: String
+    $amount: String
+    $fund: String
+    $frequency: String
+  ) {
+    tmhStripeAddSubscription(
+      idempotency: $idempotency
+      amount: $amount
+      fund: $fund
+      frequency: $frequency
+    ) {
+      data {
+        id
+        type
+        card {
+          brand
+          last4
+          exp_year
+          exp_month
+          funding
+          country
+        }
+        billing_details {
+          email
+          name
+          phone
+          address {
+            city
+            country
+            line1
+            line2
+            postal_code
+            state
+          }
+        }
+      }
+    }
+  }
+`;
+export const tmhStripeAddPayment = /* GraphQL */ `
+  query TmhStripeAddPayment(
+    $idempotency: String
+    $amount: String
+    $fund: String
+  ) {
+    tmhStripeAddPayment(
+      idempotency: $idempotency
+      amount: $amount
+      fund: $fund
+    ) {
+      data {
+        id
+        type
+        card {
+          brand
+          last4
+          exp_year
+          exp_month
+          funding
+          country
+        }
+        billing_details {
+          email
+          name
+          phone
+          address {
+            city
+            country
+            line1
+            line2
+            postal_code
+            state
+          }
+        }
+      }
+    }
+  }
+`;
+export const tmhStripeDeletePaymentMethod = /* GraphQL */ `
+  query TmhStripeDeletePaymentMethod($paymentMethodId: String) {
+    tmhStripeDeletePaymentMethod(paymentMethodId: $paymentMethodId)
   }
 `;
 export const getTnSeries = /* GraphQL */ `

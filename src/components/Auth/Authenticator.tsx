@@ -11,6 +11,7 @@ import {
   TmhF1LinkUserQuery,
   TmhF1SearchContributionReceiptsQuery,
   TmhF1SyncGroupPermissionsQuery,
+  TmhStripeAddCustomerQuery,
 } from 'API';
 import awsconfig from '../../../src/aws-exports';
 import * as mutations from '../../../src/graphql/mutations';
@@ -33,6 +34,7 @@ Amplify.configure(awsconfig);
 interface State {
   hasCompletedPersonalProfile: ProfileStatus;
   hasF1Linked: boolean;
+  hasStripeLinked: boolean;
   userExists: boolean;
   user:
     | NonNullable<GraphQLResult<GetTmhUserQuery>['data']>['getTMHUser']
@@ -63,6 +65,7 @@ export default class Authenticator extends React.Component<
     super(props);
     this.state = {
       hasF1Linked: false,
+      hasStripeLinked: false,
       initialParams: null,
       groups: null,
       hasCompletedPersonalProfile: ProfileStatus.Unknown,
@@ -182,7 +185,7 @@ export default class Authenticator extends React.Component<
             phone: attributes?.phone_number,
             //  profileState: 'Incomplete',
             billingAddress: {},
-
+            owner: this.user?.username,
             joined: moment().format(),
           };
 
@@ -219,31 +222,6 @@ export default class Authenticator extends React.Component<
     }
   }
 
-  async createStripeUser(billingAddress: any): Promise<boolean> {
-    try {
-      const user = (await Auth.currentAuthenticatedUser()) as TMHCognitoUser;
-      console.log({ stripeUser: user });
-      /*const customer = (await API.graphql({
-        query: mutations.createCustomer,
-        variables: {
-          idempotency: this.state.idempotency,
-          firstName: user?.attributes?.given_name,
-          lastName: user?.attributes?.family_name,
-          email: user?.attributes?.email,
-          phone: user?.attributes?.phone_number,
-          billingAddress: billingAddress,
-          orgName: user?.attributes!['custom:orgName'],
-        },
-        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-      })) as GraphQLResult<CreateCustomerMutation>;
-      console.log({ customer: customer });*/
-      return true;
-      //customerId = customer.data.createCustomer.customer.id;
-    } catch (e) {
-      console.log({ createstripeusererror: e });
-      return false;
-    }
-  }
   async syncF1GroupPermissions(): Promise<boolean> {
     console.log('syncF1Permissions');
 
@@ -259,10 +237,28 @@ export default class Authenticator extends React.Component<
       return false;
     }
   }
+  async checkIfStripeLinked(): Promise<boolean> {
+    console.log('CheckStripeLink');
+    if (this.state.user?.stripeCustomerID == null) {
+      try {
+        const tmhStripeLinkUser = (await API.graphql({
+          query: queries.tmhStripeAddCustomer,
+          variables: { idempotency: uuidv4() },
+          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+        })) as GraphQLResult<TmhStripeAddCustomerQuery>;
+        console.log(tmhStripeLinkUser);
+        return true;
+      } catch (e: any) {
+        console.log({ Error: e });
+        return false;
+      }
+    }
+    return true;
+  }
   async checkIfF1Linked(): Promise<boolean> {
     console.log('CheckF1Link');
     if (
-      this.state.user?.f1HouseholdId == null ||
+      this.state.user?.f1PersonId == null ||
       this.state.user?.f1HouseholdId == null
     ) {
       try {
@@ -285,12 +281,14 @@ export default class Authenticator extends React.Component<
     await this.ensureUserExists(async (): Promise<void> => {
       //   const paidStatus = await this.checkIfPaid();
       const linkF1 = await this.checkIfF1Linked();
+      const linkStripe = await this.checkIfStripeLinked();
       //const syncF1 = await this.syncF1GroupPermissions();
       //console.log({ sync: syncF1 });
       const profileStatus = await this.checkIfCompletedProfile();
       this.setState(
         {
           //  hasPaidState: paidStatus,
+          hasStripeLinked: linkStripe,
           hasF1Linked: linkF1,
           hasCompletedPersonalProfile: profileStatus,
         },
@@ -390,16 +388,23 @@ export default class Authenticator extends React.Component<
         Sub: attributes?.sub,
         userAttributes: userAttributes,
       });
-      Analytics.updateEndpoint({
-        address: attributes?.email,
-        channelType: 'EMAIL',
-        optOut: 'NONE',
-        userId: attributes?.sub,
-        userAttributes,
-        attributes: {
-          groups,
-        },
-      });
+      if (groups == undefined)
+        Analytics.updateEndpoint({
+          address: attributes?.email,
+          channelType: 'EMAIL',
+          optOut: 'NONE',
+          userId: attributes?.sub,
+          userAttributes,
+        });
+      else
+        Analytics.updateEndpoint({
+          address: attributes?.email,
+          channelType: 'EMAIL',
+          optOut: 'NONE',
+          userId: attributes?.sub,
+          userAttributes,
+          attributes: { groups },
+        });
     } catch (error) {
       console.log({ trackUserIdError: error });
     }

@@ -23,20 +23,22 @@ export default function ProfileCard(): JSX.Element {
             <b>Loading profile data..</b>
           </p>
           <br></br>
-          <Spinner></Spinner>
+          <Spinner />
         </div>
       ) : (
         <>
-          <img
+          {/* <img
             alt="User Profile"
             className="profilePicture"
             src="/static/svg/Profile.svg"
-          ></img>
+         ></img>*/}
           <h3>
             {userData.given_name} {userData.family_name}
           </h3>
           <span>Email</span>
-          {userData.email && <p>{userData.email}</p>}
+          {userData.email && (
+            <p style={{ overflowWrap: 'anywhere' }}>{userData.email}</p>
+          )}
           <span>Mobile</span>
           <p>{userData.phone}</p>
           <div className="AddressContainer">

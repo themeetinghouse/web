@@ -5,32 +5,31 @@
 	ENV
 	REGION
 Amplify Params - DO NOT EDIT */
-import TMHDB from '../../themeetinghousetmhShared/opt/TMHDB';
-import TMHStripe from '../../themeetinghousetmhShared/opt/TMHStripe';
+import Stripe from 'stripe';
+import TMHDB from '../../themeetinghousetmhShared/lib/nodejs/TMHDB';
+import TMHStripe from '../../themeetinghousetmhShared/lib/nodejs/TMHStripe';
 export const handler = async (event) => {
-  const stripeSecret = '';
-  const customer = {
-    name: event.arguments.firstName + ' ' + event.arguments.lastName,
-    phone: event.arguments.phone,
-    address: event.arguments.billingAddress,
+  const idempotency = event.arguments.idempotency;
+  const userID = event.identity.username;
+  const userInfo = await TMHDB.getUser(userID);
+  console.log({ userInfo: userInfo });
+
+  const customer: Stripe.CustomerCreateParams = {
+    name: userInfo.given_name + ' ' + userInfo.family_name,
+    phone: userInfo.phone,
+    address: userInfo.billingAddress,
     description: 'This is a description',
-    email: event.arguments.email,
+    email: userInfo.email,
     metadata: {
       userID: event.identity.username,
     },
   };
-  const idempotency = event.arguments.idempotency;
-  const userID = event.identity.username;
 
-  const userInfo = await TMHDB.getUser(userID);
+  console.log({ customer: customer });
   var customerResult;
   if (userInfo.stripeCustomerID == null) {
-    customerResult = await TMHStripe.createCustomer(
-      stripeSecret,
-      customer,
-      idempotency
-    );
-    const updateUserA = TMHDB.updateUser(
+    customerResult = await TMHStripe.createCustomer(customer, idempotency);
+    const updateUserA = await TMHDB.updateUser(
       userID,
       'stripeCustomerID',
       customerResult.id
@@ -39,20 +38,10 @@ export const handler = async (event) => {
     console.log(userInfo.stripeCustomerID);
     customerResult = await TMHStripe.updateCustomer(
       userInfo.stripeCustomerID,
-      stripeSecret,
       customer,
       idempotency
     );
   }
-
-  const response = {
-    statusCode: 200,
-    //  Uncomment below to enable CORS requests
-    //  headers: {
-    //      "Access-Control-Allow-Origin": "*",
-    //      "Access-Control-Allow-Headers": "*"
-    //  },
-    body: JSON.stringify('Hello from Lambda!'),
-  };
-  return response;
+  console.log({ customerResult: customerResult });
+  return customerResult;
 };

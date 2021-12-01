@@ -3,6 +3,11 @@ import { Spinner } from 'reactstrap';
 import GiveButtonToggle from './GiveToggleButton';
 import { SelectedPaymentCard } from './SelectedPaymentCard';
 import './GivePageCard.scss';
+import API, { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
+import * as queries from '../../../../src/graphql/queries';
+import { v4 as uuidv4 } from 'uuid';
+import moment from 'moment-timezone';
+
 import {
   GiveAction,
   GiveActionType,
@@ -11,6 +16,7 @@ import {
 } from './GivePage';
 import PaymentAddMethod from '../PaymentMethods/PaymentAddMethod';
 import GiveSelect from './GiveSelect';
+import { TmhStripeAddPaymentQuery, TmhStripeAddSubscriptionQuery } from 'API';
 
 type GivingData = {
   giveAmount: string;
@@ -77,25 +83,61 @@ export default function GivePageCard(props: GivePageCardProps) {
       return false;
     }
   };
+  const createPayment = async () => {
+    try {
+      if (selection == 'Recurring') {
+        console.log({ recurring: selection });
+        const tmhStripeAddSubscription = (await API.graphql({
+          query: queries.tmhStripeAddSubscription,
+          variables: {
+            idempotency: uuidv4(),
+            amount: form.giveAmount,
+            fund: form.fund.name,
+            frequency: form.frequency,
+          },
+          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+        })) as GraphQLResult<TmhStripeAddSubscriptionQuery>;
+        console.log(tmhStripeAddSubscription);
+        return true;
+      } else {
+        console.log({ 'ONE TIME': selection });
 
+        const tmhStripeAddPayment = (await API.graphql({
+          query: queries.tmhStripeAddPayment,
+          variables: {
+            idempotency: uuidv4(),
+            amount: form.giveAmount,
+            fund: form.fund.name,
+          },
+          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+        })) as GraphQLResult<TmhStripeAddPaymentQuery>;
+        console.log(tmhStripeAddPayment);
+        return true;
+      }
+    } catch (e: any) {
+      console.log({ Error: e });
+      return false;
+    }
+    return;
+  };
   const handleSubmit = async () => {
     setForm({ ...form, submitting: true });
-    setTimeout(() => {
-      setForm({ ...form, status: 'complete', submitting: false });
 
-      /* success*/
-      dispatch({
-        type: GiveActionType.NAVIGATE_TO_COMPLETION_SUCCESS,
-        payload: { status: 'complete', amount: form.giveAmount },
-      });
+    await createPayment();
+    setForm({ ...form, status: 'complete', submitting: false });
 
-      /*error
+    /* success*/
+    dispatch({
+      type: GiveActionType.NAVIGATE_TO_COMPLETION_SUCCESS,
+      payload: { status: 'complete', amount: form.giveAmount },
+    });
+
+    /*error
       dispatch({
         type: GiveActionType.NAVIGATE_TO_COMPLETION_ERROR,
         payload: { status: 'error', errorMessage: 'Something went wrong.' },
       });
       */
-    }, 1500);
   };
   const getCard = async () => {
     setSelectedCard({
@@ -106,7 +148,7 @@ export default function GivePageCard(props: GivePageCardProps) {
       cvc: '',
     });
   };
-
+  const today = moment().format('YYYY-MM-DD');
   console.log('currentPayload', currentPayload);
   return (
     <div className="GiveCard">
@@ -135,6 +177,7 @@ export default function GivePageCard(props: GivePageCardProps) {
           $
         </span>
         <input
+          data-testID="Amount"
           type="number"
           placeholder="0.00"
           value={form.giveAmount}
@@ -153,6 +196,7 @@ export default function GivePageCard(props: GivePageCardProps) {
         <>
           <label htmlFor="frequency">Frequency</label>
           <select
+            data-testID="Frequency"
             value={form.frequency}
             onChange={(e) => setForm({ ...form, frequency: e.target.value })}
             className="GiveInput"
@@ -164,7 +208,13 @@ export default function GivePageCard(props: GivePageCardProps) {
             <option value={`1st & 15th monthly`}>{'1st & 15th monthly'}</option>
           </select>
           <label htmlFor="date">Starting</label>
-          <input className="GiveInput" placeholder={'YYYY-MM-DD'} type="date" />
+          <input
+            min={today}
+            data-testID="StartDate"
+            className="GiveInput"
+            placeholder={'YYYY-MM-DD'}
+            type="date"
+          />
         </>
       ) : null}
       <div>
