@@ -26,7 +26,6 @@ export const handler = async (event) => {
     const campaign = await pinpoint.createCampaign(params).promise();
     console.log(campaign);
 
-
     return true;
   } catch (error: any) {
     console.log({ ERROR: error });

@@ -13,8 +13,8 @@ const Amplify = require('aws-amplify');
 global.fetch = require('node-fetch');
 const queries = require('./queries');
 const mutations = require('./mutations');
-//const apiKey = 'da2-6zfuocqmhvecrfkng7hx2oipni';
-const apiKey = 'da2-zrd5a3b2izccrajf3vt3dcj4au';
+const apiKey = 'da2-6zfuocqmhvecrfkng7hx2oipni';
+//const apiKey = 'da2-zrd5a3b2izccrajf3vt3dcj4au';
 Amplify.default.configure({
   aws_appsync_graphqlEndpoint:
     process.env.API_THEMEETINGHOUSE_GRAPHQLAPIENDPOINTOUTPUT,
