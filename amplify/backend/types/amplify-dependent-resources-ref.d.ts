@@ -17,6 +17,7 @@ export type AmplifyDependentResourcesAttributes = {
       adminGroupRole: 'string';
     };
   };
+
   api: {
     themeetinghouse: {
       GraphQLAPIIdOutput: 'string';
