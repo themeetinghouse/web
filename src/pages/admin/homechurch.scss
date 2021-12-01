@@ -1,0 +1,61 @@
+td {
+  font-size: 12px;
+  padding: 0;
+  padding-left: 16px;
+  line-height: 28px;
+  max-width: 220px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+}
+
+th {
+  padding: 0px;
+  padding-left: 16px;
+  font-size: 12px;
+  text-align: center;
+}
+
+tfoot {
+  background-color: white;
+  & td {
+    text-align: left;
+    vertical-align: bottom;
+    padding-bottom: 16px;
+  }
+}
+
+.HomeChurchCheckbox {
+  transform: scale(1.5);
+}
+
+.hmSearchInput {
+  position: relative;
+  text-align: left;
+  & > img {
+    position: absolute;
+    top: 27px;
+    left: 15px;
+    z-index: 1000;
+  }
+  & > input {
+    width: 50%;
+    margin: 16px 0px;
+    padding: 8px 8px 8px 38px;
+  }
+}
+
+.hmEditButton {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 8px;
+  font-weight: 700;
+  padding-left: 30px;
+  padding-right: 30px;
+  &.white {
+    background-color: white;
+    border: 1.5px solid #1a1a1a;
+    color: black;
+  }
+}

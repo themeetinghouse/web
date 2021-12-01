@@ -8,8 +8,8 @@
     "location": "/community"
   },
   {
-    "name": "Fall 2021",
-    "location": "/fall2021"
+    "name": "Christmas",
+    "location": "/christmas"
   },
   {
     "name": "Teaching",
@@ -57,6 +57,12 @@
   },
   {
     "name": "Locations",
-    "location": "/locations"
+    "location": "/locations",
+    "children": [
+      {
+        "name": "Sunday Registration",
+        "location": "/registration"
+      }
+    ]
   }
 ]

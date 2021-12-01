@@ -14,7 +14,7 @@
     "name": "Regeneration Outreach",
     "description": "Regeneration is a caring community that continually strives to provide dignity for those in need, as an expression of Christian love in action. They serve those living in extreme poverty and homelessness by meeting their physical and spiritual needs.",
     "website": "https://regenbrampton.com/",
-    "image": "/static/images/compassion/none.jpg",
+    "image": "/static/photos/compassion/Regeneration.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
@@ -23,7 +23,7 @@
     "name": "Dismas Fellowship Brampton",
     "description": "Dismas Fellowship provides a safe community to worship for persons with a history of offence.",
     "website": "https://www.friendsofdismas.com/what-i-do/dismas-fellowship-brampton-dates/",
-    "image": "/static/images/compassion/none.jpg",
+    "image": "/static/photos/compassion/Dismas Fellowship.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
@@ -32,6 +32,7 @@
     "name": "Brantford Blessing Centre",
     "description": "The Brantford Blessing Centre provides access to food for marginalized communities. We make and serve meals twice a month and assist with additional projects as they come up.",
     "image": "/static/images/compassion/none.jpg",
+    "website":"https://www.brantfordblessingcentre.org/",
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
@@ -39,6 +40,7 @@
     "sites": ["brantford"],
     "name": "Friendship House",
     "description": "Friendship House is a drop-in centre that works to support the physical, emotional, and spiritual needs of guests. We support them primarily by donating to their food bank.",
+    "website":"https://www.friendship-house-of-brant.org/",
     "image": "/static/images/compassion/none.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   },
@@ -69,15 +71,6 @@
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
-    "id": 9,
-    "sites": ["burlington"],
-    "name": "Crossroads Prison Ministries Canada",
-    "description": "Crossroads Prison Ministries cultivates Christ-centred relationships between those inside and outside prison walls. Many at our site volunteer as mentors for students and we actively promote their year-round fundraisers.",
-    "website": "https://cpministries.ca/",
-    "image": "/static/photos/compassion/crossroads.png",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
     "id": 10,
     "sites": ["ancaster"],
     "name": "541 Eatery & Exchange",
@@ -102,15 +95,6 @@
     "description": "Mission Services is a social services agency. We partner with them by running weekly food collections, volunteering once a month at their food bank, and providing additional support during the holidays by distributing Holiday Hampers.",
     "website": "https://mission-services.com/",
     "image": "/static/photos/compassion/mission services.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 13,
-    "sites": ["hamilton-downtown"],
-    "name": "TrueCity",
-    "description": "TrueCity is a network of Hamilton churches. We contribute to their Christmas hampers which support families in need, and we provide regular donations to The Giving Closet, a not-for-profit thrift store in Crown Point neighbourhood.",
-    "website": "https://truecityhamilton.ca/",
-    "image": "/static/photos/compassion/True City.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
@@ -143,15 +127,6 @@
   {
     "id": 17,
     "sites": ["hamilton-mountain"],
-    "name": "Crossroads Prison Ministries Canada",
-    "description": "Crossroads Prison Ministries cultivates Christ-centred relationships between those inside and outside prison walls. We offer financial support and mentorship for students through their Bible study courses.",
-    "website": "https://cpministries.ca/",
-    "image": "/static/photos/compassion/crossroads.png",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 17,
-    "sites": ["hamilton-mountain"],
     "name": "Helping Hands Street Mission",
     "description": "Helping Hands Street Mission works to aid people living in the Barton Street Community. We come along side HHSM by providing support for programs to guarantee their continuation and success through volunteering and donations.",
     "website": "https://www.hhsmhamilton.com/",
@@ -173,15 +148,6 @@
     "name": "Life Centre Guelph",
     "description": "The Life Centre is a downtown mission in Guelph, Ontario that provides a safe and loving environment for anyone who is in need. Each week they provide up to 600 meals, and a variety of programs at no charge. ",
     "website": "https://www.thelifecentre.ca/",
-    "image": "/static/images/compassion/none.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 20,
-    "sites": ["london"],
-    "name": "Dismas Fellowship London",
-    "description": "To provide a safe and welcoming place where people who have been incarcerated and were friends can experience Christian community.\n",
-    "website": "https://www.friendsofdismas.com/",
     "image": "/static/images/compassion/none.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   },
@@ -372,38 +338,11 @@
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
-    "id": 42,
-    "sites": ["richmond-hill"],
-    "name": "Fight4Freedom",
-    "description": "Fight4Freedom is dedicated to battling human trafficking in the sex trade, seeing survivors set free, and giving beauty from ashes. We've been able to provide donation items to support outreach kits, and promote their work.",
-    "website": "https://www.fight4freedom.ca/",
-    "image": "/static/photos/compassion/Fight4Freedom.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
     "id": 43,
     "sites": ["toronto-east"],
     "name": "Glen Rhodes Community Dinners",
     "description": "Founded in 1906, Glen Rhodes United Church serves the East Toronto community through Sunday services, a monthly community dinner, and weekly food bank. The Glen Rhodes community seeks to be authentic disciples of Christ by offering hospitality to anyone who walks through their doors.",
     "website": "https://eastendunited.ca/food-bank-community-dinner/",
-    "image": "/static/images/compassion/none.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 44,
-    "sites": ["toronto-east"],
-    "name": "Mercy City Church",
-    "description": "Mercy City serves the Dawes Road community of East Toronto. Their ministries include camps, after school programs, family nights, community dinners, and Sunday services with the goal of sharing the gospel and building relationships.",
-    "website": "https://mercycitychurch.com",
-    "image": "/static/images/compassion/none.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 45,
-    "sites": ["toronto-east"],
-    "name": "Red Door Family Shelter",
-    "description": "The Red Door Family Shelter provides safe and supportive emergency housing to individuals and families in need of refuge from domestic violence and to those who find themselves without accommodation.",
-    "website": "https://www.reddoorshelter.ca",
     "image": "/static/images/compassion/none.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   },
@@ -545,14 +484,6 @@
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
-    "id": 62,
-    "sites": ["london"],
-    "name": "AVONA",
-    "description": "AVONA provides safe places, shelter, support, counselling, and resources for abused women, their children, and all oppressed individuals to find a new start.",
-    "image": "/static/images/compassion/none.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
     "id": 63,
     "sites": ["kitchener"],
     "name": "The Bridges",
@@ -573,6 +504,7 @@
     "sites": ["burlington"],
     "name": "Eagles Nest Ministries",
     "description": "Eagles Nest offers counselling, support groups, and educational programs within the community. We promote their programs and services, regularly volunteer at fundraising events, and volunteer throughout the year.",
+    "website": "https://www.eaglesnestofwaterdown.ca/",
     "image": "/static/photos/compassion/eagles nest.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   },
@@ -689,6 +621,54 @@
     "name": "Child Protection & Preventing early child marriage",
     "description": "We invest in gender equality and the empowerment of women and girls.",
     "image": "/static/photos/compassion/land.jpg",
+    "imagealt": "Placeholder image for Compassion Partner"
+  },
+  {
+    "id": 80,
+    "sites": ["connect"],
+    "name": "Tech/WSP/Setup - Ian Jongema",
+    "description": "From the literal nuts and bolts of set-up cases to the digital ones of simulcasting a livestream, this is where WSPs, set-up, and tech volunteers can talk about what’s working, what’s not, and explore solutions together. ",
+    "image": "/static/photos/leadersdaypictures/Ian.jpg",
+    "imagealt": "Placeholder image for Compassion Partner"
+  },
+  {
+    "id": 81,
+    "sites": ["connect"],
+    "name": "Music - Anna Lakatos",
+    "description": "With masks, no singing, and provincial limitations, creating worshipful experiences might seem daunting. Let’s explore how to make our musical and overall worship elements participatory and engaging in our post-pandemic realities.",
+    "image": "/static/photos/leadersdaypictures/Anna.jpg",
+    "imagealt": "Placeholder image for Compassion Partner"
+  },
+  {
+    "id": 82,
+    "sites": ["connect"],
+    "name": "Prayer - Rob Schellenberg",
+    "description": "In these uncertain times, we need to focus on prayer more than ever. Join us for a convo around how to start a prayer team in your parish and how to navigate the challenges that prayer ministries often face.",
+    "image": "/static/photos/leadersdaypictures/Rob.jpg",
+    "imagealt": "Placeholder image for Compassion Partner"
+  },
+  {
+    "id": 83,
+    "sites": ["connect"],
+    "name": "Compassion - Matt Thompson & Megan Enns",
+    "description": "​​We’ll look at what it means to be parish-minded within Compassion by taking a step back to analyze our parishes and the neighbourhoods we live in.",
+    "image": "/static/photos/leadersdaypictures/MattandMegan.jpg",
+    "imagealt": "Placeholder image for Compassion Partner"
+  },
+  {
+    "id": 84,
+    "sites": ["connect"],
+    "name": "Kids - Christie Penner Worden",
+    "description": "Kidmax: What have we learned this past year? What are we taking with us into the future, and what are we leaving behind?",
+    "image": "/static/photos/leadersdaypictures/Christie.jpg",
+    "imagealt": "A picture of a woman smiling."
+  },
+  {
+    "id": 85,
+    "sites": ["connect"],
+    "name": "Youth - Chris Murphy & Emma Field",
+    "description": "Youth Leaders! Join us for a time of encouragement through story-sharing as we highlight some of the things we’ve learned through the pandemic season that boost our confidence moving into the rest of this semester.",
+    "image": "/static/photos/leadersdaypictures/ChrisandEmma.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   }
 ]

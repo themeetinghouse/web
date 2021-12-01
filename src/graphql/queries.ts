@@ -5136,9 +5136,12 @@ export const getHomeChurchInfo = /* GraphQL */ `
     getHomeChurchInfo(id: $id) {
       id
       elders
-      vacinationRequired
-      hasChildcare
+      customPills
+      vaccinationRequired
       isOnline
+      isYoungAdult
+      isFamilyFriendly
+      isHybrid
       onlineConnectUrl
       ageGroups
       petFree
@@ -5146,7 +5149,7 @@ export const getHomeChurchInfo = /* GraphQL */ `
       accessCode
       gender
       extendedDescription
-      imgageUrl
+      imageUrl
       imageAlt
       videoUrl
       createdAt
@@ -5165,9 +5168,12 @@ export const listHomeChurchInfos = /* GraphQL */ `
       items {
         id
         elders
-        vacinationRequired
-        hasChildcare
+        customPills
+        vaccinationRequired
         isOnline
+        isYoungAdult
+        isFamilyFriendly
+        isHybrid
         onlineConnectUrl
         ageGroups
         petFree
@@ -5175,7 +5181,7 @@ export const listHomeChurchInfos = /* GraphQL */ `
         accessCode
         gender
         extendedDescription
-        imgageUrl
+        imageUrl
         imageAlt
         videoUrl
         createdAt
@@ -5575,6 +5581,13 @@ export const getLivestream = /* GraphQL */ `
         title
         link
       }
+      livestreamSections {
+        title
+        links {
+          title
+          link
+        }
+      }
       titles
       homepageLink
       createdAt
@@ -5611,8 +5624,42 @@ export const listLivestreams = /* GraphQL */ `
           title
           link
         }
+        livestreamSections {
+          title
+          links {
+            title
+            link
+          }
+        }
         titles
         homepageLink
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getRedirect = /* GraphQL */ `
+  query GetRedirect($id: ID!) {
+    getRedirect(id: $id) {
+      id
+      to
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listRedirects = /* GraphQL */ `
+  query ListRedirects(
+    $filter: ModelRedirectFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listRedirects(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        to
         createdAt
         updatedAt
       }

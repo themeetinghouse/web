@@ -90,15 +90,6 @@
         "type": "list",
         "style": "horizontal",
         "class": "videos",
-        "subclass": "Home Church Hangouts",
-        "limit": 25,
-        "sortOrder": "DESC",
-        "header1": "Home Church Hangout Videos"
-      },
-      {
-        "type": "list",
-        "style": "horizontal",
-        "class": "videos",
         "subclass": "after-party",
         "sortOrder": "DESC",
         "header1": "The After Party"

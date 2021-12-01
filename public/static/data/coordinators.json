@@ -14,13 +14,6 @@
     "Position": "Sandbanks Lead Pastor"
   },
   {
-    "FirstName": "Don",
-    "LastName": "Walcott",
-    "sites": ["SAND"],
-    "Email": "don.walcott@themeetinghouse.com",
-    "Position": "Sandbanks Associate Pastor"
-  },
-  {
     "FirstName": "Amy",
     "LastName": "Thompson",
     "sites": ["ALLI"],
@@ -48,6 +41,13 @@
     "Position": "Compassion Coordinator"
   },
   {
+    "FirstName": "Don",
+    "LastName": "Corry",
+    "sites": ["HMAN"],
+    "Email": "don.corry@themeetinghouse.com",
+    "Position": "Interim Associate Pastor"
+  },
+  {
     "FirstName": "Sue",
     "LastName": "VanEgdom",
     "sites": ["HMAN"],
@@ -64,20 +64,42 @@
     "FirstName": "April",
     "LastName": "Yorke",
     "sites": ["OTTA"],
+    "Email": "april.yorke@themeetinghouse.com",
     "Position": "Compassion Coordinator"
+  },
+  {
+    "FirstName": "Jasmine",
+    "LastName": "Duckworth",
+    "sites": ["OTTA"],
+    "Email": "jasmine.duckworth@themeetinghouse.com",
+    "Position": "Accessibility Coordinator"
+  },
+  {
+    "FirstName": "Megan",
+    "LastName": "McEwen",
+    "sites": ["OTTA"],
+    "Email": "megan.mcewen@themeetinghouse.com",
+    "Position": "Tech Coordinator"
+  },
+  {
+    "FirstName": "Jeremy",
+    "LastName": "McClung",
+    "sites": ["PAR"],
+    "Email": "jeremy.mcclung@themeetinghouse.com",
+    "Position": "Parry Sound Lead Pastor"
+  },
+  {
+    "FirstName": "Rosi",
+    "LastName": "Simon",
+    "sites": ["PAR"],
+    "Email": "rosi.simon@themeetinghouse.com",
+    "Position": "Parish Administrator"
   },
   {
     "FirstName": "Amanda",
     "LastName": "Shaw",
     "sites": ["PAR"],
     "Email": "amanda.shaw@themeetinghouse.com",
-    "Position": "Compassion Coordinator"
-  },
-  {
-    "FirstName": "Cristal",
-    "LastName": "Laanstra",
-    "sites": ["SAND"],
-    "Email": "sandbanks.compassion@themeetinghouse.com",
     "Position": "Compassion Coordinator"
   },
   {
@@ -137,13 +159,6 @@
     "Position": "Compassion Coordinator"
   },
   {
-    "FirstName": "Julia",
-    "LastName": "Silvestri-Wong",
-    "sites": ["TOBC"],
-    "Email": "julia.silvestriwong@themeetinghouse.com",
-    "Position": "Community Connections Coordinator"
-  },
-  {
     "FirstName": "Erica",
     "LastName": "Blekkenhorst",
     "sites": ["TODT"],
@@ -156,13 +171,7 @@
     "sites": ["TOUP"],
     "Position": "Compassion Coordinator"
   },
-  {
-    "FirstName": "Denis",
-    "LastName": "Audette",
-    "sites": ["OWSN"],
-    "Email": "denis.audette@themeetinghouse.com",
-    "Position": "Community Coordinator"
-  },
+
   {
     "FirstName": "Janette",
     "LastName": "Cridland",
@@ -202,22 +211,10 @@
     "Position": "Connect Coordinator"
   },
   {
-    "FirstName": "Ric",
-    "LastName": "Woods",
-    "sites": ["WAT"],
-    "Position": "Connect Coordinator"
-  },
-  {
     "FirstName": "Teresa",
     "LastName": "Kotsopoulos",
     "sites": ["ALLI"],
     "Email": "alliston.kidmax@themeetinghouse.com",
-    "Position": "Kidmax Coordinator"
-  },
-  {
-    "FirstName": "Natalie",
-    "LastName": "Kuurstra",
-    "sites": ["LOND"],
     "Position": "Kidmax Coordinator"
   },
   {
@@ -241,12 +238,18 @@
     "Position": "Kidmax Coordinator"
   },
   {
-    "FirstName": "Amy M.",
-    "LastName": "Langeman",
-    "sites": ["OWSN"],
-    "Email": "amy.langeman@themeetinghouse.com",
-    "Position": "Kidmax Coordinator"
+    "FirstName": "Dave",
+    "LastName": "Beauchamp",
+    "sites": ["OTTA"],
+    "Position": "Setup Coordinator"
   },
+  {
+    "FirstName": "Mark",
+    "LastName": "Yandt",
+    "sites": ["OTTA"],
+    "Position": "Connect Coordinator"
+  },
+
   {
     "FirstName": "Winfer",
     "LastName": "Foster",
@@ -282,45 +285,37 @@
     "Position": "Kidmax Coordinator"
   },
   {
-    "FirstName": "Madeleine",
-    "LastName": "Neufeld",
-    "sites": ["WATL"],
-    "Email": "kidmax.waterloo@themeetinghouse.com",
-    "Position": "Kidmax Coordinator"
-  },
-  {
     "FirstName": "Jeremiah",
-    "LastName": "McLeary",
-    "sites": ["WATL"],
+    "LastName": "McCleary",
+    "sites": ["WAT"],
     "Email": "Mcclearj@uoguelph.ca",
     "Position": "Compassion Coordinator"
   },
   {
     "FirstName": "Max",
     "LastName": "Chute",
-    "sites": ["WATL"],
+    "sites": ["WAT"],
     "Email": "kidmax.waterloo@themeetinghouse.com",
     "Position": "Kidmax Coordinator"
   },
   {
-    "FirstName": "Esther",
-    "LastName": "Hazzard",
-    "sites": ["BRAM"],
-    "Email": "esther.hazzard@themeetinghouse.com",
-    "Position": "Music Coordinator"
+    "FirstName": "Pamela",
+    "LastName": "Carlin",
+    "sites": ["WAT"],
+    "Position": "Weekend Service Producer"
   },
   {
-    "FirstName": "Dwayne",
-    "LastName": "Jackson",
-    "sites": ["BRAM"],
-    "Email": "dwayne.jackson@themeetinghouse.com",
-    "Position": "Music Coordinator"
-  },
-  {
-    "FirstName": "Bram",
-    "LastName": "Van den Heuvel",
+    "FirstName": "Laura",
+    "LastName": "Brinks",
     "sites": ["BRFD"],
     "Position": "Music Coordinator"
+  },
+  {
+    "FirstName": "Kristin",
+    "LastName": "Van Hoeve",
+    "sites": ["BRFD"],
+    "Email": "kristinvanhoeve@gmail.com",
+    "Position": "Kidmax Coordinator"
   },
   {
     "FirstName": "Adam",
@@ -386,60 +381,46 @@
     "LastName": "Chan",
     "sites": ["RHLL"],
     "Email": "bernard.chan@themeetinghouse.com",
-    "Position": "Music Coordinator"
+    "Position": "Music & Kidmax Coordinator"
   },
   {
-    "FirstName": "Bob",
-    "LastName": "Snider",
+    "FirstName": "Casey",
+    "LastName": "Heintzman",
     "sites": ["SAND"],
     "Email": "sandbanks.music@themeetinghouse.com",
-    "Position": "Music Coordinator"
+    "Position": "Music Coordinator and Indigenous Settler-Relations"
   },
   {
     "FirstName": "Matt",
     "LastName": "Phinney",
+    "Email": "matt.phinney@themeetinghouse.com",
     "sites": ["TOBC"],
     "Position": "Music Coordinator"
-  },
-  {
-    "FirstName": "Scott",
-    "LastName": "McConnell",
-    "sites": ["BRAM"],
-    "Email": "scott.mcconnell@themeetinghouse.com",
-    "Position": "Weekend Service Producer"
   },
   {
     "FirstName": "Brian",
     "LastName": "Ramoutar",
     "sites": ["BRAM"],
-    "Email": "brian.ramoutar@themeetinghouse.com",
-    "Position": "Kidmax Coordinator"
+    "Email": "hello.brampton@themeetinghouse.com",
+    "Position": "Communications Coordinator"
   },
   {
-    "FirstName": "Joyce",
-    "LastName": "Baker",
-    "sites": ["BRFD"],
-    "Email": "joyce.baker@themeetinghouse.com",
-    "Position": "Parish Administrator"
-  },
-  {
-    "FirstName": "Savanna",
+    "FirstName": "Savannah",
     "LastName": "Edwards",
-    "sites": ["WATL"],
-    "Email": "savanna.edwards@themeetinghouse.com",
+    "sites": ["WAT"],
+    "Email": "savannah.edwards@themeetinghouse.com",
     "Position": "Parish Communications and Media Coordinator"
+  },
+  {
+    "FirstName": "Stephen",
+    "LastName": "Tosh",
+    "sites": ["WAT"],
+    "Position": "Tech Coordinator"
   },
   {
     "FirstName": "Jamie",
     "LastName": "Teeple",
     "sites": ["BURL"],
-    "Position": "Weekend Service Producer"
-  },
-  {
-    "FirstName": "Greg",
-    "LastName": "Best",
-    "sites": ["HMAN"],
-    "Email": "greg.best@themeetinghouse.com",
     "Position": "Weekend Service Producer"
   },
   {
@@ -450,31 +431,11 @@
     "Position": "Weekend Service Producer"
   },
   {
-    "FirstName": "Sheryl",
-    "LastName": "Bailey",
-    "sites": ["LOND"],
-    "Email": "sheryl.bailey@themeetinghouse.com",
-    "Position": "Weekend Service Producer"
-  },
-  {
     "FirstName": "Sarah",
     "LastName": "Dyer",
     "sites": ["NMKT"],
     "Email": "sarah.dyer@themeetinghouse.com",
     "Position": "Weekend Service Producer"
-  },
-  {
-    "FirstName": "Fiona",
-    "LastName": "Lau",
-    "sites": ["OTTA"],
-    "Position": "Weekend Service Producer"
-  },
-  {
-    "FirstName": "Rosi",
-    "LastName": "Simon",
-    "sites": ["PAR"],
-    "Email": "rosi.simon@themeetinghouse.com",
-    "Position": "Parish Administrator"
   },
   {
     "FirstName": "Anthony",
@@ -510,16 +471,16 @@
     "Position": "Welcome Coordinator"
   },
   {
+    "FirstName": "Nick",
+    "LastName": "Barone",
+    "sites": ["HMAN", "HMDT", "HMMT"],
+    "Email": "nick.barone@themeetinghouse.com",
+    "Position": "Youth Coordinator"
+  },
+  {
     "FirstName": "Jason",
     "LastName": "Lise",
     "sites": ["HMDT"],
-    "Position": "Welcome Coordinator"
-  },
-  {
-    "FirstName": "Melissa",
-    "LastName": "Beldman",
-    "sites": ["LOND"],
-    "Email": "melissa.beldman@themeetinghouse.com",
     "Position": "Welcome Coordinator"
   },
   {
@@ -541,6 +502,12 @@
     "Position": "Welcome Coordinator"
   },
   {
+    "FirstName": "Samson",
+    "LastName": "Chiu",
+    "sites": ["RHLL"],
+    "Position": "Tech Coordinator"
+  },
+  {
     "FirstName": "Sue",
     "LastName": "Yoo",
     "sites": ["TOUP"],
@@ -558,20 +525,35 @@
     "LastName": "Woodward",
     "sites": ["BRFD"],
     "Email": "josh.woodward@themeetinghouse.com",
-    "Position": "Youth Coordinator"
-  },
-  {
-    "FirstName": "Nick",
-    "LastName": "Barone",
-    "sites": ["HMMT"],
-    "Position": "Youth Coordinator"
+    "Position": "Ministry Associate & Youth Coordinator"
   },
   {
     "FirstName": "Maddy",
     "LastName": "Neufeld",
-    "sites": ["KIT", "WAT"],
+    "sites": ["WAT"],
     "Email": "mmkneufeld@gmail.com",
-    "Position": "Youth Coordinator and Kidmax Cordinator "
+    "Position": "Youth Coordinator and Kidmax Coordinator "
+  },
+  {
+    "FirstName": "Maddy",
+    "LastName": "Neufeld",
+    "sites": ["KIT"],
+    "Email": "mmkneufeld@gmail.com",
+    "Position": "Youth Coordinator and Kidmax Coordinator "
+  },
+  {
+    "FirstName": "Ryan",
+    "LastName": "Johnson",
+    "sites": ["KIT"],
+    "Email": "livingthroughgrace@live.ca",
+    "Position": "Weekend Service Producer "
+  },
+  {
+    "FirstName": "Fraser & Maria",
+    "LastName": "Haig",
+    "sites": ["WAT"],
+    "Email": "fraser_haig@wrdsb.ca, mtleahy5@gmail.com",
+    "Position": "Music Coordinators"
   },
   {
     "FirstName": "T.J.",
@@ -579,6 +561,13 @@
     "sites": ["LOND"],
     "Email": "tj.zielman@themeetinghouse.com",
     "Position": "Youth Coordinator"
+  },
+  {
+    "FirstName": "Sarah",
+    "LastName": "Innes",
+    "sites": ["LOND"],
+    "Email": "sarah.innes@themeetinghouse.com",
+    "Position": "Kidmax Coordinator"
   },
   {
     "FirstName": "Kylah",
@@ -617,8 +606,7 @@
     "FirstName": "Carol",
     "LastName": "Babcock",
     "sites": ["SAND"],
-    "Email": "sandbanks.youth@themeetinghouse.com",
-    "Position": "Youth Coordinator"
+    "Position": "Tech Coordinator"
   },
   {
     "FirstName": "Liz",
@@ -647,5 +635,25 @@
     "sites": ["TOUP"],
     "Email": "kelly.dunwell@themeetinghouse.com",
     "Position": "Kidmax Coordinator"
+  },
+  {
+    "FirstName": "Heidi",
+    "LastName": "Rushton",
+    "sites": ["HMDT"],
+    "Email": "heidi.rushton@themeetinghouse.com",
+    "Position": "Kidmax Coordinator"
+  },
+  {
+    "FirstName": "Leslie",
+    "LastName": "Walcott",
+    "sites": ["SAND"],
+    "Position": "Prayer Coordinator"
+  },
+  {
+    "FirstName": "Paul",
+    "LastName": "Pryce",
+    "sites": ["SAND"],
+    "Email": "sandbanks.youth@themeetinghouse.com",
+    "Position": "Youth Coordinator"
   }
 ]

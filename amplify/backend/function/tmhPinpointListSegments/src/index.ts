@@ -19,13 +19,8 @@ export const handler = async (event) => {
     console.log(segments.SegmentsResponse.Item);
     const response = {
       statusCode: 200,
-      //  Uncomment below to enable CORS requests
-      //  headers: {
-      //      "Access-Control-Allow-Origin": "*",
-      //      "Access-Control-Allow-Headers": "*"
-      //  },
-
-      body: JSON.stringify(segments.SegmentsResponse),
+      Item: segments.SegmentsResponse.Item,
+      NextToken: segments.SegmentsResponse.NextToken,
     };
     return response;
   } catch (error: any) {

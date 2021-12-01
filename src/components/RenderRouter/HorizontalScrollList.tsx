@@ -5,6 +5,7 @@ import './HorizontalScrollList.scss';
 
 interface Props extends RouteComponentProps {
   darkMode?: boolean;
+  children: (Element | null)[] | ReactNode;
 }
 interface State {
   numPages: number;

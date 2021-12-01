@@ -895,9 +895,12 @@ export const onCreateHomeChurchInfo = /* GraphQL */ `
     onCreateHomeChurchInfo(owner: $owner) {
       id
       elders
-      vacinationRequired
-      hasChildcare
+      customPills
+      vaccinationRequired
       isOnline
+      isYoungAdult
+      isFamilyFriendly
+      isHybrid
       onlineConnectUrl
       ageGroups
       petFree
@@ -905,7 +908,7 @@ export const onCreateHomeChurchInfo = /* GraphQL */ `
       accessCode
       gender
       extendedDescription
-      imgageUrl
+      imageUrl
       imageAlt
       videoUrl
       createdAt
@@ -919,9 +922,12 @@ export const onUpdateHomeChurchInfo = /* GraphQL */ `
     onUpdateHomeChurchInfo(owner: $owner) {
       id
       elders
-      vacinationRequired
-      hasChildcare
+      customPills
+      vaccinationRequired
       isOnline
+      isYoungAdult
+      isFamilyFriendly
+      isHybrid
       onlineConnectUrl
       ageGroups
       petFree
@@ -929,7 +935,7 @@ export const onUpdateHomeChurchInfo = /* GraphQL */ `
       accessCode
       gender
       extendedDescription
-      imgageUrl
+      imageUrl
       imageAlt
       videoUrl
       createdAt
@@ -943,9 +949,12 @@ export const onDeleteHomeChurchInfo = /* GraphQL */ `
     onDeleteHomeChurchInfo(owner: $owner) {
       id
       elders
-      vacinationRequired
-      hasChildcare
+      customPills
+      vaccinationRequired
       isOnline
+      isYoungAdult
+      isFamilyFriendly
+      isHybrid
       onlineConnectUrl
       ageGroups
       petFree
@@ -953,7 +962,7 @@ export const onDeleteHomeChurchInfo = /* GraphQL */ `
       accessCode
       gender
       extendedDescription
-      imgageUrl
+      imageUrl
       imageAlt
       videoUrl
       createdAt
@@ -1328,6 +1337,13 @@ export const onCreateLivestream = /* GraphQL */ `
         title
         link
       }
+      livestreamSections {
+        title
+        links {
+          title
+          link
+        }
+      }
       titles
       homepageLink
       createdAt
@@ -1358,6 +1374,13 @@ export const onUpdateLivestream = /* GraphQL */ `
       zoom {
         title
         link
+      }
+      livestreamSections {
+        title
+        links {
+          title
+          link
+        }
       }
       titles
       homepageLink
@@ -1390,8 +1413,45 @@ export const onDeleteLivestream = /* GraphQL */ `
         title
         link
       }
+      livestreamSections {
+        title
+        links {
+          title
+          link
+        }
+      }
       titles
       homepageLink
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateRedirect = /* GraphQL */ `
+  subscription OnCreateRedirect {
+    onCreateRedirect {
+      id
+      to
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateRedirect = /* GraphQL */ `
+  subscription OnUpdateRedirect {
+    onUpdateRedirect {
+      id
+      to
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteRedirect = /* GraphQL */ `
+  subscription OnDeleteRedirect {
+    onDeleteRedirect {
+      id
+      to
       createdAt
       updatedAt
     }

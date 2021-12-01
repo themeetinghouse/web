@@ -616,7 +616,7 @@ class HeroItem extends React.Component<Props, State> {
                 : this.renderButtonContainer()}
             </div>
           </div>
-          {console.log(this.state.content.hasFooter)}
+
           {this.state.content.hasFooter ? (
             <div style={{ height: '5vw' }}></div>
           ) : null}

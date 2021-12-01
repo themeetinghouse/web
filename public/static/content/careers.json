@@ -58,13 +58,23 @@
         "list": [
           {
             "type": "link",
-            "title": "Brand & Design Manager",
-            "navigateTo": "/static/pdfs/careers/Brand & Design Manager.pdf"
+            "title": "Communications Director",
+            "navigateTo": "/static/pdfs/careers/Communications Director 2022.pdf"
           },
           {
             "type": "link",
-            "title": "Hamilton Youth Pastor",
-            "navigateTo": "/static/pdfs/careers/Hamilton Youth Pastor 2021.pdf"
+            "title": "Creative Manager",
+            "navigateTo": "/static/pdfs/careers/Creative Manager 2022.pdf"
+          },
+          {
+            "type": "link",
+            "title": "Marketing Manager",
+            "navigateTo": "/static/pdfs/careers/Marketing Manager.pdf"
+          },
+          {
+            "type": "link",
+            "title": "Lead Pastor Positions",
+            "navigateTo": "/static/pdfs/careers/Lead Pastor Positions.pdf"
           },
           {
             "type": "link",
@@ -73,13 +83,8 @@
           },
           {
             "type": "link",
-            "title": "Kitchener Waterloo Pastor",
-            "navigateTo": "/static/pdfs/careers/Kitchener Waterloo Pastor.pdf"
-          },
-          {
-            "type": "link",
-            "title": "Human Resources Manager",
-            "navigateTo": "/static/pdfs/careers/Human Resources Manager.pdf"
+            "title": "Hamilton Youth Pastor",
+            "navigateTo": "/static/pdfs/careers/Hamilton Youth Pastor 2021.pdf"
           }
         ],
         "image1": [
@@ -97,29 +102,20 @@
         "list": [
           {
             "type": "link",
-            "title": "Kitchener Kidmax Coordinator",
-            "navigateTo": "/static/pdfs/careers/Kidmax Coordinator KIT 2 - Adapted for COVID.pdf"
-          },
-          {
-            "type": "link",
             "title": "Alliston Family Engagement Coordinator",
             "navigateTo": "/static/pdfs/careers/Family Engagement Coordinator (Part-Time).pdf"
           },
           {
             "type": "link",
-            "title": "Events Associate",
-            "navigateTo": "/static/pdfs/careers/Events Associate.pdf"
+            "title": "Hamilton Kidmax Coordinator",
+            "navigateTo": "/static/pdfs/careers/Hamilton Kidmax Coordinator.pdf"
           },
           {
             "type": "link",
-            "title": "Rentals and Events Administrator",
-            "navigateTo": "/static/pdfs/careers/Rentals and Events Administrator.pdf"
-          },
-          {
-            "type": "link",
-            "title": "Online Youth Ministry Coordinator",
-            "navigateTo": "/static/pdfs/careers/Online Youth Ministry Coordinator.pdf"
+            "title": "Kitchener Kidmax Coordinator",
+            "navigateTo": "/static/pdfs/careers/Kidmax Coordinator KIT 2 - Adapted for COVID.pdf"
           }
+         
         ],
         "image1": [
           {

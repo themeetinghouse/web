@@ -722,9 +722,12 @@ type HomeChurchInfo
  {
    id:String
    elders:[String]
-   vacinationRequired:String
-   hasChildcare:String
+   customPills:[String]
+   vaccinationRequired:String
    isOnline:String
+   isYoungAdult: String
+   isFamilyFriendly: String
+   isHybrid:String
    onlineConnectUrl:String
    ageGroups:String
    petFree:String
@@ -732,7 +735,7 @@ type HomeChurchInfo
    accessCode:String
    gender:String
    extendedDescription:String
-   imgageUrl:String
+   imageUrl:String
    imageAlt:String
    videoUrl:String
  }
@@ -1181,6 +1184,10 @@ type ZoomItem {
   title: String!
   link: String!
 }
+type LivestreamSection {
+  title: String!
+  links: [ZoomItem]
+}
 type Livestream
  @model
  @auth(rules:[
@@ -1203,8 +1210,21 @@ type Livestream
   externalEventUrl: String
   menu: [LiveMenu]
   zoom: [ZoomItem]
+  livestreamSections: [LivestreamSection]
   titles: [String]
   homepageLink: String
+}
+
+type Redirect
+ @model
+ @auth(rules: [
+   { allow: public, operations: [read] },
+   { allow: private, operations: [read], provider: iam },
+   { allow: groups, operations: [read, update, delete, create], groups: ["Admin"], provider: userPools }
+ ])
+{
+  id: ID!
+  to: String!
 }
 
 type Announcement

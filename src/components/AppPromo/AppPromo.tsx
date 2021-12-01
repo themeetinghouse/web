@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { isAndroid, isIOS } from 'react-device-detect';
-import { Button, Fade } from 'reactstrap';
+import { Fade } from 'reactstrap';
 import './AppPromo.scss';
 
 export default function AppPromo() {
@@ -8,15 +8,14 @@ export default function AppPromo() {
 
   return isAndroid || isIOS ? (
     <Fade className="app-promo" in={isOpen}>
-      <Button
-        close
-        style={{ opacity: 1, color: 'white' }}
+      <div
+        style={{ cursor: 'pointer', opacity: 1, color: 'white' }}
         onClick={() => setIsOpen(false)}
         className="close-btn-custom"
       >
         <span>&#x2715;</span>
-      </Button>
-      <div className="vl" />
+      </div>
+
       <div className="promo-text">Notes are better in the app</div>
       <a
         className="download-btn"

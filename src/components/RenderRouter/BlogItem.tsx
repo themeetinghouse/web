@@ -43,7 +43,7 @@ const BlogPreviewText = ({
 }: BlogPreviewTextProps) => (
   <div className={`BlogPreviewTextContainer ${style}`}>
     <div className={`BlogPreviewTitle tmh-${color}`}>{title}</div>
-    <div className={`BlogPreviewAuthorDate ${style} ${color}`}>
+    <div className={`BlogPreviewAuthorDate ${style} ${color}-blog`}>
       by <span className={`BlogPreviewAuthor tmh-${color}`}>{author}</span> on{' '}
       {publishedDate}
     </div>
@@ -112,7 +112,6 @@ const BlogItem = ({ content }: Props) => {
   const [sliceIndex, setSliceIndex] = useState(3);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const params = useParams<{ episode: string }>();
-
   useEffect(() => {
     const fetchData = async () => {
       if (content.blogSeries) {
@@ -133,6 +132,16 @@ const BlogItem = ({ content }: Props) => {
         setScreenWidth(window.innerWidth)
       );
   }, []);
+
+  const sortAndSetBlogs = (
+    blogs: BlogSeriesPost[] | Blog[] | VideoSeriesBlog[]
+  ) => {
+    setBlogs(
+      blogs.sort((a, b) =>
+        (b?.publishedDate ?? '').localeCompare(a?.publishedDate ?? '')
+      )
+    );
+  };
 
   const fetchBlogsByVideo = async (): Promise<void> => {
     const id = params?.episode;
@@ -169,7 +178,9 @@ const BlogItem = ({ content }: Props) => {
             }
           });
 
-          setBlogs((publishedOnly?.filter(Boolean) ?? []) as VideoSeriesBlog[]);
+          sortAndSetBlogs(
+            (publishedOnly?.filter(Boolean) ?? []) as VideoSeriesBlog[]
+          );
         }
       } catch (e) {
         console.error(e);
@@ -187,9 +198,9 @@ const BlogItem = ({ content }: Props) => {
         publishedDate: { le: todayString },
         blogStatus: status,
         sortDirection: ModelSortDirection[sortOrder ?? 'DESC'],
-        limit: limit,
+        limit: 100,
         filter: { hiddenMainIndex: { ne: true } },
-        nextToken: nextToken,
+        nextToken,
       };
       const json = (await API.graphql({
         query: getBlogByBlogStatus,
@@ -198,19 +209,21 @@ const BlogItem = ({ content }: Props) => {
       })) as GraphQLResult<GetBlogByBlogStatusQuery>;
 
       if (json.data?.getBlogByBlogStatus?.items) {
-        const blogs = json.data.getBlogByBlogStatus.items;
+        const blogsData = json.data.getBlogByBlogStatus.items;
 
-        if (blogs.length > 0) {
-          const dateChecked = blogs.filter(
+        if (blogsData.length > 0) {
+          const dateChecked = blogsData.filter(
             (post) =>
               post?.expirationDate === 'none' ||
               moment(post?.expirationDate, 'YYYY-MM-DD').isAfter(today)
           );
-          setBlogs(blogs.concat(dateChecked.filter(Boolean)));
+          const z = [...blogs, ...dateChecked.filter(Boolean)] as Blog[];
+
+          sortAndSetBlogs(z);
         }
 
         if (
-          blogs.length < (limit ?? 2) &&
+          blogsData.length < (limit ?? 2) &&
           json.data.getBlogByBlogStatus.nextToken
         ) {
           fetchBlogsByStatus(json.data.getBlogByBlogStatus.nextToken);
@@ -252,7 +265,7 @@ const BlogItem = ({ content }: Props) => {
               return item?.blogPost;
             }
           });
-          setBlogs(publishedOnly.filter(Boolean));
+          sortAndSetBlogs(publishedOnly.filter(Boolean));
         }
       }
     } catch (e) {
@@ -351,6 +364,7 @@ const BlogItem = ({ content }: Props) => {
       <div className="blog-item">
         <div className="blog multiImage">
           <h2 className="tmh-header2 blog-multiImage-h2 b">{header1}</h2>
+
           {blogs.slice(0, limit).map((item, index) => {
             return (
               <div key={index} className="BlogMultiImageItem">

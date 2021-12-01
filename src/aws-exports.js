@@ -9,11 +9,8 @@ const awsmobile = {
     "aws_user_pools_web_client_id": "5gpi0b6rgnm5dh8orcj0088b9n",
     "oauth": {},
     "federationTarget": "COGNITO_IDENTITY_POOLS",
-    "aws_cognito_login_mechanisms": [
-        "FACEBOOK",
-        "GOOGLE",
-        "AMAZON"
-    ],
+    "aws_cognito_username_attributes": [],
+    "aws_cognito_social_providers": [],
     "aws_cognito_signup_attributes": [
         "EMAIL"
     ],

@@ -39,7 +39,7 @@ export default function Blog(): ReactElement | null {
         'AmazonPersonalize'
       )
         .then((e) => {
-          console.log(e);
+          console.log({ e: e });
         })
         .catch((e) => {
           console.log({ PersonalizeError: e });
@@ -50,7 +50,7 @@ export default function Blog(): ReactElement | null {
       name: 'pageVisit',
       attributes: { page: 'blog-post' },
     }).catch((e) => {
-      console.log(e);
+      console.log({ e: e });
     });
 
     (async () => {
@@ -76,7 +76,7 @@ export default function Blog(): ReactElement | null {
           name: 'error',
           attributes: { page: 'blog-post' },
         }).catch((e) => {
-          console.log(e);
+          console.log({ e: e });
         });
         history.replace('/not-found');
       }

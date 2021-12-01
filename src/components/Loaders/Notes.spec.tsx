@@ -1,8 +1,7 @@
 import React from 'react';
 import Notes from './Notes';
 import { API, Analytics } from '__mocks__/aws-amplify';
-import { Route } from 'react-router-dom';
-import { MemoryRouter, MemoryRouterProps } from 'react-router';
+import { MemoryRouter, MemoryRouterProps, Route } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 

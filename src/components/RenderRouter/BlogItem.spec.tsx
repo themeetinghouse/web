@@ -42,7 +42,7 @@ const setWindowWidth = (value: number) => {
 const blog1 = {
   id: '123',
   author: 'Luke Skywalker',
-  publishedDate: '2010-01-01',
+  publishedDate: '2015-01-01',
   expirationDate: 'none',
   blogStatus: 'Live',
   description: 'abc',
@@ -52,7 +52,7 @@ const blog1 = {
 const blog2 = {
   id: '456',
   author: 'Obi-Wan Kenobi',
-  publishedDate: '2011-01-01',
+  publishedDate: '2014-01-01',
   expirationDate: 'none',
   blogStatus: 'Live',
   description: 'xyz',
@@ -83,7 +83,7 @@ const blogSeriesData = [
     blogPost: {
       id: '101',
       author: 'Ahsoka Tano',
-      publishedDate: '2013-01-01',
+      publishedDate: '2009-01-01',
       expirationDate: 'none',
       blogStatus: 'Live',
       description: 'thing stuff items words',
@@ -244,7 +244,7 @@ describe('BlogItem', () => {
 
       const author = screen.queryByText('Luke Skywalker');
       expect(author?.parentElement?.textContent).toBe(
-        'by Luke Skywalker on 2010-01-01'
+        'by Luke Skywalker on 2015-01-01'
       );
 
       const blogDescription = screen.queryByText('abc');

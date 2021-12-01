@@ -106,6 +106,8 @@ interface State {
   customEvent: boolean;
   lastZoomData: ZoomItem[] | null;
   disableAsyncButtons: boolean;
+  sectionModal: boolean;
+  modalErrorText: string;
 }
 
 class Index extends React.Component<EmptyProps, State> {
@@ -120,6 +122,8 @@ class Index extends React.Component<EmptyProps, State> {
       customEvent: false,
       lastZoomData: null,
       disableAsyncButtons: false,
+      sectionModal: false,
+      modalErrorText: '',
     };
   }
 
@@ -142,7 +146,6 @@ class Index extends React.Component<EmptyProps, State> {
 
     this.setState({ lastZoomData: lastLocalTeaching?.zoom ?? null });
   }
-
   async listLivestreams(): Promise<void> {
     const variables: ListLivestreamsQueryVariables = {
       filter: {
@@ -510,7 +513,13 @@ class Index extends React.Component<EmptyProps, State> {
       this.handleChange('zoom', temp as ZoomItem[]);
     }
   }
-
+  addHeadingItem(): void {
+    const temp = this.state.liveObject?.zoom;
+    if (temp) {
+      temp.push({ title: '', link: '' });
+      this.handleChange('livestreamSections', temp as ZoomItem[]);
+    }
+  }
   addZoomItem(): void {
     const temp = this.state.liveObject?.zoom;
     if (temp) {
@@ -622,7 +631,74 @@ class Index extends React.Component<EmptyProps, State> {
       </div>
     );
   }
-
+  createLiveStreamSectionZoomLink(index: number) {
+    const tempObj = this.state.liveObject?.livestreamSections;
+    if (tempObj?.[index] && tempObj[index]?.links) {
+      tempObj?.[index]?.links?.push({
+        link: '',
+        title: ``,
+      });
+    }
+    console.log({ tempObj });
+    this.setState({
+      liveObject: {
+        ...this.state.liveObject,
+        livestreamSections: tempObj,
+      },
+    });
+  }
+  createliveStreamSection() {
+    const title = ``;
+    const sections = [
+      ...(this.state.liveObject?.livestreamSections ?? []),
+      {
+        title: title,
+        links: [],
+      },
+    ];
+    this.setState({
+      liveObject: { ...this.state.liveObject, livestreamSections: sections },
+    });
+  }
+  deleteLiveStreamSectionLink(index: number, linkIndex: number) {
+    const newLiveObject: any = { ...this.state.liveObject };
+    newLiveObject.livestreamSections[index].links =
+      newLiveObject?.livestreamSections?.[index]?.links?.filter(
+        (link: any, ind: number) => ind !== linkIndex
+      );
+    this.setState({
+      liveObject: newLiveObject,
+    });
+  }
+  deleteLiveStreamSection(index: number) {
+    const newLiveObject = {
+      ...this.state.liveObject,
+      livestreamSections: this.state.liveObject.livestreamSections?.filter(
+        (a, i) => index !== i
+      ),
+    };
+    this.setState({
+      liveObject: newLiveObject,
+    });
+  }
+  changeZoomTitle(event: any, index: number, linkIndex: number) {
+    console.log(event, index);
+    const newLiveObject: any = this.state.liveObject;
+    newLiveObject.livestreamSections[index].links[linkIndex].title =
+      event.target.value;
+    this.setState({ liveObject: newLiveObject });
+  }
+  changeZoomLink(event: any, index: number, linkIndex: number) {
+    const newLiveObject: any = this.state.liveObject;
+    newLiveObject.livestreamSections[index].links[linkIndex].link =
+      event.target.value;
+    this.setState({ liveObject: newLiveObject });
+  }
+  changeSectionTitle(event: any, index: number) {
+    const newLiveObject: any = this.state.liveObject;
+    newLiveObject.livestreamSections[index].title = event.target.value;
+    this.setState({ liveObject: newLiveObject });
+  }
   renderZoomEditor(zoomItem: ZoomItem, index: number) {
     return (
       <div key={index} style={{ display: 'flex', flexDirection: 'column' }}>
@@ -652,7 +728,6 @@ class Index extends React.Component<EmptyProps, State> {
       </div>
     );
   }
-
   renderEditor() {
     return (
       <>
@@ -1065,6 +1140,20 @@ class Index extends React.Component<EmptyProps, State> {
                   Local Teaching
                 </button>
               ) : null}
+              {this.state.liveObject ? (
+                <button
+                  style={{
+                    background: 'green',
+                    border: 0,
+                    height: 50,
+                    fontSize: 12,
+                    padding: 5,
+                  }}
+                  onClick={() => this.setState({ sectionModal: true })}
+                >
+                  Headings + zoom links
+                </button>
+              ) : null}
               {this.state.liveObject?.zoom ? (
                 <button
                   style={{
@@ -1099,6 +1188,125 @@ class Index extends React.Component<EmptyProps, State> {
       </>
     );
   }
+  validateModal() {
+    const sectionValidateCount =
+      this.state.liveObject.livestreamSections?.filter(
+        (section) => !!!section?.title
+      ).length ?? 0;
+    const zoomLinkValidateCount =
+      this.state.liveObject.livestreamSections?.filter((section) => {
+        return section?.links?.some((link) => !!!link?.title || !!!link?.link);
+      }).length ?? 0;
+    return sectionValidateCount + zoomLinkValidateCount < 1;
+  }
+  renderSectionModal() {
+    return (
+      <Modal isOpen={this.state.sectionModal}>
+        <div style={{ margin: 32 }}>
+          <div
+            style={{ display: 'flex', flexDirection: 'row', marginBottom: 32 }}
+          >
+            <h5 style={{ flex: 1 }}>Link Grids with Headings</h5>
+            <button onClick={() => this.createliveStreamSection()}>+</button>
+          </div>
+
+          {this.state.liveObject.livestreamSections?.map((section, index) => {
+            return (
+              <div key={index}>
+                <div
+                  style={{
+                    marginBottom: 4,
+                    display: 'flex',
+                    flexDirection: 'row',
+                  }}
+                >
+                  <input
+                    onChange={(e) => this.changeSectionTitle(e, index)}
+                    style={{ flex: 1 }}
+                    placeholder="Heading Title"
+                    value={section?.title}
+                  />
+                  <button
+                    style={{ marginLeft: 16 }}
+                    onClick={() => this.deleteLiveStreamSection(index)}
+                  >
+                    -
+                  </button>
+                  <button
+                    style={{ marginLeft: 4 }}
+                    onClick={() => this.createLiveStreamSectionZoomLink(index)}
+                  >
+                    +
+                  </button>
+                </div>
+
+                <div style={{ marginLeft: 16 }}>
+                  {section?.links?.map((zoomLink, linkIndex) => {
+                    return (
+                      <div
+                        style={{
+                          marginBottom: 4,
+                          display: 'flex',
+                          flexDirection: 'row',
+                        }}
+                        key={linkIndex}
+                      >
+                        <div style={{ flexDirection: 'column' }}>
+                          <input
+                            style={{ marginBottom: 4 }}
+                            onChange={(e) =>
+                              this.changeZoomTitle(e, index, linkIndex)
+                            }
+                            placeholder="Link Title"
+                            value={zoomLink?.title ?? ''}
+                          />
+                          <input
+                            style={{ marginBottom: 4 }}
+                            onChange={(e) =>
+                              this.changeZoomLink(e, index, linkIndex)
+                            }
+                            placeholder="URL"
+                            value={zoomLink?.link ?? ''}
+                          />
+                        </div>
+                        <div
+                          style={{
+                            flexDirection: 'column',
+                            marginTop: 16,
+                            marginLeft: 16,
+                          }}
+                        >
+                          <button
+                            onClick={() =>
+                              this.deleteLiveStreamSectionLink(index, linkIndex)
+                            }
+                          >
+                            -
+                          </button>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
+          <p style={{ color: 'red' }}>{this.state.modalErrorText}</p>
+          <button
+            style={{ marginTop: 4 }}
+            onClick={() => {
+              if (this.validateModal()) {
+                this.setState({ modalErrorText: '', sectionModal: false });
+              } else
+                this.setState({ modalErrorText: 'All fields must be filled.' });
+            }}
+          >
+            Close
+          </button>
+        </div>
+      </Modal>
+    );
+  }
   renderAlert() {
     return (
       <Modal isOpen={Boolean(this.state.alert)}>
@@ -1125,6 +1333,7 @@ class Index extends React.Component<EmptyProps, State> {
               {this.renderDelete()}
             </div>
             {this.renderEditor()}
+            {this.renderSectionModal()}
             {this.renderAlert()}
           </div>
         )}

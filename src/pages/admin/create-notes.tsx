@@ -29,7 +29,7 @@ import getDay from 'date-fns/getDay';
 import { EmptyProps } from '../../utils';
 import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import './create-notes.scss';
-import Bible from './bible';
+import { getQueryString, parseJSON, INVALID_QUERY } from './verses';
 import {
   CreateNotesMutation,
   CreateVerseInput,
@@ -305,13 +305,13 @@ class Index extends React.Component<EmptyProps, State> {
     type: 'notes' | 'questions'
   ): Promise<void> {
     this.setState({ statusMessage: `finding verses in ${type}` });
-    const data = Bible.parseJSON(raw);
+    const data = parseJSON(raw);
     const bibleJSON: BibleVerseJSON[] = [];
     const errors: string[] = [];
 
     data.forEach((item) => {
-      const queryObject = Bible.getQueryString(item.passageRef);
-      if (queryObject !== 'invalid')
+      const queryObject = getQueryString(item.passageRef);
+      if (queryObject !== INVALID_QUERY) {
         bibleJSON.push({
           ...queryObject,
           key: item.key,
@@ -319,7 +319,9 @@ class Index extends React.Component<EmptyProps, State> {
           offset: item.offset,
           passageRef: item.passageRef,
         });
-      else errors.push(item.passageRef);
+      } else {
+        errors.push(item.passageRef);
+      }
     });
 
     if (errors.length > 0) {

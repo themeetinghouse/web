@@ -9,10 +9,13 @@ import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import {
   CreateAnnouncementMutationVariables,
   ListAnnouncementsQuery,
+  TmhPinpointCreateCampaignQuery,
+  TmhPinpointListSegmentsQuery,
 } from 'API';
 import moment from 'moment';
 import { Modal } from 'reactstrap';
 import * as Sentry from '@sentry/browser';
+import * as queries from '../../graphql/queries';
 import * as customQueries from '../../graphql-custom/customQueries';
 import * as customMutations from '../../graphql-custom/customMutations';
 
@@ -640,8 +643,151 @@ export default function Announcements(): JSX.Element {
     const [announcement, setAnnouncement] =
       useState<AnnouncementData>(announcementInit);
     const [parishes, setParishes] = useState<Array<string>>(['Cross-Regional']);
+    const [notification, setNotification] = useState<any>({
+      shouldNotify: false,
+      name: '',
+      description: '',
+      schedule: {
+        Frequency: 'ONCE',
+        StartTime: 'IMMEDIATE',
+      },
+      segment: null,
+      url: null,
+    });
+    const [segments, setSegments] = useState<any>([]);
     const [errorTxt, setErrorTxt] = useState<string>('');
     if (!announcement) return <></>;
+    const validateNotif = (notifObj: any) => {
+      console.log('Validating Object');
+      if (announcement.title === '' && notifObj.name === '') {
+        setErrorTxt('Must fill in title');
+        return false;
+      }
+      if (announcement.description === '' && notifObj.description === '') {
+        setErrorTxt('Must fill in description');
+        return false;
+      }
+      if (notifObj.name === '' || notifObj.description === '') {
+        setErrorTxt('Failed to validate notification name/description');
+        return false;
+      }
+      if (
+        notifObj.androidMessage.Title === '' ||
+        notifObj.androidMessage.Body === ''
+      ) {
+        setErrorTxt('Failed to validate android Title/Body');
+        return false;
+      }
+
+      if (
+        notifObj.appleMessage.Title === '' ||
+        notifObj.appleMessage.Body === ''
+      ) {
+        setErrorTxt('Failed to validate apple Title/Body');
+        return false;
+      }
+
+      if (notifObj.segmentId === '' || notifObj.segmentVersion === '') {
+        setErrorTxt('Failed to validate segmentId/segmentVersion');
+        return false;
+      }
+
+      if (notifObj.schedule.StartTime === '') {
+        setErrorTxt('Failed to validate StartTime');
+        return false;
+      }
+      if (notifObj) {
+        setErrorTxt('');
+        return true;
+      }
+    };
+    useEffect(() => {
+      const loadSegments = async () => {
+        try {
+          const getSegments = (await API.graphql({
+            query: queries.tmhPinpointListSegments,
+            variables: { nextToken: null },
+            authMode: GRAPHQL_AUTH_MODE.API_KEY,
+          })) as GraphQLResult<TmhPinpointListSegmentsQuery>;
+          console.log({ getSegments });
+          setSegments(getSegments?.data?.tmhPinpointListSegments?.Item ?? []);
+          setNotification((prev: any) => ({
+            ...notification,
+            segment: getSegments?.data?.tmhPinpointListSegments?.Item?.[0],
+          }));
+        } catch (err) {
+          console.error({ err });
+        }
+      };
+      loadSegments();
+    }, []);
+    const today = new Date().toISOString().split('.')[0].slice(0, 16);
+    const createCampaign = async () => {
+      const title =
+        notification.name === '' ? announcement.title : notification.name;
+      const description =
+        notification.description === ''
+          ? announcement.description
+          : notification.description;
+      const schedule = {
+        ...notification.schedule,
+        StartTime:
+          notification.schedule.StartTime !== 'IMMEDIATE' &&
+          notification.schedule.StartTime !== ''
+            ? new Date(notification.schedule.StartTime).toISOString()
+            : notification.schedule.StartTime,
+      };
+      const message =
+        notification.url === null || notification.url === ''
+          ? {
+              Title: title,
+              Body: description,
+              SilentPush: false,
+            }
+          : {
+              Action: 'URL',
+              Title: title,
+              Url: notification.url,
+              Body: description,
+              SilentPush: false,
+            };
+      const notifObj = {
+        name: 'Announcement Push Notification',
+        description: 'Announcement Push Notification Description',
+        segmentId: notification.segment.Id,
+        segmentVersion: notification.segment.Version,
+        schedule,
+        appleMessage: message,
+        androidMessage: message,
+      };
+
+      if (!validateNotif(notifObj)) {
+        console.log('Validation failed');
+        return;
+      }
+      try {
+        const createCampaignMutation = (await API.graphql({
+          query: queries.tmhPinpointCreateCampaign,
+          variables: notifObj,
+          authMode: GRAPHQL_AUTH_MODE.API_KEY,
+        })) as GraphQLResult<TmhPinpointCreateCampaignQuery>;
+        console.log({ createCampaignMutation });
+        if (createCampaignMutation?.data?.tmhPinpointCreateCampaign) {
+          alert(
+            `Successfully created notification ${
+              notifObj?.schedule?.StartTime !== 'IMMEDIATE'
+                ? `for ${moment(notifObj?.schedule?.StartTime).format(
+                    'YYYY-MM-DD hh:mm A'
+                  )}`
+                : 'to be sent immediately'
+            }`
+          );
+        }
+      } catch (err) {
+        alert(`an error occurred`);
+        console.error({ err });
+      }
+    };
     return (
       <Modal size="lg" isOpen={openCreateModal}>
         <div className="announcementModal">
@@ -835,7 +981,151 @@ export default function Announcements(): JSX.Element {
                 }
               />
             </label>
+            <div style={{ marginTop: 20 }}>
+              <label>
+                Notify users?
+                <input
+                  style={{
+                    transform: 'scale(1.5)',
+                    marginLeft: 8,
+                    marginTop: 4,
+                  }}
+                  name={`notify`}
+                  type="checkbox"
+                  checked={notification.shouldNotify}
+                  onChange={() =>
+                    setNotification((prev: any) => ({
+                      ...prev,
+                      shouldNotify: !prev.shouldNotify,
+                    }))
+                  }
+                />
+              </label>
+              <div
+                style={
+                  notification.shouldNotify
+                    ? { width: '100%' }
+                    : { display: 'none' }
+                }
+              >
+                <label>
+                  Segment{' '}
+                  <small style={{ fontWeight: 400, fontSize: 12 }}>
+                    (Choose which group will receive notifications)
+                  </small>
+                </label>
+                <select
+                  style={{ marginBottom: 10 }}
+                  className="genericTextField"
+                  value={notification?.segment?.Name ?? ''}
+                  onChange={(e) => {
+                    e.persist();
+                    setNotification((prev: any) => ({
+                      ...prev,
+                      segment: segments.find(
+                        (a: any) => a.Name === e.target.value
+                      ),
+                    }));
+                  }}
+                >
+                  {segments?.map((segment: any) => (
+                    <option value={segment.Name} key={segment.Id}>
+                      {segment.Name}
+                    </option>
+                  ))}
+                </select>
+                <label style={{ marginBottom: 10 }}>
+                  Send Immediately{' '}
+                  <input
+                    style={{
+                      transform: 'scale(1.5)',
+                      marginLeft: 8,
+                      marginTop: 4,
+                    }}
+                    type="checkbox"
+                    checked={notification.schedule.StartTime === 'IMMEDIATE'}
+                    onChange={(e) => {
+                      setNotification((prev: any) => ({
+                        ...prev,
+                        schedule: {
+                          StartTime:
+                            notification.schedule.StartTime === 'IMMEDIATE'
+                              ? ''
+                              : 'IMMEDIATE',
+                          Frequency: 'ONCE',
+                        },
+                      }));
+                    }}
+                  />
+                </label>
+
+                <label style={{ display: 'block', fontWeight: 700 }}>
+                  Notification Date:{' '}
+                  <input
+                    min={today}
+                    className="genericTextField"
+                    type="datetime-local"
+                    value={notification?.schedule?.StartTime}
+                    onChange={(e) => {
+                      e.persist();
+                      setNotification((prev: any) => ({
+                        ...prev,
+                        schedule: {
+                          StartTime: e.target.value,
+                          Frequency: 'ONCE',
+                        },
+                      }));
+                    }}
+                  />
+                </label>
+                <label>Title</label>
+                <input
+                  value={notification.name}
+                  maxLength={100}
+                  onChange={(e) => {
+                    e.persist();
+                    setNotification((prev: any) => ({
+                      ...prev,
+                      name: e.target.value,
+                    }));
+                  }}
+                  className="genericTextField"
+                ></input>
+                <label>Description</label>
+                <textarea
+                  maxLength={300}
+                  value={notification.description}
+                  onChange={(e) => {
+                    e.persist();
+                    setNotification((prev: any) => ({
+                      ...prev,
+                      description: e.target.value,
+                    }));
+                  }}
+                  rows={2}
+                  className="genericTextArea"
+                ></textarea>
+                <label>URL</label>
+                <input
+                  maxLength={2000}
+                  value={notification.value}
+                  onChange={(e) => {
+                    e.persist();
+                    setNotification((prev: any) => ({
+                      ...prev,
+                      url: e.target.value,
+                    }));
+                  }}
+                  className="genericTextField"
+                ></input>
+                <button style={{ marginTop: 10 }} onClick={createCampaign}>
+                  Create Notification
+                </button>
+              </div>
+            </div>
+
             <p style={{ color: 'red', whiteSpace: 'pre' }}>{errorTxt}</p>
+
             <button
               onClick={() => {
                 let errorMessage = '';

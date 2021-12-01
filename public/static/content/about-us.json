@@ -52,7 +52,7 @@
           {
             "type": "link",
             "title": "BIC Doctrinal Statement",
-            "navigateTo": "http://www.canadianbic.ca/about-us/",
+            "navigateTo": "http://www.beinchrist.ca/about",
             "openNewBrowser": true
           }
         ]
@@ -117,6 +117,12 @@
         "list": [
           {
             "type": "link",
+            "title": "2021 - Annual Report and AGM Document",
+            "navigateTo": "/static/pdfs/annual-reports/TMH_AnnualReport_Documents_2021.pdf",
+            "openNewBrowser": true
+          },
+          {
+            "type": "link",
             "title": "Finance Update - April 2021",
             "navigateTo": "/static/pdfs/annual-reports/Finance Update April 2021.pdf",
             "openNewBrowser": true
@@ -149,12 +155,6 @@
             "type": "link",
             "title": "2019 - Annual Report and AGM Document",
             "navigateTo": "/static/pdfs/annual-reports/TMH_2019AnnualReport_Final_v8_NoCuts_NoBleeds.pdf",
-            "openNewBrowser": true
-          },
-          {
-            "type": "link",
-            "title": "2018 - Annual Report",
-            "navigateTo": "/static/pdfs/annual-reports/2018AnnualReport_WEB1.pdf",
             "openNewBrowser": true
           }
         ]

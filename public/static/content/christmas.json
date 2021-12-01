@@ -2,8 +2,8 @@
   "page": {
     "name": "christmas",
     "title": "Christmas",
-    "keywords": "",
-    "description": "",
+    "keywords": "christmas",
+    "description": "The page for The Meeting House 2021 Christmas Challenge in partnership with Infinitum.",
     "pageConfig": {
       "showLive": true,
       "movingMenu": false,
@@ -16,123 +16,83 @@
     "content": [
       {
         "type": "og-tags",
-        "image": "/static/images/christmas-eve-1.jpg",
+        "image": "/static/images/Web-BG.jpg",
         "url": "https://www.themeetinghouse.com/christmas",
-        "title": "Christmas Eve at Home",
-        "description": "A Livestream Experience | Dec. 24 1:00pm 4:00pm 8:00pm"
+        "title": "Christmas",
+        "description": ""
       },
       {
         "type": "hero",
         "style": "full",
         "image1": [
           {
-            "src": "/static/images/christmas-eve-1.jpg",
-            "alt": "Young woman smiling off camera at the Christmas Market."
+            "src": "/static/images/Web-BG.jpg",
+            "alt": "Words in pink on a darker pink background."
           }
         ],
-        "header1": "Christmas Eve",
-        "header2": "A Livestream Experience",
-        "text1": "How do we celebrate after such a difficult year? How do we find joy and peace during a time filled with sorrow and anxiety? Where do we look to for hope when spirits are low?"
+        "header1": "Christmas",
+        "header2": "",
+        "text1": "December is one of the busiest and most chaotic months for people. And yet, it is the month we set aside to focus on Jesus and what His presence and life means to us.",
+        "button1": {
+          "text": "Watch Video",
+          "action": "/videos/Christmas-2021-Infinitum Christmas Challenge/33xWG8KWO_M",
+          "description": "Introduction to the Christmas Challenge and video watch button."
+        }
       },
       {
         "type": "content",
         "style": "oneImage",
-        "header1": "What To Expect",
+        "header1": "The Christmas challenge is about JESUS.",
         "header2": "",
-        "text1": "We want to rally together by gathering virtually to share the hope we see in the story of the birth of Jesus. Through carols, art, and stories, we want to explore how this radical idea of God coming to us as a helpless baby changed everything, and how it continues to bring light, hope, and peace when this season of life feels dark.",
-
+        "text1": "Many of us know that practising our faith can be quite simple, but never easy! For some, discipleship is equated with belief, trading in more knowledge at the expense of lived experience. But what if applying what we believe could be our primary focus? The 30 Day Challenge is designed to take our beliefs and live them out in community.",
         "image1": [
           {
-            "src": "/static/images/christmas-4.jpg",
-            "alt": "A vocalist performing a song on stage in front of a camera operator."
+            "src": "/static/images/ChristmasChallenge_Graphic.jpg",
+            "alt": "Infinitum Christmas Challenge in white on a red background."
+          }
+        ],
+        "list": [
+          {
+            "type": "link",
+            "title": "Sign up for the Christmas Challenge",
+            "navigateTo": "https://mailchi.mp/166e365df5dd/tmhchristmaschallengesignup",
+            "description": "Link to sign up for the Christmas Challenge."
           }
         ]
-      },
-      {
-        "type": "sunday-morning",
-        "header1": "Livestream Experiences",
-        "alternate": "christmas"
       },
       {
         "type": "content",
-        "style": "banner-cards",
-        "images": [
-          {
-            "src": "/static/photos/banners/promo_christmas3acts.png",
-            "alt": "Graphic for our Christmas in 3 Acts teaching series.",
-            "linkto": "/videos/Christmas%20in%203%20Acts/4lw1mTMCE7Y"
-          },
-          {
-            "src": "/static/photos/banners/promo_preschoolhome.jpg",
-            "alt": "Graphic for our Christmas Preschool video curriculum, featuring a host who is smiling and sitting beside a Christmas tree.",
-            "linkto": "/videos/preschool-Preschool/Rp4cL3MkwZ4"
-          }
-        ]
-      },
-      {
-        "type": "blog",
-        "style": "multiImage",
-        "status": "Live",
-        "header1": "Blogs for a Pandemic Christmas",
-        "sortOrder": "DESC",
-        "limit": 2,
-        "blogSeries": "Christmas",
-        "button1Action": "/blogs"
-      },
-      {
-        "type": "list",
-        "style": "horizontal",
-        "class": "videos",
-        "subclass": "Christmas-eves",
-        "sortOrder": "DESC",
-        "header1": "Eves of Christmas Past"
-      },
-      {
-        "type": "list",
-        "style": "horizontalBig",
-        "class": "series-collection",
-        "collection": [
-          "Did it Really Happen",
-          "Regifting",
-          "Christmas Together",
-          "Incarnation: The Gospel in a Manger",
-          "The Stations of the Crib",
-          "An Awe-Filled Christmas - Wonder, Worship and Waking Up"
-        ],
-        "header1": "Christmas Series Archive"
-      },
-      {
-        "type": "list",
-        "style": "horizontal",
-        "class": "videos",
-        "subclass": "Christmas-funny",
-        "sortOrder": "DESC",
-        "header1": "Funny Christmas Videos"
-      },
-      {
-        "type": "list",
-        "style": "horizontal",
-        "class": "videos",
-        "subclass": "Christmas-shorts",
-        "sortOrder": "DESC",
-        "header1": "Christmas Short Videos"
-      },
-      {
-        "type": "hero",
-        "style": "connect",
+        "style": "oneImageBlackRight",
+        "header1": "What is Infinitum?",
+        "header2": "Infinitum began as a conversation",
+        "text1": "Infinitum was founded by a small group of friends in 2015 out of a deep desire to pursue Jesus more authentically and intentionally. Leaning on the monastic examples from generations before, Infinitum became a practice and posture for discipleship in the modern world.",
         "image1": [
           {
-            "src": "/static/images/email-connect-1.jpg",
-            "alt": "Two women drinking coffee."
-          },
-          {
-            "src": "/static/images/email-connect-2.jpg",
-            "alt": "A young woman is talking to her friends in the church lobby."
+            "src": "/static/images/Infinitium_Graphic.jpg",
+            "alt": "Black and white photo of two people sitting on a couch and talking."
           }
         ],
-        "header1": "Don't Miss Out",
-        "header2": "Let's connect, even if it's just via email.",
-        "text2": "Sing up today and we'll send you a reminder just before Christmas Eve! Bonus—we'll also share 3 of our favourite things with you!"
+        "list": [
+          {
+            "type": "link",
+            "title": "Learn More",
+            "navigateTo": "https://infinitumlife.com/",
+            "description": "Registration link for the Christmas Challenge."
+          }
+        ]
+    },
+    {
+      "type": "content",
+      "style": "oneImage",
+      "header1": "What Matters Most",
+      "header2": "Christmas Gatherings",
+      "text1": "Details Coming Soon.",
+      "image1": [
+        {
+          "src": "/static/images/WhatReallyMatters.jpg",
+          "alt": "Blue background with red and blue text."
+        }
+      ]
       }
     ]
   }

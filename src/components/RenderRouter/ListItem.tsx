@@ -1112,9 +1112,7 @@ class ListItem extends React.Component<Props, State> {
       case 'ottawa':
         id = 'tmhottawa';
         break;
-      case 'owen-sound':
-        id = 'themeetinghouse';
-        break;
+
       case 'parry-sound':
         id = 'tmhparrysound';
         break;

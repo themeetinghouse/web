@@ -895,9 +895,12 @@ export const createHomeChurchInfo = /* GraphQL */ `
     createHomeChurchInfo(input: $input) {
       id
       elders
-      vacinationRequired
-      hasChildcare
+      customPills
+      vaccinationRequired
       isOnline
+      isYoungAdult
+      isFamilyFriendly
+      isHybrid
       onlineConnectUrl
       ageGroups
       petFree
@@ -905,7 +908,7 @@ export const createHomeChurchInfo = /* GraphQL */ `
       accessCode
       gender
       extendedDescription
-      imgageUrl
+      imageUrl
       imageAlt
       videoUrl
       createdAt
@@ -919,9 +922,12 @@ export const updateHomeChurchInfo = /* GraphQL */ `
     updateHomeChurchInfo(input: $input) {
       id
       elders
-      vacinationRequired
-      hasChildcare
+      customPills
+      vaccinationRequired
       isOnline
+      isYoungAdult
+      isFamilyFriendly
+      isHybrid
       onlineConnectUrl
       ageGroups
       petFree
@@ -929,7 +935,7 @@ export const updateHomeChurchInfo = /* GraphQL */ `
       accessCode
       gender
       extendedDescription
-      imgageUrl
+      imageUrl
       imageAlt
       videoUrl
       createdAt
@@ -943,9 +949,12 @@ export const deleteHomeChurchInfo = /* GraphQL */ `
     deleteHomeChurchInfo(input: $input) {
       id
       elders
-      vacinationRequired
-      hasChildcare
+      customPills
+      vaccinationRequired
       isOnline
+      isYoungAdult
+      isFamilyFriendly
+      isHybrid
       onlineConnectUrl
       ageGroups
       petFree
@@ -953,7 +962,7 @@ export const deleteHomeChurchInfo = /* GraphQL */ `
       accessCode
       gender
       extendedDescription
-      imgageUrl
+      imageUrl
       imageAlt
       videoUrl
       createdAt
@@ -1328,6 +1337,13 @@ export const createLivestream = /* GraphQL */ `
         title
         link
       }
+      livestreamSections {
+        title
+        links {
+          title
+          link
+        }
+      }
       titles
       homepageLink
       createdAt
@@ -1358,6 +1374,13 @@ export const updateLivestream = /* GraphQL */ `
       zoom {
         title
         link
+      }
+      livestreamSections {
+        title
+        links {
+          title
+          link
+        }
       }
       titles
       homepageLink
@@ -1390,8 +1413,45 @@ export const deleteLivestream = /* GraphQL */ `
         title
         link
       }
+      livestreamSections {
+        title
+        links {
+          title
+          link
+        }
+      }
       titles
       homepageLink
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createRedirect = /* GraphQL */ `
+  mutation CreateRedirect($input: CreateRedirectInput!) {
+    createRedirect(input: $input) {
+      id
+      to
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateRedirect = /* GraphQL */ `
+  mutation UpdateRedirect($input: UpdateRedirectInput!) {
+    updateRedirect(input: $input) {
+      id
+      to
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteRedirect = /* GraphQL */ `
+  mutation DeleteRedirect($input: DeleteRedirectInput!) {
+    deleteRedirect(input: $input) {
+      id
+      to
       createdAt
       updatedAt
     }

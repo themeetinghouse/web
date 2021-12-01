@@ -29,12 +29,12 @@
             "mainHeader": "Sunday Worship",
             "subHeader1": "Welcome home — we’re excited to see you again.",
             "divider": true,
-            "text1": "This season, we’re offering Sunday morning experiences online and in person. To follow public health guidelines, we’ve made some changes to in-person gatherings like limiting capacity and asking people to register online.",
+            "text1": "This season, we’re offering Sunday experiences online and in person. To follow public health guidelines, we’ve made some changes to in-person gatherings like limiting capacity and asking people to register online.",
             "text2": "Keep scrolling for more details and links to register or join the livestream.",
             "header3": "What to expect",
             "graphicItems": [{
-                    "title": "Please register",
-                    "description": "Registration is required for a safe gathering environment.",
+                    "title": "Early Registration",
+                    "description": "Register ahead of time to reserve your spot. (Walk-ins are welcome as capacity allows.)",
                     "image": "/static/svg/Regather-Icon-01.svg"
                 },
                 {
@@ -61,6 +61,11 @@
                     "title": "To sing or not to sing",
                     "description": "Please check your local parish page for singing guidelines.",
                     "image": "/static/svg/Regather-No_singing.svg"
+                },
+                {
+                    "title": "Vaccine Passport",
+                    "description": "Some of our rental locations require vaccine passports to attend. Please check your local parish page for updates.",
+                    "image": "/static/svg/Regather-Syringe.svg"
                 }
             ],
             "header4": "Livestream",
@@ -69,9 +74,9 @@
                 "action": "/live",
                 "type": "outline notmobile"
             },
-            "header5": "Online Registration",
-            "text3": "Anyone attending an in-person gathering will need to pre-register online. The registration window will be open each week from 5pm on Sunday to 5pm on Thursday.",
-            "text4": "We’ll ask for your contact info in case we need to reach you about a COVID related issue. When you show up on a Sunday morning, one of our amazing volunteers will check you in and confirm your health screening.",
+            "header5": "Early Registration",
+            "text3": "By registering early, you reserve your spot! If you forget, you can always walk in and we’ll seat you if we’ve got space within our capacity limits. The registration window will be open each week from 5pm on Sunday to 5pm on Thursday.",
+            "text4": "We’ll ask for your contact info in case we need to reach you about a COVID-related issue. When you show up on a Sunday, one of our amazing volunteers will check you in and confirm your health screening.",
             "button3": {
                 "text": "Register Now",
                 "type": "solid mobile"

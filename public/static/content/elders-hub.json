@@ -74,15 +74,6 @@
           "type": "list",
           "style": "horizontal",
           "class": "videos",
-          "subclass": "Home Church Hangouts",
-          "limit": 25,
-          "sortOrder": "DESC",
-          "header1": "Home Church Hangout Videos"
-        },
-        {
-          "type": "list",
-          "style": "horizontal",
-          "class": "videos",
           "subclass": "HC101",
           "limit": 25,
           "sortOrder": "DESC",
@@ -106,6 +97,11 @@
               "type": "link",
               "title": "Elders Toolbox",
               "navigateTo": "https://drive.google.com/drive/folders/0B-JVWCBiOuinfmFGb3A3eTZ1LTU1cTl2d08wa09wMmJIbWhzTzlEUTAtelZTSmVxVnhJUVU?resourcekey=0-8aDPoskI5t0tbs7BEdMK6g&usp=sharing"
+            },
+            {
+              "type": "link",
+              "title": "Home Church Signs",
+              "navigateTo": "/static/pdfs/elders-hub/TMH_HC_Question_Signs_8.5x11.pdf"
             }
           ],
           "image1": [

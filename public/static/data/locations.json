@@ -38,7 +38,7 @@
   {
     "id": "ancaster",
     "name": "Ancaster",
-    "pastorEmail": "Matt.Collins@themeetinghouse.com",
+    "pastorEmail": "Don.Corry@themeetinghouse.com",
     "location": {
       "longitude": -79.95394369999997,
       "latitude": 43.2272571,
@@ -53,7 +53,7 @@
     "location": {
       "longitude": -79.768112,
       "latitude": 43.733024,
-      "address": "SilverCity Brampton, 50 Great Lakes Drive"
+      "address": "Join Us Online"
     },
     "serviceTimes": ["10:00"]
   },
@@ -93,7 +93,7 @@
   {
     "id": "toronto-downtown",
     "name": "Toronto - Downtown",
-    "pastorEmail": "Rob.Schlenberg@themeetinghouse.com",
+    "pastorEmail": "Steve.Macdouell@themeetinghouse.com",
     "location": {
       "longitude": -79.391418,
       "latitude": 43.648869,
@@ -126,7 +126,7 @@
   {
     "id": "toronto-high-park",
     "name": "Toronto - High Park",
-    "pastorEmail": "Rob.Schlenberg@themeetinghouse.com",
+    "pastorEmail": "Rob.Schellenberg@themeetinghouse.com",
     "location": {
       "longitude": -79.4921797,
       "latitude": 43.6584924,
@@ -137,7 +137,7 @@
   {
     "id": "kitchener",
     "name": "Kitchener",
-    "pastorEmail": "patti.larsen@themeetinghouse.com ",
+    "pastorEmail": "jordan.duerrstein@themeetinghouse.com ",
     "location": {
       "longitude": -80.387502,
       "latitude": 43.4054,
@@ -205,17 +205,6 @@
     "serviceTimes": ["15:00"]
   },
 
-  {
-    "id": "owen-sound",
-    "name": "Owen Sound",
-    "pastorEmail": "",
-    "location": {
-      "longitude": -80.933555,
-      "latitude": 44.573804,
-      "address": "St. Mary's High School, 555 15th Street East"
-    },
-    "serviceTimes": ["10:00"]
-  },
   {
     "id": "parry-sound",
     "name": "Parry Sound",

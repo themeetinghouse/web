@@ -70,14 +70,14 @@ export class SundayMorningItem extends React.Component<Props, State> {
 
     const today = moment.tz('America/Toronto').format('YYYY-MM-DD');
     if (this.props.content.alternate === 'christmas') {
-      if (today === '2020-12-24')
+      if (today === '2021-12-24')
         this.interval = setInterval(() => this.tick(), 1500);
     }
     DataLoader.getLocations(this.props.content as LocationQuery).then(
       (myJson) => {
         if (
           this.props.content.alternate === 'christmas' &&
-          today === '2020-12-24'
+          today === '2021-12-24'
         ) {
           const rightNow = moment().tz('America/Toronto').format('HH:mm');
           const filteredEvents = myJson.filter((livestream: any) => {
@@ -237,7 +237,6 @@ export class SundayMorningItem extends React.Component<Props, State> {
           travelMode: this.state.travelMode,
         },
         (res, status) => {
-          console.log(res);
           if (status === 'OK') {
             for (const distanceItem of res.rows[0].elements) {
               const site =
@@ -402,8 +401,8 @@ export class SundayMorningItem extends React.Component<Props, State> {
                           <div className="SundayMorningMapInfoWindowAddress">
                             {this.state.selectedPlace.location.address}
                           </div>
-                          {this.props.content.alternate ===
-                          'christmas' ? null : (
+                          {this.props.content.alternate === 'christmas' ||
+                          this.props.content.alternate === 'youth' ? null : (
                             <div className="SundayMorningMapInfoWindowDay">
                               Sundays
                             </div>
@@ -548,6 +547,7 @@ export class SundayMorningItem extends React.Component<Props, State> {
                                   : null}
                               </div>
                               {this.props.content.alternate === 'christmas' ||
+                              this.props.content.alternate === 'youth' ||
                               this.props.content.alternate ===
                                 'easter' ? null : (
                                 <div className="SundayMorningServiceDay">
@@ -563,9 +563,13 @@ export class SundayMorningItem extends React.Component<Props, State> {
                                 </div>
                               ) : (
                                 <div className="SundayMorningServiceTimes">
-                                  {item.serviceTimes
-                                    .map((t) => t + ' am')
-                                    .join(', ')}
+                                  {this.props.content.alternate === 'youth'
+                                    ? item.serviceTimes
+                                        .map((t) => t + '')
+                                        .join(', ')
+                                    : item.serviceTimes
+                                        .map((t) => t + ' am')
+                                        .join(', ')}
                                 </div>
                               )}
                             </div>

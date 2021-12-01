@@ -5,7 +5,6 @@
 	REGION
 Amplify Params - DO NOT EDIT */
 var AWS = require('aws-sdk');
-
 export const handler = async (event) => {
   try {
     const pinpoint = new AWS.Pinpoint({ apiVersion: '2016-12-01' });
@@ -27,17 +26,8 @@ export const handler = async (event) => {
     const campaign = await pinpoint.createCampaign(params).promise();
     console.log(campaign);
 
-    const response = {
-      statusCode: 200,
-      //  Uncomment below to enable CORS requests
-      //  headers: {
-      //      "Access-Control-Allow-Origin": "*",
-      //      "Access-Control-Allow-Headers": "*"
-      //  },
 
-      body: JSON.stringify(true),
-    };
-    return response;
+    return true;
   } catch (error: any) {
     console.log({ ERROR: error });
     return { statusCode: '402', error: { message: error.message } };
