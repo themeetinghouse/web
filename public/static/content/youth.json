@@ -53,21 +53,21 @@
         "text1": "Here's what we're learning in Jr High Weekend this week:",
         "image1": [
           {
-            "src": "/static/images/jrhigh-MarkBecauseJesus-Nov28.jpg",
-            "alt": "Mark Because Jesus."
+            "src": "/static/images/ky-jrhigh-Matthew Get Up.jpg",
+            "alt": "Matthew Get Up."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Weekend Lesson",
-            "navigateTo": "/static/pdfs/youth-files/JrHighLessonNov28.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 1 - Get Up - JH Weekend.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
-            "title": "Download Weekend Take Home",
-            "navigateTo": "/static/pdfs/youth-files/JrHighTakeHomeNov28.pdf",
+            "title": "Download Weekend Activities",
+            "navigateTo": "/static/pdfs/youth-files/JHWEActivitiesDec5.pdf",
             "openNewBrowser": true
           }
         ]
@@ -89,21 +89,21 @@
         "text1": "Here's what our Jr High Midweek students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/youth-MarkBecauseJesus-Nov28.jpg",
-            "alt": "Mark Because Jesus."
+            "src": "/static/images/ky-youth-Matthew Get Up.jpg",
+            "alt": "Matthew Get Up."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Midweek Lesson",
-            "navigateTo": "/static/pdfs/youth-files/YouthLessonNov28.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 1 - Get Up - JH Midweek.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Midweek Small Group Leader Notes",
-            "navigateTo": "/static/pdfs/youth-files/YouthSGLNNov28.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 1 - Get Up - JH Midweek SGL Notes.pdf",
             "openNewBrowser": true
           }
         ]
