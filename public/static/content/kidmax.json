@@ -44,27 +44,27 @@
         "text1": "Here's what we're learning in early years this week:",
         "image1": [
           {
-            "src": "/static/images/EYBigIdeaNov.jpg",
-            "alt": "This month's big idea: God is with me."
+            "src": "/static/images/EYBigIdeaDec.jpg",
+            "alt": "This month's big idea: Jesus is the king of kings."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/EYLessonNov28.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYLessonDec5.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesNov28.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesDec5.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Key Verse Colouring Page",
-            "navigateTo": "/static/pdfs/kidmax-files/EYNovemberColouring.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYDecColouring.pdf",
             "openNewBrowser": true
           }
         ]
@@ -86,27 +86,27 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaNov28.jpg",
-            "alt": "This week's big idea is: Everyone has a part to play in God's big story."
+            "src": "/static/images/KidsBigIdeaDec5.jpg",
+            "alt": "This week's big idea is: Jesus shows us God's never-ending love."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonNov28.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonDec5.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesNov28.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesDec5.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Key Verse Colouring Page",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsNovemberColouring.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsDecColouring.pdf",
             "openNewBrowser": true
           }
         ]
