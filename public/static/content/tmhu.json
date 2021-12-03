@@ -39,14 +39,9 @@
         {
           "type": "content",
           "style": "oneImage",
-          "header1": "We're On Your Team",
-          "text1": "Community is a party and we want to make sure everyone's invited. Ready to connect with people who want to do this together?",
+          "header1": "Jesus 101",
+          "text1": "Jesus 101 is a three-part course exploring who Jesus was, what his message is, and what it means to follow him. Anyone who wants to learn more about Jesus or discipleship is welcome!. Registration opens December 7, 2021.",
           "list": [
-            {
-              "type": "link",
-              "title": "Find Community",
-              "navigateTo": "/community"
-            }
           ],
           "image1": [
             {
@@ -58,19 +53,9 @@
         {
           "type": "content",
           "style": "oneImageBlackRight",
-          "header1": "Fall 2021",
-          "text1": "Church is going to look different this fall. Whether you're watching online or planning to join our in-person gatherings, keep checking back here for all the details on how you can get engaged.",
+          "header1": "Bible 101",
+          "text1": "An overview of the big story of the Bible, from Genesis to Revelation. This course should help you zoom out to see the larger “meta-narrative” of Scripture, so that studying specific books or passages will make more sense in their context. Registration opens December 7, 2021.",
           "list": [
-            {
-              "type": "link",
-              "title": "See our plan",
-              "navigateTo": "/fall2021"
-            },
-            {
-              "type": "link",
-              "title": "Sunday Registration",
-              "navigateTo": "/registration"
-            }
           ],
           "image1": [
             {
