@@ -1,9 +1,9 @@
 {
     "page": {
-      "name": "kidmax",
-      "title": "Kidmax",
-      "keywords": "kidmax, kids ministry, children's ministry",
-      "description": "Kidmax is our kid's ministry at The Meeting House.",
+      "name": "tmhu",
+      "title": "Tmhu",
+      "keywords": "TMHU, Home Church, Courses",
+      "description": "TMHU is a collection of spiritual courses at The Meeting House.",
       "pageConfig": {
         "showLive": true,
         "movingMenu": false,
@@ -16,23 +16,23 @@
       "content": [
         {
           "type": "og-tags",
-          "image": "/static/images/sunday-morning-1.jpg",
-          "url": "https://www.themeetinghouse.com/kidmax",
-          "title": "Kidmax",
-          "description": "What we're learning this week in Kidmax."
+          "image": "/static/images/tmhu.png",
+          "url": "https://www.themeetinghouse.com/tmhu",
+          "title": "TMHU",
+          "description": "Check out our latest TMHU courses."
         },
         {
           "type": "hero",
           "style": "full",
           "image1": [
             {
-              "src": "/static/images/sunday-morning-1.jpg",
-              "alt": "A mother is holding her young child and smiling at the camera."
+              "src": "/static/images/tmhu.png",
+              "alt": "A graphic with the tmhu logo"
             }
           ],
           "header1": "TMHU January Term",
           "header2": "",
-          "text1": "We've got an exciting opportunity to run a number of TMHU courses throughout the month of January.",
+          "text1": "TMHU is a collection of spiritual courses created and run by The Meeting House. We've got an exciting opportunity this January to run a variety of courses.",
           "button1Text": "Looking to connect?",
           "button1Action": "/kidmax-connect"
         },
@@ -47,8 +47,8 @@
           ],
           "image1": [
             {
-              "src": "/static/images/homepage-2-new.jpg",
-              "alt": "Group of friends from church sitting together, and talking."
+              "src": "/static/images/spirituality-2.jpg",
+              "alt": "Bruxy teaching a small group"
             }
           ]
         },
@@ -63,8 +63,8 @@
           ],
           "image1": [
             {
-              "src": "/static/images/Fall2021-1.jpg",
-              "alt": "Two men inside of a building smiling and hugging."
+              "src": "/static/images/spirituality-3.jpg",
+              "alt": "Two people sitting and talking during Home Church"
             }
           ]
         },
@@ -79,8 +79,8 @@
           ],
           "image1": [
             {
-              "src": "/static/images/homepage-2-new.jpg",
-              "alt": "Group of friends from church sitting together, and talking."
+              "src": "/static/images/homepage-4-2-new.jpg",
+              "alt": "Team of pastors from The Meeting House sitting around a table and recording a podcast."
             }
           ]
         },
@@ -95,8 +95,8 @@
           ],
           "image1": [
             {
-              "src": "/static/images/Fall2021-1.jpg",
-              "alt": "Two men inside of a building smiling and hugging."
+              "src": "/static/images/sunday-morning-1.jpg",
+              "alt": "A mother is holding her young child and smiling at the camera."
             }
           ]
         },
@@ -109,8 +109,8 @@
           ],
           "image1": [
             {
-              "src": "/static/images/homepage-2-new.jpg",
-              "alt": "Group of friends from church sitting together, and talking."
+              "src": "/static/images/community-3-2.jpg",
+              "alt": "Three people sitting around a dining room table eating snacks."
             }
           ]
         }
