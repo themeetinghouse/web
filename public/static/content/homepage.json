@@ -74,6 +74,11 @@
             "type": "link",
             "title": "Find Community",
             "navigateTo": "/community"
+          },
+          {
+            "type": "link",
+            "title": "Sunday Registration",
+            "navigateTo": "/registration"
           }
         ],
         "image1": [
@@ -86,18 +91,13 @@
       {
         "type": "content",
         "style": "oneImageBlackRight",
-        "header1": "Fall 2021",
-        "text1": "Church is going to look different this fall. Whether you're watching online or planning to join our in-person gatherings, keep checking back here for all the details on how you can get engaged.",
+        "header1": "Christmas 2021",
+        "text1": "In one of the busiest months, how do we set aside time to centre on Jesus and what his presence and life mean to us? How do we focus on what matters most?",
         "list": [
           {
             "type": "link",
-            "title": "See our plan",
-            "navigateTo": "/fall2021"
-          },
-          {
-            "type": "link",
-            "title": "Sunday Registration",
-            "navigateTo": "/registration"
+            "title": "Sign up for the Christmas Challenge",
+            "navigateTo": "https://mailchi.mp/166e365df5dd/tmhchristmaschallengesignup"
           }
         ],
         "image1": [
