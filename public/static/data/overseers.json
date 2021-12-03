@@ -12,18 +12,6 @@
     "sites": ["overseer"]
   },
   {
-    "FirstName": "Mario",
-    "LastName": "Ferlanti",
-    "Position": "Nominating, Chair",
-    "sites": ["overseer"]
-  },
-  {
-    "FirstName": "Vincent",
-    "LastName": "John",
-    "Position": "Nominating",
-    "sites": ["overseer"]
-  },
-  {
     "FirstName": "Yohan",
     "LastName": "Mahimwala",
     "Position": "Finance & Audit",
@@ -32,12 +20,6 @@
   {
     "FirstName": "Bruce",
     "LastName": "Miller",
-    "Position": "Governance",
-    "sites": ["overseer"]
-  },
-  {
-    "FirstName": "Angela",
-    "LastName": "Rose",
     "Position": "Governance",
     "sites": ["overseer"]
   },
@@ -64,5 +46,24 @@
     "LastName": "Scott",
     "Position": "Overseer",
     "sites": ["overseer"]
+  },
+  {
+    "FirstName": "Nour",
+    "LastName": "Aziz",
+    "Position": "Overseer",
+    "sites": ["overseer"]
+  },
+  {
+    "FirstName": "Isaac",
+    "LastName": "Hoogland",
+    "Position": "Overseer",
+    "sites": ["overseer"]
+  },
+  {
+    "FirstName": "Jamie",
+    "LastName": "van Manen",
+    "Position": "Overseer",
+    "sites": ["overseer"]
   }
+
 ]
