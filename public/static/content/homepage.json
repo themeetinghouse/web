@@ -96,6 +96,11 @@
         "list": [
           {
             "type": "link",
+            "title": "Christmas 2021",
+            "navigateTo": "/christmas"
+          },
+          {
+            "type": "link",
             "title": "Sign up for the Christmas Challenge",
             "navigateTo": "https://mailchi.mp/166e365df5dd/tmhchristmaschallengesignup"
           }
