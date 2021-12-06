@@ -1,5 +1,5 @@
 @use '../../theme';
-@use "sass:math";
+@use 'sass:math';
 .pieText {
   position: absolute;
   top: 50%;
@@ -645,7 +645,7 @@
     margin-bottom: 12vw;
     position: relative;
     left: 25vw;
-    width: 73vw;
+    width: 70vw;
     height: 24vw;
     border: solid 28px theme.$onyxblacktext;
     border-right: 0vw;
