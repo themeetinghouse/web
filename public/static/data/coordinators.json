@@ -23,6 +23,7 @@
   {
     "FirstName": "Leslie",
     "LastName": "Pachuk",
+    "Phone": "905.808.7897",
     "sites": ["Counsellors"],
     "Email": "leslie.pashuk@gmail.com",
     "Position": "Counsellor"
@@ -30,6 +31,7 @@
   {
     "FirstName": "Rebecca",
     "LastName": "Roberts",
+    "Phone": "647.283.3856",
     "sites": ["Counsellors"],
     "Email": "rebeccarobertscounselling@gmail.com",
     "Position": "Counsellor"
@@ -37,6 +39,7 @@
   {
     "FirstName": "Ruth",
     "LastName": "Smith",
+    "Phone": "905.467.7103",
     "sites": ["Counsellors"],
     "Email": "aresmith77@gmail.com",
     "Position": "Counsellor"
