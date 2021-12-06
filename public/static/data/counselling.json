@@ -1,0 +1,30 @@
+[
+    {
+      "Staff": false,
+      "FirstName": "Leslie",
+      "LastName": "Pashuk",
+      "Phone": "905.808.7897",
+      "Position": "Counsellor",
+      "sites": ["Counselling"],
+      "Email": "leslie.pashuk@gmail.com"
+    },
+    {
+      "Staff": false,
+      "FirstName": "Rebecca",
+      "LastName": "Roberts",
+      "Phone": "647.283.3856",
+      "Position": "Counsellor",
+      "sites": ["Counselling"],
+      "Email": "rebeccarobertscounselling@gmail.com"
+    },
+    {
+      "Staff": false,
+      "FirstName": "Rebecca",
+      "LastName": "Roberts",
+      "Phone": "647.283.3856",
+      "Position": "Counsellor",
+      "sites": ["Counselling"],
+      "Email": "rebeccarobertscounselling@gmail.com"
+    }
+  ]
+  
