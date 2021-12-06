@@ -130,6 +130,7 @@ export interface StaffData {
   Email: string;
   instagram?: string;
   twitter?: string;
+  ImageVersion: string | null | undefined;
 }
 
 export interface OverseerQuery extends DataLoaderQuery {
@@ -141,6 +142,7 @@ export interface OverseerData {
   LastName: string;
   Position: string;
   sites: string[];
+  ImageVersion: string | null | undefined;
 }
 
 export type PeopleData = StaffData | OverseerData;

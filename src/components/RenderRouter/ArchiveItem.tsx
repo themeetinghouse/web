@@ -20,8 +20,8 @@ interface Props extends RouteComponentProps {
   pageConfig: any;
 }
 interface State {
-  listData: listData[];
-  overlayData: listData;
+  listData: listData[] | null;
+  overlayData: listData | null;
   urlHistoryState: string | null;
   selectedYear: string;
   yearOptions: string[];

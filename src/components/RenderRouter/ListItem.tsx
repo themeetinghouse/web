@@ -605,7 +605,9 @@ class ListItem extends React.Component<Props, State> {
     if (isMobile) {
       const item = items as OverseerData;
       const image = {
-        src: `/static/photos/overseers/${item.FirstName}_${item.LastName}_app.jpg`,
+        src: `/static/photos/overseers/${item.FirstName}_${item.LastName}_app${
+          item.ImageVersion ? '_' + item.ImageVersion : ''
+        }.jpg`,
         alt: `Head shot of ${item.FirstName} ${item.LastName}`,
       };
       return (
@@ -635,7 +637,9 @@ class ListItem extends React.Component<Props, State> {
       <div className="StaffFlexArea" key={index}>
         {(items as OverseerData[]).map((item, index: number) => {
           const image = {
-            src: `/static/photos/overseers/${item.FirstName}_${item.LastName}_app.jpg`,
+            src: `/static/photos/overseers/${item.FirstName}_${
+              item.LastName
+            }_app${item.ImageVersion ? '_' + item.ImageVersion : ''}.jpg`,
             alt: `Head shot of ${item.FirstName} ${item.LastName}`,
           };
           return (
@@ -768,7 +772,9 @@ class ListItem extends React.Component<Props, State> {
         data.FirstName +
         '_' +
         data.LastName +
-        '_app.jpg';
+        '_app' +
+        (data.ImageVersion ? '_' + data.ImageVersion : '') +
+        '.jpg';
       return (
         <div key={index} className="ListItemDiv3">
           <ScaledImage
@@ -850,7 +856,9 @@ class ListItem extends React.Component<Props, State> {
             item.FirstName +
             '_' +
             item.LastName +
-            '_app.jpg';
+            '_app' +
+            (item.ImageVersion ? '_' + item.ImageVersion : '') +
+            '.jpg';
           return (
             <div key={index} className="StaffItem">
               <ScaledImage
