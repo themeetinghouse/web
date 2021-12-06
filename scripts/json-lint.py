@@ -394,7 +394,7 @@ if __name__ == '__main__':
                         assert(isinstance(current_json, list))
                         for coordinator in current_json:
                             coordinator_keys = list(coordinator.keys())
-                            assert(len(coordinator_keys) == 4 or len(coordinator_keys) == 5)
+                            assert(len(coordinator_keys) == 4 or len(coordinator_keys) == 5 or len(coordinator_keys) == 6)
                             if 'Phone' in coordinator_keys:
                                 for i in ['FirstName', 'LastName', 'Email', 'Position', 'Phone']:
                                     assert(isinstance(coordinator[i], str))
