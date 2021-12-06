@@ -60,10 +60,12 @@
           "text1": "Below is the contact information for professional counsellors who have indicated that they are willing to be available to our Meeting House church family, should anyone require support.  These counsellors are each available for appointments by phone, zoom and in person."
         },
         {
-            "type": "list",
-            "style": "staff",
-            "class": "counselling",
-            "header1": "Professional Counsellors"
+          "type": "list",
+          "style": "staff",
+          "class": "staff",
+          "header1": "Counsellors",
+          "filterField": "sites",
+          "filterValue": "Counsellors"
         }
       ]
     }

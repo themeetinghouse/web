@@ -21,6 +21,27 @@
     "Position": "Compassion Coordinator"
   },
   {
+    "FirstName": "Leslie",
+    "LastName": "Pachuk",
+    "sites": ["Counsellors"],
+    "Email": "leslie.pashuk@gmail.com",
+    "Position": "Counsellor"
+  },
+  {
+    "FirstName": "Rebecca",
+    "LastName": "Roberts",
+    "sites": ["Counsellors"],
+    "Email": "rebeccarobertscounselling@gmail.com",
+    "Position": "Counsellor"
+  },
+  {
+    "FirstName": "Ruth",
+    "LastName": "Smith",
+    "sites": ["Counsellors"],
+    "Email": "aresmith77@gmail.com",
+    "Position": "Counsellor"
+  },
+  {
     "FirstName": "Melinda",
     "LastName": "Lubbers",
     "sites": ["BRFD"],
