@@ -78,11 +78,6 @@
           },
           {
             "type": "link",
-            "title": "Facilities Assistant",
-            "navigateTo": "/static/pdfs/careers/Facility Assistant 2021.pdf"
-          },
-          {
-            "type": "link",
             "title": "Hamilton Youth Pastor",
             "navigateTo": "/static/pdfs/careers/Hamilton Youth Pastor 2021.pdf"
           }
