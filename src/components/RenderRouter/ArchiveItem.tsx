@@ -59,7 +59,7 @@ class ArchiveItem extends React.Component<Props, State> {
           );
         }
         loadSeriesByType().then(() => {
-          if (this.state.listData.length === 0) {
+          if (this.state.listData?.length === 0) {
             //no data returned
             this.props.history.replace('/not-found');
           } else {
@@ -72,7 +72,7 @@ class ArchiveItem extends React.Component<Props, State> {
           await DataLoader.getVideos(query, dataLoaded, listenForNullToken);
         }
         loadVideos().then(() => {
-          if (this.state.listData.length === 0) {
+          if (this.state.listData?.length === 0) {
             //no data returned
             this.props.history.replace('/not-found');
           } else {
@@ -116,7 +116,7 @@ class ArchiveItem extends React.Component<Props, State> {
 
   setData(data: listData[]) {
     this.setState({
-      listData: this.state.listData.concat(data),
+      listData: this.state.listData?.concat(data) ?? null,
     });
   }
 
@@ -299,9 +299,12 @@ class ArchiveItem extends React.Component<Props, State> {
     if (
       this.props.data &&
       !this.state.currentNextToken &&
-      this.state.listData.length > 0
+      (this.state.listData?.length ?? 0) > 0
     ) {
-      const binnedData = this.binByYear(this.state.listData, this.sliceDate);
+      const binnedData = this.binByYear(
+        this.state.listData ?? [],
+        this.sliceDate
+      );
       return (
         <div className="ArchiveItemDiv1">
           {this.renderYearSelector(binnedData.years)}
@@ -332,7 +335,7 @@ class ArchiveItem extends React.Component<Props, State> {
         </div>
       );
     } else {
-      if (this.state.listData.length === 0) {
+      if (this.state.listData?.length === 0) {
         return null;
       }
       return (

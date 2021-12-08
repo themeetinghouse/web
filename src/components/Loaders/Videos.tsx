@@ -67,7 +67,7 @@ export default function Videos({ isPlaylist }: Params): ReactElement | null {
               history.replace('/not-found');
             else if (videos[0] == null || videos[0] == undefined)
               history.replace('/not-found');
-            else setData(videos[0]);
+            else setData(videos[0] as any);
           }
         } catch (e) {
           console.error(e);

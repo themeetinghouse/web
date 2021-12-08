@@ -66,9 +66,9 @@ type BlogPostList = NonNullable<
 
 interface State {
   blogObject: CreateBlogInput;
-  blogToEditObject: NonNullable<
-    NonNullable<ListBlogsQuery['listBlogs']>['items']
-  >[0];
+  blogToEditObject:
+    | NonNullable<NonNullable<ListBlogsQuery['listBlogs']>['items']>[0]
+    | null;
   editorState: EditorState;
   disableCalendar: boolean;
   publishDate: Date;
