@@ -63,13 +63,8 @@
             "title": "Download Weekend Lesson",
             "navigateTo": "/static/pdfs/youth-files/Wk 2 - Get Up - JH Weekend.pdf",
             "openNewBrowser": true
-          },
-          {
-            "type": "link",
-            "title": "No Weekend Activities",
-            "navigateTo": "",
-            "openNewBrowser": true
           }
+      
         ]
       },
       {

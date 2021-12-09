@@ -58,11 +58,6 @@
         "list": [
           {
             "type": "link",
-            "title": "Communications Director",
-            "navigateTo": "/static/pdfs/careers/Communications Director 2022.pdf"
-          },
-          {
-            "type": "link",
             "title": "Creative Manager",
             "navigateTo": "/static/pdfs/careers/Creative Manager 2022.pdf"
           },
