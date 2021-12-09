@@ -52,13 +52,13 @@
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/EYLessonDec5.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYLessonDec12.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesDec5.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesDec12.pdf",
             "openNewBrowser": true
           },
           {
@@ -86,21 +86,21 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaDec5.jpg",
-            "alt": "This week's big idea is: Jesus shows us God's never-ending love."
+            "src": "/static/images/KidsBigIdeaDec12.jpg",
+            "alt": "This week's big idea is: Jesus is God with us."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonDec5.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonDec12.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesDec5.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesDec12.pdf",
             "openNewBrowser": true
           },
           {
