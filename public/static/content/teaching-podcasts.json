@@ -56,14 +56,6 @@
             "url": "/podcast/143889873"
           }
         ]
-      },
-      {
-        "type": "list",
-        "style": "horizontal",
-        "class": "videos",
-        "subclass": "after-party",
-        "sortOrder": "DESC",
-        "header1": "The After Party"
       }
     ]
   }
