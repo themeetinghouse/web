@@ -55,7 +55,7 @@
           {
             "type": "link",
             "title": "Invite a friend",
-            "navigateTo": "instagram.com/themeetinghouse",
+            "navigateTo": "https://www.instagram.com/themeetinghouse/",
             "description": "Link to The Meeting House Instagram page."
           }
         ]
@@ -80,7 +80,7 @@
             "description": "Link to sign up for the Christmas Challenge."
           },
           {
-            "type": "link",
+            "type": "email",
             "title": "Share Your Experience",
             "navigateTo": "ask@themeetinghouse.com",
             "description": "Link to share experience via email."
