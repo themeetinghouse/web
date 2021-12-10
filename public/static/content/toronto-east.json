@@ -43,10 +43,10 @@
             "alt": "A large group of people hanging out together in an open concept living room for Home Church."
           }
         ],
-        "header1": "Toronto East",
+        "header1": "East Toronto",
         "text1": "Sundays at 10:00am",
-        "text2": "Kids and Youth program available",
-        "text3": "for age 3 to Grade 8",
+        "text2": "Kids and Youth program available for age 3 to Grade 8",
+        "text3": "Christmas Eve on Dec 23 at 6:30pm (Beach United Church)",
         "customLiveLink": "themeetinghouse.com/live",
         "addToCalendar": true,
         "contactPastor": true,
@@ -63,6 +63,27 @@
         "header2": "News and Updates",
         "backgroundColor": "white",
         "lessPadding": true
+      },
+      {
+        "type": "content",
+        "style": "oneImage",
+        "header1": "What Matters Most.",
+        "header2": "East Toronto Christmas",
+        "text1": "December 23 at 6:30pm (Beach United Church, 140 Wineva Ave, Toronto)",
+        "image1": [
+          {
+            "src": "/static/images/Christmas Gathering Website.jpg",
+            "alt": "What Matters Most on a computer surrounded by Christmas decor."
+          }
+        ],
+        "list": [
+          {
+            "type": "link",
+            "title": "Invite a friend",
+            "navigateTo": "https://www.instagram.com/themeetinghouse/",
+            "description": "Link to The Meeting House Instagram page."
+          }
+        ]
       },
       {
         "type": "list",
