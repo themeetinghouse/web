@@ -40,6 +40,24 @@
         }
       },
       {
+        "type": "hero",
+        "style": "partialNoFooter",
+        "image1": [
+          {
+            "src": "/static/svg/Christmas2021-Map.svg",
+            "alt": "A map representing locations of The Meeting House churches."
+          }
+        ],
+        "header1": "Find an in-person gathering close to you",
+        "text1": "Check out the list of local in-person Christmas gatherings happening this December and find out all the details.",
+        "text2": "Find local, connect online.",
+        "link1Text": "Show Map",
+        "link1AriaLabel": "View a map of all church locations",
+        "link1Action": "/find-sunday-morning",
+        "class": "locations",
+        "showLocationSearch": true
+      },
+      {
         "type": "content",
         "style": "oneImage",
         "header1": "What Matters Most.",
