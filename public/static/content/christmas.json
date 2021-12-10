@@ -41,7 +41,7 @@
       },
       {
         "type": "hero",
-        "style": "partialNoFooter",
+        "style": "partial",
         "image1": [
           {
             "src": "/static/svg/Christmas2021-Map.svg",
