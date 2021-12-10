@@ -122,7 +122,7 @@
         },
         "socialBotHandler": {
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "s3Key": "amplify-builds/socialBotHandler-356435453137546e4130-build.zip"
+          "s3Key": "amplify-builds/socialBotHandler-767944776436716a4750-build.zip"
         },
         "tmhF1HomeChurch": {
           "userPoolId": "us-east-1_KiJzP2dH5",

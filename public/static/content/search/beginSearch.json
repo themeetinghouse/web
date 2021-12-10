@@ -29,7 +29,7 @@
         "text1": "All of our videos in one place.",
         "navigateTo": "https://themeetinghouse.com/teaching",
         "image1": {
-          "src": "static/images/corona-2-3.jpg",
+          "src": "/static/images/corona-2-3.jpg",
           "alt": "Screen shot of Jimmy teaching during Sunday morning livestream at The Meeting House."
         }
       },
