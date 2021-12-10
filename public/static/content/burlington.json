@@ -45,8 +45,8 @@
         ],
         "header1": "Burlington",
         "text1": "Sundays at 10:00am",
-        "text2": "Kids and Youth program available",
-        "text3": "from Infants to Grade 8.",
+        "text2": "Kids and Youth program available from Infants to Grade 8",
+        "text3": "Christmas Eve on Dec 19 at 3:00pm (2365 Britannia Road)",
         "customLiveLink": "themeetinghouse.com/live",
         "addToCalendar": true,
         "contactPastor": true,
@@ -63,6 +63,27 @@
         "header2": "News and Updates",
         "backgroundColor": "white",
         "lessPadding": true
+      },
+      {
+        "type": "content",
+        "style": "oneImage",
+        "header1": "What Matters Most.",
+        "header2": "Burlington Christmas",
+        "text1": "December 19 at 3:00pm (2365 Britannia Road).",
+        "image1": [
+          {
+            "src": "/static/images/Christmas Gathering Website.jpg",
+            "alt": "What Matters Most on a computer surrounded by Christmas decor."
+          }
+        ],
+        "list": [
+          {
+            "type": "link",
+            "title": "Invite a friend",
+            "navigateTo": "https://www.instagram.com/themeetinghouse/",
+            "description": "Link to The Meeting House Instagram page."
+          }
+        ]
       },
       {
         "type": "list",
