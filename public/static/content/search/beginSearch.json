@@ -51,7 +51,7 @@
         "text1": "Want to make a donation?",
         "navigateTo": "https://themeetinghouse.com/give",
         "image1": {
-          "src": "/static/images/give.jpg",
+          "src": "/static/images/og-images/give.jpg",
           "alt": "A person watching sunday teaching on a laptop"
         }
       }
