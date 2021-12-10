@@ -45,8 +45,8 @@
         ],
         "header1": "Hamilton Mountain",
         "text1": "Sundays at 10:00am",
-        "text2": "Kids and Youth program available",
-        "text3": "for Infants to Grade 8",
+        "text2": "Kids and Youth program available for Infants to Grade 8",
+        "text3": "Christmas Eve at 6:00pm & 7:30pm (Gasworks)",
         "customLiveLink": "themeetinghouse.com/live",
         "addToCalendar": true,
         "contactPastor": true,
@@ -63,6 +63,27 @@
         "header2": "News and Updates",
         "backgroundColor": "white",
         "lessPadding": true
+      },
+      {
+        "type": "content",
+        "style": "oneImage",
+        "header1": "What Matters Most.",
+        "header2": "Ancaster Christmas Eve",
+        "text1": "December 24 at 6:00pm & 7:30pm (Gasworks)",
+        "image1": [
+          {
+            "src": "/static/images/Christmas Gathering Website.jpg",
+            "alt": "What Matters Most on a computer surrounded by Christmas decor."
+          }
+        ],
+        "list": [
+          {
+            "type": "link",
+            "title": "Invite a friend",
+            "navigateTo": "https://www.instagram.com/themeetinghouse/",
+            "description": "Link to The Meeting House Instagram page."
+          }
+        ]
       },
       {
         "type": "list",
