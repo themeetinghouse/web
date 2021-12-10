@@ -16,7 +16,7 @@
     "content": [
       {
         "type": "og-tags",
-        "image": "/static/images/Christmas_Web Hero.jpg",
+        "image": "/static/images/ChristmasWebHero.jpg",
         "url": "https://www.themeetinghouse.com/christmas",
         "title": "Christmas",
         "description": ""
@@ -26,7 +26,7 @@
         "style": "full",
         "image1": [
           {
-            "src": "/static/images/Christmas_Web Hero.jpg",
+            "src": "/static/images/ChristmasWebHero.jpg",
             "alt": "Blue and green background with the word, Jesus."
           }
         ],
