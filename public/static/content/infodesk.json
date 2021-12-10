@@ -52,8 +52,8 @@
           {
             "title": "More about us",
             "text": "We're pretty awesome.",
-            "imageSrc": "/static/images/info-desk-about-us.jpg",
-            "imageAlt": "Man sitting in front of a camera.",
+            "imageSrc": "/static/images/go_hero.jpg",
+            "imageAlt": "Woman sitting in front of a camera.",
             "links": [
               {
                 "to": "/static/pdfs/first-impressions/TMH About Us 2019_v11_WEB.pdf",

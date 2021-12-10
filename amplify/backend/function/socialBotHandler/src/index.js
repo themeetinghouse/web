@@ -224,7 +224,7 @@ exports.handler = async (event, context, callback) => {
 
           const noteTitle3 = data3.title;
           const noteId3 = data3.id;
-          const image3 = `${imageUrl}/static/images/og-images/teaching-curated.jpg`;
+          const image3 = `${imageUrl}/static/images/og-images/live.jpg`;
           const description3 = 'The Meeting House - Notes';
 
           const base64EncodedBody3 = createMarkup(
