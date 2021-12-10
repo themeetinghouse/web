@@ -3,7 +3,7 @@
     "name": "christmas",
     "title": "Christmas",
     "keywords": "christmas",
-    "description": "The page for The Meeting House 2021 Christmas Challenge in partnership with Infinitum.",
+    "description": "The page for The Meeting House 2021 Christmas Eve and Christmas Challenge.",
     "pageConfig": {
       "showLive": true,
       "movingMenu": false,
@@ -16,7 +16,7 @@
     "content": [
       {
         "type": "og-tags",
-        "image": "/static/images/Web-BG.jpg",
+        "image": "/static/images/Christmas_Web Hero.jpg",
         "url": "https://www.themeetinghouse.com/christmas",
         "title": "Christmas",
         "description": ""
@@ -26,8 +26,8 @@
         "style": "full",
         "image1": [
           {
-            "src": "/static/images/Web-BG.jpg",
-            "alt": "Words in pink on a darker pink background."
+            "src": "/static/images/Christmas_Web Hero.jpg",
+            "alt": "Blue and green background with the word, Jesus."
           }
         ],
         "header1": "Christmas",
@@ -38,6 +38,27 @@
           "action": "/videos/Christmas-2021-Infinitum Christmas Challenge/33xWG8KWO_M",
           "description": "Introduction to the Christmas Challenge and video watch button."
         }
+      },
+      {
+        "type": "content",
+        "style": "oneImage",
+        "header1": "What Matters Most.",
+        "header2": "Christmas Eve Livestream",
+        "text1": "Details coming soon.",
+        "image1": [
+          {
+            "src": "/static/images/Christmas Gathering Website.jpg",
+            "alt": "What Matters Most on a computer surrounded by Christmas decor."
+          }
+        ],
+        "list": [
+          {
+            "type": "link",
+            "title": "Invite a friend",
+            "navigateTo": "instagram.com/themeetinghouse",
+            "description": "Link to The Meeting House Instagram page."
+          }
+        ]
       },
       {
         "type": "content",
@@ -57,41 +78,13 @@
             "title": "Sign up for the Christmas Challenge",
             "navigateTo": "https://mailchi.mp/166e365df5dd/tmhchristmaschallengesignup",
             "description": "Link to sign up for the Christmas Challenge."
-          }
-        ]
-      },
-      {
-        "type": "content",
-        "style": "oneImageBlackRight",
-        "header1": "What is Infinitum?",
-        "header2": "Infinitum began as a conversation",
-        "text1": "Infinitum was founded by a small group of friends in 2015 out of a deep desire to pursue Jesus more authentically and intentionally. Leaning on the monastic examples from generations before, Infinitum became a practice and posture for discipleship in the modern world.",
-        "image1": [
-          {
-            "src": "/static/images/Infinitium_Graphic.jpg",
-            "alt": "Black and white photo of two people sitting on a couch and talking."
-          }
-        ],
-        "list": [
+          },
           {
             "type": "link",
-            "title": "Learn More",
-            "navigateTo": "https://infinitumlife.com/",
-            "description": "Registration link for the Christmas Challenge."
+            "title": "Share Your Experience",
+            "navigateTo": "ask@themeetinghouse.com",
+            "description": "Link to share experience via email."
           }
-        ]
-    },
-    {
-      "type": "content",
-      "style": "oneImage",
-      "header1": "What Matters Most",
-      "header2": "Christmas Gatherings",
-      "text1": "Details Coming Soon.",
-      "image1": [
-        {
-          "src": "/static/images/WhatReallyMatters.jpg",
-          "alt": "Blue background with red and blue text."
-        }
       ]
       }
     ]
