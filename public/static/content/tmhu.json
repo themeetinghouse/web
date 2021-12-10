@@ -1,167 +1,166 @@
 {
-    "page": {
-      "name": "tmhu",
-      "title": "Tmhu",
-      "keywords": "TMHU, Home Church, Courses",
-      "description": "TMHU is a collection of spiritual courses at The Meeting House.",
-      "pageConfig": {
-        "showLive": true,
-        "movingMenu": false,
-        "showLogoText": true,
-        "logoColor": "black",
-        "showSearch": true,
-        "showFooter": true,
-        "showMenu": true
+  "page": {
+    "name": "tmhu",
+    "title": "Tmhu",
+    "keywords": "TMHU, Home Church, Courses",
+    "description": "TMHU is a collection of spiritual courses at The Meeting House.",
+    "pageConfig": {
+      "showLive": true,
+      "movingMenu": false,
+      "showLogoText": true,
+      "logoColor": "black",
+      "showSearch": true,
+      "showFooter": true,
+      "showMenu": true
+    },
+    "content": [
+      {
+        "type": "og-tags",
+        "image": "/static/images/tmhu.png",
+        "url": "https://www.themeetinghouse.com/tmhu",
+        "title": "TMHU",
+        "description": "Check out our latest TMHU courses."
       },
-      "content": [
-        {
-          "type": "og-tags",
-          "image": "/static/images/tmhu.png",
-          "url": "https://www.themeetinghouse.com/tmhu",
-          "title": "TMHU",
-          "description": "Check out our latest TMHU courses."
-        },
-        {
-          "type": "hero",
-          "style": "full",
-          "image1": [
-            {
-              "src": "/static/images/homepage-1-1.jpg",
-              "alt": "Man sitting outside on a backyard patio talking and laughing with a group of friends.."
-            },
-            {
-              "src": "/static/images/homepage-1-2.jpg",
-              "alt": "Young man talking to his friend outside a church building."
-            },
-            {
-              "src": "/static/images/homepage-1-3.jpg",
-              "alt": "Young woman sitting at a table with her friends smiling and talking during home church."
-            },
-            {
-              "src": "/static/images/homepage-1-4.jpg",
-              "alt": "Young woman in glasses smiling and speaking with a friend."
-            },
-            {
-              "src": "/static/images/homepage-1-5.jpg",
-              "alt": "Two men talking outside on a backyard patio."
-            },
-            {
-              "src": "/static/images/homepage-1-6.jpg",
-              "alt": "Young woman talking to a friend outside on a backyard patio."
-            },
-            {
-              "src": "/static/images/homepage-1-8.jpg",
-              "alt": "Young woman in a face mask is sitting and talking to a friend off camera."
-            }
-          ],
-          "header1": "TMHU January Term",
-          "header2": "",
-          "text1": "TMHU is a collection of spiritual courses created and run by The Meeting House. We've got an exciting opportunity this January to run a variety of courses."
-        },
-        {
-          "type": "content",
-          "style": "oneImage",
-          "header1": "Jesus 101",
-          "text1": "Jesus 101 is a three-part course exploring who Jesus was, what his message is, and what it means to follow him. Anyone who wants to learn more about Jesus or discipleship is welcome!",
-          "text2":"(Mondays) January 10, 17, 24",
-          "text3":"7:30pm-9:00pm",
-          "list": [
-            {
-              "type": "link",
-              "title": "Register",
-              "navigateTo": "https://meetinghouse.infellowship.com/Forms/464973"
-            } 
-          ],
-          "image1": [
-            {
-              "src": "/static/images/spirituality-2-2.jpg",
-              "alt": "Bruxy teaching a small group"
-            }
-          ]
-        },
-        {
-          "type": "content",
-          "style": "oneImageBlackRight",
-          "header1": "Bible 101",
-          "text1": "An overview of the big story of the Bible, from Genesis to Revelation. This course should help you zoom out to see the larger “meta-narrative” of Scripture, so that studying specific books or passages will make more sense in their context.",
-          "text2":"(Thursdays) January 6, 13, 20, 27",
-          "text3":"7:30pm",
-          "list": [
-            {
-              "type": "link",
-              "title": "Register",
-              "navigateTo": "https://meetinghouse.infellowship.com/Forms/465021"
-            } 
-          ],
-          "image1": [
-            {
-              "src": "/static/images/spirituality-3.jpg",
-              "alt": "Two people sitting and talking during Home Church"
-            }
-          ]
-        },
-        {
-          "type": "content",
-          "style": "oneImage",
-          "header1": "Pop Culture 101",
-          "text1": "This course is intended to help us engage with the world around us in a Jesus-centred way. From healthy use of our devices, to how to avoid being trapped in a social media echo chamber, we'll use tv shows, music, movies, and memes to help us move from being consumers of culture to creators.",
-          "text2":"(Mondays) January 10, 17, 24, 31",
-          "text3":"7:00pm",
-          "list": [
-            {
-              "type": "link",
-              "title": "Register",
-              "navigateTo": "https://meetinghouse.infellowship.com/Forms/465022"
-            } 
-          ],
-          "image1": [
-            {
-              "src": "/static/images/homepage-4-2-new.jpg",
-              "alt": "Team of pastors from The Meeting House sitting around a table and recording a podcast."
-            }
-          ]
-        },
-        {
-          "type": "content",
-          "style": "oneImageBlackRight",
-          "header1": "Loving Today's Kids",
-          "text1": "Learn how this prolonged season of uncertainty and anxiety is impacting our kids and equip them for discipleship as we continue to navigate the choppy waters of culture and trauma. This workshop series will guide through facts about trauma and anxiety, understanding identity in a Jesus-centred way, spiritual disciplines, and activities to foster a culture of prayer and kingdom goodness.",
-          "text2":"(Wednesdays) January 5, 19, 26, and February 2",
-          "text3":"8:00pm-9:00pm",
-          "list": [
-            {
-              "type": "link",
-              "title": "Register",
-              "navigateTo": "https://meetinghouse.infellowship.com/Forms/465023"
-            } 
-          ],
-          "image1": [
-            {
-              "src": "/static/images/kidsyouth-2-3.jpg",
-              "alt": "Two parents walking with their young child."
-            }
-          ]
-        },
-        {
-          "type": "content",
-          "style": "oneImage",
-          "header1": "Spiritual Practices 201",
-          "text1": "Details coming soon.",
-          "list": [
-            {
-              "type": "link",
-              "title": "Register",
-              "navigateTo": "https://meetinghouse.infellowship.com/Forms/465025"
-            } 
-          ],
-          "image1": [
-            {
-              "src": "/static/images/community-3-2.jpg",
-              "alt": "Three people sitting around a dining room table eating snacks."
-            }
-          ]
-        }
-      ]
-    }
+      {
+        "type": "hero",
+        "style": "full",
+        "image1": [
+          {
+            "src": "/static/images/homepage-1-1.jpg",
+            "alt": "Man sitting outside on a backyard patio talking and laughing with a group of friends.."
+          },
+          {
+            "src": "/static/images/homepage-1-2.jpg",
+            "alt": "Young man talking to his friend outside a church building."
+          },
+          {
+            "src": "/static/images/homepage-1-3.jpg",
+            "alt": "Young woman sitting at a table with her friends smiling and talking during home church."
+          },
+          {
+            "src": "/static/images/homepage-1-4.jpg",
+            "alt": "Young woman in glasses smiling and speaking with a friend."
+          },
+          {
+            "src": "/static/images/homepage-1-5.jpg",
+            "alt": "Two men talking outside on a backyard patio."
+          },
+          {
+            "src": "/static/images/homepage-1-6.jpg",
+            "alt": "Young woman talking to a friend outside on a backyard patio."
+          },
+          {
+            "src": "/static/images/homepage-1-8.jpg",
+            "alt": "Young woman in a face mask is sitting and talking to a friend off camera."
+          }
+        ],
+        "header1": "TMHU January Term",
+        "header2": "",
+        "text1": "TMHU is a collection of spiritual courses created and run by The Meeting House. We've got an exciting opportunity this January to run a variety of courses."
+      },
+      {
+        "type": "content",
+        "style": "oneImage",
+        "header1": "Jesus 101",
+        "text1": "Jesus 101 is a three-part course exploring who Jesus was, what his message is, and what it means to follow him. Anyone who wants to learn more about Jesus or discipleship is welcome!",
+        "text2": "(Mondays) January 10, 17, 24",
+        "text3": "7:30pm-9:00pm",
+        "list": [
+          {
+            "type": "link",
+            "title": "Register",
+            "navigateTo": "https://meetinghouse.infellowship.com/Forms/464973"
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/spirituality-2-2.jpg",
+            "alt": "Two men talking"
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "style": "oneImageBlackRight",
+        "header1": "Bible 101",
+        "text1": "An overview of the big story of the Bible, from Genesis to Revelation. This course should help you zoom out to see the larger “meta-narrative” of Scripture, so that studying specific books or passages will make more sense in their context.",
+        "text2": "(Thursdays) January 6, 13, 20, 27",
+        "text3": "7:30pm",
+        "list": [
+          {
+            "type": "link",
+            "title": "Register",
+            "navigateTo": "https://meetinghouse.infellowship.com/Forms/465021"
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/spirituality-3.jpg",
+            "alt": "Two people sitting and talking during Home Church"
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "style": "oneImage",
+        "header1": "Pop Culture 101",
+        "text1": "This course is intended to help us engage with the world around us in a Jesus-centred way. From healthy use of our devices, to how to avoid being trapped in a social media echo chamber, we'll use tv shows, music, movies, and memes to help us move from being consumers of culture to creators.",
+        "text2": "(Mondays) January 10, 17, 24, 31",
+        "text3": "7:00pm",
+        "list": [
+          {
+            "type": "link",
+            "title": "Register",
+            "navigateTo": "https://meetinghouse.infellowship.com/Forms/465022"
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/homepage-4-2-new.jpg",
+            "alt": "Team of pastors from The Meeting House sitting around a table and recording a podcast."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "style": "oneImageBlackRight",
+        "header1": "Loving Today's Kids",
+        "text1": "Learn how this prolonged season of uncertainty and anxiety is impacting our kids and equip them for discipleship as we continue to navigate the choppy waters of culture and trauma. This workshop series will guide through facts about trauma and anxiety, understanding identity in a Jesus-centred way, spiritual disciplines, and activities to foster a culture of prayer and kingdom goodness.",
+        "text2": "(Wednesdays) January 5, 19, 26, and February 2",
+        "text3": "8:00pm-9:00pm",
+        "list": [
+          {
+            "type": "link",
+            "title": "Register",
+            "navigateTo": "https://meetinghouse.infellowship.com/Forms/465023"
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/kidsyouth-2-3.jpg",
+            "alt": "Two parents walking with their young child."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "style": "oneImage",
+        "header1": "Spiritual Practices 201",
+        "text1": "Details coming soon.",
+        "list": [
+          {
+            "type": "link",
+            "title": "Register",
+            "navigateTo": "https://meetinghouse.infellowship.com/Forms/465025"
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/community-3-2.jpg",
+            "alt": "Three people sitting around a dining room table eating snacks."
+          }
+        ]
+      }
+    ]
   }
-  
+}

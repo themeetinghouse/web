@@ -29,8 +29,8 @@
         "text1": "All of our videos in one place.",
         "navigateTo": "https://themeetinghouse.com/teaching",
         "image1": {
-          "src": "/static/images/search-teaching.jpg",
-          "alt": "Bruxy sitting by a video camera"
+          "src": "static/images/corona-2-3.jpg",
+          "alt": "Screen shot of Jimmy teaching during Sunday morning livestream at The Meeting House."
         }
       },
       {
