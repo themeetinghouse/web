@@ -34,7 +34,7 @@
         "header1": "Parry Sound",
         "text1": "Sundays at 10:00am",
         "text2": "Kids and Youth program available from JK to Grade 8",
-        "text3": "Christmas Eve livestream",
+        "text3": "Christmas Eve livestream 5pm & 8pm",
         "customLiveLink": "themeetinghouse.com/live",
         "addToCalendar": true,
         "contactPastor": true,
@@ -46,12 +46,12 @@
         "type": "content",
         "style": "oneImage",
         "header1": "What Matters Most.",
-        "header2": "Parry Sound Christmas Eve",
-        "text1": "Livestream",
+        "header2": "Christmas Eve Livestream",
+        "text1": "Join us online at 5:00pm or 8:00pm. Or both!",
         "image1": [
           {
-            "src": "/static/images/Christmas Gathering Website.jpg",
-            "alt": "What Matters Most on a computer surrounded by Christmas decor."
+            "src": "/static/images/WhatReallyMatters.jpg",
+            "alt": "Blue background with red text."
           }
         ],
         "list": [
