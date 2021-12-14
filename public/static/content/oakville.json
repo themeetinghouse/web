@@ -72,6 +72,12 @@
             "title": "Invite a friend",
             "navigateTo": "https://www.instagram.com/themeetinghouse/",
             "description": "Link to The Meeting House Instagram page."
+          },
+          {
+            "type": "link",
+            "title": "Register",
+            "navigateTo": "https://www.eventbrite.com/e/what-matters-most-christmas-gathering-tickets-226956913237",
+            "description": "Link to EventBrite Oakville Christmas gathering tickets."
           }
         ]
       },
