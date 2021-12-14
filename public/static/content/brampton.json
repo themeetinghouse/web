@@ -55,21 +55,11 @@
         "filterValue": "brampton"
       },
       {
-        "type": "blog",
-        "style": "featured",
-        "status": "Live",
-        "sortOrder": "DESC",
-        "blogSeries": "Regather BRAM",
-        "header2": "News and Updates",
-        "backgroundColor": "white",
-        "lessPadding": true
-      },
-      {
         "type": "content",
         "style": "oneImage",
         "header1": "What Matters Most.",
         "header2": "Brampton Christmas Eve",
-        "text1": "December 24 at 5:00pm.",
+        "text1": "December 24 at 5:00pm",
         "image1": [
           {
             "src": "/static/images/Christmas Gathering Website.jpg",
@@ -84,6 +74,16 @@
             "description": "Link to The Meeting House Instagram page."
           }
         ]
+      },
+      {
+        "type": "blog",
+        "style": "featured",
+        "status": "Live",
+        "sortOrder": "DESC",
+        "blogSeries": "Regather BRAM",
+        "header2": "News and Updates",
+        "backgroundColor": "white",
+        "lessPadding": true
       },
       {
         "type": "list",

@@ -55,20 +55,10 @@
         "filterValue": "hamilton-mountain"
       },
       {
-        "type": "blog",
-        "style": "featured",
-        "status": "Live",
-        "sortOrder": "DESC",
-        "blogSeries": "Regather HMMT",
-        "header2": "News and Updates",
-        "backgroundColor": "white",
-        "lessPadding": true
-      },
-      {
         "type": "content",
         "style": "oneImage",
         "header1": "What Matters Most.",
-        "header2": "Ancaster Christmas Eve",
+        "header2": "Hamilton Christmas Eve",
         "text1": "December 24 at 6:00pm & 7:30pm (Gasworks)",
         "image1": [
           {
@@ -84,6 +74,16 @@
             "description": "Link to The Meeting House Instagram page."
           }
         ]
+      },
+      {
+        "type": "blog",
+        "style": "featured",
+        "status": "Live",
+        "sortOrder": "DESC",
+        "blogSeries": "Regather HMMT",
+        "header2": "News and Updates",
+        "backgroundColor": "white",
+        "lessPadding": true
       },
       {
         "type": "list",

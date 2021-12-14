@@ -55,21 +55,11 @@
         "filterValue": "burlington"
       },
       {
-        "type": "blog",
-        "style": "featured",
-        "status": "Live",
-        "sortOrder": "DESC",
-        "blogSeries": "Regather BURL",
-        "header2": "News and Updates",
-        "backgroundColor": "white",
-        "lessPadding": true
-      },
-      {
         "type": "content",
         "style": "oneImage",
         "header1": "What Matters Most.",
         "header2": "Burlington Christmas",
-        "text1": "December 19 at 3:00pm (2365 Britannia Road).",
+        "text1": "December 19 at 3:00pm (2365 Britannia Road)",
         "image1": [
           {
             "src": "/static/images/Christmas Gathering Website.jpg",
@@ -84,6 +74,16 @@
             "description": "Link to The Meeting House Instagram page."
           }
         ]
+      },
+      {
+        "type": "blog",
+        "style": "featured",
+        "status": "Live",
+        "sortOrder": "DESC",
+        "blogSeries": "Regather BURL",
+        "header2": "News and Updates",
+        "backgroundColor": "white",
+        "lessPadding": true
       },
       {
         "type": "list",

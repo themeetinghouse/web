@@ -55,21 +55,11 @@
         "filterValue": "london"
       },
       {
-        "type": "blog",
-        "style": "featured",
-        "status": "Live",
-        "sortOrder": "DESC",
-        "blogSeries": "Regather LOND",
-        "header2": "News and Updates",
-        "backgroundColor": "white",
-        "lessPadding": true
-      },
-      {
         "type": "content",
         "style": "oneImage",
         "header1": "What Matters Most.",
         "header2": "London Christmas Eve",
-        "text1": "December 24 at 5:30pm (Goodwill Industries, 255 Horton Street East, London).",
+        "text1": "December 24 at 5:30pm (Goodwill Industries, 255 Horton Street East, London)",
         "image1": [
           {
             "src": "/static/images/Christmas Gathering Website.jpg",
@@ -84,6 +74,16 @@
             "description": "Link to The Meeting House Instagram page."
           }
         ]
+      },
+      {
+        "type": "blog",
+        "style": "featured",
+        "status": "Live",
+        "sortOrder": "DESC",
+        "blogSeries": "Regather LOND",
+        "header2": "News and Updates",
+        "backgroundColor": "white",
+        "lessPadding": true
       },
       {
         "type": "list",

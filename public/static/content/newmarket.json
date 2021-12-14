@@ -45,7 +45,7 @@
         ],
         "header1": "Newmarket",
         "text1": "Sundays at 10:00am",
-        "text2": "Kids and Youth program available from JK to Grade 8.",
+        "text2": "Kids and Youth program available from JK to Grade 8",
         "text3": "Christmas Eve at 10:00am",
         "customLiveLink": "themeetinghouse.com/live",
         "addToCalendar": true,
@@ -53,16 +53,6 @@
         "class": "locations",
         "filterField": "id",
         "filterValue": "newmarket"
-      },
-      {
-        "type": "blog",
-        "style": "featured",
-        "status": "Live",
-        "sortOrder": "DESC",
-        "blogSeries": "Regather NMKT",
-        "header2": "News and Updates",
-        "backgroundColor": "white",
-        "lessPadding": true
       },
       {
         "type": "content",
@@ -84,6 +74,16 @@
             "description": "Link to The Meeting House Instagram page."
           }
         ]
+      },
+      {
+        "type": "blog",
+        "style": "featured",
+        "status": "Live",
+        "sortOrder": "DESC",
+        "blogSeries": "Regather NMKT",
+        "header2": "News and Updates",
+        "backgroundColor": "white",
+        "lessPadding": true
       },
       {
         "type": "list",

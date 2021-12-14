@@ -55,20 +55,10 @@
         "filterValue": "toronto-downtown"
       },
       {
-        "type": "blog",
-        "style": "featured",
-        "status": "Live",
-        "sortOrder": "DESC",
-        "blogSeries": "Regather TODT",
-        "header2": "News and Updates",
-        "backgroundColor": "white",
-        "lessPadding": true
-      },
-      {
         "type": "content",
         "style": "oneImage",
         "header1": "What Matters Most.",
-        "header2": "Downtown Toronto Christmas Eve",
+        "header2": "Downtown Christmas Eve",
         "text1": "December 24 at 7:00pm (St. George by the Grange)",
         "image1": [
           {
@@ -84,6 +74,16 @@
             "description": "Link to The Meeting House Instagram page."
           }
         ]
+      },
+      {
+        "type": "blog",
+        "style": "featured",
+        "status": "Live",
+        "sortOrder": "DESC",
+        "blogSeries": "Regather TODT",
+        "header2": "News and Updates",
+        "backgroundColor": "white",
+        "lessPadding": true
       },
       {
         "type": "list",

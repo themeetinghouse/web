@@ -280,21 +280,21 @@
   },
   {
     "Staff": true,
+    "FirstName": "Jeremy",
+    "LastName": "McClung",
+    "Phone": "905.287.7000",
+    "Position": "Parry Sound Lead Pastor",
+    "sites": ["PAR", "Pastoral"],
+    "Email": "Jeremy.McClung@themeetinghouse.com"
+  },
+  {
+    "Staff": true,
     "FirstName": "Jimmy",
     "LastName": "Rushton",
     "Phone": "905.287.7000, ext. 862",
     "Position": "Downtown Hamilton Lead Pastor",
     "sites": ["HMDT", "Pastoral"],
     "Email": "Jimmy.Rushton@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
-    "FirstName": "Jordan",
-    "LastName": "Taylor",
-    "Phone": "905.287.7000",
-    "Position": "Burlington Lead Pastor",
-    "sites": ["BURL", "Pastoral"],
-    "Email": "Jordan.taylor@themeetinghouse.com"
   },
   {
     "Staff": true,
@@ -313,6 +313,15 @@
     "Position": "Kitchener-Waterloo Lead Pastor",
     "sites": ["WAT", "KIT", "Pastoral"],
     "Email": "Jordan.Duerrstein@themeetinghouse.com"
+  },
+  {
+    "Staff": true,
+    "FirstName": "Jordan",
+    "LastName": "Taylor",
+    "Phone": "905.287.7000",
+    "Position": "Burlington Lead Pastor",
+    "sites": ["BURL", "Pastoral"],
+    "Email": "Jordan.taylor@themeetinghouse.com"
   },
   {
     "Staff": true,
@@ -427,7 +436,7 @@
     "FirstName": "Lindsay",
     "LastName": "Hart",
     "Phone": "905.287.7000, ext. 817",
-    "Position": "Oakville Youth Pastor (on Mat Leave)",
+    "Position": "Oakville Youth Pastor",
     "sites": ["OAKV", "Pastoral", "Youth"],
     "Email": "Lindsay.Hart@themeetinghouse.com"
   },

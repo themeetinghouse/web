@@ -55,21 +55,11 @@
         "filterValue": "kitchener"
       },
       {
-        "type": "blog",
-        "style": "featured",
-        "status": "Live",
-        "sortOrder": "DESC",
-        "blogSeries": "Regather KITC",
-        "header2": "News and Updates",
-        "backgroundColor": "white",
-        "lessPadding": true
-      },
-      {
         "type": "content",
         "style": "oneImage",
         "header1": "What Matters Most.",
         "header2": "Kitchener Christmas",
-        "text1": "December 19 at 3:00pm. Outdoors at a local park (TBD).",
+        "text1": "December 19 at 3:00pm (outdoors at a local park - TBD).",
         "image1": [
           {
             "src": "/static/images/Christmas Gathering Website.jpg",
@@ -84,6 +74,16 @@
             "description": "Link to The Meeting House Instagram page."
           }
         ]
+      },
+      {
+        "type": "blog",
+        "style": "featured",
+        "status": "Live",
+        "sortOrder": "DESC",
+        "blogSeries": "Regather KITC",
+        "header2": "News and Updates",
+        "backgroundColor": "white",
+        "lessPadding": true
       },
       {
         "type": "list",
