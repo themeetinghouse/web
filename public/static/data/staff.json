@@ -235,6 +235,15 @@
   },
   {
     "Staff": true,
+    "FirstName": "Hailey",
+    "LastName": "Tollefson",
+    "Phone": "905.287.7000",
+    "Position": "Early Years Kids Pastor",
+    "sites": ["Children"],
+    "Email": "hailey.tollefson@themeetinghouse.com"
+  },
+  {
+    "Staff": true,
     "FirstName": "Ian",
     "LastName": "Jongema",
     "Phone": "905.287.7000, ext. 811",
@@ -463,7 +472,7 @@
     "FirstName": "Luke",
     "LastName": "Romberg",
     "Phone": "905.287.7000",
-    "Position": "Video Tech Support",
+    "Position": "Technical Director",
     "sites": ["Communications"],
     "Email": "Luke.Romberg@themeetinghouse.com"
   },
