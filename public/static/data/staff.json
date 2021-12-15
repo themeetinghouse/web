@@ -235,6 +235,15 @@
   },
   {
     "Staff": true,
+    "FirstName": "Grant",
+    "LastName": "Scott",
+    "Phone": "905.287.7000",
+    "Position": "Facility Assistant",
+    "sites": ["Operations"],
+    "Email": "grant.scott@themeetinghouse.com"
+  },
+  {
+    "Staff": true,
     "FirstName": "Hailey",
     "LastName": "Tollefson",
     "Phone": "905.287.7000",
@@ -250,15 +259,6 @@
     "Position": "Technical Specialist",
     "sites": ["Operations"],
     "Email": "Ian.Jongema@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
-    "FirstName": "James",
-    "LastName": "White",
-    "Phone": "905.287.7000, ext. 864",
-    "Position": "Young Adults Champion",
-    "sites": ["Site Leadership"],
-    "Email": "James.White@themeetinghouse.com"
   },
   {
     "Staff": true,
