@@ -145,6 +145,25 @@
       {
         "type": "content",
         "style": "oneImage",
+        "header1": "The Disciple Maker",
+        "text1": "This is a three-part course that will unpack how Jesus tells his followers to go make disciples. That means making disciples is inherent in our identity as followers of Christ. To be a follower of Christ is to be a disciple-maker. In this course we'll look at answering: Who is a disciple? What is a disciple-maker? Why is it necessary, and how?",
+        "list": [
+          {
+            "type": "link",
+            "title": "Register",
+            "navigateTo": "https://meetinghouse.infellowship.com/Forms/465241"
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/care-ministries-1.jpg",
+            "alt": "Two women talking."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "style": "oneImageBlackRight",
         "header1": "Spiritual Practices 201",
         "text1": "Details coming soon.",
         "list": [
