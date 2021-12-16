@@ -52,13 +52,13 @@
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/EYLessonDec12.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYLessonDec19.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesDec12.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesDec19.pdf",
             "openNewBrowser": true
           },
           {
@@ -86,7 +86,7 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaDec12.jpg",
+            "src": "/static/images/KidsBigIdeaDec19.jpg",
             "alt": "This week's big idea is: Jesus is God with us."
           }
         ],
@@ -94,13 +94,13 @@
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonDec12.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonDec19.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesDec12.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesDec19.pdf",
             "openNewBrowser": true
           },
           {
