@@ -49,7 +49,7 @@
     "FirstName": "Anna",
     "LastName": "Lakatos",
     "Phone": "905.287.7000, ext. 842",
-    "Position": "Oakville Music Pastor",
+    "Position": "Oakville Music Pastor (on leave)",
     "sites": ["OAKV", "Pastoral"],
     "Email": "Anna.Lakatos@themeetinghouse.com"
   },
@@ -94,7 +94,7 @@
     "FirstName": "Carrissa",
     "LastName": "Reffell",
     "Phone": "905.287.7000",
-    "Position": "Communications Administrator and Project Manager (on Mat leave)",
+    "Position": "Communications Administrator and Project Manager (on leave)",
     "sites": ["Communications"],
     "Email": "Carrissa@themeetinghouse.com"
   },
@@ -628,6 +628,15 @@
     "Position": "Oakville Pastor",
     "sites": ["OAKV", "Pastoral"],
     "Email": "Quincy.Bergman@themeetinghouse.com"
+  },
+  {
+    "Staff": true,
+    "FirstName": "Rachael",
+    "LastName": "Bawn",
+    "Phone": "905.287.7000",
+    "Position": "Oakville Music Pastor",
+    "sites": ["OAKV", "Pastoral"],
+    "Email": "rachael.bawn@themeetinghouse.com"
   },
   {
     "Staff": true,
