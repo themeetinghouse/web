@@ -93,29 +93,9 @@
       {
         "type": "content",
         "style": "oneImage",
-        "header1": "Sunday Morning Prayer Team",
+        "header1": "Prayer Teams",
         "header2": "",
-        "text1": "A live zoom prayer event every Sunday morning at 11:00am EDT. Prayer Team members provide caring, confidential prayer support.",
-        "list": [
-          {
-            "type": "link",
-            "title": "Join Live Prayer Call",
-            "navigateTo": "/prayer"
-          }
-        ],
-        "image1": [
-          {
-            "src": "/static/images/care-ministries-3.jpg",
-            "alt": "A group of people together on a zoom call."
-          }
-        ]
-      },
-      {
-        "type": "content",
-        "style": "oneImageBlackRight",
-        "header1": "Intercessory Prayer Team",
-        "header2": "",
-        "text1": "Intercessors bring the needs of others to God. They pray for individuals, groups, the church at home and abroad, and specific needs as they come up. Click the link below to email your prayer.",
+        "text1": "Prayer Team members provide caring, confidential prayer support. For prayer in person, visit the prayer room after the service or connect with a local leader. Our Prayer Intercessors bring the needs of others to God. They pray for individuals, groups, the church at home and abroad, and specific needs as they come up. Click the link below to email your prayer.",
         "list": [
           {
             "type": "link",
