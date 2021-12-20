@@ -54,6 +54,27 @@
         "filterValue": "toronto-downtown"
       },
       {
+        "type": "content",
+        "style": "oneImage",
+        "header1": "What Matters Most.",
+        "header2": "Christmas Eve Livestream",
+        "text1": "Join us online at 5:00pm or 8:00pm. Or both!",
+        "image1": [
+          {
+            "src": "/static/images/WhatReallyMatters.jpg",
+            "alt": "Blue background with red text."
+          }
+        ],
+        "list": [
+          {
+            "type": "link",
+            "title": "Invite a friend",
+            "navigateTo": "https://www.instagram.com/themeetinghouse/",
+            "description": "Link to The Meeting House Instagram page."
+          }
+        ]
+    },
+      {
         "type": "blog",
         "style": "featured",
         "status": "Live",

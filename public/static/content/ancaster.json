@@ -46,7 +46,6 @@
         "header1": "Ancaster",
         "text1": "Sundays at 10:00am",
         "text2": "Kids and Youth program available for Infants to Grade 8",
-        "text3": "Christmas Eve at 6:00pm & 7:30pm (Gasworks)",
         "customLiveLink": "themeetinghouse.com/live",
         "addToCalendar": true,
         "contactPastor": true,
@@ -58,8 +57,8 @@
         "type": "content",
         "style": "oneImage",
         "header1": "What Matters Most.",
-        "header2": "Hamilton Christmas Eve",
-        "text1": "December 24 at 6:00pm & 7:30pm (Gasworks)",
+        "header2": "Christmas Eve Livestream",
+        "text1": "Join us online at 5:00pm or 8:00pm. Or both!",
         "image1": [
           {
             "src": "/static/images/WhatReallyMatters.jpg",
@@ -74,7 +73,7 @@
             "description": "Link to The Meeting House Instagram page."
           }
         ]
-      },
+    },
       {
         "type": "blog",
         "style": "featured",
