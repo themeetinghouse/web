@@ -46,7 +46,7 @@
         "header1": "Brantford",
         "text1": "Sundays at 9:30am",
         "text2": "Kids and Youth program available from age 2 to Grade 8",
-        "text3": "Christmas Eve at 4:00pm",
+        "text3": "",
         "customLiveLink": "themeetinghouse.com/live",
         "addToCalendar": true,
         "contactPastor": true,
@@ -58,8 +58,8 @@
         "type": "content",
         "style": "oneImage",
         "header1": "What Matters Most.",
-        "header2": "Brantford Christmas Eve",
-        "text1": "December 24 at 4:00pm",
+        "header2": "Christmas Eve Livestream",
+        "text1": "Join us online at 5:00pm or 8:00pm. Or both!",
         "image1": [
           {
             "src": "/static/images/WhatReallyMatters.jpg",

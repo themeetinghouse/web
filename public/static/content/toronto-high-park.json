@@ -46,7 +46,7 @@
         "header1": "Toronto High Park",
         "text1": "Sundays at 10:00am",
         "text2": "Kids and Youth program available for JK to Grade 8",
-        "text3": "Christmas Eve livestream",
+        "text3": "",
         "customLiveLink": "themeetinghouse.com/live",
         "addToCalendar": true,
         "contactPastor": true,
@@ -58,8 +58,8 @@
         "type": "content",
         "style": "oneImage",
         "header1": "What Matters Most.",
-        "header2": "High Park Christmas",
-        "text1": "December 19 at 2:30pm (Carolling service with Humbercrest United)",
+        "header2": "Christmas Eve Livestream",
+        "text1": "Join us online at 5:00pm or 8:00pm. Or both!",
         "image1": [
           {
             "src": "/static/images/WhatReallyMatters.jpg",

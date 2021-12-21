@@ -46,7 +46,7 @@
         "header1": "Uptown Toronto",
         "text1": "Bi-weekly Sundays at 9:30am",
         "text2": "Kids and Youth program available from age 2 to Grade 8",
-        "text3": "Christmas Eve from 4:30-6:30pm (Mel Lastman Square Rink)",
+        "text3": "",
         "customLiveLink": "themeetinghouse.com/live",
         "addToCalendar": true,
         "contactPastor": true,
@@ -58,8 +58,8 @@
         "type": "content",
         "style": "oneImage",
         "header1": "What Matters Most.",
-        "header2": "Uptown Toronto Christmas Eve",
-        "text1": "December 24 from 4:30pm-6:30pm (Mel Lastman Square Outdoor Rink, 5100 Yonge St, North York)",
+        "header2": "Christmas Eve Livestream",
+        "text1": "Join us online at 5:00pm or 8:00pm. Or both!",
         "image1": [
           {
             "src": "/static/images/WhatReallyMatters.jpg",
