@@ -118,15 +118,6 @@
   },
   {
     "Staff": true,
-    "FirstName": "Chris",
-    "LastName": "van Dijk",
-    "Phone": "905.287.7000, ext. 847",
-    "Position": "Creative Manager",
-    "sites": ["Communications"],
-    "Email": "Chris.vanDijk@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
     "FirstName": "Christie",
     "LastName": "Penner Worden",
     "Phone": "905.287.7000",
@@ -529,15 +520,6 @@
     "Position": "Compassion Project Coordinator and Administrator",
     "sites": ["Site Leadership"],
     "Email": "Megan.enns@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
-    "FirstName": "Melissa",
-    "LastName": "Ytsma",
-    "Phone": "905.287.7000, ext. 851",
-    "Position": "Richmond Hill Lead Pastor",
-    "sites": ["RHLL", "Pastoral"],
-    "Email": "Melissa.Ytsma@themeetinghouse.com"
   },
   {
     "Staff": true,
