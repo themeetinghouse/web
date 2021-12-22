@@ -57,8 +57,6 @@
   },
   {
     "name": "Locations",
-    "location": "/locations",
-    "children": [
-    ]
+    "location": "/locations"
   }
 ]
