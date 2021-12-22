@@ -59,10 +59,6 @@
     "name": "Locations",
     "location": "/locations",
     "children": [
-      {
-        "name": "Sunday Registration",
-        "location": "/registration"
-      }
     ]
   }
 ]
