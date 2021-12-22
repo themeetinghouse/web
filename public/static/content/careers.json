@@ -104,6 +104,16 @@
             "type": "link",
             "title": "Kitchener Kidmax Coordinator",
             "navigateTo": "/static/pdfs/careers/Kidmax Coordinator KIT 2 - Adapted for COVID.pdf"
+          },
+          {
+            "type": "link",
+            "title": "Richmond Hill Family Ministries Associate",
+            "navigateTo": "/static/pdfs/careers/Richmond Hill Family Ministries Associate.pdf"
+          },
+          {
+            "type": "link",
+            "title": "Richmond Hill Parish Administrator",
+            "navigateTo": "/static/pdfs/careers/Richmond Hill Parish Administrator.pdf"
           }
          
         ],
