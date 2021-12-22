@@ -72,6 +72,12 @@
             "title": "Invite a friend",
             "navigateTo": "https://www.instagram.com/themeetinghouse/",
             "description": "Link to The Meeting House Instagram page."
+          },
+          {
+            "type": "link",
+            "title": "Register",
+            "navigateTo": "/registration",
+            "description": "Registration link."
           }
         ]
       },
