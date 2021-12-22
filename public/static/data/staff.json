@@ -577,15 +577,6 @@
   },
   {
     "Staff": true,
-    "FirstName": "Nick",
-    "LastName": "Reis",
-    "Phone": "905.287.7000",
-    "Position": "Associate Producer",
-    "sites": ["Communications"],
-    "Email": "Nick.Reis@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
     "FirstName": "Olivia",
     "LastName": "Vanderwal",
     "Phone": "905.287.7000, ext. 868",
