@@ -60,6 +60,18 @@
             "title": "Invite a friend",
             "navigateTo": "https://www.instagram.com/themeetinghouse/",
             "description": "Link to The Meeting House Instagram page."
+          },
+          {
+            "type": "link",
+            "title": "Set a reminder for 5pm",
+            "navigateTo": "https://youtu.be/DD0Wdk7rHB8",
+            "description": "Link to Christmas Eve 5pm YouTube livestream."
+          },
+          {
+            "type": "link",
+            "title": "Set a reminder for 8pm",
+            "navigateTo": "https://youtu.be/MB6E4wE6QOQ",
+            "description": "Link to Christmas Eve 8pm YouTube livestream."
           }
         ]
       },
