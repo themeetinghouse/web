@@ -46,7 +46,7 @@
         "header1": "Burlington",
         "text1": "Sundays at 10:00am",
         "text2": "Kids and Youth program available from Infants to Grade 8",
-        "text3": "Christmas Eve on Dec 19 at 3:00pm (2365 Britannia Road)",
+        "text3": "",
         "customLiveLink": "themeetinghouse.com/live",
         "addToCalendar": true,
         "contactPastor": true,
@@ -58,8 +58,8 @@
         "type": "content",
         "style": "oneImage",
         "header1": "What Matters Most.",
-        "header2": "Burlington Christmas",
-        "text1": "December 19 at 3:00pm (2365 Britannia Road)",
+        "header2": "Christmas Eve Livestream",
+        "text1": "Join us online at 5:00pm or 8:00pm. Or both!",
         "image1": [
           {
             "src": "/static/images/WhatReallyMatters.jpg",
@@ -72,6 +72,18 @@
             "title": "Invite a friend",
             "navigateTo": "https://www.instagram.com/themeetinghouse/",
             "description": "Link to The Meeting House Instagram page."
+          },
+          {
+            "type": "link",
+            "title": "Set a reminder for 5pm",
+            "navigateTo": "https://youtu.be/DD0Wdk7rHB8",
+            "description": "Link to Christmas Eve 5pm YouTube livestream."
+          },
+          {
+            "type": "link",
+            "title": "Set a reminder for 8pm",
+            "navigateTo": "https://youtu.be/MB6E4wE6QOQ",
+            "description": "Link to Christmas Eve 8pm YouTube livestream."
           }
         ]
       },

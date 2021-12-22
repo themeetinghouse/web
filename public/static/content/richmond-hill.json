@@ -57,8 +57,8 @@
         "type": "content",
         "style": "oneImage",
         "header1": "What Matters Most.",
-        "header2": "Richmond Hill Christmas",
-        "text1": "December 19",
+        "header2": "Christmas Eve Livestream",
+        "text1": "Join us online at 5:00pm or 8:00pm. Or both!",
         "image1": [
           {
             "src": "/static/images/WhatReallyMatters.jpg",
@@ -71,6 +71,18 @@
             "title": "Invite a friend",
             "navigateTo": "https://www.instagram.com/themeetinghouse/",
             "description": "Link to The Meeting House Instagram page."
+          },
+          {
+            "type": "link",
+            "title": "Set a reminder for 5pm",
+            "navigateTo": "https://youtu.be/DD0Wdk7rHB8",
+            "description": "Link to Christmas Eve 5pm YouTube livestream."
+          },
+          {
+            "type": "link",
+            "title": "Set a reminder for 8pm",
+            "navigateTo": "https://youtu.be/MB6E4wE6QOQ",
+            "description": "Link to Christmas Eve 8pm YouTube livestream."
           }
         ]
       },
