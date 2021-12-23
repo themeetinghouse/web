@@ -114,6 +114,11 @@
             "type": "link",
             "title": "Richmond Hill Parish Administrator",
             "navigateTo": "/static/pdfs/careers/Richmond Hill Parish Administrator.pdf"
+          },
+          {
+            "type": "link",
+            "title": "Social Media Coordinator",
+            "navigateTo": "/static/pdfs/careers/Social Media Coordinator 2022.pdf"
           }
          
         ],
