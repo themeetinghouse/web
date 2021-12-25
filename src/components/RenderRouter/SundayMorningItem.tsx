@@ -70,14 +70,14 @@ export class SundayMorningItem extends React.Component<Props, State> {
 
     const today = moment.tz('America/Toronto').format('YYYY-MM-DD');
     if (this.props.content.alternate === 'christmas') {
-      if (today === '2020-12-24')
+      if (today === '2021-12-24')
         this.interval = setInterval(() => this.tick(), 1500);
     }
     DataLoader.getLocations(this.props.content as LocationQuery).then(
       (myJson) => {
         if (
           this.props.content.alternate === 'christmas' &&
-          today === '2020-12-24'
+          today === '2021-12-24'
         ) {
           const rightNow = moment().tz('America/Toronto').format('HH:mm');
           const filteredEvents = myJson.filter((livestream: any) => {
