@@ -51,8 +51,8 @@
     "name": "Brampton",
     "pastorEmail": "Christine.Gerber@themeetinghouse.com",
     "location": {
-      "longitude": -79.768112,
-      "latitude": 43.733024,
+      "longitude": -79.7607954,
+      "latitude": 43.682767,
       "address": "Alderlea, 40 Elizabeth Street South"
     },
     "serviceTimes": ["10:00"]
