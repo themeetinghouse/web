@@ -46,40 +46,12 @@
         "header1": "London",
         "text1": "Sundays at 10:00am",
         "text2": "Kids and Youth program available from age 3 to Grade 8",
-        "text3": "Christmas Eve at 5:30pm (Goodwill Industries, 255 Horton St E)",
         "customLiveLink": "themeetinghouse.com/live",
         "addToCalendar": true,
         "contactPastor": true,
         "class": "locations",
         "filterField": "id",
         "filterValue": "london"
-      },
-      {
-        "type": "content",
-        "style": "oneImage",
-        "header1": "What Matters Most.",
-        "header2": "London Christmas Eve",
-        "text1": "December 24 at 5:30pm (Goodwill Industries, 255 Horton Street East, London)",
-        "image1": [
-          {
-            "src": "/static/images/WhatReallyMatters.jpg",
-            "alt": "Blue background with red text."
-          }
-        ],
-        "list": [
-          {
-            "type": "link",
-            "title": "Invite a friend",
-            "navigateTo": "https://www.instagram.com/themeetinghouse/",
-            "description": "Link to The Meeting House Instagram page."
-          },
-          {
-            "type": "link",
-            "title": "Register",
-            "navigateTo": "/registration",
-            "description": "Registration link."
-          }
-        ]
       },
       {
         "type": "blog",

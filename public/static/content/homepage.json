@@ -89,30 +89,6 @@
         ]
       },
       {
-        "type": "content",
-        "style": "oneImageBlackRight",
-        "header1": "Christmas 2021",
-        "text1": "In one of the busiest months, how do we set aside time to centre on Jesus and what his presence and life mean to us? How do we focus on what matters most?",
-        "list": [
-          {
-            "type": "link",
-            "title": "Christmas 2021",
-            "navigateTo": "/christmas"
-          },
-          {
-            "type": "link",
-            "title": "Sign up for the Christmas Challenge",
-            "navigateTo": "https://mailchi.mp/166e365df5dd/tmhchristmaschallengesignup"
-          }
-        ],
-        "image1": [
-          {
-            "src": "/static/images/WhatReallyMatters.jpg",
-            "alt": "Blue background with red text."
-          }
-        ]
-      },
-      {
         "type": "list",
         "style": "imageList",
         "class": "user-defined",

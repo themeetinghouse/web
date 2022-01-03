@@ -45,7 +45,6 @@
         ],
         "header1": "Brampton",
         "text1": "Sundays at 10:00am",
-        "text2": "Christmas Eve at 5:00pm",
  
         "customLiveLink": "themeetinghouse.com/live",
         "addToCalendar": true,
@@ -53,33 +52,6 @@
         "class": "locations",
         "filterField": "id",
         "filterValue": "brampton"
-      },
-      {
-        "type": "content",
-        "style": "oneImage",
-        "header1": "What Matters Most.",
-        "header2": "Brampton Christmas Eve",
-        "text1": "December 24 at 5:00pm",
-        "image1": [
-          {
-            "src": "/static/images/WhatReallyMatters.jpg",
-            "alt": "Blue background with red text."
-          }
-        ],
-        "list": [
-          {
-            "type": "link",
-            "title": "Invite a friend",
-            "navigateTo": "https://www.instagram.com/themeetinghouse/",
-            "description": "Link to The Meeting House Instagram page."
-          },
-          {
-            "type": "link",
-            "title": "Register",
-            "navigateTo": "/registration",
-            "description": "Registration link."
-          }
-        ]
       },
       {
         "type": "blog",
