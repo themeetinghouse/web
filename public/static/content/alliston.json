@@ -38,34 +38,12 @@
         "header1": "Alliston",
         "text1": "Sundays at 10:30am",
         "text2": "Kids and Youth program available from Infants to Grade 8",
-        "text3": "Christmas Eve at 6:30pm",
         "addToCalendar": true,
         "contactPastor": true,
         "class": "locations",
         "filterField": "id",
         "filterValue": "alliston"
-      },
-      {
-        "type": "content",
-        "style": "oneImage",
-        "header1": "What Matters Most.",
-        "header2": "Alliston Christmas Eve",
-        "text1": "Join us outdoors at 6:30pm at the Gibson Centre.",
-        "image1": [
-          {
-            "src": "/static/images/WhatReallyMatters.jpg",
-            "alt": "Blue background with red text."
-          }
-        ],
-        "list": [
-          {
-            "type": "link",
-            "title": "Invite a friend",
-            "navigateTo": "https://www.instagram.com/themeetinghouse/",
-            "description": "Link to The Meeting House Instagram page."
-          }
-        ]
-      },
+      }, 
       {
         "type": "content",
         "style": "greyTwoText",
