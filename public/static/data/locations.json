@@ -73,8 +73,8 @@
     "name": "Burlington",
     "pastorEmail": "John.Latta@themeetinghouse.com",
     "location": {
-      "longitude": -79.829876,
-      "latitude": 43.343507,
+      "longitude": -79.8116388,
+      "latitude": 43.3606083,
       "address": "1240 Advance Road"
     },
     "serviceTimes": ["10:00"]
