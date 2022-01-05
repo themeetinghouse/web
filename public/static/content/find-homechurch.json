@@ -1,6 +1,6 @@
 {
   "page": {
-    "name": "find-homechurch",
+    "name": "find-home-church",
     "title": "Find a Home Church",
     "keywords": "",
     "description": "",
@@ -16,16 +16,15 @@
     "content": [
       {
         "type": "og-tags",
-        "image": "/static/images/og-images/find-homechurch.jpg",
-        "url": "https://www.themeetinghouse.com/find-homechurch",
+        "image": "/static/images/og-images/find-home-church.jpg",
+        "url": "https://www.themeetinghouse.com/find-home-church",
         "title": "Find a Home Church",
         "description": "Check out our list of 100+ Home Churches and get plugged in to community."
       },
       {
         "type": "home-church",
         "header1": "Home Church Finder",
-        "class": "home-church",
-        "text1": "Please contact your Home Church Elder to find out if you are meeting."
+        "class": "home-church"
       }
     ]
   }
