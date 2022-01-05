@@ -6,7 +6,7 @@
     "location": {
       "longitude": -79.870798,
       "latitude": 44.149035,
-      "address": "Gibson Centre, 63 Tupper Street West"
+      "address": ""
     },
     "serviceTimes": ["10:30"],
     "youth": {
@@ -31,7 +31,7 @@
     "location": {
       "longitude": -77.2674762,
       "latitude": 43.9188665,
-      "address": "1901 County Rd 12, Prince Edward County"
+      "address": ""
     },
     "serviceTimes": ["10:00"]
   },
@@ -42,7 +42,7 @@
     "location": {
       "longitude": -79.95394369999997,
       "latitude": 43.2272571,
-      "address": "SilverCity Ancaster, 771 Golf Links Road"
+      "address": ""
     },
     "serviceTimes": ["10:00"]
   },
@@ -53,7 +53,7 @@
     "location": {
       "longitude": -79.7607954,
       "latitude": 43.682767,
-      "address": "Alderlea, 40 Elizabeth Street South"
+      "address": ""
     },
     "serviceTimes": ["10:00"]
   },
@@ -64,7 +64,7 @@
     "location": {
       "longitude": -80.268426,
       "latitude": 43.141719,
-      "address": "Grace Anglican Church, 4 Pearl Street"
+      "address": ""
     },
     "serviceTimes": ["9:30"]
   },
@@ -86,7 +86,7 @@
     "location": {
       "longitude": -79.8702504,
       "latitude": 43.26213,
-      "address": "Gasworks, 141 Park Avenue North"
+      "address": ""
     },
     "serviceTimes": ["10:00"]
   },
@@ -97,7 +97,7 @@
     "location": {
       "longitude": -79.391418,
       "latitude": 43.648869,
-      "address": "Scotiabank Theatre, 259 Richmond St. W"
+      "address": ""
     },
     "serviceTimes": ["10:00"]
   },
@@ -108,7 +108,7 @@
     "location": {
       "longitude": -79.95394369999997,
       "latitude": 43.2272571,
-      "address": "SilverCity Ancaster, 771 Golf Links Road"
+      "address": ""
     },
     "serviceTimes": ["10:00"]
   },
@@ -119,7 +119,7 @@
     "location": {
       "longitude": -79.3166538,
       "latitude": 43.6664844,
-      "address": "The Beach Cinemas, 1651 Queen Street East"
+      "address": ""
     },
     "serviceTimes": ["10:00"]
   },
@@ -130,7 +130,7 @@
     "location": {
       "longitude": -79.4921797,
       "latitude": 43.6584924,
-      "address": "Humbercrest Church, 16 Baby Point Road"
+      "address": ""
     },
     "serviceTimes": ["10:00"]
   },
@@ -152,7 +152,7 @@
     "location": {
       "longitude": -81.278295,
       "latitude": 43.027068,
-      "address": "SilverCity London, 1680 Richmond Street"
+      "address": ""
     },
     "serviceTimes": ["10:00"]
   },
@@ -163,7 +163,7 @@
     "location": {
       "longitude": -79.555998,
       "latitude": 43.79428,
-      "address": "SilverCity Newmarket, 18195 Yonge Street"
+      "address": ""
     },
     "serviceTimes": ["10:00"]
   },
@@ -174,7 +174,7 @@
     "location": {
       "longitude": -79.685926,
       "latitude": 43.511459,
-      "address": "2700 Bristol Circle"
+      "address": ""
     },
     "serviceTimes": ["9:30", "11:30"],
     "youth": {
@@ -200,7 +200,7 @@
     "location": {
       "longitude": -75.6901723,
       "latitude": 45.3591095,
-      "address": "Riverside United Church, 3191 Riverside Drive"
+      "address": ""
     },
     "serviceTimes": ["3:00pm"]
   },
@@ -212,7 +212,7 @@
     "location": {
       "longitude": -80.036396,
       "latitude": 45.35407,
-      "address": "The Sound Hub, 86 Gibson St."
+      "address": ""
     },
     "serviceTimes": ["10:00"]
   },
@@ -223,7 +223,7 @@
     "location": {
       "longitude": -79.4291884,
       "latitude": 43.8408015,
-      "address": "Join us Online"
+      "address": ""
     },
     "serviceTimes": ["10:00"]
   },
@@ -234,7 +234,7 @@
     "location": {
       "longitude": -79.455526,
       "latitude": 43.725822,
-      "address": "Yorkdale Cineplex, 3401 Dufferin Street"
+      "address": ""
     },
     "serviceTimes": ["9:30"]
   },

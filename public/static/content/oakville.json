@@ -44,9 +44,9 @@
           }
         ],
         "header1": "Oakville",
-        "text1": "Sundays at 9:30am",
-        "text2": "Livestream Sundays at 10:00am",
-        "text3": "Kids and Youth program available from age 2 to Grade 8",
+        "text1": "Sundays at 10:00am",
+        "text2": "Join us online",
+        "text3": "",
         "customLiveLink": "themeetinghouse.com/live",
         "addToCalendar": true,
         "contactPastor": true,
