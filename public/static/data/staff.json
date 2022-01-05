@@ -262,6 +262,15 @@
   },
   {
     "Staff": true,
+    "FirstName": "Jared",
+    "LastName": "Taylor",
+    "Phone": "905.287.7000",
+    "Position": "Communications Director",
+    "sites": ["Communications"],
+    "Email": "Jared.Taylor@themeetinghouse.com"
+  },
+  {
+    "Staff": true,
     "FirstName": "Jennifer",
     "LastName": "McWilliams",
     "Phone": "905.287.7000, ext. 838",
