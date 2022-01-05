@@ -24,7 +24,8 @@
       {
         "type": "home-church",
         "header1": "Home Church Finder",
-        "class": "home-church"
+        "class": "home-church",
+        "text1": "Please contact your Home Church Elder to find out if you are meeting."
       }
     ]
   }
