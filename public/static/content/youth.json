@@ -53,17 +53,24 @@
         "text1": "Here's what we're learning in Jr High Weekend this week:",
         "image1": [
           {
-            "src": "/static/images/ky-jrhigh-Matthew Get Up.jpg",
-            "alt": "Matthew Get Up."
+            "src": "/static/photos/series/baby-hero/ky-jrhigh-Genesis Aftermath.jpg",
+            "alt": "Genesis Aftermath."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Weekend Lesson",
-            "navigateTo": "/static/pdfs/youth-files/Wk 4 - Get Up - JH Weekend.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 1 - Aftermath - JH Weekend.pdf",
+            "openNewBrowser": true
+          },
+          {
+            "type": "link",
+            "title": "Download Weekend Activity",
+            "navigateTo": "/static/pdfs/youth-files/Wk 1 - Questions.pdf",
             "openNewBrowser": true
           }
+          
       
         ]
       },
@@ -84,21 +91,21 @@
         "text1": "Here's what our Jr High Midweek students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/ky-youth-Matthew Get Up.jpg",
-            "alt": "Matthew Get Up."
+            "src": "/static/photos/series/baby-hero/ky-youth-Genesis Aftermath.jpg",
+            "alt": "Genesis Aftermath."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Midweek Lesson",
-            "navigateTo": "/static/pdfs/youth-files/Wk 4 - Get Up - JH Midweek.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 1 - Aftermath - Midweek.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Midweek Small Group Leader Notes",
-            "navigateTo": "/static/pdfs/youth-files/Wk 4 - Get Up - JH Midweek SGL Notes.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 1 - Aftermath - Midweek SGL Notes.pdf",
             "openNewBrowser": true
           }
         ]
