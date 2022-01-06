@@ -45,20 +45,20 @@
         "image1": [
           {
             "src": "/static/images/EYBigIdeaJan.jpg",
-            "alt": "This month's big idea: Jesus shows us God's lovee."
+            "alt": "This month's big idea: Jesus shows us God's love."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/EYLessonJan2.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYLessonJan9.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesJan2.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesJan9.pdf",
             "openNewBrowser": true
           },
           {
@@ -86,21 +86,21 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaJan2.jpg",
-            "alt": "Jesus invites us to join his mission."
+            "src": "/static/images/KidsBigIdeaJan9.jpg",
+            "alt": "Jesus shows us what God's kingdom is like."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonJan2.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonJan9.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsActivityJan2.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsActivityJan9.pdf",
             "openNewBrowser": true
           },
           {
