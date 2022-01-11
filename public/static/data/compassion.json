@@ -340,9 +340,18 @@
   {
     "id": 43,
     "sites": ["toronto-east"],
-    "name": "Glen Rhodes Community Dinners",
-    "description": "Founded in 1906, Glen Rhodes United Church serves the East Toronto community through Sunday services, a monthly community dinner, and weekly food bank. The Glen Rhodes community seeks to be authentic disciples of Christ by offering hospitality to anyone who walks through their doors.",
+    "name": "East End United Food Bank",
+    "description": "East End United's Food Bank serves 200-300 households each week. We partner through our giving, food drives, and in serving community dinners.",
     "website": "https://eastendunited.ca/food-bank-community-dinner/",
+    "image": "/static/images/compassion/none.jpg",
+    "imagealt": "Placeholder image for Compassion Partner"
+  },
+  {
+    "id": 43,
+    "sites": ["toronto-east"],
+    "name": "East End United “Out of the Cold”",
+    "description": "Out of the Cold provides meals and basic needs (clothing and toiletries) to anyone hungry or in need of basics through the winter months. We partner through our giving, clothing drives, and in serving within our Home Churches.",
+    "website": "https://eastendunited.ca/out-of-the-cold/",
     "image": "/static/images/compassion/none.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   },
