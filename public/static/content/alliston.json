@@ -52,16 +52,6 @@
         "text1": "In partnership with Be In Christ Church of Canada, we're excited to pilot the concept of The Meeting House Extended Family churches as part of our vision to grow loving communities of Jesus followers beyond our existing parishes. Extended Family churches are locally-operated Meeting House expressions that share the Jesus-centered theology, core values, vision, and ministry approach of The Meeting House."
       },
       {
-        "type": "blog",
-        "style": "featured",
-        "status": "Live",
-        "sortOrder": "DESC",
-        "blogSeries": "Regather ALLI",
-        "header2": "News and Updates",
-        "backgroundColor": "white",
-        "lessPadding": true
-      },
-      {
         "type": "list",
         "style": "staff",
         "class": "staff",

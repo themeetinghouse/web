@@ -55,16 +55,6 @@
         "filterValue": "burlington"
       },
       {
-        "type": "blog",
-        "style": "featured",
-        "status": "Live",
-        "sortOrder": "DESC",
-        "blogSeries": "Regather BURL",
-        "header2": "News and Updates",
-        "backgroundColor": "white",
-        "lessPadding": true
-      },
-      {
         "type": "list",
         "style": "staff",
         "class": "staff",
