@@ -26,7 +26,7 @@
         },
         "content": [{
             "type": "regather",
-            "mainHeader": "Sunday Worship",
+            "mainHeader": "In-person Worship",
             "subHeader1": "Welcome home — we’re excited to see you again.",
             "divider": true,
             "text1": "This season, we’re offering Sunday experiences online and in person. To follow public health guidelines, we’ve made some changes to in-person gatherings like limiting capacity and asking people to register online.",
@@ -75,7 +75,7 @@
                 "type": "outline notmobile"
             },
             "header5": "Early Registration",
-            "text3": "By registering early, you reserve your spot! If you forget, you can always walk in and we’ll seat you if we’ve got space within our capacity limits. The registration window will be open each week from 5pm on Sunday to 5pm on Thursday.",
+            "text3": "By registering early, you reserve your spot! If you forget, you can always walk in and we’ll seat you if we’ve got space within our capacity limits. The registration window will be open each week from Sunday at 5pm to Saturday at 11:59pm.",
             "text4": "We’ll ask for your contact info in case we need to reach you about a COVID-related issue. When you show up on a Sunday, one of our amazing volunteers will check you in and confirm your health screening.",
             "button3": {
                 "text": "Register Now",
