@@ -52,13 +52,13 @@
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/EY-LessonJan16.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYLessonJan23.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesJan16.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesJan23.pdf",
             "openNewBrowser": true
           },
           {
@@ -86,21 +86,21 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaJan16.jpg",
-            "alt": "When we focus on Jesus, we don't need to be afraid."
+            "src": "/static/images/KidsBigIdeaJan23.jpg",
+            "alt": "When we get to know Jesus, he helps us see who we really are."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonJan16.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonJan23.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activity",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsActivityJan16.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsActivityJan23.pdf",
             "openNewBrowser": true
           },
           {
