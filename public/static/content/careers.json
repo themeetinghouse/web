@@ -73,6 +73,11 @@
           },
           {
             "type": "link",
+            "title": "Communications & Curriculum Project Coordinator",
+            "navigateTo": "/static/pdfs/careers/Communications & Curriculum Project Coordinator - 2022 Contract.pdf"
+          },
+          {
+            "type": "link",
             "title": "Lead Pastor Positions",
             "navigateTo": "/static/pdfs/careers/Lead Pastor Positions.pdf"
           },
