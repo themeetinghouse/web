@@ -68,8 +68,18 @@
           },
           {
             "type": "link",
+            "title": "Events & Rentals Manager",
+            "navigateTo": "/static/pdfs/careers/Events & Rentals Manager - 2022 Contract.pdf"
+          },
+          {
+            "type": "link",
             "title": "Lead Pastor Positions",
             "navigateTo": "/static/pdfs/careers/Lead Pastor Positions.pdf"
+          },
+          {
+            "type": "link",
+            "title": "Toronto Youth Pastor",
+            "navigateTo": "/static/pdfs/careers/Toronto Youth Pastor - 2022 Contract.pdf"
           },
           {
             "type": "link",
