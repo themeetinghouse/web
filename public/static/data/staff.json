@@ -10,15 +10,6 @@
   },
   {
     "Staff": true,
-    "FirstName": "Alex",
-    "LastName": "Briere",
-    "Phone": "905.287.7000",
-    "Position": "Video Editor",
-    "sites": ["Communications"],
-    "Email": "Alex.Briere@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
     "FirstName": "Alison",
     "LastName": "Hardman",
     "Phone": "905.287.7000, ext. 800",
@@ -349,15 +340,6 @@
     "Position": "Oakville Lead Pastor",
     "sites": ["OAKV", "Pastoral"],
     "Email": "Karmyn.Bokma@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
-    "FirstName": "Kate",
-    "LastName": "Brown",
-    "Phone": "905.287.7000, ext. 813",
-    "Position": "Oakville Community Pastor",
-    "sites": ["OAKV", "Pastoral"],
-    "Email": "Kate.Brown@themeetinghouse.com"
   },
   {
     "Staff": true,
