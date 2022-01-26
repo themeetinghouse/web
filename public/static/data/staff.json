@@ -112,7 +112,7 @@
     "FirstName": "Christie",
     "LastName": "Penner Worden",
     "Phone": "905.287.7000",
-    "Position": "Cross-Regional Kids Pastor",
+    "Position": "Cross-Regional Kids Pastor & Curriculum Pastor",
     "sites": ["Pastoral", "Children"],
     "Email": "christie.pennerworden@themeetinghouse.com"
   },
@@ -542,18 +542,9 @@
   {
     "Staff": true,
     "FirstName": "Natalie",
-    "LastName": "Burtch",
-    "Phone": "905.287.7000, ext. 835",
-    "Position": "Live Production Manager (On Leave)",
-    "sites": ["OAKV"],
-    "Email": "Natalie.Burtch@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
-    "FirstName": "Natalie",
     "LastName": "Frisk",
     "Phone": "905.287.7000, ext. 826",
-    "Position": "Curriculum Pastor & Brantford Lead Pastor",
+    "Position": "Brantford Lead Pastor (on leave)",
     "sites": ["BRFD", "Communications", "Pastoral", "Children"],
     "Email": "Natalie.Frisk@themeetinghouse.com"
   },
