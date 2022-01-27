@@ -52,13 +52,13 @@
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/EYLessonJan23.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYLessonJan30.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesJan23.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesJan30.pdf",
             "openNewBrowser": true
           },
           {
@@ -86,21 +86,21 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaJan23.jpg",
-            "alt": "When we get to know Jesus, he helps us see who we really are."
+            "src": "/static/images/KidsBigIdeaJan30.jpg",
+            "alt": "Jesus wants us to be all in."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonJan23.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonJan30.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activity",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesJan23.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesJan30.pdf",
             "openNewBrowser": true
           },
           {
