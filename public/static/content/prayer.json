@@ -1,0 +1,74 @@
+{
+    "page": {
+      "name": "prayer",
+      "title": "Prayer",
+      "keywords": "prayer, month of prayer, praying, prayer booklet, ",
+      "description": "The page for Month of Prayer at The Meeting House.",
+      "pageConfig": {
+        "showLive": true,
+        "movingMenu": false,
+        "showLogoText": true,
+        "logoColor": "black",
+        "showSearch": true,
+        "showFooter": true,
+        "showMenu": true
+      },
+      "content": [
+        {
+          "type": "og-tags",
+          "image": "/static/images/ChristmasWebHero.jpg",
+          "url": "https://www.themeetinghouse.com/christmas",
+          "title": "Christmas",
+          "description": "Join us on a prayer journey throughout the lent season."
+        },
+        {
+          "type": "hero",
+          "style": "full",
+          "image1": [
+            {
+                "src": "/static/images/local-site-1-1.jpg",
+                "alt": "Three friends hanging out and walking together in the city."
+            }
+          ],
+          "header1": "Month of Prayer",
+          "header2": "",
+          "text1": "Beginning March 2, we'll be praying through the Lent season, right into Good Friday and Easter. We'll have more information next week, including a link to register for digital access, for a printed guide if that's something you'd like, or even for a whole kit for a hands-on experience.",
+          "button1": {
+            "text": "Sign up for resources",
+            "action": "/registration",
+            "description": "Click to register to receive resources for month of prayer."
+          }
+        },
+        {
+          "type": "content",
+          "style": "oneImage",
+          "header1": "The Road to Hope",
+          "text1": "Welcome to the journey.",
+          "image1": [
+            {
+              "src": "/static/images/Christmas Gathering Website.jpg",
+              "alt": "What Matters Most on a computer surrounded by Christmas decor."
+            }
+          ],
+          "list": [
+            {
+              "type": "link",
+              "title": "Digital booklet - coming soon"
+            },
+            {
+               "type": "link",
+               "title": "Prayer Cards - coming soon"
+            },
+            {
+               "type": "link",
+               "title": "Print booklet - coming soon"
+            },
+            {
+                "type": "link",
+                "title": "Prayer station list - coming soon"
+            }
+          ]
+        }
+      ]
+    }
+  }
