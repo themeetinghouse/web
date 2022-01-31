@@ -38,36 +38,6 @@
             "action": "/registration",
             "description": "Click to register to receive resources for month of prayer."
           }
-        },
-        {
-          "type": "content",
-          "style": "oneImage",
-          "header1": "The Road to Hope",
-          "text1": "Welcome to the journey.",
-          "image1": [
-            {
-              "src": "/static/images/Christmas Gathering Website.jpg",
-              "alt": "What Matters Most on a computer surrounded by Christmas decor."
-            }
-          ],
-          "list": [
-            {
-              "type": "link",
-              "title": "Digital booklet - coming soon."
-            },
-            {
-               "type": "link",
-               "title": "Prayer Cards - coming soon."
-            },
-            {
-               "type": "link",
-               "title": "Print booklet - coming soon."
-            },
-            {
-                "type": "link",
-                "title": "Prayer station list - coming soon"
-            }
-          ]
         }
       ]
     }
