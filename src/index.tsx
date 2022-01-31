@@ -22,7 +22,7 @@ Sentry.init({
   ],
 });
 
-const history: History<any> = createBrowserHistory();
+const history: History = createBrowserHistory();
 
 render(
   <Router history={history}>

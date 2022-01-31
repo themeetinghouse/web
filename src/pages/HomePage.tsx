@@ -65,7 +65,7 @@ class HomePage extends React.Component<RouteComponentProps, State> {
         this.setState({ redirect: { id: '', to: '' } as RedirectType });
       });
 
-    this.unregisterGAListener = this.props.history.listen((location) => {
+    this.unregisterGAListener = this.props.history.listen((location: any) => {
       ReactGA.pageview(location.pathname + location.search);
     });
   }

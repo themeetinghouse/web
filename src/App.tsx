@@ -7,7 +7,7 @@ import Authenticator from 'components/Auth/Authenticator';
 
 interface Props extends RouteComponentProps<any> {
   match: any;
-  history: History<any>;
+  history: History;
 }
 interface State {
   content: any;

@@ -11,6 +11,8 @@ const newWindowProps = {
 type Props = React.PropsWithoutRef<LinkProps> &
   React.RefAttributes<HTMLAnchorElement> & {
     newWindow?: boolean;
+    to?: string;
+    className?: string;
   };
 
 export function Link({ to, newWindow, ...props }: Props): ReactElement<Props> {
