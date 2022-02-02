@@ -42,7 +42,7 @@
     "location": {
       "longitude": -79.95394369999997,
       "latitude": 43.2272571,
-      "address": ""
+      "address": "SilverCity Ancaster, 771 Golf Links Road"
     },
     "serviceTimes": ["10:00"]
   },
@@ -86,7 +86,7 @@
     "location": {
       "longitude": -79.8702504,
       "latitude": 43.26213,
-      "address": ""
+      "address": "Gasworks, 141 Park Avenue North"
     },
     "serviceTimes": ["10:00"]
   },
@@ -97,7 +97,7 @@
     "location": {
       "longitude": -79.391418,
       "latitude": 43.648869,
-      "address": ""
+      "address": "Scotiabank Theatre, 259 Richmond St. W"
     },
     "serviceTimes": ["10:00"]
   },
@@ -163,7 +163,7 @@
     "location": {
       "longitude": -79.555998,
       "latitude": 43.79428,
-      "address": ""
+      "address": "SilverCity Newmarket, 18195 Yonge Street"
     },
     "serviceTimes": ["10:00"]
   },
@@ -176,7 +176,7 @@
       "latitude": 43.511459,
       "address": "2700 Bristol Circle"
     },
-    "serviceTimes": ["9:30", "11:30"],
+    "serviceTimes": ["9:30"],
     "youth": {
       "age": "Youth | Grades 6 – 12",
       "location": {
