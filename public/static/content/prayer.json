@@ -16,9 +16,9 @@
       "content": [
         {
           "type": "og-tags",
-          "image": "/static/images/ChristmasWebHero.jpg",
-          "url": "https://www.themeetinghouse.com/christmas",
-          "title": "Christmas",
+          "image": "/static/images/local-site-1-1.jpg",
+          "url": "https://www.themeetinghouse.com/prayer",
+          "title": "Month of Prayer",
           "description": "Join us on a prayer journey throughout the lent season."
         },
         {
@@ -32,7 +32,12 @@
           ],
           "header1": "Month of Prayer",
           "header2": "",
-          "text1": "Beginning March 2, we'll be praying through the Lent season, right into Good Friday and Easter. We'll have more information next week, including a link to register for digital access, for a printed guide if that's something you'd like, or even for a whole kit for a hands-on experience."
+          "text1": "Beginning March 2, we'll be praying through the Lent season, right into Good Friday and Easter. We'll have more information next week, including a link to register for digital access, for a printed guide if that's something you'd like, or even for a whole kit for a hands-on experience.",
+          "button1": {
+            "text": "Sign Up",
+            "action": "https://meeting.formstack.com/forms/r2h",
+            "description": "Click to sign up for month of prayer resources."
+          }
         },
         {
           "type": "list",
@@ -46,21 +51,21 @@
               "text": "This package includes all of the essentials for a meaningful, prayerful experience. Click here if you'd like to receive digital versions of the prayer booklet and prayer cards.",
               "imageSrc": "/static/images/homepage-6-new.jpg",
               "imageAlt": "Friends walking together across the street talking about volunteering, compassion, and giving at The Meeting House.",
-              "navigateTo": "https://meetinghouse.infellowship.com/Forms/467379"
+              "navigateTo": "https://meeting.formstack.com/forms/r2h"
             },
             {
               "title": "The Road to Hope - Essentials Plus",
               "text": "This package includes printed versions of the prayer booklet and cards that will be available for pick up on March 2 at a parish near you. You'll also receive a supply list in case you'd like to engage in activities to help you go deeper. ",
               "imageSrc": "/static/images/corona-4.jpg",
               "imageAlt": "A child standing in her living room worshipping.",
-              "navigateTo": "https://meetinghouse.infellowship.com/Forms/467380"
+              "navigateTo": "https://meeting.formstack.com/forms/r2h"
             },
             {
               "title": "The Road to Hope - All in",
               "text": "This package includes printed versions of the prayer booklet and cards as well as the supplies needed for all activities in the booklet.",
               "imageSrc": "/static/images/corona-6.jpg",
               "imageAlt": "A man smiling while standing by a waterfall.",
-              "navigateTo": "https://meetinghouse.infellowship.com/Forms/467380"
+              "navigateTo": "https://meeting.formstack.com/forms/r2h"
             }
           ]
         }
