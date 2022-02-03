@@ -16,9 +16,9 @@
       "content": [
         {
           "type": "og-tags",
-          "image": "/static/images/ChristmasWebHero.jpg",
-          "url": "https://www.themeetinghouse.com/christmas",
-          "title": "Christmas",
+          "image": "/static/images/local-site-1-1.jpg",
+          "url": "https://www.themeetinghouse.com/prayer",
+          "title": "Month of Prayer",
           "description": "Join us on a prayer journey throughout the lent season."
         },
         {
@@ -32,7 +32,12 @@
           ],
           "header1": "Month of Prayer",
           "header2": "",
-          "text1": "Beginning March 2, we'll be praying through the Lent season, right into Good Friday and Easter. We'll have more information next week, including a link to register for digital access, for a printed guide if that's something you'd like, or even for a whole kit for a hands-on experience."
+          "text1": "Beginning March 2, we'll be praying through the Lent season, right into Good Friday and Easter. We'll have more information next week, including a link to register for digital access, for a printed guide if that's something you'd like, or even for a whole kit for a hands-on experience.",
+          "button1": {
+            "text": "Sign Up",
+            "action": "https://meeting.formstack.com/forms/r2h",
+            "description": "Click to sign up for month of prayer resources."
+          }
         },
         {
           "type": "list",
