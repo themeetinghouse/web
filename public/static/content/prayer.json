@@ -51,21 +51,21 @@
               "text": "This package includes all of the essentials for a meaningful, prayerful experience. Click here if you'd like to receive digital versions of the prayer booklet and prayer cards.",
               "imageSrc": "/static/images/homepage-6-new.jpg",
               "imageAlt": "Friends walking together across the street talking about volunteering, compassion, and giving at The Meeting House.",
-              "navigateTo": "https://meetinghouse.infellowship.com/Forms/467379"
+              "navigateTo": "https://meeting.formstack.com/forms/r2h"
             },
             {
               "title": "The Road to Hope - Essentials Plus",
               "text": "This package includes printed versions of the prayer booklet and cards that will be available for pick up on March 2 at a parish near you. You'll also receive a supply list in case you'd like to engage in activities to help you go deeper. ",
               "imageSrc": "/static/images/corona-4.jpg",
               "imageAlt": "A child standing in her living room worshipping.",
-              "navigateTo": "https://meetinghouse.infellowship.com/Forms/467380"
+              "navigateTo": "https://meeting.formstack.com/forms/r2h"
             },
             {
               "title": "The Road to Hope - All in",
               "text": "This package includes printed versions of the prayer booklet and cards as well as the supplies needed for all activities in the booklet.",
               "imageSrc": "/static/images/corona-6.jpg",
               "imageAlt": "A man smiling while standing by a waterfall.",
-              "navigateTo": "https://meetinghouse.infellowship.com/Forms/467380"
+              "navigateTo": "https://meeting.formstack.com/forms/r2h"
             }
           ]
         }
