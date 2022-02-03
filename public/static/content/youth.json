@@ -53,21 +53,21 @@
         "text1": "Here's what we're learning in Jr High Weekend this week:",
         "image1": [
           {
-            "src": "/static/photos/series/ky-jrhigh-Genesis Aftermath.jpg",
-            "alt": "Genesis Aftermath."
+            "src": "/static/photos/series/ky-jrhigh-Exodus Underdog.jpg",
+            "alt": "Exodus Underdog"
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Weekend Lesson",
-            "navigateTo": "/static/pdfs/youth-files/Wk 4 - Aftermath - JH Weekend.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 1 - Underdog - JH Weekend.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Weekend Activity Page",
-            "navigateTo": "/static/pdfs/youth-files/Wk 4 - God Cares.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 1 - Scenario Signs.pdf",
             "openNewBrowser": true
           }
           
@@ -91,21 +91,21 @@
         "text1": "Here's what our Jr High Midweek students are learning this week:",
         "image1": [
           {
-            "src": "/static/photos/series/ky-youth-Genesis Aftermath.jpg",
-            "alt": "Genesis Aftermath."
+            "src": "/static/photos/series/ky-youth-Exodus Underdog.jpg",
+            "alt": "Exodus Underdog"
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Midweek Lesson",
-            "navigateTo": "/static/pdfs/youth-files/Wk 4 - Aftermath - Midweek.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 1 - Underdog - JH Midweek.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Midweek Small Group Leader Notes",
-            "navigateTo": "/static/pdfs/youth-files/Wk 4 - Aftermath - Midweek SGL Notes.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 1 - Underdog - JH Midweek SGL Notes.pdf",
             "openNewBrowser": true
           }
         ]
