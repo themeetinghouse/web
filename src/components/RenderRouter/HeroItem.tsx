@@ -397,6 +397,18 @@ class HeroItem extends React.Component<Props, State> {
                 ) : null
               ) : this.state.content.secondaryCTA ? (
                 this.renderSecondaryCTA(this.state.content.secondaryCTA)
+              ) : this.state.content.register ? (
+                <a href="/registration">
+                  <button className="calendarButton contactPastor">
+                    <img
+                      className="calendarImage"
+                      src="/static/svg/Register-white.svg"
+                      alt="Register Icon"
+                    />
+                    Register
+                  </button>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </a>
               ) : null}
               {this.state.content.contactPastor ? (
                 this.state.locationData.length === 1 ? (
@@ -509,6 +521,12 @@ class HeroItem extends React.Component<Props, State> {
                 Add To Calendar
               </Button>
             ) : null}
+            {this.state.content.register ? (
+              <Button className="heroItemButton" onClick={this.navigate}>
+                <img src="/static/svg/Register-white.svg" alt="Register Icon" />
+                Register
+              </Button>
+            ) : null}
             {this.state.content.contactPastor ? (
               <Button className="heroItemButton" onClick={this.navigate}>
                 <img src="/static/svg/Contact.svg" alt="Contact Icon" />
@@ -582,6 +600,12 @@ class HeroItem extends React.Component<Props, State> {
               <Button className="heroItemButton" onClick={this.navigate}>
                 <img src="/static/Calendar.png" alt="Calendar Icon" />
                 Add To Calendar
+              </Button>
+            ) : null}
+            {this.state.content.register ? (
+              <Button className="heroItemButton" onClick={this.navigate}>
+                <img src="/static/Register.png" alt="Register Icon" />
+                Register
               </Button>
             ) : null}
             {this.state.content.contactPastor ? (

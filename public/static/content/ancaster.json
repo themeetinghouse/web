@@ -47,7 +47,8 @@
         "text1": "Sundays at 10:00am",
         "text2": "",
         "customLiveLink": "themeetinghouse.com/live",
-        "addToCalendar": true,
+        "register": true,
+        "addToCalendar": false,
         "contactPastor": true,
         "class": "locations",
         "filterField": "id",
@@ -61,7 +62,7 @@
         "text1": "These are the folks that help make community, discipleship, and Sunday mornings happen.",
         "filterField": "sites",
         "filterValue": "HMAN"
-      }, 
+      },
       {
         "type": "list",
         "style": "ladder",

@@ -118,7 +118,7 @@
         "S3AndCloudFront": {},
         "emailHomeChurch": {
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "s3Key": "amplify-builds/emailHomeChurch-53536546627839364e74-build.zip"
+          "s3Key": "amplify-builds/emailHomeChurch-6a5a3369754b30304565-build.zip"
         },
         "socialBotHandler": {
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",

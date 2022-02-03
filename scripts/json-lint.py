@@ -119,7 +119,7 @@ if __name__ == '__main__':
                                 if i == 'link1Action':
                                     assert(isinstance(item[i], str))
                                     file_exists(item[i])
-                                if i in ['addToCalendar', 'showCovid', 'contactPastor', 'showLocationSearch', 'hasFooter']:
+                                if i in ['register','addToCalendar', 'showCovid', 'contactPastor', 'showLocationSearch', 'hasFooter']:
                                     assert(isinstance(item[i], bool))
 
                         elif item_type == 'content':
