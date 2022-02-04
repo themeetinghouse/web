@@ -32,7 +32,7 @@
           ],
           "header1": "Month of Prayer",
           "header2": "",
-          "text1": "Beginning March 2, we'll be praying through the Lent season, right into Good Friday and Easter. This year, we put together a number of options for you to choose from to help you engage in prayer and reach for hope.",
+          "text1": "Join us on a prayer journey through the Lent season, right into Good Friday and Easter. We put together a number of resources to help you engage in prayer and reach for hope.",
           "button1": {
             "text": "Sign Up",
             "action": "https://meeting.formstack.com/forms/r2h",
@@ -43,7 +43,7 @@
           "type": "content",
           "style": "oneImage",
           "header1": "The Road to Hope",
-          "text1": "The Road to Hope is a 6-week prayerful experience that will engage your senses and guide us through ",
+          "text1": "The Road to Hope is a 6-week prayerful experience that runs from March 2-April 16. We've created a couple of resources like a prayer booklet and prayer cards to guide us through the season. You can sign up for a physical or digital kit option below. ",
           "list": [
             {
               "type": "link",
@@ -61,9 +61,9 @@
         {
           "type": "content",
           "style": "oneImage",
-          "header1": "24 hours of prayer",
+          "header1": "24 Hours of Prayer",
           "header2": "",
-          "text1": "On April 15, we'll be having a 24 hours of prayer event to collectively pray as a church and lift up requests to God.",
+          "text1": "From April 13-14, we'll be uniting as a church family to collectively pray for 24 hours. Pick a time slot to join in and receive a digital prayer guide.",
           "image1": [
             {
               "src": "/static/images/corona-6.jpg",
@@ -73,7 +73,7 @@
           "list": [
             {
               "type": "button",
-              "title": "Sign up for 24hrs of prayer",
+              "title": "Sign up for 24 Hours of Prayer",
               "navigateTo": "https://meetinghouse.infellowship.com/Forms/467351"
             }
           ]
