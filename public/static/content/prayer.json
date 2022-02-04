@@ -32,7 +32,7 @@
           ],
           "header1": "Month of Prayer",
           "header2": "",
-          "text1": "Beginning March 2, we'll be praying through the Lent season, right into Good Friday and Easter. We'll have more information next week, including a link to register for digital access, for a printed guide if that's something you'd like, or even for a whole kit for a hands-on experience.",
+          "text1": "Beginning March 2, we'll be praying through the Lent season, right into Good Friday and Easter. This year, we put together a number of options for you to choose from to help you engage in prayer and reach for hope.",
           "button1": {
             "text": "Sign Up",
             "action": "https://meeting.formstack.com/forms/r2h",
@@ -40,32 +40,41 @@
           }
         },
         {
-          "type": "list",
-          "style": "imageList",
-          "class": "user-defined",
-          "header1": "The Road to Hope Journey",
-          "text1": "Choose your own adventure. Wherever you are, there is a way for you to engage with prayer in this season.",
+          "type": "content",
+          "style": "oneImage",
+          "header1": "The Road to Hope",
+          "text1": "The Road to Hope is a 6-week prayerful experience that will engage your senses and guide us through ",
           "list": [
             {
-              "title": "The Road to Hope - Essentials",
-              "text": "This package includes all of the essentials for a meaningful, prayerful experience. Click here if you'd like to receive digital versions of the prayer booklet and prayer cards.",
-              "imageSrc": "/static/images/homepage-6-new.jpg",
-              "imageAlt": "Friends walking together across the street talking about volunteering, compassion, and giving at The Meeting House.",
+              "type": "link",
+              "title": "Sign up for your option",
               "navigateTo": "https://meeting.formstack.com/forms/r2h"
-            },
+            }
+          ],
+          "image1": [
             {
-              "title": "The Road to Hope - Essentials Plus",
-              "text": "This package includes printed versions of the prayer booklet and cards that will be available for pick up on March 2 at a parish near you. You'll also receive a supply list in case you'd like to engage in activities to help you go deeper. ",
-              "imageSrc": "/static/images/corona-4.jpg",
-              "imageAlt": "A child standing in her living room worshipping.",
-              "navigateTo": "https://meeting.formstack.com/forms/r2h"
-            },
+              "src": "/static/images/homepage-2-new.jpg",
+              "alt": "Group of friends from church sitting together, and talking."
+            }
+          ]
+        },
+        {
+          "type": "content",
+          "style": "oneImage",
+          "header1": "24 hours of prayer",
+          "header2": "",
+          "text1": "On April 15, we'll be having a 24 hours of prayer event to collectively pray as a church and lift up requests to God.",
+          "image1": [
             {
-              "title": "The Road to Hope - All in",
-              "text": "This package includes printed versions of the prayer booklet and cards as well as the supplies needed for all activities in the booklet.",
-              "imageSrc": "/static/images/corona-6.jpg",
-              "imageAlt": "A man smiling while standing by a waterfall.",
-              "navigateTo": "https://meeting.formstack.com/forms/r2h"
+              "src": "/static/images/corona-6.jpg",
+              "alt": "A man smiling while standing by a waterfall."
+            }
+          ],
+          "list": [
+            {
+              "type": "button",
+              "title": "Sign up for 24hrs of prayer",
+              "navigateTo": "/give"
             }
           ]
         }
