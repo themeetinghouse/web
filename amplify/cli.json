@@ -10,9 +10,9 @@
       "overrides": true
     },
     "graphqltransformer": {
-      "useexperimentalpipelinedtransformer": false,
-      "transformerversion": 1,
-      "suppressschemamigrationprompt": false,
+      "useexperimentalpipelinedtransformer": true,
+      "transformerversion": 2,
+      "suppressschemamigrationprompt": true,
       "showfieldauthnotification": false
     }
   }
