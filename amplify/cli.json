@@ -3,6 +3,9 @@
     "auth": {
       "breakCircularDependency": true
     },
+    "graphQLTransformer": {
+      "enableIterativeGSIUpdates": true
+    },
     "project": {
       "overrides": true
     }

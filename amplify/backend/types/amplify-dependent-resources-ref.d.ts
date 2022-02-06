@@ -56,6 +56,12 @@ export type AmplifyDependentResourcesAttributes = {
       Region: 'string';
       LambdaExecutionRole: 'string';
     };
+    socialBotHandler: {
+      Name: 'string';
+      Arn: 'string';
+      Region: 'string';
+      LambdaExecutionRole: 'string';
+    };
     S3Triggerd90d52fa: {
       Name: 'string';
       Arn: 'string';
@@ -80,12 +86,6 @@ export type AmplifyDependentResourcesAttributes = {
       Region: 'string';
       LambdaExecutionRole: 'string';
     };
-    socialBotHandler: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-    };
     tmhF1HomeChurch: {
       Name: 'string';
       Arn: 'string';
@@ -99,26 +99,19 @@ export type AmplifyDependentResourcesAttributes = {
       Region: 'string';
       LambdaExecutionRole: 'string';
     };
-    AdminQueriesb1fe1491: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-    };
-    cognitodevtmhPreSignup: {
-      Name: 'string';
-      Arn: 'string';
-      LambdaExecutionRole: 'string';
-      Region: 'string';
-    };
-    tmhF1AssignmentSync: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-      CloudWatchEventRule: 'string';
-    };
     tmhF1LinkUser: {
+      Name: 'string';
+      Arn: 'string';
+      Region: 'string';
+      LambdaExecutionRole: 'string';
+    };
+    tmhF1SearchContributionReceipts: {
+      Name: 'string';
+      Arn: 'string';
+      Region: 'string';
+      LambdaExecutionRole: 'string';
+    };
+    tmhF1SyncGroupPermissions: {
       Name: 'string';
       Arn: 'string';
       Region: 'string';
@@ -127,49 +120,7 @@ export type AmplifyDependentResourcesAttributes = {
     themeetinghousetmhShared: {
       Arn: 'string';
     };
-    tmhF1SearchContributionReceipts: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-    };
-    cognitodevtmhPreTokenGeneration: {
-      Name: 'string';
-      Arn: 'string';
-      LambdaExecutionRole: 'string';
-      Region: 'string';
-    };
-    tmhF1SyncGroupPermissions: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-    };
-    AdminQueriesa1b7e2e8: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-    };
-    tmhStripeDeleteSubscription: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-    };
     tmhStripeListPaymentMethods: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-    };
-    tmhStripeAddSubscription: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-    };
-    tmhStripeListSubscriptions: {
       Name: 'string';
       Arn: 'string';
       Region: 'string';
@@ -187,11 +138,29 @@ export type AmplifyDependentResourcesAttributes = {
       Region: 'string';
       LambdaExecutionRole: 'string';
     };
-    cognitodevtmhPostAuthentication: {
+    tmhStripeListSubscriptions: {
       Name: 'string';
       Arn: 'string';
-      LambdaExecutionRole: 'string';
       Region: 'string';
+      LambdaExecutionRole: 'string';
+    };
+    tmhStripeAddSubscription: {
+      Name: 'string';
+      Arn: 'string';
+      Region: 'string';
+      LambdaExecutionRole: 'string';
+    };
+    tmhStripeDeleteSubscription: {
+      Name: 'string';
+      Arn: 'string';
+      Region: 'string';
+      LambdaExecutionRole: 'string';
+    };
+    AdminQueriesb1fe1491: {
+      Name: 'string';
+      Arn: 'string';
+      Region: 'string';
+      LambdaExecutionRole: 'string';
     };
     tmhPinpointCreateCampaign: {
       Name: 'string';
@@ -211,6 +180,31 @@ export type AmplifyDependentResourcesAttributes = {
       Region: 'string';
       LambdaExecutionRole: 'string';
       CloudWatchEventRule: 'string';
+    };
+    cognitodevtmhPostAuthentication: {
+      Name: 'string';
+      Arn: 'string';
+      LambdaExecutionRole: 'string';
+      Region: 'string';
+    };
+    cognitodevtmhPreSignup: {
+      Name: 'string';
+      Arn: 'string';
+      LambdaExecutionRole: 'string';
+      Region: 'string';
+    };
+    tmhF1AssignmentSync: {
+      Name: 'string';
+      Arn: 'string';
+      Region: 'string';
+      LambdaExecutionRole: 'string';
+      CloudWatchEventRule: 'string';
+    };
+    cognitodevtmhPreTokenGeneration: {
+      Name: 'string';
+      Arn: 'string';
+      LambdaExecutionRole: 'string';
+      Region: 'string';
     };
     tmhStripeAddPayment: {
       Name: 'string';
