@@ -10,12 +10,12 @@ import Highlighter from 'react-highlight-words';
 import DataLoader, { CompassionData, StaffData } from './DataLoader';
 import { ScaledImage, BlogImage } from 'components/ScaledImage';
 import {
-  SearchBlogSeriessQuery,
+  SearchBlogSeriesQuery,
   SearchBlogsQuery,
   SearchCustomPlaylistsQuery,
   SearchF1ListGroup2sQuery,
-  SearchNotessQuery,
-  SearchSeriessQuery,
+  SearchNotesQuery,
+  SearchSeriesQuery,
 } from 'API';
 import RenderRouter from './RenderRouter';
 import { Button } from 'reactstrap';
@@ -264,25 +264,25 @@ class ContentItem extends React.Component<Props, State> {
   }
   searchSeries(e: any, nextId: any) {
     const searchSeries: any = API.graphql(
-      graphqlOperation(queries.searchSeriess, {
+      graphqlOperation(queries.searchSeries, {
         filter: {
           or: [{ title: { match: e } }, { description: { match: e } }],
         },
         limit: 10,
         nextToken: nextId,
       })
-    ) as Promise<GraphQLResult<SearchSeriessQuery>>;
+    ) as Promise<GraphQLResult<SearchSeriesQuery>>;
     searchSeries
-      .then((json: GraphQLResult<SearchSeriessQuery>) => {
+      .then((json: GraphQLResult<SearchSeriesQuery>) => {
         console.log(json);
         if (nextId == null)
           this.setState({
-            searchSeries: json.data?.searchSeriess?.items,
+            searchSeries: json.data?.searchSeries?.items,
           });
         else
           this.setState({
             searchSeries: this.state.searchSeries.concat(
-              json.data?.searchSeriess?.items
+              json.data?.searchSeries?.items
             ),
           });
 
@@ -324,25 +324,25 @@ class ContentItem extends React.Component<Props, State> {
   }
   searchBlogSeries(e: any, nextId: any) {
     const searchBlogSeries: any = API.graphql(
-      graphqlOperation(queries.searchBlogSeriess, {
+      graphqlOperation(queries.searchBlogSeries, {
         filter: {
           or: [{ title: { match: e } }, { description: { match: e } }],
         },
         limit: 10,
         nextToken: nextId,
       })
-    ) as Promise<GraphQLResult<SearchBlogSeriessQuery>>;
+    ) as Promise<GraphQLResult<SearchBlogSeriesQuery>>;
     searchBlogSeries
-      .then((json: GraphQLResult<SearchBlogSeriessQuery>) => {
+      .then((json: GraphQLResult<SearchBlogSeriesQuery>) => {
         console.log(json);
         if (nextId == null)
           this.setState({
-            searchBlogSeries: json.data?.searchBlogSeriess?.items,
+            searchBlogSeries: json.data?.searchBlogSeries?.items,
           });
         else
           this.setState({
             searchBlogSeries: this.state.searchBlogSeries.concat(
-              json.data?.searchBlogSeriess?.items
+              json.data?.searchBlogSeries?.items
             ),
           });
 
@@ -355,7 +355,7 @@ class ContentItem extends React.Component<Props, State> {
 
   searchNotes(e: any, nextId: any) {
     const searchNotes: any = API.graphql(
-      graphqlOperation(queries.searchNotess, {
+      graphqlOperation(queries.searchNotes, {
         filter: {
           or: [
             { title: { match: e } },
@@ -367,18 +367,18 @@ class ContentItem extends React.Component<Props, State> {
         limit: 10,
         nextToken: nextId,
       })
-    ) as Promise<GraphQLResult<SearchNotessQuery>>;
+    ) as Promise<GraphQLResult<SearchNotesQuery>>;
     searchNotes
-      .then((json: GraphQLResult<SearchNotessQuery>) => {
+      .then((json: GraphQLResult<SearchNotesQuery>) => {
         console.log(json);
         if (nextId == null)
           this.setState({
-            searchNotes: json.data?.searchNotess?.items,
+            searchNotes: json.data?.searchNotes?.items,
           });
         else
           this.setState({
             searchNotes: this.state.searchNotes.concat(
-              json.data?.searchNotess?.items
+              json.data?.searchNotes?.items
             ),
           });
 

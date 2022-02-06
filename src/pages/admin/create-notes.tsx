@@ -38,7 +38,7 @@ import {
   GetBiblePassageQuery,
   GetNotesQuery,
   GetSeriesBySeriesTypeQuery,
-  ListNotessQuery,
+  ListNotesQuery,
   NoteDataType,
   UpdateNotesMutation,
 } from '../../API';
@@ -170,14 +170,14 @@ class Index extends React.Component<EmptyProps, State> {
   async listNotes(nextToken?: string) {
     try {
       const listNotess = (await API.graphql({
-        query: queries.listNotess,
+        query: queries.listNotes,
         variables: { nextToken: nextToken, sortDirection: 'DESC', limit: 200 },
         authMode: GRAPHQL_AUTH_MODE.API_KEY,
-      })) as GraphQLResult<ListNotessQuery>;
+      })) as GraphQLResult<ListNotesQuery>;
       console.log({ 'Success customQueries.listNotess: ': listNotess });
       this.setState({
         notesList: this.state.notesList
-          ?.concat(listNotess.data?.listNotess?.items)
+          ?.concat(listNotess.data?.listNotes?.items)
           .sort(function (a: any, b: any) {
             const nameA = a.id.toUpperCase();
             const nameB = b.id.toUpperCase();
@@ -190,8 +190,8 @@ class Index extends React.Component<EmptyProps, State> {
             return 0;
           }),
       });
-      if (listNotess.data?.listNotess?.nextToken)
-        this.listNotes(listNotess.data.listNotess.nextToken);
+      if (listNotess.data?.listNotes?.nextToken)
+        this.listNotes(listNotess.data.listNotes.nextToken);
     } catch (e: any) {
       console.error(e);
       this.setState({
