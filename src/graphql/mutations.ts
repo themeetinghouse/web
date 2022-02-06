@@ -17,37 +17,64 @@ export const createTnSeries = /* GraphQL */ `
       sermonCommentCount
       homeChurchCommentCount
       sermons {
-        items {
+        id
+        TNident
+        title
+        speaker
+        deliveryDate
+        description
+        audioUrl
+        mediaEntries {
+          type
+          contentType
+          kind
+          label
+          url
+        }
+        public
+        series_FK
+        series {
           id
           TNident
           title
-          speaker
-          deliveryDate
           description
-          audioUrl
-          mediaEntries {
-            type
-            contentType
-            kind
-            label
-            url
-          }
+          imageUrl
           public
-          series_FK
-          series {
+          thumbnail
+          startDate
+          endDate
+          sermonCommentCount
+          homeChurchCommentCount
+          sermons {
             id
             TNident
             title
+            speaker
+            deliveryDate
             description
-            imageUrl
+            audioUrl
+            mediaEntries {
+              type
+              contentType
+              kind
+              label
+              url
+            }
             public
-            thumbnail
-            startDate
-            endDate
-            sermonCommentCount
-            homeChurchCommentCount
-            sermons {
-              items {
+            series_FK
+            series {
+              id
+              TNident
+              title
+              description
+              imageUrl
+              public
+              thumbnail
+              startDate
+              endDate
+              sermonCommentCount
+              homeChurchCommentCount
+              sermons {
                 id
                 TNident
                 title
@@ -86,19 +113,25 @@ export const createTnSeries = /* GraphQL */ `
                 createdAt
                 updatedAt
               }
-              nextToken
+              createdAt
+              updatedAt
             }
+            sermonNoteCount
+            quoteNoteCount
+            homeChurchNoteCount
+            sermonCommentCount
             createdAt
             updatedAt
           }
-          sermonNoteCount
-          quoteNoteCount
-          homeChurchNoteCount
-          sermonCommentCount
           createdAt
           updatedAt
         }
-        nextToken
+        sermonNoteCount
+        quoteNoteCount
+        homeChurchNoteCount
+        sermonCommentCount
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt
@@ -120,37 +153,64 @@ export const updateTnSeries = /* GraphQL */ `
       sermonCommentCount
       homeChurchCommentCount
       sermons {
-        items {
+        id
+        TNident
+        title
+        speaker
+        deliveryDate
+        description
+        audioUrl
+        mediaEntries {
+          type
+          contentType
+          kind
+          label
+          url
+        }
+        public
+        series_FK
+        series {
           id
           TNident
           title
-          speaker
-          deliveryDate
           description
-          audioUrl
-          mediaEntries {
-            type
-            contentType
-            kind
-            label
-            url
-          }
+          imageUrl
           public
-          series_FK
-          series {
+          thumbnail
+          startDate
+          endDate
+          sermonCommentCount
+          homeChurchCommentCount
+          sermons {
             id
             TNident
             title
+            speaker
+            deliveryDate
             description
-            imageUrl
+            audioUrl
+            mediaEntries {
+              type
+              contentType
+              kind
+              label
+              url
+            }
             public
-            thumbnail
-            startDate
-            endDate
-            sermonCommentCount
-            homeChurchCommentCount
-            sermons {
-              items {
+            series_FK
+            series {
+              id
+              TNident
+              title
+              description
+              imageUrl
+              public
+              thumbnail
+              startDate
+              endDate
+              sermonCommentCount
+              homeChurchCommentCount
+              sermons {
                 id
                 TNident
                 title
@@ -189,19 +249,25 @@ export const updateTnSeries = /* GraphQL */ `
                 createdAt
                 updatedAt
               }
-              nextToken
+              createdAt
+              updatedAt
             }
+            sermonNoteCount
+            quoteNoteCount
+            homeChurchNoteCount
+            sermonCommentCount
             createdAt
             updatedAt
           }
-          sermonNoteCount
-          quoteNoteCount
-          homeChurchNoteCount
-          sermonCommentCount
           createdAt
           updatedAt
         }
-        nextToken
+        sermonNoteCount
+        quoteNoteCount
+        homeChurchNoteCount
+        sermonCommentCount
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt
@@ -223,37 +289,64 @@ export const deleteTnSeries = /* GraphQL */ `
       sermonCommentCount
       homeChurchCommentCount
       sermons {
-        items {
+        id
+        TNident
+        title
+        speaker
+        deliveryDate
+        description
+        audioUrl
+        mediaEntries {
+          type
+          contentType
+          kind
+          label
+          url
+        }
+        public
+        series_FK
+        series {
           id
           TNident
           title
-          speaker
-          deliveryDate
           description
-          audioUrl
-          mediaEntries {
-            type
-            contentType
-            kind
-            label
-            url
-          }
+          imageUrl
           public
-          series_FK
-          series {
+          thumbnail
+          startDate
+          endDate
+          sermonCommentCount
+          homeChurchCommentCount
+          sermons {
             id
             TNident
             title
+            speaker
+            deliveryDate
             description
-            imageUrl
+            audioUrl
+            mediaEntries {
+              type
+              contentType
+              kind
+              label
+              url
+            }
             public
-            thumbnail
-            startDate
-            endDate
-            sermonCommentCount
-            homeChurchCommentCount
-            sermons {
-              items {
+            series_FK
+            series {
+              id
+              TNident
+              title
+              description
+              imageUrl
+              public
+              thumbnail
+              startDate
+              endDate
+              sermonCommentCount
+              homeChurchCommentCount
+              sermons {
                 id
                 TNident
                 title
@@ -292,19 +385,25 @@ export const deleteTnSeries = /* GraphQL */ `
                 createdAt
                 updatedAt
               }
-              nextToken
+              createdAt
+              updatedAt
             }
+            sermonNoteCount
+            quoteNoteCount
+            homeChurchNoteCount
+            sermonCommentCount
             createdAt
             updatedAt
           }
-          sermonNoteCount
-          quoteNoteCount
-          homeChurchNoteCount
-          sermonCommentCount
           createdAt
           updatedAt
         }
-        nextToken
+        sermonNoteCount
+        quoteNoteCount
+        homeChurchNoteCount
+        sermonCommentCount
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt
@@ -343,37 +442,64 @@ export const createTnSermon = /* GraphQL */ `
         sermonCommentCount
         homeChurchCommentCount
         sermons {
-          items {
+          id
+          TNident
+          title
+          speaker
+          deliveryDate
+          description
+          audioUrl
+          mediaEntries {
+            type
+            contentType
+            kind
+            label
+            url
+          }
+          public
+          series_FK
+          series {
             id
             TNident
             title
-            speaker
-            deliveryDate
             description
-            audioUrl
-            mediaEntries {
-              type
-              contentType
-              kind
-              label
-              url
-            }
+            imageUrl
             public
-            series_FK
-            series {
+            thumbnail
+            startDate
+            endDate
+            sermonCommentCount
+            homeChurchCommentCount
+            sermons {
               id
               TNident
               title
+              speaker
+              deliveryDate
               description
-              imageUrl
+              audioUrl
+              mediaEntries {
+                type
+                contentType
+                kind
+                label
+                url
+              }
               public
-              thumbnail
-              startDate
-              endDate
-              sermonCommentCount
-              homeChurchCommentCount
-              sermons {
-                items {
+              series_FK
+              series {
+                id
+                TNident
+                title
+                description
+                imageUrl
+                public
+                thumbnail
+                startDate
+                endDate
+                sermonCommentCount
+                homeChurchCommentCount
+                sermons {
                   id
                   TNident
                   title
@@ -390,19 +516,25 @@ export const createTnSermon = /* GraphQL */ `
                   createdAt
                   updatedAt
                 }
-                nextToken
+                createdAt
+                updatedAt
               }
+              sermonNoteCount
+              quoteNoteCount
+              homeChurchNoteCount
+              sermonCommentCount
               createdAt
               updatedAt
             }
-            sermonNoteCount
-            quoteNoteCount
-            homeChurchNoteCount
-            sermonCommentCount
             createdAt
             updatedAt
           }
-          nextToken
+          sermonNoteCount
+          quoteNoteCount
+          homeChurchNoteCount
+          sermonCommentCount
+          createdAt
+          updatedAt
         }
         createdAt
         updatedAt
@@ -448,37 +580,64 @@ export const updateTnSermon = /* GraphQL */ `
         sermonCommentCount
         homeChurchCommentCount
         sermons {
-          items {
+          id
+          TNident
+          title
+          speaker
+          deliveryDate
+          description
+          audioUrl
+          mediaEntries {
+            type
+            contentType
+            kind
+            label
+            url
+          }
+          public
+          series_FK
+          series {
             id
             TNident
             title
-            speaker
-            deliveryDate
             description
-            audioUrl
-            mediaEntries {
-              type
-              contentType
-              kind
-              label
-              url
-            }
+            imageUrl
             public
-            series_FK
-            series {
+            thumbnail
+            startDate
+            endDate
+            sermonCommentCount
+            homeChurchCommentCount
+            sermons {
               id
               TNident
               title
+              speaker
+              deliveryDate
               description
-              imageUrl
+              audioUrl
+              mediaEntries {
+                type
+                contentType
+                kind
+                label
+                url
+              }
               public
-              thumbnail
-              startDate
-              endDate
-              sermonCommentCount
-              homeChurchCommentCount
-              sermons {
-                items {
+              series_FK
+              series {
+                id
+                TNident
+                title
+                description
+                imageUrl
+                public
+                thumbnail
+                startDate
+                endDate
+                sermonCommentCount
+                homeChurchCommentCount
+                sermons {
                   id
                   TNident
                   title
@@ -495,19 +654,25 @@ export const updateTnSermon = /* GraphQL */ `
                   createdAt
                   updatedAt
                 }
-                nextToken
+                createdAt
+                updatedAt
               }
+              sermonNoteCount
+              quoteNoteCount
+              homeChurchNoteCount
+              sermonCommentCount
               createdAt
               updatedAt
             }
-            sermonNoteCount
-            quoteNoteCount
-            homeChurchNoteCount
-            sermonCommentCount
             createdAt
             updatedAt
           }
-          nextToken
+          sermonNoteCount
+          quoteNoteCount
+          homeChurchNoteCount
+          sermonCommentCount
+          createdAt
+          updatedAt
         }
         createdAt
         updatedAt
@@ -553,37 +718,64 @@ export const deleteTnSermon = /* GraphQL */ `
         sermonCommentCount
         homeChurchCommentCount
         sermons {
-          items {
+          id
+          TNident
+          title
+          speaker
+          deliveryDate
+          description
+          audioUrl
+          mediaEntries {
+            type
+            contentType
+            kind
+            label
+            url
+          }
+          public
+          series_FK
+          series {
             id
             TNident
             title
-            speaker
-            deliveryDate
             description
-            audioUrl
-            mediaEntries {
-              type
-              contentType
-              kind
-              label
-              url
-            }
+            imageUrl
             public
-            series_FK
-            series {
+            thumbnail
+            startDate
+            endDate
+            sermonCommentCount
+            homeChurchCommentCount
+            sermons {
               id
               TNident
               title
+              speaker
+              deliveryDate
               description
-              imageUrl
+              audioUrl
+              mediaEntries {
+                type
+                contentType
+                kind
+                label
+                url
+              }
               public
-              thumbnail
-              startDate
-              endDate
-              sermonCommentCount
-              homeChurchCommentCount
-              sermons {
-                items {
+              series_FK
+              series {
+                id
+                TNident
+                title
+                description
+                imageUrl
+                public
+                thumbnail
+                startDate
+                endDate
+                sermonCommentCount
+                homeChurchCommentCount
+                sermons {
                   id
                   TNident
                   title
@@ -600,19 +792,25 @@ export const deleteTnSermon = /* GraphQL */ `
                   createdAt
                   updatedAt
                 }
-                nextToken
+                createdAt
+                updatedAt
               }
+              sermonNoteCount
+              quoteNoteCount
+              homeChurchNoteCount
+              sermonCommentCount
               createdAt
               updatedAt
             }
-            sermonNoteCount
-            quoteNoteCount
-            homeChurchNoteCount
-            sermonCommentCount
             createdAt
             updatedAt
           }
-          nextToken
+          sermonNoteCount
+          quoteNoteCount
+          homeChurchNoteCount
+          sermonCommentCount
+          createdAt
+          updatedAt
         }
         createdAt
         updatedAt
@@ -1559,6 +1757,7 @@ export const createSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -1592,6 +1791,7 @@ export const createSpeaker = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            videoSeriesId
             customPlaylistIDs
             publishedDate
             recordedDate
@@ -1745,6 +1945,7 @@ export const createSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -1789,6 +1990,7 @@ export const createSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -1830,6 +2032,7 @@ export const createSpeaker = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -1887,6 +2090,7 @@ export const createSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -1966,6 +2170,7 @@ export const updateSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -1999,6 +2204,7 @@ export const updateSpeaker = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            videoSeriesId
             customPlaylistIDs
             publishedDate
             recordedDate
@@ -2152,6 +2358,7 @@ export const updateSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -2196,6 +2403,7 @@ export const updateSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -2237,6 +2445,7 @@ export const updateSpeaker = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -2294,6 +2503,7 @@ export const updateSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -2373,6 +2583,7 @@ export const deleteSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -2406,6 +2617,7 @@ export const deleteSpeaker = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            videoSeriesId
             customPlaylistIDs
             publishedDate
             recordedDate
@@ -2559,6 +2771,7 @@ export const deleteSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -2603,6 +2816,7 @@ export const deleteSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -2644,6 +2858,7 @@ export const deleteSpeaker = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -2701,6 +2916,7 @@ export const deleteSpeaker = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -2783,6 +2999,7 @@ export const createSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -2891,6 +3108,7 @@ export const createSpeakerVideos = /* GraphQL */ `
         originalEpisodeTitle
         episodeNumber
         seriesTitle
+        videoSeriesId
         customPlaylistIDs
         publishedDate
         recordedDate
@@ -3082,6 +3300,7 @@ export const createSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -3201,6 +3420,7 @@ export const createSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -3337,6 +3557,7 @@ export const createSpeakerVideos = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -3389,6 +3610,7 @@ export const createSpeakerVideos = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -3551,6 +3773,7 @@ export const createSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -3705,6 +3928,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -3813,6 +4037,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
         originalEpisodeTitle
         episodeNumber
         seriesTitle
+        videoSeriesId
         customPlaylistIDs
         publishedDate
         recordedDate
@@ -4004,6 +4229,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -4123,6 +4349,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -4259,6 +4486,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -4311,6 +4539,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -4473,6 +4702,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -4627,6 +4857,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -4735,6 +4966,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
         originalEpisodeTitle
         episodeNumber
         seriesTitle
+        videoSeriesId
         customPlaylistIDs
         publishedDate
         recordedDate
@@ -4926,6 +5158,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -5045,6 +5278,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -5181,6 +5415,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -5233,6 +5468,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -5395,6 +5631,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -5520,6 +5757,7 @@ export const createSeries = /* GraphQL */ `
           originalEpisodeTitle
           episodeNumber
           seriesTitle
+          videoSeriesId
           customPlaylistIDs
           publishedDate
           recordedDate
@@ -5703,6 +5941,7 @@ export const createSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                videoSeriesId
                 customPlaylistIDs
                 publishedDate
                 recordedDate
@@ -5770,6 +6009,7 @@ export const createSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                videoSeriesId
                 customPlaylistIDs
                 publishedDate
                 recordedDate
@@ -5842,6 +6082,7 @@ export const createSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -5864,6 +6105,7 @@ export const createSeries = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -5969,6 +6211,7 @@ export const createSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                videoSeriesId
                 customPlaylistIDs
                 publishedDate
                 recordedDate
@@ -6046,6 +6289,7 @@ export const createSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                videoSeriesId
                 customPlaylistIDs
                 publishedDate
                 recordedDate
@@ -6118,6 +6362,7 @@ export const createSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -6140,6 +6385,7 @@ export const createSeries = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -6225,6 +6471,7 @@ export const createSeries = /* GraphQL */ `
             createdDate
             publishedDate
             expirationDate
+            blogSeriesId
             blogStatus
             description
             thumbnailDescription
@@ -6267,6 +6514,7 @@ export const createSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -6308,6 +6556,7 @@ export const createSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -6367,6 +6616,7 @@ export const createSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -6407,6 +6657,7 @@ export const createSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -6433,6 +6684,7 @@ export const createSeries = /* GraphQL */ `
           createdDate
           publishedDate
           expirationDate
+          blogSeriesId
           blogStatus
           description
           thumbnailDescription
@@ -6475,6 +6727,7 @@ export const createSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                videoSeriesId
                 customPlaylistIDs
                 publishedDate
                 recordedDate
@@ -6547,6 +6800,7 @@ export const createSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -6569,6 +6823,7 @@ export const createSeries = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -6676,6 +6931,7 @@ export const createSeries = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -6758,6 +7014,7 @@ export const createSeries = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -6841,6 +7098,7 @@ export const createSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                videoSeriesId
                 customPlaylistIDs
                 publishedDate
                 recordedDate
@@ -6913,6 +7171,7 @@ export const createSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -6935,6 +7194,7 @@ export const createSeries = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -7087,6 +7347,7 @@ export const updateSeries = /* GraphQL */ `
           originalEpisodeTitle
           episodeNumber
           seriesTitle
+          videoSeriesId
           customPlaylistIDs
           publishedDate
           recordedDate
@@ -7270,6 +7531,7 @@ export const updateSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                videoSeriesId
                 customPlaylistIDs
                 publishedDate
                 recordedDate
@@ -7337,6 +7599,7 @@ export const updateSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                videoSeriesId
                 customPlaylistIDs
                 publishedDate
                 recordedDate
@@ -7409,6 +7672,7 @@ export const updateSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -7431,6 +7695,7 @@ export const updateSeries = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -7536,6 +7801,7 @@ export const updateSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                videoSeriesId
                 customPlaylistIDs
                 publishedDate
                 recordedDate
@@ -7613,6 +7879,7 @@ export const updateSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                videoSeriesId
                 customPlaylistIDs
                 publishedDate
                 recordedDate
@@ -7685,6 +7952,7 @@ export const updateSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -7707,6 +7975,7 @@ export const updateSeries = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -7792,6 +8061,7 @@ export const updateSeries = /* GraphQL */ `
             createdDate
             publishedDate
             expirationDate
+            blogSeriesId
             blogStatus
             description
             thumbnailDescription
@@ -7834,6 +8104,7 @@ export const updateSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -7875,6 +8146,7 @@ export const updateSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -7934,6 +8206,7 @@ export const updateSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -7974,6 +8247,7 @@ export const updateSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -8000,6 +8274,7 @@ export const updateSeries = /* GraphQL */ `
           createdDate
           publishedDate
           expirationDate
+          blogSeriesId
           blogStatus
           description
           thumbnailDescription
@@ -8042,6 +8317,7 @@ export const updateSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                videoSeriesId
                 customPlaylistIDs
                 publishedDate
                 recordedDate
@@ -8114,6 +8390,7 @@ export const updateSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -8136,6 +8413,7 @@ export const updateSeries = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -8243,6 +8521,7 @@ export const updateSeries = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -8325,6 +8604,7 @@ export const updateSeries = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -8408,6 +8688,7 @@ export const updateSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                videoSeriesId
                 customPlaylistIDs
                 publishedDate
                 recordedDate
@@ -8480,6 +8761,7 @@ export const updateSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -8502,6 +8784,7 @@ export const updateSeries = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -8654,6 +8937,7 @@ export const deleteSeries = /* GraphQL */ `
           originalEpisodeTitle
           episodeNumber
           seriesTitle
+          videoSeriesId
           customPlaylistIDs
           publishedDate
           recordedDate
@@ -8837,6 +9121,7 @@ export const deleteSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                videoSeriesId
                 customPlaylistIDs
                 publishedDate
                 recordedDate
@@ -8904,6 +9189,7 @@ export const deleteSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                videoSeriesId
                 customPlaylistIDs
                 publishedDate
                 recordedDate
@@ -8976,6 +9262,7 @@ export const deleteSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -8998,6 +9285,7 @@ export const deleteSeries = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -9103,6 +9391,7 @@ export const deleteSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                videoSeriesId
                 customPlaylistIDs
                 publishedDate
                 recordedDate
@@ -9180,6 +9469,7 @@ export const deleteSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                videoSeriesId
                 customPlaylistIDs
                 publishedDate
                 recordedDate
@@ -9252,6 +9542,7 @@ export const deleteSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -9274,6 +9565,7 @@ export const deleteSeries = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -9359,6 +9651,7 @@ export const deleteSeries = /* GraphQL */ `
             createdDate
             publishedDate
             expirationDate
+            blogSeriesId
             blogStatus
             description
             thumbnailDescription
@@ -9401,6 +9694,7 @@ export const deleteSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -9442,6 +9736,7 @@ export const deleteSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -9501,6 +9796,7 @@ export const deleteSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -9541,6 +9837,7 @@ export const deleteSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -9567,6 +9864,7 @@ export const deleteSeries = /* GraphQL */ `
           createdDate
           publishedDate
           expirationDate
+          blogSeriesId
           blogStatus
           description
           thumbnailDescription
@@ -9609,6 +9907,7 @@ export const deleteSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                videoSeriesId
                 customPlaylistIDs
                 publishedDate
                 recordedDate
@@ -9681,6 +9980,7 @@ export const deleteSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -9703,6 +10003,7 @@ export const deleteSeries = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -9810,6 +10111,7 @@ export const deleteSeries = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -9892,6 +10194,7 @@ export const deleteSeries = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -9975,6 +10278,7 @@ export const deleteSeries = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                videoSeriesId
                 customPlaylistIDs
                 publishedDate
                 recordedDate
@@ -10047,6 +10351,7 @@ export const deleteSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -10069,6 +10374,7 @@ export const deleteSeries = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -10248,6 +10554,7 @@ export const createCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -10281,6 +10588,7 @@ export const createCustomPlaylist = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            videoSeriesId
             customPlaylistIDs
             publishedDate
             recordedDate
@@ -10434,6 +10742,7 @@ export const createCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -10478,6 +10787,7 @@ export const createCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -10519,6 +10829,7 @@ export const createCustomPlaylist = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -10576,6 +10887,7 @@ export const createCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -10656,6 +10968,7 @@ export const updateCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -10689,6 +11002,7 @@ export const updateCustomPlaylist = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            videoSeriesId
             customPlaylistIDs
             publishedDate
             recordedDate
@@ -10842,6 +11156,7 @@ export const updateCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -10886,6 +11201,7 @@ export const updateCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -10927,6 +11243,7 @@ export const updateCustomPlaylist = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -10984,6 +11301,7 @@ export const updateCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -11064,6 +11382,7 @@ export const deleteCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -11097,6 +11416,7 @@ export const deleteCustomPlaylist = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            videoSeriesId
             customPlaylistIDs
             publishedDate
             recordedDate
@@ -11250,6 +11570,7 @@ export const deleteCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -11294,6 +11615,7 @@ export const deleteCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -11335,6 +11657,7 @@ export const deleteCustomPlaylist = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -11392,6 +11715,7 @@ export const deleteCustomPlaylist = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -11473,6 +11797,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -11581,6 +11906,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
         originalEpisodeTitle
         episodeNumber
         seriesTitle
+        videoSeriesId
         customPlaylistIDs
         publishedDate
         recordedDate
@@ -11772,6 +12098,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -11891,6 +12218,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -12027,6 +12355,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -12079,6 +12408,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -12241,6 +12571,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -12394,6 +12725,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -12502,6 +12834,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
         originalEpisodeTitle
         episodeNumber
         seriesTitle
+        videoSeriesId
         customPlaylistIDs
         publishedDate
         recordedDate
@@ -12693,6 +13026,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -12812,6 +13146,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -12948,6 +13283,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -13000,6 +13336,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -13162,6 +13499,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -13315,6 +13653,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -13423,6 +13762,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
         originalEpisodeTitle
         episodeNumber
         seriesTitle
+        videoSeriesId
         customPlaylistIDs
         publishedDate
         recordedDate
@@ -13614,6 +13954,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -13733,6 +14074,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -13869,6 +14211,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -13921,6 +14264,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -14083,6 +14427,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -14196,6 +14541,7 @@ export const createVideo = /* GraphQL */ `
       originalEpisodeTitle
       episodeNumber
       seriesTitle
+      videoSeriesId
       customPlaylistIDs
       publishedDate
       recordedDate
@@ -14391,6 +14737,7 @@ export const createVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -14424,6 +14771,7 @@ export const createVideo = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            videoSeriesId
             customPlaylistIDs
             publishedDate
             recordedDate
@@ -14577,6 +14925,7 @@ export const createVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -14621,6 +14970,7 @@ export const createVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -14662,6 +15012,7 @@ export const createVideo = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -14719,6 +15070,7 @@ export const createVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -14767,6 +15119,7 @@ export const createVideo = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            videoSeriesId
             customPlaylistIDs
             publishedDate
             recordedDate
@@ -14920,6 +15273,7 @@ export const createVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -14964,6 +15318,7 @@ export const createVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -15005,6 +15360,7 @@ export const createVideo = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -15062,6 +15418,7 @@ export const createVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -15116,6 +15473,7 @@ export const createVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -15157,6 +15515,7 @@ export const createVideo = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -15197,6 +15556,7 @@ export const createVideo = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -15275,6 +15635,7 @@ export const createVideo = /* GraphQL */ `
             createdDate
             publishedDate
             expirationDate
+            blogSeriesId
             blogStatus
             description
             thumbnailDescription
@@ -15317,6 +15678,7 @@ export const createVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -15358,6 +15720,7 @@ export const createVideo = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -15417,6 +15780,7 @@ export const createVideo = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -15457,6 +15821,7 @@ export const createVideo = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -15510,6 +15875,7 @@ export const createVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -15551,6 +15917,7 @@ export const createVideo = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -15658,6 +16025,7 @@ export const createVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -15691,6 +16059,7 @@ export const createVideo = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            videoSeriesId
             customPlaylistIDs
             publishedDate
             recordedDate
@@ -15844,6 +16213,7 @@ export const createVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -15888,6 +16258,7 @@ export const createVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -15929,6 +16300,7 @@ export const createVideo = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -15986,6 +16358,7 @@ export const createVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -16027,6 +16400,7 @@ export const updateVideo = /* GraphQL */ `
       originalEpisodeTitle
       episodeNumber
       seriesTitle
+      videoSeriesId
       customPlaylistIDs
       publishedDate
       recordedDate
@@ -16222,6 +16596,7 @@ export const updateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -16255,6 +16630,7 @@ export const updateVideo = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            videoSeriesId
             customPlaylistIDs
             publishedDate
             recordedDate
@@ -16408,6 +16784,7 @@ export const updateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -16452,6 +16829,7 @@ export const updateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -16493,6 +16871,7 @@ export const updateVideo = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -16550,6 +16929,7 @@ export const updateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -16598,6 +16978,7 @@ export const updateVideo = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            videoSeriesId
             customPlaylistIDs
             publishedDate
             recordedDate
@@ -16751,6 +17132,7 @@ export const updateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -16795,6 +17177,7 @@ export const updateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -16836,6 +17219,7 @@ export const updateVideo = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -16893,6 +17277,7 @@ export const updateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -16947,6 +17332,7 @@ export const updateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -16988,6 +17374,7 @@ export const updateVideo = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -17028,6 +17415,7 @@ export const updateVideo = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -17106,6 +17494,7 @@ export const updateVideo = /* GraphQL */ `
             createdDate
             publishedDate
             expirationDate
+            blogSeriesId
             blogStatus
             description
             thumbnailDescription
@@ -17148,6 +17537,7 @@ export const updateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -17189,6 +17579,7 @@ export const updateVideo = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -17248,6 +17639,7 @@ export const updateVideo = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -17288,6 +17680,7 @@ export const updateVideo = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -17341,6 +17734,7 @@ export const updateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -17382,6 +17776,7 @@ export const updateVideo = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -17489,6 +17884,7 @@ export const updateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -17522,6 +17918,7 @@ export const updateVideo = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            videoSeriesId
             customPlaylistIDs
             publishedDate
             recordedDate
@@ -17675,6 +18072,7 @@ export const updateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -17719,6 +18117,7 @@ export const updateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -17760,6 +18159,7 @@ export const updateVideo = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -17817,6 +18217,7 @@ export const updateVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -17858,6 +18259,7 @@ export const deleteVideo = /* GraphQL */ `
       originalEpisodeTitle
       episodeNumber
       seriesTitle
+      videoSeriesId
       customPlaylistIDs
       publishedDate
       recordedDate
@@ -18053,6 +18455,7 @@ export const deleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -18086,6 +18489,7 @@ export const deleteVideo = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            videoSeriesId
             customPlaylistIDs
             publishedDate
             recordedDate
@@ -18239,6 +18643,7 @@ export const deleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -18283,6 +18688,7 @@ export const deleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -18324,6 +18730,7 @@ export const deleteVideo = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -18381,6 +18788,7 @@ export const deleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -18429,6 +18837,7 @@ export const deleteVideo = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            videoSeriesId
             customPlaylistIDs
             publishedDate
             recordedDate
@@ -18582,6 +18991,7 @@ export const deleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -18626,6 +19036,7 @@ export const deleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -18667,6 +19078,7 @@ export const deleteVideo = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -18724,6 +19136,7 @@ export const deleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -18778,6 +19191,7 @@ export const deleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -18819,6 +19233,7 @@ export const deleteVideo = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -18859,6 +19274,7 @@ export const deleteVideo = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -18937,6 +19353,7 @@ export const deleteVideo = /* GraphQL */ `
             createdDate
             publishedDate
             expirationDate
+            blogSeriesId
             blogStatus
             description
             thumbnailDescription
@@ -18979,6 +19396,7 @@ export const deleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -19020,6 +19438,7 @@ export const deleteVideo = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -19079,6 +19498,7 @@ export const deleteVideo = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -19119,6 +19539,7 @@ export const deleteVideo = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -19172,6 +19593,7 @@ export const deleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -19213,6 +19635,7 @@ export const deleteVideo = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -19320,6 +19743,7 @@ export const deleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -19353,6 +19777,7 @@ export const deleteVideo = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            videoSeriesId
             customPlaylistIDs
             publishedDate
             recordedDate
@@ -19506,6 +19931,7 @@ export const deleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -19550,6 +19976,7 @@ export const deleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -19591,6 +20018,7 @@ export const deleteVideo = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -19648,6 +20076,7 @@ export const deleteVideo = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -19736,6 +20165,7 @@ export const createBlogSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -19758,6 +20188,7 @@ export const createBlogSeries = /* GraphQL */ `
             createdDate
             publishedDate
             expirationDate
+            blogSeriesId
             blogStatus
             description
             thumbnailDescription
@@ -19800,6 +20231,7 @@ export const createBlogSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -19841,6 +20273,7 @@ export const createBlogSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -19900,6 +20333,7 @@ export const createBlogSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -19940,6 +20374,7 @@ export const createBlogSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -20018,6 +20453,7 @@ export const updateBlogSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -20040,6 +20476,7 @@ export const updateBlogSeries = /* GraphQL */ `
             createdDate
             publishedDate
             expirationDate
+            blogSeriesId
             blogStatus
             description
             thumbnailDescription
@@ -20082,6 +20519,7 @@ export const updateBlogSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -20123,6 +20561,7 @@ export const updateBlogSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -20182,6 +20621,7 @@ export const updateBlogSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -20222,6 +20662,7 @@ export const updateBlogSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -20300,6 +20741,7 @@ export const deleteBlogSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -20322,6 +20764,7 @@ export const deleteBlogSeries = /* GraphQL */ `
             createdDate
             publishedDate
             expirationDate
+            blogSeriesId
             blogStatus
             description
             thumbnailDescription
@@ -20364,6 +20807,7 @@ export const deleteBlogSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -20405,6 +20849,7 @@ export const deleteBlogSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -20464,6 +20909,7 @@ export const deleteBlogSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -20504,6 +20950,7 @@ export const deleteBlogSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -20580,6 +21027,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -20658,6 +21106,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
         createdDate
         publishedDate
         expirationDate
+        blogSeriesId
         blogStatus
         description
         thumbnailDescription
@@ -20700,6 +21149,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -20836,6 +21286,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -20888,6 +21339,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -21052,6 +21504,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -21149,6 +21602,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -21190,6 +21644,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -21230,6 +21685,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -21359,6 +21815,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -21437,6 +21894,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
         createdDate
         publishedDate
         expirationDate
+        blogSeriesId
         blogStatus
         description
         thumbnailDescription
@@ -21479,6 +21937,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -21615,6 +22074,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -21667,6 +22127,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -21831,6 +22292,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -21928,6 +22390,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -21969,6 +22432,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -22009,6 +22473,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -22138,6 +22603,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -22216,6 +22682,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
         createdDate
         publishedDate
         expirationDate
+        blogSeriesId
         blogStatus
         description
         thumbnailDescription
@@ -22258,6 +22725,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -22394,6 +22862,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -22446,6 +22915,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -22610,6 +23080,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -22707,6 +23178,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -22748,6 +23220,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -22788,6 +23261,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -22890,6 +23364,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            videoSeriesId
             customPlaylistIDs
             publishedDate
             recordedDate
@@ -23043,6 +23518,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -23087,6 +23563,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -23128,6 +23605,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -23185,6 +23663,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -23239,6 +23718,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -23280,6 +23760,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -23320,6 +23801,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -23398,6 +23880,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
             createdDate
             publishedDate
             expirationDate
+            blogSeriesId
             blogStatus
             description
             thumbnailDescription
@@ -23440,6 +23923,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -23481,6 +23965,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -23540,6 +24025,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -23580,6 +24066,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -23633,6 +24120,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -23674,6 +24162,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -23749,6 +24238,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
         createdDate
         publishedDate
         expirationDate
+        blogSeriesId
         blogStatus
         description
         thumbnailDescription
@@ -23791,6 +24281,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -23927,6 +24418,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -23979,6 +24471,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -24143,6 +24636,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -24240,6 +24734,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -24281,6 +24776,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -24321,6 +24817,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -24423,6 +24920,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            videoSeriesId
             customPlaylistIDs
             publishedDate
             recordedDate
@@ -24576,6 +25074,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -24620,6 +25119,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -24661,6 +25161,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -24718,6 +25219,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -24772,6 +25274,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -24813,6 +25316,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -24853,6 +25357,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -24931,6 +25436,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
             createdDate
             publishedDate
             expirationDate
+            blogSeriesId
             blogStatus
             description
             thumbnailDescription
@@ -24973,6 +25479,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -25014,6 +25521,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -25073,6 +25581,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -25113,6 +25622,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -25166,6 +25676,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -25207,6 +25718,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -25282,6 +25794,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
         createdDate
         publishedDate
         expirationDate
+        blogSeriesId
         blogStatus
         description
         thumbnailDescription
@@ -25324,6 +25837,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -25460,6 +25974,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -25512,6 +26027,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -25676,6 +26192,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -25773,6 +26290,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -25814,6 +26332,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -25854,6 +26373,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -25956,6 +26476,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            videoSeriesId
             customPlaylistIDs
             publishedDate
             recordedDate
@@ -26109,6 +26630,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -26153,6 +26675,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -26194,6 +26717,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -26251,6 +26775,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -26305,6 +26830,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -26346,6 +26872,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -26386,6 +26913,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -26464,6 +26992,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
             createdDate
             publishedDate
             expirationDate
+            blogSeriesId
             blogStatus
             description
             thumbnailDescription
@@ -26506,6 +27035,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -26547,6 +27077,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -26606,6 +27137,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -26646,6 +27178,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -26699,6 +27232,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -26740,6 +27274,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -26815,6 +27350,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
         createdDate
         publishedDate
         expirationDate
+        blogSeriesId
         blogStatus
         description
         thumbnailDescription
@@ -26857,6 +27393,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -26993,6 +27530,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -27045,6 +27583,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -27209,6 +27748,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -27306,6 +27846,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -27347,6 +27888,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -27387,6 +27929,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -27470,6 +28013,7 @@ export const createBlog = /* GraphQL */ `
       createdDate
       publishedDate
       expirationDate
+      blogSeriesId
       blogStatus
       description
       thumbnailDescription
@@ -27512,6 +28056,7 @@ export const createBlog = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            videoSeriesId
             customPlaylistIDs
             publishedDate
             recordedDate
@@ -27665,6 +28210,7 @@ export const createBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -27709,6 +28255,7 @@ export const createBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -27750,6 +28297,7 @@ export const createBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -27807,6 +28355,7 @@ export const createBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -27861,6 +28410,7 @@ export const createBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -27902,6 +28452,7 @@ export const createBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -27942,6 +28493,7 @@ export const createBlog = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -28020,6 +28572,7 @@ export const createBlog = /* GraphQL */ `
             createdDate
             publishedDate
             expirationDate
+            blogSeriesId
             blogStatus
             description
             thumbnailDescription
@@ -28062,6 +28615,7 @@ export const createBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -28103,6 +28657,7 @@ export const createBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -28162,6 +28717,7 @@ export const createBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -28202,6 +28758,7 @@ export const createBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -28255,6 +28812,7 @@ export const createBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -28296,6 +28854,7 @@ export const createBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -28408,6 +28967,7 @@ export const createBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -28430,6 +28990,7 @@ export const createBlog = /* GraphQL */ `
             createdDate
             publishedDate
             expirationDate
+            blogSeriesId
             blogStatus
             description
             thumbnailDescription
@@ -28472,6 +29033,7 @@ export const createBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -28513,6 +29075,7 @@ export const createBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -28572,6 +29135,7 @@ export const createBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -28612,6 +29176,7 @@ export const createBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -28657,6 +29222,7 @@ export const createBlog = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                videoSeriesId
                 customPlaylistIDs
                 publishedDate
                 recordedDate
@@ -28729,6 +29295,7 @@ export const createBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -28751,6 +29318,7 @@ export const createBlog = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -28836,6 +29404,7 @@ export const createBlog = /* GraphQL */ `
             createdDate
             publishedDate
             expirationDate
+            blogSeriesId
             blogStatus
             description
             thumbnailDescription
@@ -28878,6 +29447,7 @@ export const createBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -28919,6 +29489,7 @@ export const createBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -28978,6 +29549,7 @@ export const createBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -29018,6 +29590,7 @@ export const createBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -29048,6 +29621,7 @@ export const updateBlog = /* GraphQL */ `
       createdDate
       publishedDate
       expirationDate
+      blogSeriesId
       blogStatus
       description
       thumbnailDescription
@@ -29090,6 +29664,7 @@ export const updateBlog = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            videoSeriesId
             customPlaylistIDs
             publishedDate
             recordedDate
@@ -29243,6 +29818,7 @@ export const updateBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -29287,6 +29863,7 @@ export const updateBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -29328,6 +29905,7 @@ export const updateBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -29385,6 +29963,7 @@ export const updateBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -29439,6 +30018,7 @@ export const updateBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -29480,6 +30060,7 @@ export const updateBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -29520,6 +30101,7 @@ export const updateBlog = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -29598,6 +30180,7 @@ export const updateBlog = /* GraphQL */ `
             createdDate
             publishedDate
             expirationDate
+            blogSeriesId
             blogStatus
             description
             thumbnailDescription
@@ -29640,6 +30223,7 @@ export const updateBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -29681,6 +30265,7 @@ export const updateBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -29740,6 +30325,7 @@ export const updateBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -29780,6 +30366,7 @@ export const updateBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -29833,6 +30420,7 @@ export const updateBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -29874,6 +30462,7 @@ export const updateBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -29986,6 +30575,7 @@ export const updateBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -30008,6 +30598,7 @@ export const updateBlog = /* GraphQL */ `
             createdDate
             publishedDate
             expirationDate
+            blogSeriesId
             blogStatus
             description
             thumbnailDescription
@@ -30050,6 +30641,7 @@ export const updateBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -30091,6 +30683,7 @@ export const updateBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -30150,6 +30743,7 @@ export const updateBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -30190,6 +30784,7 @@ export const updateBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -30235,6 +30830,7 @@ export const updateBlog = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                videoSeriesId
                 customPlaylistIDs
                 publishedDate
                 recordedDate
@@ -30307,6 +30903,7 @@ export const updateBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -30329,6 +30926,7 @@ export const updateBlog = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -30414,6 +31012,7 @@ export const updateBlog = /* GraphQL */ `
             createdDate
             publishedDate
             expirationDate
+            blogSeriesId
             blogStatus
             description
             thumbnailDescription
@@ -30456,6 +31055,7 @@ export const updateBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -30497,6 +31097,7 @@ export const updateBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -30556,6 +31157,7 @@ export const updateBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -30596,6 +31198,7 @@ export const updateBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -30626,6 +31229,7 @@ export const deleteBlog = /* GraphQL */ `
       createdDate
       publishedDate
       expirationDate
+      blogSeriesId
       blogStatus
       description
       thumbnailDescription
@@ -30668,6 +31272,7 @@ export const deleteBlog = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            videoSeriesId
             customPlaylistIDs
             publishedDate
             recordedDate
@@ -30821,6 +31426,7 @@ export const deleteBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -30865,6 +31471,7 @@ export const deleteBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -30906,6 +31513,7 @@ export const deleteBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -30963,6 +31571,7 @@ export const deleteBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -31017,6 +31626,7 @@ export const deleteBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -31058,6 +31668,7 @@ export const deleteBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -31098,6 +31709,7 @@ export const deleteBlog = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -31176,6 +31788,7 @@ export const deleteBlog = /* GraphQL */ `
             createdDate
             publishedDate
             expirationDate
+            blogSeriesId
             blogStatus
             description
             thumbnailDescription
@@ -31218,6 +31831,7 @@ export const deleteBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -31259,6 +31873,7 @@ export const deleteBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -31318,6 +31933,7 @@ export const deleteBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -31358,6 +31974,7 @@ export const deleteBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -31411,6 +32028,7 @@ export const deleteBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -31452,6 +32070,7 @@ export const deleteBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -31564,6 +32183,7 @@ export const deleteBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -31586,6 +32206,7 @@ export const deleteBlog = /* GraphQL */ `
             createdDate
             publishedDate
             expirationDate
+            blogSeriesId
             blogStatus
             description
             thumbnailDescription
@@ -31628,6 +32249,7 @@ export const deleteBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -31669,6 +32291,7 @@ export const deleteBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -31728,6 +32351,7 @@ export const deleteBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -31768,6 +32392,7 @@ export const deleteBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -31813,6 +32438,7 @@ export const deleteBlog = /* GraphQL */ `
                 originalEpisodeTitle
                 episodeNumber
                 seriesTitle
+                videoSeriesId
                 customPlaylistIDs
                 publishedDate
                 recordedDate
@@ -31885,6 +32511,7 @@ export const deleteBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -31907,6 +32534,7 @@ export const deleteBlog = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -31992,6 +32620,7 @@ export const deleteBlog = /* GraphQL */ `
             createdDate
             publishedDate
             expirationDate
+            blogSeriesId
             blogStatus
             description
             thumbnailDescription
@@ -32034,6 +32663,7 @@ export const deleteBlog = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -32075,6 +32705,7 @@ export const deleteBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -32134,6 +32765,7 @@ export const deleteBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -32174,6 +32806,7 @@ export const deleteBlog = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -32294,6 +32927,7 @@ export const createVerse = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -32430,6 +33064,7 @@ export const createVerse = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -32482,6 +33117,7 @@ export const createVerse = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -32732,6 +33368,7 @@ export const updateVerse = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -32868,6 +33505,7 @@ export const updateVerse = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -32920,6 +33558,7 @@ export const updateVerse = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -33170,6 +33809,7 @@ export const deleteVerse = /* GraphQL */ `
               originalEpisodeTitle
               episodeNumber
               seriesTitle
+              videoSeriesId
               customPlaylistIDs
               publishedDate
               recordedDate
@@ -33306,6 +33946,7 @@ export const deleteVerse = /* GraphQL */ `
                 createdDate
                 publishedDate
                 expirationDate
+                blogSeriesId
                 blogStatus
                 description
                 thumbnailDescription
@@ -33358,6 +33999,7 @@ export const deleteVerse = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -33597,6 +34239,7 @@ export const createNotes = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            videoSeriesId
             customPlaylistIDs
             publishedDate
             recordedDate
@@ -33750,6 +34393,7 @@ export const createNotes = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -33794,6 +34438,7 @@ export const createNotes = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -33835,6 +34480,7 @@ export const createNotes = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -33892,6 +34538,7 @@ export const createNotes = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -33946,6 +34593,7 @@ export const createNotes = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -33987,6 +34635,7 @@ export const createNotes = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -34027,6 +34676,7 @@ export const createNotes = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -34105,6 +34755,7 @@ export const createNotes = /* GraphQL */ `
             createdDate
             publishedDate
             expirationDate
+            blogSeriesId
             blogStatus
             description
             thumbnailDescription
@@ -34147,6 +34798,7 @@ export const createNotes = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -34188,6 +34840,7 @@ export const createNotes = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -34247,6 +34900,7 @@ export const createNotes = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -34287,6 +34941,7 @@ export const createNotes = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -34340,6 +34995,7 @@ export const createNotes = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -34381,6 +35037,7 @@ export const createNotes = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -34496,6 +35153,7 @@ export const createNotes = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -34537,6 +35195,7 @@ export const createNotes = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -34645,6 +35304,7 @@ export const updateNotes = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            videoSeriesId
             customPlaylistIDs
             publishedDate
             recordedDate
@@ -34798,6 +35458,7 @@ export const updateNotes = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -34842,6 +35503,7 @@ export const updateNotes = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -34883,6 +35545,7 @@ export const updateNotes = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -34940,6 +35603,7 @@ export const updateNotes = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -34994,6 +35658,7 @@ export const updateNotes = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -35035,6 +35700,7 @@ export const updateNotes = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -35075,6 +35741,7 @@ export const updateNotes = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -35153,6 +35820,7 @@ export const updateNotes = /* GraphQL */ `
             createdDate
             publishedDate
             expirationDate
+            blogSeriesId
             blogStatus
             description
             thumbnailDescription
@@ -35195,6 +35863,7 @@ export const updateNotes = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -35236,6 +35905,7 @@ export const updateNotes = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -35295,6 +35965,7 @@ export const updateNotes = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -35335,6 +36006,7 @@ export const updateNotes = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -35388,6 +36060,7 @@ export const updateNotes = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -35429,6 +36102,7 @@ export const updateNotes = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -35544,6 +36218,7 @@ export const updateNotes = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -35585,6 +36260,7 @@ export const updateNotes = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -35693,6 +36369,7 @@ export const deleteNotes = /* GraphQL */ `
             originalEpisodeTitle
             episodeNumber
             seriesTitle
+            videoSeriesId
             customPlaylistIDs
             publishedDate
             recordedDate
@@ -35846,6 +36523,7 @@ export const deleteNotes = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -35890,6 +36568,7 @@ export const deleteNotes = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -35931,6 +36610,7 @@ export const deleteNotes = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -35988,6 +36668,7 @@ export const deleteNotes = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -36042,6 +36723,7 @@ export const deleteNotes = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -36083,6 +36765,7 @@ export const deleteNotes = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -36123,6 +36806,7 @@ export const deleteNotes = /* GraphQL */ `
               createdDate
               publishedDate
               expirationDate
+              blogSeriesId
               blogStatus
               description
               thumbnailDescription
@@ -36201,6 +36885,7 @@ export const deleteNotes = /* GraphQL */ `
             createdDate
             publishedDate
             expirationDate
+            blogSeriesId
             blogStatus
             description
             thumbnailDescription
@@ -36243,6 +36928,7 @@ export const deleteNotes = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -36284,6 +36970,7 @@ export const deleteNotes = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -36343,6 +37030,7 @@ export const deleteNotes = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -36383,6 +37071,7 @@ export const deleteNotes = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -36436,6 +37125,7 @@ export const deleteNotes = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -36477,6 +37167,7 @@ export const deleteNotes = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription
@@ -36592,6 +37283,7 @@ export const deleteNotes = /* GraphQL */ `
                   originalEpisodeTitle
                   episodeNumber
                   seriesTitle
+                  videoSeriesId
                   customPlaylistIDs
                   publishedDate
                   recordedDate
@@ -36633,6 +37325,7 @@ export const deleteNotes = /* GraphQL */ `
                   createdDate
                   publishedDate
                   expirationDate
+                  blogSeriesId
                   blogStatus
                   description
                   thumbnailDescription

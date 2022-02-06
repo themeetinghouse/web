@@ -6,7 +6,9 @@
     "project": {
       "overrides": true
     },
+    
     "graphqltransformer": {
+      "enableIterativeGSIUpdates": true,
       "showfieldauthnotification": false
     }
   }
