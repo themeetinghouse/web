@@ -25,6 +25,7 @@ export type AmplifyDependentResourcesAttributes = {
     image: {
       RootUrl: 'string';
       ApiName: 'string';
+      ApiId: 'string';
     };
     AdminQueries: {
       RootUrl: 'string';
