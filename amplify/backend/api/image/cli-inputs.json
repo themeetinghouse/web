@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "paths": {
+    "/items": {
+      "permissions": {
+        "setting": "open"
+      },
+      "lambdaFunction": "themeetinghousea5cd4619"
+    }
+  }
+}

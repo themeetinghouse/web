@@ -297,7 +297,8 @@
       "UnauthRoleName": "amplify-themeetinghouse-payments-152010-unauthRole",
       "StackName": "amplify-themeetinghouse-payments-152010",
       "StackId": "arn:aws:cloudformation:us-east-1:119330689042:stack/amplify-themeetinghouse-payments-152010/c17abad0-dea8-11eb-bf56-0adc8babde53",
-      "AmplifyAppId": "d3chs2w45ydgx7"
+      "AmplifyAppId": "d3chs2w45ydgx7",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-themeetinghouse-payments-152010-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
     },
     "categories": {
       "auth": {
@@ -305,7 +306,8 @@
           "facebookAppId": "abc",
           "googleClientId": "def",
           "amazonAppId": "ghi"
-        }
+        },
+        "userPoolGroups": {}
       },
       "function": {
         "QandEh": {
@@ -318,11 +320,11 @@
         },
         "emailHomeChurch": {
           "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
-          "s3Key": "amplify-builds/emailHomeChurch-53536546627839364e74-build.zip"
+          "s3Key": "amplify-builds/emailHomeChurch-6a5a3369754b30304565-build.zip"
         },
         "socialBotHandler": {
           "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
-          "s3Key": "amplify-builds/socialBotHandler-356435453137546e4130-build.zip"
+          "s3Key": "amplify-builds/socialBotHandler-767944776436716a4750-build.zip"
         },
         "getBiblePassage": {
           "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
@@ -334,7 +336,7 @@
         },
         "tmhMetadataFacebook": {
           "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
-          "s3Key": "amplify-builds/tmhMetadataFacebook-614a6c3952597634766a-build.zip"
+          "s3Key": "amplify-builds/tmhMetadataFacebook-3742716d7454397a7a42-build.zip"
         },
         "tmhF1HomeChurch": {
           "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
@@ -342,7 +344,7 @@
         },
         "tmhnotespdf": {
           "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
-          "s3Key": "amplify-builds/tmhnotespdf-5139675461515a4a564f-build.zip"
+          "s3Key": "amplify-builds/tmhnotespdf-454d5575385532627956-build.zip"
         },
         "tmhF1LinkUser": {
           "userPoolId": "us-east-1_tKp1OdyuZ",
@@ -440,11 +442,11 @@
         },
         "tmhPinpointCreateCampaign": {
           "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
-          "s3Key": "amplify-builds/tmhPinpointCreateCampaign-366b73707446374a7346-build.zip"
+          "s3Key": "amplify-builds/tmhPinpointCreateCampaign-3157687271563878545a-build.zip"
         },
         "tmhPinpointListSegments": {
           "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
-          "s3Key": "amplify-builds/tmhPinpointListSegments-674d754d6f59324d504d-build.zip"
+          "s3Key": "amplify-builds/tmhPinpointListSegments-344d436f432b4d2f5936-build.zip"
         },
         "tmhPinpointCleanupEndpoints": {
           "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
@@ -463,6 +465,13 @@
           "identityPoolId": "us-east-1:cd5572cc-a312-4d62-b971-8d5ede70c133",
           "deploymentBucketName": "amplify-themeetinghouse-payments-152010-deployment",
           "s3Key": "amplify-builds/tmhStripeDeletePaymentMethod-3532596d503254394e32-build.zip"
+        }
+      },
+      "notifications": {
+        "Pinpoint": {
+          "Name": "themeetinghouse-payments",
+          "Id": "445886891bf54eb09b51d0db387efb2d",
+          "Region": "us-east-1"
         }
       }
     }

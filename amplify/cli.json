@@ -8,6 +8,12 @@
     },
     "project": {
       "overrides": true
+    },
+    "graphqltransformer": {
+      "useexperimentalpipelinedtransformer": false,
+      "transformerversion": 1,
+      "suppressschemamigrationprompt": false,
+      "showfieldauthnotification": false
     }
   }
 }
