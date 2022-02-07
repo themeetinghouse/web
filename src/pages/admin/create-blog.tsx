@@ -29,9 +29,9 @@ import {
   DeleteBlogMutation,
   DeleteBlogSeriesBridgeMutation,
   DeleteBlogSeriesMutation,
-  ListBlogSeriessQuery,
+  ListBlogSeriesQuery,
   ListBlogsQuery,
-  ListSeriessQuery,
+  ListSeriesQuery,
   UpdateBlogMutation,
   ImageInput,
   CreateBlogToVideoSeriesInput,
@@ -75,11 +75,11 @@ interface State {
   expireDate: Date;
 
   videoSeriesList: NonNullable<
-    NonNullable<ListSeriessQuery['listSeriess']>['items']
+    NonNullable<ListSeriesQuery['listSeries']>['items']
   >;
   blogPostsList: BlogPostList;
   blogSeriesList: NonNullable<
-    NonNullable<ListBlogSeriessQuery['listBlogSeriess']>['items']
+    NonNullable<ListBlogSeriesQuery['listBlogSeries']>['items']
   >;
   selectedBlogSeries: string[];
   deselectedBlogSeries: string[];
@@ -202,15 +202,15 @@ class Index extends React.Component<EmptyProps, State> {
   async listSeries(nextToken?: string) {
     try {
       const listSeries = (await API.graphql({
-        query: customQueries.listSeriess,
+        query: customQueries.listSeries,
         variables: { nextToken: nextToken, sortDirection: 'DESC', limit: 200 },
         authMode: GRAPHQL_AUTH_MODE.API_KEY,
-      })) as GraphQLResult<ListSeriessQuery>;
+      })) as GraphQLResult<ListSeriesQuery>;
 
       console.log({ 'Success customQueries.listSeries: ': listSeries });
       this.setState({
         videoSeriesList: this.state.videoSeriesList
-          .concat(listSeries?.data?.listSeriess?.items ?? [])
+          .concat(listSeries?.data?.listSeries?.items ?? [])
           .sort((a, b) => {
             const nameA = a?.id?.toUpperCase() ?? '';
             const nameB = b?.id?.toUpperCase() ?? '';
@@ -223,8 +223,8 @@ class Index extends React.Component<EmptyProps, State> {
             return 0;
           }),
       });
-      if (listSeries?.data?.listSeriess?.nextToken)
-        this.listSeries(listSeries.data.listSeriess.nextToken);
+      if (listSeries?.data?.listSeries?.nextToken)
+        this.listSeries(listSeries.data.listSeries.nextToken);
     } catch (e) {
       console.error(e);
     }
@@ -276,15 +276,15 @@ class Index extends React.Component<EmptyProps, State> {
   async listBlogSeries(nextToken?: string) {
     try {
       const listBlogSeries = (await API.graphql({
-        query: queries.listBlogSeriess,
+        query: queries.listBlogSeries,
         variables: { nextToken: nextToken, sortDirection: 'DESC', limit: 200 },
         authMode: GRAPHQL_AUTH_MODE.API_KEY,
-      })) as GraphQLResult<ListBlogSeriessQuery>;
+      })) as GraphQLResult<ListBlogSeriesQuery>;
 
       console.log({ 'Success queries.listBlogSeries: ': listBlogSeries });
       this.setState({
         blogSeriesList: this.state.blogSeriesList
-          .concat(listBlogSeries?.data?.listBlogSeriess?.items ?? [])
+          .concat(listBlogSeries?.data?.listBlogSeries?.items ?? [])
           .sort((a, b) => {
             const nameA = a?.title?.toUpperCase() ?? '';
             const nameB = b?.title?.toUpperCase() ?? '';
@@ -297,8 +297,8 @@ class Index extends React.Component<EmptyProps, State> {
             return 0;
           }),
       });
-      if (listBlogSeries?.data?.listBlogSeriess?.nextToken)
-        this.listBlogSeries(listBlogSeries.data.listBlogSeriess.nextToken);
+      if (listBlogSeries?.data?.listBlogSeries?.nextToken)
+        this.listBlogSeries(listBlogSeries.data.listBlogSeries.nextToken);
     } catch (e) {
       console.error(e);
     }

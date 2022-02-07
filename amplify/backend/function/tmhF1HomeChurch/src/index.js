@@ -13,7 +13,7 @@ const Amplify = require('aws-amplify');
 global.fetch = require('node-fetch');
 const queries = require('./queries');
 const mutations = require('./mutations');
-const apiKey = 'da2-6zfuocqmhvecrfkng7hx2oipni';
+const apiKey = 'da2-z4ilyrquhnagtbiosodc6qq4kq';
 
 Amplify.default.configure({
   aws_appsync_graphqlEndpoint:
@@ -199,9 +199,10 @@ async function Execute(event) {
         );
         var openGroupsForLocation;
         if (listGroupsResponse.data.F1ListGroups.groups.group)
-          openGroupsForLocation = listGroupsResponse.data.F1ListGroups.groups.group.filter(
-            (item) => item.isOpen == 'true' && item.isSearchable == 'true'
-          );
+          openGroupsForLocation =
+            listGroupsResponse.data.F1ListGroups.groups.group.filter(
+              (item) => item.isOpen == 'true' && item.isSearchable == 'true'
+            );
         else openGroupsForLocation = [];
 
         const groupIdsForLocation = openGroupsForLocation.map((g) => g.id);
@@ -228,17 +229,19 @@ async function Execute(event) {
         if (eventIdsForLocation) {
           // Get the schedules for the home churches in this location
 
-          const listEventSchedulesResponse = await getRetryableGraphQLOperationPromise(
-            queries.f1ListEventSchedules,
-            { itemId: eventIdsForLocation }
-          );
+          const listEventSchedulesResponse =
+            await getRetryableGraphQLOperationPromise(
+              queries.f1ListEventSchedules,
+              { itemId: eventIdsForLocation }
+            );
           //console.log("HomeChurchItem.constructor(): eventScheduleResponse = %o", listEventSchedulesResponse);
           for (const group of openGroupsForLocation) {
             var eventSchedule;
             if (listEventSchedulesResponse.data.F1ListEventSchedules)
-              eventSchedule = listEventSchedulesResponse.data.F1ListEventSchedules.find(
-                (s) => s.id == group.event.id
-              );
+              eventSchedule =
+                listEventSchedulesResponse.data.F1ListEventSchedules.find(
+                  (s) => s.id == group.event.id
+                );
             else eventSchedule = [];
             const schedules = eventSchedule.event.schedules.schedule;
             if (schedules) {

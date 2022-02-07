@@ -234,7 +234,7 @@
           "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
           "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "s3Key": "amplify-builds/tmhF1AssignmentSync-7a5348684732324f6672-build.zip"
+          "s3Key": "amplify-builds/tmhF1AssignmentSync-6f704a3275564e796b5a-build.zip"
         },
         "themeetinghousetmhShared": {
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",

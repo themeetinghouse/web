@@ -59,13 +59,13 @@ const f1ListAssignments = /* GraphQL */ `
     }
   }
 `;
-const listF1Assignmentss = /* GraphQL */ `
-  query ListF1Assignmentss(
+const listF1Assignments = /* GraphQL */ `
+  query ListF1Assignments(
     $filter: ModelF1AssignmentsFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listF1Assignmentss(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listF1Assignments(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
         uri
@@ -106,5 +106,5 @@ const listF1Assignmentss = /* GraphQL */ `
 module.exports = {
   f1ListAssignments,
   f1ListActivities,
-  listF1Assignmentss,
+  listF1Assignments,
 };

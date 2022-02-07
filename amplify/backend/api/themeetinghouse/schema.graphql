@@ -1,147 +1,133 @@
 type Query {
-  getBiblePassage(bibleId: String, passage: String):BibleResponse @function(name: "getBiblePassage-${env}")
+  getBiblePassage(bibleId: String, passage: String): BibleResponse @function(name: "getBiblePassage-${env}")
   getYoutubeVideoSearch(videoId: String): YoutubePlaylistItems!
-  getYoutubePlaylistItems(playlistId: String, pageToken:String): YoutubePlaylistItems!
+  getYoutubePlaylistItems(playlistId: String, pageToken: String): YoutubePlaylistItems!
   getYoutubePlaylist(nextPageToken: String): YoutubePlayList!
   getYoutubeVideoContentDetails(videoId: String): YoutubePlaylistItems!
   getYoutubeVideoStatistics(videoId: String): YoutubePlaylistItems!
   getYoutubeCaptionlist(videoId: String): YoutubeCaptionList!
   downloadYoutubeCaption(videoId: String, tlang: String, trackKind: String, name: String): YoutubeCaptionDownload!
-  getTakenoteSeries(user:Int,start:Int,count:Int): [TakeNoteSeries]
-  getTakenoteSermon(seriesId:String,user:Int):[TakeNoteSermon]
-  getTakenoteSermonVerses(sermondId:String):TakeNoteSermonVerses
-  getTakenoteLocations:[TakeNoteLocations]
-  getFBEvents(pageId:String):FBData
-  getInstaPhotos(pageId:String):InstaData
-  getTakenoteNotes(sermonId:String,noteType:String):TakeNoteNotes
-  fuzzySearchVideos(filter: String, sort: fuzzySearchableVideoSortInput, limit: Int, nextToken: String):fuzzySearchableVideoConnection
-  fuzzySearchVideosByType(videoType: String, filter: String, sort: fuzzySearchableVideoSortInput, limit: Int, nextToken: String):fuzzySearchableVideoConnection
+  getTakenoteSeries(user: Int, start: Int, count: Int): [TakeNoteSeries]
+  getTakenoteSermon(seriesId: String, user: Int): [TakeNoteSermon]
+  getTakenoteSermonVerses(sermondId: String): TakeNoteSermonVerses
+  getTakenoteLocations: [TakeNoteLocations]
+  getFBEvents(pageId: String): FBData
+  getInstaPhotos(pageId: String): InstaData
+  getTakenoteNotes(sermonId: String, noteType: String): TakeNoteNotes
+  fuzzySearchVideos(filter: String, sort: fuzzySearchableVideoSortInput, limit: Int, nextToken: String): fuzzySearchableVideoConnection
+  fuzzySearchVideosByType(videoType: String, filter: String, sort: fuzzySearchableVideoSortInput, limit: Int, nextToken: String): fuzzySearchableVideoConnection
+  F1ListActivities(page: String): [F1ListActivities] @function(name: "F1ListActivities")
+  F1ListAssignments(itemId: String, page: String): [F1Assignments] @function(name: "F1ListAssignments")
+  F1ListGroupTypes: F1ListGroupTypes @function(name: "F1ListGroupTypes")
+  F1ListGroups(itemId: String): F1ListGroups @function(name: "F1ListGroups")
+  F1ListEventSchedules(itemId: [String]): [F1ListEvent] @function(name: "F1ListEventSchedules")
+  F1ListTimezones(itemId: [String]): [F1ListTimezones] @function(name: "F1ListTimezones")
+  emailHomeChurch(name: String, email: String, message: String, homeChurchId: String): emailResponse @function(name: "emailHomeChurch-${env}")
+  askQuestion(email: String, body: String): emailResponse @function(name: "QandEh-${env}")
+  generatePdf(notes: String, questions: String, week: String, title: String, userId: String): pdfRes @function(name: "tmhnotespdf-${env}")
+  tmhPinpointListSegments(nextToken: String): PinpointSegmentList @function(name: "tmhPinpointListSegments-${env}")
+  tmhPinpointCreateCampaign(name: String, description: String, segmentId: String, segmentVersion: String, schedule: PinpointScheduleInput, appleMessage: PinpointMessageInput, androidMessage: PinpointMessageInput): Boolean @function(name: "tmhPinpointCreateCampaign-${env}")
+  tmhF1LinkUser: Boolean @function(name: "tmhF1LinkUser-${env}") @aws_cognito_user_pools
+  tmhF1SyncGroupPermissions: Boolean @function(name: "tmhF1SyncGroupPermissions-${env}") @aws_cognito_user_pools
+  tmhF1SearchContributionReceipts(pageId: String): F1SearchContributionReceiptsType @function(name: "tmhF1SearchContributionReceipts-${env}") @aws_cognito_user_pools
+  tmhStripeAddCustomer(idempotency: String, phone: String, email: String, firstName: String, lastName: String, orgName: String, billingAddress: StripeAddressInput): StripeCustomerData @function(name: "tmhStripeAddCustomer-${env}") @aws_cognito_user_pools
+  tmhStripeAttachPaymentMethod(id: String, idempotency: String): Boolean @function(name: "tmhStripeAddPaymentMethod-${env}") @aws_cognito_user_pools
+  tmhStripeListPaymentMethods(pageId: String): StripePaymentMethodsData @function(name: "tmhStripeListPaymentMethods-${env}") @aws_cognito_user_pools
+  tmhStripeListSubscriptions(starting_after: String): StripeSubscriptionsListData @function(name: "tmhStripeListSubscriptions-${env}") @aws_cognito_user_pools
+  tmhStripeDeleteSubscription(subscriptionId: String): Boolean @function(name: "tmhStripeDeleteSubscription-${env}") @aws_cognito_user_pools
+  tmhStripeAddSubscription(idempotency: String, amount: String, fund: String, frequency: String): StripePaymentMethodsData @function(name: "tmhStripeAddSubscription-${env}") @aws_cognito_user_pools
+  tmhStripeAddPayment(idempotency: String, amount: String, fund: String): StripePaymentMethodsData @function(name: "tmhStripeAddPayment-${env}") @aws_cognito_user_pools
+  tmhStripeDeletePaymentMethod(paymentMethodId: String): Boolean @function(name: "tmhStripeDeletePaymentMethod-${env}") @aws_cognito_user_pools
+}
 
-  F1ListActivities(page:String):[F1ListActivities] @function(name:"F1ListActivities")
-  F1ListAssignments(itemId:String,page:String):[F1Assignments] @function(name:"F1ListAssignments")
-
-  F1ListGroupTypes:F1ListGroupTypes @function(name:"F1ListGroupTypes")
-  F1ListGroups(itemId:String):F1ListGroups @function(name:"F1ListGroups")
-
-
-  F1ListEventSchedules(itemId:[String]):[F1ListEvent] @function(name:"F1ListEventSchedules")
-  F1ListTimezones(itemId:[String]):[F1ListTimezones] @function(name:"F1ListTimezones")
-  emailHomeChurch(name:String,email:String,message:String,homeChurchId:String):emailResponse @function(name:"emailHomeChurch-${env}")
-  askQuestion(email:String,body:String):emailResponse @function(name:"QandEh-${env}")
-  generatePdf(notes:String,questions:String,week:String,title:String,userId:String):pdfRes @function(name:"tmhnotespdf-${env}")
-  tmhPinpointListSegments(nextToken:String):PinpointSegmentList @function(name:"tmhPinpointListSegments-${env}")
-  tmhPinpointCreateCampaign(
-    name:String,
-    description:String,
-    segmentId:String,
-    segmentVersion:String,
-    schedule:PinpointScheduleInput,
-    appleMessage:PinpointMessageInput,
-    androidMessage:PinpointMessageInput):Boolean @function(name:"tmhPinpointCreateCampaign-${env}")
-
-  tmhF1LinkUser:Boolean @function(name:"tmhF1LinkUser-${env}") @aws_cognito_user_pools
-  tmhF1SyncGroupPermissions:Boolean @function(name:"tmhF1SyncGroupPermissions-${env}") @aws_cognito_user_pools
-  tmhF1SearchContributionReceipts(pageId:String):F1SearchContributionReceiptsType @function(name:"tmhF1SearchContributionReceipts-${env}") @aws_cognito_user_pools
-  tmhStripeAddCustomer(idempotency:String,phone:String,email:String,firstName:String,lastName:String,orgName:String,billingAddress:StripeAddressInput):StripeCustomerData @function(name:"tmhStripeAddCustomer-${env}") @aws_cognito_user_pools
-  tmhStripeAttachPaymentMethod(id:String, idempotency:String):Boolean @function(name:"tmhStripeAddPaymentMethod-${env}") @aws_cognito_user_pools
-  tmhStripeListPaymentMethods(pageId:String):StripePaymentMethodsData @function(name:"tmhStripeListPaymentMethods-${env}") @aws_cognito_user_pools
-
-  tmhStripeListSubscriptions(starting_after:String):StripeSubscriptionsListData @function(name:"tmhStripeListSubscriptions-${env}") @aws_cognito_user_pools
-  tmhStripeDeleteSubscription(subscriptionId:String):Boolean @function(name:"tmhStripeDeleteSubscription-${env}") @aws_cognito_user_pools
-  tmhStripeAddSubscription(idempotency:String,amount:String,fund:String,frequency:String):StripePaymentMethodsData @function(name:"tmhStripeAddSubscription-${env}") @aws_cognito_user_pools
-  tmhStripeAddPayment(idempotency:String,amount:String,fund:String):StripePaymentMethodsData @function(name:"tmhStripeAddPayment-${env}") @aws_cognito_user_pools
-  tmhStripeDeletePaymentMethod(paymentMethodId:String):Boolean @function(name:"tmhStripeDeletePaymentMethod-${env}") @aws_cognito_user_pools
-  }
-enum PinpointRecencyType
-{
-  ACTIVE 
+enum PinpointRecencyType {
+  ACTIVE
   INACTIVE
 }
-enum PinpointRecencyDurationType
-{
-  HR_24 
-  DAY_7 
-  DAY_14 
+
+enum PinpointRecencyDurationType {
+  HR_24
+  DAY_7
+  DAY_14
   DAY_30
 }
-type PinpointChannel
-{
+
+type PinpointChannel {
   DimensionType: PinpointEventTypeDimensionType
   Values: [String]
 }
-type PinpointCoordinates
-{
-  Latitude:Float
-  Longitude:Float
+
+type PinpointCoordinates {
+  Latitude: Float
+  Longitude: Float
 }
-type PinpointGPSPoint
-{
+
+type PinpointGPSPoint {
   Coordinates: PinpointCoordinates
   RangeInKilometers: Float
 }
-type PinpointLocation
-{
+
+type PinpointLocation {
   Country: PinpointChannel
   GPSPoint: PinpointGPSPoint
 }
-type PinpointRecency 
-{
+
+type PinpointRecency {
   RecencyType: PinpointRecencyType
   Duration: PinpointRecencyDurationType
 }
-type PinpointBehaviour
-{
-  Recency:PinpointRecency
+
+type PinpointBehaviour {
+  Recency: PinpointRecency
 }
-type PinpointDemographic
-{
+
+type PinpointDemographic {
   Channel: PinpointChannel
-  Platform:PinpointChannel
-  DeviceType:PinpointChannel
-  AppVersion:PinpointChannel
-  Make:PinpointChannel
-  Model:PinpointChannel
+  Platform: PinpointChannel
+  DeviceType: PinpointChannel
+  AppVersion: PinpointChannel
+  Make: PinpointChannel
+  Model: PinpointChannel
 }
-type PinpointDimensions
-{
+
+type PinpointDimensions {
   Demographic: PinpointDemographic
   Location: PinpointLocation
   Behavior: PinpointBehaviour
-  Attributes:AWSJSON
+  Attributes: AWSJSON
   Metrics: AWSJSON
-  UserAttributes:AWSJSON
+  UserAttributes: AWSJSON
+}
 
-}
-type PinpointSourceSegment
-{
+type PinpointSourceSegment {
   Id: String
-  Version:Int
+  Version: Int
 }
-enum PinpointSegmentGroupType
-{
-  ALL 
+
+enum PinpointSegmentGroupType {
+  ALL
   ANY
   NONE
 }
-type PinpointSegmentGroup 
-{
+
+type PinpointSegmentGroup {
   Type: PinpointSegmentGroupType
   Dimensions: [PinpointDimensions]
   SourceType: PinpointSegmentGroupType
   SourceSegments: [PinpointSourceSegment]
 }
-type PinpointSegmentGroups
-{
+
+type PinpointSegmentGroups {
   Include: PinpointSegmentGroupType
   Groups: [PinpointSegmentGroup]
 }
-enum PinpointImportDefinitionFormat
-{
-  CSV 
+
+enum PinpointImportDefinitionFormat {
+  CSV
   JSON
 }
-type PinpointImportDefinition
-{
+
+type PinpointImportDefinition {
   Size: Int
   S3Url: String
   RoleArn: String
@@ -149,14 +135,14 @@ type PinpointImportDefinition
   Format: PinpointImportDefinitionFormat
   ChannelCounts: AWSJSON
 }
-enum PinpointSegmentType
-{
-  DIMENSIONAL 
+
+enum PinpointSegmentType {
+  DIMENSIONAL
   IMPORT
 }
-type PinpointSegmentItem
-{
-  Name:String
+
+type PinpointSegmentItem {
+  Name: String
   Dimensions: PinpointDimensions
   SegmentGroups: PinpointSegmentGroups
   Id: String
@@ -169,14 +155,14 @@ type PinpointSegmentItem
   Arn: String
   tags: AWSJSON
 }
-type PinpointSegmentList
-{
-  Item:[PinpointSegmentItem]
-  NextToken:String
+
+type PinpointSegmentList {
+  Item: [PinpointSegmentItem]
+  NextToken: String
 }
-enum PinpointFrequency
-{
-  ONCE 
+
+enum PinpointFrequency {
+  ONCE
   HOURLY
   DAILY
   WEEKLY
@@ -184,44 +170,44 @@ enum PinpointFrequency
   EVENT
   IN_APP_EVENT
 }
-input PinpointQuietTime
-{
+
+input PinpointQuietTime {
   Start: String
   End: String
 }
-enum PinpointDimensionType
-{
+
+enum PinpointDimensionType {
   INCLUSIVE
   EXCLUSIVE
 }
-enum PinpointEventTypeDimensionType
-{
+
+enum PinpointEventTypeDimensionType {
   INCLUSIVE
   EXCLUSIVE
 }
-input PinpointEventType
-{
+
+input PinpointEventType {
   DimensionType: PinpointEventTypeDimensionType
   Values: [String]
 }
-input PinpointDimension
-{
+
+input PinpointDimension {
   EventType: PinpointEventType
   Attributes: AWSJSON
   Metrics: AWSJSON
 }
-enum PinpointFilterType
-{
-  SYSTEM 
+
+enum PinpointFilterType {
+  SYSTEM
   ENDPOINT
 }
-input PinpointEventFilter
-{
+
+input PinpointEventFilter {
   Dimensions: PinpointDimension
-  FilterType: PinpointFilterType    
+  FilterType: PinpointFilterType
 }
-input PinpointScheduleInput
-{
+
+input PinpointScheduleInput {
   StartTime: String
   EndTime: String
   Frequency: PinpointFrequency
@@ -230,19 +216,19 @@ input PinpointScheduleInput
   QuietTime: PinpointQuietTime
   EventFilter: PinpointEventFilter
 }
-enum PinpointAction
-{
-  OPEN_APP 
-  DEEP_LINK 
+
+enum PinpointAction {
+  OPEN_APP
+  DEEP_LINK
   URL
 }
-input PinpointMessageInput
-{
+
+input PinpointMessageInput {
   Body: String
   Title: String
-  ImageUrl:String
+  ImageUrl: String
   ImageIconUrl: String
-  ImageSmallIconUrl:String
+  ImageSmallIconUrl: String
   MediaUrl: String
   Action: PinpointAction
   Url: String
@@ -251,207 +237,215 @@ input PinpointMessageInput
   RawContent: String
   TimeToLive: Int
 }
-input StripeAddressInput
-{
-  city:String
-  country:String
-  line1:String
-  line2:String
-  postal_code:String
-  state:String
-}
-type StripeCustomerData{
-  customer:StripeCustomer
-}
-type StripeSubscriptionsListData @aws_cognito_user_pools{
-   data:[StripeSubscriptionsList]
-   has_more:Boolean
-}
-type StripeSubscriptionsList @aws_cognito_user_pools{
-  id:String
-  default_source:String
-  items:StripeSubscriptionItemsData
-  next_pending_invoice_item_invoice:Int
-  start_date:Int
-  status:String
-}
-type StripeSubscriptionItems @aws_cognito_user_pools{
-  id:String
-  price:String
-  plan:StripeSubscriptionPlan
-}
-type StripeSubscriptionPlan @aws_cognito_user_pools{
-  id:String
-  interval:String
-  interval_count:Int
-  active:Boolean
-  amount:Float
-  number_decimal:String
-  currency:String
-  product:String
-}
-type StripeSubscriptionItemsData @aws_cognito_user_pools{
-  data:[StripeSubscriptionItems]
-}
-type StripePaymentMethodsData @aws_cognito_user_pools{
-   data:[StripePaymentMethod]
-}
-type StripeCard  @aws_cognito_user_pools
-{
-  brand: String
-  last4:String
-  exp_year:Int
-  exp_month:Int
-  funding:String
-  country:String
+
+input StripeAddressInput {
+  city: String
+  country: String
+  line1: String
+  line2: String
+  postal_code: String
+  state: String
 }
 
-type StripeBillingDetails  @aws_cognito_user_pools
-{
-  email:String
-  name:String
-  phone:String
-  address:StripeAddress
+type StripeCustomerData {
+  customer: StripeCustomer
 }
-type StripeAddress @aws_cognito_user_pools
-{
-  city:String
-    country:String
-    line1:String
-    line2:String
-    postal_code:String
-    state:String
+
+type StripeSubscriptionsListData @aws_cognito_user_pools {
+  data: [StripeSubscriptionsList]
+  has_more: Boolean
 }
-type StripePaymentMethod @aws_cognito_user_pools{
-  id:String
-  type:String
-  card:StripeCard
-  billing_details:StripeBillingDetails
-}
-type StripeCustomer{
-  
+
+type StripeSubscriptionsList @aws_cognito_user_pools {
   id: String
-  object:String
-  address:String
-  balance:String
-  created:String
-  currency:String
-  default_source:String
-  delinquent:String
-  description:String
-  discount:String
-  email:String
-  invoice_prefix:String
+  default_source: String
+  items: StripeSubscriptionItemsData
+  next_pending_invoice_item_invoice: Int
+  start_date: Int
+  status: String
+}
+
+type StripeSubscriptionItems @aws_cognito_user_pools {
+  id: String
+  price: String
+  plan: StripeSubscriptionPlan
+}
+
+type StripeSubscriptionPlan @aws_cognito_user_pools {
+  id: String
+  interval: String
+  interval_count: Int
+  active: Boolean
+  amount: Float
+  number_decimal: String
+  currency: String
+  product: String
+}
+
+type StripeSubscriptionItemsData @aws_cognito_user_pools {
+  data: [StripeSubscriptionItems]
+}
+
+type StripePaymentMethodsData @aws_cognito_user_pools {
+  data: [StripePaymentMethod]
+}
+
+type StripeCard @aws_cognito_user_pools {
+  brand: String
+  last4: String
+  exp_year: Int
+  exp_month: Int
+  funding: String
+  country: String
+}
+
+type StripeBillingDetails @aws_cognito_user_pools {
+  email: String
+  name: String
+  phone: String
+  address: StripeAddress
+}
+
+type StripeAddress @aws_cognito_user_pools {
+  city: String
+  country: String
+  line1: String
+  line2: String
+  postal_code: String
+  state: String
+}
+
+type StripePaymentMethod @aws_cognito_user_pools {
+  id: String
+  type: String
+  card: StripeCard
+  billing_details: StripeBillingDetails
+}
+
+type StripeCustomer {
+  id: String
+  object: String
+  address: String
+  balance: String
+  created: String
+  currency: String
+  default_source: String
+  delinquent: String
+  description: String
+  discount: String
+  email: String
+  invoice_prefix: String
   invoice_settings: StripeInvoiceSettings
-  livemode:String
-  metadata:String
-  name:String
-  next_invoice_sequence:String
-  phone:String
-  preferred_locales:String
-  shipping:String
-  tax_exempt:String
-
+  livemode: String
+  metadata: String
+  name: String
+  next_invoice_sequence: String
+  phone: String
+  preferred_locales: String
+  shipping: String
+  tax_exempt: String
 }
 
-type StripeInvoiceSettings{
-    custom_fields:String
-    default_payment_method:String
-    footer:String
+type StripeInvoiceSettings {
+  custom_fields: String
+  default_payment_method: String
+  footer: String
+}
 
+type F1SearchContributionReceiptsType @aws_cognito_user_pools {
+  results: F1SearchContributionReceiptsResultType
 }
-type F1SearchContributionReceiptsType @aws_cognito_user_pools{
-  results:F1SearchContributionReceiptsResultType
+
+type F1SearchContributionReceiptsResultType @aws_cognito_user_pools {
+  contributionReceipt: [F1ContributionReceipt]
 }
-type F1SearchContributionReceiptsResultType @aws_cognito_user_pools{
-  contributionReceipt:[F1ContributionReceipt]
-}
-type F1ListActivities
-{
+
+type F1ListActivities {
   id: String
   uri: String
   name: String
   description: String
   hasCheckin: String
   checkinMinutesBefore: String
-  hasNameTag:String
+  hasNameTag: String
   hasReceipt: String
-  startAge:String
+  startAge: String
   endAge: String
   confidential: String
   requiresRegistration: String
   rosterBySchedule: String
   assignmentsOverrideClosedRoom: String
-  autoAssignmentOption:String
-  pagerEnabled:String
-  webEnabled:String
+  autoAssignmentOption: String
+  pagerEnabled: String
+  webEnabled: String
+}
 
-}
-type F1ListAssignmentType3{
-  name:String
-  id:String
-  uri:String
-}
-type F1ListAssignmentType2{
-  id:String
-  uri:String
-}
-type F1Assignments
-@model
- @key(name: "assignmentByPersonId", fields: ["personId","id"],queryField:"getAssignmentsByPersonId")
- @auth(rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
- ])
-{
+type F1ListAssignmentType3 {
+  name: String
   id: String
-  personId:String
   uri: String
-  type:F1ListAssignmentType3
+}
+
+type F1ListAssignmentType2 {
+  id: String
+  uri: String
+}
+
+type F1Assignments @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Admin"], provider: userPools}]) {
+  id: String
+  personId: String @index(name: "assignmentByPersonId", queryField: "getAssignmentsByPersonId", sortKeyFields: ["id"])
+  uri: String
+  type: F1ListAssignmentType3
   person: F1ListAssignmentType2
-  activity:F1ListAssignmentType3  
-  schedule:F1ListAssignmentType2
+  activity: F1ListAssignmentType3
+  schedule: F1ListAssignmentType2
   roster: F1ListAssignmentType2
-  rosterFolder:F1ListAssignmentType2
+  rosterFolder: F1ListAssignmentType2
 }
-type F1ContributionReceipt @aws_cognito_user_pools{
-  id:String
-  accountReference:String
-  amount:String
-  receivedDate:String
-  transmitDate:String
-  returnDate:String
-  retransmitDate:String
-  glPostDate:String
-  isSplit:String
-  memo:String
-  fund:F1ContributionReceiptFund!
-  subFund:F1ContributionReceiptSubFund!
-  account:F1ContributionReceiptAccount!
-  contributionType:F1ContributionReceiptContributionType!
-  contributionSubType:F1ContributionReceiptContributionSubType!
+
+type F1ContributionReceipt @aws_cognito_user_pools {
+  id: String
+  accountReference: String
+  amount: String
+  receivedDate: String
+  transmitDate: String
+  returnDate: String
+  retransmitDate: String
+  glPostDate: String
+  isSplit: String
+  memo: String
+  fund: F1ContributionReceiptFund!
+  subFund: F1ContributionReceiptSubFund!
+  account: F1ContributionReceiptAccount!
+  contributionType: F1ContributionReceiptContributionType!
+  contributionSubType: F1ContributionReceiptContributionSubType!
 }
-type F1ContributionReceiptContributionType @aws_cognito_user_pools{
-  id:String
-  name:String
+
+type F1ContributionReceiptContributionType @aws_cognito_user_pools {
+  id: String
+  name: String
 }
-type F1ContributionReceiptContributionSubType @aws_cognito_user_pools{
-  id:String
-  name:String
+
+type F1ContributionReceiptContributionSubType @aws_cognito_user_pools {
+  id: String
+  name: String
 }
-type F1ContributionReceiptAccount @aws_cognito_user_pools{
-  id:String
+
+type F1ContributionReceiptAccount @aws_cognito_user_pools {
+  id: String
 }
-type F1ContributionReceiptSubFund @aws_cognito_user_pools{
-  id:String
-  name:String
+
+type F1ContributionReceiptSubFund @aws_cognito_user_pools {
+  id: String
+  name: String
 }
-type F1ContributionReceiptFund @aws_cognito_user_pools{
-  id:String
-  name:String
-  fundTypeID:String
+
+type F1ContributionReceiptFund @aws_cognito_user_pools {
+  id: String
+  name: String
+  fundTypeID: String
 }
+
 type pdfRes {
   objectKey: String
 }
@@ -460,6 +454,7 @@ type BibleResponse {
   data: BibleData
   meta: BibleMetaData
 }
+
 type BibleData {
   id: String
   bibleId: String
@@ -468,6 +463,7 @@ type BibleData {
   reference: String
   copyright: String
 }
+
 type BibleMetaData {
   fums: String
   fumsId: String
@@ -475,28 +471,35 @@ type BibleMetaData {
   fumsJs: String
   fumsNoScript: String
 }
+
 type emailResponse {
-  err:String
-  data:String
+  err: String
+  data: String
 }
+
 type F1ListEvent {
-  id:String
-  event:F1ListEventSchedules
+  id: String
+  event: F1ListEventSchedules
 }
+
 type F1ListTimezones {
-  id:String
-  info:F1ListTimezoneInfo
+  id: String
+  info: F1ListTimezoneInfo
 }
-type F1ListTimezoneInfo{
-  group:F1ListTimezoneGroup
+
+type F1ListTimezoneInfo {
+  group: F1ListTimezoneGroup
 }
-type F1ListTimezoneGroup{
-  timeZone:F1ListGroup2Timezone
+
+type F1ListTimezoneGroup {
+  timeZone: F1ListGroup2Timezone
 }
+
 enum fuzzySearchableSortDirection {
   asc
   desc
 }
+
 enum fuzzySearchableVideoSortableFields {
   id
   createdBy
@@ -518,19 +521,21 @@ enum fuzzySearchableVideoSortableFields {
   YoutubeIdent
   videoTypes
 }
-enum online_event_formatTypes{
+
+enum online_event_formatTypes {
   messenger_room
   third_party
   fb_live
   other
   none
 }
+
 input fuzzySearchableVideoSortInput {
   field: fuzzySearchableVideoSortableFields
   direction: fuzzySearchableSortDirection
 }
 
-type FBLocation{
+type FBLocation {
   city: String
   country: String
   latitude: Float
@@ -539,473 +544,491 @@ type FBLocation{
   street: String
   zip: String
 }
-type FBPlace{
- name: String
+
+type FBPlace {
+  name: String
   location: FBLocation
   id: String
 }
-type FBPaging{
-  cursors:FBCursors
+
+type FBPaging {
+  cursors: FBCursors
 }
-type FBCursors{
-  before:String
-  after:String
+
+type FBCursors {
+  before: String
+  after: String
 }
-type InstaData{
+
+type InstaData {
   data: [InstaPhoto]
   paging: FBPaging
 }
-type InstaPhoto{
-  id:String
-  media_url:String
-  caption:String
-  comments_count:String
-  like_count:String
-  media_type:String
-  thumbnail_url:String
-  timestamp:String
-  permalink:String
-  shortcode:String
-  
+
+type InstaPhoto {
+  id: String
+  media_url: String
+  caption: String
+  comments_count: String
+  like_count: String
+  media_type: String
+  thumbnail_url: String
+  timestamp: String
+  permalink: String
+  shortcode: String
 }
-type FBData{
+
+type FBData {
   data: [FBEvent]
   paging: FBPaging
 }
-type FBTime{
-  description:String
-  start_time:String
-  end_time:String
-  name:String
+
+type FBTime {
+  description: String
+  start_time: String
+  end_time: String
+  name: String
   place: FBPlace
-  id:String
-  ticket_uri:String
-  cover:FBCover
+  id: String
+  ticket_uri: String
+  cover: FBCover
 }
-type FBEvent{
-  description:String
-  end_time:String
-  is_online:Boolean
-  online_event_format:online_event_formatTypes
-  online_event_third_party_url:String
-  name:String
+
+type FBEvent {
+  description: String
+  end_time: String
+  is_online: Boolean
+  online_event_format: online_event_formatTypes
+  online_event_third_party_url: String
+  name: String
   place: FBPlace
   start_time: String
   id: String
-  ticket_uri:String
-  event_times:[FBTime]
-  cover:FBCover
-  picture:FBPicture
+  ticket_uri: String
+  event_times: [FBTime]
+  cover: FBCover
+  picture: FBPicture
 }
-type FBPicture{
-  url:String
+
+type FBPicture {
+  url: String
 }
-type FBCover{
-  id:String
-  offset_x:Float
-  offset_y:Float
-  source:String
+
+type FBCover {
+  id: String
+  offset_x: Float
+  offset_y: Float
+  source: String
 }
+
 type fuzzySearchableVideoConnection {
   items: [Video]
   nextToken: String
 }
-type F1ListEventSchedules{
-  schedules:F1ListEventSchedule
+
+type F1ListEventSchedules {
+  schedules: F1ListEventSchedule
 }
 
-type F1ListGroups{
-  groups:F1ListGroup
-}
-type F1ListGroup{
-  group:[F1ListGroup2A]
-}
-type F1ListEventSchedule{
-  schedule:[F1ListEventSchedule2]
-}
-type F1ListGroup2Campus{
-  id:String
-  name:String
-}
-type F1ListGroup2GroupType{
-  id:String
-  name:String
-}
-type F1ListGroup2DateRangeType{
-  id:String
-  name:String
-}
-type F1ListEventScheduleReccurenceType{
-  name:String
-}
-type F1ListEventSchedule2{
-   id:String
-  name:String
-  description:String
-  startTime:String
-  endTime:String
-  numberRecurrences:String
-  startDate:String
-  endDate:String
-  recurrenceType:F1ListEventScheduleReccurenceType
-  recurrences:F1ListEventScheduleRecurrences
-  createdDate:String
-  createByPerson:String
-  lastUpdatedDate:String
-  lastUpdatedByPerson:String
-}
-type F1ListEventScheduleRecurrences{
-  recurrence:F1ListEventScheduleRecurrence
-}
-type F1ListEventScheduleRecurrence{
-  recurrenceWeekly:F1ListEventScheduleRecurrenceWeekly
-  recurrenceMonthly:F1ListEventScheduleRecurrenceMonthly
-}
-type F1ListEventScheduleRecurrenceWeekly{
-  recurrenceFrequency:String
-  occurOnSunday:Boolean
-  occurOnMonday:Boolean
-  occurOnTuesday:Boolean
-  occurOnWednesday:Boolean
-  occurOnThursday:Boolean
-  occurOnFriday:Boolean
-  occurOnSaturday:Boolean
-}
-type F1ListGroup2Timezone{
-  id:String
-  name:String
-}
-type F1ListEventScheduleRecurrenceMonthly{
-  recurrenceFrequency:String
-  recurrenceOffset:String
-  monthDay:String
-  monthWeekDay:String
-
-}
-type F1ListGroup2A 
-{
-  id:String
-  name:String
-  description:String
-  startDate:String
-  expirationDate:String
-  isOpen:String
-  isPublic:String
-  hasChildcare:String
-  isSearchable:String
-  churchCampus:F1ListGroup2Campus
-  groupType:F1ListGroup2GroupType
-  groupURL:String
-  gender:F1ListGroup2Gender
-  maritalStatus:F1ListGroup2MaritalStatus
-  startAgeRange:String
-  endAgeRange:String
-  dateRangeType:F1ListGroup2DateRangeType
-  leadersCount:String
-  membersCount:String
-  openProspectsCount:String
-  event:F1ListGroup2Event
-  createdDate:String
-  lastUpdatedDate:String
-  isLocationPrivate:String
-  location:F1ListGroup2Location
-  schedule:F1ListEventSchedule2
-}
-type HomeChurchInfo
-  @model
-  @auth (rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow: groups, operations:[read,update,delete,create],groups: ["Admin","HomechurchEditor"],provider:userPools},
-   { allow: owner , operations:[read,update,delete,create]}
- ])
- {
-   id:String
-   elders:[String]
-   customPills:[String]
-   vaccinationRequired:String
-   isOnline:String
-   isYoungAdult: String
-   isFamilyFriendly: String
-   isHybrid:String
-   onlineConnectUrl:String
-   ageGroups:String
-   petFree:String
-   transitAccessible:String
-   accessCode:String
-   gender:String
-   extendedDescription:String
-   imageUrl:String
-   imageAlt:String
-   videoUrl:String
- }
-type F1ListGroup2 
- @model
- @auth(rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
- ])
- @searchable
-{
-  id:String
-  name:String
-  description:String
-  startDate:String
-  expirationDate:String
-  isOpen:String
-  isPublic:String
-  hasChildcare:String
-  isSearchable:String
-  churchCampus:F1ListGroup2Campus
-  groupType:F1ListGroup2GroupType
-  groupURL:String
-  gender:F1ListGroup2Gender
-  maritalStatus:F1ListGroup2MaritalStatus
-  startAgeRange:String
-  endAgeRange:String
-  dateRangeType:F1ListGroup2DateRangeType
-  leadersCount:String
-  membersCount:String
-  openProspectsCount:String
-  event:F1ListGroup2Event
-  createdDate:String
-  lastUpdatedDate:String
-  isLocationPrivate:String
-  timeZone:F1ListGroup2Timezone
-  location:F1ListGroup2Location
-  schedule:F1ListEventSchedule2
-}
-type F1ListGroup2Address{
-  address1:String
-  address2:String
-  address3:String
-  city:String
-  stProvince:String
-  postalCode:String
-  county:String
-  country:String
-  carrierRoute:String
-  deliveryPoint:String
-  latitude:String
-  longitude:String
-  createdDate:String
-  lastUpdatedDate:String
-}
-type F1ListGroup2Location{
-  id:String
-  name:String
-  description:String
-  isOnline:String
-  url:String
-  address:F1ListGroup2Address
-  createdDate:String
-  lastUpdatedDate:String
-}
-type F1ListGroup2Event{
-  id:String
-  name:String
-
-}
-type F1ListGroup2MaritalStatus{
-   name:String
-}
-type F1ListGroup2Gender{
- name:String
-}
-type F1ListGroupTypes{
-  groupTypes:F1ListGroupType
-}
-type F1ListGroupType{
-  groupType:[F1ListGroupType2]
-}
-type F1ListGroupType2{
-  id:String
-  name:String
-  description:String
-  isWebEnabled:String
-  isSearchable:String
-}
-type TakeNoteNotes{
-  homeChurchNotes:[TakeNoteNote]
-  sermonNotes:[TakeNoteNote]
-  sermonVerses:[TakeNoteVerse]
-  homeChurchVerses:[TakeNoteVerse]
-}
-type TakeNoteNote{
-  id:Int
-  noteType:String
-  content:String
-  position:Int
-  timecode:String
-  sermons_FK:String
-}
-type TakeNoteVerse{
-  id:String
-  chapterVerse:String
-  translation:String
-  content:String
-  sermons_FK:Int
-  notes_FK:String
-}
-type TakeNoteLocationGPS{
-  longitude:Float,
-  latitude:Float
-}
-type TakeNoteLocations{
-    _id:String,
-    id:String,
-    name:String,
-    categories:[String],
-    location:TakeNoteLocationGPS,
-    state:String
-}
-type TakeNoteSermonVerses{
-    sermonVerses:[TakeNoteVerses]
-}
-type TakeNoteVerses{
-  id:String,
-  chapterVerse:String,
-  translation:String,
-  content:String,
-  sermons_FK:String,
-  notes_FK:String
-}
-type TakeNoteSeries{
-  id:String,
-  title:String,
-  description:String,
-  imageUrl:String,
-  public:Int,
-  thumbnail:String,
-  startDate:String,
-  endDate:String,
-  sermonCommentCount:Int,
-  homeChurchCommentCount:Int
-}
-type TakeNoteMediaEntry{
-  id:String,
-  type:String,
-  contentType:String,
-  kind:String,
-  label:String,
-  url:String
-}
-type TakeNoteSermon{
-  id:String,
-  title:String,
-  speaker:String,
-  deliveryDate:String,
-  description:String,
-  audioUrl:String,
-  mediaEntries:[TakeNoteMediaEntry],
-  public:Int,
-  series_FK:String,
-  sermonNoteCount:Int,
-  quoteNoteCount:Int,
-  homeChurchNoteCount:Int,
-  sermonCommentCount:Int
+type F1ListGroups {
+  groups: F1ListGroup
 }
 
-
-type TNSeries
-@model
-@key(fields:["id"])
- @key(name: "BySeriesIdent", fields: ["TNident"], queryField:"getTNSeriesByIdent")
-
-{
-  id:ID!
-  TNident:String,
-  title:String,
-  description:String,
-  imageUrl:String,
-  public:Int,
-  thumbnail:String,
-  startDate:String,
-  endDate:String,
-  sermonCommentCount:Int,
-  homeChurchCommentCount:Int
-  sermons:[TNSermon]
+type F1ListGroup {
+  group: [F1ListGroup2A]
 }
 
-type TNMediaEntry{
-  type:String,
-  contentType:String,
-  kind:String,
-  label:String,
-  url:String
+type F1ListEventSchedule {
+  schedule: [F1ListEventSchedule2]
 }
 
-type TNSermon
-@model
-@key(fields:["id"])
- @key(name: "BySermonIdent", fields: ["TNident"], queryField:"getTNSermonByIdent")
+type F1ListGroup2Campus {
+  id: String
+  name: String
+}
 
-{
-  id:ID!
-  TNident:String,
-  title:String,
-  speaker:String,
-  deliveryDate:String,
-  description:String,
-  audioUrl:String,
-  mediaEntries:[TNMediaEntry],
-  public:Int,
-  series_FK:String,
-  series:TNSeries 
-  sermonNoteCount:Int,
-  quoteNoteCount:Int,
-  homeChurchNoteCount:Int,
-  sermonCommentCount:Int
+type F1ListGroup2GroupType {
+  id: String
+  name: String
+}
 
+type F1ListGroup2DateRangeType {
+  id: String
+  name: String
 }
-type YoutubeCaptionDownload{
-  transcript:YoutubeCaptionText
-}
-type YoutubeCaptionText{
-  text:[YoutubeCaptionDetails]
-}
-type YoutubeCaptionDetails{
-  dur:Float
-  start:Float
-  content:String
-}
-type YoutubeCaptionList{
 
-   kind: String
+type F1ListEventScheduleReccurenceType {
+  name: String
+}
+
+type F1ListEventSchedule2 {
+  id: String
+  name: String
+  description: String
+  startTime: String
+  endTime: String
+  numberRecurrences: String
+  startDate: String
+  endDate: String
+  recurrenceType: F1ListEventScheduleReccurenceType
+  recurrences: F1ListEventScheduleRecurrences
+  createdDate: String
+  createByPerson: String
+  lastUpdatedDate: String
+  lastUpdatedByPerson: String
+}
+
+type F1ListEventScheduleRecurrences {
+  recurrence: F1ListEventScheduleRecurrence
+}
+
+type F1ListEventScheduleRecurrence {
+  recurrenceWeekly: F1ListEventScheduleRecurrenceWeekly
+  recurrenceMonthly: F1ListEventScheduleRecurrenceMonthly
+}
+
+type F1ListEventScheduleRecurrenceWeekly {
+  recurrenceFrequency: String
+  occurOnSunday: Boolean
+  occurOnMonday: Boolean
+  occurOnTuesday: Boolean
+  occurOnWednesday: Boolean
+  occurOnThursday: Boolean
+  occurOnFriday: Boolean
+  occurOnSaturday: Boolean
+}
+
+type F1ListGroup2Timezone {
+  id: String
+  name: String
+}
+
+type F1ListEventScheduleRecurrenceMonthly {
+  recurrenceFrequency: String
+  recurrenceOffset: String
+  monthDay: String
+  monthWeekDay: String
+}
+
+type F1ListGroup2A {
+  id: String
+  name: String
+  description: String
+  startDate: String
+  expirationDate: String
+  isOpen: String
+  isPublic: String
+  hasChildcare: String
+  isSearchable: String
+  churchCampus: F1ListGroup2Campus
+  groupType: F1ListGroup2GroupType
+  groupURL: String
+  gender: F1ListGroup2Gender
+  maritalStatus: F1ListGroup2MaritalStatus
+  startAgeRange: String
+  endAgeRange: String
+  dateRangeType: F1ListGroup2DateRangeType
+  leadersCount: String
+  membersCount: String
+  openProspectsCount: String
+  event: F1ListGroup2Event
+  createdDate: String
+  lastUpdatedDate: String
+  isLocationPrivate: String
+  location: F1ListGroup2Location
+  schedule: F1ListEventSchedule2
+}
+
+type HomeChurchInfo @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, operations: [read, update, delete, create], groups: ["Admin", "HomechurchEditor"], provider: userPools}, {allow: owner, operations: [read, update, delete, create]}]) {
+  id: String
+  elders: [String]
+  customPills: [String]
+  vaccinationRequired: String
+  isOnline: String
+  isYoungAdult: String
+  isFamilyFriendly: String
+  isHybrid: String
+  onlineConnectUrl: String
+  ageGroups: String
+  petFree: String
+  transitAccessible: String
+  accessCode: String
+  gender: String
+  extendedDescription: String
+  imageUrl: String
+  imageAlt: String
+  videoUrl: String
+}
+
+type F1ListGroup2 @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Admin"], provider: userPools}]) @searchable {
+  id: String
+  name: String
+  description: String
+  startDate: String
+  expirationDate: String
+  isOpen: String
+  isPublic: String
+  hasChildcare: String
+  isSearchable: String
+  churchCampus: F1ListGroup2Campus
+  groupType: F1ListGroup2GroupType
+  groupURL: String
+  gender: F1ListGroup2Gender
+  maritalStatus: F1ListGroup2MaritalStatus
+  startAgeRange: String
+  endAgeRange: String
+  dateRangeType: F1ListGroup2DateRangeType
+  leadersCount: String
+  membersCount: String
+  openProspectsCount: String
+  event: F1ListGroup2Event
+  createdDate: String
+  lastUpdatedDate: String
+  isLocationPrivate: String
+  timeZone: F1ListGroup2Timezone
+  location: F1ListGroup2Location
+  schedule: F1ListEventSchedule2
+}
+
+type F1ListGroup2Address {
+  address1: String
+  address2: String
+  address3: String
+  city: String
+  stProvince: String
+  postalCode: String
+  county: String
+  country: String
+  carrierRoute: String
+  deliveryPoint: String
+  latitude: String
+  longitude: String
+  createdDate: String
+  lastUpdatedDate: String
+}
+
+type F1ListGroup2Location {
+  id: String
+  name: String
+  description: String
+  isOnline: String
+  url: String
+  address: F1ListGroup2Address
+  createdDate: String
+  lastUpdatedDate: String
+}
+
+type F1ListGroup2Event {
+  id: String
+  name: String
+}
+
+type F1ListGroup2MaritalStatus {
+  name: String
+}
+
+type F1ListGroup2Gender {
+  name: String
+}
+
+type F1ListGroupTypes {
+  groupTypes: F1ListGroupType
+}
+
+type F1ListGroupType {
+  groupType: [F1ListGroupType2]
+}
+
+type F1ListGroupType2 {
+  id: String
+  name: String
+  description: String
+  isWebEnabled: String
+  isSearchable: String
+}
+
+type TakeNoteNotes {
+  homeChurchNotes: [TakeNoteNote]
+  sermonNotes: [TakeNoteNote]
+  sermonVerses: [TakeNoteVerse]
+  homeChurchVerses: [TakeNoteVerse]
+}
+
+type TakeNoteNote {
+  id: Int
+  noteType: String
+  content: String
+  position: Int
+  timecode: String
+  sermons_FK: String
+}
+
+type TakeNoteVerse {
+  id: String
+  chapterVerse: String
+  translation: String
+  content: String
+  sermons_FK: Int
+  notes_FK: String
+}
+
+type TakeNoteLocationGPS {
+  longitude: Float
+  latitude: Float
+}
+
+type TakeNoteLocations {
+  _id: String
+  id: String
+  name: String
+  categories: [String]
+  location: TakeNoteLocationGPS
+  state: String
+}
+
+type TakeNoteSermonVerses {
+  sermonVerses: [TakeNoteVerses]
+}
+
+type TakeNoteVerses {
+  id: String
+  chapterVerse: String
+  translation: String
+  content: String
+  sermons_FK: String
+  notes_FK: String
+}
+
+type TakeNoteSeries {
+  id: String
+  title: String
+  description: String
+  imageUrl: String
+  public: Int
+  thumbnail: String
+  startDate: String
+  endDate: String
+  sermonCommentCount: Int
+  homeChurchCommentCount: Int
+}
+
+type TakeNoteMediaEntry {
+  id: String
+  type: String
+  contentType: String
+  kind: String
+  label: String
+  url: String
+}
+
+type TakeNoteSermon {
+  id: String
+  title: String
+  speaker: String
+  deliveryDate: String
+  description: String
+  audioUrl: String
+  mediaEntries: [TakeNoteMediaEntry]
+  public: Int
+  series_FK: String
+  sermonNoteCount: Int
+  quoteNoteCount: Int
+  homeChurchNoteCount: Int
+  sermonCommentCount: Int
+}
+
+type TNSeries @model @auth(rules: [{allow: public}]) {
+  id: ID! @primaryKey
+  TNident: String @index(name: "BySeriesIdent", queryField: "getTNSeriesByIdent")
+  title: String
+  description: String
+  imageUrl: String
+  public: Int
+  thumbnail: String
+  startDate: String
+  endDate: String
+  sermonCommentCount: Int
+  homeChurchCommentCount: Int
+  sermons: [TNSermon]
+}
+
+type TNMediaEntry {
+  type: String
+  contentType: String
+  kind: String
+  label: String
+  url: String
+}
+
+type TNSermon @model @auth(rules: [{allow: public}]) {
+  id: ID! @primaryKey
+  TNident: String @index(name: "BySermonIdent", queryField: "getTNSermonByIdent")
+  title: String
+  speaker: String
+  deliveryDate: String
+  description: String
+  audioUrl: String
+  mediaEntries: [TNMediaEntry]
+  public: Int
+  series_FK: String
+  series: TNSeries
+  sermonNoteCount: Int
+  quoteNoteCount: Int
+  homeChurchNoteCount: Int
+  sermonCommentCount: Int
+}
+
+type YoutubeCaptionDownload {
+  transcript: YoutubeCaptionText
+}
+
+type YoutubeCaptionText {
+  text: [YoutubeCaptionDetails]
+}
+
+type YoutubeCaptionDetails {
+  dur: Float
+  start: Float
+  content: String
+}
+
+type YoutubeCaptionList {
+  kind: String
   etag: String
   items: [YoutubeCaptionItem]
 }
-type YoutubeCaptionItem{
-  kind:String
-  etag:String
-  id:String
-  snippet:YoutubeCaptionSnippet
-}
-type YoutubeCaptionSnippet{
-  videoId:String
-  lastUpdated:String
-  trackKind:String
-  language:String
-  name:String
-  audioTrackType:String
-  isCC:String
-  isLarge:String
-  isEasyReader:String
-  isDraft:String
-  isAutoSynced:String
-  status:String
+
+type YoutubeCaptionItem {
+  kind: String
+  etag: String
+  id: String
+  snippet: YoutubeCaptionSnippet
 }
 
-type YoutubePlaylistItems{
+type YoutubeCaptionSnippet {
+  videoId: String
+  lastUpdated: String
+  trackKind: String
+  language: String
+  name: String
+  audioTrackType: String
+  isCC: String
+  isLarge: String
+  isEasyReader: String
+  isDraft: String
+  isAutoSynced: String
+  status: String
+}
+
+type YoutubePlaylistItems {
   kind: String
   etag: String
   pageInfo: YoutubePageInfo
   nextPageToken: String
   items: [YoutubePlaylistItemsItem]
 }
-type YoutubePlaylistItemsItem
- {
+
+type YoutubePlaylistItemsItem {
   id: ID
   kind: String
   etag: String
@@ -1014,8 +1037,8 @@ type YoutubePlaylistItemsItem
   status: YoutubeStatus
   statistics: YoutubeStatistics
 }
-type YoutubePlaylistItemsItem2
- {
+
+type YoutubePlaylistItemsItem2 {
   id: ID
   kind: String
   etag: String
@@ -1023,7 +1046,8 @@ type YoutubePlaylistItemsItem2
   contentDetails: YoutubePlaylistItemDetails
   status: YoutubeStatus
 }
-type YoutubePlaylistItemDetails{
+
+type YoutubePlaylistItemDetails {
   videoId: String
   videoPublishedAt: String
   duration: String
@@ -1036,18 +1060,21 @@ type YoutubePlaylistItemDetails{
   regionRestriction: YoutubeRegionRestriction
   hasCustomThumbnail: Boolean
 }
-type YoutubeStatistics{
-    viewCount: String
-    likeCount: String
-    dislikeCount: String
-    favoriteCount: String
-    commentCount: String
+
+type YoutubeStatistics {
+  viewCount: String
+  likeCount: String
+  dislikeCount: String
+  favoriteCount: String
+  commentCount: String
 }
-type YoutubeRegionRestriction{
+
+type YoutubeRegionRestriction {
   allowed: [String]
   blocked: [String]
 }
-type YoutubeContentRating{
+
+type YoutubeContentRating {
   acbRating: String
   agcomRating: String
   anatelRating: String
@@ -1118,40 +1145,40 @@ type YoutubeContentRating{
   tvpgRating: String
   ytRating: String
 }
-type YoutubeStatus{
+
+type YoutubeStatus {
   uploadStatus: String
   privacyStatus: String
   license: String
   embeddable: Boolean
   publicStatsViewable: Boolean
 }
-type YoutubePageInfo
-{
+
+type YoutubePageInfo {
   totalResults: Int
   resultsPerPage: Int
 }
 
-type YoutubeThumbnails
-{
+type YoutubeThumbnails {
   default: YoutubeThumbnail
   medium: YoutubeThumbnail
   high: YoutubeThumbnail
   standard: YoutubeThumbnail
   maxres: YoutubeThumbnail
 }
-type YoutubeLocalized
-{
+
+type YoutubeLocalized {
   title: String
   description: String
 }
-type YoutubeThumbnail
-{
+
+type YoutubeThumbnail {
   url: String
   width: Int
   height: Int
 }
-type YoutubeSnippet
-{
+
+type YoutubeSnippet {
   publishedAt: String
   channelId: String
   title: String
@@ -1160,47 +1187,44 @@ type YoutubeSnippet
   channelTitle: String
   localized: YoutubeLocalized
 }
-type YoutubePlayListItem
-{
+
+type YoutubePlayListItem {
   kind: String
   etag: String
   id: String
   snippet: YoutubeSnippet
 }
-type YoutubePlayList
-{
+
+type YoutubePlayList {
   kind: String
   etag: String
   nextPageToken: String
   pageInfo: YoutubePageInfo
   items: [YoutubePlayListItem]
 }
+
 type LiveMenu {
   title: String!
   link: String!
   linkType: String!
 }
+
 type ZoomItem {
   title: String!
   link: String!
 }
+
 type LivestreamSection {
   title: String!
   links: [ZoomItem]
 }
-type Livestream
- @model
- @auth(rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
- ])
-{
+
+type Livestream @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Admin"], provider: userPools}]) {
   id: ID!
   date: String
   startTime: String
   videoStartTime: String
-  endTime:String
+  endTime: String
   prerollYoutubeId: String
   liveYoutubeId: String
   liveVimeoId: String
@@ -1215,259 +1239,153 @@ type Livestream
   homepageLink: String
 }
 
-type Redirect
- @model
- @auth(rules: [
-   { allow: public, operations: [read] },
-   { allow: private, operations: [read], provider: iam },
-   { allow: groups, operations: [read, update, delete, create], groups: ["Admin"], provider: userPools }
- ])
-{
+type Redirect @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Admin"], provider: userPools}]) {
   id: ID!
   to: String!
 }
 
-type Announcement
- @model
- @auth(rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
- ])
-  @key(
-    name: "byParishByDate", 
-    fields: ["crossRegional", "parish", "expirationDate", "publishedDate"],
-    queryField: "listAnnouncementsByParishByDate"
-  )
-{
+type Announcement @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Admin"], provider: userPools}]) {
   id: ID!
   publishedDate: String!
   expirationDate: String!
   image: String
   parish: String
-  crossRegional: String
+  crossRegional: String @index(name: "byParishByDate", queryField: "listAnnouncementsByParishByDate", sortKeyFields: ["parish", "expirationDate", "publishedDate"])
   title: String!
   description: String!
   callToAction: String
   callToActionTitle: String
 }
 
-type Speaker
- @model
- @auth(rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
- ])
- @key(fields:["id"])
+type Speaker @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Admin"], provider: userPools}]) {
+  id: ID! @primaryKey
+  name: String
+  image: String
+  videos: [SpeakerVideos] @hasMany(indexName: "bySpeaker", fields: ["id"])
+  hidden: Boolean
+}
 
-{
-   id:ID!
-   name:String
-   image:String
-   videos:[SpeakerVideos]@connection(keyName: "bySpeaker",fields: ["id"])
-   hidden:Boolean
+type SpeakerVideos @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Admin"], provider: userPools}]) {
+  id: ID! @primaryKey
+  speakerVideosSpeakerId: ID @index(name: "bySpeaker", sortKeyFields: ["videoPublishedDate"])
+  video: Video @belongsTo(fields: ["speakerVideosVideoId"])
+  speakerVideosVideoId: ID @index(name: "byVideo", sortKeyFields: ["videoPublishedDate"])
+  speaker: Speaker @belongsTo(fields: ["speakerVideosSpeakerId"])
+  videoPublishedDate: String
 }
-type SpeakerVideos
-  @model
- @auth(rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
- ])
-@key(fields:["id"])
-@key(name: "bySpeaker", fields: [ "speakerVideosSpeakerId", "videoPublishedDate" ] )
-@key(name: "byVideo", fields: [ "speakerVideosVideoId", "videoPublishedDate" ] )
-{
-  id:ID!
-  speakerVideosSpeakerId:ID
-  video:Video  @connection(fields: ["speakerVideosVideoId"])
-  speakerVideosVideoId:ID
-  speaker:Speaker  @connection(fields: ["speakerVideosSpeakerId"])
-  videoPublishedDate:String
-}
-type Series
-  @model
- @auth(rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
- ])
- @key(name: "BySeriesTypes",fields: ["seriesType","startDate"], queryField:"getSeriesBySeriesType")
-@searchable
-{
+
+type Series @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Admin"], provider: userPools}]) @searchable {
   id: ID!
-  videos: [Video]@connection(keyName: "byVideosSeries",fields: ["id"])
-  blogs: [Blog] @connection(keyName: "byBlogInVideoSeries",fields: ["id"])
-  blogPosts: [BlogToVideoSeries] @connection(keyName: "bySeriesForBlogToVideoSeries", fields: ["id"])
-  seriesType: String
+  videos: [Video] @hasMany(indexName: "byVideosSeries", fields: ["id"])
+  blogs: [Blog] @hasMany(indexName: "byBlogInVideoSeries", fields: ["id"])
+  blogPosts: [BlogToVideoSeries] @hasMany(indexName: "bySeriesForBlogToVideoSeries", fields: ["id"])
+  seriesType: String @index(name: "BySeriesTypes", queryField: "getSeriesBySeriesType", sortKeyFields: ["startDate"])
   title: String
   description: String
-  thumbnailDescription:String
+  thumbnailDescription: String
   image: String
   startDate: String
   endDate: String
-  notes: [Notes] @connection(keyName: "notesBySeriesId", fields: ["id"])
+  notes: [Notes] @hasMany(indexName: "notesBySeriesId", fields: ["id"])
 }
-type CustomPlaylist
-  @model
- @auth(rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
- ])
- @searchable
-{
+
+type CustomPlaylist @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Admin"], provider: userPools}]) @searchable {
   id: ID!
-  videos: [CustomPlaylistVideo] @connection(keyName: "byCustomPlaylist", fields: ["id"])
+  videos: [CustomPlaylistVideo] @hasMany(indexName: "byCustomPlaylist", fields: ["id"])
   seriesType: String
   title: String
   description: String
-  thumbnailDescription:String
+  thumbnailDescription: String
 }
 
-type CustomPlaylistVideo
- @model(queries: null)
- @auth(rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
- ])
-  @key(name: "byCustomPlaylist", fields: ["customPlaylistID", "videoID"])
-  @key(name: "byVideo", fields: ["videoID", "customPlaylistID"])
-{
+type CustomPlaylistVideo @model(queries: null) @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Admin"], provider: userPools}]) {
   id: ID!
-  videoID: ID!
-  customPlaylistID: ID!
-  customPlaylist: CustomPlaylist @connection(fields: ["customPlaylistID"])
-  video: Video @connection(fields: ["videoID"])
+  videoID: ID! @index(name: "byVideo", sortKeyFields: ["customPlaylistID"])
+  customPlaylistID: ID! @index(name: "byCustomPlaylist", sortKeyFields: ["videoID"])
+  customPlaylist: CustomPlaylist @belongsTo(fields: ["customPlaylistID"])
+  video: Video @belongsTo(fields: ["videoID"])
 }
-type Video
- @model
- @searchable
- @auth(rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow: groups, operations:[read,update,delete,create],groups: ["Admin"],provider:userPools}
- ])
-  @key(name: "ByYoutubeIdent", fields: ["YoutubeIdent"], queryField:"getVideoByYoutubeIdent")
- @key(name: "ByVideoTypes",fields: ["videoTypes","publishedDate"], queryField:"getVideoByVideoType")
-@key(name: "byVideosSeries",fields: ["videoSeriesId","publishedDate"])
-{
+
+type Video @model @searchable @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Admin"], provider: userPools}]) {
   id: ID!
   createdBy: String
   createdDate: String
-  speakers:[SpeakerVideos]@connection(keyName: "byVideo",fields: ["id"])
-  episodeTitle:String
-  originalEpisodeTitle:String
-  episodeNumber:Int
-  seriesTitle:String
-  videoSeriesId:ID
-  series:Series  @connection(fields: ["videoSeriesId"])
+  speakers: [SpeakerVideos] @hasMany(indexName: "byVideo", fields: ["id"])
+  episodeTitle: String
+  originalEpisodeTitle: String
+  episodeNumber: Int
+  seriesTitle: String
+  videoSeriesId: ID @index(name: "byVideosSeries", sortKeyFields: ["publishedDate"])
+  series: Series @belongsTo(fields: ["videoSeriesId"])
   customPlaylistIDs: [String]
-  customPlaylists: [CustomPlaylistVideo] @connection(keyName: "byVideo", fields: ["id"])
-  publishedDate:String
-  recordedDate:String
-  description:String
-  viewCount:String
-  closedCaptioning:[String]
-  referencedMedia:[String]
-  campaigns:[String]
-  bibleVerses:[String]
-  topics:[String]
-  qandeh:[String]
-  length:String
-  YoutubeIdent:String!
-  Youtube:YoutubePlaylistItemsItem2
-  videoTypes:String
-  notesURL:String
-  videoURL:String
-  audioURL:String
-  thumbnailDescription:String
+  customPlaylists: [CustomPlaylistVideo] @hasMany(indexName: "byVideo", fields: ["id"])
+  publishedDate: String
+  recordedDate: String
+  description: String
+  viewCount: String
+  closedCaptioning: [String]
+  referencedMedia: [String]
+  campaigns: [String]
+  bibleVerses: [String]
+  topics: [String]
+  qandeh: [String]
+  length: String
+  YoutubeIdent: String! @index(name: "ByYoutubeIdent", queryField: "getVideoByYoutubeIdent")
+  Youtube: YoutubePlaylistItemsItem2
+  videoTypes: String @index(name: "ByVideoTypes", queryField: "getVideoByVideoType", sortKeyFields: ["publishedDate"])
+  notesURL: String
+  videoURL: String
+  audioURL: String
+  thumbnailDescription: String
 }
 
-type BlogSeries
-  @model
- @auth(rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow: groups, operations:[read,update,delete,create],groups: ["Bloggers"],provider:userPools}
- ])
-@searchable
-{
+type BlogSeries @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Bloggers"], provider: userPools}]) @searchable {
   id: ID!
-  blogs: [BlogSeriesBridge] @connection(keyName: "byBlogSeries",fields: ["id"])
+  blogs: [BlogSeriesBridge] @hasMany(indexName: "byBlogSeries", fields: ["id"])
   seriesType: String
   title: String
   description: String
-  thumbnailDescription:String
+  thumbnailDescription: String
   image: String
   startDate: String
   endDate: String
 }
 
-type BlogSeriesBridge
- @model(queries: null)
- @auth(rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow: groups, operations:[read,update,delete,create],groups: ["Bloggers"],provider:userPools}
- ])
-  @key(name: "byBlogSeries", fields: ["blogSeriesID", "blogPostID"], queryField: "blogBridgeBySeries")
-  @key(name: "byBlogPost", fields: ["blogPostID", "blogSeriesID"], queryField: "blogBridgeByPost")
-{
-id: ID!
-blogSeriesID: ID
-blogPostID: ID
-blogSeries: BlogSeries @connection(fields: [ "blogSeriesID" ])
-blogPost: Blog @connection(fields: [ "blogPostID" ])
+type BlogSeriesBridge @model(queries: null) @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Bloggers"], provider: userPools}]) {
+  id: ID!
+  blogSeriesID: ID @index(name: "byBlogSeries", queryField: "blogBridgeBySeries", sortKeyFields: ["blogPostID"])
+  blogPostID: ID @index(name: "byBlogPost", queryField: "blogBridgeByPost", sortKeyFields: ["blogSeriesID"])
+  blogSeries: BlogSeries @belongsTo(fields: ["blogSeriesID"])
+  blogPost: Blog @belongsTo(fields: ["blogPostID"])
 }
 
-type BlogToVideoSeries
-  @model(queries: null)
-  @auth(rules:[
-    { allow: public, operations: [read] },
-    { allow: private, operations: [read], provider: iam },
-    { allow: groups, operations: [read,update,delete,create], groups: ["Bloggers"], provider: userPools }
-  ])
-  @key(name: "bySeriesForBlogToVideoSeries", fields: ["videoSeriesId", "blogId"])
-  @key(name: "byBlogForBlogToVideoSeries", fields: ["blogId", "videoSeriesId"]) 
-{
+type BlogToVideoSeries @model(queries: null) @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Bloggers"], provider: userPools}]) {
   id: ID!
-  videoSeriesId: ID!
-  blogId: ID!
-  blog: Blog! @connection(fields: ["blogId"])
-  videoSeries: Series! @connection(fields: ["videoSeriesId"])
+  videoSeriesId: ID! @index(name: "bySeriesForBlogToVideoSeries", sortKeyFields: ["blogId"])
+  blogId: ID! @index(name: "byBlogForBlogToVideoSeries", sortKeyFields: ["videoSeriesId"])
+  blog: Blog! @belongsTo(fields: ["blogId"])
+  videoSeries: Series! @belongsTo(fields: ["videoSeriesId"])
 }
+
 type Image {
   src: String!
   alt: String!
 }
 
-type Blog
- @model
- @searchable
- @auth(rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow: groups, operations:[read,update,delete,create],groups: ["Bloggers"],provider:userPools}
- ])
-  @key(name: "ByBlogStatus",fields: ["blogStatus","publishedDate"], queryField:"getBlogByBlogStatus")
-@key(name: "byBlogInVideoSeries", fields: ["blogSeriesId", "publishedDate"]) 
-{
+type Blog @model @searchable @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Bloggers"], provider: userPools}]) {
   id: ID!
   author: String
   createdBy: String
   createdDate: String
   publishedDate: String
   expirationDate: String
-  videoSeries: [BlogToVideoSeries] @connection(keyName: "byBlogForBlogToVideoSeries", fields: ["id"])
-  series:Series @connection(fields: ["blogSeriesId"])
-  blogSeriesId: ID
-  blogSeries: [BlogSeriesBridge]  @connection(keyName: "byBlogPost",fields: ["id"])
-  blogStatus: String
+  videoSeries: [BlogToVideoSeries] @hasMany(indexName: "byBlogForBlogToVideoSeries", fields: ["id"])
+  series: Series @belongsTo(fields: ["blogSeriesId"])
+  blogSeriesId: ID @index(name: "byBlogInVideoSeries", sortKeyFields: ["publishedDate"])
+  blogSeries: [BlogSeriesBridge] @hasMany(indexName: "byBlogPost", fields: ["id"])
+  blogStatus: String @index(name: "ByBlogStatus", queryField: "getBlogByBlogStatus", sortKeyFields: ["publishedDate"])
   description: String
-  thumbnailDescription:String
+  thumbnailDescription: String
   content: String
   blogTitle: String
   topics: [String]
@@ -1478,25 +1396,15 @@ type Blog
   babyHeroImage: Image
 }
 
-
-type InstagramThumbnail
-{
+type InstagramThumbnail {
   src: String
   config_width: Int
   config_height: Int
 }
 
-type Instagram
- @model
- @auth(rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow:groups, operations:[read,update,delete,create], groups:["Instagram"], provider:userPools}
- ])
- @key(name: "instagramByLocation", fields: ["locationId", "timestamp"], queryField: "getInstagramByLocation")
-{
+type Instagram @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Instagram"], provider: userPools}]) {
   id: ID!
-  locationId: String
+  locationId: String @index(name: "instagramByLocation", queryField: "getInstagramByLocation", sortKeyFields: ["timestamp"])
   thumbnails: [InstagramThumbnail]
   altText: String
   timestamp: Int
@@ -1507,15 +1415,7 @@ enum NoteDataType {
   notes
 }
 
-type Verse
- @model
- @auth(rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow:groups, operations:[read,update,delete,create],groups: ["Notes"],provider:userPools}
- ])
-  @key(name: "verseByNoteId", fields: ["noteId"])
- {
+type Verse @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Notes"], provider: userPools}]) {
   id: ID!
   key: String!
   offset: Int!
@@ -1523,34 +1423,25 @@ type Verse
   dataType: NoteDataType!
   content: String!
   youVersionUri: String!
-  noteId: ID!
-  note: Notes @connection(fields: ["noteId"])
- }
+  noteId: ID! @index(name: "verseByNoteId")
+  note: Notes @belongsTo(fields: ["noteId"])
+}
 
-type Notes
- @model
- @auth(rules:[
-   {allow:public, operations:[read]},
-   {allow:private, operations:[read],provider:iam},
-   {allow: groups, operations:[read,update,delete,create],groups: ["Notes"],provider:userPools}
- ])
- @key(name: "notesBySeriesId", fields: ["seriesId"])
- @searchable
-{
+type Notes @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Notes"], provider: userPools}]) @searchable {
   id: ID!
-  title:String
-  content:String
-  questions:String
-  jsonContent:String
-  jsonQuestions:String
-  episodeDescription:String
-  episodeNumber:Int
-  seriesId:ID!
-  series:Series @connection(fields: ["seriesId"])
-  pdf:String
-  topics:[String]
-  tags:[String]
-  verses:[Verse] @connection(keyName: "verseByNoteId", fields: ["id"])
+  title: String
+  content: String
+  questions: String
+  jsonContent: String
+  jsonQuestions: String
+  episodeDescription: String
+  episodeNumber: Int
+  seriesId: ID! @index(name: "notesBySeriesId")
+  series: Series @belongsTo(fields: ["seriesId"])
+  pdf: String
+  topics: [String]
+  tags: [String]
+  verses: [Verse] @hasMany(indexName: "verseByNoteId", fields: ["id"])
 }
 
 enum CommentDataType {
@@ -1559,9 +1450,7 @@ enum CommentDataType {
   text
 }
 
-type Comment @model @searchable
-  @auth(rules: [{ allow: owner }])
-  @key(name: "commentsByOwner", fields: ["owner", "noteId"], queryField: "getCommentsByOwner") {
+type Comment @model @searchable @auth(rules: [{allow: owner}]) {
   id: ID!
   comment: String!
   tags: [String]
@@ -1573,110 +1462,81 @@ type Comment @model @searchable
   key: String!
   date: String!
   time: String!
-  owner: String!
+  owner: String! @index(name: "commentsByOwner", queryField: "getCommentsByOwner", sortKeyFields: ["noteId"])
 }
 
-type WebPage
- @model
- @searchable
- @auth(rules:[{allow:public, operations:[read]}])
-
-{
-  id:ID
-  page:WebPageInfo
+type WebPage @model @searchable @auth(rules: [{allow: public, operations: [read]}]) {
+  id: ID
+  page: WebPageInfo
 }
-type WebPageInfo
-{
-  name:String
-  title:String
-  keywords:String
-  description:String
-  pageConfig:WebPageConfig
-  content:[WebPageContent]
 
+type WebPageInfo {
+  name: String
+  title: String
+  keywords: String
+  description: String
+  pageConfig: WebPageConfig
+  content: [WebPageContent]
 }
-type WebPageConfig
-{
+
+type WebPageConfig {
   movingMenu: Boolean
   showLogoText: Boolean
-  logoColor:String
-  showSearch:Boolean
-  showFooter:Boolean
-  showMenu:Boolean
-}
-type WebPageImage
-{
-  src:String
-  alt:String
-}
-type WebPageList
-{
-  title:String
-  text:String
-  imageSrc:String
-  imageAlt:String
-  navigateTo:String
-}
-type WebPageContent
-{
-  type:String
-  style:String
-  image1:[WebPageImage]
-  header1:String
-  header2:String
-  text1:String
-  text2:String
-  link1Text:String
-  link1Action:String
-  link2Text:String
-  link2Action:String
-  link3Text:String
-  link3Action:String
-  button1Text:String
-  button1Action:String
-  list:WebPageList
-  showLocationSearch:Boolean
+  logoColor: String
+  showSearch: Boolean
+  showFooter: Boolean
+  showMenu: Boolean
 }
 
+type WebPageImage {
+  src: String
+  alt: String
+}
 
+type WebPageList {
+  title: String
+  text: String
+  imageSrc: String
+  imageAlt: String
+  navigateTo: String
+}
 
+type WebPageContent {
+  type: String
+  style: String
+  image1: [WebPageImage]
+  header1: String
+  header2: String
+  text1: String
+  text2: String
+  link1Text: String
+  link1Action: String
+  link2Text: String
+  link2Action: String
+  link3Text: String
+  link3Action: String
+  button1Text: String
+  button1Action: String
+  list: WebPageList
+  showLocationSearch: Boolean
+}
 
-
-
-
-
-
-
-
-
-type TMHUser
-  @model
-  @auth(
-    rules: [
-      { allow: owner, ownerField: "owner" , operations: [create, update, delete, read]}
-      { allow: groups, groups: ["PaymentService"] , operations: [create, update, delete, read]} 
-    ]
-  ) {
-  
+type TMHUser @model @auth(rules: [{allow: owner, ownerField: "owner", operations: [create, update, delete, read]}, {allow: groups, groups: ["PaymentService"], operations: [create, update, delete, read]}]) {
   id: ID!
   given_name: String!
   family_name: String!
-  email: String @auth(rules: [{ allow: owner, ownerField: "owner" },{allow:groups,groups:["PaymentService"],operations:[read]}])
-  phone: String @auth(rules: [{ allow: owner, ownerField: "owner" },{allow:groups,groups:["PaymentService"],operations:[read]}])
+  email: String @auth(rules: [{allow: owner, ownerField: "owner"}, {allow: groups, groups: ["PaymentService"], operations: [read]}])
+  phone: String @auth(rules: [{allow: owner, ownerField: "owner"}, {allow: groups, groups: ["PaymentService"], operations: [read]}])
   owner: String
-
-  stripeCustomerID:String @auth(rules: [{ allow: owner, ownerField: "owner" ,operations:[read]},{allow:groups,groups:["PaymentService"]}])
-  stripeSubscriptionID:String @auth(rules: [{ allow: owner, ownerField: "owner" ,operations:[read]},{allow:groups,groups:["PaymentService"]}])
-
-  billingAddress: Address @auth(rules: [{ allow: owner, ownerField: "owner" },{allow:groups,groups:["PaymentService"],operations:[read]}])
-
+  stripeCustomerID: String @auth(rules: [{allow: owner, ownerField: "owner", operations: [read]}, {allow: groups, groups: ["PaymentService"]}])
+  stripeSubscriptionID: String @auth(rules: [{allow: owner, ownerField: "owner", operations: [read]}, {allow: groups, groups: ["PaymentService"]}])
+  billingAddress: Address @auth(rules: [{allow: owner, ownerField: "owner"}, {allow: groups, groups: ["PaymentService"], operations: [read]}])
   profileImage: PrivateImage
   joined: String
-
-  f1PersonId:String @auth(rules: [{ allow: owner, ownerField: "owner" ,operations:[read]},{allow:groups,groups:["PaymentService"]}])
-  f1HouseholdId:String @auth(rules: [{ allow: owner, ownerField: "owner" ,operations:[read]},{allow:groups,groups:["PaymentService"]}])
- 
+  f1PersonId: String @auth(rules: [{allow: owner, ownerField: "owner", operations: [read]}, {allow: groups, groups: ["PaymentService"]}])
+  f1HouseholdId: String @auth(rules: [{allow: owner, ownerField: "owner", operations: [read]}, {allow: groups, groups: ["PaymentService"]}])
 }
+
 type PrivateImage {
   userId: String
   filenameSmall: String
@@ -1684,11 +1544,13 @@ type PrivateImage {
   filenameLarge: String
   filenameUpload: String
 }
-type Address{
-  city:String
-    country:String
-    line1:String
-    line2:String
-    postal_code:String
-    state:String
+
+type Address {
+  city: String
+  country: String
+  line1: String
+  line2: String
+  postal_code: String
+  state: String
 }
+    

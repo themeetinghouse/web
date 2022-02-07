@@ -62,15 +62,15 @@ export const listAnnouncements = /* GraphQL */ `
   }
 `;
 
-export const listSpeakerVideoos = `
-query ListSpeakerVideoss(
+export const listSpeakerVideos = `
+query ListSpeakerVideos(
   $id: ID
   $filter: ModelSpeakerVideosFilterInput
   $limit: Int
   $nextToken: String
   $sortDirection: ModelSortDirection
 ) {
-  listSpeakerVideoss(
+  listSpeakerVideos(
     id: $id
     filter: $filter
     limit: $limit
@@ -146,7 +146,7 @@ export const listCustomPlaylists = /* GraphQL */ `
 
 export const getBlogByBlogStatus = /* GraphQL */ `
   query GetBlogByBlogStatus(
-    $blogStatus: String
+    $blogStatus: String!
     $publishedDate: ModelStringKeyConditionInput
     $sortDirection: ModelSortDirection
     $filter: ModelBlogFilterInput
@@ -308,12 +308,12 @@ export const getSeries = `query GetSeries($id: ID!) {
   }
 }
 `;
-export const listSeriess = `query ListSeriess(
+export const listSeries = `query ListSeries(
   $filter: ModelSeriesFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listSeriess(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listSeries(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
       seriesType
@@ -328,7 +328,7 @@ export const listSeriess = `query ListSeriess(
 }
 `;
 export const getSeriesBySeriesType = `query GetSeriesBySeriesType(
-  $seriesType: String
+  $seriesType: String!
   $startDate: ModelStringKeyConditionInput
   $sortDirection: ModelSortDirection
   $filter: ModelSeriesFilterInput
@@ -637,7 +637,7 @@ export const getNotesCustom = `query GetNotes($id: ID!) {
 `;
 
 export const getVideoByVideoType = `query GetVideoByVideoType(
-  $videoTypes: String
+  $videoTypes: String!
   $publishedDate: ModelStringKeyConditionInput
   $sortDirection: ModelSortDirection
   $filter: ModelVideoFilterInput

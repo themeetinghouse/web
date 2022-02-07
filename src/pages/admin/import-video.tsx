@@ -149,7 +149,7 @@ class Index extends React.Component<EmptyProps, State> {
 
   listSeries(nextToken: any) {
     const listSeries: any = API.graphql({
-      query: customQueries.listSeriess,
+      query: customQueries.listSeries,
       variables: { nextToken: nextToken, sortDirection: 'DESC', limit: 200 },
       authMode: GRAPHQL_AUTH_MODE.API_KEY,
     });
@@ -159,11 +159,11 @@ class Index extends React.Component<EmptyProps, State> {
         console.log({ 'Success customQueries.listSeries: ': json });
         this.setState({
           seriesList: this.state.seriesList
-            .concat(json.data.listSeriess.items)
+            .concat(json.data.listSeries.items)
             .sort((a: any, b: any) => this.sortById(a, b)),
         });
-        if (json.data.listSeriess.nextToken != null)
-          this.listSeries(json.data.listSeriess.nextToken);
+        if (json.data.listSeries.nextToken != null)
+          this.listSeries(json.data.listSeries.nextToken);
       })
       .catch((e: any) => {
         console.log(e);

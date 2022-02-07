@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "serviceName": "AppSync",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 180,
+      "keyDescription": "website"
+    },
+    "additionalAuthTypes": [
+      {
+        "mode": "AMAZON_COGNITO_USER_POOLS",
+        "cognitoUserPoolId": "authcognitodevtmh"
+      },
+      {
+        "mode": "AWS_IAM"
+      }
+    ],
+    "conflictResolution": {},
+    "apiName": "themeetinghouse",
+    "gqlSchemaPath": "/Users/georgebell/Code/tmh-web-prod/web/amplify/backend/api/themeetinghouse/schema.graphql"
+  }
+}

@@ -175,7 +175,7 @@ exports.handler = async (event, context, callback) => {
   const bucket = 'heeetingouse-20190312104205-hostingbucket-tmhprod';
   const url =
     'https://qt6manqtzbhkvd6tcxvchusmyq.appsync-api.us-east-1.amazonaws.com/graphql';
-  const apiKey = 'da2-6zfuocqmhvecrfkng7hx2oipni';
+  const apiKey = 'da2-z4ilyrquhnagtbiosodc6qq4kq';
   if (prerender) {
     //console.log("Prerender")
     if (path && path.length > 2) {

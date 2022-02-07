@@ -578,7 +578,7 @@ export default class DataLoader {
       dataLoaded(json?.data?.getBlogByBlogStatus?.items ?? []);
       storeNextToken(json?.data?.getBlogByBlogStatus?.nextToken);
     } catch (e) {
-      console.error(e);
+      console.error({ getBlogByBlogStatusError: e });
     }
   }
 

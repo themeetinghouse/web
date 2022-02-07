@@ -6,10 +6,12 @@
     "project": {
       "overrides": true
     },
-    
     "graphqltransformer": {
       "enableIterativeGSIUpdates": true,
-      "showfieldauthnotification": false
+      "showfieldauthnotification": false,
+      "useexperimentalpipelinedtransformer": true,
+      "transformerversion": 2,
+      "suppressschemamigrationprompt": true
     }
   }
 }

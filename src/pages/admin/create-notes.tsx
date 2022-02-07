@@ -38,7 +38,7 @@ import {
   GetBiblePassageQuery,
   GetNotesQuery,
   GetSeriesBySeriesTypeQuery,
-  ListNotessQuery,
+  ListNotesQuery,
   NoteDataType,
   UpdateNotesMutation,
 } from '../../API';
@@ -169,15 +169,15 @@ class Index extends React.Component<EmptyProps, State> {
 
   async listNotes(nextToken?: string) {
     try {
-      const listNotess = (await API.graphql({
-        query: queries.listNotess,
+      const listNotes = (await API.graphql({
+        query: queries.listNotes,
         variables: { nextToken: nextToken, sortDirection: 'DESC', limit: 200 },
         authMode: GRAPHQL_AUTH_MODE.API_KEY,
-      })) as GraphQLResult<ListNotessQuery>;
-      console.log({ 'Success customQueries.listNotess: ': listNotess });
+      })) as GraphQLResult<ListNotesQuery>;
+      console.log({ 'Success customQueries.listNotes: ': listNotes });
       this.setState({
         notesList: this.state.notesList
-          ?.concat(listNotess.data?.listNotess?.items)
+          ?.concat(listNotes.data?.listNotes?.items)
           .sort(function (a: any, b: any) {
             const nameA = a.id.toUpperCase();
             const nameB = b.id.toUpperCase();
@@ -190,13 +190,13 @@ class Index extends React.Component<EmptyProps, State> {
             return 0;
           }),
       });
-      if (listNotess.data?.listNotess?.nextToken)
-        this.listNotes(listNotess.data.listNotess.nextToken);
+      if (listNotes.data?.listNotes?.nextToken)
+        this.listNotes(listNotes.data.listNotes.nextToken);
     } catch (e: any) {
       console.error(e);
       this.setState({
         notesList: this.state.notesList
-          ?.concat(e.data?.listNotess?.items)
+          ?.concat(e.data?.listNotes?.items)
           .sort(function (a: any, b: any) {
             const nameA = a.id.toUpperCase();
             const nameB = b.id.toUpperCase();
@@ -209,8 +209,8 @@ class Index extends React.Component<EmptyProps, State> {
             return 0;
           }),
       });
-      if (e.data?.listNotess?.nextToken)
-        this.listNotes(e.data.listNotess.nextToken);
+      if (e.data?.listNotes?.nextToken)
+        this.listNotes(e.data.listNotes.nextToken);
     }
   }
 

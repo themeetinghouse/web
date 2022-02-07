@@ -19,6 +19,7 @@ export type AmplifyDependentResourcesAttributes = {
   };
   api: {
     themeetinghouse: {
+      GraphQLAPIKeyOutput: 'string';
       GraphQLAPIIdOutput: 'string';
       GraphQLAPIEndpointOutput: 'string';
     };

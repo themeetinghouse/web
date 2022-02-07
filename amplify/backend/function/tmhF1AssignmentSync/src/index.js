@@ -13,7 +13,7 @@ const Amplify = require('aws-amplify');
 global.fetch = require('node-fetch');
 const queries = require('./queries');
 const mutations = require('./mutations');
-const apiKey = 'da2-6zfuocqmhvecrfkng7hx2oipni';
+const apiKey = 'da2-z4ilyrquhnagtbiosodc6qq4kq';
 //const apiKey = 'da2-zrd5a3b2izccrajf3vt3dcj4au';
 Amplify.default.configure({
   aws_appsync_graphqlEndpoint:
@@ -113,29 +113,29 @@ async function getAllAssignments(nextToken) {
   try {
     console.log('Starting getAllAssignments');
     const json = await Amplify.API.graphql({
-      query: queries.listF1Assignmentss,
+      query: queries.listF1Assignments,
       variables: {
         nextToken: nextToken,
       },
       authMode: 'API_KEY',
     });
-    console.log('Done Get listF1Assignmentss');
+    console.log('Done Get listF1Assignments');
 
-    if (json.data.listF1Assignmentss.nextToken != null)
+    if (json.data.listF1Assignments.nextToken != null)
       return [
-        ...json.data.listF1Assignmentss.items,
-        ...(await getAllAssignments(json.data.listF1Assignmentss.nextToken)),
+        ...json.data.listF1Assignments.items,
+        ...(await getAllAssignments(json.data.listF1Assignments.nextToken)),
       ];
-    else return json.data.listF1Assignmentss.items;
+    else return json.data.listF1Assignments.items;
   } catch (json) {
     console.log({ 'Error getting recipients': json.errors });
     console.log(json);
-    if (json.data.listF1Assignmentss.nextToken != null)
+    if (json.data.listF1Assignments.nextToken != null)
       return [
-        ...json.data.listF1Assignmentss.items,
-        ...(await getAllAssignments(json.data.listF1Assignmentss.nextToken)),
+        ...json.data.listF1Assignments.items,
+        ...(await getAllAssignments(json.data.listF1Assignments.nextToken)),
       ];
-    else return json.data.listF1ListAssignments.items;
+    else return json.data.listF1Assignments.items;
   }
 }
 async function getRetryableGraphQLOperationPromise(query, args, retry) {
