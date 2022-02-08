@@ -144,6 +144,20 @@
     "Position": "Compassion Coordinator"
   },
   {
+    "FirstName": "Lil",
+    "LastName": "Horne",
+    "sites": ["KIT"],
+    "Email": "liliana.horne@themeetinghouse.com",
+    "Position": "Interim Associate Pastor"
+  },
+  {
+    "FirstName": "Barb",
+    "LastName": "Zupko",
+    "sites": ["KIT"],
+    "Email": "barbara.zupko@themeetinghouse.com",
+    "Position": "Parish Administrator"
+  },
+  {
     "FirstName": "Pam",
     "LastName": "Bustard",
     "sites": ["KIT"],
@@ -555,21 +569,14 @@
     "LastName": "Neufeld",
     "sites": ["WAT"],
     "Email": "mmkneufeld@gmail.com",
-    "Position": "Youth Coordinator and Kidmax Coordinator "
+    "Position": "Family and Children’s Ministry Coordinator"
   },
   {
     "FirstName": "Maddy",
     "LastName": "Neufeld",
     "sites": ["KIT"],
     "Email": "mmkneufeld@gmail.com",
-    "Position": "Youth Coordinator and Kidmax Coordinator "
-  },
-  {
-    "FirstName": "Ryan",
-    "LastName": "Johnson",
-    "sites": ["KIT"],
-    "Email": "livingthroughgrace@live.ca",
-    "Position": "Weekend Service Producer "
+    "Position": "Family and Children’s Ministry Coordinator"
   },
   {
     "FirstName": "Fraser & Maria",
