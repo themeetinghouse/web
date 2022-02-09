@@ -6,7 +6,7 @@
     "location": {
       "longitude": -79.870798,
       "latitude": 44.149035,
-      "address": ""
+      "address": "Gibson Centre, 63 Tupper Street West"
     },
     "serviceTimes": ["10:30"],
     "youth": {
@@ -119,7 +119,7 @@
     "location": {
       "longitude": -79.3166538,
       "latitude": 43.6664844,
-      "address": ""
+      "address": "The Beach Cinemas, 1651 Queen Street East"
     },
     "serviceTimes": ["10:00"]
   },
@@ -152,7 +152,7 @@
     "location": {
       "longitude": -81.278295,
       "latitude": 43.027068,
-      "address": ""
+      "address": "SilverCity London, 1680 Richmond Street"
     },
     "serviceTimes": ["10:00"]
   },
@@ -200,7 +200,7 @@
     "location": {
       "longitude": -75.6901723,
       "latitude": 45.3591095,
-      "address": ""
+      "address": "Riverside United Church, 3191 Riverside Drive"
     },
     "serviceTimes": ["3:00pm"]
   },
