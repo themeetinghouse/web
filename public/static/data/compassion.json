@@ -29,9 +29,9 @@
   {
     "id": 3,
     "sites": ["brampton"],
-    "name": "Hope Boxes",
+    "name": "Hope Box",
     "description": "Hope Boxes are a free faith based resource for those experiencing pregnancy or infant loss. The Brampton Parish helps by packing the boxes and writing encouragement notes for the families receiving the boxes.",
-    "website": "https://www.friendsofdismas.com/what-i-do/dismas-fellowship-brampton-dates/",
+    "website": "https://hopeboxcanada.ca/",
     "image": "/static/photos/compassion/Hope Box Canada.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   },
