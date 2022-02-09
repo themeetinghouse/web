@@ -245,15 +245,6 @@
   {
     "Staff": true,
     "FirstName": "Jared",
-    "LastName": "Erhardt",
-    "Phone": "905.287.7000, ext. 865",
-    "Position": "Uptown Toronto Lead Pastor",
-    "sites": ["TOUP", "Pastoral"],
-    "Email": "Jared.Erhardt@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
-    "FirstName": "Jared",
     "LastName": "Taylor",
     "Phone": "905.287.7000",
     "Position": "Communications Director",
@@ -394,15 +385,6 @@
     "Position": "Oakville Kidmax Coordinator, Grade 1-5",
     "sites": ["OAKV", "Children"],
     "Email": "Laura.Jory@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
-    "FirstName": "Laura",
-    "LastName": "van der Kooi",
-    "Phone": "905.287.7000, ext. 816",
-    "Position": "Parish Leadership Project Coordinator and Administrator",
-    "sites": ["Operations"],
-    "Email": "Laura.vanderKooi@themeetinghouse.com"
   },
   {
     "Staff": true,

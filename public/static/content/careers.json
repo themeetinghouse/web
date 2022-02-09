@@ -107,6 +107,16 @@
         "list": [
           {
             "type": "link",
+            "title": "Video Editor Summer Intern (full time)",
+            "navigateTo": "/static/pdfs/careers/Video Editor Intern 2022.pdf"
+          },
+          {
+            "type": "link",
+            "title": "Web Developer Summer Intern (full time)",
+            "navigateTo": "/static/pdfs/careers/Web Developer Intern 2022.pdf"
+          },
+          {
+            "type": "link",
             "title": "Alliston Family Engagement Coordinator",
             "navigateTo": "/static/pdfs/careers/Family Engagement Coordinator (Part-Time).pdf"
           },
