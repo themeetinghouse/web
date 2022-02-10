@@ -90,7 +90,7 @@ export const getVideoAdmin = /* GraphQL */ `
 
 export const getVideoByVideoTypeAdmin = /* GraphQL */ `
   query GetVideoByVideoType(
-    $videoTypes: String
+    $videoTypes: String!
     $publishedDate: ModelStringKeyConditionInput
     $sortDirection: ModelSortDirection
     $filter: ModelVideoFilterInput
@@ -162,7 +162,7 @@ export const getVideoByVideoTypeAdmin = /* GraphQL */ `
 
 export const getSeriesBySeriesTypeAdmin = /* GraphQL */ `
   query GetSeriesBySeriesType(
-    $seriesType: String
+    $seriesType: String!
     $startDate: ModelStringKeyConditionInput
     $sortDirection: ModelSortDirection
     $filter: ModelSeriesFilterInput
