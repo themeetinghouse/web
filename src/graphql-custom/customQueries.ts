@@ -593,7 +593,7 @@ export const listVideos = `query ListVideos(
 }
 `;
 export const getVideoByYoutubeIdent = `query GetVideoByYoutubeIdent(
-  $YoutubeIdent: String
+  $YoutubeIdent: String!
   $sortDirection: ModelSortDirection
   $filter: ModelVideoFilterInput
   $limit: Int
