@@ -61,13 +61,7 @@
           {
             "type": "link",
             "title": "Download Weekend Lesson",
-            "navigateTo": "/static/pdfs/youth-files/Wk 1 - Underdog - JH Weekend.pdf",
-            "openNewBrowser": true
-          },
-          {
-            "type": "link",
-            "title": "Download Weekend Activity Page",
-            "navigateTo": "/static/pdfs/youth-files/Wk 1 - Scenario Signs.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 2 - Underdog - JH Weekend.pdf",
             "openNewBrowser": true
           }
           
