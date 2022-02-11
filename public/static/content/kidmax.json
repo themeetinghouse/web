@@ -52,13 +52,13 @@
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/EYLessonFeb6.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYLessonFeb13.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesFeb6.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesFeb13.pdf",
             "openNewBrowser": true
           },
           {
@@ -86,21 +86,21 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaFeb6.jpg",
-            "alt": "Peacemakers reflect God's peace to the world."
+            "src": "/static/images/KidsBigIdeaFeb13.jpg",
+            "alt": "Jesus in us lights up the world around us."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonFeb6.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonFeb13.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activity",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesFeb6.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesFeb13.pdf",
             "openNewBrowser": true
           },
           {
