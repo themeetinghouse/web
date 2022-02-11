@@ -54,6 +54,15 @@
             "linkto": "http://www.themeetinghouse.com/give"
           }
         ]
+      },
+      {
+        "type": "list",
+        "style": "horizontal",
+        "class": "videos",
+        "subclass": "livestream-services",
+        "limit": 25,
+        "sortOrder": "DESC",
+        "header1": "Sunday Livestream"
       }
     ]
   }
