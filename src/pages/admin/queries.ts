@@ -36,14 +36,14 @@ export const listSpeakers = /* GraphQL */ `
 `;
 
 export const listSpeakerVideos = `
-query ListSpeakerVideoss(
+query ListSpeakerVideos(
   $id: ID
   $filter: ModelSpeakerVideosFilterInput
   $limit: Int
   $nextToken: String
   $sortDirection: ModelSortDirection
 ) {
-  listSpeakerVideoss(
+  listSpeakerVideos(
     id: $id
     filter: $filter
     limit: $limit

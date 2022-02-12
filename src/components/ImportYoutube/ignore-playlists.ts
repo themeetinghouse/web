@@ -231,7 +231,6 @@ const ignorePlaylist = [
   'PLB5r2P47beqKyihVTojeuwRP7ydI3orF9',
   'PLB5r2P47beqJEQydmNjARk-W1RzneGRJK',
   'PLB5r2P47beqJgum_vibfsgxOTMozBNc3P',
-  'PLB5r2P47beqKcw--wi3iCdP-i_Ksnx_9-',
   'PLB5r2P47beqJSRhltTHlA2hl7c7TN8_qq',
   'PLB5r2P47beqKHcC_yGrXBh5LbHXHZghiW',
   'PLB5r2P47beqK4w6CtvrX7NMGfTJkNCr3M',
