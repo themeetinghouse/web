@@ -383,16 +383,30 @@ class ListItem extends React.Component<Props, State> {
         <div className="ListItemPlayImageOverlay">
           <img alt="Play Icon" src="/static/svg/Play.svg"></img>
         </div>
-        <div className="ListItemEpisodeNum">
+        <div
+          className={`ListItemEpisodeNum ${
+            this.props.pageConfig.logoColor === 'white' ? 'isWhiteLogo' : ''
+          }`}
+        >
           {this.state.content.showEpisodeNumbers === false
             ? null
             : item.episodeNumber + '. '}{' '}
           {item.episodeTitle}
         </div>
-        <div className="ListItemSeriesTitle">
+        <div
+          className={`ListItemSeriesTitle ${
+            this.props.pageConfig.logoColor === 'white' ? 'isWhiteLogo' : ''
+          }`}
+        >
           {item.seriesTitle != null ? item.seriesTitle : null}
         </div>
-        <div className="ListItemPublishedDate">{item.publishedDate}</div>
+        <div
+          className={`ListItemPublishedDate ${
+            this.props.pageConfig.logoColor === 'white' ? 'isWhiteLogo' : ''
+          }`}
+        >
+          {item.publishedDate}
+        </div>
       </button>
     );
   }
@@ -1267,7 +1281,11 @@ class ListItem extends React.Component<Props, State> {
           default:
             return (
               <div className="ListItem horizontal">
-                <div className="ListItemDiv1">
+                <div
+                  className={`ListItemDiv1 ${
+                    this.props.pageConfig?.isPopup ? 'isPopup' : ''
+                  }`}
+                >
                   <h1
                     className={
                       'ListItemH1' + (logoColor === 'white' ? ' whiteText' : '')

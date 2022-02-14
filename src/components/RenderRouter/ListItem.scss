@@ -1,5 +1,5 @@
 @use '../../theme';
-@use "sass:math";
+@use 'sass:math';
 
 .spinner {
   width: 40px;
@@ -23,7 +23,9 @@
   -webkit-animation: sk-bounce 2s infinite ease-in-out;
   animation: sk-bounce 2s infinite ease-in-out;
 }
-
+.isWhiteLogo {
+  color: #fff !important;
+}
 .double-bounce2 {
   -webkit-animation-delay: -1s;
   animation-delay: -1s;
@@ -192,6 +194,9 @@
     z-index: 99;
     left: 20vw;
     width: 80vw;
+    &.isPopup {
+      left: 10vw;
+    }
   }
 
   .ListItemDiv1.horizontal-video-player {
@@ -369,7 +374,7 @@
     display: inline-block;
     vertical-align: top;
     position: relative;
-    background-color: #ffffff;
+    background-color: transparent;
     text-align: left;
     border: none;
     &:hover {
@@ -875,6 +880,9 @@
     z-index: 99;
     left: 20vw;
     width: 80vw;
+    &.isPopup {
+      left: 10vw;
+    }
   }
 
   .ListItemDiv1.horizontal-video-player {
@@ -1574,6 +1582,9 @@
     z-index: 99;
     width: 80vw;
     padding: 10vw 5vw 0vw;
+    &.isPopup {
+      left: 0vw;
+    }
     // margin-top: 65vw;
   }
 
@@ -1770,7 +1781,7 @@
     width: 90%;
     margin-right: 6.4vw;
     position: relative;
-    background-color: #ffffff;
+    background-color: transparent;
     text-align: left;
     border: none;
     &:hover {
