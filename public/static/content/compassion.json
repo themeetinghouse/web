@@ -120,11 +120,6 @@
           },
           {
             "type": "link",
-            "title": "Grant Application",
-            "navigateTo": "https://meeting.formstack.com/forms/tmh_local_compassion_fund_application_2021_22_window2"
-          }, 
-          {
-            "type": "link",
             "title": "Local Compassion Budget Template 2021-22",
             "navigateTo": "https://drive.google.com/file/d/1TVomtt6kZ2cnr02kZdOdoMAZQX2-9wQ0/view"
           }
