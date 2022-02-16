@@ -58,6 +58,26 @@
         "list": [
           {
             "type": "link",
+            "title": "Events & Rentals Manager (contract)",
+            "navigateTo": "/static/pdfs/careers/Events & Rentals Manager - 2022 Contract.pdf"
+          },
+          {
+            "type": "link",
+            "title": "Toronto Youth Pastor (contract)",
+            "navigateTo": "/static/pdfs/careers/Toronto Youth Pastor - 2022 Contract.pdf"
+          },
+          {
+            "type": "link",
+            "title": "Video Editor Summer Intern",
+            "navigateTo": "/static/pdfs/careers/Video Editor Intern 2022.pdf"
+          },
+          {
+            "type": "link",
+            "title": "Web Developer Summer Intern",
+            "navigateTo": "/static/pdfs/careers/Web Developer Intern 2022.pdf"
+          },
+          {
+            "type": "link",
             "title": "Creative Manager",
             "navigateTo": "/static/pdfs/careers/Creative Manager 2022.pdf"
           },
@@ -68,28 +88,13 @@
           },
           {
             "type": "link",
-            "title": "Events & Rentals Manager (contract)",
-            "navigateTo": "/static/pdfs/careers/Events & Rentals Manager - 2022 Contract.pdf"
-          },
-          {
-            "type": "link",
-            "title": "Project Coordinator (contract)",
-            "navigateTo": "/static/pdfs/careers/Communications & Curriculum Project Coordinator - 2022 Contract.pdf"
+            "title": "Hamilton Youth Pastor",
+            "navigateTo": "/static/pdfs/careers/Hamilton Youth Pastor 2021.pdf"
           },
           {
             "type": "link",
             "title": "Lead Pastor Positions",
             "navigateTo": "/static/pdfs/careers/Lead Pastor Positions.pdf"
-          },
-          {
-            "type": "link",
-            "title": "Toronto Youth Pastor (contract)",
-            "navigateTo": "/static/pdfs/careers/Toronto Youth Pastor - 2022 Contract.pdf"
-          },
-          {
-            "type": "link",
-            "title": "Hamilton Youth Pastor",
-            "navigateTo": "/static/pdfs/careers/Hamilton Youth Pastor 2021.pdf"
           }
         ],
         "image1": [
@@ -105,16 +110,6 @@
         "header1": "Part-time Careers",
         "text1": "Send your resume and cover letter to resumes@themeetinghouse.com",
         "list": [
-          {
-            "type": "link",
-            "title": "Video Editor Summer Intern (full time)",
-            "navigateTo": "/static/pdfs/careers/Video Editor Intern 2022.pdf"
-          },
-          {
-            "type": "link",
-            "title": "Web Developer Summer Intern (full time)",
-            "navigateTo": "/static/pdfs/careers/Web Developer Intern 2022.pdf"
-          },
           {
             "type": "link",
             "title": "Alliston Family Engagement Coordinator",
