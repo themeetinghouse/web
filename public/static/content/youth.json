@@ -61,7 +61,13 @@
           {
             "type": "link",
             "title": "Download Weekend Lesson",
-            "navigateTo": "/static/pdfs/youth-files/Wk 2 - Underdog - JH Weekend.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 3 - Underdog - JH Weekend.pdf",
+            "openNewBrowser": true
+          },
+          {
+            "type": "link",
+            "title": "Download Weekend Activities",
+            "navigateTo": "/static/pdfs/youth-files/Wk 3 - Activities.pdf",
             "openNewBrowser": true
           }
           
@@ -93,13 +99,13 @@
           {
             "type": "link",
             "title": "Download Midweek Lesson",
-            "navigateTo": "/static/pdfs/youth-files/Wk 2 - Underdog - JH Midweek.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 3 - Underdog - JH Midweek.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Midweek Small Group Leader Notes",
-            "navigateTo": "/static/pdfs/youth-files/Wk 2 - Underdog - JH Midweek SGL Notes.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 3 - Underdog - JH Midweek SGL Notes.pdf",
             "openNewBrowser": true
           }
         ]
