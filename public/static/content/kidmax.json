@@ -52,13 +52,13 @@
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/EYLessonFeb20.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYLessonFeb27.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesFeb20.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesFeb27.pdf",
             "openNewBrowser": true
           },
           {
@@ -86,21 +86,21 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaFeb20.jpg",
-            "alt": "Jesus' peace in us helps us make peace with others."
+            "src": "/static/images/KidsBigIdeaFeb27.jpg",
+            "alt": "Jesus' way of peacemaking is not easy, but it's worth it!."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonFeb20.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonFeb27.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activity",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsActivityFeb20.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsActivityFeb27.pdf",
             "openNewBrowser": true
           },
           {
