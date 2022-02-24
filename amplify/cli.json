@@ -11,7 +11,8 @@
       "showfieldauthnotification": false,
       "useexperimentalpipelinedtransformer": true,
       "transformerversion": 2,
-      "suppressschemamigrationprompt": true
+      "suppressschemamigrationprompt": true,
+      "securityEnhancementNotification": false
     }
   }
 }
