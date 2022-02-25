@@ -99,13 +99,6 @@
     "Position": "Tech Coordinator"
   },
   {
-    "FirstName": "Jeremy",
-    "LastName": "McClung",
-    "sites": ["PAR"],
-    "Email": "jeremy.mcclung@themeetinghouse.com",
-    "Position": "Parry Sound Lead Pastor"
-  },
-  {
     "FirstName": "Rosi",
     "LastName": "Simon",
     "sites": ["PAR"],
@@ -651,13 +644,6 @@
     "sites": ["TOUP"],
     "Email": "jeremy.trites@themeetinghouse.com",
     "Position": "Tech Coordinator"
-  },
-  {
-    "FirstName": "Sarah",
-    "LastName": "Lyew",
-    "sites": ["TOUP"],
-    "Email": "sarah.lyew@themeetinghouse.com",
-    "Position": "Toronto Youth Pastor"
   },
   {
     "FirstName": "Kelly",
