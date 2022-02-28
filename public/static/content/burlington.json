@@ -44,9 +44,9 @@
           }
         ],
         "header1": "Burlington",
-        "text1": "Sundays at 10:00am (no kids program)",
-        "text2": "BYO Lunch Service at 11:30am",
-        "text3": "More details below.",
+        "text1": "Sundays at 10:00am",
+        "text2": "BYO Lunch Service at 11:30am (1240 Advance Rd)",
+        "text3": "More details on both services below.",
         "customLiveLink": "themeetinghouse.com/live",
         "register": true,
         "addToCalendar": false,
