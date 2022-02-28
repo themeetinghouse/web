@@ -44,8 +44,8 @@
           }
         ],
         "header1": "Burlington",
-        "text1": "Sundays at 10:30am (no kids program)",
-        "text2": "Sunday Family Service at 9am (kids videos, crafts, & worship)",
+        "text1": "Sundays at 10:00am (no kids program)",
+        "text2": "BYO Lunch Service at 11:30am",
         "text3": "More details below.",
         "customLiveLink": "themeetinghouse.com/live",
         "register": true,
@@ -59,7 +59,7 @@
         "type": "content",
         "style": "greyTwoText",
         "header1": "In-person Gatherings for March & April",
-        "text1": "As of March 6th, we will be meeting weekly at SilverCity Burlington (1250 Brant St.) at 10am and we will also have a Lunch Service (BYO) at 1240 Advance Rd.",
+        "text1": "We gather as a large group at SilverCity Burlington (1250 Brant St.) every Sunday at 10am and as a more intimate group for a Lunch Service (BYO) at 11:30am at 1240 Advance Rd. We welcome you to come check out one or both of our Sunday services!",
         "list": [
           {
             "type": "link",
