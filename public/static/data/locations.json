@@ -73,9 +73,9 @@
     "name": "Burlington",
     "pastorEmail": "Jordan.Taylor@themeetinghouse.com",
     "location": {
-      "longitude": -79.8116388,
-      "latitude": 43.3606083,
-      "address": "1240 Advance Road"
+      "longitude": -79.8302872,
+      "latitude": 43.3439882,
+      "address": "SilveryCity Burlington, 1250 Brant Street"
     },
     "serviceTimes": ["10:00"]
   },
