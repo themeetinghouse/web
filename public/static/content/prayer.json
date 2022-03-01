@@ -32,12 +32,31 @@
           ],
           "header1": "Month of Prayer",
           "header2": "",
-          "text1": "Join us on a prayer journey through the Lent season, right into Good Friday and Easter. We put together a number of resources to help you engage in prayer and reach for hope.",
-          "button1": {
-            "text": "Sign Up",
-            "action": "https://meeting.formstack.com/forms/r2h",
-            "description": "Click to sign up for month of prayer resources."
-          }
+          "text1": "Join us on a prayer journey through the Lent season, right into Good Friday and Easter. We put together a number of resources to help you engage in prayer and reach for hope. Scroll down for more."
+        },
+        {
+          "type": "content",
+          "style": "mad",
+          "header1": "Road to Hope Resources",
+          "text1": "The Road to Hope is a 6-week prayerful experience that runs from March 2-April 16. We've created a couple of resources to guide us through the season. You can find them below.",
+          "list": [
+            {
+              "type": "arrow",
+              "title": "Road to Hope Guide",
+              "navigateTo": "/volunteering"
+            },
+            {
+              "type": "arrow",
+              "title": "Road to Hope Prayer Cards",
+              "navigateTo": "/compassion"
+            }
+          ],
+          "image1": [
+            {
+              "src": "/static/images/homepage-6-new.jpg",
+              "alt": "Friends walking together across the street talking about volunteering, compassion, and giving at The Meeting House."
+            }
+          ]
         },
         {
           "type": "content",

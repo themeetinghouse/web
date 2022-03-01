@@ -85,6 +85,31 @@
         ]
       },
       {
+        "type": "content",
+        "style": "oneImageBlackRight",
+        "header1": "Road to Hope",
+        "header2": "",
+        "text1": "Join us on a prayer journey through the Lent season, right into Good Friday and Easter. Click below to find out more and access content.",
+        "list": [
+          {
+            "type": "link",
+            "title": "Start now",
+            "navigateTo": "/prayer"
+          },
+          {
+            "type": "link",
+            "title": "Monday Evening Prayer Stations",
+            "navigateTo": "/prayer-stations"
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/homepage-covid-1.jpg",
+            "alt": "A woman wearing a mask looking directly at the camera."
+          }
+        ]
+      },
+      {
         "type": "list",
         "style": "imageList",
         "class": "user-defined",
