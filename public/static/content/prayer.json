@@ -61,25 +61,6 @@
         {
           "type": "content",
           "style": "oneImage",
-          "header1": "The Road to Hope",
-          "text1": "The Road to Hope is a 6-week prayerful experience that runs from March 2-April 16. We've created a couple of resources like a prayer booklet and prayer cards to guide us through the season. You can sign up for a physical or a digital kit option below. ",
-          "list": [
-            {
-              "type": "link",
-              "title": "Sign up for your option",
-              "navigateTo": "https://meeting.formstack.com/forms/r2h"
-            }
-          ],
-          "image1": [
-            {
-              "src": "/static/images/homepage-2-new.jpg",
-              "alt": "Group of friends from church sitting together, and talking."
-            }
-          ]
-        },
-        {
-          "type": "content",
-          "style": "oneImage",
           "header1": "24 Hours of Prayer",
           "header2": "",
           "text1": "From April 13-14, we'll be uniting as a church family to collectively pray for 24 hours. Pick a time slot to join in and receive a digital prayer guide.",
