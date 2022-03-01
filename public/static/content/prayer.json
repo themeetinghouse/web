@@ -43,18 +43,18 @@
             {
               "type": "arrow",
               "title": "Road to Hope Guide",
-              "navigateTo": "/volunteering"
+              "navigateTo": "/static/pdfs/annual-reports/prayer/TMH-2022-RTH-Booklet-Digital.pdf"
             },
             {
               "type": "arrow",
               "title": "Road to Hope Prayer Cards",
-              "navigateTo": "/compassion"
+              "navigateTo": "/static/pdfs/annual-reports/prayer/TMH-2022-RTH-Prayer_Cards-Digital.pdf"
             }
           ],
           "image1": [
             {
-              "src": "/static/images/homepage-6-new.jpg",
-              "alt": "Friends walking together across the street talking about volunteering, compassion, and giving at The Meeting House."
+              "src": "/static/images/Road to Hope image.png",
+              "alt": "Graphic with the words road to hope."
             }
           ]
         },
