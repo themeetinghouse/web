@@ -16,7 +16,7 @@
       "content": [
         {
           "type": "og-tags",
-          "image": "/static/images/local-site-1-1.jpg",
+          "image": "/static/images/HAMILTON_PHOTOS_-15_smaller.jpg",
           "url": "https://www.themeetinghouse.com/prayer",
           "title": "Month of Prayer",
           "description": "Join us on a prayer journey throughout the lent season."
@@ -26,7 +26,7 @@
           "style": "full",
           "image1": [
             {
-                "src": "/static/images/local-site-1-1.jpg",
+                "src": "/static/images/HAMILTON_PHOTOS_-15_smaller.jpg",
                 "alt": "Three friends hanging out and walking together in the city."
             }
           ],
