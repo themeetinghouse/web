@@ -210,7 +210,7 @@
     "name": "Frontline Outreach",
     "description": "The vision of Frontline Outreach is that every person who lives in poverty will be shown the love and mercy of God by the local church and all benefactors who provide housing, food, programs and opportunities that are gateways out of poverty. Their hope is that residents of every low income, subsidized housing community will be adopted by a caring and generous church, that results in breaking the cycle of poverty that affects the lives of so many children",
     "website": "https://frontlineoutreach.ca/",
-    "image": "/static/images/compassion/none.jpg",
+    "image": "/static/photos/compassion/FrontLineOutreach.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
@@ -219,7 +219,7 @@
     "name": "Food for Life",
     "description": "Food for Life is an outreach program that provides neighbours in need with direct access to fresh food within their neighbourhood. The food is delivered by the refrigerated Food for Life truck.",
     "website": "https://www.foodforlife.ca/",
-    "image": "/static/images/compassion/none.jpg",
+    "image": "/static/photos/compassion/FoodForLife.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
@@ -228,7 +228,7 @@
     "name": "Salvation Army Halton Lighthouse Shelter",
     "description": "The Salvation Army Halton Lighthouse provides emergency shelter, basic needs and intensive case management for men, and women who are homeless. The Lighthouse Shelter provides accommodation for 30 men and women who are experiencing homelessness and partners with the Canadian Mental Health SafePlace program for persons who have mental health crisis needs.",
     "website": "https://search.hipinfo.info/record/OAK3707",
-    "image": "/static/images/compassion/none.jpg",
+    "image": "/static/photos/compassion/SalvationArmy.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
@@ -237,16 +237,7 @@
     "name": "Kerr Street Mission",
     "description": "We partner with KSM's Neighbour Care Network which is committed to helping people in difficulty and distress with one-on-one support and encouragement.",
     "website": "https://www.kerrstreet.com/",
-    "image": "/static/images/compassion/none.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 30,
-    "sites": ["oakville"],
-    "name": "Open Door",
-    "description": "The Open Door at Square One is a front-line ministry outreach of the churches of Mississauga that has been ministering since 1974.  The Open Door serves people from every background and walk of life. ",
-    "website": "https://opendoorsquareone.org/",
-    "image": "/static/images/compassion/none.jpg",
+    "image": "/static/photos/compassion/KerrStreet.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
