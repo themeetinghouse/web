@@ -145,12 +145,6 @@
     "Position": "Parish Administrator"
   },
   {
-    "FirstName": "Pam",
-    "LastName": "Bustard",
-    "sites": ["KIT"],
-    "Position": "Compassion Coordinator"
-  },
-  {
     "FirstName": "Kate",
     "LastName": "Thompson",
     "sites": ["LOND"],
@@ -306,7 +300,7 @@
     "FirstName": "Jeremiah",
     "LastName": "McCleary",
     "sites": ["WAT"],
-    "Email": "Mcclearj@uoguelph.ca",
+    "Email": "jeremiah.mccleary@themeetinghouse.com",
     "Position": "Compassion Coordinator"
   },
   {
