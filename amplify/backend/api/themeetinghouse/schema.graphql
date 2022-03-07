@@ -1337,6 +1337,7 @@ type Video @model @searchable @auth(rules: [{allow: public, operations: [read]},
   videoURL: String
   audioURL: String
   thumbnailDescription: String
+  move:Boolean
 }
 
 type BlogSeries @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Bloggers"], provider: userPools}]) @searchable {
@@ -1553,4 +1554,4 @@ type Address {
   postal_code: String
   state: String
 }
-       
+         

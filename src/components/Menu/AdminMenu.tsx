@@ -79,6 +79,9 @@ export default class Menu extends React.Component<EmptyProps, State> {
                 <Link to="/account/admin/import-video">Import Video</Link>
               </NavItem>
               <NavItem>
+                <Link to="/account/admin/move-video">George Temp</Link>
+              </NavItem>
+              <NavItem>
                 <Link to="/account/admin/announcements">Announcements</Link>
               </NavItem>
               <NavItem>

@@ -1081,6 +1081,7 @@ export const fuzzySearchVideos = /* GraphQL */ `
               videoURL
               audioURL
               thumbnailDescription
+              move
               createdAt
               updatedAt
             }
@@ -1220,6 +1221,7 @@ export const fuzzySearchVideos = /* GraphQL */ `
               videoURL
               audioURL
               thumbnailDescription
+              move
               createdAt
               updatedAt
             }
@@ -1581,6 +1583,7 @@ export const fuzzySearchVideos = /* GraphQL */ `
               videoURL
               audioURL
               thumbnailDescription
+              move
               createdAt
               updatedAt
             }
@@ -1742,6 +1745,7 @@ export const fuzzySearchVideos = /* GraphQL */ `
         videoURL
         audioURL
         thumbnailDescription
+        move
         createdAt
         updatedAt
       }
@@ -1874,6 +1878,7 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
               videoURL
               audioURL
               thumbnailDescription
+              move
               createdAt
               updatedAt
             }
@@ -2013,6 +2018,7 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
               videoURL
               audioURL
               thumbnailDescription
+              move
               createdAt
               updatedAt
             }
@@ -2374,6 +2380,7 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
               videoURL
               audioURL
               thumbnailDescription
+              move
               createdAt
               updatedAt
             }
@@ -2535,6 +2542,7 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
         videoURL
         audioURL
         thumbnailDescription
+        move
         createdAt
         updatedAt
       }
@@ -4860,6 +4868,7 @@ export const getSpeaker = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -4913,6 +4922,7 @@ export const getSpeaker = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -5021,6 +5031,7 @@ export const getSpeaker = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -5155,6 +5166,7 @@ export const getSpeaker = /* GraphQL */ `
             videoURL
             audioURL
             thumbnailDescription
+            move
             createdAt
             updatedAt
           }
@@ -5194,6 +5206,7 @@ export const getSpeaker = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -5353,6 +5366,7 @@ export const listSpeakers = /* GraphQL */ `
               videoURL
               audioURL
               thumbnailDescription
+              move
               createdAt
               updatedAt
             }
@@ -5505,6 +5519,7 @@ export const getSpeakerVideos = /* GraphQL */ `
               videoURL
               audioURL
               thumbnailDescription
+              move
               createdAt
               updatedAt
             }
@@ -5644,6 +5659,7 @@ export const getSpeakerVideos = /* GraphQL */ `
               videoURL
               audioURL
               thumbnailDescription
+              move
               createdAt
               updatedAt
             }
@@ -6005,6 +6021,7 @@ export const getSpeakerVideos = /* GraphQL */ `
               videoURL
               audioURL
               thumbnailDescription
+              move
               createdAt
               updatedAt
             }
@@ -6166,6 +6183,7 @@ export const getSpeakerVideos = /* GraphQL */ `
         videoURL
         audioURL
         thumbnailDescription
+        move
         createdAt
         updatedAt
       }
@@ -6280,6 +6298,7 @@ export const getSpeakerVideos = /* GraphQL */ `
               videoURL
               audioURL
               thumbnailDescription
+              move
               createdAt
               updatedAt
             }
@@ -6395,6 +6414,7 @@ export const listSpeakerVideos = /* GraphQL */ `
                 videoURL
                 audioURL
                 thumbnailDescription
+                move
                 createdAt
                 updatedAt
               }
@@ -6474,6 +6494,7 @@ export const listSpeakerVideos = /* GraphQL */ `
                 videoURL
                 audioURL
                 thumbnailDescription
+                move
                 createdAt
                 updatedAt
               }
@@ -6684,6 +6705,7 @@ export const listSpeakerVideos = /* GraphQL */ `
                 videoURL
                 audioURL
                 thumbnailDescription
+                move
                 createdAt
                 updatedAt
               }
@@ -6845,6 +6867,7 @@ export const listSpeakerVideos = /* GraphQL */ `
           videoURL
           audioURL
           thumbnailDescription
+          move
           createdAt
           updatedAt
         }
@@ -6907,6 +6930,7 @@ export const listSpeakerVideos = /* GraphQL */ `
                 videoURL
                 audioURL
                 thumbnailDescription
+                move
                 createdAt
                 updatedAt
               }
@@ -7003,6 +7027,7 @@ export const getSeries = /* GraphQL */ `
                 videoURL
                 audioURL
                 thumbnailDescription
+                move
                 createdAt
                 updatedAt
               }
@@ -7082,6 +7107,7 @@ export const getSeries = /* GraphQL */ `
                 videoURL
                 audioURL
                 thumbnailDescription
+                move
                 createdAt
                 updatedAt
               }
@@ -7292,6 +7318,7 @@ export const getSeries = /* GraphQL */ `
                 videoURL
                 audioURL
                 thumbnailDescription
+                move
                 createdAt
                 updatedAt
               }
@@ -7453,6 +7480,7 @@ export const getSeries = /* GraphQL */ `
           videoURL
           audioURL
           thumbnailDescription
+          move
           createdAt
           updatedAt
         }
@@ -7602,6 +7630,7 @@ export const getSeries = /* GraphQL */ `
                 videoURL
                 audioURL
                 thumbnailDescription
+                move
                 createdAt
                 updatedAt
               }
@@ -7927,6 +7956,7 @@ export const getSeries = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -8111,6 +8141,7 @@ export const getSeries = /* GraphQL */ `
                 videoURL
                 audioURL
                 thumbnailDescription
+                move
                 createdAt
                 updatedAt
               }
@@ -8329,6 +8360,7 @@ export const getSeries = /* GraphQL */ `
                 videoURL
                 audioURL
                 thumbnailDescription
+                move
                 createdAt
                 updatedAt
               }
@@ -8575,6 +8607,7 @@ export const listSeries = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -8628,6 +8661,7 @@ export const listSeries = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -8736,6 +8770,7 @@ export const listSeries = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -8870,6 +8905,7 @@ export const listSeries = /* GraphQL */ `
             videoURL
             audioURL
             thumbnailDescription
+            move
             createdAt
             updatedAt
           }
@@ -8954,6 +8990,7 @@ export const listSeries = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -9197,6 +9234,7 @@ export const listSeries = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -9316,6 +9354,7 @@ export const listSeries = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -9483,6 +9522,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -9536,6 +9576,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -9644,6 +9685,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -9778,6 +9820,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
             videoURL
             audioURL
             thumbnailDescription
+            move
             createdAt
             updatedAt
           }
@@ -9862,6 +9905,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -10105,6 +10149,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -10224,6 +10269,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -10391,6 +10437,7 @@ export const searchSeries = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -10444,6 +10491,7 @@ export const searchSeries = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -10552,6 +10600,7 @@ export const searchSeries = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -10686,6 +10735,7 @@ export const searchSeries = /* GraphQL */ `
             videoURL
             audioURL
             thumbnailDescription
+            move
             createdAt
             updatedAt
           }
@@ -10770,6 +10820,7 @@ export const searchSeries = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -11013,6 +11064,7 @@ export const searchSeries = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -11132,6 +11184,7 @@ export const searchSeries = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -11311,6 +11364,7 @@ export const getCustomPlaylist = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -11361,6 +11415,7 @@ export const getCustomPlaylist = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -11414,6 +11469,7 @@ export const getCustomPlaylist = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -11522,6 +11578,7 @@ export const getCustomPlaylist = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -11656,6 +11713,7 @@ export const getCustomPlaylist = /* GraphQL */ `
             videoURL
             audioURL
             thumbnailDescription
+            move
             createdAt
             updatedAt
           }
@@ -11808,6 +11866,7 @@ export const listCustomPlaylists = /* GraphQL */ `
               videoURL
               audioURL
               thumbnailDescription
+              move
               createdAt
               updatedAt
             }
@@ -11972,6 +12031,7 @@ export const searchCustomPlaylists = /* GraphQL */ `
               videoURL
               audioURL
               thumbnailDescription
+              move
               createdAt
               updatedAt
             }
@@ -12051,6 +12111,7 @@ export const getVideo = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -12104,6 +12165,7 @@ export const getVideo = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -12212,6 +12274,7 @@ export const getVideo = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -12346,6 +12409,7 @@ export const getVideo = /* GraphQL */ `
             videoURL
             audioURL
             thumbnailDescription
+            move
             createdAt
             updatedAt
           }
@@ -12385,6 +12449,7 @@ export const getVideo = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -12456,6 +12521,7 @@ export const getVideo = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -12509,6 +12575,7 @@ export const getVideo = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -12617,6 +12684,7 @@ export const getVideo = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -12751,6 +12819,7 @@ export const getVideo = /* GraphQL */ `
             videoURL
             audioURL
             thumbnailDescription
+            move
             createdAt
             updatedAt
           }
@@ -12835,6 +12904,7 @@ export const getVideo = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -13078,6 +13148,7 @@ export const getVideo = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -13197,6 +13268,7 @@ export const getVideo = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -13354,6 +13426,7 @@ export const getVideo = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -13404,6 +13477,7 @@ export const getVideo = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -13457,6 +13531,7 @@ export const getVideo = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -13565,6 +13640,7 @@ export const getVideo = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -13699,6 +13775,7 @@ export const getVideo = /* GraphQL */ `
             videoURL
             audioURL
             thumbnailDescription
+            move
             createdAt
             updatedAt
           }
@@ -13860,6 +13937,7 @@ export const getVideo = /* GraphQL */ `
       videoURL
       audioURL
       thumbnailDescription
+      move
       createdAt
       updatedAt
     }
@@ -13982,6 +14060,7 @@ export const listVideos = /* GraphQL */ `
               videoURL
               audioURL
               thumbnailDescription
+              move
               createdAt
               updatedAt
             }
@@ -14121,6 +14200,7 @@ export const listVideos = /* GraphQL */ `
               videoURL
               audioURL
               thumbnailDescription
+              move
               createdAt
               updatedAt
             }
@@ -14482,6 +14562,7 @@ export const listVideos = /* GraphQL */ `
               videoURL
               audioURL
               thumbnailDescription
+              move
               createdAt
               updatedAt
             }
@@ -14643,6 +14724,7 @@ export const listVideos = /* GraphQL */ `
         videoURL
         audioURL
         thumbnailDescription
+        move
         createdAt
         updatedAt
       }
@@ -14775,6 +14857,7 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
               videoURL
               audioURL
               thumbnailDescription
+              move
               createdAt
               updatedAt
             }
@@ -14914,6 +14997,7 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
               videoURL
               audioURL
               thumbnailDescription
+              move
               createdAt
               updatedAt
             }
@@ -15275,6 +15359,7 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
               videoURL
               audioURL
               thumbnailDescription
+              move
               createdAt
               updatedAt
             }
@@ -15436,6 +15521,7 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
         videoURL
         audioURL
         thumbnailDescription
+        move
         createdAt
         updatedAt
       }
@@ -15570,6 +15656,7 @@ export const getVideoByVideoType = /* GraphQL */ `
               videoURL
               audioURL
               thumbnailDescription
+              move
               createdAt
               updatedAt
             }
@@ -15709,6 +15796,7 @@ export const getVideoByVideoType = /* GraphQL */ `
               videoURL
               audioURL
               thumbnailDescription
+              move
               createdAt
               updatedAt
             }
@@ -16070,6 +16158,7 @@ export const getVideoByVideoType = /* GraphQL */ `
               videoURL
               audioURL
               thumbnailDescription
+              move
               createdAt
               updatedAt
             }
@@ -16231,6 +16320,7 @@ export const getVideoByVideoType = /* GraphQL */ `
         videoURL
         audioURL
         thumbnailDescription
+        move
         createdAt
         updatedAt
       }
@@ -16365,6 +16455,7 @@ export const searchVideos = /* GraphQL */ `
               videoURL
               audioURL
               thumbnailDescription
+              move
               createdAt
               updatedAt
             }
@@ -16504,6 +16595,7 @@ export const searchVideos = /* GraphQL */ `
               videoURL
               audioURL
               thumbnailDescription
+              move
               createdAt
               updatedAt
             }
@@ -16865,6 +16957,7 @@ export const searchVideos = /* GraphQL */ `
               videoURL
               audioURL
               thumbnailDescription
+              move
               createdAt
               updatedAt
             }
@@ -17026,6 +17119,7 @@ export const searchVideos = /* GraphQL */ `
         videoURL
         audioURL
         thumbnailDescription
+        move
         createdAt
         updatedAt
       }
@@ -17188,6 +17282,7 @@ export const getBlogSeries = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -17871,6 +17966,7 @@ export const blogBridgeBySeries = /* GraphQL */ `
                 videoURL
                 audioURL
                 thumbnailDescription
+                move
                 createdAt
                 updatedAt
               }
@@ -18368,6 +18464,7 @@ export const blogBridgeByPost = /* GraphQL */ `
                 videoURL
                 audioURL
                 thumbnailDescription
+                move
                 createdAt
                 updatedAt
               }
@@ -18707,6 +18804,7 @@ export const getBlog = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -18891,6 +18989,7 @@ export const getBlog = /* GraphQL */ `
                 videoURL
                 audioURL
                 thumbnailDescription
+                move
                 createdAt
                 updatedAt
               }
@@ -19076,6 +19175,7 @@ export const getBlog = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -19129,6 +19229,7 @@ export const getBlog = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -19237,6 +19338,7 @@ export const getBlog = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -19371,6 +19473,7 @@ export const getBlog = /* GraphQL */ `
             videoURL
             audioURL
             thumbnailDescription
+            move
             createdAt
             updatedAt
           }
@@ -19455,6 +19558,7 @@ export const getBlog = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -19698,6 +19802,7 @@ export const getBlog = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -19817,6 +19922,7 @@ export const getBlog = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -20062,6 +20168,7 @@ export const getBlog = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -20347,6 +20454,7 @@ export const listBlogs = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -20523,6 +20631,7 @@ export const listBlogs = /* GraphQL */ `
               videoURL
               audioURL
               thumbnailDescription
+              move
               createdAt
               updatedAt
             }
@@ -21026,6 +21135,7 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -21202,6 +21312,7 @@ export const getBlogByBlogStatus = /* GraphQL */ `
               videoURL
               audioURL
               thumbnailDescription
+              move
               createdAt
               updatedAt
             }
@@ -21705,6 +21816,7 @@ export const searchBlogs = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -21881,6 +21993,7 @@ export const searchBlogs = /* GraphQL */ `
               videoURL
               audioURL
               thumbnailDescription
+              move
               createdAt
               updatedAt
             }
@@ -22466,6 +22579,7 @@ export const getVerse = /* GraphQL */ `
               videoURL
               audioURL
               thumbnailDescription
+              move
               createdAt
               updatedAt
             }
@@ -22860,6 +22974,7 @@ export const listVerses = /* GraphQL */ `
                 videoURL
                 audioURL
                 thumbnailDescription
+                move
                 createdAt
                 updatedAt
               }
@@ -23111,6 +23226,7 @@ export const getNotes = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -23164,6 +23280,7 @@ export const getNotes = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -23272,6 +23389,7 @@ export const getNotes = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -23406,6 +23524,7 @@ export const getNotes = /* GraphQL */ `
             videoURL
             audioURL
             thumbnailDescription
+            move
             createdAt
             updatedAt
           }
@@ -23490,6 +23609,7 @@ export const getNotes = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -23733,6 +23853,7 @@ export const getNotes = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -23852,6 +23973,7 @@ export const getNotes = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -24013,6 +24135,7 @@ export const getNotes = /* GraphQL */ `
                   videoURL
                   audioURL
                   thumbnailDescription
+                  move
                   createdAt
                   updatedAt
                 }
@@ -24248,6 +24371,7 @@ export const listNotes = /* GraphQL */ `
               videoURL
               audioURL
               thumbnailDescription
+              move
               createdAt
               updatedAt
             }
@@ -24694,6 +24818,7 @@ export const searchNotes = /* GraphQL */ `
               videoURL
               audioURL
               thumbnailDescription
+              move
               createdAt
               updatedAt
             }

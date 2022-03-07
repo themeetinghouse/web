@@ -24,7 +24,9 @@
       {
         "type": "hero",
         "style": "full",
-        "showCovid": false,
+        "showSpecial": false,
+        "showSpecialNavigateTo": "",
+        "showSpecialText": "",
         "image1": [
           {
             "src": "/static/images/local-site-1-1.jpg",

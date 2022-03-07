@@ -114,12 +114,12 @@ if __name__ == '__main__':
                                     assert(isinstance(item[i]['text'], str))
                                     assert(isinstance(item[i]['action'], str))
                                     assert(isinstance(item[i]['description'], str))
-                                if i == 'link1Text':
+                                if i in ['showSpecialNavigateTo','showSpecialText','link1Text']:
                                     assert(isinstance(item[i], str))
                                 if i == 'link1Action':
                                     assert(isinstance(item[i], str))
                                     file_exists(item[i])
-                                if i in ['register','addToCalendar', 'showCovid', 'contactPastor', 'showLocationSearch', 'hasFooter']:
+                                if i in ['register','addToCalendar', 'showSpecial', 'contactPastor', 'showLocationSearch', 'hasFooter']:
                                     assert(isinstance(item[i], bool))
 
                         elif item_type == 'content':

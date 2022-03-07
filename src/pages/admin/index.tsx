@@ -4,6 +4,7 @@ import Amplify from 'aws-amplify';
 import awsmobile from '../../aws-exports';
 import { Route, Switch } from 'react-router-dom';
 const ImportVideo = lazy(() => import('../../pages/admin/import-video'));
+const MoveVideo = lazy(() => import('../../pages/admin/move-video'));
 const CreateBlog = lazy(() => import('../../pages/admin/create-blog'));
 const CreateNotes = lazy(() => import('../../pages/admin/create-notes'));
 const AddLive = lazy(() => import('../../pages/admin/livestream'));
@@ -23,6 +24,10 @@ class Admin extends React.Component {
           <Route
             path="/account/admin/import-video"
             render={() => <ImportVideo />}
+          />
+          <Route
+            path="/account/admin/move-video"
+            render={() => <MoveVideo />}
           />
           <Route
             path="/account/admin/create-blog"

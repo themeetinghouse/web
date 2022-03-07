@@ -24,7 +24,9 @@
       {
         "type": "hero",
         "style": "full",
-        "showCovid": false,
+        "showSpecial": false,
+        "showSpecialNavigateTo": "",
+        "showSpecialText": "",
         "image1": [
           {
             "src": "/static/images/parry-sound-1.jpg",

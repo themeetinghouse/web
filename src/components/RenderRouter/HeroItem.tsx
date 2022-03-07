@@ -437,15 +437,15 @@ class HeroItem extends React.Component<Props, State> {
             ) : null}
             <br />
           </div>
-          {this.state.content.showCovid ? (
+          {this.state.content.showSpecial ? (
             <div className="covidButton">
               <Button
                 onClick={() => {
-                  this.navigateTo('covid19');
+                  this.navigateTo(this.state.content.showSpecialNavigateTo);
                 }}
                 className="covidButtonDetail"
               >
-                COVID-19 Update
+                {this.state.content.showSpecialText}
               </Button>
             </div>
           ) : null}
