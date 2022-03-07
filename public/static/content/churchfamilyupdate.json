@@ -26,6 +26,7 @@
         {
           "type": "simple",
           "header1": "Church Family Update",
+          "header2": "",
           "text": [
             {
               "class": "SimpleItemText",
