@@ -57,22 +57,6 @@
         "header1": "All Teaching Series"
       },
       {
-        "type": "content",
-        "style": "banner-cards",
-        "images": [
-          {
-            "src": "/static/photos/banners/promo_themissingpeace.png",
-            "alt": "Graphic for The Missing Peace teaching series.",
-            "linkto": "/videos/The%20Missing%20Peace/IU9UwY_OVgg"
-          },
-          {
-            "src": "/static/photos/banners/promo_politicsofpeace.png",
-            "alt": "Graphic for The Politics of Peace teaching series.",
-            "linkto": "/videos/The%20Politics%20of%20Peace/3Axe8nNtXVc"
-          }
-        ]
-      },
-      {
         "type": "list",
         "style": "horizontal",
         "class": "videos",
