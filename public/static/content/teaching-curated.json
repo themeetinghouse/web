@@ -42,35 +42,6 @@
       },
       {
         "type": "list",
-        "style": "horizontalBig",
-        "class": "playlists",
-        "header1": "Teaching by Topic",
-        "forceToTop": ["The Bible"]
-      },
-      {
-        "type": "list",
-        "style": "horizontal",
-        "class": "random-suggested-playlist",
-        "header1": "Suggested Videos"
-      },
-      {
-        "type": "list",
-        "style": "horizontalBig",
-        "class": "series-collection",
-        "collection": [
-          "Jesus 101",
-          "Big Buts of the Bible",
-          "The Look of Love",
-          "Inglorious Pastors",
-          "Jesus and the Scandal of Scripture",
-          "Blind Religion",
-          "reVOLUtion",
-          "Grace Anatomy"
-        ],
-        "header1": "The Jesus-Centred Life"
-      },
-      {
-        "type": "list",
         "style": "horizontal",
         "class": "videos",
         "subclass": "music",
@@ -92,7 +63,7 @@
         "subclass": "adult-sunday",
         "limit": 20,
         "sortOrder": "DESC",
-        "header1": "All Teaching Series"
+        "header1": "Recent Teaching Series"
       }
     ]
   }
