@@ -101,22 +101,7 @@
         ],
         "header1": "Christmas Series Archive"
       },
-      {
-        "type": "list",
-        "style": "horizontal",
-        "class": "videos",
-        "subclass": "Christmas-funny",
-        "sortOrder": "DESC",
-        "header1": "Funny Christmas Videos"
-      },
-      {
-        "type": "list",
-        "style": "horizontal",
-        "class": "videos",
-        "subclass": "Christmas-shorts",
-        "sortOrder": "DESC",
-        "header1": "Christmas Short Videos"
-      },
+
       {
         "type": "hero",
         "style": "connect",

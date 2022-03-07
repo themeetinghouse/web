@@ -2061,143 +2061,143 @@
         "showInEditor": true
       }
     ]
-},
-{
-  "id": "Christmas-2021",
-  "name": "Christmas 2021",
-  "columns": [
-    {
-      "id": "speakers",
-      "name": "Speaker",
-      "type": "Speaker",
-      "showInTable": true,
-      "showInEditor": true
-    },
-    {
-      "id": "episodeTitle",
-      "name": "Episode Name",
-      "type": "String",
-      "showInTable": true,
-      "showInEditor": true
-    },
-    {
-      "id": "episodeNumber",
-      "name": "Episode Number",
-      "type": "Int",
-      "showInTable": true,
-      "showInEditor": true
-    },
-    {
-      "id": "publishedDate",
-      "name": "Published Date",
-      "type": "Date",
-      "showInTable": true,
-      "showInEditor": true
-    },
-    {
-      "id": "seriesTitle",
-      "name": "Series Title",
-      "readOnly": true,
-      "type": "String",
-      "showInTable": true,
-      "showInEditor": true
-    },
-    {
-      "id": "description",
-      "name": "Description",
-      "type": "String",
-      "showInTable": false,
-      "showInEditor": true
-    },
-    {
-      "id": "length",
-      "name": "Length",
-      "type": "String",
-      "showInTable": false,
-      "showInEditor": true
-    },
-    {
-      "id": "YoutubeIdent",
-      "name": "Youtube ID",
-      "type": "String",
-      "showInTable": true,
-      "showInEditor": true,
-      "readOnly": true
-    },
-    {
-      "id": "videoSeriesId",
-      "name": "Series ID",
-      "type": "Series",
-      "showInTable": false,
-      "showInEditor": true
-    },
-    {
-      "id": "customPlaylistId",
-      "name": "Custom Playlist ID",
-      "type": "CustomPlaylist",
-      "showInTable": false,
-      "showInEditor": true
-    },
-    {
-      "id": "Youtube.snippet.title",
-      "name": "Youtube Title",
-      "type": "String",
-      "showInTable": true,
-      "showInEditor": true,
-      "readOnly": true
-    },
-    {
-      "id": "Youtube.snippet.publishedAt",
-      "name": "Youtube Published",
-      "type": "String",
-      "showInTable": true,
-      "showInEditor": true,
-      "readOnly": true
-    },
-    {
-      "id": "Youtube.snippet.description",
-      "name": "Description",
-      "type": "String",
-      "showInTable": false,
-      "showInEditor": true,
-      "readOnly": true
-    },
-    {
-      "id": "videoTypes",
-      "name": "Type",
-      "type": "VideoType",
-      "showInTable": false,
-      "showInEditor": true
-    },
-    {
-      "id": "notesURL",
-      "name": "Notes URL",
-      "type": "String",
-      "showInTable": false,
-      "showInEditor": true
-    },
-    {
-      "id": "audioURL",
-      "name": "Audio URL",
-      "type": "String",
-      "showInTable": false,
-      "showInEditor": true
-    },
-    {
-      "id": "videoURL",
-      "name": "Video URL",
-      "type": "String",
-      "showInTable": false,
-      "showInEditor": true
-    },
-    {
-      "id": "thumbnailDescription",
-      "name": "Thumbnail Description",
-      "type": "String",
-      "showInTable": false,
-      "showInEditor": true
-    }
-  ]
+  },
+  {
+    "id": "Christmas-2021",
+    "name": "Christmas 2021",
+    "columns": [
+      {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "episodeTitle",
+        "name": "Episode Name",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "episodeNumber",
+        "name": "Episode Number",
+        "type": "Int",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "publishedDate",
+        "name": "Published Date",
+        "type": "Date",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "seriesTitle",
+        "name": "Series Title",
+        "readOnly": true,
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "description",
+        "name": "Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "length",
+        "name": "Length",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "YoutubeIdent",
+        "name": "Youtube ID",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "videoSeriesId",
+        "name": "Series ID",
+        "type": "Series",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "customPlaylistId",
+        "name": "Custom Playlist ID",
+        "type": "CustomPlaylist",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "Youtube.snippet.title",
+        "name": "Youtube Title",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "Youtube.snippet.publishedAt",
+        "name": "Youtube Published",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "Youtube.snippet.description",
+        "name": "Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "videoTypes",
+        "name": "Type",
+        "type": "VideoType",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "notesURL",
+        "name": "Notes URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "audioURL",
+        "name": "Audio URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "videoURL",
+        "name": "Video URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "thumbnailDescription",
+        "name": "Thumbnail Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      }
+    ]
   },
   {
     "id": "after-party",
@@ -5627,6 +5627,1514 @@
   {
     "id": "hidden",
     "name": "Hidden",
+    "columns": [
+      {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "episodeTitle",
+        "name": "Episode Name",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "episodeNumber",
+        "name": "Episode Number",
+        "type": "Int",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "publishedDate",
+        "name": "Published Date",
+        "type": "Date",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "seriesTitle",
+        "name": "Series Title",
+        "readOnly": true,
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "description",
+        "name": "Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "length",
+        "name": "Length",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "YoutubeIdent",
+        "name": "Youtube ID",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "videoSeriesId",
+        "name": "Series ID",
+        "type": "Series",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "customPlaylistId",
+        "name": "Custom Playlist ID",
+        "type": "CustomPlaylist",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "Youtube.snippet.title",
+        "name": "Youtube Title",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "Youtube.snippet.publishedAt",
+        "name": "Youtube Published",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "Youtube.snippet.description",
+        "name": "Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "videoTypes",
+        "name": "Type",
+        "type": "VideoType",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "notesURL",
+        "name": "Notes URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "audioURL",
+        "name": "Audio URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "videoURL",
+        "name": "Video URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "thumbnailDescription",
+        "name": "Thumbnail Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      }
+    ]
+  },
+
+  {
+    "id": "hidden-adult-sunday",
+    "name": "Hidden Adult Sunday",
+    "columns": [
+      {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "episodeTitle",
+        "name": "Episode Name",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "episodeNumber",
+        "name": "Episode Number",
+        "type": "Int",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "publishedDate",
+        "name": "Published Date",
+        "type": "Date",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "seriesTitle",
+        "name": "Series Title",
+        "readOnly": true,
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "description",
+        "name": "Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "length",
+        "name": "Length",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "YoutubeIdent",
+        "name": "Youtube ID",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "videoSeriesId",
+        "name": "Series ID",
+        "type": "Series",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "customPlaylistId",
+        "name": "Custom Playlist ID",
+        "type": "CustomPlaylist",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "Youtube.snippet.title",
+        "name": "Youtube Title",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "Youtube.snippet.publishedAt",
+        "name": "Youtube Published",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "Youtube.snippet.description",
+        "name": "Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "videoTypes",
+        "name": "Type",
+        "type": "VideoType",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "notesURL",
+        "name": "Notes URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "audioURL",
+        "name": "Audio URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "videoURL",
+        "name": "Video URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "thumbnailDescription",
+        "name": "Thumbnail Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      }
+    ]
+  },
+  {
+    "id": "hidden-adult-sunday-shortcut",
+    "name": "Hidden Adult Sunday Shortcut",
+    "columns": [
+      {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "episodeTitle",
+        "name": "Episode Name",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "episodeNumber",
+        "name": "Episode Number",
+        "type": "Int",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "publishedDate",
+        "name": "Published Date",
+        "type": "Date",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "seriesTitle",
+        "name": "Series Title",
+        "readOnly": true,
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "description",
+        "name": "Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "length",
+        "name": "Length",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "YoutubeIdent",
+        "name": "Youtube ID",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "videoSeriesId",
+        "name": "Series ID",
+        "type": "Series",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "customPlaylistId",
+        "name": "Custom Playlist ID",
+        "type": "CustomPlaylist",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "Youtube.snippet.title",
+        "name": "Youtube Title",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "Youtube.snippet.publishedAt",
+        "name": "Youtube Published",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "Youtube.snippet.description",
+        "name": "Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "videoTypes",
+        "name": "Type",
+        "type": "VideoType",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "notesURL",
+        "name": "Notes URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "audioURL",
+        "name": "Audio URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "videoURL",
+        "name": "Video URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "thumbnailDescription",
+        "name": "Thumbnail Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      }
+    ]
+  },
+  {
+    "id": "hidden-adult-sunday-teaser",
+    "name": "Hidden",
+    "columns": [
+      {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "episodeTitle",
+        "name": "Episode Name",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "episodeNumber",
+        "name": "Episode Number",
+        "type": "Int",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "publishedDate",
+        "name": "Published Date",
+        "type": "Date",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "seriesTitle",
+        "name": "Series Title",
+        "readOnly": true,
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "description",
+        "name": "Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "length",
+        "name": "Length",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "YoutubeIdent",
+        "name": "Youtube ID",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "videoSeriesId",
+        "name": "Series ID",
+        "type": "Series",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "customPlaylistId",
+        "name": "Custom Playlist ID",
+        "type": "CustomPlaylist",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "Youtube.snippet.title",
+        "name": "Youtube Title",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "Youtube.snippet.publishedAt",
+        "name": "Youtube Published",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "Youtube.snippet.description",
+        "name": "Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "videoTypes",
+        "name": "Type",
+        "type": "VideoType",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "notesURL",
+        "name": "Notes URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "audioURL",
+        "name": "Audio URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "videoURL",
+        "name": "Video URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "thumbnailDescription",
+        "name": "Thumbnail Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      }
+    ]
+  },
+  {
+    "id": "hidden-after-party",
+    "name": "Hidden after party",
+    "columns": [
+      {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "episodeTitle",
+        "name": "Episode Name",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "episodeNumber",
+        "name": "Episode Number",
+        "type": "Int",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "publishedDate",
+        "name": "Published Date",
+        "type": "Date",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "seriesTitle",
+        "name": "Series Title",
+        "readOnly": true,
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "description",
+        "name": "Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "length",
+        "name": "Length",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "YoutubeIdent",
+        "name": "Youtube ID",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "videoSeriesId",
+        "name": "Series ID",
+        "type": "Series",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "customPlaylistId",
+        "name": "Custom Playlist ID",
+        "type": "CustomPlaylist",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "Youtube.snippet.title",
+        "name": "Youtube Title",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "Youtube.snippet.publishedAt",
+        "name": "Youtube Published",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "Youtube.snippet.description",
+        "name": "Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "videoTypes",
+        "name": "Type",
+        "type": "VideoType",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "notesURL",
+        "name": "Notes URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "audioURL",
+        "name": "Audio URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "videoURL",
+        "name": "Video URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "thumbnailDescription",
+        "name": "Thumbnail Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      }
+    ]
+  },
+  {
+    "id": "hidden-livestream-services",
+    "name": "Hidden Sunday Livestream",
+    "columns": [
+      {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "episodeTitle",
+        "name": "Episode Name",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "episodeNumber",
+        "name": "Episode Number",
+        "type": "Int",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "publishedDate",
+        "name": "Published Date",
+        "type": "Date",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "seriesTitle",
+        "name": "Series Title",
+        "readOnly": true,
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "description",
+        "name": "Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "length",
+        "name": "Length",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "YoutubeIdent",
+        "name": "Youtube ID",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "videoSeriesId",
+        "name": "Series ID",
+        "type": "Series",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "customPlaylistId",
+        "name": "Custom Playlist ID",
+        "type": "CustomPlaylist",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "Youtube.snippet.title",
+        "name": "Youtube Title",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "Youtube.snippet.publishedAt",
+        "name": "Youtube Published",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "Youtube.snippet.description",
+        "name": "Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "videoTypes",
+        "name": "Type",
+        "type": "VideoType",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "notesURL",
+        "name": "Notes URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "audioURL",
+        "name": "Audio URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "videoURL",
+        "name": "Video URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "thumbnailDescription",
+        "name": "Thumbnail Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      }
+    ]
+  },
+  {
+    "id": "hidden-bbq",
+    "name": "Hidden Bruxy's Bag of Questions",
+    "columns": [
+      {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "episodeTitle",
+        "name": "Episode Name",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "episodeNumber",
+        "name": "Episode Number",
+        "type": "Int",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "publishedDate",
+        "name": "Published Date",
+        "type": "Date",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "seriesTitle",
+        "name": "Series Title",
+        "readOnly": true,
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "description",
+        "name": "Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "length",
+        "name": "Length",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "YoutubeIdent",
+        "name": "Youtube ID",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "videoSeriesId",
+        "name": "Series ID",
+        "type": "Series",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "customPlaylistId",
+        "name": "Custom Playlist ID",
+        "type": "CustomPlaylist",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "Youtube.snippet.title",
+        "name": "Youtube Title",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "Youtube.snippet.publishedAt",
+        "name": "Youtube Published",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "Youtube.snippet.description",
+        "name": "Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "videoTypes",
+        "name": "Type",
+        "type": "VideoType",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "notesURL",
+        "name": "Notes URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "audioURL",
+        "name": "Audio URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "videoURL",
+        "name": "Video URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "thumbnailDescription",
+        "name": "Thumbnail Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      }
+    ]
+  },
+  {
+    "id": "hidden-Christmas-shorts",
+    "name": "Hidden Christmas-shorts",
+    "columns": [
+      {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "episodeTitle",
+        "name": "Episode Name",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "episodeNumber",
+        "name": "Episode Number",
+        "type": "Int",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "publishedDate",
+        "name": "Published Date",
+        "type": "Date",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "seriesTitle",
+        "name": "Series Title",
+        "readOnly": true,
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "description",
+        "name": "Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "length",
+        "name": "Length",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "YoutubeIdent",
+        "name": "Youtube ID",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "videoSeriesId",
+        "name": "Series ID",
+        "type": "Series",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "customPlaylistId",
+        "name": "Custom Playlist ID",
+        "type": "CustomPlaylist",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "Youtube.snippet.title",
+        "name": "Youtube Title",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "Youtube.snippet.publishedAt",
+        "name": "Youtube Published",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "Youtube.snippet.description",
+        "name": "Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "videoTypes",
+        "name": "Type",
+        "type": "VideoType",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "notesURL",
+        "name": "Notes URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "audioURL",
+        "name": "Audio URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "videoURL",
+        "name": "Video URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "thumbnailDescription",
+        "name": "Thumbnail Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      }
+    ]
+  },
+  {
+    "id": "hidden-Christmas-funny",
+    "name": "Hidden Christmas-funny",
+    "columns": [
+      {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "episodeTitle",
+        "name": "Episode Name",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "episodeNumber",
+        "name": "Episode Number",
+        "type": "Int",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "publishedDate",
+        "name": "Published Date",
+        "type": "Date",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "seriesTitle",
+        "name": "Series Title",
+        "readOnly": true,
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "description",
+        "name": "Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "length",
+        "name": "Length",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "YoutubeIdent",
+        "name": "Youtube ID",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "videoSeriesId",
+        "name": "Series ID",
+        "type": "Series",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "customPlaylistId",
+        "name": "Custom Playlist ID",
+        "type": "CustomPlaylist",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "Youtube.snippet.title",
+        "name": "Youtube Title",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "Youtube.snippet.publishedAt",
+        "name": "Youtube Published",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "Youtube.snippet.description",
+        "name": "Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "videoTypes",
+        "name": "Type",
+        "type": "VideoType",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "notesURL",
+        "name": "Notes URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "audioURL",
+        "name": "Audio URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "videoURL",
+        "name": "Video URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "thumbnailDescription",
+        "name": "Thumbnail Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      }
+    ]
+  },
+  {
+    "id": "hidden-Home Church Hangouts",
+    "name": "Hidden Home Church Hangouts",
+    "columns": [
+      {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "episodeTitle",
+        "name": "Episode Name",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "episodeNumber",
+        "name": "Episode Number",
+        "type": "Int",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "publishedDate",
+        "name": "Published Date",
+        "type": "Date",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "seriesTitle",
+        "name": "Series Title",
+        "readOnly": true,
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "description",
+        "name": "Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "length",
+        "name": "Length",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "YoutubeIdent",
+        "name": "Youtube ID",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "videoSeriesId",
+        "name": "Series ID",
+        "type": "Series",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "customPlaylistId",
+        "name": "Custom Playlist ID",
+        "type": "CustomPlaylist",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "Youtube.snippet.title",
+        "name": "Youtube Title",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "Youtube.snippet.publishedAt",
+        "name": "Youtube Published",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "Youtube.snippet.description",
+        "name": "Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "videoTypes",
+        "name": "Type",
+        "type": "VideoType",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "notesURL",
+        "name": "Notes URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "audioURL",
+        "name": "Audio URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "videoURL",
+        "name": "Video URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "thumbnailDescription",
+        "name": "Thumbnail Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      }
+    ]
+  },
+  {
+    "id": "hidden-HC101",
+    "name": "Hidden HC 101",
+    "columns": [
+      {
+        "id": "speakers",
+        "name": "Speaker",
+        "type": "Speaker",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "episodeTitle",
+        "name": "Episode Name",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "episodeNumber",
+        "name": "Episode Number",
+        "type": "Int",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "publishedDate",
+        "name": "Published Date",
+        "type": "Date",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "seriesTitle",
+        "name": "Series Title",
+        "readOnly": true,
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true
+      },
+      {
+        "id": "description",
+        "name": "Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "length",
+        "name": "Length",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "YoutubeIdent",
+        "name": "Youtube ID",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "videoSeriesId",
+        "name": "Series ID",
+        "type": "Series",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "customPlaylistId",
+        "name": "Custom Playlist ID",
+        "type": "CustomPlaylist",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "Youtube.snippet.title",
+        "name": "Youtube Title",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "Youtube.snippet.publishedAt",
+        "name": "Youtube Published",
+        "type": "String",
+        "showInTable": true,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "Youtube.snippet.description",
+        "name": "Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true,
+        "readOnly": true
+      },
+      {
+        "id": "videoTypes",
+        "name": "Type",
+        "type": "VideoType",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "notesURL",
+        "name": "Notes URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "audioURL",
+        "name": "Audio URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "videoURL",
+        "name": "Video URL",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      },
+      {
+        "id": "thumbnailDescription",
+        "name": "Thumbnail Description",
+        "type": "String",
+        "showInTable": false,
+        "showInEditor": true
+      }
+    ]
+  },
+  {
+    "id": "hidden-HC102",
+    "name": "Hidden HC 102",
     "columns": [
       {
         "id": "speakers",
