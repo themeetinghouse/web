@@ -56,10 +56,7 @@
             "class": "SimpleItemTextTab",
             "text": "-We know that pausing in-person Sunday services impacts the donations we receive and need to fuel our ministry. Thank you for your continued generosity during this difficult season as we care for people in new ways and help them meaningfully engage the good news of Jesus. To give, go to our home page and select Make A Difference."
           },
-          {
-            "class": "SimpleItemText",
-            "text": "For deeper thoughts about our role as followers of Jesus, and the role of the church during this season, check out the reflective video we recently filmed with Bruxy at the bottom of this page."
-          },
+
           {
             "class": "SimpleItemText",
             "text": "Thank you for your continued support and prayers as we navigate the changing circumstances in this current reality. Please continue to pray for our entire church family as we lean into our vision and continue to find new and innovative ways of introducing spiritually curious people to the Jesus-centred life."
@@ -91,11 +88,6 @@
           {
             "class": "SimpleItemText",
             "text": "We pray for God’s provision, leading, and the wisdom of the Holy Spirit during this situation. We pray for the health and safety of our church, our cities, our neighbours, and our world. And we continue to pray for Spirit-led courage and creativity as we ask God to use us to serve and love people well."
-          },
-          {
-            "type": "video",
-            "class": "SimpleVideoPlayerIframe",
-            "id": "WaG1S6Laa-4"
           }
         ]
       }

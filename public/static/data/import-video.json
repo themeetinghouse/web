@@ -831,7 +831,7 @@
   },
   {
     "id": "bbq",
-    "name": "Bruxy's Bag of Questions",
+    "name": "Bag of Questions",
     "columns": [
       {
         "id": "speakers",
@@ -6449,7 +6449,7 @@
   },
   {
     "id": "hidden-bbq",
-    "name": "Hidden Bruxy's Bag of Questions",
+    "name": "Hidden Bag of Questions",
     "columns": [
       {
         "id": "speakers",
