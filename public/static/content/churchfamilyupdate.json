@@ -1,0 +1,39 @@
+{
+    "page": {
+      "name": "covid-19-response",
+      "title": "COVID-19 Response",
+      "keywords": "",
+      "description": "",
+      "pageConfig": {
+        "showLive": true,
+        "movingMenu": false,
+        "showLogoText": false,
+        "logoColor": "white",
+        "showSearch": false,
+        "showFooter": false,
+        "showMenu": false,
+        "isPopup": true,
+        "navigateOnPopupClose": "/"
+      },
+      "content": [
+        {
+          "type": "og-tags",
+          "image": "/static/images/og-images/covid19.jpg",
+          "url": "https://www.themeetinghouse.com/covid19",
+          "title": "Church Family Update",
+          "description": "Check out the latest updates from The Meeting House."
+        },
+        {
+          "type": "simple",
+          "header1": "Church Family Update",
+          "text": [
+            {
+              "class": "SimpleItemText",
+              "text": "An invitation has gone out to our church family Town Hall that is happening tomorrow where we will share the outcome of the investigation into the allegations of sexual misconduct against Bruxy Cavey.  After our church community conversation, we will be releasing a public statement. If you did not receive an invitation and feel you should have, please email hello@themeetinghouse.com. Thank you."
+            }
+          ]
+        }
+      ]
+    }
+  }
+  

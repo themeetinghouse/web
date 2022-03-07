@@ -25,9 +25,9 @@
       {
         "type": "hero",
         "style": "full",
-        "showSpecial": false,
-        "showSpecialNavigateTo": "",
-        "showSpecialText": "",
+        "showSpecial": true,
+        "showSpecialNavigateTo": "/churchfamilyupdate",
+        "showSpecialText": "Update",
         "image1": [
           {
             "src": "/static/images/homepage-1-1.jpg",
