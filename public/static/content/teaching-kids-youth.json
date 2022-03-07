@@ -26,7 +26,7 @@
         "style": "hero",
         "class": "teaching-kids-youth",
         "header1": "One Story Teaching Videos",
-        "options": ["Kids", "Jr. High", "Youth", "Sr. High"],
+        "options": ["Kids", "Jr. High", "Youth"],
         "group": "kids+youth",
         "sortOrder": "DESC"
       },
