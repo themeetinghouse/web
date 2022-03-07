@@ -60,13 +60,7 @@
             "imageAlt": "Watching the teaching from Jimmy during The Meeting House Sunday morning livestream.",
             "navigateTo": "/live"
           },
-          {
-            "title": "Home Church",
-            "text": "During the week, we meet in smaller groups to share life, grow deeper spiritual friendships, ask questions, and talk openly about living out the teachings of Jesus. Our Home Churches are currently meeting online. Click here to find a group you can connect with.",
-            "imageSrc": "/static/images/corona-3.jpg",
-            "imageAlt": "Online home church meeting using zoom.",
-            "navigateTo": "/home-church"
-          },
+
           {
             "title": "Kids",
             "text": "Our Kidmax program and curriculum for infants to Grade 5 is available online. You can access the videos, activities, and lesson plans (updated weekly) by clicking here.",
