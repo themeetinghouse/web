@@ -48,66 +48,6 @@
         "header1": "Latest Teaching"
       },
       {
-        "type": "content",
-        "style": "banner-cards",
-        "images": [
-          {
-            "src": "/static/photos/banners/promo_godofhope.png",
-            "alt": "Graphic for the God of Hope teaching series.",
-            "linkto": "/videos/God%20of%20Hope/mRGqbDpnOOw"
-          },
-          {
-            "src": "/static/photos/banners/promo_spiritualminds.png",
-            "alt": "Graphic for Spiritual Minds teaching series.",
-            "linkto": "/videos/Spiritual%20Minds/6zVOZCa5Vuo"
-          }
-        ]
-      },
-      {
-        "type": "list",
-        "style": "horizontal",
-        "class": "videos",
-        "subclass": "adult-sunday",
-        "selector": "popular",
-        "showEpisodeNumbers": false,
-        "numberOfDays": 120,
-        "minViews": 900,
-        "header1": "Popular Teaching"
-      },
-      {
-        "type": "list",
-        "style": "horizontal",
-        "class": "videos",
-        "subclass": "adult-sunday-shortcut",
-        "selector": "popular",
-        "showEpisodeNumbers": false,
-        "numberOfDays": 60,
-        "minViews": 0,
-        "numberOfVideos": 10,
-        "header1": "Popular Highlights"
-      },
-      {
-        "type": "list",
-        "style": "horizontalBig",
-        "class": "series-collection",
-        "collection": [
-          "Her Story",
-          "The Death and Life of God",
-          "Origins",
-          "Peacemakers",
-          "Radical Reformation: Our Anabaptist Story",
-          "Inspired",
-          "A Questioning God",
-          "Jesus People",
-          "The Body of Christ",
-          "The Missing Peace",
-          "Peace of Mind",
-          "Jesus and Justice",
-          "The Politics of Peace"
-        ],
-        "header1": "Popular Series"
-      },
-      {
         "type": "list",
         "style": "horizontalBig",
         "class": "series",
@@ -115,22 +55,6 @@
         "limit": 20,
         "sortOrder": "DESC",
         "header1": "All Teaching Series"
-      },
-      {
-        "type": "content",
-        "style": "banner-cards",
-        "images": [
-          {
-            "src": "/static/photos/banners/promo_themissingpeace.png",
-            "alt": "Graphic for The Missing Peace teaching series.",
-            "linkto": "/videos/The%20Missing%20Peace/IU9UwY_OVgg"
-          },
-          {
-            "src": "/static/photos/banners/promo_politicsofpeace.png",
-            "alt": "Graphic for The Politics of Peace teaching series.",
-            "linkto": "/videos/The%20Politics%20of%20Peace/3Axe8nNtXVc"
-          }
-        ]
       },
       {
         "type": "list",
