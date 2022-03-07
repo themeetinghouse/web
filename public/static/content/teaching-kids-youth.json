@@ -66,15 +66,7 @@
         "sortOrder": "DESC",
         "header1": "Youth"
       },
-      {
-        "type": "list",
-        "style": "horizontal",
-        "class": "videos",
-        "subclass": "ky-srhigh",
-        "limit": 25,
-        "sortOrder": "DESC",
-        "header1": "Sr. High"
-      },
+
       {
         "type": "list",
         "style": "horizontalBig",
@@ -102,15 +94,7 @@
         "sortOrder": "DESC",
         "header1": "All Youth Series"
       },
-      {
-        "type": "list",
-        "style": "horizontalBig",
-        "class": "series",
-        "subclass": "ky-srhigh",
-        "limit": 25,
-        "sortOrder": "DESC",
-        "header1": "All Sr. High Series"
-      },
+
       {
         "type": "content",
         "style": "oneImage",
