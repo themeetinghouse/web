@@ -13,6 +13,7 @@
       "showFooter": true,
       "showMenu": true
     },
+
     "content": [
       {
         "type": "og-tags",
@@ -130,7 +131,6 @@
             "title": "Social Media Coordinator",
             "navigateTo": "/static/pdfs/careers/Social Media Coordinator 2022.pdf"
           }
-         
         ],
         "image1": [
           {
