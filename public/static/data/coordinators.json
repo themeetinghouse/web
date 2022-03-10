@@ -45,13 +45,6 @@
     "Position": "Counsellor"
   },
   {
-    "FirstName": "Melinda",
-    "LastName": "Lubbers",
-    "sites": ["BRFD"],
-    "Email": "melinda.lubbers@themeetinghouse.com",
-    "Position": "Compassion Coordinator (Local)"
-  },
-  {
     "FirstName": "Don",
     "LastName": "Corry",
     "sites": ["HMAN"],
@@ -109,12 +102,6 @@
   {
     "FirstName": "Kareema",
     "LastName": "Giscombe-Bartley",
-    "sites": ["BRAM"],
-    "Position": "Compassion Coordinator"
-  },
-  {
-    "FirstName": "Niki",
-    "LastName": "Vammus",
     "sites": ["BRAM"],
     "Position": "Compassion Coordinator"
   },
