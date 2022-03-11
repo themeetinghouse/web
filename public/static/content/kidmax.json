@@ -52,13 +52,13 @@
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/EYLessonMar6.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYLessonMar13.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesMar6.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesMar13.pdf",
             "openNewBrowser": true
           },
           {
@@ -86,21 +86,21 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaMar6.jpg",
-            "alt": "The great people of the Bible all point to Jesus."
+            "src": "/static/images/KidsBigIdeaMar13.jpg",
+            "alt": "Following Jesus isn't always easy, but it changes us forever."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonMar6.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonMar13.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activity",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesMar6.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesMar13.pdf",
             "openNewBrowser": true
           },
           {
