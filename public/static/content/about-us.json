@@ -117,8 +117,8 @@
           },
           {
             "type": "link",
-            "title": "October 2021 - Annual Report and AGM Document",
-            "navigateTo": "/static/pdfs/annual-reports/TMH_AnnualReport_Documents_2021.pdf",
+            "title": "2021 - AGM Document",
+            "navigateTo": "/static/pdfs/annual-reports/TMH_AGMReport_2021_1",
             "openNewBrowser": true
           },
           {
@@ -135,8 +135,8 @@
           },
           {
             "type": "link",
-            "title": "2020 - Annual Report and AGM Document",
-            "navigateTo": "/static/pdfs/annual-reports/2020_Annual_Report_combined.pdf",
+            "title": "2020 - AGM Document",
+            "navigateTo": "/static/pdfs/annual-reports/2020_AGM_Report_1.pdf",
             "openNewBrowser": true
           }
         ]
