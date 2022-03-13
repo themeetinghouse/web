@@ -73,7 +73,7 @@ const liveInit = {
   startTime: '06:00',
   videoStartTime: '10:00',
   endTime: '13:00',
-  prerollYoutubeId: 'na1g4ht-yNs',
+  prerollYoutubeId: 'Gob46UJuNis',
   liveYoutubeId: '',
   liveVimeoId: '',
   showChat: true,

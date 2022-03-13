@@ -495,7 +495,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
             className="LiveVideoPlayerIframe"
             allowFullScreen
             src={
-              'https://www.youtube.com/embed/na1g4ht-yNs?color=white&autoplay=1&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0'
+              'https://www.youtube.com/embed/Gob46UJuNis?color=white&autoplay=1&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0'
             }
             frameBorder="0"
             allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
