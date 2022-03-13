@@ -329,7 +329,7 @@ if __name__ == '__main__':
                             for text_item in item['text']:
                                 assert(isinstance(text_item, dict))
                                 for i in text_item:
-                                    assert(i in ['text', 'class', 'id', 'type'])
+                                    assert(i in ['text', 'class', 'id', 'type', 'href'])
                                     assert(isinstance(text_item[i], str))
                         
                         elif item_type == 'form':

@@ -50,7 +50,30 @@
           },
           {
             "class": "SimpleItemText",
-            "text": "The Overseers Board of The Meeting House encourages anyone who has experienced sexual misconduct by a pastor, staf member, or lay leader within The Meeting House to contact Melodie confidentially at mbissell@traumacareconsulting.com, or by calling 416-518-1058, or by filling out the online referral form at https://form.jotform.com/220701021515538."
+            "text": "The Overseers Board of The Meeting House encourages anyone who has experienced sexual misconduct by a pastor, staff member, or lay leader within The Meeting House to contact Melodie confidentially at: "
+          },
+          {
+            "type": "link",
+            "class": "SimpleItemLink",
+            "text": "416-518-1058",
+            "href": "tel:416-518-1058"
+          },
+
+          {
+            "type": "link",
+            "class": "SimpleItemLink",
+            "text": "mbissell@traumacareconsulting.com",
+            "href": "mailto:mbissell@traumacareconsulting.com"
+          },
+          {
+            "type": "link",
+            "class": "SimpleItemLink",
+            "text": "Online referral form",
+            "href": "https://form.jotform.com/220701021515538"
+          },
+          {
+            "class": "SimpleItemText",
+            "text": " "
           },
           {
             "class": "SimpleItemText",

@@ -66,6 +66,17 @@
     margin-bottom: 1vw;
     font-size: 1.2vw;
   }
+  .SimpleItemLink {
+    color: #ffffff;
+    font-family: Graphik Web;
+    width: 60vw;
+    margin-bottom: 0vw;
+    font-size: 1.2vw;
+    display: block;
+  }
+  .SimpleItemLink:hover {
+    cursor: pointer;
+  }
   .SimpleItemTextTab {
     color: #ffffff;
     font-family: Graphik Web;

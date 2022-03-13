@@ -52,6 +52,10 @@ export default class ContentItem extends React.Component<Props, State> {
                 frameBorder="0"
                 allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               ></iframe>
+            ) : item.type === 'link' ? (
+              <a className={item.class} href={item.href}>
+                {item.text}
+              </a>
             ) : (
               <div className={item.class}>{item.text}</div>
             );
