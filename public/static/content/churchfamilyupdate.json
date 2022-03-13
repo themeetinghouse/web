@@ -20,14 +20,46 @@
         "type": "og-tags",
         "image": "/static/images/og-images/covid19.jpg",
         "url": "https://www.themeetinghouse.com/covid19",
-        "title": "Church Family Update",
-        "description": "Check out the latest updates from The Meeting House."
+        "title": "Update: Victim Advocacy Resource",
+        "description": "Latest updates from The Meeting House."
       },
       {
         "type": "simple",
         "header1": "Church Family Update",
         "header2": "",
         "text": [
+          {
+            "class": "SimpleItemTextBold",
+            "text": "March 12, 2022"
+          },
+          {
+            "class": "SimpleItemText",
+            "text": "The Overseers Board is committed to fostering a safe space for everyone at The Meeting House. As a tangible first step in the journey ahead, we have engaged a third-party victim advocate, Melodie Bissell, to independently and confidentially receive any concerns or allegations of sexual misconduct (including sexual abuse, sexual harassment, or abuse of power or authority) by a pastor, staff member, or lay leader within The Meeting House, whether current or historical."
+          },
+          {
+            "class": "SimpleItemText",
+            "text": "Melodie has extensive professional experience and academic credentials working with victims of sexual misconduct within church and ministry settings. She has provided guidance and wisdom to our Overseers Board in recent weeks as we have processed and communicated the findings and outcome of the independent external investigation pertaining to Bruxy Cavey."
+          },
+          {
+            "class": "SimpleItemText",
+            "text": "Melodie will provide, to any person who contacts her, confidential guidance and access to resources, including counseling resourcing and/or pastoral support in a victim-centric and trauma informed manner. She will also provide guidance to The Meeting House including, if the person consents, information to permit The Meeting House to take appropriate next steps."
+          },
+          {
+            "class": "SimpleItemText",
+            "text": "Our desire, as we follow Jesus, is to create a culture of honesty, accountability, and transparency, and to do everything possible to foster a safe and caring church community. There is no room for sexual misconduct in our church."
+          },
+          {
+            "class": "SimpleItemText",
+            "text": "The Overseers Board of The Meeting House encourages anyone who has experienced sexual misconduct by a pastor, staf member, or lay leader within The Meeting House to contact Melodie confidentially at mbissell@traumacareconsulting.com, or by calling 416-518-1058, or by filling out the online referral form at https://form.jotform.com/220701021515538."
+          },
+          {
+            "class": "SimpleItemText",
+            "text": "Anyone who reaches out to Melodie through these channels will receive a response within two days."
+          },
+          {
+            "class": "SimpleItemTextBold",
+            "text": "March 9, 2022"
+          },
           {
             "class": "SimpleItemText",
             "text": "March 9 - Due to the hundreds of questions we’ve received already, and the activity we’re seeing on social media, we’ve decided to host our Q & A Town Hall at the earliest opportunity."
@@ -41,8 +73,12 @@
             "text": "Maggie John, Chair of the Overseers Board"
           },
           {
+            "class": "SimpleItemTextBold",
+            "text": "March 8, 2022"
+          },
+          {
             "class": "SimpleItemText",
-            "text": "March 8 - We shared with our church community in early December that allegations of sexual misconduct were made against Bruxy Cavey. As soon as this information came to the attention of the Overseers Board, the Overseers put him on a leave of absence, and the church retained an external independent third-party investigator to conduct a thorough investigation into the allegations and to provide the Overseers Board with the findings."
+            "text": "We shared with our church community in early December that allegations of sexual misconduct were made against Bruxy Cavey. As soon as this information came to the attention of the Overseers Board, the Overseers put him on a leave of absence, and the church retained an external independent third-party investigator to conduct a thorough investigation into the allegations and to provide the Overseers Board with the findings."
           },
           {
             "class": "SimpleItemText",
