@@ -41,6 +41,8 @@ export default function Videos({ isPlaylist }: Params): ReactElement | null {
           }) as Promise<GraphQLResult<GetVideoQuery>>);
 
           if (!json.data?.getVideo) history.replace('/not-found');
+          if (json.data?.getVideo?.series?.seriesType?.includes('hidden'))
+            history.replace('/not-found');
           else setData(json.data?.getVideo);
         } catch (e) {
           console.error(e);
