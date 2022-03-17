@@ -58,11 +58,6 @@
         "list": [
           {
             "type": "link",
-            "title": "Events & Rentals Manager (contract)",
-            "navigateTo": "/static/pdfs/careers/Events & Rentals Manager - 2022 Contract.pdf"
-          },
-          {
-            "type": "link",
             "title": "Video Editor Summer Intern",
             "navigateTo": "/static/pdfs/careers/Video Editor Intern 2022.pdf"
           },
