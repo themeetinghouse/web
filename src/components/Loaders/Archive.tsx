@@ -5,10 +5,10 @@ import { Analytics } from 'aws-amplify';
 
 const seriesContent = fetch(`/static/content/series-archive.json`)
   .then((response) => response.json())
-  .catch((e) => console.log(e));
+  .catch((e: any) => console.log(e));
 const videoContent = fetch(`/static/content/video-archive.json`)
   .then((response) => response.json())
-  .catch((e) => console.log(e));
+  .catch((e: any) => console.log(e));
 
 interface Params {
   archiveType: string;
@@ -40,7 +40,7 @@ export default class Archive extends React.Component<
     Analytics.record({
       name: 'pageVisit',
       attributes: { page: 'archive' },
-    }).catch((e) => {
+    }).catch((e: any) => {
       console.log(e);
     });
   }

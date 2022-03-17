@@ -43,7 +43,7 @@ const RedirectDashboard = () => {
           setRedirects(data.listRedirects.items);
         }
       })
-      .catch((e) => {
+      .catch((e: any) => {
         console.error(e);
       });
   }, []);

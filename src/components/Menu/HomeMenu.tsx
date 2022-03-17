@@ -75,7 +75,7 @@ class HomeMenu extends React.Component<Props, State> {
         .then((myJson) => {
           this.setState({ MainMenuItems: myJson });
         })
-        .catch((e) => console.log(e));
+        .catch((e: any) => console.log(e));
     else
       fetch('/static/data/MainMenu.json')
         .then(function (response) {
@@ -84,7 +84,7 @@ class HomeMenu extends React.Component<Props, State> {
         .then((myJson) => {
           this.setState({ MainMenuItems: myJson });
         })
-        .catch((e) => console.log(e));
+        .catch((e: any) => console.log(e));
 
     this.toggle = this.toggle.bind(this);
     this.state = {

@@ -25,7 +25,7 @@ export default function Videos({ isPlaylist }: Params): ReactElement | null {
     Analytics.record({
       name: 'pageVisit',
       attributes: { page: 'video-player' },
-    }).catch((e) => {
+    }).catch((e: any) => {
       console.log(e);
     });
   }, []);
@@ -49,7 +49,7 @@ export default function Videos({ isPlaylist }: Params): ReactElement | null {
           Analytics.record({
             name: 'error',
             attributes: { page: 'video-player' },
-          }).catch((e) => {
+          }).catch((e: any) => {
             console.log(e);
           });
           history.replace('/not-found');
@@ -69,6 +69,8 @@ export default function Videos({ isPlaylist }: Params): ReactElement | null {
               history.replace('/not-found');
             else if (videos[0] == null || videos[0] == undefined)
               history.replace('/not-found');
+            else if (json.data?.getSeries?.seriesType?.includes('hidden'))
+              history.replace('/not-found');
             else setData(videos[0] as any);
           }
         } catch (e) {
@@ -76,7 +78,7 @@ export default function Videos({ isPlaylist }: Params): ReactElement | null {
           Analytics.record({
             name: 'error',
             attributes: { page: 'video-player' },
-          }).catch((e) => {
+          }).catch((e: any) => {
             console.log(e);
           });
           history.replace('/not-found');

@@ -43,7 +43,7 @@ export default function Notes() {
     Analytics.record({
       name: 'pageVisit',
       attributes: { page: 'notes' },
-    }).catch((e) => {
+    }).catch((e: any) => {
       console.log(e);
     });
 
@@ -69,7 +69,7 @@ export default function Notes() {
       Analytics.record({
         name: 'error',
         attributes: { page: date },
-      }).catch((e) => {
+      }).catch((e: any) => {
         console.log(e);
       });
       history.replace('/not-found');
