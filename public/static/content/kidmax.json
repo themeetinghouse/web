@@ -99,7 +99,7 @@
           },
           {
             "type": "link",
-            "title": "Download Kids Activity",
+            "title": "Download Kids Activities",
             "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesMar20.pdf",
             "openNewBrowser": true
           },
