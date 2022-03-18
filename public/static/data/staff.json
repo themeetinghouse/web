@@ -235,6 +235,15 @@
   },
   {
     "Staff": true,
+    "FirstName": "Isaac",
+    "LastName": "Weber",
+    "Phone": "905.287.7000",
+    "Position": "Events and Rentals Manager",
+    "sites": ["Operations"],
+    "Email": "isaac.weber@themeetinghouse.com"
+  },
+  {
+    "Staff": true,
     "FirstName": "Jared",
     "LastName": "Taylor",
     "Phone": "905.287.7000",
@@ -454,7 +463,7 @@
     "FirstName": "Lynda",
     "LastName": "Thoms",
     "Phone": "905.287.7000, ext. 7067",
-    "Position": "Events and Rentals Manager",
+    "Position": "Events and Rentals Manager (on leave)",
     "sites": ["Operations"],
     "Email": "lynda@themeetinghouse.com"
   },
@@ -517,7 +526,7 @@
     "FirstName": "Natalia",
     "LastName": "D'Amico",
     "Phone": "905.287.7000, ext. 825",
-    "Position": "Communications & Curriculum Project Coordinator",
+    "Position": "Communications & Curriculum Project Coordinator (on leave)",
     "sites": ["Communications", "Children"],
     "Email": "Natalia.Damico@themeetinghouse.com"
   },
