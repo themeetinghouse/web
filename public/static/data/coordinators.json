@@ -29,6 +29,14 @@
     "Position": "Counsellor"
   },
   {
+    "FirstName": "Jordan",
+    "LastName": "Heywood",
+    "Phone": "416.305.0586",
+    "sites": ["Counsellors"],
+    "Email": "jordan@enlivencs.ca",
+    "Position": "Counsellor"
+  },
+  {
     "FirstName": "Rebecca",
     "LastName": "Roberts",
     "Phone": "647.283.3856",
