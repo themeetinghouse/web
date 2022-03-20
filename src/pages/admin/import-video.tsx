@@ -97,7 +97,7 @@ class Index extends React.Component<EmptyProps, State> {
         console.log(myJson);
         this.setState({ videoTypes: myJson });
       })
-      .catch((e) => {
+      .catch((e: any) => {
         console.log({ 'Exception: ': e });
       });
     this.getPlaylistTypes();

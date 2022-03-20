@@ -68,7 +68,7 @@ class RequireNewPassword extends React.Component<EmptyProps, State> {
         .then(async () => {
           await this.changeAuthState(actions, 'signedIn');
         })
-        .catch((e) => {
+        .catch((e: any) => {
           console.log({ Error: e });
         });
     } catch (e: any) {

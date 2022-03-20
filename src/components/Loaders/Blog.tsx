@@ -28,20 +28,19 @@ export default function Blog(): ReactElement | null {
     Auth.currentCredentials().then((a) => {
       Analytics.record(
         {
-          eventType: 'Interactions',
-          userId: a.identityId,
-          properties: {
+          name: 'Interactions',
+          attributes: {
             user_id: a.identityId,
             itemId: match.params.blog,
-            TIMESTAMP: Date.now(),
+            TIMESTAMP: Date.now().toString(),
           },
         },
         'AmazonPersonalize'
       )
-        .then((e) => {
+        .then((e: any) => {
           console.log({ e: e });
         })
-        .catch((e) => {
+        .catch((e: any) => {
           console.log({ PersonalizeError: e });
         });
     });
@@ -49,7 +48,7 @@ export default function Blog(): ReactElement | null {
     Analytics.record({
       name: 'pageVisit',
       attributes: { page: 'blog-post' },
-    }).catch((e) => {
+    }).catch((e: any) => {
       console.log({ e: e });
     });
 
@@ -75,7 +74,7 @@ export default function Blog(): ReactElement | null {
         Analytics.record({
           name: 'error',
           attributes: { page: 'blog-post' },
-        }).catch((e) => {
+        }).catch((e: any) => {
           console.log({ e: e });
         });
         history.replace('/not-found');

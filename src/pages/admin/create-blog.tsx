@@ -692,7 +692,7 @@ class Index extends React.Component<EmptyProps, State> {
         .then((json) => {
           console.log({ 'Success mutations.deleteBlogSeriesBridge: ': json });
         })
-        .catch((e) => {
+        .catch((e: any) => {
           console.error(e);
         });
     });
@@ -716,7 +716,7 @@ class Index extends React.Component<EmptyProps, State> {
         .then((json) => {
           console.log({ 'Success mutations.createBlogSeriesBridge: ': json });
         })
-        .catch((e) => {
+        .catch((e: any) => {
           console.error(e);
         });
     });

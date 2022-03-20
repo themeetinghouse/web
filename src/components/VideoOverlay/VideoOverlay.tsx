@@ -13,13 +13,13 @@ const playerPageContent = fetch('/static/content/video-player.json')
   .then(function (response) {
     return response.json();
   })
-  .catch((e) => console.log(e));
+  .catch((e: any) => console.log(e));
 
 const playlistPageContent = fetch('/static/content/video-playlist.json')
   .then(function (response) {
     return response.json();
   })
-  .catch((e) => console.log(e));
+  .catch((e: any) => console.log(e));
 
 interface Props {
   data: any;

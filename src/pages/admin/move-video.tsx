@@ -97,13 +97,11 @@ class Index extends React.Component<EmptyProps, State> {
       };
     });
     console.log(b);
-    const Sunday = b.filter(
-      (a) => a.seriesType == 'adult-sunday' && a.endDate == ''
-    );
-    const Sunday2 = b.filter((a) => a.seriesType == 'adult-sunday');
-    console.log(Sunday);
-    console.log(Sunday2);
-    const all = Sunday.map(async (z) => {
+    const BBQ = b.filter((a) => a.seriesType == 'bbq');
+
+    console.log(BBQ);
+
+    const all = BBQ.map(async (z) => {
       if (z && z.id) {
         const r: UpdateSeriesInput = {
           id: z.id,

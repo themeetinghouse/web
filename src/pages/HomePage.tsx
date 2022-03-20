@@ -59,7 +59,7 @@ class HomePage extends React.Component<RouteComponentProps, State> {
           this.setState({ redirect: { id: '', to: '' } as RedirectType });
         }
       })
-      .catch((e) => {
+      .catch((e: any) => {
         if (e.errors) captureException(e.errors);
         else captureException(e);
         // set non-null state as we want the rest of the app to load

@@ -118,7 +118,7 @@ class ContentItem extends React.Component<Props, State> {
           console.log(err);
         }
       })
-      .catch((e) => console.log(e));
+      .catch((e: any) => console.log(e));
     fetch('/static/content/search/beginSearch.json')
       .then(async (e: Response) => {
         try {
