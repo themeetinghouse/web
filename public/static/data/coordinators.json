@@ -187,6 +187,18 @@
     "Position": "Connect Coordinator"
   },
   {
+    "FirstName": "Anne",
+    "LastName": "Innis",
+    "sites": ["BURL"],
+    "Position": "Prayer Coordinator"
+  },
+  {
+    "FirstName": "Sarah",
+    "LastName": "Hildebrandt",
+    "sites": ["BURL"],
+    "Position": "Prayer Coordinator"
+  },
+  {
     "FirstName": "Steve",
     "LastName": "Robinson",
     "sites": ["HMMT"],
