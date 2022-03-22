@@ -106,11 +106,11 @@
     "name": "Hamilton Mountain",
     "pastorEmail": "Dagmar.Morgan-Sinclair@themeetinghouse.com",
     "location": {
-      "longitude": -79.95394369999997,
-      "latitude": 43.2272571,
-      "address": "SilverCity Ancaster, 771 Golf Links Road"
+      "longitude": -79.78769676593981,
+      "latitude": 43.19427197465928,
+      "address": "Family Church of Heritage Green, 360 Isaac Brock Drive, Stoney Creek"
     },
-    "serviceTimes": ["10:00"]
+    "serviceTimes": ["2:00pm"]
   },
   {
     "id": "toronto-east",
