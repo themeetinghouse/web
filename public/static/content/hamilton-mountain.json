@@ -46,8 +46,8 @@
           }
         ],
         "header1": "Hamilton Mountain",
-        "text1": "Sundays at 2:00pm",
-        "text2": "",
+        "text1": "Select Sundays at 2:00pm",
+        "text2": "Join us online this Sunday.",
         "customLiveLink": "themeetinghouse.com/live",
         "register": true,
         "addToCalendar": false,
