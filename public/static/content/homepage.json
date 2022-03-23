@@ -68,11 +68,6 @@
             "type": "link",
             "title": "Find Community",
             "navigateTo": "/community"
-          },
-          {
-            "type": "link",
-            "title": "Sunday Registration",
-            "navigateTo": "/registration"
           }
         ],
         "image1": [
