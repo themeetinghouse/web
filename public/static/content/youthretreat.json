@@ -1,0 +1,78 @@
+{
+    "page": {
+      "name": "Youth Retreat",
+      "title": "Prayer",
+      "keywords": "retreat, youth, youth retreat, reboot, spring 2022, kids, muskoka woods",
+      "description": "The page for Youth Retreat Spring 2022 at The Meeting House.",
+      "pageConfig": {
+        "showLive": true,
+        "movingMenu": false,
+        "showLogoText": true,
+        "logoColor": "black",
+        "showSearch": true,
+        "showFooter": true,
+        "showMenu": true
+      },
+      "content": [
+        {
+          "type": "og-tags",
+          "image": "/static/images/HAMILTON_PHOTOS_-15_smaller.jpg",
+          "url": "https://www.themeetinghouse.com/youthretreat",
+          "title": "Youth Retreat Spring 2022",
+          "description": "Join us at Muskoka Woods for an epic Reboot retreat!"
+        },
+        {
+          "type": "hero",
+          "style": "full",
+          "image1": [
+            {
+                "src": "/static/images/Youth_Event_FB_Cover.jpg",
+                "alt": "Hands in the air and colourful clouds with a logo on top."
+            }
+          ],
+          "header1": "Youth Retreat Spring 2022",
+          "header2": "",
+          "text1": "Generic information on youth retreat at TMH and why we're doing this."
+        },
+        {
+          "type": "content",
+          "style": "mad",
+          "header1": "REBOOT",
+          "text1": "Specific information about Reboot with Reboot graphic.",
+          "list": [
+            {
+              "type": "arrow",
+              "title": "Register to attend",
+              "navigateTo": "/static/pdfs/annual-reports/prayer/TMH-2022-RTH-Booklet-Digital.pdf"
+            }
+          ],
+          "image1": [
+            {
+              "src": "/static/images/Road-to-Hope2.jpg",
+              "alt": "Graphic with the words road to hope."
+            }
+          ]
+        },
+        {
+          "type": "content",
+          "style": "oneImage",
+          "header1": "Other info?",
+          "header2": "",
+          "text1": "Is there anything else you'd want to include?",
+          "image1": [
+            {
+              "src": "/static/images/corona-6.jpg",
+              "alt": "A man smiling while standing by a waterfall."
+            }
+          ],
+          "list": [
+            {
+              "type": "button",
+              "title": "Sign up for 24 Hours of Prayer",
+              "navigateTo": "https://meetinghouse.infellowship.com/Forms/467351"
+            }
+          ]
+        }
+      ]
+    }
+  }
