@@ -52,13 +52,13 @@
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/EYLessonMar20.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYLessonMar27.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesMar20.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EYActivitiesMar27.pdf",
             "openNewBrowser": true
           },
           {
@@ -86,21 +86,21 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaMar20.jpg",
-            "alt": "Jesus brings justice."
+            "src": "/static/images/KidsBigIdeaMar27.jpg",
+            "alt": "Communion helps us focus on what Jesus did for us."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonMar20.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsLessonMar27.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesMar20.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/KidsActivitiesMar27.pdf",
             "openNewBrowser": true
           },
           {
