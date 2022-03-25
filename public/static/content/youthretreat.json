@@ -117,12 +117,12 @@
             {
               "type": "link",
               "title": "COVID protocols",
-              "navigateTo": "https://meetinghouse.infellowship.com/Forms/467351"
+              "navigateTo": "/static/pdfs/youth-files/MW COVID Protocols.pdf"
             },
             {
               "type": "link",
               "title": "Recommended Packing List",
-              "navigateTo": "https://meetinghouse.infellowship.com/Forms/467351"
+              "navigateTo": "/static/pdfs/youth-files/Retreat Packing List.pdf"
             }
           ]
         }
