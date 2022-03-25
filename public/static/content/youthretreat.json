@@ -1,7 +1,7 @@
 {
     "page": {
       "name": "Youth Retreat",
-      "title": "Prayer",
+      "title": "Youth retreat",
       "keywords": "retreat, youth, youth retreat, reboot, spring 2022, kids, muskoka woods",
       "description": "The page for Youth Retreat Spring 2022 at The Meeting House.",
       "pageConfig": {
@@ -16,10 +16,10 @@
       "content": [
         {
           "type": "og-tags",
-          "image": "/static/images/HAMILTON_PHOTOS_-15_smaller.jpg",
+          "image": "/static/images/retreat_reboot.png",
           "url": "https://www.themeetinghouse.com/youthretreat",
           "title": "Youth Retreat Spring 2022",
-          "description": "Join us at Muskoka Woods for an epic Reboot retreat!"
+          "description": "Join us at Muskoka Woods for an epic come back retreat!"
         },
         {
           "type": "hero",
@@ -32,33 +32,81 @@
           ],
           "header1": "Youth Retreat Spring 2022",
           "header2": "",
-          "text1": "Generic information on youth retreat at TMH and why we're doing this."
+          "text1": "The time has come! Think back to some of the most meaningful times in your life. Maybe it was a significant conversation you had at camp, on a road trip, or with teammates. Whatever it was, chances are, it involved things like friends, a beautiful setting, and an impactful experience with God. Because time away has a unique ability to deepen relationships through great experiences together, it is an intentional part of our yearly rhythm."
         },
         {
           "type": "content",
-          "style": "mad",
+          "style": "oneImage",
           "header1": "REBOOT",
-          "text1": "Specific information about Reboot with Reboot graphic.",
-          "list": [
-            {
-              "type": "arrow",
-              "title": "Register to attend",
-              "navigateTo": "/static/pdfs/annual-reports/prayer/TMH-2022-RTH-Booklet-Digital.pdf"
-            }
-          ],
+          "header2": "Jr. and Sr. High Youth Retreat",
+          "text1": "Date: May 6—8, 2022",
+          "text2": "Cost: Earlybird until April 18 - $179; Regular after April 18 - $199",
+          "text3": "The cost covers all of your transportation, accommodations, meals, and a couple surprises. Registration closes May 1, 2022.",
           "image1": [
             {
-              "src": "/static/images/Road-to-Hope2.jpg",
-              "alt": "Graphic with the words road to hope."
+              "src": "/static/images/retreat_reboot.png",
+              "alt": "Graphic for Spring Youth Retreat called Reboot."
+            }
+          ], 
+          "list": [
+            {
+              "type": "link",
+              "title": "Sign up for the retreat",
+              "navigateTo": "https://meetinghouse.infellowship.com/Forms/468250"
+            }
+          ]
+        },
+        {
+          "type": "faq",
+          "header1": "FAQ",
+          "image1": [
+            {
+              "src": "/static/images/peacemakers-9.jpg",
+              "alt": "Timmins City Counselor presenting on Indigenous bundles."
+            }
+          ],
+          "list": [
+            {
+              "type": "question",
+              "question": "What Will We Do?",
+              "answer": [
+                "We’ve designed the program to be simple in its purpose: to encourage the growth of our relationships with one another and with Jesus. We’ll have times of worship, teaching, devotions, and Small Group discussion, as well as a few activities designed purely for fun and laughter together. We hope that this weekend is the start of many life-transforming conversations."
+              ]
+            },
+            {
+              "type": "question",
+              "question": "Where Are We Staying?",
+              "answer": [
+                "We are staying at the beautiful Muskoka Woods Resort, in Lake Rosseau Ontario, where we’ll be served by their lovely staff. We’ll stay in cabins with bunk beds and have all of our bathroom amenities."
+              ]
+            },
+            {
+              "type": "question",
+              "question": "How Do We Get There?",
+              "answer": [
+                "On an amazing, super fun, magical bus! First things first, we’re taking a bus because it’s really practical. But more than that, the bus brings everybody together right away. What better way to start such a relational trip than that?  Whether you feel like you know people or not, you will know people really well by the time we get there. We’ll pass the time with games, snacks, and conversations. The journey is often one of the best parts of a trip!"
+              ]
+            },
+            {
+              "type": "question",
+              "question": "How can I give to subsize the retreat?",
+              "answer": [
+                "Thank you for considering! This has been a tough few years for many financially and your donation helps us ensure that finances don't stand in the way of a student or leader joining the trip.",
+                "There are four ways you can give without writing a cheque or giving cash. This year we are not accepting cash or cheque donations this year as a means to limit the spread of COVID-19.",
+                "Add-on: Already registering a student? Use the 'add-on donation for subsidy funds' option when you choose a ticket type in the registration form. This will automatically add a $50 donation to your ticket.",
+                "Bill Pay: You can donate through your online banking as a bill payment. Just use your personalized giving number plus the code YOU (5 digits + 3 letters) ie. 0####YOU.",
+                "InFellowship: You can donate online through your The Meeting House InFellowship account.",
+                "If you are unable to give through these platforms please contact Rachel Meredith at rachel.meredith@themeetinghouse.com or call her 905.287.7000 ext. 7026"
+              ]
             }
           ]
         },
         {
           "type": "content",
           "style": "oneImage",
-          "header1": "Other info?",
+          "header1": "Important Resources",
           "header2": "",
-          "text1": "Is there anything else you'd want to include?",
+          "text1": "Check out some of the documents below for information you'll need for participating in the retreat. ",
           "image1": [
             {
               "src": "/static/images/corona-6.jpg",
@@ -67,8 +115,13 @@
           ],
           "list": [
             {
-              "type": "button",
-              "title": "Sign up for 24 Hours of Prayer",
+              "type": "link",
+              "title": "COVID protocols",
+              "navigateTo": "https://meetinghouse.infellowship.com/Forms/467351"
+            },
+            {
+              "type": "link",
+              "title": "Recommended Packing List",
               "navigateTo": "https://meetinghouse.infellowship.com/Forms/467351"
             }
           ]
