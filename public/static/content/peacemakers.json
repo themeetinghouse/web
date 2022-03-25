@@ -74,7 +74,7 @@
         "style": "pieChart",
         "text1": "Thanks to your generosity we blew past our goal and raised $271,844 to support peace work that brings healing, reconciliation, and justice to God's creation!",
         "pieChart": {
-          "raised": 271844,
+          "raised": 0,
           "goal": 200000,
           "text": "WE DID IT!"
         },
