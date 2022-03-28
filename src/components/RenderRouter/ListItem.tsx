@@ -1688,6 +1688,7 @@ class ListItem extends React.Component<Props, State> {
 
         return (
           <div className="ListItem horizontal">
+            <div className="InstagramGridRectangle" />
             <div className="ListInstagramContainer">
               {this.state.listData?.map((tile, index: number) => {
                 return this.renderItemRouter(tile, index);
