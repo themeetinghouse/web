@@ -32,7 +32,12 @@
           ],
           "header1": "Month of Prayer",
           "header2": "",
-          "text1": "Join us on a prayer journey through the Lent season, right into Good Friday and Easter. We put together a number of resources to help you engage in prayer and reach for hope. Scroll down for more."
+          "text1": "Join us on a prayer journey through the Lent season, right into Good Friday and Easter. We put together a number of resources to help you engage in prayer and reach for hope. Scroll down for more.",
+          "button1": {
+            "text": "24 Hours of Prayer",
+            "action": "https://meetinghouse.infellowship.com/Forms/467351",
+            "description": "Sign up for 24 hours of prayer."
+          }
         },
         {
           "type": "content",

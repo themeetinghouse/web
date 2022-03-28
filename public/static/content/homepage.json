@@ -68,11 +68,6 @@
             "type": "link",
             "title": "Find Community",
             "navigateTo": "/community"
-          },
-          {
-            "type": "link",
-            "title": "Sunday Registration",
-            "navigateTo": "/registration"
           }
         ],
         "image1": [
@@ -98,6 +93,11 @@
             "type": "link",
             "title": "Monday Evening Prayer Stations",
             "navigateTo": "/prayer-stations"
+          },
+          {
+            "type": "link",
+            "title": "24 Hours of Prayer",
+            "navigateTo": "https://meetinghouse.infellowship.com/Forms/467351"
           }
         ],
         "image1": [

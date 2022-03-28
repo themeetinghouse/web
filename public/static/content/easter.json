@@ -2,7 +2,7 @@
   "page": {
     "name": "easter",
     "title": "Easter",
-    "keywords": "",
+    "keywords": "Easter, passover, palm Sunday",
     "description": "",
     "pageConfig": {
       "showLive": true,
@@ -19,7 +19,7 @@
         "image": "/static/images/easter-hero-2021.jpg",
         "url": "https://www.themeetinghouse.com/easter",
         "title": "Easter with The Meeting House",
-        "description": "April 2 & 4, 2021"
+        "description": "April 14 & 16, 2022"
       },
       {
         "type": "hero",
@@ -37,8 +37,8 @@
       {
         "type": "content",
         "style": "oneImage",
-        "header1": "Easter Sunday",
-        "header2": "April 4, 10:00am EDT",
+        "header1": "Easter Sunday Livestream",
+        "header2": "April 16, 10:00am ET",
         "text1": "Ready to approach Easter in a completely new way? We want to capture the wildly unexpected beauty of Easter we see revealed in Jesus, and share it through a completely reimagined livestream experience.",
         "image1": [
           {
@@ -47,8 +47,8 @@
           }
         ],
         "calendar": {
-          "start": "2021-04-04T10:00:00-04:00",
-          "end": "2021-04-04T11:30:00-04:00",
+          "start": "2022-04-16T10:00:00-04:00",
+          "end": "2022-04-16T11:30:00-04:00",
           "summary": "Easter Sunday",
           "description": "Join The Meeting House's livestream on Easter Sunday.",
           "url": "https://www.themeetinghouse.com/live"
@@ -71,55 +71,6 @@
         "link1Action": "/find-sunday-morning",
         "class": "locations",
         "showLocationSearch": true
-      },
-      {
-        "type": "content",
-        "style": "oneImage",
-        "header1": "Kids Easter Activities",
-        "image1": [
-          {
-            "src": "/static/images/Jesusisalive.jpg",
-            "alt": "Kids Easter Experience"
-          }
-        ],
-        "list": [
-          {
-            "type": "link",
-            "title": "Easter Journey of Hope",
-            "navigateTo": "https://drive.google.com/drive/folders/1g0y8X5AGiS99s8CLmMMoULcpJs0vyZSr",
-            "openNewBrowser": true
-          }
-        ]
-      },
-      {
-        "type": "content",
-        "style": "oneImage",
-        "header1": "Easter Colouring Page",
-        "image1": [
-          {
-            "src": "/static/images/EasterColouringPage2.jpg",
-            "alt": "Easter Colouring Page"
-          }
-        ],
-        "list": [
-          {
-            "type": "link",
-            "title": "Easter Colouring Page",
-            "navigateTo": "/static/pdfs/teaching/EasterColouringPage.pdf",
-            "openNewBrowser": true
-          }
-        ]
-      },
-      {
-        "type": "list",
-        "style": "horizontal",
-        "class": "custom-playlist",
-        "playlist": "Easter",
-        "header1": "Past Easter Services",
-        "sortOrder": "DESC",
-        "margin": {
-          "marginTop": 24
-        }
       },
       {
         "type": "hero",

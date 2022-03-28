@@ -68,6 +68,11 @@
           },
           {
             "type": "link",
+            "title": "Facility Manager",
+            "navigateTo": "/static/pdfs/careers/Facility Manager 2022.pdf"
+          },
+          {
+            "type": "link",
             "title": "Creative Manager",
             "navigateTo": "/static/pdfs/careers/Creative Manager 2022.pdf"
           },

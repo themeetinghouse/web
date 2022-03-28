@@ -1,12 +1,4 @@
 [
-  {
-    "name": "Sunday Registration",
-    "subtext": "Register to attend a Sunday gathering.",
-    "location": "https://www.themeetinghouse.com/registration",
-    "groups": ["default"],
-    "external": true,
-    "icon": "https://www.themeetinghouse.com/static/icons/Register-white.png"
-  },
 {
   "name": "Elders Resources",
   "subtext": "Find all of your elder resources.",

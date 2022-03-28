@@ -187,6 +187,18 @@
     "Position": "Connect Coordinator"
   },
   {
+    "FirstName": "Anne",
+    "LastName": "Innis",
+    "sites": ["BURL"],
+    "Position": "Prayer Coordinator"
+  },
+  {
+    "FirstName": "Sarah",
+    "LastName": "Hildebrandt",
+    "sites": ["BURL"],
+    "Position": "Prayer Coordinator"
+  },
+  {
     "FirstName": "Steve",
     "LastName": "Robinson",
     "sites": ["HMMT"],
@@ -418,10 +430,11 @@
     "Position": "Tech Coordinator"
   },
   {
-    "FirstName": "Jamie",
-    "LastName": "Teeple",
-    "sites": ["BURL"],
-    "Position": "Weekend Service Producer"
+    "FirstName": "Rachel",
+    "LastName": "Cuthill",
+    "sites": ["HMDT"],
+    "Email": "rachel.cuthill@themeetinghouse.com",
+    "Position": "Ministry Associate"
   },
   {
     "FirstName": "Jared",
@@ -468,6 +481,7 @@
     "FirstName": "Marty",
     "LastName": "Barons",
     "sites": ["TOBC"],
+    "Email": "martybarons@gmail.com",
     "Position": "Music Coordinator"
   },
   {

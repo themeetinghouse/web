@@ -136,15 +136,6 @@
   },
   {
     "Staff": true,
-    "FirstName": "Craig",
-    "LastName": "Douglas",
-    "Phone": "905.287.7000",
-    "Position": "Live Stream Worship & Arts",
-    "sites": ["Pastoral"],
-    "Email": "craig.douglas@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
     "FirstName": "Dagmar",
     "LastName": "Morgan-Sinclair",
     "Phone": "905.287.7000, ext. 848",
@@ -382,7 +373,7 @@
     "FirstName": "Laura",
     "LastName": "Hanna",
     "Phone": "905.287.7000, ext. 815",
-    "Position": "Compassion Manager (On Leave)",
+    "Position": "Compassion Manager",
     "sites": ["Site Leadership"],
     "Email": "Laura.Hanna@themeetinghouse.com"
   },
@@ -517,7 +508,7 @@
     "FirstName": "Mike",
     "LastName": "Slack",
     "Phone": "905.287.7000, ext. 831",
-    "Position": "Ancaster Lead Pastor & Online Pastor",
+    "Position": "Ancaster Lead Pastor",
     "sites": ["HMAN", "Pastoral", "GLOBAL"],
     "Email": "Mike.Slack@themeetinghouse.com"
   },

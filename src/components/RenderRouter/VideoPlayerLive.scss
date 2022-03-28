@@ -1,4 +1,4 @@
-@use "sass:math";
+@use 'sass:math';
 
 .dropdown-toggle:after {
   display: none;
@@ -11,6 +11,7 @@
 @media (min-width: 768px) {
   .LiveVideoPlayerTitle {
     font-family: Graphik Web;
+    margin-top: clamp(8px, 48px, 7vw);
     font-weight: bold;
     color: #ffffff;
     font-size: 3vw;
@@ -120,6 +121,7 @@
     align-items: center;
     position: relative;
     left: 10vw;
+    margin-top: 30px;
     width: 80vw;
   }
 
@@ -574,8 +576,9 @@
 
   .LiveVideoPlayerExtra {
     position: relative;
-    left: 5vw;
     display: flex;
+    margin-top: 7vw;
+    padding-left: 20px;
     flex-direction: row;
     flex-wrap: wrap;
     margin-bottom: 5vw;
@@ -584,10 +587,10 @@
   .LiveVideoPlayerDescription {
     font-family: Graphik Web;
     color: #c8c8c8;
-    left: 10vw;
+    left: 20px;
     position: relative;
-    margin-top: 2vw;
-    width: 70vw;
+    margin-top: 16px;
+    width: 90%;
   }
   .LiveVideoPlayerSeriesMenuContainer {
     float: right;
