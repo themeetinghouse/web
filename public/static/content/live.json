@@ -31,6 +31,12 @@
         "showLiveVideos": true,
         "showAlternateLiveVideos": false,
         "showNotes": false,
+        "notLiveSettings": {
+            "title": "Livestream",
+            "showAddToCalendar": true,
+            "showConnectButton": true,
+            "notLiveMessage": "Welcome to our live page. You are in the right place but we don't have any live streams happening right now. Please check out one of our past live streams or click on the connect button so we can get to know you a little bit better. We are excited that you are here and are looking forward to seeing you again soon."
+        },
         "showKidsVideos": true,
         "menu": [
           {
