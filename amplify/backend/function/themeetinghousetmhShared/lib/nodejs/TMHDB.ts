@@ -3,12 +3,14 @@ import Amplify from '@aws-amplify/core';
 import * as queries from './queries';
 import * as mutations from './mutations';
 const aws = require('aws-sdk');
+const apiKey = 'da2-z4ilyrquhnagtbiosodc6qq4kq';
 
 Amplify.configure({
   aws_appsync_graphqlEndpoint:
     process.env.API_THEMEETINGHOUSE_GRAPHQLAPIENDPOINTOUTPUT,
   aws_appsync_region: process.env.region,
   aws_appsync_authenticationType: 'AMAZON_COGNITO_USER_POOLS',
+  aws_appsync_apiKey: apiKey,
   Auth: {
     mandatorySignIn: false,
     region: process.env.region,
@@ -16,6 +18,7 @@ Amplify.configure({
     identityPoolRegion: process.env.region,
     userPoolWebClientId: process.env.userPoolWebClientId,
     identityPoolId: process.env.identityPoolId,
+    apiKey: apiKey,
   },
 });
 export default class TMHDB {
@@ -54,6 +57,135 @@ export default class TMHDB {
     } catch (error: any) {
       console.log({ ERROR: error });
       return { statusCode: '402', error: { message: error.message } };
+    }
+  }
+
+  static async getRetryableGraphQLOperationPromise(query, args, retry) {
+    if (args.itemId.length == 0) return Promise.resolve(null);
+    if (!retry) retry = 5;
+    const qry = Amplify.API.graphql({
+      query: query,
+      variables: args,
+      authMode: 'API_KEY',
+    });
+
+    try {
+      return await qry;
+    } catch (error) {
+      console.log('Promise failure caught: %o', error);
+      if (retry > 0) {
+        console.log(retry);
+        return TMHDB.getRetryableGraphQLOperationPromise(query, args, --retry);
+      } else return Promise.resolve(null);
+    }
+  }
+  static async getAllGroups(nextToken) {
+    try {
+      const login = await TMHDB.ensureLogin();
+      if (login != null) return login;
+
+      console.log('Starting getAllGroups');
+      const json = await Amplify.API.graphql({
+        query: queries.listF1ListGroup2s,
+        variables: {
+          nextToken: nextToken,
+        },
+        authMode: 'API_KEY',
+      });
+      console.log('Done Get listF1ListGroup2s');
+      console.log(json);
+      if (json.data.listF1ListGroup2s.nextToken != null)
+        return [
+          ...json.data.listF1ListGroup2s.items,
+          ...(await TMHDB.getAllGroups(json.data.listF1ListGroup2s.nextToken)),
+        ];
+      else return json.data.listF1ListGroup2s.items;
+    } catch (json: any) {
+      console.log({ 'Error getting recipients': json.errors });
+      console.log(json);
+      if (json.data.listF1ListGroup2s.nextToken != null)
+        return [
+          ...json.data.listF1ListGroup2s.items,
+          ...(await TMHDB.getAllGroups(json.data.listF1ListGroup2s.nextToken)),
+        ];
+      else return json.data.listF1ListGroup2s.items;
+    }
+  }
+  static async addGroup(item) {
+    try {
+      const login = await TMHDB.ensureLogin();
+      if (login != null) return login;
+
+      const json = await API.graphql({
+        query: mutations.createF1ListGroup2,
+        authMode: 'AMAZON_COGNITO_USER_POOLS',
+        variables: { input: item },
+      });
+    } catch (json: any) {
+      console.log(item);
+      console.log(json);
+      console.log({ 'Error getting addGroup': json.errors });
+      console.log({ 'Error getting addGroup': json.errors[0].path });
+      console.log({ 'Error getting addGroup': json.errors[0].locations });
+    }
+  }
+  static async updateGroup(item) {
+    try {
+      const login = await TMHDB.ensureLogin();
+      if (login != null) return login;
+
+      const json = await API.graphql({
+        query: mutations.updateF1ListGroup2,
+        authMode: 'AMAZON_COGNITO_USER_POOLS',
+        variables: { input: item },
+      });
+    } catch (json: any) {
+      console.log({ 'Error getting updateGroup': json.errors });
+      console.log(json);
+    }
+  }
+  static async deleteGroup(item) {
+    try {
+      const login = await TMHDB.ensureLogin();
+      if (login != null) return login;
+
+      const json = await API.graphql({
+        query: mutations.deleteF1ListGroup2,
+        authMode: 'AMAZON_COGNITO_USER_POOLS',
+        variables: { input: { id: item.id } },
+      });
+    } catch (json: any) {
+      console.log({ 'Error getting deleteGroup': json.errors });
+      console.log(json);
+    }
+  }
+  static async f1ListGroupTypes() {
+    try {
+      const login = await TMHDB.ensureLogin();
+      if (login != null) return login;
+
+      console.log('Starting groupMemberByGroup');
+      const json: any = await API.graphql({
+        query: queries.f1ListGroupTypes,
+        authMode: 'API_KEY',
+      });
+      console.log('Done Get f1ListGroupTypes');
+      var result;
+      if (json.data.F1ListGroupTypes.groupTypes.groupType)
+        result = json.data.F1ListGroupTypes.groupTypes.groupType.filter(
+          (item) => item.isWebEnabled == 'true'
+        );
+      else result = [];
+      return result;
+    } catch (json: any) {
+      console.log({ 'Error getting recipients': json.errors });
+      var result;
+      if (json.data.F1ListGroupTypes.groupTypes.groupType)
+        result = json.data.F1ListGroupTypes.groupTypes.groupType.filter(
+          (item) => item.isWebEnabled == 'true'
+        );
+      else result = [];
+      return result;
     }
   }
   static async getUser(id: string) {

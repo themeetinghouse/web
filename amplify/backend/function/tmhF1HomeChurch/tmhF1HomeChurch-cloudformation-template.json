@@ -43,6 +43,10 @@
     },
     "s3Key": {
       "Type": "String"
+    },
+    "functionthemeetinghousetmhSharedArn": {
+      "Type": "String",
+      "Default": "functionthemeetinghousetmhSharedArn"
     }
   },
   "Conditions": {
@@ -119,8 +123,12 @@
             "Arn"
           ]
         },
-        "Runtime": "nodejs12.x",
-        "Layers": [],
+        "Runtime": "nodejs14.x",
+        "Layers": [
+          {
+            "Ref": "functionthemeetinghousetmhSharedArn"
+          }
+        ],
         "Timeout": "425",
         "Code": {
           "S3Bucket": {

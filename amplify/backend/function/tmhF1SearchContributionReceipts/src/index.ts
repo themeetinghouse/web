@@ -88,11 +88,11 @@ export const handler = async (event) => {
       };
       console.log(z);
       return z;
-    } catch (e) {
+    } catch (e: any) {
       console.log({ error: e });
       return { statusCode: '401', error: 'Login Error' + e };
     }
-  } catch (error) {
+  } catch (error: any) {
     console.log({ ERROR: error });
     return { statusCode: '402', error: { message: error.message } };
   }
