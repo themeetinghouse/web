@@ -136,15 +136,6 @@
   },
   {
     "Staff": true,
-    "FirstName": "Craig",
-    "LastName": "Douglas",
-    "Phone": "905.287.7000",
-    "Position": "Live Stream Worship & Arts",
-    "sites": ["Pastoral"],
-    "Email": "craig.douglas@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
     "FirstName": "Dagmar",
     "LastName": "Morgan-Sinclair",
     "Phone": "905.287.7000, ext. 848",
