@@ -12,6 +12,7 @@ type ContentList = Array<
   | {
       type: 'button';
       navigateTo: string;
+      buttonColor?: string;
       title: string;
     }
   | {
@@ -90,7 +91,7 @@ function ContentItem({ content }: Props) {
           return (
             <div key={id}>
               <LinkButton
-                className="contentButton"
+                className={`contentButton ${item.buttonColor ?? ''}`}
                 to={item.navigateTo}
                 newWindow={item.navigateTo.includes('http')}
               >
