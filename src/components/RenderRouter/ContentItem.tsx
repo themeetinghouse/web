@@ -46,6 +46,9 @@ interface ContentType extends LocationQuery {
   header1?: string;
   header2?: string;
   text1?: string;
+  text2?: string;
+  text3?: string;
+  text4?: string;
   list?: ContentList;
   reverse?: boolean;
   pieChart?: {
@@ -162,6 +165,9 @@ function ContentItem({ content }: Props) {
               <h1 className="oneImageH1">{content.header1}</h1>
               <h2 className="oneImageH2">{content.header2}</h2>
               <div className="oneImageText">{content.text1}</div>
+              <div className="oneImageText">{content.text2}</div>
+              <div className="oneImageText">{content.text3}</div>
+              <div className="oneImageText">{content.text4}</div>
               <div className="oneImageList">{renderList()}</div>
               {content.calendar && (
                 <AddToCalendar
