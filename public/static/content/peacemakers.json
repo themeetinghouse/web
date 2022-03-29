@@ -41,6 +41,23 @@
       },
       {
         "type": "content",
+        "style": "pieChart",
+        "text1": "Thanks to your generosity we blew past our goal and raised $271,844 to support peace work that brings healing, reconciliation, and justice to God's creation!",
+        "pieChart": {
+          "raised": 0,
+          "goal": 200000,
+          "text": "Let's do it!"
+        },
+        "list": [
+          {
+            "type": "button",
+            "title": "Donate Today",
+            "navigateTo": "https://pushpay.com/g/themeetinghouse?src=hpp"
+          }
+        ]
+      },
+      {
+        "type": "content",
         "style": "oneImageBlackRight",
         "header1": "Go",
         "header2": "",
@@ -129,23 +146,6 @@
       },
       {
         "type": "content",
-        "style": "pieChart",
-        "text1": "Thanks to your generosity we blew past our goal and raised $271,844 to support peace work that brings healing, reconciliation, and justice to God's creation!",
-        "pieChart": {
-          "raised": 0,
-          "goal": 200000,
-          "text": "Let's do it!"
-        },
-        "list": [
-          {
-            "type": "button",
-            "title": "Donate Today",
-            "navigateTo": "https://pushpay.com/g/themeetinghouse?src=hpp"
-          }
-        ]
-      },
-      {
-        "type": "content",
         "style": "oneImageBlackRight",
         "header1": "What is Peacemakers?",
         "header2": "",
@@ -182,6 +182,15 @@
             "openNewBrowser": true
           }
         ]
+      },
+      {
+        "type": "list",
+        "style": "vertical",
+        "class": "compassion",
+        "header1": "Why Poverty Alleviation?",
+        "text1": "In alignment with the UN's Sustainable Development Goals, we aim to play a small part in working against global poverty by partnering with Mposa & Chamba in Malawi. Over the last 10 years, we've built relationships and invested in long term community development in the following areas:",
+        "filterField": "sites",
+        "filterValue": "chosen"
       }
     ]
   }
