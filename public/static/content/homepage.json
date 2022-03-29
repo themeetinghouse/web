@@ -145,6 +145,24 @@
         ]
       },
       {
+        "type": "hero",
+        "style": "partialNoFooter",
+        "image1": [
+          {
+            "src": "/static/svg/Map.svg",
+            "alt": "A map representing locations of The Meeting House churches."
+          }
+        ],
+        "header1": "Locations",
+        "text1": "It's pretty simple: we get together to build relationships, and find ways to love and serve our neighbourhoods as we learn to follow Jesus.",
+        "text2": "Find local, connect online.",
+        "link1Text": "Show Map",
+        "link1AriaLabel": "View a map of all church locations",
+        "link1Action": "/find-sunday-morning",
+        "class": "locations",
+        "showLocationSearch": true
+      },
+      {
         "type": "blog",
         "style": "multiImage",
         "status": "Live",
@@ -219,24 +237,6 @@
         "header2": "",
         "text2": "Taking all this in can feel pretty overwhelming. Drop your email below and we'll send you some of our favourite starting content and suggest a practical next step.",
         "hasFooter": true
-      },
-      {
-        "type": "hero",
-        "style": "partialNoFooter",
-        "image1": [
-          {
-            "src": "/static/svg/Map.svg",
-            "alt": "A map representing locations of The Meeting House churches."
-          }
-        ],
-        "header1": "Locations",
-        "text1": "It's pretty simple: we get together to build relationships, and find ways to love and serve our neighbourhoods as we learn to follow Jesus.",
-        "text2": "Find local, connect online.",
-        "link1Text": "Show Map",
-        "link1AriaLabel": "View a map of all church locations",
-        "link1Action": "/find-sunday-morning",
-        "class": "locations",
-        "showLocationSearch": true
       }
     ]
   }
