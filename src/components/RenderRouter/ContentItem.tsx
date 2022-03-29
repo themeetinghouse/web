@@ -157,6 +157,36 @@ function ContentItem({ content }: Props) {
   };
 
   switch (content.style) {
+    case 'oneImageYellow':
+      return (
+        <div className="ContentItem oneImage">
+          <div className="oneImagePosition">
+            <div className="oneImageYellowBox">
+              <h1 className="oneImageH1 black">{content.header1}</h1>
+              <h2 className="oneImageH2 black">{content.header2}</h2>
+              <div className="oneImageText black">{content.text1}</div>
+              <div className="oneImageText black">{content.text2}</div>
+              <div className="oneImageText black">{content.text3}</div>
+              <div className="oneImageText black">{content.text4}</div>
+              <div className="oneImageList">{renderList()}</div>
+              {content.calendar && (
+                <AddToCalendar
+                  className="one-image-calendar"
+                  event={content.calendar}
+                  color="black"
+                  textDecoration="always"
+                />
+              )}
+            </div>
+
+            <ScaledImage
+              image={image1}
+              className="oneImageImage"
+              breakpointSizes={heroBreakpoints}
+            />
+          </div>
+        </div>
+      );
     case 'oneImage':
       return (
         <div className="ContentItem oneImage">
