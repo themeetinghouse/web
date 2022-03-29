@@ -117,12 +117,14 @@
             {
               "type": "link",
               "title": "COVID protocols",
-              "navigateTo": "/static/pdfs/youth-files/MW COVID Protocols.pdf"
+              "navigateTo": "/static/pdfs/youth-files/MW COVID Protocols.pdf",
+              "openNewBrowser": true
             },
             {
               "type": "link",
               "title": "Recommended Packing List",
-              "navigateTo": "/static/pdfs/youth-files/Retreat Packing List.pdf"
+              "navigateTo": "/static/pdfs/youth-files/Retreat Packing List.pdf",
+              "openNewBrowser": true
             }
           ]
         }
