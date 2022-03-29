@@ -35,8 +35,8 @@
               "alt": "All of The Meeting House staff being silly outside of the main office in Oakville."
             }
           ],
-          "header1": "Our Story",
-          "text1": "Our vision is to introduce spiritually curious people to the Jesus-centred life, through a movement of Jesus-centred churches.",
+          "header1": "Policies",
+          "text1": "Stuff about policies.",
           "text2": "",
           "link1Text": "Read More",
           "link1Action": "/static/pdfs/first-impressions/TMH About Us 2019_v11_WEB.pdf"
@@ -46,7 +46,7 @@
             "style": "oneImage",
             "header1": "Victim Advocacy",
             "header2": "",
-            "text1": "",
+            "text1": "Stuff about victim advocacy.",
             "image1": [
               {
                 "src": "/static/images/about-us-2-3.jpg",
@@ -59,12 +59,6 @@
                 "title": "Online Referral Form",
                 "navigateTo": "https://form.jotform.com/220701021515538",
                 "openNewBrowser": true
-              },
-              {
-                "type": "link",
-                "title": "2019 - AGM Document",
-                "navigateTo": "/static/pdfs/annual-reports/2019 AGM Supporting Documentation-merged.pdf",
-                "openNewBrowser": true
               }
             ]
           },
@@ -73,7 +67,7 @@
           "style": "oneImageBlackRight",
           "header1": "Policies",
           "header2": "",
-          "text1": "",
+          "text1": "Any more stuff about policies?",
           "image1": [
             {
               "src": "/static/images/about-us-2-2.jpg",
