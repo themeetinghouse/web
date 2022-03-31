@@ -150,11 +150,11 @@
     "name": "London",
     "pastorEmail": "Phil.Prendergast@themeetinghouse.com",
     "location": {
-      "longitude": -81.278295,
-      "latitude": 43.027068,
-      "address": "SilverCity London, 1680 Richmond Street"
+      "longitude": 42.999934444016944,
+      "latitude": -81.29433397480828,
+      "address": "Church of the Transfiguration, 33 Bromleigh Ave"
     },
-    "serviceTimes": ["10:00"]
+    "serviceTimes": ["2:00pm"]
   },
   {
     "id": "newmarket",
