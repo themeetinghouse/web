@@ -150,8 +150,8 @@
     "name": "London",
     "pastorEmail": "Phil.Prendergast@themeetinghouse.com",
     "location": {
-      "longitude": 42.999934444016944,
-      "latitude": -81.29433397480828,
+      "longitude": -81.29423741528805,
+      "latitude": 42.999934444016944,
       "address": "Church of the Transfiguration, 33 Bromleigh Ave"
     },
     "serviceTimes": ["2:00pm"]
