@@ -221,9 +221,9 @@
     "name": "Richmond Hill",
     "pastorEmail": "Melissa.Ytsma@themeetinghouse.com",
     "location": {
-      "longitude": -79.4291884,
-      "latitude": 43.8408015,
-      "address": ""
+      "longitude": -79.43721571533477,
+      "latitude": 43.88108937451291,
+      "address": "Community Church of Richmond Hill, 45 Crosby Ave"
     },
     "serviceTimes": ["10:00"]
   },
