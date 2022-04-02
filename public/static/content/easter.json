@@ -37,6 +37,26 @@
       {
         "type": "content",
         "style": "oneImage",
+        "header1": "Good Friday Livestream",
+        "header2": "April 14, 10:00am ET",
+        "text1": "Ready to approach Easter in a completely new way? We want to capture the wildly unexpected beauty of Easter we see revealed in Jesus, and share it through a completely reimagined livestream experience.",
+        "image1": [
+          {
+            "src": "/static/images/easter-1.jpg",
+            "alt": "Person on the couch is watching The Meeting House Easter livestream teaching on their laptop."
+          }
+        ],
+        "calendar": {
+          "start": "2022-04-16T10:00:00-04:00",
+          "end": "2022-04-16T11:30:00-04:00",
+          "summary": "Easter Sunday",
+          "description": "Join The Meeting House's livestream on Easter Sunday.",
+          "url": "https://www.themeetinghouse.com/live"
+        }
+      },
+      {
+        "type": "content",
+        "style": "oneImage",
         "header1": "Easter Sunday Livestream",
         "header2": "April 16, 10:00am ET",
         "text1": "Ready to approach Easter in a completely new way? We want to capture the wildly unexpected beauty of Easter we see revealed in Jesus, and share it through a completely reimagined livestream experience.",
@@ -63,8 +83,8 @@
             "alt": "A map representing locations of The Meeting House churches."
           }
         ],
-        "header1": "Good Friday",
-        "text1": "Local virtual experiences that feel like family and give you opportunity to meaningfully connect with people near you.",
+        "header1": "Good Friday and Easter at Parishes",
+        "text1": "Local in-person experiences that feel like family and give you opportunity to meaningfully connect with people near you.",
         "text2": "Choose a location from the menu below for more details.",
         "link1Text": "",
         "link1AriaLabel": "",
