@@ -16,7 +16,7 @@
     "content": [
       {
         "type": "og-tags",
-        "image": "/static/images/easter-hero-2021.jpg",
+        "image": "/static/images/Easter2022_Web-Hero.jpg",
         "url": "https://www.themeetinghouse.com/easter",
         "title": "Easter with The Meeting House",
         "description": "April 14 & 16, 2022"
@@ -26,8 +26,8 @@
         "style": "full",
         "image1": [
           {
-            "src": "/static/images/easter-hero-2021.jpg",
-            "alt": "Young woman standing in front of a wall of greenery, wearing a face mask, looking off to the side and smiling."
+            "src": "/static/images/Easter2022_Web-Hero.jpg",
+            "alt": "Yellow, orange, and pink abstract design."
           }
         ],
         "header1": "Easter",
@@ -42,8 +42,8 @@
         "text1": "Ready to approach Easter in a completely new way? We want to capture the wildly unexpected beauty of Easter we see revealed in Jesus, and share it through a completely reimagined livestream experience.",
         "image1": [
           {
-            "src": "/static/images/easter-1.jpg",
-            "alt": "Person on the couch is watching The Meeting House Easter livestream teaching on their laptop."
+            "src": "/static/images/GF_website_square_image.gif",
+            "alt": "The word, Testify on a yellow, orange, and pink abstract design"
           }
         ],
         "calendar": {
@@ -62,8 +62,8 @@
         "text1": "Ready to approach Easter in a completely new way? We want to capture the wildly unexpected beauty of Easter we see revealed in Jesus, and share it through a completely reimagined livestream experience.",
         "image1": [
           {
-            "src": "/static/images/easter-1.jpg",
-            "alt": "Person on the couch is watching The Meeting House Easter livestream teaching on their laptop."
+            "src": "/static/images/Easter_website_square_image.gif",
+            "alt": "The words, Hope Lives on a yellow, orange, and pink abstract design."
           }
         ],
         "calendar": {
