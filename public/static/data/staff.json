@@ -343,15 +343,6 @@
   },
   {
     "Staff": true,
-    "FirstName": "Katie",
-    "LastName": "Double",
-    "Phone": "905.287.7000, ext. 814",
-    "Position": "People Strategies & Communications Director",
-    "sites": ["Operations"],
-    "Email": "Katie.Double@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
     "FirstName": "Kim",
     "LastName": "Knight",
     "Phone": "905.287.7000",

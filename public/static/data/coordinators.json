@@ -318,6 +318,13 @@
     "Position": "Weekend Service Producer"
   },
   {
+    "FirstName": "Joshua",
+    "LastName": "Woodward",
+    "sites": ["BRFD"],
+    "Email": "josh.woodward@themeetinghouse.com",
+    "Position": "Ministry Associate & Youth Coordinator"
+  },
+  {
     "FirstName": "Laura",
     "LastName": "Brinks",
     "sites": ["BRFD"],
@@ -329,6 +336,13 @@
     "sites": ["BRFD"],
     "Email": "kristinvanhoeve@gmail.com",
     "Position": "Kidmax Coordinator"
+  },
+  {
+    "FirstName": "Bryan",
+    "LastName": "McKee",
+    "sites": ["BRFD"],
+    "Email": "bryanrmckee@gmail.com",
+    "Position": "Prayer Coordinator"
   },
   {
     "FirstName": "Adam",
@@ -546,13 +560,6 @@
     "sites": ["ALLI"],
     "Email": "alliston.youth@themeetinghouse.com",
     "Position": "Youth Coordinator"
-  },
-  {
-    "FirstName": "Joshua",
-    "LastName": "Woodward",
-    "sites": ["BRFD"],
-    "Email": "josh.woodward@themeetinghouse.com",
-    "Position": "Ministry Associate & Youth Coordinator"
   },
   {
     "FirstName": "Maddy",
