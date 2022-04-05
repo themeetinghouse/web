@@ -36,7 +36,7 @@
         "header1": "Parry Sound",
         "text1": "Sundays at 10:00am",
         "text2": "Kids and Youth program available for JK - Grade 8",
-        "text3": "",
+        "text3": "Good Friday at 10:00am",
         "customLiveLink": "themeetinghouse.com/live",
         "register": true,
         "addToCalendar": false,
@@ -49,8 +49,15 @@
         "type": "content",
         "style": "oneImage",
         "header1": "Good Friday",
-        "header2": "April 15, 10:00am at The Hub",
+        "header2": "April 15, 10:00am at The Sound Hub",
         "text1": "This Good Friday we testify to the hope we've seen, and the hope we have yet to see. Join us as we hold forth the hope of Jesus in times of expectation.",
+        "list": [
+          {
+            "type": "link",
+            "title": "Learn more",
+            "navigateTo": "/easter"
+          }
+        ],
         "image1": [
           {
             "src": "/static/images/GF_website_square_image_2.jpg",

@@ -47,7 +47,7 @@
         ],
         "header1": "Toronto High Park",
         "text1": "Every Other Sunday at 10:00am",
-        "text2": "Good Friday at 10:00am at Scotiabank Theatre, 259 Richmond St. W",
+        "text2": "Good Friday at 10:00am (Scotiabank Theatre, 259 Richmond St. W)",
         "text3": "",
         "customLiveLink": "themeetinghouse.com/live",
         "register": true,
@@ -61,8 +61,15 @@
         "type": "content",
         "style": "oneImage",
         "header1": "Good Friday",
-        "header2": "April 15, 10:00am at Scotiabank Theatre",
+        "header2": "April 15, 10:00am at Scotiabank Theatre, 259 Richmond St. W",
         "text1": "This Good Friday we testify to the hope we've seen, and the hope we have yet to see. Join us as we hold forth the hope of Jesus in times of expectation.",
+        "list": [
+          {
+            "type": "link",
+            "title": "Learn more",
+            "navigateTo": "/easter"
+          }
+        ],
         "image1": [
           {
             "src": "/static/images/GF_website_square_image_2.jpg",

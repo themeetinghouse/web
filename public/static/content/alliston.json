@@ -39,7 +39,7 @@
         ],
         "header1": "Alliston",
         "text1": "Sundays at 10:30am",
-        "text2": "",
+        "text2": "Good Friday service at 10:30am",
         "register": true,
         "addToCalendar": false,
         "contactPastor": true,
@@ -60,6 +60,13 @@
         "header1": "Good Friday",
         "header2": "April 15, 10:30am at The Gibson Centre",
         "text1": "This Good Friday we testify to the hope we've seen, and the hope we have yet to see. Join us as we hold forth the hope of Jesus in times of expectation.",
+        "list": [
+          {
+            "type": "link",
+            "title": "Learn more",
+            "navigateTo": "/easter"
+          }
+        ],
         "image1": [
           {
             "src": "/static/images/GF_website_square_image_2.jpg",
