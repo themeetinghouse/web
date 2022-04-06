@@ -7,8 +7,20 @@
   transform: translate(-50%, -50%);
   width: 80%;
 }
-
+.downArrow {
+  width: 2vw;
+  height: 2vw;
+  transition: all 1s ease;
+}
+.downArrow:hover {
+  transition: all 1s ease;
+  transform: translateY(20px);
+}
 @media (min-width: 768px) {
+  .downArrow {
+    margin-top: 3vw;
+    margin-bottom: 3vw;
+  }
   /*mad*/
   .madContainer {
     display: flex;
@@ -605,6 +617,12 @@
 
 @media (max-width: 767px) {
   /*mad */
+  .downArrow {
+    width: 5vw;
+    height: 5vw;
+    margin-top: 60px;
+    margin-bottom: 20px;
+  }
   .madContainer {
     flex-direction: column-reverse;
     display: flex;

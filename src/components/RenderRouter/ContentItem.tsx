@@ -32,6 +32,9 @@ type ContentList = Array<
       title: string;
       openNewBrowser?: boolean;
     }
+  | {
+      type: 'downArrow';
+    }
 >;
 
 interface BannerImage {
@@ -46,6 +49,7 @@ interface ContentType extends LocationQuery {
   header1?: string;
   header2?: string;
   text1?: string;
+  linkToNextArrow?: boolean;
   list?: ContentList;
   reverse?: boolean;
   pieChart?: {
@@ -61,9 +65,10 @@ interface ContentType extends LocationQuery {
 
 interface Props extends RouteComponentProps {
   content: ContentType;
+  nextItem: number;
 }
 
-function ContentItem({ content }: Props) {
+function ContentItem({ content, nextItem }: Props) {
   const [data, setData] = useState<LocationData[]>();
   useEffect(() => {
     const loadLocations = async () => {
@@ -133,7 +138,19 @@ function ContentItem({ content }: Props) {
               />
             </LinkButton>
           );
-
+        case 'downArrow':
+          return (
+            <img
+              onClick={() => {
+                if (nextItem)
+                  document.getElementById(`item-${nextItem}`)?.scrollIntoView();
+              }}
+              className="downArrow"
+              src="/static/svg/DownArrow.svg"
+              width={25}
+              height={25}
+            />
+          );
         default:
           return null;
       }
