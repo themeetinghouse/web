@@ -362,6 +362,8 @@ if __name__ == '__main__':
                             pass
                         elif item_type == 'videoPlayer':
                             pass
+                        elif item_type == 'event':
+                            pass
                         elif item_type == 'weather':
                             pass
                         elif item_type == 'searchResult':
