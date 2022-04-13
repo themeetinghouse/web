@@ -46,8 +46,9 @@
           }
         ],
         "header1": "Hamilton Mountain",
-        "text1": "Select Sundays at 2:00pm (April 10 online)",
-        "text2": "Good Friday at 10:00am",
+        "text1": "Select Sundays at 2:00pm",
+        "text2": "Easter Sunday at 10:00am (SilverCity Ancaster, 771 Golf Links Rd)",
+        "text3": "Good Friday at 10:00am",
         "customLiveLink": "themeetinghouse.com/live",
         "register": false,
         "addToCalendar": true,
