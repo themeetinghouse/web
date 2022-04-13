@@ -26,7 +26,7 @@
         "style": "full",
         "image1": [
           {
-            "src": "/static/images/PM2022_Web_Hero_v3.jpg",
+            "src": "/static/images/Peacemakers-hero.jpg",
             "alt": "Girl wearing a head covering holding a hand drawn picture of her violent environment."
           }
         ],
@@ -71,7 +71,7 @@
         ],
         "image1": [
           {
-            "src": "static/images/PM2022_Web_Hero_v3.jpg",
+            "src": "/static/images/Peacemakers-hero.jpg",
             "alt": "A man and a woman talking to a camera."
           }
         ]
