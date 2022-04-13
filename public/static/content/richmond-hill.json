@@ -46,8 +46,8 @@
           }
         ],
         "header1": "Richmond Hill",
-        "text1": "Sundays at 2:00pm",
-        "text2": "After April 24th meeting every 4th Sunday of the month",
+        "text1": "Every 2nd Sunday at 2pm (more details below)",
+        "text2": "Family Home Church & Kidmax every 4th Sunday",
         "text3": "Good Friday livestream at 10:00am",
         "customLiveLink": "themeetinghouse.com/live",
         "register": false,
@@ -56,6 +56,14 @@
         "class": "locations",
         "filterField": "id",
         "filterValue": "richmond-hill"
+      },
+      {
+        "type": "content",
+        "style": "greyTwoText",
+        "header1": "In-person Gatherings",
+        "text1": "We will be meeting on Easter Sunday (April 17th) at 2pm at Community Church of Richmond Hill. After April 24th, we will be meeting in-person the 2nd Sunday of every month.",
+        "text2": "On April 24th, and every 4th Sunday of the month thereafter we will have Family Home Church & Kidmax with programs available for Walkers - Sr. kindergarten, and Grades 1-5.",
+        "text3":"For activities on the 1st and 3rd Sundays of the month, we will notify via email. Sign up for email updates at the bottom of this page!"
       },
       {
         "type": "content",
