@@ -67,7 +67,7 @@
             {
               "type": "arrow",
               "title": "Share",
-              "navigateTo": "/static/pdfs/annual-reports/prayer/TMH-2022-RTH-Prayer_Cards-Digital.pdf"
+              "navigateTo": "https://www.themeetinghouse.com/posts/share-test"
             }
           ],
           "image1": [
@@ -83,7 +83,7 @@
           "status": "Live",
           "sortOrder": "DESC",
           "blogSeries": "Peacemakers-Youth",
-          "header2": "Take Action",
+          "header2": "Fundraisers and Activities",
           "backgroundColor": "white",
           "lessPadding": true
         }
