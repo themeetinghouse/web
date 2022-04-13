@@ -26,17 +26,17 @@
         "style": "full",
         "image1": [
           {
-            "src": "/static/images/peacemakers-1.jpg",
-            "alt": "Man sharing First Nations peace practices and rituals with a group."
+            "src": "/static/images/PM2022_Web Hero_v3.jpg",
+            "alt": "Girl wearing a head covering holding a hand drawn picture of her violent environment."
           }
         ],
-        "header1": "Peace will never happen.",
+        "header1": "Is peace impossible?",
         "header2": "Unless we take action.",
         "text1": "This year through our annual Peacemakers Campaign we want to not only raise the money necessary to support life-changing peacebuilding projects around the world, but we want to encourage and inspire you to take action.",
         "button1": {
-          "text": "Donate",
+          "text": "Watch Video",
           "action": "https://pushpay.com/g/themeetinghouse",
-          "description": "Introduction to our Peacemakers campaign and donate button."
+          "description": "Introduction to our Peacemakers campaign and watch video button."
         }
       },
       {
@@ -59,7 +59,7 @@
       {
         "type": "content",
         "style": "oneImageBlackRight",
-        "header1": "Go",
+        "header1": "Is peace impossible?",
         "header2": "",
         "text1": "We're excited to invest in a number of special projects over the next few years that are generating stories of impact. Find out how you can make a difference.",
         "list": [
@@ -71,8 +71,8 @@
         ],
         "image1": [
           {
-            "src": "/static/images/homepage-covid-1.jpg",
-            "alt": "A woman wearing a mask looking directly at the camera."
+            "src": "static/images/PM2022_Web Hero_v3.jpg",
+            "alt": "A man and a woman talking to a camera."
           }
         ]
       },
@@ -82,7 +82,7 @@
         "class": "videos",
         "subclass": "compassion",
         "sortOrder": "DESC",
-        "header1": "Peacemakers Project Videos",
+        "header1": "More Peacemakers Stories",
         "showEpisodeNumbers": false
       },
       {
@@ -94,23 +94,23 @@
           {
             "type": "arrow",
             "title": "Learn",
-            "navigateTo": "/static/pdfs/annual-reports/prayer/TMH-2022-RTH-Booklet-Digital.pdf"
+            "navigateTo": "https://www.themeetinghouse.com/posts/learn-test"
           },
           {
             "type": "arrow",
-            "title": "Start a fundraising campaign",
-            "navigateTo": "/static/pdfs/annual-reports/prayer/TMH-2022-RTH-Prayer_Cards-Digital.pdf"
+            "title": "Start a fundraiser",
+            "navigateTo": "https://www.themeetinghouse.com/posts/start-test"
           },
           {
             "type": "arrow",
             "title": "Share",
-            "navigateTo": "/static/pdfs/annual-reports/prayer/TMH-2022-RTH-Prayer_Cards-Digital.pdf"
+            "navigateTo": "https://www.themeetinghouse.com/posts/share-test"
           }
         ],
         "image1": [
           {
-            "src": "/static/images/Road-to-Hope2.jpg",
-            "alt": "Graphic with the words road to hope."
+            "src": "/static/images/Mod5_pic_TEMP.jpg",
+            "alt": "Older woman smiling holding a baked pie."
           }
         ]
       },
@@ -119,8 +119,8 @@
         "style": "featured",
         "status": "Live",
         "sortOrder": "DESC",
-        "blogSeries": "Regather News",
-        "header2": "News and Updates",
+        "blogSeries": "Peacemakers",
+        "header2": "Peacemakers Satories",
         "backgroundColor": "white",
         "lessPadding": true
       },           
@@ -131,8 +131,8 @@
         "text1": "Making peace is for everyone, not just those of us who are blessed with money. Check out how you can make an impact with your kids and youth.",
         "image1": [
           {
-            "src": "/static/images/spirituality-3.jpg",
-            "alt": "Two people sitting and talking during Home Church"
+            "src": "/static/images/Mod7_pic.jpg",
+            "alt": "Young child with face paint playing with a holla hoop."
           }
         ],
         "list": [
@@ -141,45 +141,6 @@
             "title": "Ideas for kids and youth",
             "navigateTo": "https://www.crowdcast.io/e/peacemakers",
             "description": "Registration link for the Being a Peacemaker virtual Event."
-          }
-        ]
-      },
-      {
-        "type": "content",
-        "style": "oneImageBlackRight",
-        "header1": "What is Peacemakers?",
-        "header2": "",
-        "text1": "Content for people new to peacemakers.",
-        "image1": [
-          {
-            "src": "/static/images/peacemakers-4.jpg",
-            "alt": "Volunteers working together to pack Peacemakers relief kits."
-          }
-        ],
-        "list": [
-          {
-            "type": "link",
-            "title": "Peace Projects We Support & MCC Project Reports",
-            "navigateTo": "/static/pdfs/compassion/MCC Reports on Areas of Focus.pdf",
-            "openNewBrowser": true
-          },
-          {
-            "type": "link",
-            "title": "Organizing A Virtual Fundraiser",
-            "navigateTo": "/static/pdfs/compassion/Organizing A Virtual Fundraiser for Peacemakers.pdf",
-            "openNewBrowser": true
-          },
-          {
-            "type": "link",
-            "title": "Indigenous Reconciliation",
-            "navigateTo": "/static/pdfs/compassion/Indigenous Reconciliation Resource.pdf",
-            "openNewBrowser": true
-          },
-          {
-            "type": "link",
-            "title": "NextGen Peacemakers",
-            "navigateTo": "/static/pdfs/compassion/NextGen Peacemakers Resource.pdf",
-            "openNewBrowser": true
           }
         ]
       },
