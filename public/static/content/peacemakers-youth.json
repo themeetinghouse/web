@@ -57,12 +57,12 @@
             {
               "type": "arrow",
               "title": "Learn",
-              "navigateTo": "/static/pdfs/annual-reports/prayer/TMH-2022-RTH-Booklet-Digital.pdf"
+              "navigateTo": "https://www.themeetinghouse.com/posts/learn-test"
             },
             {
               "type": "arrow",
               "title": "Start a campaign",
-              "navigateTo": "/static/pdfs/annual-reports/prayer/TMH-2022-RTH-Prayer_Cards-Digital.pdf"
+              "navigateTo": "https://www.themeetinghouse.com/posts/start-test"
             },
             {
               "type": "arrow",
