@@ -139,7 +139,7 @@
           {
             "type": "button",
             "title": "Ideas for kids and youth",
-            "navigateTo": "https://www.crowdcast.io/e/peacemakers",
+            "navigateTo": "/peacemakers-youth",
             "description": "Registration link for the Being a Peacemaker virtual Event."
           }
         ]
