@@ -80,14 +80,20 @@
         "list": [
           {
             "type": "link",
-            "title": "Download Weekend Lesson",
-            "navigateTo": "/static/pdfs/youth-files/Wk 2 - Extravagant - JH Weekend.pdf",
+            "title": "Download Good Friday Lesson",
+            "navigateTo": "/static/pdfs/youth-files/Good Friday - Extravagant - JH Weekend.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
-            "title": "Download Weekend Activities",
-            "navigateTo": "/static/pdfs/youth-files/Wk 2 - JHWE Activities.pdf",
+            "title": "Download Good Friday Activity",
+            "navigateTo": "/static/pdfs/youth-files/Good Friday - Activity.pdf",
+            "openNewBrowser": true
+          },
+          {
+            "type": "link",
+            "title": "Download Easter Weekend Lesson",
+            "navigateTo": "/static/pdfs/youth-files/Wk 3 - Extravagant - JH Weekend.pdf",
             "openNewBrowser": true
           }
           
@@ -119,13 +125,13 @@
           {
             "type": "link",
             "title": "Download Midweek Lesson",
-            "navigateTo": "/static/pdfs/youth-files/Wk 2 - Extravagant - JH Midweek.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 3 - Extravagant - JH Midweek.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Midweek Small Group Leader Notes",
-            "navigateTo": "/static/pdfs/youth-files/Wk 2 - Extravagant - JH Midweek SGL Notes.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 3 - Extravagant - JH Midweek SGL Notes.pdf",
             "openNewBrowser": true
           }
         ]
