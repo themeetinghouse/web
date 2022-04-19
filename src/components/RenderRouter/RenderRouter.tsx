@@ -12,6 +12,7 @@ import AppPromo from '../AppPromo/AppPromo';
 import { GEProvider } from './GiveComponents/GEContext';
 import moment from 'moment';
 import EventPage from './EventPage';
+import TMHCarousel from 'components/TMHCarousel/TMHCarousel';
 
 const SimpleItem = React.lazy(() => import('./SimpleItem'));
 const SearchItem = React.lazy(() => import('./SearchItem'));
@@ -84,6 +85,8 @@ class RenderRouter extends React.Component<Props> {
         return <VideoPlayerLive key={index} content={item} />;
       case 'liveVideoPlayer2':
         return <VideoPlayerLiveLeadersDay key={index} content={item} />;
+      case 'horizontal-list':
+        return <TMHCarousel key={index} content={item} />;
       case 'list':
         return (
           <ListItem
