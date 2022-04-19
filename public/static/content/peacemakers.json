@@ -58,35 +58,6 @@
       },
       {
         "type": "content",
-        "style": "oneImageBlackRight",
-        "header1": "Is peace impossible?",
-        "header2": "",
-        "text1": "We're excited to invest in a number of special projects over the next few years that are generating stories of impact. Find out how you can make a difference.",
-        "list": [
-          {
-            "type": "button",
-            "title": "Watch Video",
-            "navigateTo": "/go"
-          }
-        ],
-        "image1": [
-          {
-            "src": "/static/images/Peacemakers-hero.jpg",
-            "alt": "A man and a woman talking to a camera."
-          }
-        ]
-      },
-      {
-        "type": "list",
-        "style": "horizontal",
-        "class": "videos",
-        "subclass": "compassion",
-        "sortOrder": "DESC",
-        "header1": "More Peacemakers Stories",
-        "showEpisodeNumbers": false
-      },
-      {
-        "type": "content",
         "style": "mad",
         "header1": "Take Action",
         "text1": "What does justice look like and how can we take meaninful action to work towards peace in our communities and around the world?",
@@ -116,6 +87,35 @@
           {
             "src": "/static/images/Mod5_pic_TEMP.jpg",
             "alt": "Older woman smiling holding a baked pie."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "style": "horizontal",
+        "class": "videos",
+        "subclass": "compassion",
+        "sortOrder": "DESC",
+        "header1": "More Peacemakers Stories",
+        "showEpisodeNumbers": false
+      },
+      {
+        "type": "content",
+        "style": "oneImageBlackRight",
+        "header1": "Is peace impossible?",
+        "header2": "",
+        "text1": "We're excited to invest in a number of special projects over the next few years that are generating stories of impact. Find out how you can make a difference.",
+        "list": [
+          {
+            "type": "button",
+            "title": "Watch Video",
+            "navigateTo": "/go"
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/Peacemakers-hero.jpg",
+            "alt": "A man and a woman talking to a camera."
           }
         ]
       },
