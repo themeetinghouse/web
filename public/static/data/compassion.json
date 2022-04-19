@@ -54,14 +54,6 @@
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
-    "id": 6,
-    "sites": ["brantford"],
-    "name": "Hope Boxes",
-    "description": "Oxford-Brant Hope Box is bringing hope and healing to families experiencing pregnancy and infant loss. These free faith-based boxes are a practical, tangible outreach to our community and a way to bring hope and care during a challenging time.  ",
-    "image": "/static/photos/compassion/Hope Box.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
     "id": 7,
     "sites": ["burlington"],
     "name": "Next Door Social Space",
