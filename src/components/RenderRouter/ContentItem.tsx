@@ -205,6 +205,32 @@ function ContentItem({ content, nextItem }: Props) {
           </div>
         </div>
       );
+    case 'oneImageRight':
+      return (
+        <div className="ContentItem oneImage">
+          <div className="oneImagePosition right">
+            <div className="oneImageGreyBox right">
+              <h1 className="oneImageH1">{content.header1}</h1>
+              <h2 className="oneImageH2">{content.header2}</h2>
+              <div className="oneImageText">{content.text1}</div>
+              <div className="oneImageList">{renderList()}</div>
+              {content.calendar && (
+                <AddToCalendar
+                  className="one-image-calendar"
+                  event={content.calendar}
+                  color="black"
+                  textDecoration="always"
+                />
+              )}
+            </div>
+            <ScaledImage
+              image={image1}
+              className="oneImageImage right"
+              breakpointSizes={heroBreakpoints}
+            />
+          </div>
+        </div>
+      );
     case 'oneImage':
       return (
         <div className="ContentItem oneImage">
