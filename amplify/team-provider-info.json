@@ -227,14 +227,14 @@
           "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
           "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "s3Key": "amplify-builds/tmhF1SearchContributionReceipts-4650476461776265786c-build.zip"
+          "s3Key": "amplify-builds/tmhF1SearchContributionReceipts-453052687471346c774d-build.zip"
         },
         "tmhF1AssignmentSync": {
           "userPoolId": "us-east-1_KiJzP2dH5",
           "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
           "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "s3Key": "amplify-builds/tmhF1AssignmentSync-4442587256422f695464-build.zip"
+          "s3Key": "amplify-builds/tmhF1AssignmentSync-306c5873697343696753-build.zip"
         },
         "themeetinghousetmhShared": {
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
