@@ -146,11 +146,11 @@
     "Position": "Compassion Coordinator"
   },
   {
-    "FirstName": "Sandra",
-    "LastName": "Albione",
+    "FirstName": "Chris",
+    "LastName": "Pullenayegem",
     "sites": ["RHLL"],
-    "Email": "sandra.albione@themeetinghouse.com",
-    "Position": "Compassion Coordinator"
+    "Email": "chris.pullenayegem@themeetinghouse.com",
+    "Position": "Interim Pastor"
   },
   {
     "FirstName": "Jasmine",
@@ -534,12 +534,6 @@
     "FirstName": "Tracy",
     "LastName": "Konoval",
     "sites": ["PAR"],
-    "Position": "Welcome Coordinator"
-  },
-  {
-    "FirstName": "Angela",
-    "LastName": "Kong",
-    "sites": ["RHLL"],
     "Position": "Welcome Coordinator"
   },
   {

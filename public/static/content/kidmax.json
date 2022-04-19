@@ -51,14 +51,26 @@
         "list": [
           {
             "type": "link",
-            "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 1 - Easter - CAH EYs.pdf",
+            "title": "Download Early Years Good Friday Lesson",
+            "navigateTo": "/static/pdfs/kidmax-files/Good Friday - Easter - CAH EYs.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
-            "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 1 - Activities.pdf",
+            "title": "Download Early Years Good Friday Activities",
+            "navigateTo": "/static/pdfs/kidmax-files/Good Friday - Activities.pdf",
+            "openNewBrowser": true
+          },
+          {
+            "type": "link",
+            "title": "Download Early Years Easter Lesson",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 3 - Easter - CAH EYs.pdf",
+            "openNewBrowser": true
+          },
+          {
+            "type": "link",
+            "title": "Download Early Years Easter Activities",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 3 - Activities.pdf",
             "openNewBrowser": true
           },
           {
@@ -86,21 +98,33 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaApr3.jpg",
-            "alt": "We can love Jesus extravagantly."
+            "src": "/static/images/KidsBigIdeaApr17.jpg",
+            "alt": "Jesus is alive!"
           }
         ],
         "list": [
           {
             "type": "link",
-            "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 1 - Extravagant - CAH Kids.pdf",
+            "title": "Download Kids Good Friday Lesson",
+            "navigateTo": "/static/pdfs/kidmax-files/Good Friday - Extravagant - CAH Kids.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
-            "title": "Download Kids Activity",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 1 - Activity.pdf",
+            "title": "Download Kids Good Friday Activity",
+            "navigateTo": "/static/pdfs/kidmax-files/Good Friday - Bookmark.pdf",
+            "openNewBrowser": true
+          },
+          {
+            "type": "link",
+            "title": "Download Kids Easter Lesson",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 3 - Extravagant - CAH Kids.pdf",
+            "openNewBrowser": true
+          },
+          {
+            "type": "link",
+            "title": "Download Kids Easter Activity",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 3 - Activity.pdf",
             "openNewBrowser": true
           },
           {

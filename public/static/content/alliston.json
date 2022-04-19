@@ -39,9 +39,9 @@
         ],
         "header1": "Alliston",
         "text1": "Sundays at 10:30am",
-        "text2": "Good Friday service at 10:30am",
-        "register": true,
-        "addToCalendar": false,
+        "text2": "",
+        "register": false,
+        "addToCalendar": true,
         "contactPastor": true,
         "class": "locations",
         "filterField": "id",
@@ -53,26 +53,6 @@
         "header1": "Extended Family Church",
         "header2": "",
         "text1": "In partnership with Be In Christ Church of Canada, we're excited to pilot the concept of The Meeting House Extended Family churches as part of our vision to grow loving communities of Jesus followers beyond our existing parishes. Extended Family churches are locally-operated Meeting House expressions that share the Jesus-centered theology, core values, vision, and ministry approach of The Meeting House."
-      },
-      {
-        "type": "content",
-        "style": "oneImage",
-        "header1": "Good Friday",
-        "header2": "April 15, 10:30am at The Gibson Centre",
-        "text1": "This Good Friday we testify to the hope we've seen, and the hope we have yet to see. Join us as we hold forth the hope of Jesus in times of expectation.",
-        "list": [
-          {
-            "type": "link",
-            "title": "Learn more",
-            "navigateTo": "/easter"
-          }
-        ],
-        "image1": [
-          {
-            "src": "/static/images/GF_website_square_image_2.jpg",
-            "alt": "The word, Testify on a yellow, orange, and pink abstract design"
-          }
-        ]
       },
       {
         "type": "list",

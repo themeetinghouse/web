@@ -47,34 +47,15 @@
         ],
         "header1": "Hamilton Mountain",
         "text1": "Select Sundays at 2:00pm",
-        "text2": "Good Friday at 10:00am",
+        "text2": "",
+        "text3": "",
         "customLiveLink": "themeetinghouse.com/live",
-        "register": true,
-        "addToCalendar": false,
+        "register": false,
+        "addToCalendar": true,
         "contactPastor": true,
         "class": "locations",
         "filterField": "id",
         "filterValue": "hamilton-mountain"
-      },
-      {
-        "type": "content",
-        "style": "oneImage",
-        "header1": "Good Friday",
-        "header2": "April 15, 10:00am at Family Church of Heritage Green",
-        "text1": "This Good Friday we testify to the hope we've seen, and the hope we have yet to see. Join us as we hold forth the hope of Jesus in times of expectation.",
-        "list": [
-          {
-            "type": "link",
-            "title": "Learn more",
-            "navigateTo": "/easter"
-          }
-        ],
-        "image1": [
-          {
-            "src": "/static/images/GF_website_square_image_2.jpg",
-            "alt": "The word, Testify on a yellow, orange, and pink abstract design"
-          }
-        ]
       },
       {
         "type": "list",

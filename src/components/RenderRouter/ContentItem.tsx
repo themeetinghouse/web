@@ -12,6 +12,7 @@ type ContentList = Array<
   | {
       type: 'button';
       navigateTo: string;
+      buttonColor?: string;
       title: string;
     }
   | {
@@ -50,6 +51,9 @@ interface ContentType extends LocationQuery {
   header2?: string;
   text1?: string;
   linkToNextArrow?: boolean;
+  text2?: string;
+  text3?: string;
+  text4?: string;
   list?: ContentList;
   reverse?: boolean;
   pieChart?: {
@@ -92,7 +96,7 @@ function ContentItem({ content, nextItem }: Props) {
           return (
             <div key={id}>
               <LinkButton
-                className="contentButton"
+                className={`contentButton ${item.buttonColor ?? ''}`}
                 to={item.navigateTo}
                 newWindow={item.navigateTo.includes('http')}
               >
@@ -171,6 +175,36 @@ function ContentItem({ content, nextItem }: Props) {
   };
 
   switch (content.style) {
+    case 'oneImageYellow':
+      return (
+        <div className="ContentItem oneImage">
+          <div className="oneImagePosition">
+            <div className="oneImageYellowBox">
+              <h1 className="oneImageH1 black">{content.header1}</h1>
+              <h2 className="oneImageH2 black">{content.header2}</h2>
+              <div className="oneImageText black">{content.text1}</div>
+              <div className="oneImageText black">{content.text2}</div>
+              <div className="oneImageText black">{content.text3}</div>
+              <div className="oneImageText black">{content.text4}</div>
+              <div className="oneImageList">{renderList()}</div>
+              {content.calendar && (
+                <AddToCalendar
+                  className="one-image-calendar"
+                  event={content.calendar}
+                  color="black"
+                  textDecoration="always"
+                />
+              )}
+            </div>
+
+            <ScaledImage
+              image={image1}
+              className="oneImageImage"
+              breakpointSizes={heroBreakpoints}
+            />
+          </div>
+        </div>
+      );
     case 'oneImage':
       return (
         <div className="ContentItem oneImage">
@@ -179,6 +213,9 @@ function ContentItem({ content, nextItem }: Props) {
               <h1 className="oneImageH1">{content.header1}</h1>
               <h2 className="oneImageH2">{content.header2}</h2>
               <div className="oneImageText">{content.text1}</div>
+              <div className="oneImageText">{content.text2}</div>
+              <div className="oneImageText">{content.text3}</div>
+              <div className="oneImageText">{content.text4}</div>
               <div className="oneImageList">{renderList()}</div>
               {content.calendar && (
                 <AddToCalendar

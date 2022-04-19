@@ -49,30 +49,12 @@
         "text1": "Sundays at 2:00pm",
         "text2": "",
         "customLiveLink": "themeetinghouse.com/live",
-        "register": true,
-        "addToCalendar": false,
+        "register": false,
+        "addToCalendar": true,
         "contactPastor": true,
         "class": "locations",
         "filterField": "id",
         "filterValue": "london"
-      },
-      {
-        "type": "content",
-        "style": "greyTwoText",
-        "header1": "Please Note:",
-        "text1": "At this time, our London parish is not yet fully accessible. The main floor, including the sanctuary, is accessible; however the washrooms and Kids Ministry spaces are on the lower level, only accessible by stairs. We are sorry, and are working toward an inclusive solution. Please do not hesitate to contact us if you have any questions. Thank you for your grace in this season.",
-        "list": [
-        ],
-        "image1": [
-          {
-            "src": "/static/images/KY1.jpg",
-            "alt": "A young child playing with blocks."
-          },
-          {
-            "src": "/static/images/KY2.jpg",
-            "alt": "Two boys laughing."
-          }
-        ]
       },
       {
         "type": "list",
