@@ -11,6 +11,7 @@ import HomeFooter from 'components/Menu/HomeFooter';
 import AppPromo from '../AppPromo/AppPromo';
 import { GEProvider } from './GiveComponents/GEContext';
 import moment from 'moment';
+import RenderRouterItemWrapper from './RenderRouterItemWrapper';
 import EventPage from './EventPage';
 import TMHCarousel from 'components/TMHCarousel/TMHCarousel';
 
@@ -70,7 +71,7 @@ class RenderRouter extends React.Component<Props> {
           />
         );
       case 'content':
-        return <ContentItem key={index} content={item} />;
+        return <ContentItem nextItem={index + 1} key={index} content={item} />;
       case 'videoPlayer':
         return (
           <VideoPlayer data={this.props.data} key={index} content={item} />
@@ -157,7 +158,9 @@ class RenderRouter extends React.Component<Props> {
         console.log({ type: item.type });
         return (
           <ErrorBoundary key={index}>
-            {this.renderItemNow(item, index)}
+            <RenderRouterItemWrapper index={index}>
+              {this.renderItemNow(item, index)}
+            </RenderRouterItemWrapper>
           </ErrorBoundary>
         );
       });
