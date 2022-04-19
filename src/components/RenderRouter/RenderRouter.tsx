@@ -179,10 +179,10 @@ class RenderRouter extends React.Component<Props> {
             content={this.props.content.page.description}
           />
         </Helmet>
-        <HomeMenu pageConfig={this.props.content.page.pageConfig} />
         {this.renderItem()}
         {this.props.content.page.pageConfig.showFooter ? <HomeFooter /> : null}
         {this.props.content.page.name === 'notes' ? <AppPromo /> : null}
+        <HomeMenu pageConfig={this.props.content.page.pageConfig} />
       </>
     );
   }

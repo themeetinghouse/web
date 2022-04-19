@@ -162,6 +162,15 @@
 }
 
 @media (min-width: 768px) {
+  .InstagramGridRectangle {
+    background-color: #efeff0;
+    width: 88vw;
+    position: absolute;
+    height: calc(18vw + 5.56vw + 38px);
+    margin-top: 5.56vw;
+    left: 0px;
+    z-index: -1;
+  }
   .BlogLink:hover {
     .blogarrow {
       transform: translateX(20px);
@@ -1553,6 +1562,15 @@
 }
 
 @media (max-width: 767px) {
+  .InstagramGridRectangle {
+    background-color: #efeff0;
+    width: 72vw;
+    position: absolute;
+    height: 147vw;
+    margin-top: 21vw;
+    left: 0px;
+    z-index: -1;
+  }
   .imageList .links-container {
     width: 85vw;
   }

@@ -41,7 +41,7 @@
 
 $no-footer-height: 38vw;
 .partialNoFooterImage {
-  width: 80vw;
+  width: 100vw;
   height: $no-footer-height;
   z-index: 50;
   object-fit: cover;
@@ -50,8 +50,8 @@ $no-footer-height: 38vw;
 
 .partialNoFooter {
   position: relative;
-  left: 20vw;
-  width: 80vw;
+
+  width: 100vw;
   height: $no-footer-height;
   padding-bottom: 0;
 }
@@ -249,8 +249,7 @@ $no-footer-height: 38vw;
   }
   .partialNoFooterBox {
     position: absolute;
-    padding: 2vw;
-    left: 5vw;
+    left: 20vw;
     width: 46vw;
     top: 6vh;
     z-index: 1000;

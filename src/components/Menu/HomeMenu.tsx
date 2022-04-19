@@ -8,18 +8,19 @@ import {
   Button,
   NavItem,
 } from 'reactstrap';
-import { NavLink as RRNavLink } from 'react-router-dom';
 import { API } from 'aws-amplify';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import HamburgerMenu from 'react-hamburger-menu';
 import './menu.scss';
-import { NavLink as RSNavLink } from 'reactstrap';
 import moment from 'moment-timezone';
 import * as queries from '../../graphql/queries';
 import { ListLivestreamsQuery } from '../../API';
 import { Link } from 'components/Link/Link';
 import { LiveEvents } from '../types';
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
+import RSNavLinkWrapper from './RSNavLinkWrapper';
+import TMHLogo from './TMHLogo';
+import ExpandButton from './ExpandButton';
 const VideoOverlay = React.lazy(() => import('../VideoOverlay/VideoOverlay'));
 const Dropdown = React.lazy(
   () => import('../../components/LiveEvents/Dropdown')
@@ -234,7 +235,7 @@ class HomeMenu extends React.Component<Props, State> {
 
   render() {
     return !this.state.isSearch ? (
-      <div>
+      <div style={{ zIndex: 100000 }}>
         {this.state.showLiveBanner ? (
           <button
             aria-label="Events List"
@@ -276,28 +277,11 @@ class HomeMenu extends React.Component<Props, State> {
             id="navbar"
           >
             <NavbarBrand tag={Link} className="brand" to="/">
-              <img
-                src={'/static/logos/house-' + this.state.logoColor + '-sm.png'}
-                alt="Logo: Stylized House"
-                className={
-                  !this.state.showLiveBanner
-                    ? 'logoHouse '
-                    : 'logoHouse logoOffset'
-                }
+              <TMHLogo
+                offset={this.state.showLiveBanner}
+                logoColor={this.state.logoColor}
+                showLogoText={this.state.showLogoText}
               />
-              {this.state.showLogoText ? (
-                <img
-                  src={
-                    '/static/logos/tmh-text-' + this.state.logoColor + '-sm.png'
-                  }
-                  alt="Logo: The Meeting House"
-                  className={
-                    !this.state.showLiveBanner
-                      ? 'logoText '
-                      : 'logoText logoOffset'
-                  }
-                />
-              ) : null}
             </NavbarBrand>
 
             {this.state.showSearch ? (
@@ -315,7 +299,12 @@ class HomeMenu extends React.Component<Props, State> {
               </div>
             ) : null}
             {this.state.showMenu ? (
-              <Navbar color="white" expand="md" className={'navbar fixed-left'}>
+              <Navbar
+                color="white"
+                expand="md"
+                className={'navbar fixed-left'}
+                style={{ zIndex: 1000 }}
+              >
                 <NavbarToggler onClick={this.toggle}>
                   <HamburgerMenu
                     isOpen={this.state.isOpen}
@@ -346,47 +335,31 @@ class HomeMenu extends React.Component<Props, State> {
                               (a) => a.location === this.props.location.pathname
                             );
                           return (
-                            <NavItem key={item.location}>
-                              <RSNavLink
-                                tag={RRNavLink}
+                            <NavItem
+                              style={{
+                                zIndex: 10000,
+                              }}
+                              key={item.location}
+                            >
+                              <RSNavLinkWrapper
+                                expand={this.state.expand}
                                 className="bigNav"
-                                activeStyle={{ fontWeight: 'bold' }}
-                                style={{
-                                  display: 'inline-block',
-                                }}
-                                key={item.location}
-                                to={item.location}
-                              >
-                                {item.name}
-                              </RSNavLink>
+                                item={item}
+                              />
                               {item.children != null ? (
-                                <Button
-                                  aria-label="Expand Menu"
-                                  className="expanderButton"
-                                  onClick={() => {
+                                <ExpandButton
+                                  expand={this.state.expand}
+                                  item={item.location}
+                                  shouldExpand={shouldExpand}
+                                  setExpand={() =>
                                     this.setState({
                                       expand:
                                         this.state.expand === item.location
                                           ? null
                                           : item.location,
-                                    });
-                                  }}
-                                >
-                                  <div
-                                    className={
-                                      shouldExpand
-                                        ? 'vertical-line xstate'
-                                        : 'vertical-line'
-                                    }
-                                  ></div>
-                                  <div
-                                    className={
-                                      shouldExpand
-                                        ? 'horizontal-line xstate'
-                                        : 'horizontal-line'
-                                    }
-                                  ></div>
-                                </Button>
+                                    })
+                                  }
+                                />
                               ) : null}
                               {shouldExpand
                                 ? item.children
@@ -396,15 +369,12 @@ class HomeMenu extends React.Component<Props, State> {
                                         : true
                                     )
                                     .map((item2) => (
-                                      <RSNavLink
-                                        tag={RRNavLink}
+                                      <RSNavLinkWrapper
+                                        expand={this.state.expand}
+                                        key={item2?.location}
                                         className="smallNav"
-                                        key={item2.location}
-                                        to={item2.location}
-                                        activeStyle={{ fontWeight: 'bold' }}
-                                      >
-                                        {item2.name}
-                                      </RSNavLink>
+                                        item={item2}
+                                      />
                                     ))
                                 : null}
                             </NavItem>

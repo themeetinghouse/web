@@ -91,6 +91,7 @@
     padding-bottom: 0 !important;
   }
   .logoHouse {
+    position: absolute;
     height: 4vw;
   }
   .logoText {
@@ -315,6 +316,7 @@
     }
   }
   .logoHouse {
+    position: absolute;
     height: 4vw;
   }
   .logoText {
@@ -437,6 +439,7 @@
     left: 73vw;
     position: absolute;
     z-index: 100;
+    padding-top: 2px;
     top: 5.6vw;
     background-color: #ffffff00;
     cursor: pointer;
@@ -459,7 +462,13 @@
     position: relative;
     top: 0.5rem;
   }
+  .logoContainer {
+    top: -8px;
+    left: 0px;
+    position: absolute;
+  }
   .logoHouse {
+    position: absolute;
     height: 10.4vw;
   }
   .logoText {

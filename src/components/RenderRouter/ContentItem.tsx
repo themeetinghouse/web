@@ -307,7 +307,32 @@ function ContentItem({ content, nextItem }: Props) {
           </div>
         </div>
       );
-
+    case 'oneImageBlackRightExtended':
+      return (
+        <div className="ContentItem oneImage ContentItemMarginBottom">
+          <div className="oneImagePosition right">
+            <div className="oneImageBlackBox rightExtend">
+              <h1 className="oneImageH1 white">{content.header1}</h1>
+              <h2 className="oneImageH2 white">{content.header2}</h2>
+              <div className="oneImageText white">{content.text1}</div>
+              {renderList('black')}
+              {content.calendar && (
+                <AddToCalendar
+                  className="one-image-calendar"
+                  event={content.calendar}
+                  color="white"
+                  textDecoration="always"
+                />
+              )}
+            </div>
+            <ScaledImage
+              image={image1}
+              className="oneImageImage right secondImg extramrg"
+              breakpointSizes={heroBreakpoints}
+            />
+          </div>
+        </div>
+      );
     case 'goRegionalEventsOneImageBlackRight':
       return (
         <div className="ContentItem oneImage goRegionalEventsMarginBottom">
