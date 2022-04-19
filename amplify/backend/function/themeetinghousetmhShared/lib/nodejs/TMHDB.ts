@@ -279,7 +279,24 @@ export default class TMHDB {
       console.log(json);
     }
   }
+  static async f1SearchContributionReceipts(householdId: string) {
+    console.log('f1SearchContributionReceipts invoke started');
+    var lambda = new aws.Lambda({
+      region: process.env.REGION, //change to your region
+    });
+    const payload = { arguments: { itemId: householdId } };
 
+    const params = {
+      FunctionName: 'F1SearchContributionReceipts',
+      Payload: JSON.stringify(payload),
+    };
+
+    const LambdaPromise = (params) => lambda.invoke(params).promise();
+
+    const responseFromLambda2 = await LambdaPromise(params);
+    console.log({ responseFromLambda2: responseFromLambda2 });
+    return JSON.parse(responseFromLambda2.Payload.toString());
+  }
   static async f1ListGroupTypes() {
     try {
       const login = await TMHDB.ensureLogin();
