@@ -655,12 +655,12 @@
   .madContainer {
     flex-direction: column-reverse;
     display: flex;
+    padding-bottom: 60px;
   }
   .madPosition {
     position: relative;
     left: 5vw;
     width: 80vw;
-    height: 180vw;
     z-index: 100;
   }
   .madH1 {
@@ -678,6 +678,10 @@
   }
   .madList {
     font-size: 5vw;
+    margin-left: -6.4vw;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
     font-family: Graphik Web;
     line-height: 0vw;
     cursor: pointer;
@@ -694,7 +698,7 @@
     left: 25vw;
     width: 70vw;
     height: 24vw;
-    border: solid 28px theme.$onyxblacktext;
+    border: solid 16px theme.$onyxblacktext;
     border-right: 0vw;
   }
   .madImage {
