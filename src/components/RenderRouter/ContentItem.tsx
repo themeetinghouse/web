@@ -158,7 +158,7 @@ function ContentItem({ content }: Props) {
   };
 
   switch (content.style) {
-case 'oneImageYellow':
+    case 'oneImageYellow':
       return (
         <div className="ContentItem oneImage">
           <div className="oneImagePosition">
