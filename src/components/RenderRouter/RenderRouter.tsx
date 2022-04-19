@@ -15,7 +15,6 @@ import RenderRouterItemWrapper from './RenderRouterItemWrapper';
 import EventPage from './EventPage';
 import TMHCarousel from 'components/TMHCarousel/TMHCarousel';
 
-
 const SimpleItem = React.lazy(() => import('./SimpleItem'));
 const SearchItem = React.lazy(() => import('./SearchItem'));
 const IFrameItem = React.lazy(() => import('./IFrameItem'));
