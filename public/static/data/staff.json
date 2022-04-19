@@ -154,15 +154,6 @@
   },
   {
     "Staff": true,
-    "FirstName": "Darrell",
-    "LastName": "Winger",
-    "Phone": "905.287.7000, ext. 807",
-    "Position": "Senior Pastor",
-    "sites": ["Senior Staff", "Pastoral"],
-    "Email": "Darrell.Winger@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
     "FirstName": "Denley",
     "LastName": "McIntosh",
     "Phone": "905.287.7000",
@@ -328,7 +319,7 @@
     "FirstName": "Karmyn",
     "LastName": "Bokma",
     "Phone": "905.287.7000, ext. 812",
-    "Position": "Oakville Lead Pastor",
+    "Position": "Interim Senior Pastor",
     "sites": ["OAKV", "Pastoral"],
     "Email": "Karmyn.Bokma@themeetinghouse.com"
   },
@@ -340,15 +331,6 @@
     "Position": "Oakville Care Team Pastor",
     "sites": ["OAKV", "Pastoral"],
     "Email": "Kathy.Bernard@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
-    "FirstName": "Katie",
-    "LastName": "Double",
-    "Phone": "905.287.7000, ext. 814",
-    "Position": "People Strategies & Communications Director",
-    "sites": ["Operations"],
-    "Email": "Katie.Double@themeetinghouse.com"
   },
   {
     "Staff": true,
@@ -373,7 +355,7 @@
     "FirstName": "Laura",
     "LastName": "Hanna",
     "Phone": "905.287.7000, ext. 815",
-    "Position": "Compassion Manager",
+    "Position": "Jesus Collective Interim Associate Director",
     "sites": ["Site Leadership"],
     "Email": "Laura.Hanna@themeetinghouse.com"
   },
@@ -472,7 +454,7 @@
     "FirstName": "Matt",
     "LastName": "Miles",
     "Phone": "905.287.7000, ext. 854",
-    "Position": "Director of Growth and Strategic Partnerships",
+    "Position": "Interim Senior Director & Jesus Collective Executive Director",
     "sites": ["Site Leadership"],
     "Email": "Matt.Miles@themeetinghouse.com"
   },
@@ -490,7 +472,7 @@
     "FirstName": "Megan",
     "LastName": "Enns",
     "Phone": "905.287.7000",
-    "Position": "Compassion Project Coordinator and Administrator",
+    "Position": "Compassion Manager",
     "sites": ["Site Leadership"],
     "Email": "Megan.enns@themeetinghouse.com"
   },

@@ -146,11 +146,11 @@
     "Position": "Compassion Coordinator"
   },
   {
-    "FirstName": "Sandra",
-    "LastName": "Albione",
+    "FirstName": "Chris",
+    "LastName": "Pullenayegem",
     "sites": ["RHLL"],
-    "Email": "sandra.albione@themeetinghouse.com",
-    "Position": "Compassion Coordinator"
+    "Email": "chris.pullenayegem@themeetinghouse.com",
+    "Position": "Interim Pastor"
   },
   {
     "FirstName": "Jasmine",
@@ -318,6 +318,13 @@
     "Position": "Weekend Service Producer"
   },
   {
+    "FirstName": "Joshua",
+    "LastName": "Woodward",
+    "sites": ["BRFD"],
+    "Email": "josh.woodward@themeetinghouse.com",
+    "Position": "Ministry Associate & Youth Coordinator"
+  },
+  {
     "FirstName": "Laura",
     "LastName": "Brinks",
     "sites": ["BRFD"],
@@ -329,6 +336,13 @@
     "sites": ["BRFD"],
     "Email": "kristinvanhoeve@gmail.com",
     "Position": "Kidmax Coordinator"
+  },
+  {
+    "FirstName": "Bryan",
+    "LastName": "McKee",
+    "sites": ["BRFD"],
+    "Email": "bryanrmckee@gmail.com",
+    "Position": "Prayer Coordinator"
   },
   {
     "FirstName": "Adam",
@@ -523,12 +537,6 @@
     "Position": "Welcome Coordinator"
   },
   {
-    "FirstName": "Angela",
-    "LastName": "Kong",
-    "sites": ["RHLL"],
-    "Position": "Welcome Coordinator"
-  },
-  {
     "FirstName": "Samson",
     "LastName": "Chiu",
     "sites": ["RHLL"],
@@ -546,13 +554,6 @@
     "sites": ["ALLI"],
     "Email": "alliston.youth@themeetinghouse.com",
     "Position": "Youth Coordinator"
-  },
-  {
-    "FirstName": "Joshua",
-    "LastName": "Woodward",
-    "sites": ["BRFD"],
-    "Email": "josh.woodward@themeetinghouse.com",
-    "Position": "Ministry Associate & Youth Coordinator"
   },
   {
     "FirstName": "Maddy",

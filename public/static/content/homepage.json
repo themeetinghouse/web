@@ -80,6 +80,26 @@
       {
         "type": "content",
         "style": "oneImageBlackRight",
+        "header1": "Easter",
+        "header2": "",
+        "text1": "This Easter is all about hope. Journey with us as we testify to the hope we've seen, the hope we have yet to see, and the true living hope of the world: Jesus.",
+        "list": [
+          {
+            "type": "link",
+            "title": "Learn more",
+            "navigateTo": "/easter"
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/Easter_website_square_image.jpg",
+            "alt": "The words, Hope Lives on a yellow, orange, and pink abstract design"
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "style": "oneImageBlackRight",
         "header1": "Road to Hope",
         "header2": "",
         "text1": "Join us on a prayer journey through the Lent season, right into Good Friday and Easter. Click below to find out more and access content.",

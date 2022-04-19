@@ -16,9 +16,7 @@ export default function ContentPage(): ReactElement | null {
 
   const [content, setContent] = useState<any>(null);
   const [pages, setPages] = useState<Record<string, any>>({});
-
   const jsonFile = location.pathname.slice(1) || 'homepage';
-
   useEffect(() => {
     Analytics.record({
       name: 'pageVisit',
@@ -57,24 +55,27 @@ export default function ContentPage(): ReactElement | null {
       setContent(await notFoundPageContent);
     })();
   }, [jsonFile, pages]);
-
   if (!content) {
     return null;
   }
-
   if (content.page.pageConfig.weatherAlert && location.pathname === '/') {
     history.push('/weather');
   }
-
   const {
     showGenericModalPage,
     isPopup = false,
-    navigateOnPopupClose = '/',
+    navigateOnPopupClose,
   } = content.page.pageConfig ?? {};
   if (showGenericModalPage && isPopup) {
     return (
       <GenericModalPage
-        onClose={() => history.push(navigateOnPopupClose)}
+        onClose={() => {
+          if (navigateOnPopupClose) {
+            history.push(navigateOnPopupClose);
+          } else {
+            history.goBack();
+          }
+        }}
         content={content}
         data={{ id: undefined }}
       ></GenericModalPage>

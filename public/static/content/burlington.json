@@ -46,12 +46,12 @@
           }
         ],
         "header1": "Burlington",
-        "text1": "Sundays at 10:00am",
-        "text2": "BYO Lunch Service at 11:30am (1240 Advance Rd)",
-        "text3": "More details on both services below.",
+        "text1": "Sundays at 10:00am & BYO Lunch Service at 11:30am (1240 Advance Rd)",
+        "text2": "More details on both services below.",
+        "text3": "",
         "customLiveLink": "themeetinghouse.com/live",
-        "register": true,
-        "addToCalendar": false,
+        "register": false,
+        "addToCalendar": true,
         "contactPastor": true,
         "class": "locations",
         "filterField": "id",
@@ -68,16 +68,6 @@
             "title": "Find Out More",
             "navigateTo": "/static/pdfs/parishes/TMH Burlington In-Person Gatherings for March & April.pdf",
             "openNewBrowser": true
-          }
-        ],
-        "image1": [
-          {
-            "src": "/static/images/KY1.jpg",
-            "alt": "A young child playing with blocks."
-          },
-          {
-            "src": "/static/images/KY2.jpg",
-            "alt": "Two boys laughing."
           }
         ]
       },

@@ -8,10 +8,16 @@ const newWindowProps = {
   rel: 'noopener noreferrer',
 };
 
+type LinkTO = {
+  pathname: string;
+  search?: string;
+  hash?: string;
+  state?: any;
+};
 type Props = React.PropsWithoutRef<LinkProps> &
   React.RefAttributes<HTMLAnchorElement> & {
     newWindow?: boolean;
-    to?: string;
+    to?: string | LinkTO;
     className?: string;
   };
 

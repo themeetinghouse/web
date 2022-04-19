@@ -8,7 +8,7 @@
       "latitude": 44.149035,
       "address": "Gibson Centre, 63 Tupper Street West"
     },
-    "serviceTimes": ["10:30"],
+    "serviceTimes": ["10:30am"],
     "youth": {
       "age": "Youth | Grades 6 – 12",
       "location": {
@@ -33,7 +33,7 @@
       "latitude": 43.9188665,
       "address": ""
     },
-    "serviceTimes": ["10:00"]
+    "serviceTimes": ["10:00am"]
   },
   {
     "id": "ancaster",
@@ -44,7 +44,7 @@
       "latitude": 43.2272571,
       "address": "SilverCity Ancaster, 771 Golf Links Road"
     },
-    "serviceTimes": ["10:00"]
+    "serviceTimes": ["10:00am"]
   },
   {
     "id": "brampton",
@@ -55,7 +55,7 @@
       "latitude": 43.682767,
       "address": "Alderlea, 40 Elizabeth Street South"
     },
-    "serviceTimes": ["10:00"]
+    "serviceTimes": ["10:00am"]
   },
   {
     "id": "brantford",
@@ -66,7 +66,7 @@
       "latitude": 43.141719,
       "address": "Grace Anglican Church, 4 Pearl Street"
     },
-    "serviceTimes": ["10:00"]
+    "serviceTimes": ["10:00am"]
   },
   {
     "id": "burlington",
@@ -77,7 +77,7 @@
       "latitude": 43.3439882,
       "address": "SilveryCity Burlington, 1250 Brant Street"
     },
-    "serviceTimes": ["10:00"]
+    "serviceTimes": ["10:00am"]
   },
   {
     "id": "hamilton-downtown",
@@ -88,7 +88,7 @@
       "latitude": 43.26213,
       "address": "Gasworks, 141 Park Avenue North"
     },
-    "serviceTimes": ["10:00"]
+    "serviceTimes": ["10:00am"]
   },
   {
     "id": "toronto-downtown",
@@ -99,7 +99,7 @@
       "latitude": 43.648869,
       "address": "Scotiabank Theatre, 259 Richmond St. W"
     },
-    "serviceTimes": ["10:00"]
+    "serviceTimes": ["10:00am"]
   },
   {
     "id": "hamilton-mountain",
@@ -121,7 +121,7 @@
       "latitude": 43.6664844,
       "address": "The Beach Cinemas, 1651 Queen Street East"
     },
-    "serviceTimes": ["10:00"]
+    "serviceTimes": ["10:00am"]
   },
   {
     "id": "toronto-high-park",
@@ -132,7 +132,7 @@
       "latitude": 43.6584924,
       "address": "Humbercrest Church, 16 Baby Point Road"
     },
-    "serviceTimes": ["10:00"]
+    "serviceTimes": ["10:00am"]
   },
   {
     "id": "kitchener",
@@ -143,18 +143,18 @@
       "latitude": 43.4054,
       "address": "Galaxy Cinemas Conestoga Mall, 550 King Street North"
     },
-    "serviceTimes": ["10:00"]
+    "serviceTimes": ["10:00am"]
   },
   {
     "id": "london",
     "name": "London",
     "pastorEmail": "Phil.Prendergast@themeetinghouse.com",
     "location": {
-      "longitude": -81.278295,
-      "latitude": 43.027068,
-      "address": "SilverCity London, 1680 Richmond Street"
+      "longitude": -81.29423741528805,
+      "latitude": 42.999934444016944,
+      "address": "Church of the Transfiguration, 33 Bromleigh Ave"
     },
-    "serviceTimes": ["10:00"]
+    "serviceTimes": ["2:00pm"]
   },
   {
     "id": "newmarket",
@@ -165,7 +165,7 @@
       "latitude": 43.79428,
       "address": "SilverCity Newmarket, 18195 Yonge Street"
     },
-    "serviceTimes": ["10:00"]
+    "serviceTimes": ["10:00am"]
   },
   {
     "id": "oakville",
@@ -176,7 +176,7 @@
       "latitude": 43.511459,
       "address": "2700 Bristol Circle"
     },
-    "serviceTimes": ["9:30"],
+    "serviceTimes": ["9:30am"],
     "youth": {
       "age": "Youth | Grades 6 – 12",
       "location": {
@@ -214,18 +214,18 @@
       "latitude": 45.35407,
       "address": "The Sound Hub, 86 Gibson St."
     },
-    "serviceTimes": ["10:00"]
+    "serviceTimes": ["10:00am"]
   },
   {
     "id": "richmond-hill",
     "name": "Richmond Hill",
-    "pastorEmail": "Melissa.Ytsma@themeetinghouse.com",
+    "pastorEmail": "chris.pullenayegem@themeetinghouse.com",
     "location": {
-      "longitude": -79.4291884,
-      "latitude": 43.8408015,
-      "address": ""
+      "longitude": -79.43721571533477,
+      "latitude": 43.88108937451291,
+      "address": "Community Church of Richmond Hill, 45 Crosby Ave"
     },
-    "serviceTimes": ["10:00"]
+    "serviceTimes": ["2:00pm"]
   },
   {
     "id": "toronto-uptown",
@@ -236,7 +236,7 @@
       "latitude": 43.725822,
       "address": "Yorkdale Cineplex, 3401 Dufferin Street"
     },
-    "serviceTimes": ["9:30"]
+    "serviceTimes": ["9:30am"]
   },
   {
     "id": "waterloo",
@@ -247,7 +247,7 @@
       "latitude": 43.498807,
       "address": "Galaxy Cinemas Conestoga Mall, 550 King Street North"
     },
-    "serviceTimes": ["10:00"]
+    "serviceTimes": ["10:00am"]
   },
   {
     "id": "global",
@@ -258,6 +258,6 @@
       "latitude": 0.1,
       "address": " "
     },
-    "serviceTimes": ["10:00"]
+    "serviceTimes": ["10:00am"]
   }
 ]
