@@ -105,6 +105,11 @@
             "type": "arrow",
             "title": "Share",
             "navigateTo": "https://www.themeetinghouse.com/posts/share-test"
+          },
+          {
+            "type": "arrow",
+            "title": "Share",
+            "navigateTo": "https://www.themeetinghouse.com/posts/share-test"
           }
         ],
         "image1": [
