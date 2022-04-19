@@ -113,7 +113,7 @@
       "function": {
         "themeetinghousea5cd4619": {
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "s3Key": "amplify-builds/themeetinghousea5cd4619-477847666768795a566a-build.zip"
+          "s3Key": "amplify-builds/themeetinghousea5cd4619-7864387650514d476833-build.zip"
         },
         "S3AndCloudFront": {},
         "emailHomeChurch": {
@@ -144,7 +144,7 @@
           "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
           "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "s3Key": "amplify-builds/tmhF1SyncGroupPermissions-305251566572532f5646-build.zip"
+          "s3Key": "amplify-builds/tmhF1SyncGroupPermissions-7a30324b6b3152355670-build.zip"
         },
         "tmhStripeListPaymentMethods": {
           "userPoolId": "us-east-1_KiJzP2dH5",
@@ -220,7 +220,7 @@
           "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
           "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "s3Key": "amplify-builds/tmhF1LinkUser-49646455594137306337-build.zip"
+          "s3Key": "amplify-builds/tmhF1LinkUser-6a6968576d3756794e52-build.zip"
         },
         "tmhF1SearchContributionReceipts": {
           "userPoolId": "us-east-1_KiJzP2dH5",
@@ -234,7 +234,7 @@
           "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
           "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "s3Key": "amplify-builds/tmhF1AssignmentSync-534f54734b634a594a73-build.zip"
+          "s3Key": "amplify-builds/tmhF1AssignmentSync-4d48444f306641466e33-build.zip"
         },
         "themeetinghousetmhShared": {
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",

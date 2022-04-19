@@ -336,3 +336,115 @@ export const deleteF1ListGroup2 = /* GraphQL */ `
     }
   }
 `;
+
+export const createF1Assignments = /* GraphQL */ `
+  mutation CreateF1Assignments($input: CreateF1AssignmentsInput!) {
+    createF1Assignments(input: $input) {
+      id
+      uri
+      personId
+      type {
+        name
+        id
+        uri
+      }
+      person {
+        id
+        uri
+      }
+      activity {
+        name
+        id
+        uri
+      }
+      schedule {
+        id
+        uri
+      }
+      roster {
+        id
+        uri
+      }
+      rosterFolder {
+        id
+        uri
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateF1Assignments = /* GraphQL */ `
+  mutation UpdateF1Assignments($input: UpdateF1AssignmentsInput!) {
+    updateF1Assignments(input: $input) {
+      id
+      uri
+      personId
+      type {
+        name
+        id
+        uri
+      }
+      person {
+        id
+        uri
+      }
+      activity {
+        name
+        id
+        uri
+      }
+      schedule {
+        id
+        uri
+      }
+      roster {
+        id
+        uri
+      }
+      rosterFolder {
+        id
+        uri
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteF1Assignments = /* GraphQL */ `
+  mutation DeleteF1Assignments($input: DeleteF1AssignmentsInput!) {
+    deleteF1Assignments(input: $input) {
+      id
+      uri
+      personId
+      type {
+        name
+        id
+        uri
+      }
+      person {
+        id
+        uri
+      }
+      activity {
+        name
+        id
+        uri
+      }
+      schedule {
+        id
+        uri
+      }
+      roster {
+        id
+        uri
+      }
+      rosterFolder {
+        id
+        uri
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;

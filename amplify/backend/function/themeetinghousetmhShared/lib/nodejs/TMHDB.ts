@@ -159,6 +159,127 @@ export default class TMHDB {
       console.log(json);
     }
   }
+
+  static async f1ListAllActivities() {
+    var page = 0;
+    var allActivities = [];
+    while (true) {
+      page++;
+      const act = await TMHDB.f1ListActivities(page);
+
+      if (act.length == 0) break;
+      allActivities.push(...act);
+    }
+    return allActivities;
+  }
+  static async f1ListActivities(page) {
+    try {
+      console.log('Starting f1ListActivities');
+      const json: any = await API.graphql({
+        query: queries.f1ListActivities,
+        authMode: 'API_KEY',
+        variables: { page: page.toString() },
+      });
+      console.log('Done Get f1ListActivities');
+
+      var result;
+      if (json.data.F1ListActivities) result = json.data.F1ListActivities;
+      else result = [];
+      return result;
+    } catch (json: any) {
+      console.log({ 'Error getting recipients': json.errors });
+      var result;
+      if (json.data.F1ListActivities) result = json.data.F1ListActivities;
+      else result = [];
+      return result;
+    }
+  }
+
+  static async getAllAssignments(nextToken) {
+    try {
+      console.log('Starting getAllAssignments');
+      const json: any = await API.graphql({
+        query: queries.listF1Assignments,
+        variables: {
+          nextToken: nextToken,
+        },
+        authMode: 'API_KEY',
+      });
+      console.log('Done Get listF1Assignments');
+
+      if (json.data.listF1Assignments.nextToken != null)
+        return [
+          ...json.data.listF1Assignments.items,
+          ...(await TMHDB.getAllAssignments(
+            json.data.listF1Assignments.nextToken
+          )),
+        ];
+      else return json.data.listF1Assignments.items;
+    } catch (json: any) {
+      console.log({ 'Error getting recipients': json.errors });
+      console.log(json);
+      if (json.data.listF1Assignments.nextToken != null)
+        return [
+          ...json.data.listF1Assignments.items,
+          ...(await TMHDB.getAllAssignments(
+            json.data.listF1Assignments.nextToken
+          )),
+        ];
+      else return json.data.listF1Assignments.items;
+    }
+  }
+  static async addGroupAssignment(item) {
+    const zz = { ...item, personId: item.person.id };
+    try {
+      const login = await TMHDB.ensureLogin();
+      if (login != null) return login;
+
+      const json = await API.graphql({
+        query: mutations.createF1Assignments,
+        authMode: 'AMAZON_COGNITO_USER_POOLS',
+        variables: { input: zz },
+      });
+    } catch (json: any) {
+      console.log(item);
+      console.log(json);
+      console.log({ 'Error getting addGroup': json.errors });
+      console.log({ 'Error getting addGroup': json.errors[0].path });
+      console.log({ 'Error getting addGroup': json.errors[0].locations });
+    }
+  }
+  static async updateGroupAssignment(item) {
+    const zz = { ...item, personId: item.person.id };
+    try {
+      const login = await TMHDB.ensureLogin();
+      if (login != null) return login;
+
+      const json = await API.graphql({
+        query: mutations.updateF1Assignments,
+        authMode: 'AMAZON_COGNITO_USER_POOLS',
+        variables: { input: zz },
+      });
+    } catch (json: any) {
+      console.log({ 'Error getting updateGroup': json.errors });
+      console.log(json);
+    }
+  }
+  static async deleteGroupAssignment(item) {
+    const zz = { ...item, personId: item.person.id };
+    try {
+      const login = await TMHDB.ensureLogin();
+      if (login != null) return login;
+
+      const json = await Amplify.API.graphql({
+        query: mutations.deleteF1Assignments,
+        authMode: 'AMAZON_COGNITO_USER_POOLS',
+        variables: { input: { id: zz.id } },
+      });
+    } catch (json: any) {
+      console.log({ 'Error getting deleteGroup': json.errors });
+      console.log(json);
+    }
+  }
+
   static async f1ListGroupTypes() {
     try {
       const login = await TMHDB.ensureLogin();
