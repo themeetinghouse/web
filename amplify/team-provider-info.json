@@ -213,7 +213,7 @@
         },
         "tmhnotespdf": {
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "s3Key": "amplify-builds/tmhnotespdf-34344e3146564a676348-build.zip"
+          "s3Key": "amplify-builds/tmhnotespdf-7a6b784f6e617037306f-build.zip"
         },
         "tmhF1LinkUser": {
           "userPoolId": "us-east-1_KiJzP2dH5",
@@ -238,7 +238,7 @@
         },
         "themeetinghousetmhShared": {
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "s3Key": "amplify-builds/themeetinghousetmhShared-LambdaLayerVersion5e4deed1-build.zip"
+          "s3Key": "amplify-builds/themeetinghousetmhShared-LambdaLayerVersion19a4ed70-build.zip"
         },
         "AdminQueriesa1b7e2e8": {
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
