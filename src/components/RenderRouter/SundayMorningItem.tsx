@@ -297,10 +297,18 @@ export class SundayMorningItem extends React.Component<Props, State> {
       if (moment().day() === 0 && moment().isBefore(moment('10:00', 'hh:mm')))
         nextSunday = moment().startOf('day');
       else nextSunday = moment().add(1, 'week').day(0).startOf('day');
-      let serviceHour =
-        locationItem.serviceTimes[locationItem.serviceTimes.length - 1];
-      serviceHour = serviceHour.substr(0, serviceHour.indexOf(':'));
-      nextSunday = nextSunday.hour(+serviceHour);
+      const serviceTime = locationItem.serviceTimes.at(-1) ?? '10:00';
+      const serviceHour = serviceTime.split(':')[0];
+      const serviceMinute = serviceTime.split(':')[1].slice(0, 2);
+      const serviceAMPM = serviceTime.split(':')[1].slice(2, undefined).trim();
+      nextSunday.minute(+serviceMinute);
+      nextSunday.hour(+serviceHour);
+      if (serviceAMPM?.toUpperCase() === 'PM') {
+        if (serviceHour && typeof serviceHour === 'string') {
+          const hourInInt = parseInt(serviceHour);
+          nextSunday.set('hours', hourInInt + 12);
+        }
+      }
       const event = {
         summary: 'Church at The Meeting House',
         description: 'Join us at The Meeting House on Sunday!',
@@ -563,13 +571,9 @@ export class SundayMorningItem extends React.Component<Props, State> {
                                 </div>
                               ) : (
                                 <div className="SundayMorningServiceTimes">
-                                  {this.props.content.alternate === 'youth'
-                                    ? item.serviceTimes
-                                        .map((t) => t + '')
-                                        .join(', ')
-                                    : item.serviceTimes
-                                        .map((t) => t + ' am')
-                                        .join(', ')}
+                                  {item.serviceTimes
+                                    .map((t) => t + '')
+                                    .join(', ')}
                                 </div>
                               )}
                             </div>

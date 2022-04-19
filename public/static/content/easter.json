@@ -2,7 +2,7 @@
   "page": {
     "name": "easter",
     "title": "Easter",
-    "keywords": "",
+    "keywords": "Easter, passover, palm Sunday",
     "description": "",
     "pageConfig": {
       "showLive": true,
@@ -16,39 +16,59 @@
     "content": [
       {
         "type": "og-tags",
-        "image": "/static/images/easter-hero-2021.jpg",
+        "image": "/static/images/Easter2022_Web-Hero.jpg",
         "url": "https://www.themeetinghouse.com/easter",
         "title": "Easter with The Meeting House",
-        "description": "April 2 & 4, 2021"
+        "description": "April 15 & 17, 2022"
       },
       {
         "type": "hero",
         "style": "full",
         "image1": [
           {
-            "src": "/static/images/easter-hero-2021.jpg",
-            "alt": "Young woman standing in front of a wall of greenery, wearing a face mask, looking off to the side and smiling."
+            "src": "/static/images/Easter2022_Web-Hero.jpg",
+            "alt": "Yellow, orange, and pink abstract design."
           }
         ],
         "header1": "Easter",
         "header2": "",
-        "text1": "Remember how last year the idea of an Easter livestream seemed fun and exciting? Oh how things have changed. Still—we're refusing to give into the cynicism and we hope you'll join us because this really is better together."
+        "text1": "This Easter is all about hope. Journey with us as we testify to the hope we've seen, the hope we have yet to see, and the true living hope of the world: Jesus."
       },
       {
         "type": "content",
         "style": "oneImage",
-        "header1": "Easter Sunday",
-        "header2": "April 4, 10:00am EDT",
-        "text1": "Ready to approach Easter in a completely new way? We want to capture the wildly unexpected beauty of Easter we see revealed in Jesus, and share it through a completely reimagined livestream experience.",
+        "header1": "Good Friday Livestream",
+        "header2": "April 15, 10:00am ET",
+        "text1": "This Good Friday we testify to the hope we've seen, and the hope we have yet to see. Join us as we hold forth the hope of Jesus in times of expectation.",
         "image1": [
           {
-            "src": "/static/images/easter-1.jpg",
-            "alt": "Person on the couch is watching The Meeting House Easter livestream teaching on their laptop."
+            "src": "/static/images/GF_website_square_image_2.jpg",
+            "alt": "The word, Testify on a yellow, orange, and pink abstract design"
           }
         ],
         "calendar": {
-          "start": "2021-04-04T10:00:00-04:00",
-          "end": "2021-04-04T11:30:00-04:00",
+          "start": "2022-04-15T10:00:00-04:00",
+          "end": "2022-04-15T11:30:00-04:00",
+          "summary": "Good Friday",
+          "description": "Join The Meeting House's livestream on Good Friday.",
+          "url": "https://www.themeetinghouse.com/live"
+        }
+      },
+      {
+        "type": "content",
+        "style": "oneImage",
+        "header1": "Easter Sunday Livestream",
+        "header2": "April 17, 10:00am ET",
+        "text1": "Hope lives this Easter! Join us as we celebrate and declare together our hope: the hope of the world: the risen and exalted Jesus.",
+        "image1": [
+          {
+            "src": "/static/images/Easter_website_square_image.jpg",
+            "alt": "The words, Hope Lives on a yellow, orange, and pink abstract design."
+          }
+        ],
+        "calendar": {
+          "start": "2022-04-17T10:00:00-04:00",
+          "end": "2022-04-17T11:30:00-04:00",
           "summary": "Easter Sunday",
           "description": "Join The Meeting House's livestream on Easter Sunday.",
           "url": "https://www.themeetinghouse.com/live"
@@ -63,63 +83,14 @@
             "alt": "A map representing locations of The Meeting House churches."
           }
         ],
-        "header1": "Good Friday",
-        "text1": "Local virtual experiences that feel like family and give you opportunity to meaningfully connect with people near you.",
+        "header1": "Good Friday and Easter at Parishes",
+        "text1": "Local in-person experiences that feel like family and give you opportunity to meaningfully connect with people near you.",
         "text2": "Choose a location from the menu below for more details.",
         "link1Text": "",
         "link1AriaLabel": "",
         "link1Action": "/find-sunday-morning",
         "class": "locations",
         "showLocationSearch": true
-      },
-      {
-        "type": "content",
-        "style": "oneImage",
-        "header1": "Kids Easter Activities",
-        "image1": [
-          {
-            "src": "/static/images/Jesusisalive.jpg",
-            "alt": "Kids Easter Experience"
-          }
-        ],
-        "list": [
-          {
-            "type": "link",
-            "title": "Easter Journey of Hope",
-            "navigateTo": "https://drive.google.com/drive/folders/1g0y8X5AGiS99s8CLmMMoULcpJs0vyZSr",
-            "openNewBrowser": true
-          }
-        ]
-      },
-      {
-        "type": "content",
-        "style": "oneImage",
-        "header1": "Easter Colouring Page",
-        "image1": [
-          {
-            "src": "/static/images/EasterColouringPage2.jpg",
-            "alt": "Easter Colouring Page"
-          }
-        ],
-        "list": [
-          {
-            "type": "link",
-            "title": "Easter Colouring Page",
-            "navigateTo": "/static/pdfs/teaching/EasterColouringPage.pdf",
-            "openNewBrowser": true
-          }
-        ]
-      },
-      {
-        "type": "list",
-        "style": "horizontal",
-        "class": "custom-playlist",
-        "playlist": "Easter",
-        "header1": "Past Easter Services",
-        "sortOrder": "DESC",
-        "margin": {
-          "marginTop": 24
-        }
       },
       {
         "type": "hero",

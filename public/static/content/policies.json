@@ -1,0 +1,137 @@
+{
+    "page": {
+      "name": "policies",
+      "title": "Policies",
+      "keywords": "policies, victim advocacy, accessibility, accessible",
+      "description": "",
+      "pageConfig": {
+        "showLive": true,
+        "movingMenu": false,
+        "showLogoText": true,
+        "logoColor": "black",
+        "showSearch": true,
+        "showFooter": true,
+        "showMenu": true
+      },
+  
+      "content": [
+        {
+          "type": "og-tags",
+          "image": "/static/images/og-images/about-us.jpg",
+          "url": "https://www.themeetinghouse.com/policies",
+          "title": "About Us",
+          "description": "Get to know us better. We're a church that exists to grow loving communities of Jesus-followers who live and share his irreligious message."
+        },
+        {
+          "type": "hero",
+          "style": "full",
+          "image1": [
+            {
+              "src": "/static/images/about-us-1-1-new.jpg",
+              "alt": "All of The Meeting House staff posing outside of the main office in Oakville."
+            },
+            {
+              "src": "/static/images/about-us-1-2-new.jpg",
+              "alt": "All of The Meeting House staff being silly outside of the main office in Oakville."
+            }
+          ],
+          "header1": "Policies",
+          "text1": "Stuff about policies.",
+          "text2": "",
+          "link1Text": "Read More",
+          "link1Action": "/static/pdfs/first-impressions/TMH About Us 2019_v11_WEB.pdf"
+        },
+        {
+            "type": "content",
+            "style": "oneImage",
+            "header1": "Victim Advocacy",
+            "header2": "",
+            "text1": "Stuff about victim advocacy.",
+            "image1": [
+              {
+                "src": "/static/images/about-us-2-3.jpg",
+                "alt": "Three people sitting at a table, talking about the bible"
+              }
+            ],
+            "list": [
+              {
+                "type": "link",
+                "title": "Online Referral Form",
+                "navigateTo": "https://form.jotform.com/220701021515538",
+                "openNewBrowser": true
+              }
+            ]
+          },
+        {
+          "type": "content",
+          "style": "oneImageBlackRight",
+          "header1": "Policies",
+          "header2": "",
+          "text1": "Any more stuff about policies?",
+          "image1": [
+            {
+              "src": "/static/images/about-us-2-2.jpg",
+              "alt": "Three people sitting at a table, talking about the bible"
+            }
+          ],
+          "list": [
+            {
+              "type": "link",
+              "title": "AODA Employment Standards Policy",
+              "navigateTo": "/static/pdfs/Policies-and-Statements/AODA Employment Standards Policy.pdf",
+              "openNewBrowser": true
+            },
+            {
+              "type": "link",
+              "title": "Accessibility at Oakville Production Site",
+              "navigateTo": "/static/pdfs/Policies-and-Statements/Building Accessibility_Oakville Production Site.pdf",
+              "openNewBrowser": true
+            },
+            {
+              "type": "link",
+              "title": "Conflict of Interest Policy",
+              "navigateTo": "/static/pdfs/Policies-and-Statements/Conflict of Interest Policy_2018.pdf",
+              "openNewBrowser": true
+            },
+            {
+              "type": "link",
+              "title": "COVID-19 FAQs",
+              "navigateTo": "/static/pdfs/Policies-and-Statements/COVID-19 FAQs.pdf",
+              "openNewBrowser": true
+            },
+            {
+              "type": "link",
+              "title": "COVID-19 Gatherings",
+              "navigateTo": "/static/pdfs/Policies-and-Statements/COVID-19 Gatherings-June.pdf",
+              "openNewBrowser": true
+            },
+            {
+              "type": "link",
+              "title": "Data Privacy FAQ",
+              "navigateTo": "/static/pdfs/Policies-and-Statements/Data Privacy FAQ.pdf",
+              "openNewBrowser": true
+            },
+            {
+              "type": "link",
+              "title": "Data Privacy Policy",
+              "navigateTo": "/static/pdfs/Policies-and-Statements/Data_Privacy_Policy_v.11.2019.pdf",
+              "openNewBrowser": true
+            },
+            {
+              "type": "link",
+              "title": "Ethical Fundraising Policy",
+              "navigateTo": "/static/pdfs/Policies-and-Statements/Ethical Fundraising Policy.pdf",
+              "openNewBrowser": true
+            },
+            {
+              "type": "link",
+              "title": "Website Privacy Policy",
+              "navigateTo": "/static/pdfs/Policies-and-Statements/Website_Privacy_Policy_v.11.2019.pdf",
+              "openNewBrowser": true
+            }
+          ]
+        }
+      ]
+    }
+  }
+  

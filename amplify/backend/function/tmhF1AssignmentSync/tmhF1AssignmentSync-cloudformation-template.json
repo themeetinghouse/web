@@ -39,6 +39,10 @@
     "apithemeetinghouseGraphQLAPIKeyOutput": {
       "Type": "String",
       "Default": "apithemeetinghouseGraphQLAPIKeyOutput"
+    },
+    "functionthemeetinghousetmhSharedArn": {
+      "Type": "String",
+      "Default": "functionthemeetinghousetmhSharedArn"
     }
   },
   "Conditions": {
@@ -67,7 +71,7 @@
             "Ref": "s3Key"
           }
         },
-        "Handler": "index.handler",
+        "Handler": "build/tmhF1AssignmentSync/src/index.handler",
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
@@ -121,7 +125,11 @@
           ]
         },
         "Runtime": "nodejs14.x",
-        "Layers": [],
+        "Layers": [
+          {
+            "Ref": "functionthemeetinghousetmhSharedArn"
+          }
+        ],
         "Timeout": "900"
       }
     },

@@ -22,6 +22,7 @@ export type Event = {
 interface Props {
   event: Event;
   color: 'white' | 'black';
+  transparentBackground?: boolean;
   textDecoration?: 'always' | 'hover';
   style?: React.CSSProperties;
   className?: string;
@@ -154,6 +155,7 @@ export default function AddToCalendar({
   event,
   color,
   textDecoration,
+  transparentBackground,
   style,
   className,
 }: Props) {
@@ -217,7 +219,9 @@ export default function AddToCalendar({
       </svg>
       <Dropdown isOpen={open} toggle={toggle}>
         <DropdownToggle
-          className={`add-to-calendar ${color} ${
+          className={`add-to-calendar ${
+            transparentBackground ? 'transparentBackground' : color
+          } ${
             textDecoration === 'always'
               ? 'decoration'
               : textDecoration === 'hover'

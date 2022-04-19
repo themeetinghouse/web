@@ -9,6 +9,7 @@ import { Link, LinkButton } from 'components/Link/Link';
 import { isMobile } from 'react-device-detect';
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import ShareDropdown from 'components/Share/ShareDropdown';
+import AddToCalendar from 'components/AddToCalendar/AddToCalendar';
 
 type LiveData = NonNullable<
   NonNullable<NonNullable<ListLivestreamsQuery['listLivestreams']>['items']>[0]
@@ -151,7 +152,21 @@ export default class VideoPlayer extends React.Component<Props, State> {
         console.log(e);
       });
   }
-
+  getEvent() {
+    let nextSunday;
+    if (moment().day() === 0 && moment().isBefore(moment('10:00', 'hh:mm')))
+      nextSunday = moment().startOf('day');
+    else nextSunday = moment().add(1, 'week').day(0).startOf('day');
+    nextSunday = nextSunday.hour(10);
+    const event = {
+      summary: 'Church at The Meeting House',
+      description: 'Join us at The Meeting House on Sunday!',
+      start: nextSunday.format(),
+      url: 'https://themeetinghouse.com/live',
+      end: moment(nextSunday).add(90, 'minutes').format(),
+    };
+    return event;
+  }
   async getLive() {
     const today = moment.tz('America/Toronto').format('YYYY-MM-DD');
     try {
@@ -207,7 +222,6 @@ export default class VideoPlayer extends React.Component<Props, State> {
     const featuredItem = this.state.liveEvent?.menu?.filter(
       (a) => a?.linkType.toLowerCase() === 'featured'
     );
-
     if (this.state.liveEvent) {
       return (
         <div className="LiveVideoPlayerDiv">
@@ -501,10 +515,40 @@ export default class VideoPlayer extends React.Component<Props, State> {
             allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           ></iframe>
           <br />
-          <div className="LiveVideoPlayerTitle">Livestream</div>
-          <div className="LiveVideoPlayerDescription" style={{ margin: 0 }}>
-            We aren&apos;t live right now. Join us on Sundays at 10:00am
-            Eastern.
+          <div className="LiveVideoPlayerTitle">
+            {this.props.content?.notLiveSettings?.title ?? 'Livestream'}
+          </div>
+          <div className="LiveVideoPlayerDescription">
+            {this.props.content?.notLiveSettings?.notLiveMessage ??
+              'We aren&apos;t live right now. Join us on Sundays at 10:00am Eastern.'}
+          </div>
+          <div className="LiveVideoPlayerExtra">
+            {this.props.content?.notLiveSettings?.showConnectButton ? (
+              <>
+                <img
+                  className="button-icon"
+                  src={`/static/svg/User-white.svg`}
+                  alt="Connect"
+                />
+                <Link className="LiveMenuLink" newWindow to={'/connect'}>
+                  Connect
+                </Link>{' '}
+              </>
+            ) : null}
+            {this.props.content?.notLiveSettings?.showAddToCalendar ? (
+              <AddToCalendar
+                event={this.getEvent()}
+                transparentBackground
+                style={{
+                  marginLeft: this.props.content?.notLiveSettings
+                    ?.showConnectButton
+                    ? '2vw'
+                    : 0,
+                }}
+                color="white"
+                textDecoration="always"
+              />
+            ) : null}
           </div>
         </div>
       );

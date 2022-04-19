@@ -123,7 +123,7 @@
   .EventDateMonth {
     font-family: Graphik Web;
     line-height: 3vw;
-    font-size: 3vw;
+    font-size: 1.5vw;
     font-weight: bold;
     color: #1a1a1a;
     text-align: center;
@@ -553,8 +553,12 @@
 
   .ListItemEvents {
     width: 70vw;
-    margin-right: 2vw;
-    margin-left: 2vw;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 0.7vw;
+    padding-bottom: 0.7vw;
+    margin-right: calc(2vw - 24px);
+    margin-left: calc(2vw - 24px);
     vertical-align: top;
   }
 
@@ -605,7 +609,6 @@
     font-weight: bold;
     font-size: 2vw;
     line-height: 2.3vw;
-    margin-top: 1.5vw;
     font-family: Graphik Web;
     color: theme.$onyxblacktext;
   }

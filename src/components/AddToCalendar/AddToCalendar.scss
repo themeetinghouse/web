@@ -27,6 +27,11 @@
       }
     }
     text-underline-offset: 0.25em;
+    &.transparentBackground {
+      margin-top: -3px;
+      text-underline-offset: 5px !important;
+      text-decoration-thickness: 3px !important;
+    }
   }
 
   a {

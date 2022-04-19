@@ -1,0 +1,59 @@
+.EventItemContainer {
+  position: relative;
+  padding-top: 70px;
+  display: flex;
+  flex-direction: column;
+  left: 20vw;
+  height: 100vh;
+  color: black;
+  background-color: #fff;
+  padding-bottom: 40px;
+}
+
+.EventItemImg {
+  width: 500px;
+  height: 280px;
+  object-fit: cover;
+  margin-bottom: 32px;
+}
+
+.EventItemH1 {
+  color: #1a1a1a;
+  font-family: Graphik Web;
+  font-weight: bold;
+  font-size: 32px;
+  padding-bottom: 16px;
+}
+
+.EventItemH4 {
+  color: #1a1a1a;
+  font-family: Graphik Web;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.EventItemDescription {
+  font-family: Graphik Web;
+  flex-wrap: wrap;
+  color: #54565a;
+  line-height: 24px;
+  font-size: 16px;
+  width: 500px;
+}
+
+@media (max-width: 767px) {
+  .EventItemContainer {
+    position: relative;
+    top: 20vw;
+    left: 0vw;
+    margin-bottom: 3.5vh;
+    width: 100%;
+    padding-bottom: 5vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    &.open {
+      padding-bottom: 80px;
+    }
+  }
+}

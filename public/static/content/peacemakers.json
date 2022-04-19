@@ -26,57 +26,27 @@
         "style": "full",
         "image1": [
           {
-            "src": "/static/images/peacemakers-1.jpg",
-            "alt": "Man sharing First Nations peace practices and rituals with a group."
+            "src": "/static/images/Peacemakers-hero.jpg",
+            "alt": "Girl wearing a head covering holding a hand drawn picture of her violent environment."
           }
         ],
-        "header1": "Peacemakers",
-        "header2": "",
-        "text1": "Our world needs peace. But here’s the problem: peacebuilding is difficult work. Even amidst a global pandemic, this is our opportunity to work for peace in a very tangible way.",
+        "header1": "Is peace impossible?",
+        "header2": "Unless we take action.",
+        "text1": "This year through our annual Peacemakers Campaign we want to not only raise the money necessary to support life-changing peacebuilding projects around the world, but we want to encourage and inspire you to take action.",
         "button1": {
-          "text": "Donate",
+          "text": "Watch Video",
           "action": "https://pushpay.com/g/themeetinghouse",
-          "description": "Introduction to our Peacemakers campaign and donate button."
+          "description": "Introduction to our Peacemakers campaign and watch video button."
         }
-      },
-      {
-        "type": "content",
-        "style": "oneImage",
-        "header1": "Raise $200K to make nothing happen?",
-        "header2": "",
-        "text1": "Stories of conflict saturate our news feeds, yet stories of sustained peace are often overlooked. Seems like the more peacful we are, the less we hear about it. If violent conflict is something, then how do we make nothing happen?",
-        "image1": [
-          {
-            "src": "/static/images/peacemakers-6.jpg",
-            "alt": "A woman with hands over her mouth making a loud announcement."
-          }
-        ],
-        "list": [
-          {
-            "type": "link",
-            "title": "Watch Video To See Our Plan",
-            "navigateTo": "/videos/compassion/iPmw29QsbTk",
-            "description": "Link to the video for our 2021 Peacemakers campaign that explains our goal and our plan."
-          }
-        ]
-      },
-      {
-        "type": "list",
-        "style": "vertical",
-        "class": "compassion",
-        "header1": "Why Peacemakers?",
-        "text1": "As followers of Jesus, we want to work towards peace and justice in some of the most vulnerable communities around the world. We journey with people marginalized through violence by working to meet their tangible needs. Partnering with Mennonite Central Committee, we focus on three areas:",
-        "filterField": "sites",
-        "filterValue": "peacemakers"
       },
       {
         "type": "content",
         "style": "pieChart",
         "text1": "Thanks to your generosity we blew past our goal and raised $271,844 to support peace work that brings healing, reconciliation, and justice to God's creation!",
         "pieChart": {
-          "raised": 271844,
+          "raised": 0,
           "goal": 200000,
-          "text": "WE DID IT!"
+          "text": "Let's do it!"
         },
         "list": [
           {
@@ -88,70 +58,35 @@
       },
       {
         "type": "content",
-        "style": "oneImage",
-        "header1": "Becoming a Peacemaker Workshop",
-        "header2": "Saturday Feb. 20",
-        "text1": "Learn practical methods of peacebuilding and conflict resolution from the founder of Peace Clubs, Issa Ebombolo, as well as his expert guests Gopar Tapkida and Rod Friesen.",
-        "image1": [
-          {
-            "src": "/static/images/spirituality-3.jpg",
-            "alt": "Two people sitting and talking during Home Church"
-          }
-        ],
+        "style": "mad",
+        "header1": "Take Action",
+        "text1": "What does justice look like and how can we take meaninful action to work towards peace in our communities and around the world?",
         "list": [
           {
-            "type": "link",
-            "title": "Register Here",
-            "navigateTo": "https://www.crowdcast.io/e/peacemakers",
-            "description": "Registration link for the Being a Peacemaker virtual Event."
-          }
-        ]
-      },
-      {
-        "type": "blog",
-        "style": "multiImage",
-        "status": "Live",
-        "header1": "Peacemaker Blogs",
-        "sortOrder": "DESC",
-        "blogSeries": "Peacemakers",
-        "hideAllBlogsButton": true
-      },
-      {
-        "type": "content",
-        "style": "oneImageBlackRight",
-        "header1": "Resources",
-        "header2": "",
-        "text1": "",
-        "image1": [
+            "type": "arrow",
+            "title": "Learn",
+            "navigateTo": "https://www.themeetinghouse.com/posts/learn-test"
+          },
           {
-            "src": "/static/images/peacemakers-4.jpg",
-            "alt": "Volunteers working together to pack Peacemakers relief kits."
+            "type": "arrow",
+            "title": "Start a fundraiser",
+            "navigateTo": "https://www.themeetinghouse.com/posts/start-test"
+          },
+          {
+            "type": "arrow",
+            "title": "Share",
+            "navigateTo": "https://www.themeetinghouse.com/posts/share-test"
+          },
+          {
+            "type": "arrow",
+            "title": "Share",
+            "navigateTo": "https://www.themeetinghouse.com/posts/share-test"
           }
         ],
-        "list": [
+        "image1": [
           {
-            "type": "link",
-            "title": "Peace Projects We Support & MCC Project Reports",
-            "navigateTo": "/static/pdfs/compassion/MCC Reports on Areas of Focus.pdf",
-            "openNewBrowser": true
-          },
-          {
-            "type": "link",
-            "title": "Organizing A Virtual Fundraiser",
-            "navigateTo": "/static/pdfs/compassion/Organizing A Virtual Fundraiser for Peacemakers.pdf",
-            "openNewBrowser": true
-          },
-          {
-            "type": "link",
-            "title": "Indigenous Reconciliation",
-            "navigateTo": "/static/pdfs/compassion/Indigenous Reconciliation Resource.pdf",
-            "openNewBrowser": true
-          },
-          {
-            "type": "link",
-            "title": "NextGen Peacemakers",
-            "navigateTo": "/static/pdfs/compassion/NextGen Peacemakers Resource.pdf",
-            "openNewBrowser": true
+            "src": "/static/images/Mod5_pic_TEMP.jpg",
+            "alt": "Older woman smiling holding a baked pie."
           }
         ]
       },
@@ -161,58 +96,56 @@
         "class": "videos",
         "subclass": "compassion",
         "sortOrder": "DESC",
-        "header1": "Peacemakers Project Videos",
+        "header1": "More Peacemakers Stories",
         "showEpisodeNumbers": false
       },
       {
-        "type": "faq",
-        "header1": "FAQ",
+        "type": "content",
+        "style": "oneImageBlackRight",
+        "header1": "Is peace impossible?",
+        "header2": "",
+        "text1": "We're excited to invest in a number of special projects over the next few years that are generating stories of impact. Find out how you can make a difference.",
+        "list": [
+          {
+            "type": "button",
+            "title": "Watch Video",
+            "navigateTo": "/go"
+          }
+        ],
         "image1": [
           {
-            "src": "/static/images/peacemakers-9.jpg",
-            "alt": "Timmins City Counselor presenting on Indigenous bundles."
+            "src": "/static/images/Peacemakers-hero.jpg",
+            "alt": "A man and a woman talking to a camera."
+          }
+        ]
+      },
+      {
+        "type": "blog",
+        "style": "featured",
+        "status": "Live",
+        "sortOrder": "DESC",
+        "blogSeries": "Peacemakers",
+        "header2": "Peacemakers Stories",
+        "backgroundColor": "white",
+        "lessPadding": true
+      },           
+      {
+        "type": "content",
+        "style": "oneImage",
+        "header1": "Kids & Youth",
+        "text1": "Making peace is for everyone, not just those of us who are blessed with money. Check out how you can make an impact with your kids and youth.",
+        "image1": [
+          {
+            "src": "/static/images/Mod7_pic.jpg",
+            "alt": "Young child with face paint playing with a holla hoop."
           }
         ],
         "list": [
           {
-            "type": "question",
-            "question": "Why focus on Peace?",
-            "answer": [
-              "This is how we live out Jesus’ message of peace and model his love for people who have been pushed to the margins. It's how we subvert the narrative that we must accumulate wealth, and it challenges us to think as global citizens."
-            ]
-          },
-          {
-            "type": "question",
-            "question": "Are we collecting Relief Kits this year?",
-            "answer": [
-              "No, to respond to the changing government restrictions to limit the spread of COVID-19 as well as to align with MCC’s greatest needs we are not collecting Relief Kits."
-            ]
-          },
-          {
-            "type": "question",
-            "question": "How are Kidmax and Youth participating?",
-            "answer": [
-              "Kidmax and Youth are participating with adults to help us reach our $200,000 goal. For creative ways to engage children and youth refer to the resource here."
-            ]
-          },
-          {
-            "type": "question",
-            "question": "How can I give to Peacemakers this year?",
-            "answer": [
-              "There are four ways you can give without writing a cheque or giving cash. This year we are not accepting cash or cheque donations this year as a means to limit the spread of COVID-19.",
-              "Credit/Debit: You can donate online by clicking the ‘Give to Peacemakers’ on this page and selecting Peacemakers from the drop-down menu.",
-              "Bill Pay: You can donate through your online banking as a bill payment. Just use your personalized giving number plus the code PCE (5 digits + 3 letters) ie. 0####PCE.",
-              "InFellowship: You can donate online through your The Meeting House InFellowship account.",
-              "Text: You can donate by texting “The Meeting House” or “TMH” to 77977 and selecting Peacemakers from the drop-down menu.",
-              "If you are unable to give through these platforms please contact Rachel Meredith at rachel.meredith@themeetinghouse.com or call her 905.287.7000 ext. 7026"
-            ]
-          },
-          {
-            "type": "question",
-            "question": "Why partner with MCC?",
-            "answer": [
-              "We are proud to be partnering with Mennonite Central Committee Canada as they come alongside locally directed projects around the globe and here in Canada. MCC Canada has demonstrated commitment to a high level of transparency, accountability, and integrity. They are a member of the Canadian Council of Christian Charities (CCCC) and the Better Business Bureau, which have standards for fundraising as well as managing and reporting finances. In 2019, MCC was listed on Charity Intelligence Canada’s Top 10 International Impact Charities."
-            ]
+            "type": "button",
+            "title": "Ideas for kids and youth",
+            "navigateTo": "/peacemakers-youth",
+            "description": "Registration link for the Being a Peacemaker virtual Event."
           }
         ]
       }

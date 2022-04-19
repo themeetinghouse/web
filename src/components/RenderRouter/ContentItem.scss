@@ -154,6 +154,9 @@
   .oneImageText.white {
     color: #ffffff;
   }
+  .oneImageText.black {
+    color: #000;
+  }
   .oneImageEventDetails {
     font-family: Graphik Web;
     color: #ffffff;
@@ -182,6 +185,16 @@
     left: 45vw;
     object-fit: cover;
     top: 2.5vw;
+  }
+  .oneImageYellowBox {
+    padding: 10vw;
+    padding-top: 8vw;
+    position: relative;
+    width: 50vw;
+    height: 40vw;
+    left: 30vw;
+    top: 0vw;
+    background-color: #ffc60b;
   }
   .oneImageGreyBox {
     padding: 10vw;
@@ -259,6 +272,9 @@
     font-family: Graphik Web;
     color: theme.$onyxblacktext;
   }
+  .oneImageH1.black {
+    color: #000;
+  }
   .oneImageH1.white {
     color: #ffffff;
   }
@@ -269,6 +285,9 @@
     color: theme.$onyxblacktext;
     margin-top: 2vw !important;
     margin-bottom: 2vw !important;
+  }
+  .oneImageH2.black {
+    color: #000;
   }
   .oneImageH2.white {
     color: #ffffff;
@@ -381,6 +400,14 @@
     font-weight: 800 !important;
     font-family: Graphik Web !important;
   }
+  .contentButton.white {
+    color: theme.$onyxblacktext !important;
+    background-color: theme.$white !important;
+  }
+  .contentButton.yellow {
+    color: theme.$onyxblacktext !important;
+    background-color: theme.$goldensun !important;
+  }
   .oneImageList {
     font-family: Graphik Web;
   }
@@ -412,6 +439,9 @@
   .oneImageText.white {
     color: #ffffff;
   }
+  .oneImageText.black {
+    color: #000;
+  }
   .oneImageA {
     font-size: 1.2vw;
     font-family: Graphik Web;
@@ -439,6 +469,15 @@
     left: 45vw;
     object-fit: cover;
     top: 2.5vw;
+  }
+  .oneImageYellowBox {
+    padding: 10vw;
+    padding-top: 8vw;
+    position: relative;
+    width: 50vw;
+    left: 30vw;
+    top: 0vw;
+    background-color: #ffc60b;
   }
   .oneImageGreyBox {
     padding: 10vw;
@@ -613,6 +652,14 @@
     font-weight: 800 !important;
     font-family: Graphik Web !important;
   }
+  .contentButton.white {
+    color: theme.$onyxblacktext !important;
+    background-color: theme.$white !important;
+  }
+  .contentButton.yellow {
+    color: theme.$onyxblacktext !important;
+    background-color: theme.$goldensun !important;
+  }
 }
 
 @media (max-width: 767px) {
@@ -620,12 +667,12 @@
   .madContainer {
     flex-direction: column-reverse;
     display: flex;
+    padding-bottom: 60px;
   }
   .madPosition {
     position: relative;
     left: 5vw;
     width: 80vw;
-    height: 180vw;
     z-index: 100;
   }
   .madH1 {
@@ -643,6 +690,10 @@
   }
   .madList {
     font-size: 5vw;
+    margin-left: -6.4vw;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
     font-family: Graphik Web;
     line-height: 0vw;
     cursor: pointer;
@@ -659,7 +710,7 @@
     left: 25vw;
     width: 70vw;
     height: 24vw;
-    border: solid 28px theme.$onyxblacktext;
+    border: solid 16px theme.$onyxblacktext;
     border-right: 0vw;
   }
   .madImage {
@@ -729,6 +780,9 @@
   .oneImageText.white {
     color: #ffffff;
   }
+  .oneImageText.black {
+    color: #000;
+  }
   .oneImageA {
     font-size: 4vw;
     font-family: Graphik Web;
@@ -764,6 +818,15 @@
   }
   .secondImg {
     position: relative;
+  }
+  .oneImageYellowBox {
+    margin-top: 55vw;
+    padding: 40vw 6vw 10vw;
+    position: relative;
+    width: 100vw;
+    left: 0vw;
+    top: 0vw;
+    background-color: #ffc60b;
   }
   .oneImageGreyBox {
     margin-top: 55vw;
@@ -942,6 +1005,14 @@
     border-radius: 0 !important;
     font-weight: 800 !important;
     font-family: Graphik Web !important;
+  }
+  .contentButton.white {
+    color: theme.$onyxblacktext !important;
+    background-color: theme.$white !important;
+  }
+  .contentButton.yellow {
+    color: theme.$onyxblacktext !important;
+    background-color: theme.$goldensun !important;
   }
   .oneImageList {
     font-size: 5vw;

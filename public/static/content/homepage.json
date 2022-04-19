@@ -68,11 +68,6 @@
             "type": "link",
             "title": "Find Community",
             "navigateTo": "/community"
-          },
-          {
-            "type": "link",
-            "title": "Sunday Registration",
-            "navigateTo": "/registration"
           }
         ],
         "image1": [
@@ -85,6 +80,26 @@
       {
         "type": "content",
         "style": "oneImageBlackRightExtended",
+        "header1": "Easter",
+        "header2": "",
+        "text1": "This Easter is all about hope. Journey with us as we testify to the hope we've seen, the hope we have yet to see, and the true living hope of the world: Jesus.",
+        "list": [
+          {
+            "type": "link",
+            "title": "Learn more",
+            "navigateTo": "/easter"
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/Easter_website_square_image.jpg",
+            "alt": "The words, Hope Lives on a yellow, orange, and pink abstract design"
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "style": "oneImageBlackRight",
         "header1": "Road to Hope",
         "header2": "",
         "text1": "Join us on a prayer journey through the Lent season, right into Good Friday and Easter. Click below to find out more and access content.",
@@ -98,6 +113,11 @@
             "type": "link",
             "title": "Monday Evening Prayer Stations",
             "navigateTo": "/prayer-stations"
+          },
+          {
+            "type": "link",
+            "title": "24 Hours of Prayer",
+            "navigateTo": "https://meetinghouse.infellowship.com/Forms/467351"
           }
         ],
         "image1": [
@@ -143,6 +163,24 @@
             "navigateTo": "/teaching-kids-youth"
           }
         ]
+      },
+      {
+        "type": "hero",
+        "style": "partialNoFooter",
+        "image1": [
+          {
+            "src": "/static/svg/Map.svg",
+            "alt": "A map representing locations of The Meeting House churches."
+          }
+        ],
+        "header1": "Locations",
+        "text1": "It's pretty simple: we get together to build relationships, and find ways to love and serve our neighbourhoods as we learn to follow Jesus.",
+        "text2": "Find local, connect online.",
+        "link1Text": "Show Map",
+        "link1AriaLabel": "View a map of all church locations",
+        "link1Action": "/find-sunday-morning",
+        "class": "locations",
+        "showLocationSearch": true
       },
       {
         "type": "blog",
@@ -219,24 +257,6 @@
         "header2": "",
         "text2": "Taking all this in can feel pretty overwhelming. Drop your email below and we'll send you some of our favourite starting content and suggest a practical next step.",
         "hasFooter": true
-      },
-      {
-        "type": "hero",
-        "style": "partialNoFooter",
-        "image1": [
-          {
-            "src": "/static/svg/Map.svg",
-            "alt": "A map representing locations of The Meeting House churches."
-          }
-        ],
-        "header1": "Locations",
-        "text1": "It's pretty simple: we get together to build relationships, and find ways to love and serve our neighbourhoods as we learn to follow Jesus.",
-        "text2": "Find local, connect online.",
-        "link1Text": "Show Map",
-        "link1AriaLabel": "View a map of all church locations",
-        "link1Action": "/find-sunday-morning",
-        "class": "locations",
-        "showLocationSearch": true
       }
     ]
   }

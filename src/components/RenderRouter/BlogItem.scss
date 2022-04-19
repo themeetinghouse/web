@@ -360,7 +360,9 @@ $preview-image-ratio: 0.745;
     }
 
     .blog-h1 {
-      display: none;
+      margin-top: 56px;
+      margin-bottom: 40px;
+      margin-left: 22px;
     }
 
     $featured-width: 88.5vw;
@@ -400,7 +402,6 @@ $preview-image-ratio: 0.745;
 
     .blog-blackbox {
       position: relative;
-      top: 16vw;
       left: 0;
       width: 100vw;
       padding: 12vw 3vw 3vw;
@@ -413,6 +414,8 @@ $preview-image-ratio: 0.745;
     }
 
     .blogdiv2 {
+      margin-top: calc(48px - 3vw);
+      margin-bottom: 10vw;
       padding-bottom: 5vw;
       padding-left: 2vw;
     }
@@ -432,6 +435,7 @@ $preview-image-ratio: 0.745;
 
     .mobile-image-container {
       text-align: center;
+      margin-top: -20vw;
       display: block;
     }
 

@@ -71,7 +71,7 @@
             "Ref": "s3Key"
           }
         },
-        "Handler": "build/index.handler",
+        "Handler": "build/tmhF1SearchContributionReceipts/src/index.handler",
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",

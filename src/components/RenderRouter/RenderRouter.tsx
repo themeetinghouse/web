@@ -11,6 +11,8 @@ import HomeFooter from 'components/Menu/HomeFooter';
 import AppPromo from '../AppPromo/AppPromo';
 import { GEProvider } from './GiveComponents/GEContext';
 import moment from 'moment';
+import EventPage from './EventPage';
+import TMHCarousel from 'components/TMHCarousel/TMHCarousel';
 
 const SimpleItem = React.lazy(() => import('./SimpleItem'));
 const SearchItem = React.lazy(() => import('./SearchItem'));
@@ -83,6 +85,8 @@ class RenderRouter extends React.Component<Props> {
         return <VideoPlayerLive key={index} content={item} />;
       case 'liveVideoPlayer2':
         return <VideoPlayerLiveLeadersDay key={index} content={item} />;
+      case 'horizontal-list':
+        return <TMHCarousel key={index} content={item} />;
       case 'list':
         return (
           <ListItem
@@ -123,6 +127,8 @@ class RenderRouter extends React.Component<Props> {
         return <GiveItem key={index} content={item} />;
       case 'regather':
         return <RegatherItem key={index} content={item} />;
+      case 'event':
+        return <EventPage key={index} />;
       case 'searchResult':
         return <SearchResult key={index} content={item} />;
       case 'give2':
