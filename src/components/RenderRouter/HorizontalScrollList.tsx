@@ -39,7 +39,7 @@ class HorizontalScrollList extends React.Component<Props, State> {
   refCallbackScrollNav = (scrollNavElement: any) => {
     this.scrollNavElement = scrollNavElement;
   };
-  onUpdatePages = (numPages: any) => {
+  onUpdatePages = (numPages: number) => {
     this.setState({ numPages: numPages });
   };
   computePages() {
@@ -48,7 +48,20 @@ class HorizontalScrollList extends React.Component<Props, State> {
     );
     let numPages = this.state.numPages;
     if (children && children.length > 0) {
-      const containerSize = this.scrollContainerElement.getBoundingClientRect();
+      const containerSize =
+        this.scrollContainerElement?.getBoundingClientRect();
+
+      if (!containerSize?.width) {
+        // element is not found then
+        const checkElementExists = setInterval(() => {
+          const pages = this.computePages();
+          if (!isNaN(pages)) {
+            clearInterval(checkElementExists);
+          }
+        }, 1000);
+        return NaN;
+      }
+
       const childSize = children[0].getBoundingClientRect().width;
       this.itemsPerPage = Math.floor(containerSize.width / childSize);
       this.pageWidth = this.itemsPerPage * childSize;
@@ -62,6 +75,7 @@ class HorizontalScrollList extends React.Component<Props, State> {
     if (numPages !== this.state.numPages) {
       this.onUpdatePages(numPages);
     }
+    return numPages;
   }
 
   componentDidMount() {

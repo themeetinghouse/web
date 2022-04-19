@@ -1,0 +1,148 @@
+.TMHCarouselContainer {
+  margin-bottom: 5vw;
+  .TMHCarouselHeader1,
+  .TMHCarouselHeader2 {
+    font-family: Graphik Web;
+    font-weight: bold;
+  }
+  .TMHCarouselDescription {
+    font-weight: 400;
+    color: #54565a;
+  }
+  .TMHCarouselItem {
+    margin-right: 1.67vw;
+    margin-bottom: 5vw;
+    background-color: white;
+    .TMHCarouselLink {
+      text-decoration: none;
+      &:hover,
+      &:focus {
+        .CarouselItemTitle {
+          text-decoration: underline;
+        }
+      }
+      color: #1a1a1a;
+      .TMHCarouselItemTitle {
+        line-height: 1.5rem;
+        font-weight: bold;
+      }
+      .TMHCarouselItemDescription {
+        color: #54565a;
+      }
+    }
+  }
+  .TMHCarouselListWrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    .HorizontalScrollListItem {
+      padding: 0 !important;
+    }
+    .HorizontalScrollListItemContainer {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      width: 80vw;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .TMHCarouselArrow {
+    display: none;
+  }
+  .TMHCarouselContainer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 80vw;
+    left: 20vw;
+    .TMHCarouselDescription {
+      font-size: 1.5vw;
+      padding-top: 8px;
+      padding-bottom: 0.5vw;
+      padding-right: 15px;
+      font-weight: 400;
+      color: #54565a;
+    }
+    .TMHCarouselHeader1 {
+      font-size: 3vw;
+    }
+    .TMHCarouselHeader2 {
+      font-size: 1.5vw;
+    }
+    .TMHCarouselItem {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      width: calc(28.33vw + 32px);
+      .TMHCarouselItemDescription {
+        font-size: 1.25vw;
+      }
+      .TMHCarouselItemTitle {
+        padding-top: 1.5vw;
+        padding-bottom: 2.2vw;
+        font-size: 2vw;
+      }
+      .TMHCarouselImage {
+        object-fit: cover;
+        width: calc(28.33vw + 32px);
+        height: 0.745 * 28.33vw;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .TMHCarouselArrow {
+    width: 32px;
+    margin-right: 8px;
+  }
+  .TMHCarouselContainer {
+    left: 0;
+    margin-bottom: 16vw;
+    margin-top: 16vw;
+    width: 100vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    .TMHCarouselDescription {
+      font-size: 5vw;
+      margin-bottom: 12vw;
+      line-height: 1.5;
+      width: 90vw;
+    }
+    .TMHCarouselHeader1,
+    .TMHCarouselHeader2 {
+      margin-bottom: 16px;
+      font-size: 10vw;
+    }
+    .TMHCarouselItem {
+      margin-bottom: 16vw;
+      width: 88.5vw;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      .TMHCarouselImage {
+        object-fit: cover;
+        width: 88.5vw;
+        height: 0.745 * 88.5vw;
+      }
+      .TMHCarouselItemDescription {
+        padding-top: 5vw;
+        padding-bottom: 5vw;
+        line-height: 1.5;
+        font-size: 4.27vw;
+      }
+      .TMHCarouselItemTitle {
+        display: flex;
+        flex-direction: row;
+        padding-top: 5vw;
+        margin-top: 8px;
+        font-size: 6.4vw;
+      }
+    }
+    .TMHCarouselListWrapper {
+      white-space: unset;
+    }
+  }
+}
