@@ -234,11 +234,11 @@
           "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
           "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "s3Key": "amplify-builds/tmhF1AssignmentSync-4d48444f306641466e33-build.zip"
+          "s3Key": "amplify-builds/tmhF1AssignmentSync-4442587256422f695464-build.zip"
         },
         "themeetinghousetmhShared": {
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "s3Key": "amplify-builds/themeetinghousetmhShared-LambdaLayerVersion9a507c7a-build.zip"
+          "s3Key": "amplify-builds/themeetinghousetmhShared-LambdaLayerVersion5e4deed1-build.zip"
         },
         "AdminQueriesa1b7e2e8": {
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
