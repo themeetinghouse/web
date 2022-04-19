@@ -47,7 +47,7 @@
         ],
         "header1": "Newmarket",
         "text1": "Sundays at 10:00am",
-        "text2": "Good Friday at 10:00am",
+        "text2": "",
         "customLiveLink": "themeetinghouse.com/live",
         "register": false,
         "addToCalendar": true,
@@ -55,26 +55,6 @@
         "class": "locations",
         "filterField": "id",
         "filterValue": "newmarket"
-      },
-      {
-        "type": "content",
-        "style": "oneImage",
-        "header1": "Good Friday",
-        "header2": "April 15, 10:00am at SilverCity Newmarket",
-        "text1": "This Good Friday we testify to the hope we've seen, and the hope we have yet to see. Join us as we hold forth the hope of Jesus in times of expectation.",
-        "list": [
-          {
-            "type": "link",
-            "title": "Learn more",
-            "navigateTo": "/easter"
-          }
-        ],
-        "image1": [
-          {
-            "src": "/static/images/GF_website_square_image_2.jpg",
-            "alt": "The word, Testify on a yellow, orange, and pink abstract design"
-          }
-        ]
       },
       {
         "type": "list",

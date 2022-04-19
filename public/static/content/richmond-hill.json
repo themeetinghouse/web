@@ -48,7 +48,7 @@
         "header1": "Richmond Hill",
         "text1": "Every 2nd Sunday at 2pm (more details below)",
         "text2": "Family Home Church & Kidmax every 4th Sunday",
-        "text3": "Good Friday livestream at 10:00am",
+        "text3": "",
         "customLiveLink": "themeetinghouse.com/live",
         "register": false,
         "addToCalendar": true,
@@ -62,26 +62,6 @@
         "style": "greyTwoText",
         "header1": "In-person Gatherings",
         "text1": "Easter Sunday at 2pm (Community Church of Richmond Hill). After April 24th, we will be meeting in-person the 2nd Sunday of every month. On April 24th, and every 2nd and 4th Sunday of the month thereafter we will have Family Home Church & Kidmax with programs available for Walkers - Sr. kindergarten, and Grades 1-5. For activities on the 1st and 3rd Sundays of the month, we will notify via email. Sign up for email updates at the bottom of this page!"
-      },
-      {
-        "type": "content",
-        "style": "oneImage",
-        "header1": "Good Friday Livestream",
-        "header2": "April 15, 10:00am online",
-        "text1": "This Good Friday we testify to the hope we've seen, and the hope we have yet to see. Join us as we hold forth the hope of Jesus in times of expectation.",
-        "list": [
-          {
-            "type": "link",
-            "title": "Learn more",
-            "navigateTo": "/easter"
-          }
-        ],
-        "image1": [
-          {
-            "src": "/static/images/GF_website_square_image_2.jpg",
-            "alt": "The word, Testify on a yellow, orange, and pink abstract design"
-          }
-        ]
       },
       {
         "type": "list",

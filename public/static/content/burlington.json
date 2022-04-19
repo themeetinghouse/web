@@ -48,7 +48,7 @@
         "header1": "Burlington",
         "text1": "Sundays at 10:00am & BYO Lunch Service at 11:30am (1240 Advance Rd)",
         "text2": "More details on both services below.",
-        "text3": "Good Friday at 10:00am",
+        "text3": "",
         "customLiveLink": "themeetinghouse.com/live",
         "register": false,
         "addToCalendar": true,
@@ -68,36 +68,6 @@
             "title": "Find Out More",
             "navigateTo": "/static/pdfs/parishes/TMH Burlington In-Person Gatherings for March & April.pdf",
             "openNewBrowser": true
-          }
-        ],
-        "image1": [
-          {
-            "src": "/static/images/KY1.jpg",
-            "alt": "A young child playing with blocks."
-          },
-          {
-            "src": "/static/images/KY2.jpg",
-            "alt": "Two boys laughing."
-          }
-        ]
-      },
-      {
-        "type": "content",
-        "style": "oneImage",
-        "header1": "Good Friday",
-        "header2": "April 15, 10:00am at SilverCity Burlington",
-        "text1": "This Good Friday we testify to the hope we've seen, and the hope we have yet to see. Join us as we hold forth the hope of Jesus in times of expectation.",
-        "list": [
-          {
-            "type": "link",
-            "title": "Learn more",
-            "navigateTo": "/easter"
-          }
-        ],
-        "image1": [
-          {
-            "src": "/static/images/GF_website_square_image_2.jpg",
-            "alt": "The word, Testify on a yellow, orange, and pink abstract design"
           }
         ]
       },
