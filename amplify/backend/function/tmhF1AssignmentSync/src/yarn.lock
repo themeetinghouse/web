@@ -605,7 +605,14 @@
   dependencies:
     "tslib" "^1.8.0"
 
-"@aws-sdk/util-utf8-browser@^3.0.0", "@aws-sdk/util-utf8-browser@3.6.1":
+"@aws-sdk/util-utf8-browser@^3.0.0":
+  "integrity" "sha512-gZPySY6JU5gswnw3nGOEHl3tYE7vPKvtXGYoS2NRabfDKRejFvu+4/nNW6SSpoOxk6LSXsrWB39NO51k+G4PVA=="
+  "resolved" "https://registry.npmjs.org/@aws-sdk/util-utf8-browser/-/util-utf8-browser-3.6.1.tgz"
+  "version" "3.6.1"
+  dependencies:
+    "tslib" "^1.8.0"
+
+"@aws-sdk/util-utf8-browser@3.6.1":
   "integrity" "sha512-gZPySY6JU5gswnw3nGOEHl3tYE7vPKvtXGYoS2NRabfDKRejFvu+4/nNW6SSpoOxk6LSXsrWB39NO51k+G4PVA=="
   "resolved" "https://registry.npmjs.org/@aws-sdk/util-utf8-browser/-/util-utf8-browser-3.6.1.tgz"
   "version" "3.6.1"
