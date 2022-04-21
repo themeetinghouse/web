@@ -73,13 +73,8 @@
           },
           {
             "type": "link",
-            "title": "Creative Manager",
-            "navigateTo": "/static/pdfs/careers/Creative Manager 2022.pdf"
-          },
-          {
-            "type": "link",
-            "title": "Marketing Manager",
-            "navigateTo": "/static/pdfs/careers/Marketing Manager.pdf"
+            "title": "Operations Support Associate",
+            "navigateTo": "/static/pdfs/careers/Operations Support Associate 2022.pdf"
           },
           {
             "type": "link",
@@ -119,11 +114,6 @@
             "type": "link",
             "title": "Richmond Hill Family Ministries Associate",
             "navigateTo": "/static/pdfs/careers/Richmond Hill Family Ministries Associate.pdf"
-          },
-          {
-            "type": "link",
-            "title": "Social Media Coordinator",
-            "navigateTo": "/static/pdfs/careers/Social Media Coordinator 2022.pdf"
           }
         ],
         "image1": [
