@@ -10,15 +10,6 @@
   },
   {
     "Staff": true,
-    "FirstName": "Alison",
-    "LastName": "Hardman",
-    "Phone": "905.287.7000, ext. 800",
-    "Position": "Stewardship Manager",
-    "sites": ["Operations"],
-    "Email": "Alison.Hardman@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
     "FirstName": "Andrew",
     "LastName": "Scanlan",
     "Phone": "905.287.7000, ext. 802",
@@ -196,6 +187,15 @@
     "Position": "Facility Assistant",
     "sites": ["Operations"],
     "Email": "grant.scott@themeetinghouse.com"
+  },
+  {
+    "Staff": true,
+    "FirstName": "Garnet",
+    "LastName": "Mason",
+    "Phone": "905.287.7000",
+    "Position": "Marketing Manager",
+    "sites": ["Communications"],
+    "Email": "garnet.mason@themeetinghouse.com"
   },
   {
     "Staff": true,
