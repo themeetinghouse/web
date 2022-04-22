@@ -51,26 +51,14 @@
         "list": [
           {
             "type": "link",
-            "title": "Download Early Years Good Friday Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/Good Friday - Easter - CAH EYs.pdf",
+            "title": "Download Early Years Lesson",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 4 - Easter - CAH EYs.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
-            "title": "Download Early Years Good Friday Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/Good Friday - Activities.pdf",
-            "openNewBrowser": true
-          },
-          {
-            "type": "link",
-            "title": "Download Early Years Easter Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 3 - Easter - CAH EYs.pdf",
-            "openNewBrowser": true
-          },
-          {
-            "type": "link",
-            "title": "Download Early Years Easter Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 3 - Activities.pdf",
+            "title": "Download Early Years Activities",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 4 - Activities.pdf",
             "openNewBrowser": true
           },
           {
@@ -105,26 +93,14 @@
         "list": [
           {
             "type": "link",
-            "title": "Download Kids Good Friday Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/Good Friday - Extravagant - CAH Kids.pdf",
+            "title": "Download Kids Lesson",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 4 - Extravagant - CAH Kids.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
-            "title": "Download Kids Good Friday Activity",
-            "navigateTo": "/static/pdfs/kidmax-files/Good Friday - Bookmark.pdf",
-            "openNewBrowser": true
-          },
-          {
-            "type": "link",
-            "title": "Download Kids Easter Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 3 - Extravagant - CAH Kids.pdf",
-            "openNewBrowser": true
-          },
-          {
-            "type": "link",
-            "title": "Download Kids Easter Activity",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 3 - Activity.pdf",
+            "title": "Download Kids Activity",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 4 - Frame.pdf",
             "openNewBrowser": true
           },
           {
