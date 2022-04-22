@@ -78,6 +78,11 @@
           },
           {
             "type": "link",
+            "title": "Executive Assistant & Board Administrator",
+            "navigateTo": "/static/pdfs/careers/Executive Assistant and Board Administrator 2022.pdf"
+          },
+          {
+            "type": "link",
             "title": "Hamilton Youth Pastor",
             "navigateTo": "/static/pdfs/careers/Hamilton Youth Pastor 2021.pdf"
           },
