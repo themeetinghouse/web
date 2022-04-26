@@ -16,7 +16,7 @@
     "content": [
       {
         "type": "og-tags",
-        "image": "/static/images/peacemakers-1.jpg",
+        "image": "/static/images/PM2022_Web-Hero_v3_smaller-size.jpg",
         "url": "https://www.themeetinghouse.com/peacemakers",
         "title": "Peacemakers",
         "description": ""
@@ -26,7 +26,7 @@
         "style": "full",
         "image1": [
           {
-            "src": "/static/images/Peacemakers-hero.jpg",
+            "src": "/static/images/PM2022_Web-Hero_v3_smaller-size.jpg",
             "alt": "Girl wearing a head covering holding a hand drawn picture of her violent environment."
           }
         ],
@@ -128,26 +128,6 @@
         "header2": "Peacemakers Stories",
         "backgroundColor": "white",
         "lessPadding": true
-      },           
-      {
-        "type": "content",
-        "style": "oneImage",
-        "header1": "Kids & Youth",
-        "text1": "Making peace is for everyone, not just those of us who are blessed with money. Check out how you can make an impact with your kids and youth.",
-        "image1": [
-          {
-            "src": "/static/images/Mod7_pic.jpg",
-            "alt": "Young child with face paint playing with a holla hoop."
-          }
-        ],
-        "list": [
-          {
-            "type": "button",
-            "title": "Ideas for kids and youth",
-            "navigateTo": "/peacemakers-youth",
-            "description": "Registration link for the Being a Peacemaker virtual Event."
-          }
-        ]
       }
     ]
   }
