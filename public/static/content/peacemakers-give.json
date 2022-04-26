@@ -27,11 +27,12 @@
       {
         "type": "give",
         "header1": "We give to build peace.",
-        "header2": "Peacemakers supports Mennonite Central Committee, fostering healing, reconciliation and justice in God's creation in communities that have faced violence. There are three areas of MCC’s work that we support:",
+        "header2": "Peacemakers supports Mennonite Central Committee, fostering healing, reconciliation and justice in God's creation in communities that have faced violence. There are four areas of MCC’s work that we support:",
         "text1": "Peacebuilding in sub-Saharan Africa",
         "text2": "Indigenous & Settler Reconciliation",
         "text3": "Restorative Justice",
-        "text4": "Thank you for supporting Peacemakers!"
+        "text4": "Humanitarian Relief",
+        "text5": "Thank you for supporting Peacemakers!"
       }
     ]
   }

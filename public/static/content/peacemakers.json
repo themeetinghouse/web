@@ -19,7 +19,7 @@
         "image": "/static/images/PM2022_Web-Hero_v3_smaller-size.jpg",
         "url": "https://www.themeetinghouse.com/peacemakers",
         "title": "Peacemakers",
-        "description": ""
+        "description": "Is peace impossible? That depends on you."
       },
       {
         "type": "hero",
@@ -32,20 +32,20 @@
         ],
         "header1": "Is peace impossible?",
         "header2": "Unless we take action.",
-        "text1": "This year through our annual Peacemakers Campaign we want to not only raise the money necessary to support life-changing peacebuilding projects around the world, but we want to encourage and inspire you to take action.",
+        "text1": "Peacemakers is our opportunity to work towards peace and justice in some of the most vulnerable communities around the world. Take a step to become a peacemaker below.",
         "button1": {
           "text": "Watch Video",
-          "action": "https://pushpay.com/g/themeetinghouse",
+          "action": "https://youtu.be/MJCrPzLmeoI",
           "description": "Introduction to our Peacemakers campaign and watch video button."
         }
       },
       {
         "type": "content",
         "style": "pieChart",
-        "text1": "Thanks to your generosity we blew past our goal and raised $271,844 to support peace work that brings healing, reconciliation, and justice to God's creation!",
+        "text1": "Help us raise $150,000 for peacebuilding projects through our partner the Mennonite Central Committee.",
         "pieChart": {
           "raised": 0,
-          "goal": 200000,
+          "goal": 150000,
           "text": "Let's do it!"
         },
         "list": [
@@ -59,34 +59,29 @@
       {
         "type": "content",
         "style": "mad",
-        "header1": "Take Action",
-        "text1": "What does justice look like and how can we take meaninful action to work towards peace in our communities and around the world?",
+        "header1": "Step 1: Learn",
+        "text1": "The first step to peacebuilding is to learn about a conflict. By having a posture of learning before we act we can be more effective agents for peace. Take time to learn about our partnership with MCC and the area we will be investing in peacebuilding.",
         "list": [
           {
             "type": "arrow",
-            "title": "Learn",
-            "navigateTo": "https://www.themeetinghouse.com/posts/learn-test"
+            "title": "Why Peacemakers?",
+            "navigateTo": "https://www.themeetinghouse.com/posts/why-peacemakers"
           },
           {
             "type": "arrow",
-            "title": "Start a fundraiser",
-            "navigateTo": "https://www.themeetinghouse.com/posts/start-test"
+            "title": "Indigenous and Settler reconciliation",
+            "navigateTo": "https://www.themeetinghouse.com/posts/indigenous-and-settler-reconciliation"
           },
           {
             "type": "arrow",
-            "title": "Share",
-            "navigateTo": "https://www.themeetinghouse.com/posts/share-test"
-          },
-          {
-            "type": "arrow",
-            "title": "Share",
-            "navigateTo": "https://www.themeetinghouse.com/posts/share-test"
+            "title": "Peacebuilding in Sub-Saharan Africa",
+            "navigateTo": "https://www.themeetinghouse.com/posts/peacebuilding"
           }
         ],
         "image1": [
           {
-            "src": "/static/images/Mod5_pic_TEMP.jpg",
-            "alt": "Older woman smiling holding a baked pie."
+            "src": "/static/images/PM2022_Learn-Mod-Image_1.jpg",
+            "alt": "Young woman speaking to a room of people."
           }
         ]
       },
@@ -96,26 +91,36 @@
         "class": "videos",
         "subclass": "compassion",
         "sortOrder": "DESC",
-        "header1": "More Peacemakers Stories",
+        "header1": "Peacemakers Stories",
         "showEpisodeNumbers": false
       },
       {
         "type": "content",
         "style": "oneImageBlackRight",
-        "header1": "Is peace impossible?",
+        "header1": "Step 2: Work for Peace",
         "header2": "",
-        "text1": "We're excited to invest in a number of special projects over the next few years that are generating stories of impact. Find out how you can make a difference.",
+        "text1": "After learning about a conflict we can take steps to work toward peace. In many situations this includes working to right injustices so that individuals and communities can heal. You can help contribute to this by:",
         "list": [
           {
-            "type": "button",
-            "title": "Watch Video",
-            "navigateTo": "/go"
+            "type": "link",
+            "title": "Give",
+            "navigateTo": "/peaceamakers-give"
+          },
+          {
+            "type": "link",
+            "title": "Start a fundraiser",
+            "navigateTo": "/fundraisers"
+          },
+          {
+            "type": "link",
+            "title": "Tell others about peacemakers",
+            "navigateTo": "/peacemakers"
           }
         ],
         "image1": [
           {
-            "src": "/static/images/Peacemakers-hero.jpg",
-            "alt": "A man and a woman talking to a camera."
+            "src": "/static/images/PM2022_TakeAction_Mod_1.jpg",
+            "alt": "Older woman smiling holding a baked pie."
           }
         ]
       },
