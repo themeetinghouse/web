@@ -30,8 +30,8 @@
             "alt": "Girl wearing a head covering holding a hand drawn picture of her violent environment."
           }
         ],
-        "header1": "Is peace impossible?",
-        "header2": "Unless we take action.",
+        "header1": "Peace is impossible...",
+        "header2": "Without you.",
         "text1": "Peacemakers is our opportunity to work towards peace and justice in some of the most vulnerable communities around the world. Take a step to become a peacemaker below.",
         "button1": {
           "text": "Watch Video",
@@ -42,7 +42,7 @@
       {
         "type": "content",
         "style": "pieChart",
-        "text1": "Help us raise $150,000 for peacebuilding projects through our partner the Mennonite Central Committee.",
+        "text1": "Help us raise $150,000 for peacebuilding projects through our partner, Mennonite Central Committee.",
         "pieChart": {
           "raised": 0,
           "goal": 150000,
@@ -60,7 +60,7 @@
         "type": "content",
         "style": "mad",
         "header1": "Step 1: Learn",
-        "text1": "The first step to peacebuilding is to learn about a conflict. By having a posture of learning before we act we can be more effective agents for peace. Take time to learn about our partnership with MCC and the area we will be investing in peacebuilding.",
+        "text1": "The first step to peacebuilding is to learn about a conflict. By having a posture of learning before we act, we can be more effective agents for peace. Take time to learn about our partnership with MCC and the areas we are investing in peacebuilding.",
         "list": [
           {
             "type": "arrow",
@@ -80,8 +80,8 @@
         ],
         "image1": [
           {
-            "src": "/static/images/PM2022_Learn-Mod-Image_1.jpg",
-            "alt": "Young woman speaking to a room of people."
+            "src": "/static/images/PM2022_Learn-Mod-Image_2.jpg",
+            "alt": "Man playing Indigenous drumming instrument."
           }
         ]
       },
@@ -99,21 +99,21 @@
         "style": "oneImageBlackRight",
         "header1": "Step 2: Work for Peace",
         "header2": "",
-        "text1": "After learning about a conflict we can take steps to work toward peace. In many situations this includes working to right injustices so that individuals and communities can heal. You can help contribute to this by:",
+        "text1": "After learning about a conflict we can take steps to work toward peace. In many situations this includes working to right injustices so that individuals and communities can heal. You can help by:",
         "list": [
           {
             "type": "link",
-            "title": "Give",
+            "title": "Giving",
             "navigateTo": "/peaceamakers-give"
           },
           {
             "type": "link",
             "title": "Start a fundraiser",
-            "navigateTo": "/fundraisers"
+            "navigateTo": "https://go.dojiggy.io/peacemakers2022/Campaign/Details"
           },
           {
             "type": "link",
-            "title": "Tell others about peacemakers",
+            "title": "Tell others about Peacemakers",
             "navigateTo": "/peacemakers"
           }
         ],
