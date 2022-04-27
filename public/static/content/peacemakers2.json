@@ -125,14 +125,16 @@
         ]
       },
       {
-        "type": "blog",
-        "style": "featured",
-        "status": "Live",
-        "sortOrder": "DESC",
-        "blogSeries": "Peacemakers",
-        "header2": "Join a Fundraiser",
-        "backgroundColor": "white",
-        "lessPadding": true
+        "type": "horizontal-list",
+        "header1": "Teaching",
+        "list": [
+          {
+            "title": "Create a fundraiser",
+            "imageSrc": "/static/images/CreateAFundraiser-1125x840.jpg",
+            "imageAlt": "Young woman sitting at a table and looking at her notes from Sunday teaching at The Meeting House.",
+            "navigateTo": "https://go.dojiggy.io/c/953739"
+          }
+        ]
       }
     ]
   }
