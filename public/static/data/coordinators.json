@@ -298,24 +298,11 @@
     "Position": "Kidmax Coordinator"
   },
   {
-    "FirstName": "Jeremiah",
-    "LastName": "McCleary",
-    "sites": ["WAT"],
-    "Email": "jeremiah.mccleary@themeetinghouse.com",
-    "Position": "Compassion Coordinator"
-  },
-  {
     "FirstName": "Max",
     "LastName": "Chute",
     "sites": ["WAT"],
     "Email": "kidmax.waterloo@themeetinghouse.com",
     "Position": "Kidmax Coordinator"
-  },
-  {
-    "FirstName": "Pamela",
-    "LastName": "Carlin",
-    "sites": ["WAT"],
-    "Position": "Weekend Service Producer"
   },
   {
     "FirstName": "Joshua",
@@ -430,12 +417,6 @@
     "sites": ["WAT"],
     "Email": "savannah.edwards@themeetinghouse.com",
     "Position": "Parish Communications and Media Coordinator"
-  },
-  {
-    "FirstName": "Stephen",
-    "LastName": "Tosh",
-    "sites": ["WAT"],
-    "Position": "Tech Coordinator"
   },
   {
     "FirstName": "Rachel",
