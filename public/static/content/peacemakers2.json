@@ -35,6 +35,7 @@
         "text1": "Peacemakers is our opportunity to work towards peace and justice in some of the most vulnerable communities around the world. Take a step to become a peacemaker below.",
         "button1": {
           "text": "Watch Video",
+          "buttoncolor":"yellow",
           "action": "https://youtu.be/MJCrPzLmeoI",
           "description": "Introduction to our Peacemakers campaign and watch video button."
         }
@@ -69,7 +70,7 @@
           },
           {
             "type": "arrow",
-            "title": "Indigenous and Settler reconciliation",
+            "title": "Indigenous and Settler Reconciliation",
             "navigateTo": "https://www.themeetinghouse.com/posts/indigenous-and-settler-reconciliation"
           },
           {
