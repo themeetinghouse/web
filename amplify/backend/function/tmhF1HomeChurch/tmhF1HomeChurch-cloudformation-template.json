@@ -67,7 +67,7 @@
         "aws:asset:property": "Code"
       },
       "Properties": {
-        "Handler": "index.handler",
+        "Handler": "build/tmhF1HomeChurch/src/index.handler",
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",

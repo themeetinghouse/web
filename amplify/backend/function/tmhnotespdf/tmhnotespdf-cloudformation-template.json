@@ -7,6 +7,18 @@
       "Default": "NONE",
       "Description": " Schedule Expression"
     },
+    "userPoolId": {
+      "Type": "String",
+      "Default": ""
+    },
+    "userPoolWebClientId": {
+      "Type": "String",
+      "Default": ""
+    },
+    "identityPoolId": {
+      "Type": "String",
+      "Default": ""
+    },
     "env": {
       "Type": "String"
     },
@@ -64,6 +76,15 @@
         },
         "Environment": {
           "Variables": {
+            "userPoolId": {
+              "Ref": "userPoolId"
+            },
+            "userPoolWebClientId": {
+              "Ref": "userPoolWebClientId"
+            },
+            "identityPoolId": {
+              "Ref": "identityPoolId"
+            },
             "ENV": {
               "Ref": "env"
             },
