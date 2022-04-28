@@ -51,7 +51,7 @@
           "type": "content",
           "style": "mad",
           "header1": "Take Action",
-          "text1": "What does justice look like and how can we take meaninful action to work towards peace in our communities and around the world? Check out the resources below for activities you can do with your family.",
+          "text1": "What does justice look like and how can we take meaningful action to work towards peace in our communities and around the world? Check out the resources below for activities you can do with your family.",
           "list": [
             {
               "type": "arrow",
@@ -67,6 +67,11 @@
               "type": "arrow",
               "title": "Water on Wheels",
               "navigateTo": "/static/pdfs/compassion/2021-22-Peacemakers-NextGen-Water-on-Wheels.pdf"
+            },
+            {
+              "type": "arrow",
+              "title": "Start a fundraiser",
+              "navigateTo": "https://go.dojiggy.io/peacemakers2022/Campaign/Details"
             }
           ],
           "image1": [
