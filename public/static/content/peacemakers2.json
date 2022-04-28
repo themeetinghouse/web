@@ -124,6 +124,26 @@
             "alt": "Older woman smiling holding a baked pie."
           }
         ]
+      },
+      {
+        "type": "content",
+        "style": "oneImageYellow",
+        "header1": "Kids and Youth",
+        "header2": "",
+        "text1": "Making peace is for everyone, no matter your age. Check out how kids and youth can make an impact too.",
+        "list": [
+          {
+            "type": "button",
+            "title": "Ideas for Kids and Youth",
+            "navigateTo": "/nextgenpeace"
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/homepage-covid-1.jpg",
+            "alt": "A woman wearing a mask looking directly at the camera."
+          }
+        ]
       }
     ]
   }
