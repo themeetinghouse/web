@@ -71,7 +71,7 @@
             {
               "type": "arrow",
               "title": "Start a fundraiser",
-              "navigateTo": "https://go.dojiggy.io/peacemakers2022/Campaign/Details"
+              "navigateTo": "https://go.dojiggy.io/c/deae7e"
             }
           ],
           "image1": [
@@ -90,7 +90,7 @@
               "text": "Click here to start your own fundraiser for peacemakers.",
               "imageSrc": "/static/images/CreateAFundraiser-1125x840.jpg",
               "imageAlt": "Black and yellow graphic with the words create a fundraiser",
-              "navigateTo": "https://go.dojiggy.io/peacemakers2022/Campaign/Details"
+              "navigateTo": "https://go.dojiggy.io/c/deae7e"
             },
             {
               "title": "Livestream",
