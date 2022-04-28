@@ -46,8 +46,8 @@
           }
         ],
         "header1": "Burlington",
-        "text1": "Sundays at 10:00am & BYO Lunch Service at 11:30am (1240 Advance Rd)",
-        "text2": "More details on both services below.",
+        "text1": "Sundays at 10:00am",
+        "text2": "More details below.",
         "text3": "",
         "customLiveLink": "themeetinghouse.com/live",
         "register": false,
@@ -60,8 +60,8 @@
       {
         "type": "content",
         "style": "greyTwoText",
-        "header1": "In-person Gatherings for March & April",
-        "text1": "We gather as a large group at SilverCity Burlington (1250 Brant St.) every Sunday at 10am and as a more intimate group for a Lunch Service (BYO) at 11:30am at 1240 Advance Rd. We welcome you to come check out one or both of our Sunday services!",
+        "header1": "Find out more of the details here...",
+        "text1": "We gather as a large group at SilverCity Burlington every Sunday at 10am and provide different programming for kids depending on the week.",
         "list": [
           {
             "type": "link",
