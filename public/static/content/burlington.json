@@ -61,15 +61,7 @@
         "type": "content",
         "style": "greyTwoText",
         "header1": "Find out more of the details here...",
-        "text1": "We gather as a large group at SilverCity Burlington every Sunday at 10am and provide different programming for kids depending on the week.",
-        "list": [
-          {
-            "type": "link",
-            "title": "Find Out More",
-            "navigateTo": "/static/pdfs/parishes/TMH Burlington In-Person Gatherings for March & April.pdf",
-            "openNewBrowser": true
-          }
-        ]
+        "text1": "We gather as a large group at SilverCity Burlington every Sunday at 10am and provide different programming for kids depending on the week."
       },
       {
         "type": "list",
