@@ -31,7 +31,6 @@
             }
           ],
           "header1": "Peace is for all ages.",
-          "header2": "Unless we take action.",
           "text1": "This year, through our annual Peacemakers campaign, we want to not only raise the money necessary to support life-changing peacebuilding projects, but we also want to inspire you to take action.",
           "button1": {
             "text": "Watch Video",
@@ -45,47 +44,37 @@
           "class": "videos",
           "subclass": "compassion",
           "sortOrder": "DESC",
-          "header1": "Peacemakers Project Videos",
+          "header1": "Learn",
           "showEpisodeNumbers": false
         },
         {
           "type": "content",
           "style": "mad",
           "header1": "Take Action",
-          "text1": "What does justice look like and how can we take meaninful action to work towards peace in our communities and around the world?",
+          "text1": "What does justice look like and how can we take meaninful action to work towards peace in our communities and around the world? Check out the resources below for activities you can do with your family.",
           "list": [
             {
               "type": "arrow",
-              "title": "Learn",
-              "navigateTo": "https://www.themeetinghouse.com/posts/learn-test"
+              "title": "Prayer and Mindfulness",
+              "navigateTo": "/static/pdfs/compassion/2021-22-Peacemakers-NextGen-Prayer-and-Mindfulness.pdf"
             },
             {
               "type": "arrow",
-              "title": "Start a fundraiser",
-              "navigateTo": "https://www.themeetinghouse.com/posts/start-test"
+              "title": "Water Usage",
+              "navigateTo": "/static/pdfs/compassion/2021-22-Peacemakers-NextGen-water-usage.pdf"
             },
             {
               "type": "arrow",
-              "title": "Share",
-              "navigateTo": "https://www.themeetinghouse.com/posts/share-test"
+              "title": "Water on Wheels",
+              "navigateTo": "/static/pdfs/compassion/2021-22-Peacemakers-NextGen-Water-on-Wheels.pdf"
             }
           ],
           "image1": [
             {
-              "src": "/static/images/YouthMod2_pic.jpg",
-              "alt": "Two women smiling while painting a wall."
+              "src": "/static/images/PM2022_Kids&Youth_Mod_1.jpg",
+              "alt": "A little girl baking muffins with her dad amazed at her skill"
             }
           ]
-        },
-        {
-          "type": "blog",
-          "style": "featured",
-          "status": "Live",
-          "sortOrder": "DESC",
-          "blogSeries": "Peacemakers-Youth",
-          "header2": "Fundraisers and Activities",
-          "backgroundColor": "white",
-          "lessPadding": true
         }
       ]
     }
