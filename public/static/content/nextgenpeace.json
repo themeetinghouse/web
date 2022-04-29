@@ -16,9 +16,9 @@
       "content": [
         {
           "type": "og-tags",
-          "image": "/static/images/peacemakers-1.jpg",
-          "url": "https://www.themeetinghouse.com/peacemakers",
-          "title": "Peacemakers",
+          "image": "/static/images/PM2022_K&Y-Web-Hero_1.jpg",
+          "url": "https://www.themeetinghouse.com/nextgenpeace",
+          "title": "Peacemakers for Kids and Youth",
           "description": ""
         },
         {
@@ -26,8 +26,8 @@
           "style": "full",
           "image1": [
             {
-              "src": "/static/images/PM2022_YouthWeb Hero.jpg",
-              "alt": "Two kids hugging and laughing."
+              "src": "/static/images/PM2022_K&Y-Web-Hero_1.jpg",
+              "alt": "Five teenagers talking in a classroom."
             }
           ],
           "header1": "Peace is for all ages.",
