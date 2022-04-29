@@ -133,28 +133,28 @@
             "title": "Create a Fundraiser",
             "text": "Click here to start your own fundraiser for peacemakers.",
             "imageSrc": "/static/images/CreateAFundraiser-1125x840.jpg",
-            "imageAlt": "Black and yellow graphic with the words create a fundraiser",
+            "imageAlt": "Black and yellow graphic with the words create a fundraiser.",
             "navigateTo": "https://go.dojiggy.io/c/deae7e"
           },
           {
             "title": "Burlington Lemonade Stand",
             "text": "Thirsty? Come by Viewmount Rd in Oakville on Sunday May 15th between 1 and 3pm for some delicious lemonade and cookies!",
-            "imageSrc": "/static/images/corona-2-3.jpg",
-            "imageAlt": "Screen shot of Jimmy teaching during Sunday morning livestream at The Meeting House.",
+            "imageSrc": "/static/images/BurlingtonLemonadeStand-1125x840.jpg",
+            "imageAlt": "Black and yellow graphic with the words burlington lemonade stand.",
             "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/lemonade/Team/Details"
           },
           {
             "title": "Oakville Family Movie Fundraiser",
             "text": "Let’s kick off Peacemakers with a family friendly event - watching the  movie Encanto together! Concession stand includes snacks, beverages & pepperoni or cheese PIZZA! Prices are $1 to $3. Debit or credit accepted.",
-            "imageSrc": "/static/images/corona-2-3.jpg",
-            "imageAlt": "Screen shot of Jimmy teaching during Sunday morning livestream at The Meeting House.",
+            "imageSrc": "/static/images/OakvilleFamilyMovieNight_1125x8401.jpg",
+            "imageAlt": "Black and yellow graphic with the words oakville family movie fundraiser.",
             "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/oakvillemovies/Team/Details"
           },
           {
             "title": "Oakville Refugee Encounter",
             "text": "In the history of humanity, there have never been as many refugees around the world as we are seeing today. Join us for our 3rd Annual Refugee Encounter to learn more about Tayiba and Elyas’ journey since fleeing their home in Ethiopia. Learn how your donation can support refugees on their journey to a new life. Debit or credit accepted.",
-            "imageSrc": "/static/images/corona-2-3.jpg",
-            "imageAlt": "Screen shot of Jimmy teaching during Sunday morning livestream at The Meeting House.",
+            "imageSrc": "/static/images/OakvilleRefugeeEncounter_1125x840.jpg",
+            "imageAlt": "Black and yellow graphic with the words oakville refugee encounter.",
             "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/oakvillerefugeeencounter/Team/Details"
           }
         ]
