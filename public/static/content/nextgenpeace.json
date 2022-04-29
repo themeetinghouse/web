@@ -31,12 +31,7 @@
             }
           ],
           "header1": "Peace is for all ages.",
-          "text1": "This year, through our annual Peacemakers campaign, we want to not only raise the money necessary to support life-changing peacebuilding projects, but we also want to inspire you to take action.",
-          "button1": {
-            "text": "Watch Video",
-            "action": "https://pushpay.com/g/themeetinghouse",
-            "description": "Introduction to our Peacemakers campaign by clicking button to watch video."
-          }
+          "text1": "This year, through our annual Peacemakers campaign, we want to not only raise the money necessary to support life-changing peacebuilding projects, but we also want to inspire you to take action."
         },
         {
           "type": "list",
