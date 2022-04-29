@@ -307,15 +307,6 @@
   },
   {
     "Staff": true,
-    "FirstName": "Kalesha",
-    "LastName": "Peters",
-    "Phone": "905.287.7000",
-    "Position": "Executive Assistant",
-    "sites": ["Pastoral"],
-    "Email": "Kalesha.Peters@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
     "FirstName": "Karmyn",
     "LastName": "Bokma",
     "Phone": "905.287.7000, ext. 812",
