@@ -552,6 +552,12 @@
     "Position": "Music Coordinators"
   },
   {
+    "FirstName": "Adam",
+    "LastName": "Neufeld",
+    "sites": ["WAT"],
+    "Position": "Tech Coordinator"
+  },
+  {
     "FirstName": "T.J.",
     "LastName": "Zielman",
     "sites": ["LOND"],
