@@ -45,7 +45,7 @@
         "style": "pieChart",
         "text1": "Help us raise $150,000 for peacebuilding projects through our partner, Mennonite Central Committee.",
         "pieChart": {
-          "raised": 0,
+          "raised": 45700,
           "goal": 150000,
           "text": "Let's do it!"
         },
