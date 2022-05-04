@@ -156,6 +156,20 @@
             "imageSrc": "/static/images/OakvilleRefugeeEncounter_1125x840.jpg",
             "imageAlt": "Black and yellow graphic with the words oakville refugee encounter.",
             "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/oakvillerefugeeencounter/Team/Details"
+          },
+          {
+            "title": "Newmarket Hike for Peace",
+            "text": "Angela is hiking 200km in the next four weeks to raise awareness for Peacemakers.",
+            "imageSrc": "/static/images/NewmarketHikeforPeace_1125x840.jpg",
+            "imageAlt": "Black and yellow graphic with the words Hike for Peace.",
+            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/nmkthikeforpeace/Team/Details"
+          },
+          {
+            "title": "Alliston Peace it together Garage Sale",
+            "text": "Held at PPG Park Pavilion in Alliston. May 29th 10am-2pm (behind the Alliston Fire Hall)",
+            "imageSrc": "/static/images/AllistonPeaceittogetherGarageSale_1125x840.jpg",
+            "imageAlt": "Black and yellow graphic with the words Alliston Peace it together Garage Sale.",
+            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/alliston/Team/Details"
           }
         ]
       },
