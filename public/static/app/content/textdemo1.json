@@ -1,0 +1,77 @@
+{
+  "screen": {
+    "title": "Text Demo Screen",
+    "config": {
+      "hideBottomNav": false,
+      "hideHeader": false,
+      "backgroundColor": "black",
+      "fontColor": "white",
+      "hideBackButton": false
+    },
+    "content": [
+      {
+        "type": "spacing",
+        "size": 16
+      },
+      { "type": "header", "style": "header1", "text": "This is heading 1" },
+      {
+        "type": "spacing",
+        "size": 16
+      },
+      { "type": "header", "style": "header2", "text": "This is heading 2" },
+      {
+        "type": "spacing",
+        "size": 16
+      },
+      { "type": "header", "style": "header3", "text": "This is heading 3" },
+      {
+        "type": "spacing",
+        "size": 16
+      },
+      { "type": "header", "style": "header4", "text": "This is heading 4" },
+      {
+        "type": "spacing",
+        "size": 16
+      },
+      { "type": "header", "style": "header5", "text": "This is heading 5" },
+      {
+        "type": "spacing",
+        "size": 16
+      },
+      {
+        "type": "body",
+        "style": "small",
+        "text": "This is body in small style"
+      },
+      {
+        "type": "spacing",
+        "size": 16
+      },
+      {
+        "type": "body",
+        "style": "medium",
+        "text": "This is body in medium style"
+      },
+      {
+        "type": "spacing",
+        "size": 16
+      },
+      {
+        "type": "body",
+        "style": "large",
+        "text": "This is body in large style"
+      },
+      {
+        "type": "spacing",
+        "size": 16
+      },
+
+      {
+        "type": "body",
+        "style": "large",
+        "bold": true,
+        "text": "This is bolded body in large style"
+      }
+    ]
+  }
+}
