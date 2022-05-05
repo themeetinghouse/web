@@ -52,13 +52,13 @@
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 1 - Help - CAH EYs.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 2 - Help - CAH EYs.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 1 - EY Activities.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 2 - EY Activities.pdf",
             "openNewBrowser": true
           },
           {
@@ -86,21 +86,21 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaMay1.jpg",
-            "alt": "The Holy Spirit is active in all Christ-followers."
+            "src": "/static/images/KidsBigIdeaMay8.jpg",
+            "alt": "Nothing can separate us from God's love."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 1 - Life - CAH Kids.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 2 - Life - CAH Kids.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 1 - Activities.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 2 - Activities.pdf",
             "openNewBrowser": true
           },
           {
