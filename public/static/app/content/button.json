@@ -1,0 +1,66 @@
+{
+    "screen": {
+        "title": "Button Demo Screen",
+        "config": {
+            "hideBottomNav": false,
+            "hideHeader": false,
+            "backgroundColor": "black",
+            "fontColor": "white",
+            "hideBackButton": false
+        },
+        "content": [{
+                "type": "video",
+                "youtubeID": "joarYfcRHEg"
+            },
+            {
+                "type": "button",
+                "style": "withArrow",
+                "label": "Go to next screen"
+            },
+            {
+                "type": "header",
+                "style": "header1",
+                "text": "Test"
+            },
+            {
+                "type": "spacing",
+                "size": 16
+            },
+            {
+                "type": "button",
+                "style": "black",
+                "label": "Black",
+                "navigateTo": "https://themeetinghouse.com/give"
+            },
+            {
+                "type": "spacing",
+                "size": 16
+            },
+            {
+                "type": "button",
+                "style": "white",
+                "label": "White",
+                "navigateTo": "peacemakers"
+            },
+
+            {
+                "type": "button",
+                "style": "white-link-with-icon",
+                "label": "White",
+                "icon": "https://www.themeetinghouse.com/static/icons/Frame.png",
+                "navigateTo": ""
+            },
+
+            {
+                "type": "spacing",
+                "size": 16
+            },
+            {
+                "type": "video-list",
+                "subclass": "compassion",
+                "header": "Peacemakers Stories",
+                "subheader": "Sub heading"
+            }
+        ]
+    }
+}

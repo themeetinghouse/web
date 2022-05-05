@@ -1,0 +1,58 @@
+{
+    "screen": {
+        "title": "Starred",
+        "config": {
+            "hideBottomNav": false,
+            "hideHeader": false,
+            "backgroundColor": "black",
+            "fontColor": "white",
+            "hideBackButton": true
+        },
+        "content": [{
+                "type": "link-item",
+                "navigateTo": "textdemo1",
+                "text": "Black Text Demo",
+                "subtext": "Navigate to black text demo",
+                "icon": "https://www.themeetinghouse.com/static/icons/Staff.png"
+            },
+            {
+                "type": "link-item",
+                "navigateTo": "textdemo2",
+                "text": "White Text Demo",
+                "subtext": "Navigate to white text demo",
+                "icon": "https://www.themeetinghouse.com/static/icons/Connect.png"
+            },
+            {
+                "type": "link-item",
+                "navigateTo": "elder",
+                "groups": ["Elder"],
+                "text": "Elder Hub",
+                "subtext": "Navigate to elder resources",
+                "icon": "https://www.themeetinghouse.com/static/icons/Frame.png"
+            },
+            {
+                "type": "link-item",
+                "navigateTo": "button",
+                "text": "Button Demo 1",
+                "subtext": "Navigate to black button demo",
+                "icon": "https://www.themeetinghouse.com/static/icons/Staff.png",
+                "hideBorder": true
+            },
+            { "type": "divider" },
+            {
+                "type": "link-item",
+                "navigateTo": "peacemakers",
+                "text": "Peacemakers",
+                "subtext": "Is peace impossible?",
+                "icon": "https://www.themeetinghouse.com/static/icons/Volunteer.png"
+            },
+            {
+                "type": "link-item",
+                "navigateTo": "peacemakers2",
+                "text": "Error 404",
+                "subtext": "Navigate error demo",
+                "icon": "https://www.themeetinghouse.com/static/icons/Frame.png"
+            }
+        ]
+    }
+}

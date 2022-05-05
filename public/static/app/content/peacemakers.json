@@ -1,0 +1,55 @@
+{
+    "screen": {
+        "title": "Peacemakers",
+        "config": {
+            "hideBottomNav": true,
+            "hideHeader": false,
+            "backgroundColor": "black",
+            "fontColor": "white",
+            "hideBackButton": false
+        },
+        "content": [{
+                "type": "image",
+                "style": "full",
+                "imageUrl": "https://themeetinghouse.com/static/images/PM2022_Web-Hero_v3_smaller-size.jpg",
+                "imageAlt": "Girl wearing a head covering holding a hand drawn picture of her violent environment.",
+                "navigateTo": "https://pushpay.com/g/themeetinghouse?src=hpp"
+            },
+            {
+                "type": "spacing",
+                "size": 16
+            },
+            {
+                "type": "header",
+                "style": "header2",
+                "text": "Peace is impossible without you"
+            },
+
+            {
+                "type": "spacing",
+                "size": 16
+            },
+            {
+                "type": "body",
+                "style": "medium",
+                "text": "Peacemakers is our opportunity to work towards peace and justice in some of the most vulnerable communities around the world. Take a step to become a peacemaker below."
+            },
+            {
+                "type": "spacing",
+                "size": 16
+            },
+            {
+                "type": "button",
+                "label": "Donate Today",
+                "navigateTo": "https://pushpay.com/g/themeetinghouse?src=hpp",
+                "style": "white"
+            },
+            {
+                "type": "custom-playlist",
+                "sortOrder": "DESC",
+                "subclass": "compassion",
+                "header": "Peacemaker Stories"
+            }
+        ]
+    }
+}
