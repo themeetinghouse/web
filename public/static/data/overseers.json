@@ -1,8 +1,14 @@
 [
   {
-    "FirstName": "Maggie",
-    "LastName": "John",
-    "Position": "Executive, Chair, Nominating",
+    "FirstName": "Jennifer",
+    "LastName": "Hryniw",
+    "Position": "Governance",
+    "sites": ["overseer"]
+  },
+  {
+    "FirstName": "Bruce",
+    "LastName": "Miller",
+    "Position": "Executive, Secretary, Governance, Chair",
     "sites": ["overseer"]
   },
   {
@@ -18,12 +24,6 @@
     "sites": ["overseer"]
   },
   {
-    "FirstName": "Bruce",
-    "LastName": "Miller",
-    "Position": "Executive, Secretary, Governance, Chair",
-    "sites": ["overseer"]
-  },
-  {
     "FirstName": "Carole Ann",
     "LastName": "Stephen",
     "Position": "Nominating",
@@ -33,12 +33,6 @@
     "FirstName": "Sandy",
     "LastName": "MacLean",
     "Position": "Nominating",
-    "sites": ["overseer"]
-  },
-  {
-    "FirstName": "Jennifer",
-    "LastName": "Hryniw",
-    "Position": "Governance",
     "sites": ["overseer"]
   },
   {
