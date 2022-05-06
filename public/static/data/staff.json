@@ -649,15 +649,6 @@
   },
   {
     "Staff": true,
-    "FirstName": "Steve",
-    "LastName": "Pauls",
-    "Phone": "905.287.7000, ext. 837",
-    "Position": "Oakville Facility Manager",
-    "sites": ["Operations"],
-    "Email": "Steve.Pauls@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
     "FirstName": "Tammy",
     "LastName": "Lembo",
     "Phone": "905.287.7000, ext. 830",
