@@ -24,7 +24,6 @@ const AnnouncementBar = ({ showLive, setShowBar }: Props) => {
         variables: { filter: { date: { eq: today } } },
         authMode: GRAPHQL_AUTH_MODE.API_KEY,
       })) as GraphQLResult<ListLivestreamsQuery>;
-      console.log(data?.listLivestreams?.items);
       setLiveEvents(
         data?.listLivestreams?.items
           ?.sort((a, b) =>
