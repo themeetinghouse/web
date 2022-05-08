@@ -25,9 +25,9 @@
 
 @media (max-width: 767px) {
   .AnnouncementBarContainer {
-    margin-top: 7.4vw;
+    top: 19.2vw;
     height: calc(52px + 1vh);
-    position: relative;
+    position: absolute;
   }
   .bannerMessage {
     padding-right: 4px;

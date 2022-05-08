@@ -203,7 +203,11 @@ class HomeMenu extends React.Component<Props, State> {
                   />
                 </NavbarToggler>
                 <div className="navbar-expander">&nbsp;</div>
-                <Collapse isOpen={this.state.isOpen} navbar>
+                <Collapse
+                  className={this.state.logoOffset ? 'barOffset' : ''}
+                  isOpen={this.state.isOpen}
+                  navbar
+                >
                   <Nav
                     navbar
                     className={

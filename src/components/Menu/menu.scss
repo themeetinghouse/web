@@ -389,6 +389,10 @@
 }
 
 @media (max-width: 767px) {
+  .barOffset {
+    margin-top: calc(52px + 1vh);
+    padding-top: 10px;
+  }
   .expanderButton {
     background-color: #ffffff00 !important;
     position: relative;

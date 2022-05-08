@@ -9,7 +9,7 @@ $mobile-height: 100vh;
   color: white;
   width: 30vw;
   min-width: calc(25vw + 100px);
-  position: absolute;
+  position: fixed;
   right: 2vw;
   z-index: 3000;
   display: flex;
@@ -130,7 +130,7 @@ $mobile-height: 100vh;
     top: 0;
     left: 0;
     min-width: 100%;
-    z-index: 3000;
+    z-index: 30000;
     min-height: $mobile-height;
   }
   .DropdownFill {

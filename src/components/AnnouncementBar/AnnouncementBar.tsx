@@ -46,7 +46,6 @@ const AnnouncementBar = ({ showLive, setShowBar }: Props) => {
       const rightNow = moment().tz('America/Toronto').format('HH:mm');
       const temp = liveEvents;
       const lastEvent = temp[temp?.length - 1];
-      console.log({ rightNow }, { endTime: lastEvent?.endTime });
       if (lastEvent) {
         const { endTime } = lastEvent;
         if (endTime && rightNow >= endTime) {
