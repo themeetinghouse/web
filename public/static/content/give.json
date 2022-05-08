@@ -6,7 +6,7 @@
     "description": "",
 
     "pageConfig": {
-      "showLive": true,
+      "showLive": false,
       "movingMenu": false,
       "showLogoText": false,
       "logoColor": "white",
