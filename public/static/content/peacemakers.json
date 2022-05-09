@@ -1,0 +1,198 @@
+{
+  "page": {
+    "name": "peacemakers",
+    "title": "Peacemakers",
+    "keywords": "peacemakers",
+    "description": "The page for The Meeting House 2021 Peacemakers campaign in partnership with MCC Canada.",
+    "pageConfig": {
+      "showLive": true,
+      "movingMenu": false,
+      "showLogoText": true,
+      "logoColor": "black",
+      "showSearch": true,
+      "showFooter": true,
+      "showMenu": true
+    },
+    "content": [
+      {
+        "type": "og-tags",
+        "image": "/static/images/PM2022_Web-Hero_v3_smaller-size.jpg",
+        "url": "https://www.themeetinghouse.com/peacemakers",
+        "title": "Peacemakers",
+        "description": "Is peace impossible? That depends on you."
+      },
+      {
+        "type": "hero",
+        "style": "full",
+        "image1": [
+          {
+            "src": "/static/images/PM2022_Web-Hero_v3_smaller-size.jpg",
+            "alt": "Girl wearing a head covering holding a hand drawn picture of her violent environment."
+          }
+        ],
+        "header1": "Peace is impossible...",
+        "header2": "Without you.",
+        "text1": "Peacemakers is our opportunity to work towards peace and justice in some of the most vulnerable communities around the world. Take a step to become a peacemaker below.",
+        "button1": {
+          "text": "Watch Video",
+          "buttoncolor":"yellow",
+          "action": "https://www.themeetinghouse.com/videos/compassion-Peacemakers/4blwlOGupgE",
+          "description": "Introduction to our Peacemakers campaign and watch video button."
+        }
+      },
+      {
+        "type": "content",
+        "style": "pieChart",
+        "text1": "Help us raise $150,000 for peacebuilding projects through our partner, Mennonite Central Committee.",
+        "pieChart": {
+          "raised": 45700,
+          "goal": 150000,
+          "text": "Let's do it!"
+        },
+        "list": [
+          {
+            "type": "button",
+            "title": "Donate Today",
+            "navigateTo": "https://pushpay.com/g/themeetinghouse?src=hpp"
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "style": "mad",
+        "header1": "Step 1: Learn",
+        "text1": "The first step to peacebuilding is to learn about a conflict. By having a posture of learning before we act, we can be more effective agents for peace. Take time to learn about our partnership with MCC and the areas we are investing in peacebuilding.",
+        "list": [
+          {
+            "type": "arrow",
+            "title": "Why Peacemakers?",
+            "navigateTo": "https://www.themeetinghouse.com/posts/why-peacemakers"
+          },
+          {
+            "type": "arrow",
+            "title": "Indigenous and Settler Reconciliation",
+            "navigateTo": "https://www.themeetinghouse.com/posts/indigenous-and-settler-reconciliation"
+          },
+          {
+            "type": "arrow",
+            "title": "Peacebuilding in Sub-Saharan Africa",
+            "navigateTo": "https://www.themeetinghouse.com/posts/peacebuilding"
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/PM2022_Learn-Mod-Image_2.jpg",
+            "alt": "Man playing Indigenous drumming instrument."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "style": "horizontal",
+        "class": "videos",
+        "subclass": "compassion",
+        "sortOrder": "DESC",
+        "header1": "Peacemakers Stories",
+        "showEpisodeNumbers": false
+      },
+      {
+        "type": "content",
+        "style": "oneImageBlackRight",
+        "header1": "Step 2: Take Action",
+        "header2": "",
+        "text1": "After learning about a conflict we can take steps to work toward peace. In many situations this includes working to right injustices so that individuals and communities can heal. You can help by:",
+        "list": [
+          {
+            "type": "link",
+            "title": "Giving",
+            "navigateTo": "/peacemakers-give"
+          },
+          {
+            "type": "link",
+            "title": "Start a fundraiser",
+            "navigateTo": "https://go.dojiggy.io/c/deae7e"
+          },
+          {
+            "type": "link",
+            "title": "Tell others about Peacemakers",
+            "navigateTo": "/peacemakers"
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/PM2022_TakeAction_Mod_1.jpg",
+            "alt": "Older woman smiling holding a baked pie."
+          }
+        ]
+      },
+      {
+        "type": "horizontal-list",
+        "header1": "Join a Fundraiser",
+        "list": [
+          {
+            "title": "Create a Fundraiser",
+            "text": "Click here to start your own fundraiser for peacemakers.",
+            "imageSrc": "/static/images/CreateAFundraiser-1125x840.jpg",
+            "imageAlt": "Black and yellow graphic with the words create a fundraiser.",
+            "navigateTo": "https://go.dojiggy.io/c/deae7e"
+          },
+          {
+            "title": "Burlington Lemonade Stand",
+            "text": "Thirsty? Come by Viewmount Rd in Oakville on Sunday May 15th between 1 and 3pm for some delicious lemonade and cookies!",
+            "imageSrc": "/static/images/BurlingtonLemonadeStand-1125x840.jpg",
+            "imageAlt": "Black and yellow graphic with the words burlington lemonade stand.",
+            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/lemonade/Team/Details"
+          },
+          {
+            "title": "Oakville Family Movie Fundraiser",
+            "text": "Let’s kick off Peacemakers with a family friendly event - watching the  movie Encanto together! Concession stand includes snacks, beverages & pepperoni or cheese PIZZA! Prices are $1 to $3. Debit or credit accepted.",
+            "imageSrc": "/static/images/OakvilleFamilyMovieNight_1125x8401.jpg",
+            "imageAlt": "Black and yellow graphic with the words oakville family movie fundraiser.",
+            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/oakvillemovies/Team/Details"
+          },
+          {
+            "title": "Oakville Refugee Encounter",
+            "text": "In the history of humanity, there have never been as many refugees around the world as we are seeing today. Join us for our 3rd Annual Refugee Encounter to learn more about Tayiba and Elyas’ journey since fleeing their home in Ethiopia. Learn how your donation can support refugees on their journey to a new life. Debit or credit accepted.",
+            "imageSrc": "/static/images/OakvilleRefugeeEncounter_1125x840.jpg",
+            "imageAlt": "Black and yellow graphic with the words oakville refugee encounter.",
+            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/oakvillerefugeeencounter/Team/Details"
+          },
+          {
+            "title": "Newmarket Hike for Peace",
+            "text": "Angela is hiking 200km in the next four weeks to raise awareness for Peacemakers.",
+            "imageSrc": "/static/images/NewmarketHikeforPeace_1125x840.jpg",
+            "imageAlt": "Black and yellow graphic with the words Hike for Peace.",
+            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/nmkthikeforpeace/Team/Details"
+          },
+          {
+            "title": "Alliston Peace it together Garage Sale",
+            "text": "Held at PPG Park Pavilion in Alliston. May 29th 10am-2pm (behind the Alliston Fire Hall)",
+            "imageSrc": "/static/images/AllistonPeaceittogetherGarageSale_1125x840.jpg",
+            "imageAlt": "Black and yellow graphic with the words Alliston Peace it together Garage Sale.",
+            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/alliston/Team/Details"
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "style": "oneImageYellow",
+        "header1": "Kids and Youth",
+        "header2": "",
+        "text1": "Making peace is for everyone, no matter your age. Check out how kids and youth can make an impact too.",
+        "list": [
+          {
+            "type": "button",
+            "title": "Ideas for Kids and Youth",
+            "navigateTo": "/nextgenpeace"
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/Mod7_pic.jpg",
+            "alt": "Little boy playing with hulla hoop."
+          }
+        ]
+      }
+    ]
+  }
+}

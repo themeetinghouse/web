@@ -8,6 +8,10 @@
     "location": "/community"
   },
   {
+    "name": "Peacemakers",
+    "location": "/peacemakers"
+  },
+  {
     "name": "Teaching",
     "location": "/teaching",
     "children": [

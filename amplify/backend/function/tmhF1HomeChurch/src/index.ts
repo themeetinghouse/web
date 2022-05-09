@@ -2,10 +2,6 @@ import TMHDB from '../../themeetinghousetmhShared/lib/nodejs/TMHDB';
 import * as queries from '../../themeetinghousetmhShared/lib/nodejs/queries';
 import TMHStripe from '../../themeetinghousetmhShared/lib/nodejs/TMHStripe';
 
-global.crypto = require('crypto');
-const Amplify = require('aws-amplify');
-global.fetch = require('node-fetch');
-
 function uniqBy(a, key) {
   return [...new Map(a.map((x) => [key(x), x])).values()];
 }

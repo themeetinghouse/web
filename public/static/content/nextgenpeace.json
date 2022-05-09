@@ -1,0 +1,115 @@
+{
+    "page": {
+      "name": "peacemakers",
+      "title": "Peacemakers",
+      "keywords": "peacemakers",
+      "description": "The page for The Meeting House 2021 Peacemakers campaign in partnership with MCC Canada.",
+      "pageConfig": {
+        "showLive": true,
+        "movingMenu": false,
+        "showLogoText": true,
+        "logoColor": "black",
+        "showSearch": true,
+        "showFooter": true,
+        "showMenu": true
+      },
+      "content": [
+        {
+          "type": "og-tags",
+          "image": "/static/images/PM2022_K&Y-Web-Hero_1.jpg",
+          "url": "https://www.themeetinghouse.com/nextgenpeace",
+          "title": "Peacemakers for Kids and Youth",
+          "description": ""
+        },
+        {
+          "type": "hero",
+          "style": "full",
+          "image1": [
+            {
+              "src": "/static/images/PM2022_K&Y-Web-Hero_1.jpg",
+              "alt": "Five teenagers talking in a classroom."
+            }
+          ],
+          "header1": "Peace is for all ages.",
+          "text1": "This year, through our annual Peacemakers campaign, we want to not only raise the money necessary to support life-changing peacebuilding projects, but we also want to inspire you to take action."
+        },
+        {
+          "type": "list",
+          "style": "horizontal",
+          "class": "videos",
+          "subclass": "compassion",
+          "sortOrder": "DESC",
+          "header1": "Learn",
+          "showEpisodeNumbers": false
+        },
+        {
+          "type": "content",
+          "style": "mad",
+          "header1": "Take Action",
+          "text1": "What does justice look like and how can we take meaningful action to work towards peace in our communities and around the world? Check out the resources below for activities you can do with your family.",
+          "list": [
+            {
+              "type": "arrow",
+              "title": "Prayer and Mindfulness",
+              "navigateTo": "/static/pdfs/compassion/2021-22-Peacemakers-NextGen-Prayer-and-Mindfulness.pdf"
+            },
+            {
+              "type": "arrow",
+              "title": "Water Usage",
+              "navigateTo": "/static/pdfs/compassion/2021-22-Peacemakers-NextGen-water-usage.pdf"
+            },
+            {
+              "type": "arrow",
+              "title": "Water on Wheels",
+              "navigateTo": "/static/pdfs/compassion/2021-22-Peacemakers-NextGen -Water-on-Wheels.pdf"
+            },
+            {
+              "type": "arrow",
+              "title": "Start a fundraiser",
+              "navigateTo": "https://go.dojiggy.io/c/deae7e"
+            }
+          ],
+          "image1": [
+            {
+              "src": "/static/images/PM2022_Kids&Youth_Mod_1.jpg",
+              "alt": "A little girl baking muffins with her dad amazed at her skill"
+            }
+          ]
+        },
+        {
+          "type": "horizontal-list",
+          "header1": "Join a Fundraiser",
+          "list": [
+            {
+              "title": "Create a Fundraiser",
+              "text": "Click here to start your own fundraiser for peacemakers.",
+              "imageSrc": "/static/images/CreateAFundraiser-1125x840.jpg",
+              "imageAlt": "Black and yellow graphic with the words create a fundraiser.",
+              "navigateTo": "https://go.dojiggy.io/c/deae7e"
+            },
+            {
+              "title": "Burlington Lemonade Stand",
+              "text": "Thirsty? Come by Viewmount Rd in Oakville on Sunday May 15th between 1 and 3pm for some delicious lemonade and cookies!",
+              "imageSrc": "/static/images/BurlingtonLemonadeStand-1125x840.jpg",
+              "imageAlt": "Black and yellow graphic with the words burlington lemonade stand.",
+              "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/lemonade/Team/Details"
+            },
+            {
+              "title": "Oakville Family Movie Fundraiser",
+              "text": "Let’s kick off Peacemakers with a family friendly event - watching the  movie Encanto together! Concession stand includes snacks, beverages & pepperoni or cheese PIZZA! Prices are $1 to $3. Debit or credit accepted.",
+              "imageSrc": "/static/images/OakvilleFamilyMovieNight_1125x8401.jpg",
+              "imageAlt": "Black and yellow graphic with the words oakville family movie fundraiser.",
+              "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/oakvillemovies/Team/Details"
+            },
+            {
+              "title": "Oakville Refugee Encounter",
+              "text": "In the history of humanity, there have never been as many refugees around the world as we are seeing today. Join us for our 3rd Annual Refugee Encounter to learn more about Tayiba and Elyas’ journey since fleeing their home in Ethiopia. Learn how your donation can support refugees on their journey to a new life. Debit or credit accepted.",
+              "imageSrc": "/static/images/OakvilleRefugeeEncounter_1125x840.jpg",
+              "imageAlt": "Black and yellow graphic with the words oakville refugee encounter.",
+              "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/oakvillerefugeeencounter/Team/Details"
+            }
+          ]
+        }
+      ]
+    }
+  }

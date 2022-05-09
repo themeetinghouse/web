@@ -78,6 +78,26 @@
         ]
       },
       {
+        "type": "content",
+        "style": "oneImageBlackRight",
+        "header1": "Peacemakers",
+        "header2": "",
+        "text1": "Peacemakers is our annual campaign in support of peacebuilding efforts through Mennonite Central Committee in the areas of: Indigenous and Settler reconciliation, restorative justice, peacebuilding programs in sub-saharan Africa, and humanitarian relief efforts.",
+        "list": [
+          {
+            "type": "link",
+            "title": "Make Peace Possible",
+            "navigateTo": "/peacemakers"
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/PM2022_Web-Hero_v3_smaller-size.jpg",
+            "alt": "Girl wearing a head covering holding a hand drawn picture of her violent environment."
+          }
+        ]
+      },
+      {
         "type": "list",
         "style": "imageList",
         "class": "user-defined",

@@ -1,0 +1,53 @@
+{
+    "screen": {
+        "title": "Elder Hub",
+        "config": {
+            "hideBottomNav": true,
+            "hideHeader": false,
+            "backgroundColor": "black",
+            "fontColor": "white",
+            "hideBackButton": false
+        },
+        "content": [{
+                "type": "image",
+                "style": "full",
+                "imageUrl": "https://themeetinghouse.com/static/images/homepage-1-1.jpg",
+                "imageAlt": "Man sitting outside on a backyard patio talking and laughing with a group of friends."
+            },
+            { "type": "spacing", "size": 16 },
+            {
+                "type": "body",
+                "style": "medium",
+                "text": "Here you can find all of the resources you may need to be an effective home church leader."
+            },
+            { "type": "spacing", "size": 16 },
+            {
+                "type": "button",
+                "style": "white",
+                "label": "Watch Teaching",
+                "navigateTo": "https://themeetinghouse.com/teaching"
+            },
+            { "type": "spacing", "size": 32 },
+            { "type": "header", "style": "header1", "text": "Other Resources" },
+            { "type": "spacing", "size": 32 },
+            {
+                "type": "link-item",
+                "navigateTo": "https://drive.google.com/drive/folders/0B-JVWCBiOuinfmFGb3A3eTZ1LTU1cTl2d08wa09wMmJIbWhzTzlEUTAtelZTSmVxVnhJUVU?resourcekey=0-8aDPoskI5t0tbs7BEdMK6g&usp=sharing",
+                "text": "Elders Toolbox",
+                "icon": "https://www.themeetinghouse.com/static/icons/Frame.png"
+            },
+            {
+                "type": "link-item",
+                "navigateTo": "https://themeetinghouse.com/static/pdfs/elders-hub/TMH_HC_Question_Signs_8.5x11.pdf",
+                "text": "Home Church Signs",
+                "icon": "https://www.themeetinghouse.com/static/icons/Frame.png"
+            },
+            {
+                "type": "custom-playlist",
+                "sortOrder": "DESC",
+                "subclass": "FallHC2021",
+                "header": "Fall Home Church Videos"
+            }
+        ]
+    }
+}

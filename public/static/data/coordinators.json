@@ -134,6 +134,13 @@
     "Position": "Parish Administrator"
   },
   {
+    "FirstName": "Amie",
+    "LastName": "Latta",
+    "sites": ["LOND"],
+    "Email": "amie.latta@themeetinghouse.com",
+    "Position": "Parish Administrator"
+  },
+  {
     "FirstName": "Kate",
     "LastName": "Thompson",
     "sites": ["LOND"],
@@ -166,13 +173,6 @@
     "Email": "erica.blekkenhorst@themeetinghouse.com",
     "Position": "Compassion Coordinator"
   },
-  {
-    "FirstName": "Nour",
-    "LastName": "Aziz",
-    "sites": ["TOUP"],
-    "Position": "Compassion Coordinator"
-  },
-
   {
     "FirstName": "Janette",
     "LastName": "Cridland",
@@ -298,24 +298,11 @@
     "Position": "Kidmax Coordinator"
   },
   {
-    "FirstName": "Jeremiah",
-    "LastName": "McCleary",
-    "sites": ["WAT"],
-    "Email": "jeremiah.mccleary@themeetinghouse.com",
-    "Position": "Compassion Coordinator"
-  },
-  {
     "FirstName": "Max",
     "LastName": "Chute",
     "sites": ["WAT"],
     "Email": "kidmax.waterloo@themeetinghouse.com",
     "Position": "Kidmax Coordinator"
-  },
-  {
-    "FirstName": "Pamela",
-    "LastName": "Carlin",
-    "sites": ["WAT"],
-    "Position": "Weekend Service Producer"
   },
   {
     "FirstName": "Joshua",
@@ -343,12 +330,6 @@
     "sites": ["BRFD"],
     "Email": "bryanrmckee@gmail.com",
     "Position": "Prayer Coordinator"
-  },
-  {
-    "FirstName": "Adam",
-    "LastName": "Davidson",
-    "sites": ["BURL"],
-    "Position": "Music Coordinator"
   },
   {
     "FirstName": "Steve",
@@ -436,12 +417,6 @@
     "sites": ["WAT"],
     "Email": "savannah.edwards@themeetinghouse.com",
     "Position": "Parish Communications and Media Coordinator"
-  },
-  {
-    "FirstName": "Stephen",
-    "LastName": "Tosh",
-    "sites": ["WAT"],
-    "Position": "Tech Coordinator"
   },
   {
     "FirstName": "Rachel",
@@ -575,6 +550,12 @@
     "sites": ["WAT"],
     "Email": "fraser_haig@wrdsb.ca, mtleahy5@gmail.com",
     "Position": "Music Coordinators"
+  },
+  {
+    "FirstName": "Adam",
+    "LastName": "Neufeld",
+    "sites": ["WAT"],
+    "Position": "Tech Coordinator"
   },
   {
     "FirstName": "T.J.",

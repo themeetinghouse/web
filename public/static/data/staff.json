@@ -130,7 +130,7 @@
     "FirstName": "Dagmar",
     "LastName": "Morgan-Sinclair",
     "Phone": "905.287.7000, ext. 848",
-    "Position": "Hamilton Mountain Lead Pastor",
+    "Position": "Hamilton Mountain Lead Pastor (on leave)",
     "sites": ["HMMT", "Pastoral"],
     "Email": "Dagmar.Morgan@themeetinghouse.com"
   },
@@ -304,15 +304,6 @@
     "Position": "Producer & Director of Photography",
     "sites": ["Communications"],
     "Email": "Justin.vanRensburg@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
-    "FirstName": "Kalesha",
-    "LastName": "Peters",
-    "Phone": "905.287.7000",
-    "Position": "Executive Assistant",
-    "sites": ["Pastoral"],
-    "Email": "Kalesha.Peters@themeetinghouse.com"
   },
   {
     "Staff": true,
@@ -658,19 +649,10 @@
   },
   {
     "Staff": true,
-    "FirstName": "Steve",
-    "LastName": "Pauls",
-    "Phone": "905.287.7000, ext. 837",
-    "Position": "Oakville Facility Manager",
-    "sites": ["Operations"],
-    "Email": "Steve.Pauls@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
     "FirstName": "Tammy",
     "LastName": "Lembo",
     "Phone": "905.287.7000, ext. 830",
-    "Position": "Operations Support Assistant",
+    "Position": "Operations Supervisor",
     "sites": ["Operations"],
     "Email": "Tammy.Lembo@themeetinghouse.com"
   },

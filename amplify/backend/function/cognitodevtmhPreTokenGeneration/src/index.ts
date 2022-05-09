@@ -18,6 +18,7 @@ export const handler = async (event) => {
         process.env.ENV,
     };
     const result = await ddb.query(params).promise();
+    console.log(result);
     if (result.Items.length > 0) {
       var params2 = {
         ExpressionAttributeValues: {

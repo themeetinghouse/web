@@ -50,22 +50,23 @@ class HomePage extends React.Component<RouteComponentProps, State> {
   }
 
   componentDidMount() {
-    getRedirect(window.location.pathname.slice(1))
-      .then(({ data }) => {
-        if (data?.getRedirect?.id && data?.getRedirect?.to) {
-          this.setState({ redirect: data.getRedirect });
-        } else {
+    if (window.location.pathname.slice(1) != '')
+      getRedirect(window.location.pathname.slice(1))
+        .then(({ data }) => {
+          if (data?.getRedirect?.id && data?.getRedirect?.to) {
+            this.setState({ redirect: data.getRedirect });
+          } else {
+            // set non-null state as we want the rest of the app to load
+            this.setState({ redirect: { id: '', to: '' } as RedirectType });
+          }
+        })
+        .catch((e: any) => {
+          if (e.errors) captureException(e.errors);
+          else captureException(e);
           // set non-null state as we want the rest of the app to load
           this.setState({ redirect: { id: '', to: '' } as RedirectType });
-        }
-      })
-      .catch((e: any) => {
-        if (e.errors) captureException(e.errors);
-        else captureException(e);
-        // set non-null state as we want the rest of the app to load
-        this.setState({ redirect: { id: '', to: '' } as RedirectType });
-      });
-
+        });
+    else this.setState({ redirect: { id: '', to: '' } as RedirectType });
     this.unregisterGAListener = this.props.history.listen((location: any) => {
       ReactGA.pageview(location.pathname + location.search);
     });
