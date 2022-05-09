@@ -8,7 +8,7 @@ import VideoOverlay from '../VideoOverlay/VideoOverlay';
 import { LinkButton } from 'components/Link/Link';
 import { Button } from 'reactstrap';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
-import FadeBabyHeroImage from 'components/ScaledImage/FadeBabyHeroImage';
+import FadeScaledImage from 'components/ScaledImage/FadeScaledImage';
 
 interface Props extends RouteComponentProps {
   content: any;
@@ -327,7 +327,7 @@ class TeachingItem extends React.Component<Props, State> {
                 ) : null}
               </div>
               <div>
-                <FadeBabyHeroImage
+                <FadeScaledImage
                   className="teaching-image-desktop"
                   onClick={() =>
                     this.handleClick(this.state.listData[this.state.teachingId])
@@ -341,7 +341,7 @@ class TeachingItem extends React.Component<Props, State> {
               </div>
             </div>
             <div className="mobile-image-container">
-              <FadeBabyHeroImage
+              <FadeScaledImage
                 className="teaching-image-mobile"
                 onClick={() =>
                   this.handleClick(this.state.listData[this.state.teachingId])

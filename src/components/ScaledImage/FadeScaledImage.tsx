@@ -1,6 +1,6 @@
 import { ItemImage } from 'components/types';
 import ScaledImage from './ScaledImage';
-import './FadeBabyHeroImage.scss';
+import './FadeScaledImage.scss';
 type FadeBabyHeroImageProps = {
   imageSrc: ItemImage['src'];
   fallbackUrl?: string;
@@ -10,7 +10,7 @@ type FadeBabyHeroImageProps = {
   HTMLImageElement
 >;
 
-export default function FadeBabyHeroImage({
+export default function FadeScaledImage({
   breakpointSizes,
   className,
   fallbackUrl,
@@ -24,7 +24,7 @@ export default function FadeBabyHeroImage({
     <ScaledImage
       breakpointSizes={breakpoints}
       image={{ src: imageSrc ?? '', alt: alt ?? '' }}
-      className={`${className} fadeBabyHeroImage`}
+      className={`${className} fadeImage`}
       fallbackUrl={fallbackSrc}
       onLoad={(e) => {
         e.currentTarget.style.opacity = '1';
