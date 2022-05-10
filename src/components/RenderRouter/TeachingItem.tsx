@@ -8,6 +8,7 @@ import VideoOverlay from '../VideoOverlay/VideoOverlay';
 import { LinkButton } from 'components/Link/Link';
 import { Button } from 'reactstrap';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
+import FadeScaledImage from 'components/ScaledImage/FadeScaledImage';
 
 interface Props extends RouteComponentProps {
   content: any;
@@ -230,7 +231,25 @@ class TeachingItem extends React.Component<Props, State> {
     }
     return `${hours.toString()}h ${duration.toString()}m`;
   }
-
+  determineTeachingImageSrc(): string {
+    return this.state.content.class === 'teaching-sunday' ||
+      this.state.listData[this.state.teachingId].videoTypes === 'ky-kids' ||
+      this.state.listData[this.state.teachingId].videoTypes === 'ky-youth' ||
+      this.state.listData[this.state.teachingId].videoTypes === 'ky-jrhigh' ||
+      this.state.listData[this.state.teachingId].videoTypes === 'ky-srhigh' ||
+      (this.state.listData[this.state.teachingId].videoTypes === 'bbq' &&
+        this.state.listData[this.state.teachingId].seriesTitle != null)
+      ? '/static/photos/series/baby-hero/' +
+          this.state.listData[this.state.teachingId].videoTypes +
+          '-' +
+          this.state.listData[this.state.teachingId].seriesTitle.replace(
+            /\?|[']/g,
+            ''
+          ) +
+          '.jpg'
+      : this.state.listData[this.state.teachingId].Youtube.snippet.thumbnails
+          .standard.url;
+  }
   render() {
     // const [cookies, setCookie] = useCookies([this.props.content.group]);
     if (this.state.content.style === 'hero') {
@@ -308,83 +327,30 @@ class TeachingItem extends React.Component<Props, State> {
                 ) : null}
               </div>
               <div>
-                <img
-                  onClick={() => {
-                    this.handleClick(
-                      this.state.listData[this.state.teachingId]
-                    );
-                  }}
+                <FadeScaledImage
+                  className="teaching-image-desktop"
+                  onClick={() =>
+                    this.handleClick(this.state.listData[this.state.teachingId])
+                  }
+                  imageSrc={this.determineTeachingImageSrc()}
                   alt={
                     this.state.listData[this.state.teachingId]
-                      .thumbnailDescription || 'Series Thumbnail'
+                      .thumbnailDescription
                   }
-                  className="teaching-image-desktop"
-                  src={
-                    (this.state.content.class === 'teaching-sunday' ||
-                      this.state.listData[this.state.teachingId].videoTypes ===
-                        'ky-kids' ||
-                      this.state.listData[this.state.teachingId].videoTypes ===
-                        'ky-youth' ||
-                      this.state.listData[this.state.teachingId].videoTypes ===
-                        'ky-jrhigh' ||
-                      this.state.listData[this.state.teachingId].videoTypes ===
-                        'ky-srhigh' ||
-                      this.state.listData[this.state.teachingId].videoTypes ===
-                        'bbq') &&
-                    this.state.listData[this.state.teachingId].seriesTitle !=
-                      null
-                      ? '/static/photos/series/baby-hero/' +
-                        this.state.listData[this.state.teachingId].videoTypes +
-                        '-' +
-                        this.state.listData[
-                          this.state.teachingId
-                        ].seriesTitle.replace(/\?|[']/g, '') +
-                        '.jpg'
-                      : this.state.listData[this.state.teachingId].Youtube
-                          .snippet.thumbnails.standard.url
-                  }
-                  onError={this.fallbackToImage(
-                    '/static/photos/series/baby-hero/babyhero-fallback.jpg'
-                  )}
                 />
               </div>
             </div>
             <div className="mobile-image-container">
-              <img
-                onClick={() => {
-                  this.handleClick(this.state.listData[this.state.teachingId]);
-                }}
+              <FadeScaledImage
+                className="teaching-image-mobile"
+                onClick={() =>
+                  this.handleClick(this.state.listData[this.state.teachingId])
+                }
+                imageSrc={this.determineTeachingImageSrc()}
                 alt={
                   this.state.listData[this.state.teachingId]
-                    .thumbnailDescription || 'Series Thumbnail'
+                    .thumbnailDescription
                 }
-                className="teaching-image-mobile"
-                src={
-                  (this.state.content.class === 'teaching-sunday' ||
-                    this.state.listData[this.state.teachingId].videoTypes ===
-                      'ky-kids' ||
-                    this.state.listData[this.state.teachingId].videoTypes ===
-                      'ky-youth' ||
-                    this.state.listData[this.state.teachingId].videoTypes ===
-                      'ky-jrhigh' ||
-                    this.state.listData[this.state.teachingId].videoTypes ===
-                      'ky-srhigh' ||
-                    this.state.listData[this.state.teachingId].videoTypes ===
-                      'bbq') &&
-                  this.state.listData[this.state.teachingId].seriesTitle != null
-                    ? '/static/photos/series/baby-hero/' +
-                      this.state.listData[this.state.teachingId].videoTypes +
-                      '-' +
-                      this.state.listData[
-                        this.state.teachingId
-                      ].seriesTitle.replace(/\?|[']/g, '') +
-                      '.jpg'
-                    : this.state.listData[this.state.teachingId].Youtube.snippet
-                        .thumbnails.standard.url
-                }
-                onError={this.fallbackToImage(
-                  '/static/photos/series/baby-hero/babyhero-fallback.jpg'
-                )}
               />
             </div>
             <div className="teaching-mostrecent">Most recent</div>
