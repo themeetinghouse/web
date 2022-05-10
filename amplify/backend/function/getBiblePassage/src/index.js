@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 exports.handler = async (event) => {
   const bibleId = event.arguments.bibleId;
   const passage = event.arguments.passage;

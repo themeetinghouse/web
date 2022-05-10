@@ -106,8 +106,9 @@
           ]
         },
         "Runtime": "nodejs14.x",
+        "MemorySize": "1024",
         "Layers": [],
-        "Timeout": "25",
+        "Timeout": "125",
         "Code": {
           "S3Bucket": {
             "Ref": "deploymentBucketName"

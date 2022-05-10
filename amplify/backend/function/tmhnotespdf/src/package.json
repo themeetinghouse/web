@@ -6,9 +6,9 @@
   "license": "Apache-2.0",
   "dependencies": {
     "aws-sdk": "^2.824.0",
-    "chrome-aws-lambda": "^5.5.0",
+    "chrome-aws-lambda": "^10.1.0",
     "handlebars": "^4.7.6",
-    "puppeteer-core": "^5.5.0",
+    "puppeteer-core": "^10.1.0",
     "uuid": "^8.3.2"
   }
 }

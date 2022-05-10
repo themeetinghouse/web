@@ -21,9 +21,12 @@ const s3 = new AWS.S3();
 
 exports.handler = async (event) => {
   try {
+    console.log({
+      AUTH_COGNITODEVTMH_USERPOOLID: process.env,
+    });
     const groups = await cognito
       .adminListGroupsForUser({
-        UserPoolId: process.env.AUTH_COGNITODEVTMH_USERPOOLID,
+        UserPoolId: process.env.userPoolId,
         Username: event.arguments.userId,
       })
       .promise();
