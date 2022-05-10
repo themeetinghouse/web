@@ -193,14 +193,12 @@ All content items always require a type.
 
     { "type": "button", "style": "white", "label": "White Button" }
 
-| field          | allowed values                                            | purpose                                                 |
-| -------------- | --------------------------------------------------------- | ------------------------------------------------------- |
-| `"style"`      | `"white"`, `"black"`, `"white-link-with-icon"`            | select styling for button                               |
-| `"label"`      | `"Give Now"`, any text                                    | button label                                            |
-| `"navigateTo"` | `"peacemakers"`, `"https://themeetinghouse.com"`          | optional, leave empty for navigating to previous screen |
-| `"icon"`       | `https://www.themeetinghouse.com/static/icons/Frame.png`, | optional url to icon, may not work for all styles       |
-
-## List
+| field          | allowed values                                                                             | purpose                                                 |
+| -------------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------- |
+| `"style"`      | `"white"`, `"black"`, `"white-link-with-icon"`, `"white-with-arrow"`, `"black-with-arrow"` | select styling for button                               |
+| `"label"`      | `"Give Now"`, any text                                                                     | button label                                            |
+| `"navigateTo"` | `"peacemakers"`, `"https://themeetinghouse.com"`                                           | optional, leave empty for navigating to previous screen |
+| `"icon"`       | `https://www.themeetinghouse.com/static/icons/Frame.png`,                                  | optional url to icon, may not work for all styles       |
 
 ## Link Item
 
