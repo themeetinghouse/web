@@ -66,6 +66,11 @@ $no-footer-height: 38vw;
   height: 25px;
 }
 
+.heroButton {
+  &.yellow {
+    background-color: #ffc60b !important;
+  }
+}
 @media (min-width: 768px) {
   .covidButton {
     position: absolute;

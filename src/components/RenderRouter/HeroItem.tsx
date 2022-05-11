@@ -207,10 +207,11 @@ class HeroItem extends React.Component<Props, State> {
   }
   renderLinkButton(buttonInfo: any) {
     if (!buttonInfo) return null;
+    const customStyle = buttonInfo.buttonColor ?? '';
     return buttonInfo.text ? (
       <LinkButton
         aria-label={buttonInfo.description}
-        className="heroButton"
+        className={`heroButton ${customStyle}`}
         to={buttonInfo.action}
       >
         {buttonInfo.text}
