@@ -4,7 +4,10 @@
   top: 1.5vw;
   left: 15vw;
 }
-
+.TrendingSearches {
+  margin-top: 24px;
+  margin-bottom: 40px;
+}
 .SearchItemInput {
   width: 70vw;
   height: 56px;
@@ -28,6 +31,9 @@
 }
 .TrendingItem {
   text-decoration: underline;
+  text-underline-offset: 3px;
+  line-height: 36px;
+  margin-top: -6px !important;
   display: inline;
   cursor: pointer;
   background-color: #ffffff;
@@ -287,18 +293,15 @@
     }
   }
   .VideoOverlayClose {
-    $size: 15px;
-
-    top: 18px;
-    left: 92vw;
+    $size: 32px;
+    top: 20px;
     width: $size;
     height: $size;
   }
 
   .SearchItem {
-    top: 12vw;
     left: 0px;
-    margin: 0px 15px 0px 15px;
+    margin: 19.2vw 15px 0px 15px;
   }
 
   .SearchItemInput {
@@ -306,7 +309,6 @@
 
     font-size: 32px;
     line-height: 40px;
-    margin-top: 26px;
   }
 
   .SearchItemDiv {

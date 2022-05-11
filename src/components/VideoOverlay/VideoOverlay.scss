@@ -13,6 +13,10 @@
   overflow-y: hidden !important;
 }
 
+.backdrop-white {
+  position: fixed;
+  background-color: white;
+}
 @media (min-width: 768px) {
   .modal-content {
     border-radius: 0;

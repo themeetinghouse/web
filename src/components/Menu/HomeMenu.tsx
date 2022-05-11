@@ -181,6 +181,7 @@ class HomeMenu extends React.Component<Props, State> {
                 <VideoOverlay
                   onClose={() => this.setState({ overlayType: null })}
                   data={this.state.overlayType}
+                  whiteBackdrop={true}
                 ></VideoOverlay>
               </div>
             ) : null}

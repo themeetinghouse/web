@@ -18,17 +18,18 @@
 }
 
 .searchResultDiv1Item {
+  margin-left: -0.8vw;
   display: inline-block;
   text-align: left;
   position: relative;
-  left: 15vw;
+  left: 14vw;
   padding-left: 2vw;
   padding-right: 2vw;
   cursor: pointer;
   padding-bottom: 15px;
   padding-top: 20px;
   border-bottom: 1px solid #efeff0;
-  width: 70%;
+  width: calc(70% + 58.2px);
   background-color: #ffffff;
   border: 0;
   color: #1a1a1a;
