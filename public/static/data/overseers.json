@@ -1,26 +1,8 @@
 [
   {
-    "FirstName": "Jennifer",
-    "LastName": "Hryniw",
-    "Position": "Governance",
-    "sites": ["overseer"]
-  },
-  {
     "FirstName": "Bruce",
     "LastName": "Miller",
-    "Position": "Executive, Secretary, Governance, Chair",
-    "sites": ["overseer"]
-  },
-  {
-    "FirstName": "Cody",
-    "LastName": "Buchenauer",
-    "Position": "Executive, Treasurer, Finance & Audit, Chair",
-    "sites": ["overseer"]
-  },
-  {
-    "FirstName": "Yohan",
-    "LastName": "Mahimwala",
-    "Position": "Executive, Vice-chair, Finance & Audit",
+    "Position": "Co-Chair, Executive, Governance",
     "sites": ["overseer"]
   },
   {
@@ -30,9 +12,21 @@
     "sites": ["overseer"]
   },
   {
-    "FirstName": "Sandy",
-    "LastName": "MacLean",
-    "Position": "Nominating",
+    "FirstName": "Cody",
+    "LastName": "Buchenauer",
+    "Position": "Treasurer, Executive, Finance & Audit",
+    "sites": ["overseer"]
+  },
+  {
+    "FirstName": "Jamie",
+    "LastName": "van Manen",
+    "Position": "Governance",
+    "sites": ["overseer"]
+  },
+  {
+    "FirstName": "Jennifer",
+    "LastName": "Hryniw",
+    "Position": "Co-Chair, Executive, Governance",
     "sites": ["overseer"]
   },
   {
@@ -44,19 +38,19 @@
   {
     "FirstName": "Nour",
     "LastName": "Aziz",
-    "Position": "Nominating",
+    "Position": "Communications",
     "sites": ["overseer"]
   },
   {
-    "FirstName": "Isaac",
-    "LastName": "Hoogland",
-    "Position": "Finance",
+    "FirstName": "Sandy",
+    "LastName": "MacLean",
+    "Position": "Secretary, Nominating",
     "sites": ["overseer"]
   },
   {
-    "FirstName": "Jamie",
-    "LastName": "van Manen",
-    "Position": "Governance",
+    "FirstName": "Yohan",
+    "LastName": "Mahimwala",
+    "Position": "Vice Chair, Executive, Finance & Audit",
     "sites": ["overseer"]
   }
 
