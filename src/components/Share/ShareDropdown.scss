@@ -7,12 +7,22 @@
     font-weight: bold;
     margin-top: 5px;
     border: none;
+    transition: all 0.2s ease-in-out;
+    .social-share-icon {
+      margin-right: 20px;
+    }
+    .button-icon {
+      margin-right: 16px;
+    }
     &.wide {
       width: 200px;
     }
     &.short {
       width: 134px;
       height: 56px;
+    }
+    &.thick {
+      padding: 17px 24px;
     }
     &.black-bg {
       color: #ffffff;
@@ -25,8 +35,9 @@
       border-color: #ffffff;
     }
   }
-  .social-share-icon {
-    margin-right: 20px;
+  .ShareButton:hover {
+    opacity: 0.7;
+    transition: all 0.1s ease-in-out;
   }
   .ShareMenu {
     position: absolute;

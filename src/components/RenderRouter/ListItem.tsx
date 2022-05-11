@@ -740,8 +740,11 @@ class ListItem extends React.Component<Props, State> {
       <Link
         key={item.id ?? ''}
         className="container"
-        newWindow
-        to={'https://facebook.com/' + item.id}
+        to={{
+          pathname: 'event',
+          state: { event: item },
+          hash: item?.id ?? '',
+        }}
       >
         <div className="ListItemEvents">
           <div className="EventDateContainer">

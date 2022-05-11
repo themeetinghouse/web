@@ -18,8 +18,8 @@ type ShareDropdownColor = 'white-bg' | 'black-bg';
 type ShareDropdownProps = {
   data?: any;
   bgColor: ShareDropdownColor;
-  buttonType: 'wide' | 'short';
-  shareType: 'teaching' | 'blogpost' | 'livestream';
+  buttonType: 'wide' | 'short' | 'thick';
+  shareType: 'teaching' | 'blogpost' | 'livestream' | 'event';
 };
 
 export default function ShareDropdown(props: ShareDropdownProps) {
@@ -39,6 +39,8 @@ export default function ShareDropdown(props: ShareDropdownProps) {
         return 'https://www.themeetinghouse.com/live';
       case 'blogpost':
         return '';
+      case 'event':
+        return 'https://www.themeetinghouse.com/event#' + data.id;
       default:
         return '';
     }
@@ -53,6 +55,8 @@ export default function ShareDropdown(props: ShareDropdownProps) {
         return 'The Meeting House Livestream';
       case 'blogpost':
         return '';
+      case 'event':
+        return 'Check out this event from The Meeting House';
     }
   };
   const getShareKind = (type: string) => {
@@ -63,6 +67,8 @@ export default function ShareDropdown(props: ShareDropdownProps) {
         return 'blog post';
       case 'livestream':
         return 'livestream';
+      case 'event':
+        return 'event';
     }
   };
 
