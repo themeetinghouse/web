@@ -171,14 +171,7 @@ class HomeMenu extends React.Component<Props, State> {
             </NavbarBrand>
 
             {this.state.showSearch ? (
-              <div
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  right: 0,
-                  zIndex: 101,
-                }}
-              >
+              <div>
                 <Button
                   className="search"
                   onClick={() => this.setState({ overlayType: 'search' })}
