@@ -699,10 +699,11 @@ export const getVideoByVideoType = `query GetVideoByVideoType(
 export const searchBlogs = /* GraphQL */ `
   query SearchBlogs(
     $filter: SearchableBlogFilterInput
-    $sort: SearchableBlogSortInput
+    $sort: [SearchableBlogSortInput]
     $limit: Int
     $nextToken: String
     $from: Int
+    $aggregates: [SearchableBlogAggregationInput]
   ) {
     searchBlogs(
       filter: $filter
@@ -710,6 +711,7 @@ export const searchBlogs = /* GraphQL */ `
       limit: $limit
       nextToken: $nextToken
       from: $from
+      aggregates: $aggregates
     ) {
       items {
         id
@@ -740,15 +742,19 @@ export const searchBlogs = /* GraphQL */ `
 `;
 export const searchVideos = `query SearchVideos(
   $filter: SearchableVideoFilterInput
-  $sort: SearchableVideoSortInput
+  $sort: [SearchableVideoSortInput]
   $limit: Int
   $nextToken: String
+  $from: Int
+  $aggregates: [SearchableVideoAggregationInput]
 ) {
   searchVideos(
     filter: $filter
     sort: $sort
     limit: $limit
     nextToken: $nextToken
+    from: $from
+    aggregates: $aggregates
   ) {
     items {
       id
