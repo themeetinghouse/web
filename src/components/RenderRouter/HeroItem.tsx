@@ -262,7 +262,6 @@ class HeroItem extends React.Component<Props, State> {
   }
 
   renderSecondaryCTA(buttonInfo: any) {
-    console.log('Secondary right?');
     if (!buttonInfo) return null;
     return (
       <Link
