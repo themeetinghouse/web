@@ -19,7 +19,7 @@
           "image": "/static/images/PM2022_K&Y-Web-Hero_1.jpg",
           "url": "https://www.themeetinghouse.com/nextgenpeace",
           "title": "Peacemakers for Kids and Youth",
-          "description": ""
+          "description": "Is peace impossible? That depends on you."
         },
         {
           "type": "hero",
@@ -31,7 +31,13 @@
             }
           ],
           "header1": "Peace is for all ages.",
-          "text1": "This year, through our annual Peacemakers campaign, we want to not only raise the money necessary to support life-changing peacebuilding projects, but we also want to inspire you to take action."
+          "text1": "This year, through our annual Peacemakers campaign, we want to not only raise the money necessary to support life-changing peacebuilding projects, but we also want to inspire you to take action.",
+          "button1": {
+            "text": "Watch Video",
+            "buttoncolor":"yellow",
+            "action": "https://www.themeetinghouse.com/videos/compassion-Peacemakers/9EALzMRl7j4",
+            "description": "Introduction to our Peacemakers campaign for Kids and Youth and watch video button."
+          }
         },
         {
           "type": "list",
