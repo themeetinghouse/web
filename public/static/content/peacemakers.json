@@ -45,7 +45,7 @@
         "style": "pieChart",
         "text1": "Help us raise $150,000 for peacebuilding projects through our partner, Mennonite Central Committee.",
         "pieChart": {
-          "raised": 45700,
+          "raised": 52823,
           "goal": 150000,
           "text": "Let's do it!"
         },
@@ -137,18 +137,18 @@
             "navigateTo": "https://go.dojiggy.io/c/deae7e"
           },
           {
+            "title": "Silence Auction",
+            "text": "Parishes from all over have donated some great items for our online silent auction!",
+            "imageSrc": "/static/images/SilentAuction_1125x840.jpg",
+            "imageAlt": "Black and yellow graphic with the words silence auction.",
+            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/Auction/Details"
+          },
+          {
             "title": "Burlington Lemonade Stand",
             "text": "Thirsty? Come by Viewmount Rd in Oakville on Sunday May 15th between 1 and 3pm for some delicious lemonade and cookies!",
             "imageSrc": "/static/images/BurlingtonLemonadeStand-1125x840.jpg",
             "imageAlt": "Black and yellow graphic with the words burlington lemonade stand.",
             "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/lemonade/Team/Details"
-          },
-          {
-            "title": "Oakville Family Movie Fundraiser",
-            "text": "Let’s kick off Peacemakers with a family friendly event - watching the  movie Encanto together! Concession stand includes snacks, beverages & pepperoni or cheese PIZZA! Prices are $1 to $3. Debit or credit accepted.",
-            "imageSrc": "/static/images/OakvilleFamilyMovieNight_1125x8401.jpg",
-            "imageAlt": "Black and yellow graphic with the words oakville family movie fundraiser.",
-            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/oakvillemovies/Team/Details"
           },
           {
             "title": "Oakville Refugee Encounter",
