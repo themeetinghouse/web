@@ -947,11 +947,11 @@ class ContentItem extends React.Component<Props, State> {
     return (
       this.state.searchString == '' && (
         <div className="TrendingSearches">
-          Trending:
+          <strong>Trending:</strong>
           {this.state.content.trending.map((item: string) => {
             return (
               <>
-                &nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;
                 <Button
                   onClick={() => {
                     this.setState({

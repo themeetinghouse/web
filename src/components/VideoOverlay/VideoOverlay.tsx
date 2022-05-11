@@ -24,6 +24,7 @@ const playlistPageContent = fetch('/static/content/video-playlist.json')
 interface Props {
   data: any;
   onClose(): void;
+  whiteBackdrop?: boolean;
   content?: any;
   isPlaylist?: boolean;
 }
@@ -38,6 +39,8 @@ export default class VideoPlayer extends React.Component<Props, State> {
     };
   }
   componentDidUpdate(prevProps: Props) {
+    if (!!this.props.data) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = 'auto';
     if (this.props.data !== prevProps.data) {
       if (this.props.data === null) {
         this.setState({ content: null });
@@ -55,6 +58,9 @@ export default class VideoPlayer extends React.Component<Props, State> {
         });
       }
     }
+  }
+  componentWillUnmount() {
+    document.body.style.overflow = 'auto';
   }
   render() {
     const { content } = this.state;
@@ -93,6 +99,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
                 ? 'no-scroll'
                 : ''
             }
+            backdropClassName={this.props.whiteBackdrop ? 'backdrop-white' : ''}
           >
             <ModalBody className={modalBody}>
               <button
