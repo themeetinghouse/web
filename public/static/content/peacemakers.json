@@ -35,7 +35,7 @@
         "text1": "Peacemakers is our opportunity to work towards peace and justice in some of the most vulnerable communities around the world. Take a step to become a peacemaker below.",
         "button1": {
           "text": "Watch Video",
-          "buttoncolor":"yellow",
+          "buttonColor":"yellow",
           "action": "https://www.themeetinghouse.com/videos/compassion-Peacemakers/4blwlOGupgE",
           "description": "Introduction to our Peacemakers campaign and watch video button."
         }
