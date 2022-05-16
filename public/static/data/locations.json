@@ -60,7 +60,7 @@
   {
     "id": "brantford",
     "name": "Brantford",
-    "pastorEmail": "Natalie.Frisk@themeetinghouse.com",
+    "pastorEmail": "josh.woodward@themeetinghouse.com",
     "location": {
       "longitude": -80.268426,
       "latitude": 43.141719,
@@ -148,7 +148,7 @@
   {
     "id": "london",
     "name": "London",
-    "pastorEmail": "Phil.Prendergast@themeetinghouse.com",
+    "pastorEmail": "amie.latta@themeetinghouse.com",
     "location": {
       "longitude": -81.29423741528805,
       "latitude": 42.999934444016944,
@@ -230,7 +230,7 @@
   {
     "id": "toronto-uptown",
     "name": "Toronto - Uptown",
-    "pastorEmail": "Sarah.Lyew@themeetinghouse.com",
+    "pastorEmail": "Eric.Versluis@themeetinghouse.com",
     "location": {
       "longitude": -79.455526,
       "latitude": 43.725822,
