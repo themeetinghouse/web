@@ -274,7 +274,7 @@
     "FirstName": "Jordan",
     "LastName": "Duerrstein",
     "Phone": "905.287.7000, ext. 867",
-    "Position": "Kitchener-Waterloo Lead Pastor (on leave)",
+    "Position": "Kitchener-Waterloo Lead Pastor",
     "sites": ["WAT", "KIT", "Pastoral"],
     "Email": "Jordan.Duerrstein@themeetinghouse.com"
   },
@@ -391,7 +391,7 @@
     "FirstName": "Lisa",
     "LastName": "Goetze",
     "Phone": "905.287.7000, ext. 819",
-    "Position": "Oakville Pastor",
+    "Position": "Oakville Pastor (on leave)",
     "sites": ["OAKV", "Pastoral"],
     "Email": "Lisa.Goetze@themeetinghouse.com"
   },
@@ -400,7 +400,7 @@
     "FirstName": "Louise",
     "LastName": "McBride",
     "Phone": "905.287.7000, ext. 820",
-    "Position": "Operations Support Manager",
+    "Position": "Operations Manager",
     "sites": ["Site Leadership"],
     "Email": "Louise.McBride@themeetinghouse.com"
   },
@@ -472,7 +472,7 @@
     "FirstName": "Mike",
     "LastName": "Finnie",
     "Phone": "905.287.7000, ext. 824",
-    "Position": "Oakville Associate Lead Pastor",
+    "Position": "Oakville Co-Lead Pastor",
     "sites": ["OAKV", "Pastoral"],
     "Email": "Mike.Finnie@themeetinghouse.com"
   },
@@ -535,7 +535,7 @@
     "FirstName": "Phil",
     "LastName": "Prendergast",
     "Phone": "905.287.7000, ext. 849",
-    "Position": "London Lead Pastor",
+    "Position": "London Lead Pastor (on leave)",
     "sites": ["LOND", "Pastoral"],
     "Email": "Phil.Prendergast@themeetinghouse.com"
   },
@@ -544,7 +544,7 @@
     "FirstName": "Quincy",
     "LastName": "Bergman",
     "Phone": "905.287.7000, ext. 828",
-    "Position": "Oakville Pastor",
+    "Position": "Oakville Co-Lead Pastor",
     "sites": ["OAKV", "Pastoral"],
     "Email": "Quincy.Bergman@themeetinghouse.com"
   },
@@ -607,7 +607,7 @@
     "FirstName": "Sarah",
     "LastName": "Lyew",
     "Phone": "905.287.7000",
-    "Position": "Toronto Youth Pastor, Interim Uptown Toronto Lead Pastor",
+    "Position": "Toronto Youth Pastor (on leave)",
     "sites": ["Youth", "Pastoral", "TOUP"],
     "Email": "Sarah.Lyew@themeetinghouse.com"
   },
@@ -652,7 +652,7 @@
     "FirstName": "Tammy",
     "LastName": "Lembo",
     "Phone": "905.287.7000, ext. 830",
-    "Position": "Operations Supervisor",
+    "Position": "Operations Support Supervisor",
     "sites": ["Operations"],
     "Email": "Tammy.Lembo@themeetinghouse.com"
   },
