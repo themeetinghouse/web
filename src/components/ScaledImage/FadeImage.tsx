@@ -1,6 +1,7 @@
 import { ItemImage } from 'components/types';
 import ScaledImage from './ScaledImage';
-import './FadeScaledImage.scss';
+import './FadeImage.scss';
+import { useState } from 'react';
 type FadeBabyHeroImageProps = {
   imageSrc: ItemImage['src'];
   fallbackUrl?: string;
@@ -10,7 +11,7 @@ type FadeBabyHeroImageProps = {
   HTMLImageElement
 >;
 
-export default function FadeScaledImage({
+export default function FadeImage({
   breakpointSizes,
   className,
   fallbackUrl,
@@ -18,8 +19,23 @@ export default function FadeScaledImage({
   alt,
   ...htmlProps
 }: FadeBabyHeroImageProps) {
+  const [isError, setIsError] = useState(false);
   const breakpoints = breakpointSizes ?? defaultBreakPointSizes;
   const fallbackSrc = fallbackUrl ?? defaultFallbackSrc;
+  // catches external images
+  if (!imageSrc.includes('/static/photos/series/baby-hero/')) {
+    return (
+      <img
+        src={isError ? fallbackUrl : imageSrc}
+        className={`${className} fadeImage`}
+        onLoad={(e) => {
+          e.currentTarget.style.opacity = '1';
+        }}
+        onError={() => setIsError(true)}
+        {...htmlProps}
+      />
+    );
+  }
   return (
     <ScaledImage
       breakpointSizes={breakpoints}
