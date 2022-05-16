@@ -191,6 +191,20 @@
             "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/oakvillerefugeeencounter/Team/Details"
           },
           {
+            "title": "Oakville Zumba for Peace",
+            "text": "Join Miriam and friends to try Zumba! Thursday May 26th, 7:30pm @ 2700 Bristol Circle, The Meeting House East Entrance",
+            "imageSrc": "/static/images/Oakville_Zumba.jpg",
+            "imageAlt": "Black and yellow graphic with the words Oakville Zumba for Peace.",
+            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/zumba-for-peace/Team/Details"
+          },
+          {
+            "title": "Waterdown - Riding for Peace & Reconciliation",
+            "text": "Member of Waterdown Home Church will cycle 400km over a few days for peace!",
+            "imageSrc": "/static/images/Waterdown_RidingforPeace.jpg",
+            "imageAlt": "Black and yellow graphic with the words Waterdown Riding for Peace.",
+            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/77c82b/Team/Details"
+          },
+          {
             "title": "Newmarket Hike for Peace",
             "text": "Angela is hiking 200km in the next four weeks to raise awareness for Peacemakers.",
             "imageSrc": "/static/images/NewmarketHikeforPeace_1125x840.jpg",
