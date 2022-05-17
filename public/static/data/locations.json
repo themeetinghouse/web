@@ -64,7 +64,7 @@
     "location": {
       "longitude": -80.268426,
       "latitude": 43.141719,
-      "address": "Grace Anglican Church, 4 Pearl Street"
+      "address": " "
     },
     "serviceTimes": ["10:00am"]
   },
@@ -108,9 +108,9 @@
     "location": {
       "longitude": -79.78769676593981,
       "latitude": 43.19427197465928,
-      "address": "Family Church of Heritage Green, 360 Isaac Brock Drive"
+      "address": ""
     },
-    "serviceTimes": ["2:00pm"]
+    "serviceTimes": ["10:00am"]
   },
   {
     "id": "toronto-east",
@@ -234,9 +234,9 @@
     "location": {
       "longitude": -79.455526,
       "latitude": 43.725822,
-      "address": "Yorkdale Cineplex, 3401 Dufferin Street"
+      "address": " "
     },
-    "serviceTimes": ["9:30am"]
+    "serviceTimes": ["10:00am"]
   },
   {
     "id": "waterloo",
