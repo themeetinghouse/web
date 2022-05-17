@@ -58,38 +58,13 @@
         "list": [
           {
             "type": "link",
-            "title": "Video Editor Summer Intern",
-            "navigateTo": "/static/pdfs/careers/Video Editor Intern 2022.pdf"
-          },
-          {
-            "type": "link",
-            "title": "Web Developer Summer Intern",
-            "navigateTo": "/static/pdfs/careers/Web Developer Intern 2022.pdf"
-          },
-          {
-            "type": "link",
             "title": "Facility Manager",
             "navigateTo": "/static/pdfs/careers/Facility Manager 2022-v2.pdf"
           },
           {
             "type": "link",
-            "title": "Operations Support Associate",
-            "navigateTo": "/static/pdfs/careers/Operations Support Associate 2022.pdf"
-          },
-          {
-            "type": "link",
             "title": "Executive Assistant & Board Administrator",
             "navigateTo": "/static/pdfs/careers/Executive Assistant and Board Administrator 2022.pdf"
-          },
-          {
-            "type": "link",
-            "title": "Hamilton Youth Pastor",
-            "navigateTo": "/static/pdfs/careers/Hamilton Youth Pastor 2021.pdf"
-          },
-          {
-            "type": "link",
-            "title": "Lead Pastor Positions",
-            "navigateTo": "/static/pdfs/careers/Lead Pastor Positions Winter 2022.pdf"
           }
         ],
         "image1": [
@@ -109,16 +84,6 @@
             "type": "link",
             "title": "Alliston Family Engagement Coordinator",
             "navigateTo": "/static/pdfs/careers/Family Engagement Coordinator (Part-Time).pdf"
-          },
-          {
-            "type": "link",
-            "title": "Hamilton Kidmax Coordinator",
-            "navigateTo": "/static/pdfs/careers/Hamilton Kidmax Coordinator 2022.pdf"
-          },
-          {
-            "type": "link",
-            "title": "Richmond Hill Family Ministries Associate",
-            "navigateTo": "/static/pdfs/careers/Richmond Hill Family Ministries Associate.pdf"
           }
         ],
         "image1": [
