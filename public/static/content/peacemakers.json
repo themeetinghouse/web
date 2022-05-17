@@ -198,6 +198,13 @@
             "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/zumba-for-peace/Team/Details"
           },
           {
+            "title": "Oakville Kidmax Bake Sale",
+            "text": "Enjoy a sweet treat provided by our Kidmax kids!",
+            "imageSrc": "/static/images/Oakville_KidmaxBakeSale.jpg",
+            "imageAlt": "Black and yellow graphic with the words Oakville Kidmax Bake Sale.",
+            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/45fe9b/Team/Details"
+          },
+          {
             "title": "Waterdown - Riding for Peace & Reconciliation",
             "text": "Member of Waterdown Home Church will cycle 400km over a few days for peace!",
             "imageSrc": "/static/images/Waterdown_RidingforPeace.jpg",
