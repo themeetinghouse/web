@@ -248,7 +248,7 @@ class TeachingItem extends React.Component<Props, State> {
           ) +
           '.jpg'
       : this.state.listData[this.state.teachingId].Youtube.snippet.thumbnails
-          .standard.url;
+          .maxres.url;
   }
   render() {
     // const [cookies, setCookie] = useCookies([this.props.content.group]);
