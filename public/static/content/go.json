@@ -132,6 +132,29 @@
                 "newParagraph": true
               }
             ]
+          },
+          {
+            "header1": "Beyond Our Borders",
+            "body": [
+              {
+                "fontWeight": "bold",
+                "text": "Jesus Collective: "
+              },
+              {
+                "fontWeight": "normal",
+                "text": "Embracing our role as leaders in the growing Anabaptist movement by forming a relational network of like-minded churches and ministry leaders to make more disciples around the world.",
+                "newParagraph": true
+              },
+              {
+                "fontWeight": "bold",
+                "text": "One Story Curriculum: "
+              },
+              {
+                "fontWeight": "normal",
+                "text": "Allowing us to share our awesome Kids and Youth curriculum in a sustainable way with churches who need it most.",
+                "newParagraph": true
+              }
+            ]
           }
         ]
       },

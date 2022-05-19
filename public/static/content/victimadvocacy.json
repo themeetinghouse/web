@@ -1,0 +1,109 @@
+{
+    "page": {
+      "name": "go",
+      "title": "Go Campaign",
+      "keywords": "",
+      "description": "",
+      "pageConfig": {
+        "showLive": true,
+        "movingMenu": false,
+        "showLogoText": true,
+        "logoColor": "black",
+        "showSearch": true,
+        "showFooter": true,
+        "showMenu": true
+      },
+      "content": [
+        {
+          "type": "og-tags",
+          "image": "/static/images/go_hero.jpg",
+          "url": "https://www.themeetinghouse.com/go",
+          "title": "Go",
+          "description": "God calls us to embody Jesus to the world around us. We want to intentionally invest in introducing spiritually curious people to the Jesus-centred life, through a movement of Jesus-centred churches."
+        },
+        {
+          "type": "hero",
+          "style": "full",
+          "image1": [
+            {
+              "src": "/static/images/go_hero.jpg",
+              "alt": "A Pastor from The Meeting House is speaking to the camera as host during a Sunday morning livestream."
+            }
+          ],
+          "header1": "Church Family Updates",
+          "header2": "",
+          "text1": "Something about the purpose of this page."
+        },
+        {
+          "type": "goContent",
+          "style": "goItem",
+          "header1": "Church Family Update"
+        },
+        {
+          "type": "goContent",
+          "style": "goSubItems",
+          "items": [
+            {
+              "header1": "Victim Advocacy",
+              "body": [
+                {
+                  "fontWeight": "normal",
+                  "text": "The Overseers Board is committed to fostering a safe space for everyone at The Meeting House. As a tangible first step in the journey ahead, we have engaged a third-party victim advocate, Melodie Bissell, to independently and confidentially receive any concerns or allegations of sexual misconduct (including sexual abuse, sexual harassment, or abuse of power or authority) by a pastor, staff member, or lay leader within The Meeting House, whether current or historical.",
+                  "newParagraph": true
+                },
+                {
+                  "fontWeight": "normal",
+                  "text": "Melodie has extensive professional experience and academic credentials working with victims of sexual misconduct within church and ministry settings. She has provided guidance and wisdom to our Overseers Board in recent weeks as we have processed and communicated the findings and outcome of the independent external investigation pertaining to Bruxy Cavey.",
+                  "newParagraph": true
+                },
+                {
+                  "fontWeight": "normal",
+                  "text": "Melodie will provide, to any person who contacts her, confidential guidance and access to resources, including counseling resourcing and/or pastoral support in a victim-centric and trauma informed manner. She will also provide guidance to The Meeting House including, if the person consents, information to permit The Meeting House to take appropriate next steps.",
+                  "newParagraph": true
+                },
+                {
+                  "fontWeight": "normal",
+                  "text": "Our desire, as we follow Jesus, is to create a culture of honesty, accountability, and transparency, and to do everything possible to foster a safe and caring church community. There is no room for sexual misconduct in our church.",
+                  "newParagraph": true
+                },
+                {
+                  "fontWeight": "normal",
+                  "text": "The Overseers Board of The Meeting House encourages anyone who has experienced sexual misconduct by a pastor, staff member, or lay leader within The Meeting House to contact Melodie confidentially at the contact below.",
+                  "newParagraph": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+            "type": "list",
+            "style": "staff",
+            "class": "staff",
+            "header1": "Counsellors",
+            "filterField": "sites",
+            "filterValue": "Advocate"
+        },
+        {
+          "type": "content",
+          "style": "oneImage",
+          "header1": "Give to Go",
+          "header2": "",
+          "text1": "Our goal is to raise $4.5m by mid-2023 to fuel this important work. You can add your support today by giving to The Meeting House Go Fund.",
+          "image1": [
+            {
+              "src": "/static/images/homepage-3-new-update.jpg",
+              "alt": "Group of friends hanging out at The Meeting House church talking about our Go campaign."
+            }
+          ],
+          "list": [
+            {
+              "type": "button",
+              "title": "Give",
+              "navigateTo": "/give"
+            }
+          ]
+        }
+      ]
+    }
+  }
+  
