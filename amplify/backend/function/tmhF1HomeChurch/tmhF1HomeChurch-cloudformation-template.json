@@ -129,7 +129,7 @@
             "Ref": "functionthemeetinghousetmhSharedArn"
           }
         ],
-        "Timeout": "425",
+        "Timeout": "899",
         "Code": {
           "S3Bucket": {
             "Ref": "deploymentBucketName"

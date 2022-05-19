@@ -129,7 +129,7 @@
           "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
           "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "s3Key": "amplify-builds/tmhF1HomeChurch-425a71325865414b534d-build.zip"
+          "s3Key": "amplify-builds/tmhF1HomeChurch-6e654278326e465a4f48-build.zip"
         },
         "S3Triggerd90d52fa": {
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
@@ -205,7 +205,7 @@
         },
         "getBiblePassage": {
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "s3Key": "amplify-builds/getBiblePassage-37576979396d2f397842-build.zip"
+          "s3Key": "amplify-builds/getBiblePassage-536c5971493352786546-build.zip"
         },
         "AdminQueriesb1fe1491": {
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
@@ -216,7 +216,7 @@
           "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
           "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "s3Key": "amplify-builds/tmhnotespdf-7a6b784f6e617037306f-build.zip"
+          "s3Key": "amplify-builds/tmhnotespdf-6d3070755a5732386e65-build.zip"
         },
         "tmhF1LinkUser": {
           "userPoolId": "us-east-1_KiJzP2dH5",
@@ -237,11 +237,11 @@
           "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
           "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "s3Key": "amplify-builds/tmhF1AssignmentSync-71745938623267666b63-build.zip"
+          "s3Key": "amplify-builds/tmhF1AssignmentSync-713979714e6a52766f6f-build.zip"
         },
         "themeetinghousetmhShared": {
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "s3Key": "amplify-builds/themeetinghousetmhShared-LambdaLayerVersion19a4ed70-build.zip"
+          "s3Key": "amplify-builds/themeetinghousetmhShared-LambdaLayerVersionb2cecc54-build.zip"
         },
         "AdminQueriesa1b7e2e8": {
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",

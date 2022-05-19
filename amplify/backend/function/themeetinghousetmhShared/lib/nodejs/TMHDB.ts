@@ -23,7 +23,6 @@ Amplify.configure({
 });
 export default class TMHDB {
   static async ensureLogin() {
-    console.log('Starting Login');
     var secretName = 'tmhweb/' + process.env.ENV + '/secrets',
       secret,
       decodedBinarySecret;
@@ -41,7 +40,6 @@ export default class TMHDB {
       } else {
         decodedBinarySecret = data.SecretBinary.toString('base64');
       }
-      console.log('Loading Secret Done');
       try {
         await Amplify.Auth.signIn(secret.adminUser, secret.adminPW);
         const currentSession = await Amplify.Auth.currentSession();
@@ -113,8 +111,8 @@ export default class TMHDB {
   }
   static async addGroup(item) {
     try {
-      const login = await TMHDB.ensureLogin();
-      if (login != null) return login;
+      //const login = await TMHDB.ensureLogin();
+      //if (login != null) return login;
 
       const json = await API.graphql({
         query: mutations.createF1ListGroup2,
@@ -129,10 +127,11 @@ export default class TMHDB {
       console.log({ 'Error getting addGroup': json.errors[0].locations });
     }
   }
+
   static async updateGroup(item) {
     try {
-      const login = await TMHDB.ensureLogin();
-      if (login != null) return login;
+      // const login = await TMHDB.ensureLogin();
+      // if (login != null) return login;
 
       const json = await API.graphql({
         query: mutations.updateF1ListGroup2,
@@ -146,8 +145,8 @@ export default class TMHDB {
   }
   static async deleteGroup(item) {
     try {
-      const login = await TMHDB.ensureLogin();
-      if (login != null) return login;
+      // const login = await TMHDB.ensureLogin();
+      // if (login != null) return login;
 
       const json = await API.graphql({
         query: mutations.deleteF1ListGroup2,

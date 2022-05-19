@@ -20,7 +20,7 @@
     }
   },
   "Resources": {
-    "LambdaLayerVersion19a4ed70": {
+    "LambdaLayerVersionb2cecc54": {
       "Type": "AWS::Lambda::LayerVersion",
       "Properties": {
         "CompatibleRuntimes": {
@@ -51,13 +51,124 @@
       "DeletionPolicy": "Delete",
       "UpdateReplacePolicy": "Retain"
     },
-    "LambdaLayerPermissionPrivate19a4ed70": {
+    "LambdaLayerPermissionPrivateb2cecc54": {
       "Type": "AWS::Lambda::LayerVersionPermission",
       "Properties": {
         "Action": "lambda:GetLayerVersion",
         "LayerVersionArn": {
-          "Ref": "LambdaLayerVersion19a4ed70"
+          "Ref": "LambdaLayerVersionb2cecc54"
         },
+        "Principal": {
+          "Ref": "AWS::AccountId"
+        }
+      }
+    },
+    "LambdaLayerVersion33f2a213": {
+      "Type": "AWS::Lambda::LayerVersion",
+      "Properties": {
+        "CompatibleRuntimes": [
+          "nodejs14.x"
+        ],
+        "Content": {
+          "S3Bucket": {
+            "Ref": "deploymentBucketName"
+          },
+          "S3Key": "amplify-builds/themeetinghousetmhShared-LambdaLayerVersion33f2a213-build.zip"
+        },
+        "Description": "Updated layer version 2022-05-18T23:37:42.121Z",
+        "LayerName": {
+          "Fn::Sub": [
+            "themeetinghousetmhShared-${env}",
+            {
+              "env": {
+                "Ref": "env"
+              }
+            }
+          ]
+        }
+      },
+      "DeletionPolicy": "Delete",
+      "UpdateReplacePolicy": "Retain"
+    },
+    "LambdaLayerPermissionPrivate33f2a213": {
+      "Type": "AWS::Lambda::LayerVersionPermission",
+      "Properties": {
+        "Action": "lambda:GetLayerVersion",
+        "LayerVersionArn": "arn:aws:lambda:us-east-1:119330689042:layer:themeetinghousetmhShared-tmhprod:19",
+        "Principal": {
+          "Ref": "AWS::AccountId"
+        }
+      }
+    },
+    "LambdaLayerVersiond00f0409": {
+      "Type": "AWS::Lambda::LayerVersion",
+      "Properties": {
+        "CompatibleRuntimes": [
+          "nodejs14.x"
+        ],
+        "Content": {
+          "S3Bucket": {
+            "Ref": "deploymentBucketName"
+          },
+          "S3Key": "amplify-builds/themeetinghousetmhShared-LambdaLayerVersiond00f0409-build.zip"
+        },
+        "Description": "Updated layer version 2022-05-18T23:13:53.229Z",
+        "LayerName": {
+          "Fn::Sub": [
+            "themeetinghousetmhShared-${env}",
+            {
+              "env": {
+                "Ref": "env"
+              }
+            }
+          ]
+        }
+      },
+      "DeletionPolicy": "Delete",
+      "UpdateReplacePolicy": "Retain"
+    },
+    "LambdaLayerPermissionPrivated00f0409": {
+      "Type": "AWS::Lambda::LayerVersionPermission",
+      "Properties": {
+        "Action": "lambda:GetLayerVersion",
+        "LayerVersionArn": "arn:aws:lambda:us-east-1:119330689042:layer:themeetinghousetmhShared-tmhprod:18",
+        "Principal": {
+          "Ref": "AWS::AccountId"
+        }
+      }
+    },
+    "LambdaLayerVersion19a4ed70": {
+      "Type": "AWS::Lambda::LayerVersion",
+      "Properties": {
+        "CompatibleRuntimes": [
+          "nodejs14.x"
+        ],
+        "Content": {
+          "S3Bucket": {
+            "Ref": "deploymentBucketName"
+          },
+          "S3Key": "amplify-builds/themeetinghousetmhShared-LambdaLayerVersion19a4ed70-build.zip"
+        },
+        "Description": "Updated layer version 2022-04-19T17:53:12.027Z",
+        "LayerName": {
+          "Fn::Sub": [
+            "themeetinghousetmhShared-${env}",
+            {
+              "env": {
+                "Ref": "env"
+              }
+            }
+          ]
+        }
+      },
+      "DeletionPolicy": "Delete",
+      "UpdateReplacePolicy": "Retain"
+    },
+    "LambdaLayerPermissionPrivate19a4ed70": {
+      "Type": "AWS::Lambda::LayerVersionPermission",
+      "Properties": {
+        "Action": "lambda:GetLayerVersion",
+        "LayerVersionArn": "arn:aws:lambda:us-east-1:119330689042:layer:themeetinghousetmhShared-tmhprod:17",
         "Principal": {
           "Ref": "AWS::AccountId"
         }
@@ -215,7 +326,7 @@
   "Outputs": {
     "Arn": {
       "Value": {
-        "Ref": "LambdaLayerVersion19a4ed70"
+        "Ref": "LambdaLayerVersionb2cecc54"
       }
     }
   }

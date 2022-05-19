@@ -35,6 +35,7 @@ async function Execute(event) {
         allGroupsFromF1.push(...openGroupsForLocation);
       }
     });
+
     const allGroupsFromDynamo = await TMHDB.getAllAssignments(null);
     const allGroupsFromDynamoUniq = uniqBy(allGroupsFromDynamo, (x) => x.id);
     const allGroupsFromF1Uniq = uniqBy(allGroupsFromF1, (x) => x.id);

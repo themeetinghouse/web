@@ -95,7 +95,6 @@ async function Execute(event) {
     let deleteIt = allGroupsFromDynamoUniq.filter(
       (x: any) => !allGroupsFromF1Uniq.map((y: any) => y.id).includes(x.id)
     );
-
     console.log('Add Groups');
     await asyncForEach(add, async (item) => {
       await TMHDB.addGroup(item);
