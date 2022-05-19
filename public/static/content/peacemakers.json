@@ -184,6 +184,13 @@
             "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/lemonade/Team/Details"
           },
           {
+            "title": "Toronto Clothing Swap",
+            "text": "Come with clothes, leave with clothes! Saturday May 28th @ 3pm (Queen & Ossington)",
+            "imageSrc": "/static/images/Toronto_ClothingSwap.jpg",
+            "imageAlt": "Black and yellow graphic with the words Toronto Clothing Swap.",
+            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/clothingswap/Team/Details"
+          },
+          {
             "title": "Oakville Refugee Encounter",
             "text": "In the history of humanity, there have never been as many refugees around the world as we are seeing today. Join us for our 3rd Annual Refugee Encounter to learn more about Tayiba and Elyas’ journey since fleeing their home in Ethiopia. Learn how your donation can support refugees on their journey to a new life. Debit or credit accepted.",
             "imageSrc": "/static/images/OakvilleRefugeeEncounter_1125x840.jpg",
