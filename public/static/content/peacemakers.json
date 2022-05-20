@@ -151,7 +151,7 @@
             "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/booksale/Team/Details"
           },          {
             "title": "Downtown Hamilton The Art Peace",
-            "text": "Join the downtown Hamilton community for a fun night of wine, cheese, and art.",
+            "text": "Join the downtown Hamilton community on May 27 for a fun night of wine, cheese, and art.",
             "imageSrc": "/static/images/The_art_peace.jpg",
             "imageAlt": "Black and yellow graphic with the words Downtown Hamilton The Art Peace.",
             "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/theartpeace/Team/Details"
@@ -160,11 +160,11 @@
             "text": "We invite you to participate in our Peacemakers Raffle! For a donation of 3$ you can win one of 3 handcrafted spring wreathes.",
             "imageSrc": "/static/images/Oakville_Peace_Wreaths.jpg",
             "imageAlt": "Black and yellow graphic with the words Oakville Peace Wreaths.",
-            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/50a233"
+            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/d895ad/Team/Details"
           },          
           {
             "title": "Ottawa Scone Baking",
-            "text": "Join April when she goes live on The Meeting House Ottawa's Facebook page to share all her scone-related tips and tricks. Get a tasty treat for your troubles. Suggested donation: $5 per viewer.",
+            "text": "Join April on May 24 when she goes live on The Meeting House Ottawa's Facebook page to share all her scone-related tips and tricks. Get a tasty treat for your troubles. Suggested donation: $5 per viewer.",
             "imageSrc": "/static/images/Ottawa_Scone_Baking.jpg",
             "imageAlt": "Black and yellow graphic with the words Ottawa Scone Baking.",
             "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/scones"
@@ -177,11 +177,11 @@
             "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/knitting"
           },
           {
-            "title": "Burlington Lemonade Stand",
-            "text": "Thirsty? Come by Viewmount Rd in Oakville on Sunday May 15th between 1 and 3pm for some delicious lemonade and cookies!",
-            "imageSrc": "/static/images/BurlingtonLemonadeStand-1125x840.jpg",
-            "imageAlt": "Black and yellow graphic with the words burlington lemonade stand.",
-            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/lemonade/Team/Details"
+            "title": "Ottawa 2SLGBTQIA+ Q&A",
+            "text": "Do you have questions about 2SLGBTQIA+ stuff?  Join Heather Sutherland, queer mom of a trans preteen, and compassion coordinator April Yorke, as we endeavor to discuss questions about gender and sexuality in a safe space for knowledge seekers.",
+            "imageSrc": "/static/images/Ottawa_Q&A.jpg",
+            "imageAlt": "Black and yellow graphic with the words Ottawa 2SLGBTQIA+ Q&A.",
+            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/6d06cf/Team/Details"
           },
           {
             "title": "Toronto Clothing Swap",
@@ -192,7 +192,7 @@
           },
           {
             "title": "Oakville Refugee Encounter",
-            "text": "In the history of humanity, there have never been as many refugees around the world as we are seeing today. Join us for our 3rd Annual Refugee Encounter to learn more about Tayiba and Elyas’ journey since fleeing their home in Ethiopia. Learn how your donation can support refugees on their journey to a new life. Debit or credit accepted.",
+            "text": "In the history of humanity, there have never been as many refugees around the world as we are seeing today. Join us for our 3rd Annual Refugee Encounter on May 29 to learn more about Tayiba and Elyas’ journey since fleeing their home in Ethiopia.",
             "imageSrc": "/static/images/OakvilleRefugeeEncounter_1125x840.jpg",
             "imageAlt": "Black and yellow graphic with the words oakville refugee encounter.",
             "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/oakvillerefugeeencounter/Team/Details"
