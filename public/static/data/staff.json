@@ -10,15 +10,6 @@
   },
   {
     "Staff": true,
-    "FirstName": "Andrew",
-    "LastName": "Scanlan",
-    "Phone": "905.287.7000, ext. 802",
-    "Position": "Operations Director",
-    "sites": ["Operations"],
-    "Email": "Andrew.Scanlan@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
     "FirstName": "Angela",
     "LastName": "Lam",
     "Phone": "905.287.7000",
