@@ -1,7 +1,7 @@
 {
     "page": {
-      "name": "go",
-      "title": "Go Campaign",
+      "name": "Victim Advocacy",
+      "title": "Victim Advocacy",
       "keywords": "",
       "description": "",
       "pageConfig": {
@@ -16,10 +16,10 @@
       "content": [
         {
           "type": "og-tags",
-          "image": "/static/images/go_hero.jpg",
-          "url": "https://www.themeetinghouse.com/go",
-          "title": "Go",
-          "description": "God calls us to embody Jesus to the world around us. We want to intentionally invest in introducing spiritually curious people to the Jesus-centred life, through a movement of Jesus-centred churches."
+          "image": "/static/images/anton-darius-IuQKQxZs-TA-unsplash.jpg",
+          "url": "https://www.themeetinghouse.com/victimadvocacy",
+          "title": "Victim Advocacy",
+          "description": "This page is for those who think they may have experienced sexual misconduct or abuse by a pastor, staff member, or lay leader within The Meeting House. Check it out to see ways to contact a victim advocacy, access counselling, or connect with a pastor."
         },
         {
           "type": "hero",
@@ -62,7 +62,7 @@
           "list": [
             {
               "type": "link",
-              "title": "May 20, 2022 Update",
+              "title": "May 21, 2022 Update",
               "navigateTo": "/churchfamilyupdate2"
             },
             {
