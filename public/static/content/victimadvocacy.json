@@ -26,69 +26,33 @@
           "style": "full",
           "image1": [
             {
-              "src": "/static/images/go_hero.jpg",
-              "alt": "A Pastor from The Meeting House is speaking to the camera as host during a Sunday morning livestream."
+              "src": "/static/images/anton-darius-IuQKQxZs-TA-unsplash.jpg",
+              "alt": "View of a blue sky through yellow leaves."
             }
           ],
-          "header1": "Church Family Updates",
+          "header1": "Victim Advocacy at The Meeting House",
           "header2": "",
-          "text1": "Something about the purpose of this page."
+          "text1": "We grieve with all victims and are committed to taking all allegations of sexual misconduct seriously. We encourage anyone who thinks they may have experienced sexual misconduct or abuse by a pastor, staff member, or lay leader within The Meeting House to contact Melodie Bissell confidentially via the methods available below.",
+          "button1": {
+            "text": "Online Referral Form",
+            "action": "https://form.jotform.com/220701021515538",
+            "description": "Button to victim advocacy form."
+          }
         },
         {
-          "type": "goContent",
-          "style": "goItem",
-          "header1": "Church Family Update"
-        },
-        {
-          "type": "goContent",
-          "style": "goSubItems",
-          "items": [
-            {
-              "header1": "Victim Advocacy",
-              "body": [
-                {
-                  "fontWeight": "normal",
-                  "text": "The Overseers Board is committed to fostering a safe space for everyone at The Meeting House. As a tangible first step in the journey ahead, we have engaged a third-party victim advocate, Melodie Bissell, to independently and confidentially receive any concerns or allegations of sexual misconduct (including sexual abuse, sexual harassment, or abuse of power or authority) by a pastor, staff member, or lay leader within The Meeting House, whether current or historical.",
-                  "newParagraph": true
-                },
-                {
-                  "fontWeight": "normal",
-                  "text": "Melodie has extensive professional experience and academic credentials working with victims of sexual misconduct within church and ministry settings. She has provided guidance and wisdom to our Overseers Board in recent weeks as we have processed and communicated the findings and outcome of the independent external investigation pertaining to Bruxy Cavey.",
-                  "newParagraph": true
-                },
-                {
-                  "fontWeight": "normal",
-                  "text": "Melodie will provide, to any person who contacts her, confidential guidance and access to resources, including counseling resourcing and/or pastoral support in a victim-centric and trauma informed manner. She will also provide guidance to The Meeting House including, if the person consents, information to permit The Meeting House to take appropriate next steps.",
-                  "newParagraph": true
-                },
-                {
-                  "fontWeight": "normal",
-                  "text": "Our desire, as we follow Jesus, is to create a culture of honesty, accountability, and transparency, and to do everything possible to foster a safe and caring church community. There is no room for sexual misconduct in our church.",
-                  "newParagraph": true
-                },
-                {
-                  "fontWeight": "normal",
-                  "text": "The Overseers Board of The Meeting House encourages anyone who has experienced sexual misconduct by a pastor, staff member, or lay leader within The Meeting House to contact Melodie confidentially at the contact below.",
-                  "newParagraph": true
-                }
-              ]
-            }
-          ]
-        },
-        {
-            "type": "list",
-            "style": "staff",
-            "class": "staff",
-            "header1": "Counsellors",
-            "filterField": "sites",
-            "filterValue": "Advocate"
+          "type": "list",
+          "style": "staff",
+          "class": "staff",
+          "header1": "Victim Advocate",
+          "filterField": "sites",
+          "filterValue": "Advocate"
         },
         {
           "type": "content",
           "style": "oneImage",
-          "header1": "Give to Go",
+          "header1": "Church Family Updates",
           "header2": "",
-          "text1": "Our goal is to raise $4.5m by mid-2023 to fuel this important work. You can add your support today by giving to The Meeting House Go Fund.",
+          "text1": "Click below to read the latest updates from The Meeting House regarding the on-going investigations.",
           "image1": [
             {
               "src": "/static/images/homepage-3-new-update.jpg",
@@ -97,9 +61,14 @@
           ],
           "list": [
             {
-              "type": "button",
-              "title": "Give",
-              "navigateTo": "/give"
+              "type": "link",
+              "title": "May 20, 2022 Update",
+              "navigateTo": "/churchfamilyupdate2"
+            },
+            {
+              "type": "link",
+              "title": "March 12, 2022 Update",
+              "navigateTo": "/churchfamilyupdate"
             }
           ]
         }
