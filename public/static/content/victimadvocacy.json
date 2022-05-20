@@ -71,6 +71,35 @@
               "navigateTo": "/churchfamilyupdate"
             }
           ]
+        },
+        {
+          "type": "list",
+          "style": "staff",
+          "class": "staff",
+          "header1": "Counsellors",
+          "text1":"The professional counsellors below are available to provide support should anyone in The Meeting House church need it.",
+          "filterField": "sites",
+          "filterValue": "Counsellors"
+        },
+        {
+          "type": "content",
+          "style": "oneImageBlackRight",
+          "header1": "Connect with a pastor",
+          "header2": "",
+          "text1": "If you need to process further, you can connect with a lead pastor.",
+          "list": [
+            {
+              "type": "link",
+              "title": "Connect with a pastor",
+              "navigateTo": "/connect"
+            }
+          ],
+          "image1": [
+            {
+              "src": "/static/images/PM2022_TMH-Landing-page_Images.jpg",
+              "alt": "Girl wearing a head covering holding a hand drawn picture of her violent environment."
+            }
+          ]
         }
       ]
     }
