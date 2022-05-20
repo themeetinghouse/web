@@ -37,26 +37,6 @@
         "button1Action": "/kidmax-connect"
       },
       {
-        "type": "content",
-        "style": "oneImageBlackRight",
-        "header1": "Jr. and Sr. High Spring Youth Retreat",
-        "header2": "",
-        "text1": "We're excited to be able to host a Reboot Youth retreat on May 6-8, 2022! Do you want to come?",
-        "list": [
-          {
-            "type": "link",
-            "title": "Find out more and sign up",
-            "navigateTo": "/youthretreat"
-          }
-        ],
-        "image1": [
-          {
-            "src": "/static/images/SYRetreat_Reboot.jpg",
-            "alt": "Graphic for Spring Youth Retreat called Reboot."
-          }
-        ]
-      },
-      {
         "type": "list",
         "style": "horizontal",
         "class": "videos",
