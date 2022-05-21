@@ -55,8 +55,8 @@
           "text1": "Click below to read the latest updates from The Meeting House regarding the on-going investigations.",
           "image1": [
             {
-              "src": "/static/images/homepage-3-new-update.jpg",
-              "alt": "Group of friends hanging out at The Meeting House church talking about our Go campaign."
+              "src": "/static/images/TMH_House_Symbol_1280x1280.jpg",
+              "alt": "Graphic of The Meeting House logo."
             }
           ],
           "list": [
@@ -96,8 +96,8 @@
           ],
           "image1": [
             {
-              "src": "/static/images/PM2022_TMH-Landing-page_Images.jpg",
-              "alt": "Girl wearing a head covering holding a hand drawn picture of her violent environment."
+              "src": "/static/images/TMH_House_Symbol_1280x1280.jpg",
+              "alt": "Graphic of The Meeting House logo."
             }
           ]
         }
