@@ -91,7 +91,7 @@
             {
               "type": "link",
               "title": "Connect with a pastor",
-              "navigateTo": "/connect"
+              "mailTo": "connect@themeetinghouse.com"
             }
           ],
           "image1": [
