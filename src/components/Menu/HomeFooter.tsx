@@ -51,6 +51,9 @@ export default function HomeFooter() {
               <Link className="FooterNavLink" to="/careers">
                 Staff &amp; Careers
               </Link>
+              <Link className="FooterNavLink" to="/victimadvocacy">
+                Victim Advocacy
+              </Link>
               <Link
                 className="FooterNavLink"
                 target="_blank"
