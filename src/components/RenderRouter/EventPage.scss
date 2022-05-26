@@ -28,11 +28,12 @@
   padding-top: 70px;
   display: flex;
   flex-direction: column;
-  left: 20vw;
+  left: 11vw;
+  width: 89vw;
   height: 100vh;
   flex: 1;
   color: black;
-  background-color: #fff;
+  background-color: transparent;
   padding-bottom: 40px;
 }
 
@@ -45,11 +46,23 @@
 
 .EventItemH1 {
   color: #1a1a1a;
+  letter-spacing: -0.5px;
+  line-height: 56px;
   font-family: Graphik Web;
   display: flex;
   flex: 1;
   font-weight: bold;
-  font-size: 32px;
+  font-size: 48px;
+  padding-bottom: 16px;
+}
+
+.EventItemH2 {
+  color: #1a1a1a;
+  font-family: Graphik Web;
+  display: flex;
+  flex: 1;
+  font-weight: bold;
+  font-size: 24px;
   padding-bottom: 16px;
 }
 

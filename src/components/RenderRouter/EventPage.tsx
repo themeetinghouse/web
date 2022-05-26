@@ -40,7 +40,7 @@ export default function EventPage(): JSX.Element {
         }}
       >
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <div className={`EventItemH1`}> About This Event</div>
+          <div className={`EventItemH2`}> About This Event</div>
           <img
             src={location.state.event.cover?.source}
             alt={location.state.event.name}
