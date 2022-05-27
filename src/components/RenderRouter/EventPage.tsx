@@ -1,22 +1,25 @@
+//import { FBEvent } from 'API';
 import AddToCalendar from 'components/AddToCalendar/AddToCalendar';
 import { Link } from 'components/Link/Link';
 import ShareDropdown from 'components/Share/ShareDropdown';
 import moment from 'moment';
+//import { useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { Button } from 'reactstrap';
+//import DataLoader from './DataLoader';
 import './EventPage.scss';
 
 export default function EventPage(): JSX.Element {
   const location = useLocation<any>();
   const history = useHistory();
-  console.log({ location });
 
-  if (!location.state || !location?.state?.event) {
+  if (!location.state || !location?.state?.event?.id) {
     history.push('/');
     return <></>;
   }
+  //console.log('eventId', location.state.event.id);
   document.title = location.state.event.name;
-  console.log(location.state.event?.end_time);
+  //console.log(location.state.event?.end_time);
   const determineEventTime = () => {
     let timeString;
     if (location.state.event?.start_time)
@@ -27,6 +30,14 @@ export default function EventPage(): JSX.Element {
       ).format('h:mm a')}`;
     return timeString;
   };
+  // const [event, setEvent] = useState<FBEvent>();
+  // useEffect(function fetchEventData() {
+  //   const load = async () => {
+  //     const data = await DataLoader.loadEvent(location.state.event?.id);
+  //     console.log({ yes: data });
+  //   };
+  //   load();
+  // }, []);
   return (
     <div className={`EventItemContainer`}>
       <div className={`EventItemH1`}> {location.state.event.name}</div>

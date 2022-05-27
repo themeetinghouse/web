@@ -12,6 +12,7 @@ type Query {
   getTakenoteSermonVerses(sermondId: String): TakeNoteSermonVerses
   getTakenoteLocations: [TakeNoteLocations]
   getFBEvents(pageId: String): FBData
+  getFBEvent(eventId: String): FBEvent
   getInstaPhotos(pageId: String): InstaData
   getTakenoteNotes(sermonId: String, noteType: String): TakeNoteNotes
   fuzzySearchVideos(filter: String, sort: fuzzySearchableVideoSortInput, limit: Int, nextToken: String): fuzzySearchableVideoConnection
