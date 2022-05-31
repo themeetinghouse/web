@@ -896,6 +896,70 @@ export const getFbEvents = /* GraphQL */ `
     }
   }
 `;
+export const getFbEvent = /* GraphQL */ `
+  query GetFbEvent($eventId: String) {
+    getFBEvent(eventId: $eventId) {
+      description
+      end_time
+      is_online
+      online_event_format
+      online_event_third_party_url
+      name
+      place {
+        name
+        location {
+          city
+          country
+          latitude
+          longitude
+          state
+          street
+          zip
+        }
+        id
+      }
+      start_time
+      id
+      ticket_uri
+      event_times {
+        description
+        start_time
+        end_time
+        name
+        place {
+          name
+          location {
+            city
+            country
+            latitude
+            longitude
+            state
+            street
+            zip
+          }
+          id
+        }
+        id
+        ticket_uri
+        cover {
+          id
+          offset_x
+          offset_y
+          source
+        }
+      }
+      cover {
+        id
+        offset_x
+        offset_y
+        source
+      }
+      picture {
+        url
+      }
+    }
+  }
+`;
 export const getInstaPhotos = /* GraphQL */ `
   query GetInstaPhotos($pageId: String) {
     getInstaPhotos(pageId: $pageId) {

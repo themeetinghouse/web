@@ -1,12 +1,39 @@
+.EventPageButton {
+  background-color: #1a1a1a;
+  padding: 16px 24px;
+  border-radius: 0px;
+  .EventPageButtonIcon {
+    margin-right: 16px;
+  }
+  .EventPageButtonLabel {
+    font-weight: bold;
+    line-height: 24px;
+    font-size: 16px;
+    color: #ffffff;
+  }
+}
+
+.EventButtonContainer {
+  display: flex;
+  flex-direction: row;
+  margin-top: 48px;
+  > :nth-child(even) {
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+}
+
 .EventItemContainer {
   position: relative;
   padding-top: 70px;
   display: flex;
   flex-direction: column;
-  left: 20vw;
+  left: 11vw;
+  width: 89vw;
   height: 100vh;
+  flex: 1;
   color: black;
-  background-color: #fff;
+  background-color: transparent;
   padding-bottom: 40px;
 }
 
@@ -19,24 +46,44 @@
 
 .EventItemH1 {
   color: #1a1a1a;
+  letter-spacing: -0.5px;
+  line-height: 56px;
   font-family: Graphik Web;
+  display: flex;
+  flex: 1;
   font-weight: bold;
-  font-size: 32px;
+  font-size: 48px;
+  padding-bottom: 16px;
+}
+
+.EventItemH2 {
+  color: #1a1a1a;
+  font-family: Graphik Web;
+  display: flex;
+  flex: 1;
+  font-weight: bold;
+  font-size: 24px;
   padding-bottom: 16px;
 }
 
 .EventItemH4 {
   color: #1a1a1a;
   font-family: Graphik Web;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
   font-weight: bold;
   font-size: 16px;
+  margin-bottom: 4px;
   line-height: 24px;
 }
 
 .EventItemDescription {
   font-family: Graphik Web;
+  display: flex;
   flex-wrap: wrap;
   color: #54565a;
+  flex: 1;
   line-height: 24px;
   font-size: 16px;
   width: 500px;
