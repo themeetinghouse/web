@@ -44,27 +44,27 @@
         "text1": "Here's what we're learning in early years this week:",
         "image1": [
           {
-            "src": "/static/images/EYBigIdeaMay.jpg",
-            "alt": "This month's big idea: The Holy Spirit helps us."
+            "src": "/static/images/EYBigIdeaJune.jpg",
+            "alt": "This month's big idea: We can encourage each other."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 5 - Help - CAH EYs.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 1 - Encouragement - CAH EYs.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 5 - EY Activities.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 1 - EY Activities.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Key Verse Colouring Page",
-            "navigateTo": "/static/pdfs/kidmax-files/EY - Key Verse Colouring Page - May.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/EY - Key Verse Colouring Page - June.pdf",
             "openNewBrowser": true
           }
         ]
@@ -86,27 +86,27 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaMay29.jpg",
-            "alt": "Love your neighbour as you love yourself."
+            "src": "/static/images/KidsBigIdeaJune5.jpg",
+            "alt": "God loves us so much he wants us to be his children."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 5 - Life - CAH Kids.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 1 - Family - CAH Kids.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 5 - Activity.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 1 - Activity.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Key Verse Colouring Page",
-            "navigateTo": "/static/pdfs/kidmax-files/Kids - Key Verse Colouring Page - May.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Kids - Key Verse Colouring Page - June.pdf",
             "openNewBrowser": true
           }
         ]
