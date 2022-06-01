@@ -53,15 +53,21 @@
         "text1": "Here's what we're learning in Jr High Weekend this week:",
         "image1": [
           {
-            "src": "/static/photos/series/ky-jrhigh-Romans Life.jpg",
-            "alt": "Romans Life "
+            "src": "/static/photos/series/ky-jrhigh-Ephesians Family.jpg",
+            "alt": "Ephesians Family"
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Weekend Lesson",
-            "navigateTo": "/static/pdfs/youth-files/Wk 5 - Life - JH Weekend.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 1 - Family - JH Weekend.pdf",
+            "openNewBrowser": true
+          },
+          {
+            "type": "link",
+            "title": "Download Weekend Activities",
+            "navigateTo": "/static/pdfs/youth-files/Wk 1 - Activities.pdf",
             "openNewBrowser": true
           }
         ]
@@ -83,21 +89,21 @@
         "text1": "Here's what our Jr High Midweek students are learning this week:",
         "image1": [
           {
-            "src": "/static/photos/series/ky-youth-Romans Life.jpg",
-            "alt": "Romans Life "
+            "src": "/static/photos/series/ky-youth-Ephesians Family.jpg",
+            "alt": "Ephesians Family"
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Midweek Lesson",
-            "navigateTo": "/static/pdfs/youth-files/Wk 5 - Life - JH Midweek.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 1 - Family - JH Midweek.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Midweek Small Group Leader Notes",
-            "navigateTo": "/static/pdfs/youth-files/Wk 5 - Life - JH Midweek SGL Notes.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 1 - Family - JH Midweek SGL Notes.pdf",
             "openNewBrowser": true
           }
         ]
