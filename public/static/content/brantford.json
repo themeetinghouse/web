@@ -46,8 +46,8 @@
           }
         ],
         "header1": "Brantford",
-        "text1": "Livestream at 10:00am",
-        "text2": "Meeting in-person on Sundays (outdoors at Mohawk Park)",
+        "text1": "Meeting in-person on Sundays at 10am",
+        "text2": "Mohawk Park (by Shelter E) & in Home Churches",
         "customLiveLink": "themeetinghouse.com/live",
         "register": false,
         "addToCalendar": true,

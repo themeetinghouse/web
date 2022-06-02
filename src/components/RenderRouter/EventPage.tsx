@@ -1,4 +1,3 @@
-//import { FBEvent } from 'API';
 import { FBEvent } from 'API';
 import AddToCalendar from 'components/AddToCalendar/AddToCalendar';
 import { Link } from 'components/Link/Link';

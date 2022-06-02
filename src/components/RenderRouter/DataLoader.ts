@@ -30,6 +30,8 @@ import {
   SearchBlogsQueryVariables,
   GetInstaPhotosQueryVariables,
   GetInstaPhotosQuery,
+  FBEvent,
+  GetFbEventQuery,
 } from '../../API';
 
 Amplify.configure(awsmobile);
@@ -764,6 +766,21 @@ export default class DataLoader {
       else return a.LastName.localeCompare(b.LastName);
     });
   }
+  private static async getEvent(eventId: string): Promise<FBEvent | null> {
+    try {
+      const variables = { eventId: eventId };
+      const getFbEvent = API.graphql({
+        query: queries.getFbEvent,
+        variables,
+        authMode: GRAPHQL_AUTH_MODE.API_KEY,
+      }) as Promise<GraphQLResult<GetFbEventQuery>>;
+      const json = await getFbEvent;
+      return json.data?.getFBEvent as FBEvent;
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
+  }
 
   private static async getEvents(eventId: string): Promise<EventData[]> {
     const variables: GetFbEventsQueryVariables = {
@@ -938,7 +955,10 @@ export default class DataLoader {
       return this.getEvents('155800937784104');
     }
   }
-
+  static async loadEvent(eventId: string): Promise<EventData> {
+    const event = await this.getEvent(eventId);
+    return event;
+  }
   static async loadCompassion(): Promise<CompassionData[]> {
     const response = await fetch('/static/data/compassion.json');
     return response.json();
