@@ -38,7 +38,7 @@
 }
 .EventItemContainer {
   position: relative;
-  padding-top: 70px;
+  padding-top: clamp(70px, 6.861vw, 120px);
   display: flex;
   flex-direction: column;
   margin-left: 11vw;
@@ -55,7 +55,7 @@
     flex-wrap: wrap;
     padding-top: 24px;
     > :nth-child(even) {
-      margin-left: clamp(22px, 3vw, 5vw);
+      margin-left: clamp(22px, 5vw, 10vw);
     }
   }
 }
@@ -96,7 +96,7 @@
   flex-direction: row;
   font-weight: bold;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 32px;
 }
 
 .EventItemDescription {
@@ -122,7 +122,7 @@
     display: none;
   }
   .EventItemContainer {
-    margin-left: 28px;
+    margin-left: 5.469vw;
     width: calc(100vw - 5px);
     .EventItemContentContainer {
       > :nth-child(even) {
@@ -162,14 +162,20 @@
     height: calc(100vw * 0.51);
     margin-left: -5vw;
   }
+  .EventItemDescription {
+    width: unset;
+    padding-right: 6vw;
+    display: flex;
+    flex: 1;
+  }
   .EventItemContainer {
-    z-index: 100000000;
+    z-index: 100000;
     position: relative;
     top: 20vw;
     margin-left: 0vw;
     margin-bottom: 3.5vh;
+    padding-top: 50px;
     width: 100%;
-    min-height: fit-content;
     padding-left: 5vw;
     padding-right: 5vw;
     &.open {
@@ -179,6 +185,7 @@
       > :nth-child(even) {
         margin-top: 40px;
         margin-left: 0px;
+        width: 100%;
       }
     }
   }

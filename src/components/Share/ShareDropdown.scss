@@ -21,6 +21,11 @@
       width: 134px;
       height: 56px;
     }
+    &.short-event {
+      margin-top: 0px;
+      height: 60px;
+      width: 154px;
+    }
     &.thick {
       padding: 17px 24px;
     }
@@ -66,12 +71,19 @@
       background-color: #ffffff;
       border-color: #ffffff;
     }
+    &.short-event {
+      position: relative;
+      width: 154px;
+    }
   }
   .ShareItem {
     flex: 1;
     font-size: 16px;
     padding: 8px 16px;
     border-top: 0.5px solid #c8c8c8;
+    .social-share-icon {
+      margin-right: 8px;
+    }
   }
   .ShareItem:hover {
     background-color: #c8c8c8;
@@ -100,6 +112,22 @@
       background-color: #ffffff;
       border-color: #ffffff;
     }
+    &.black-bg {
+      color: #ffffff;
+      background-color: #1a1a1a;
+      border-color: #1a1a1a;
+    }
+    &.wide {
+      width: 200px;
+    }
+    &.short {
+      width: 134px;
+    }
+    &.short-event {
+      margin-top: 0px;
+      height: 60px;
+      width: 154px;
+    }
   }
   .button-icon {
     margin-right: 16px;
@@ -108,7 +136,7 @@
     display: none;
   }
   .social-share-icon {
-    margin-right: 20px;
+    margin-right: 8px;
   }
   .ShareMenu {
     position: absolute;
@@ -131,6 +159,11 @@
       color: #000000;
       background-color: #ffffff;
       border-color: #ffffff;
+    }
+    &.short-event {
+      position: relative;
+      margin-top: 0px;
+      width: 154px;
     }
   }
   .ShareItem {

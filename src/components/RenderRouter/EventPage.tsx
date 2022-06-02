@@ -96,7 +96,7 @@ const CTAContainer = ({
         <ShareDropdown
           data={{ id: event.id }}
           bgColor="black-bg"
-          buttonType="short"
+          buttonType="short-event"
           shareType="event"
         />
       </div>
