@@ -58,9 +58,5 @@
   {
     "name": "Locations",
     "location": "/locations"
-  },
-  {
-    "name": "Victim Advocacy",
-    "location": "/victimadvocacy"
   }
 ]
