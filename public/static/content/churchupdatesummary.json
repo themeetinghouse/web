@@ -56,6 +56,10 @@
           },
           {
             "class": "SimpleItemText",
+            "text": " "
+          },
+          {
+            "class": "SimpleItemText",
             "text": "TWe will do our best to answer the most commonly asked questions and follow up by email with any that we can’t address due to time constraints."
           },
             {
@@ -77,6 +81,10 @@
               "href": "https://youtu.be/TOypJQmumEM"
             },
             {
+              "class": "SimpleItemText",
+              "text": " "
+            },
+            {
                 "class": "SimpleItemTextBold",
                 "text": "June 6, 2022"
             },
@@ -89,6 +97,10 @@
                   "class": "SimpleItemLink",
                   "text": "Release",
                   "href": "https://hamiltonpolice.on.ca/news/57-year-old-male-arrested-in-sexual-assault-investigation/"
+                },
+                {
+                  "class": "SimpleItemText",
+                  "text": " "
                 },
               {
                 "class": "SimpleItemText",
@@ -118,6 +130,10 @@
               },
               {
                 "class": "SimpleItemText",
+                "text": " "
+              },
+              {
+                "class": "SimpleItemText",
                 "text": "We know this news is very difficult to read. As a church family we want to continue praying together. We hope to see you at our Community Gathering tomorrow, June 7, at the Oakville site and online, as we seek God together. Check your inbox for details or take a look at our invite information below:"
               },
               {
@@ -125,6 +141,10 @@
                 "class": "SimpleItemLink",
                 "text": "Community Gathering",
                 "href": "https://www.themeetinghouse.com/communitygathering"
+              },
+              {
+                "class": "SimpleItemText",
+                "text": " "
               },
               {
                 "class": "SimpleItemText",
@@ -224,7 +244,6 @@
                 "text": "416-518-1058",
                 "href": "tel:416-518-1058"
               },
-    
               {
                 "type": "link",
                 "class": "SimpleItemLink",
@@ -262,6 +281,10 @@
                 "class": "SimpleItemLink",
                 "text": "townhall@themeetinghouse.com",
                 "href": "mailto:townhall@themeetinghouse.com"
+              },
+              {
+                "class": "SimpleItemText",
+                "text": " "
               },
               {
                 "class": "SimpleItemText",

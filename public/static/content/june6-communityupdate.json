@@ -42,6 +42,10 @@
                 "text": "Release",
                 "href": "https://hamiltonpolice.on.ca/news/57-year-old-male-arrested-in-sexual-assault-investigation/"
               },
+              {
+                "class": "SimpleItemText",
+                "text": " "
+              },
             {
               "class": "SimpleItemText",
               "text": "We have no details about the charge other than what is in the Hamilton Police release. At this time, The Meeting House is not privy to this court proceeding. The Meeting House has cooperated with the police and has offered our continued cooperation. As this matter is currently before the courts, we cannot comment any further."
@@ -70,6 +74,10 @@
             },
             {
               "class": "SimpleItemText",
+              "text": " "
+            },
+            {
+              "class": "SimpleItemText",
               "text": "We know this news is very difficult to read. As a church family we want to continue praying together. We hope to see you at our Community Gathering tomorrow, June 7, at the Oakville site and online, as we seek God together. Check your inbox for details or take a look at our invite information below:"
             },
             {
@@ -77,6 +85,10 @@
               "class": "SimpleItemLink",
               "text": "Community Gathering",
               "href": "https://www.themeetinghouse.com/communitygathering"
+            },
+            {
+              "class": "SimpleItemText",
+              "text": " "
             },
             {
               "class": "SimpleItemText",
