@@ -1,0 +1,50 @@
+{
+    "page": {
+      "name": "Jr High",
+      "title": "Jr High",
+      "keywords": "Jr High, youth ministry, Jr High ministry",
+      "description": "Junior High is our youth ministry at The Meeting House.",
+      "pageConfig": {
+        "showLive": true,
+        "movingMenu": false,
+        "showLogoText": true,
+        "logoColor": "black",
+        "showSearch": true,
+        "showFooter": true,
+        "showMenu": true
+      },
+      "content": [
+        {
+          "type": "og-tags",
+          "image": "/static/images/kidsyouth-1-1.jpg",
+          "url": "https://www.themeetinghouse.com/youth",
+          "title": "Jr High",
+          "description": "What we're learning this week in Jr High."
+        },
+        {
+          "type": "hero",
+          "style": "full",
+          "image1": [
+            {
+              "src": "/static/images/kidsyouth-1-1.jpg",
+              "alt": "Youth running in colourful powder."
+            }
+          ],
+          "header1": "POOP",
+          "header2": "",
+          "text1": "All our lessons and downloads in one place! Scroll down to view the lessons, activities, and videos for this week. We upload new content every Friday.",
+          "button1Text": "Looking to connect?",
+          "button1Action": "/kidmax-connect"
+        },
+        {
+          "type": "list",
+          "style": "horizontal",
+          "class": "videos",
+          "subclass": "ky-youth",
+          "limit": 25,
+          "sortOrder": "DESC",
+          "header1": "Jr High Midweek Videos"
+        }
+      ]
+    }
+  }
