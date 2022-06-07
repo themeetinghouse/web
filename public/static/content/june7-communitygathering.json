@@ -1,7 +1,7 @@
 {
     "page": {
-      "name": "Community Gathering",
-      "title": "Community Gathering",
+      "name": "June 7 Community Gathering",
+      "title": "June 7 Community Gathering",
       "keywords": "",
       "description": "",
       "pageConfig": {
@@ -19,7 +19,7 @@
         {
           "type": "og-tags",
           "image": "/static/images/og-images/covid19.jpg",
-          "url": "https://www.themeetinghouse.com/covid19",
+          "url": "https://www.themeetinghouse.com/june7-communitygathering",
           "title": "Community Gathering June 7",
           "description": "Join us as we gather as a community on June 7."
         },

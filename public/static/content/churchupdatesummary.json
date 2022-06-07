@@ -1,0 +1,287 @@
+{
+    "page": {
+      "name": "Church Update Summary",
+      "title": "Church Update Summary",
+      "keywords": "",
+      "description": "",
+      "pageConfig": {
+        "showLive": true,
+        "movingMenu": false,
+        "showLogoText": false,
+        "logoColor": "white",
+        "showSearch": false,
+        "showFooter": false,
+        "showMenu": false,
+        "isPopup": true,
+        "navigateOnPopupClose": "/victimadvocacy"
+      },
+      "content": [
+        {
+          "type": "og-tags",
+          "image": "/static/images/og-images/covid19.jpg",
+          "url": "https://www.themeetinghouse.com/churchupdatesummary",
+          "title": "Church Update Summary",
+          "description": "Latest news from The Meeting House."
+        },
+        {
+          "type": "simple",
+          "header1": "Church Family Updates",
+          "header2": "",
+          "text": [
+            {
+                "class": "SimpleItemTextBold",
+                "text": "June 7, 2022"
+            },
+            {
+              "class": "SimpleItemText",
+              "text": "Now more than ever, it’s important for us to come together as a community of Jesus-followers to centre on Jesus and seek out where God is leading us."
+            },
+            {
+              "class": "SimpleItemText",
+              "text": "Join us on Tuesday, June 7th from 7:00 – 8:30 PM as we worship and pray, take stock of where we are as a church, and share where we sense God is calling us together in this season. We will also have time afterwards for those who wish to connect and chat further."
+            },
+            {
+              "class": "SimpleItemText",
+              "text": "While we plan to review a summary of the ongoing investigations and host a brief Q & A, our time will be focused on prayerfully committing to the difficult work of understanding and learning from our history as a church (the pain and the beauty), and charting our next steps together."
+            },
+            {
+              "class": "SimpleItemText",
+              "text": "If you have questions you hope to have addressed on Tuesday, please send them to leadership@themeetinghouse.com. We will do our best to answer the most commonly asked questions and follow up by email with any that we can’t address due to time constraints."
+            },
+            {
+              "class": "SimpleItemText",
+              "text": "This gathering is about coming together as a church family and centering on Jesus; we hope you will join us in person so we can better connect with one another. For those unable to attend in person, the gathering will also be live streamed so you can still join in. The details are below."
+            },
+            {
+              "class": "SimpleItemText",
+              "text": "Tuesday, June 7, from 7:00pm—8:30pm at The Meeting House Oakville, 2700 Bristol Circle, Oakville, L6H 6E1. The doors will be open at 6:30 PM. Please enter through the West entrance, grab a nice hot cup of coffee, and we will gather together in the theatre. "
+            },
+            {
+                "class": "SimpleItemText",
+                "text": "If you are unable to attend in person, we will be livestreaming the gathering at the link below. You can click it now if you know you won't be able to attend in order to add it to your calendar."
+            },
+            {
+              "type": "link",
+              "class": "SimpleItemLink",
+              "text": "Livestream Link",
+              "href": "https://youtu.be/TOypJQmumEM"
+            },
+            {
+                "class": "SimpleItemTextBold",
+                "text": "June 6, 2022"
+            },
+            {
+                "class": "SimpleItemText",
+                "text": "Today we learned that Hamilton Police have arrested former pastor Bruxy Cavey and charged him with sexual assault. The release from the Hamilton Police states that at the time of the assault, Bruxy was the Teaching Pastor at The Meeting House. You can find the release statement below:"
+              },
+              {
+                  "type": "link",
+                  "class": "SimpleItemLink",
+                  "text": "Release",
+                  "href": "https://hamiltonpolice.on.ca/news/57-year-old-male-arrested-in-sexual-assault-investigation/"
+                },
+              {
+                "class": "SimpleItemText",
+                "text": "We have no details about the charge other than what is in the Hamilton Police release. At this time, The Meeting House is not privy to this court proceeding. The Meeting House has cooperated with the police and has offered our continued cooperation. As this matter is currently before the courts, we cannot comment any further."
+              },
+              {
+                "class": "SimpleItemText",
+                "text": "We continue to grieve with all victims and are committed to taking all allegations of sexual misconduct seriously. In March, our church engaged Melodie Bissell as a Victim Advocate. We encourage anyone who thinks they may have experienced sexual misconduct or abuse by a pastor, staff member, or lay leader within The Meeting House to contact Melodie Bissell confidentially at the links below:"
+              },
+              {
+                  "type": "link",
+                  "class": "SimpleItemLink",
+                  "text": "416-518-1058",
+                  "href": "tel:416-518-1058"
+              },
+              {
+                  "type": "link",
+                  "class": "SimpleItemLink",
+                  "text": "mbissell@traumacareconsulting.com",
+                  "href": "mailto:mbissell@traumacareconsulting.com"
+              },
+              {
+                  "type": "link",
+                  "class": "SimpleItemLink",
+                  "text": "Online referral form",
+                  "href": "https://form.jotform.com/220701021515538"
+              },
+              {
+                "class": "SimpleItemText",
+                "text": "We know this news is very difficult to read. As a church family we want to continue praying together. We hope to see you at our Community Gathering tomorrow, June 7, at the Oakville site and online, as we seek God together. Check your inbox for details or take a look at our invite information below:"
+              },
+              {
+                "type": "link",
+                "class": "SimpleItemLink",
+                "text": "Community Gathering",
+                "href": "https://www.themeetinghouse.com/communitygathering"
+              },
+              {
+                "class": "SimpleItemText",
+                "text": "Senior Leadership Team &amp; The Board of Overseers"
+              },
+            {
+                "class": "SimpleItemTextBold",
+                "text": "May 21, 2022"
+            },
+            {
+                "class": "SimpleItemText",
+                "text": "On May 13th, we shared that more concerning allegations, unrelated to Bruxy Cavey, came to our attention."
+              },
+              {
+                "class": "SimpleItemText",
+                "text": "Recently, an individual contacted our victim advocate, Melodie Bissell, with allegations of sexual misconduct and abuse against former Senior Pastor, Tim Day, during his employment at The Meeting House. We take these allegations very seriously. When Melodie was given permission by the individual, we immediately informed legal counsel and have retained Natasha Persaud as an independent third party investigator to investigate these allegations."
+              },
+              {
+                "class": "SimpleItemText",
+                "text": "We grieve with all victims and are committed to taking all allegations of sexual misconduct seriously."
+              },
+              {
+                "class": "SimpleItemText",
+                "text": "While we have limited information to share about this or the other investigations at this time, we would like to have some critical conversations as a church family, recognizing that we’re collectively carrying a heavy burden. We are hosting a community gathering on Tuesday, June 7th at 7:00pm to pray, grieve, and seek God’s direction, together. This will be in person at the Oakville site and live streamed for those who can’t make it in person."
+              },
+              {
+                "class": "SimpleItemText",
+                "text": "For our church, this is not an easy path. We are committed to better understanding our past so we can grieve, repent, be healed, and grow to be better stewards of Jesus’ love in the world."
+              },
+              {
+                "class": "SimpleItemText",
+                "text": "Please continue to pray with us for the healing of victims and that God would continue to work in and through our church. We will communicate further as we are able."
+              },
+              {
+                "class": "SimpleItemTextBold",
+                "text": "May 13, 2022"
+            },
+              {
+                "class": "SimpleItemText",
+                "text": "At the end of March, we shared the news that two further allegations of sexual misconduct had been brought forward through our victim advocate, and that another investigation was underway at the request of the complainants. Since then, an additional allegation has come forward and been added to the new investigation. All of these allegations relate to Bruxy Cavey. We expect this investigation will proceed on a similar timeline to the first investigation. We’ll continue to update you as we are able."
+              },
+              {
+                "class": "SimpleItemText",
+                "text": "We’ve also started receiving other reports from our victim advocate, Melodie Bissell, which are unrelated to Bruxy Cavey. We’re thankful for the courageous women and men who have shared their stories of hurt and abuse. We’re humbled to now be the stewards of those stories. How we respond as a church matters. As we’re able, we’ll share more in the coming days. For now, we’re focused on listening to these stories from those who have carried such pain and felt unheard for too long. We’re committed to learning, understanding, and revealing truth—and to being and doing better. We’re working first to respond to their questions, updating our policies, and implementing best practices. We appreciate your prayers as we know we don’t have it all figured out. However, we do know that we want to be the kind of church we’ve always thought we were: loving like Jesus. We’ll need to do this work together."
+              },
+              {
+                "class": "SimpleItemText",
+                "text": "We grieve with all victims and are committed to taking all allegations of sexual misconduct seriously."
+              },
+              {
+                "class": "SimpleItemText",
+                "text": "Senior Leadership Team and The Board of Overseers"
+              },
+              {
+                "class": "SimpleItemTextBold",
+                "text": "March 19, 2022"
+            },
+              {
+                "class": "SimpleItemText",
+                "text": "As we shared last weekend, we have engaged a third-party victim advocate, Melodie Bissell, to independently and confidentially receive any concerns or allegations of sexual misconduct (including sexual abuse, sexual harassment, or abuse of power or authority) by a pastor, staff member, or lay leader within The Meeting House, whether current or historical."
+              },
+              {
+                "class": "SimpleItemText",
+                "text": "Melodie has received new allegations of sexual misconduct against Bruxy, unrelated to the previous investigation. Melodie has obtained permission from the two individuals who have come forward to notify the Overseers and the church community that the allegations have been made. These individuals are aware that their allegations have not yet been investigated. We take these initial allegations very seriously and will respond appropriately as more information is received."
+              },
+              {
+                "class": "SimpleItemText",
+                "text": "Maggie John - Chair of the Overseers Board"
+              },
+              {
+                "class": "SimpleItemTextBold",
+                "text": "March 12, 2022"
+              },
+              {
+                "class": "SimpleItemText",
+                "text": "The Overseers Board is committed to fostering a safe space for everyone at The Meeting House. As a tangible first step in the journey ahead, we have engaged a third-party victim advocate, Melodie Bissell, to independently and confidentially receive any concerns or allegations of sexual misconduct (including sexual abuse, sexual harassment, or abuse of power or authority) by a pastor, staff member, or lay leader within The Meeting House, whether current or historical."
+              },
+              {
+                "class": "SimpleItemText",
+                "text": "Melodie has extensive professional experience and academic credentials working with victims of sexual misconduct within church and ministry settings. She has provided guidance and wisdom to our Overseers Board in recent weeks as we have processed and communicated the findings and outcome of the independent external investigation pertaining to Bruxy Cavey."
+              },
+              {
+                "class": "SimpleItemText",
+                "text": "Melodie will provide, to any person who contacts her, confidential guidance and access to resources, including counseling resourcing and/or pastoral support in a victim-centric and trauma informed manner. She will also provide guidance to The Meeting House including, if the person consents, information to permit The Meeting House to take appropriate next steps."
+              },
+              {
+                "class": "SimpleItemText",
+                "text": "Our desire, as we follow Jesus, is to create a culture of honesty, accountability, and transparency, and to do everything possible to foster a safe and caring church community. There is no room for sexual misconduct in our church."
+              },
+              {
+                "class": "SimpleItemText",
+                "text": "The Overseers Board of The Meeting House encourages anyone who has experienced sexual misconduct by a pastor, staff member, or lay leader within The Meeting House to contact Melodie confidentially at: "
+              },
+              {
+                "type": "link",
+                "class": "SimpleItemLink",
+                "text": "416-518-1058",
+                "href": "tel:416-518-1058"
+              },
+    
+              {
+                "type": "link",
+                "class": "SimpleItemLink",
+                "text": "mbissell@traumacareconsulting.com",
+                "href": "mailto:mbissell@traumacareconsulting.com"
+              },
+              {
+                "type": "link",
+                "class": "SimpleItemLink",
+                "text": "Online referral form",
+                "href": "https://form.jotform.com/220701021515538"
+              },
+              {
+                "class": "SimpleItemText",
+                "text": " "
+              },
+              {
+                "class": "SimpleItemText",
+                "text": "Anyone who reaches out to Melodie through these channels will receive a response within two days."
+              },
+              {
+                "class": "SimpleItemTextBold",
+                "text": "March 9, 2022"
+              },
+              {
+                "class": "SimpleItemText",
+                "text": "Due to the hundreds of questions we’ve received already, and the activity we’re seeing on social media, we’ve decided to host our Q & A Town Hall at the earliest opportunity."
+              },
+              {
+                "class": "SimpleItemText",
+                "text": "We invite you to join this live streamed event this Thursday at 7pm. You can continue to send your questions to townhall@themeetinghouse.com."
+              },
+              {
+                "class": "SimpleItemText",
+                "text": "Maggie John, Chair of the Overseers Board"
+              },
+              {
+                "class": "SimpleItemTextBold",
+                "text": "March 8, 2022"
+              },
+              {
+                "class": "SimpleItemText",
+                "text": "We shared with our church community in early December that allegations of sexual misconduct were made against Bruxy Cavey. As soon as this information came to the attention of the Overseers Board, the Overseers put him on a leave of absence, and the church retained an external independent third-party investigator to conduct a thorough investigation into the allegations and to provide the Overseers Board with the findings."
+              },
+              {
+                "class": "SimpleItemText",
+                "text": "The investigator’s work is now complete. Over the last number of days, the Overseers have read the report and we have taken time to process the information and consider the required actions."
+              },
+              {
+                "class": "SimpleItemText",
+                "text": "The investigator determined that Bruxy had maintained a sexual relationship with the Victim, an adult woman, in violation of The Meeting House policy and the Handbook of Faith and Life of Be in Christ Church of Canada. The investigator also found that what became a sexual relationship between Bruxy and the Victim, which lasted over an extended period of time, constituted an abuse of Bruxy’s power and authority as a member of the clergy, and amounted to sexual harassment."
+              },
+              {
+                "class": "SimpleItemText",
+                "text": "Due to the seriousness of the investigator’s findings, our Board unanimously decided to ask Bruxy to resign from his role at The Meeting House effective immediately. Bruxy then submitted his resignation on March 3rd, which the Overseers accepted."
+              },
+              {
+                "class": "SimpleItemText",
+                "text": "The Meeting House stands against sexual misconduct, sexual harassment, and abuse of power and authority. We are praying through this situation."
+              },
+              {
+                "class": "SimpleItemText",
+                "text": "Maggie John - Chair of the Overseers Board"
+              }  
+          ]
+        }
+      ]
+    }
+  }
+  

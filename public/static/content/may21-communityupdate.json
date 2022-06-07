@@ -1,7 +1,7 @@
 {
     "page": {
-      "name": "covid-19-response",
-      "title": "Church Family Update",
+      "name": "May 21 Church Family Update",
+      "title": "May 21 Church Family Update",
       "keywords": "",
       "description": "",
       "pageConfig": {
@@ -19,8 +19,8 @@
         {
           "type": "og-tags",
           "image": "/static/images/og-images/covid19.jpg",
-          "url": "https://www.themeetinghouse.com/covid19",
-          "title": "Update: Victim Advocacy Resource",
+          "url": "https://www.themeetinghouse.com/may21communityupdate",
+          "title": "May 21 Church Family Update",
           "description": "Latest updates from The Meeting House."
         },
         {
@@ -42,30 +42,7 @@
             },
             {
               "class": "SimpleItemText",
-              "text": "We grieve with all victims and are committed to taking all allegations of sexual misconduct seriously. We encourage anyone who thinks they may have experienced sexual misconduct or abuse by a pastor, staff member, or lay leader within The Meeting House to contact Melodie Bissell confidentially at:"
-            },
-            {
-              "type": "link",
-              "class": "SimpleItemLink",
-              "text": "416-518-1058",
-              "href": "tel:416-518-1058"
-            },
-  
-            {
-              "type": "link",
-              "class": "SimpleItemLink",
-              "text": "mbissell@traumacareconsulting.com",
-              "href": "mailto:mbissell@traumacareconsulting.com"
-            },
-            {
-              "type": "link",
-              "class": "SimpleItemLink",
-              "text": "Online referral form",
-              "href": "https://form.jotform.com/220701021515538"
-            },
-            {
-              "class": "SimpleItemText",
-              "text": " "
+              "text": "We grieve with all victims and are committed to taking all allegations of sexual misconduct seriously."
             },
             {
               "class": "SimpleItemText",
@@ -74,10 +51,6 @@
             {
               "class": "SimpleItemText",
               "text": "For our church, this is not an easy path. We are committed to better understanding our past so we can grieve, repent, be healed, and grow to be better stewards of Jesus’ love in the world."
-            },
-            {
-              "class": "SimpleItemText",
-              "text": "We also recognize that some of us will need a place to process further. Know that you can always reach out to your Lead Pastor. If you would like to speak to a counsellor, you can connect with one of the four professional counsellors we have provided here: themeetinghouse.com/tmhchurchcounselling."
             },
             {
               "class": "SimpleItemText",
