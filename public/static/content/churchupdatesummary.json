@@ -46,8 +46,18 @@
             },
             {
               "class": "SimpleItemText",
-              "text": "If you have questions you hope to have addressed on Tuesday, please send them to leadership@themeetinghouse.com. We will do our best to answer the most commonly asked questions and follow up by email with any that we can’t address due to time constraints."
+              "text": "If you have questions you hope to have addressed on Tuesday, please send them to the email below:"
             },
+            {
+              "type": "link",
+              "class": "SimpleItemLink",
+              "text": "leadership@themeetinghouse.com",
+              "href": "mailto:leadership@themeetinghouse.com"
+          },
+          {
+            "class": "SimpleItemText",
+            "text": "TWe will do our best to answer the most commonly asked questions and follow up by email with any that we can’t address due to time constraints."
+          },
             {
               "class": "SimpleItemText",
               "text": "This gathering is about coming together as a church family and centering on Jesus; we hope you will join us in person so we can better connect with one another. For those unable to attend in person, the gathering will also be live streamed so you can still join in. The details are below."
@@ -245,7 +255,13 @@
               },
               {
                 "class": "SimpleItemText",
-                "text": "We invite you to join this live streamed event this Thursday at 7pm. You can continue to send your questions to townhall@themeetinghouse.com."
+                "text": "We invite you to join this live streamed event this Thursday at 7pm. You can continue to send your questions to the email below:"
+              },
+              {
+                "type": "link",
+                "class": "SimpleItemLink",
+                "text": "townhall@themeetinghouse.com",
+                "href": "mailto:townhall@themeetinghouse.com"
               },
               {
                 "class": "SimpleItemText",
