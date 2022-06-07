@@ -10,15 +10,6 @@
   },
   {
     "Staff": true,
-    "FirstName": "Angela",
-    "LastName": "Lam",
-    "Phone": "905.287.7000",
-    "Position": "Jesus Collective Partner Liaison",
-    "sites": ["Operations"],
-    "Email": "angela.lam@jesuscollective.com"
-  },
-  {
-    "Staff": true,
     "FirstName": "Anna",
     "LastName": "Lakatos",
     "Phone": "905.287.7000, ext. 842",
@@ -487,15 +478,6 @@
   },
   {
     "Staff": true,
-    "FirstName": "Natalie",
-    "LastName": "Frisk",
-    "Phone": "905.287.7000, ext. 826",
-    "Position": "Brantford Lead Pastor (on leave)",
-    "sites": ["BRFD", "Communications", "Pastoral", "Children"],
-    "Email": "Natalie.Frisk@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
     "FirstName": "Nathan",
     "LastName": "Powell",
     "Phone": "905.287.7000",
@@ -619,15 +601,6 @@
     "Position": "Payroll and Events & Rentals Administrator",
     "sites": ["Operations"],
     "Email": "Sarah.Wills@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
-    "FirstName": "Simon",
-    "LastName": "Downey",
-    "Phone": "905.287.7000, ext. 845",
-    "Position": "Leadership Pastor (on leave)",
-    "sites": ["Pastoral"],
-    "Email": "Simon.Downey@themeetinghouse.com"
   },
   {
     "Staff": true,
