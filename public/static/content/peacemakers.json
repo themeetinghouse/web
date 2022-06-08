@@ -43,11 +43,11 @@
       {
         "type": "content",
         "style": "pieChart",
-        "text1": "Help us raise $150,000 for peacebuilding projects through our partner, Mennonite Central Committee.",
+        "text1": "Together, we made peace possible by raising $160,858 for peacebuilding projects through our partner, Mennonite Central Committee.",
         "pieChart": {
-          "raised": 92895,
+          "raised": 160858,
           "goal": 150000,
-          "text": "Let's do it!"
+          "text": "We did it!"
         },
         "list": [
           {
