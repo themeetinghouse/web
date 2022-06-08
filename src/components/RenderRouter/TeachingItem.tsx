@@ -303,7 +303,7 @@ class TeachingItem extends React.Component<Props, State> {
                 >
                   <img
                     className="teachingButton-icon"
-                    src="/static/svg/Watch.svg"
+                    src="/static/svg/Youtube.svg"
                     alt="watch icon"
                   />
                   Watch

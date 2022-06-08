@@ -330,7 +330,7 @@ class HeroItem extends React.Component<Props, State> {
                   <img
                     height={25}
                     className="calendarImage"
-                    src="/static/svg/Play.svg"
+                    src="/static/svg/Youtube.svg"
                     alt="Play Icon"
                   />
                   Watch Live
@@ -346,7 +346,7 @@ class HeroItem extends React.Component<Props, State> {
                   <img
                     height={25}
                     className="calendarImage"
-                    src="/static/svg/Play.svg"
+                    src="/static/svg/Youtube.svg"
                     alt="Play Icon"
                   />
                   Watch Live
@@ -370,7 +370,7 @@ class HeroItem extends React.Component<Props, State> {
                         <img
                           height={25}
                           className="calendarImage"
-                          src="/static/svg/Play.svg"
+                          src="/static/svg/Youtube.svg"
                           alt="Contact Icon"
                         />
                         Save My Spot

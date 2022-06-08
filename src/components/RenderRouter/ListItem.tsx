@@ -381,7 +381,7 @@ class ListItem extends React.Component<Props, State> {
           }
         />
         <div className="ListItemPlayImageOverlay">
-          <img alt="Play Icon" src="/static/svg/Play.svg"></img>
+          <img alt="Play Icon" src="/static/svg/Youtube.svg"></img>
         </div>
         <div
           className={`ListItemEpisodeNum ${
@@ -440,7 +440,7 @@ class ListItem extends React.Component<Props, State> {
           }
         />
         <div className="ListItemPlayImageOverlay">
-          <img alt="Play Icon" src="/static/svg/Play.svg"></img>
+          <img alt="Play Icon" src="/static/svg/Youtube.svg"></img>
         </div>
         <div className="ListItemEpisodeNum">
           {this.state.content.showEpisodeNumbers === false
@@ -486,7 +486,7 @@ class ListItem extends React.Component<Props, State> {
           }
         />
         <div className="WatchPagePlayImageOverlay">
-          <img alt="Play Icon" src="/static/svg/Play.svg"></img>
+          <img alt="Play Icon" src="/static/svg/Youtube.svg"></img>
         </div>
         <div className="WatchPageEpisodeTitle">
           {item.episodeNumber &&
@@ -519,7 +519,7 @@ class ListItem extends React.Component<Props, State> {
           }
         />
         <div className="CuriousPlayOverlay">
-          <img alt="Play Icon" src="/static/svg/Play.svg"></img>
+          <img alt="Play Icon" src="/static/svg/Youtube.svg"></img>
         </div>
       </button>
     );

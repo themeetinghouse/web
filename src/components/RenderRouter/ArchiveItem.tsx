@@ -220,7 +220,7 @@ class ArchiveItem extends React.Component<Props, State> {
             }
           />
           <div className="ArchiveItemPlayImageOverlay">
-            <img alt="Play Icon" src="/static/svg/Play.svg"></img>
+            <img alt="Play Icon" src="/static/svg/Youtube.svg"></img>
           </div>
           <div className="ArchiveItemEpisodeNum">
             {this.props.content.showEpisodeNumbers === false
