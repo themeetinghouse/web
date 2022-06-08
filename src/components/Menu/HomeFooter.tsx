@@ -15,7 +15,7 @@ export default function HomeFooter() {
       svg: '/static/svg/Twitter.svg',
     },
     {
-      platform: 'Youtube',
+      platform: 'YouTube',
       link: 'https://www.youtube.com/themeetinghouse',
       svg: '/static/svg/Youtube.svg',
     },
