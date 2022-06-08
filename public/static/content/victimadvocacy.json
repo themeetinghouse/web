@@ -79,6 +79,11 @@
             "type": "link",
             "title": "May 13, 2022 Update",
             "navigateTo": "/may13-communityupdate"
+          },
+          {
+            "type": "link",
+            "title": "Previous Updates",
+            "navigateTo": "/churchupdatesummary"
           }
         ]
       },
