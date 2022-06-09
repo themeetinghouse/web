@@ -46,9 +46,9 @@
           }
         ],
         "header1": "Toronto High Park",
-        "text1": "Every Other Sunday at 10:00am",
-        "text2": "",
-        "text3": "",
+        "text1": "Sundays at 10:00am",
+        "text2": "Summer service schedule: Jun 19 & 26, Jul 10 & 24, Aug 7 & 21",
+        "text3": "Not meeting in-person for long weekends in Jul & Aug",
         "customLiveLink": "themeetinghouse.com/live",
         "register": false,
         "addToCalendar": true,
