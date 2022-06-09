@@ -47,7 +47,7 @@
         ],
         "header1": "London",
         "text1": "Sundays at 1:45pm",
-        "text2": "",
+        "text2": "Details below for long-weekend services",
         "customLiveLink": "themeetinghouse.com/live",
         "register": false,
         "addToCalendar": true,
@@ -55,6 +55,15 @@
         "class": "locations",
         "filterField": "id",
         "filterValue": "london"
+      },
+      {
+        "type": "content",
+        "style": "greyTwoText",
+        "header1": "Sunday Rhythms for June-September",
+        "text1": "Rest & Reconnect Sundays (a chance for our community to find extra rest and be able to reconnect with themselves, their families and the neighbours that surround them). Dates: July 3, July 31, Sept 4. Home Church Sundays (a chance for home churches to meet up for anything they feel led to connect over). Dates: June 19, July 24, August 21.",
+        "list": [
+          
+        ]
       },
       {
         "type": "list",
