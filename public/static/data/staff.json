@@ -433,15 +433,6 @@
   },
   {
     "Staff": true,
-    "FirstName": "Matt",
-    "LastName": "Thompson",
-    "Phone": "905.287.7000, ext. 823",
-    "Position": "Compassion Manager",
-    "sites": ["Site Leadership", "WIT"],
-    "Email": "Matt.Thompson@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
     "FirstName": "Megan",
     "LastName": "Enns",
     "Phone": "905.287.7000",
