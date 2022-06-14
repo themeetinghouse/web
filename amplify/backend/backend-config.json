@@ -613,6 +613,29 @@
                     ]
                 }
             ]
+        },
+        "sitemapgenerator": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda",
+            "dependsOn": [
+                {
+                    "category": "api",
+                    "resourceName": "themeetinghouse",
+                    "attributes": [
+                        "GraphQLAPIIdOutput",
+                        "GraphQLAPIEndpointOutput",
+                        "GraphQLAPIKeyOutput"
+                    ]
+                },
+                {
+                    "category": "hosting",
+                    "resourceName": "S3AndCloudFront",
+                    "attributes": [
+                        "HostingBucketName"
+                    ]
+                }
+            ]
         }
     },
     "analytics": {

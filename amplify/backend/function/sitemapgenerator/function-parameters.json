@@ -1,0 +1,18 @@
+{
+  "lambdaLayers": [],
+  "permissions": {
+    "api": {
+      "themeetinghouse": [
+        "read"
+      ]
+    },
+    "hosting": {
+      "S3AndCloudFront": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  }
+}
