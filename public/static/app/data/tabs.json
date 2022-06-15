@@ -11,7 +11,7 @@
   },
   {
     "name": "Featured",
-    "visible": true,
+    "visible": false,
     "groups": ["default"]
   },
   {
