@@ -1,163 +1,208 @@
-//import { FBEvent } from 'API';
+import { FBEvent } from 'API';
 import AddToCalendar from 'components/AddToCalendar/AddToCalendar';
 import { Link } from 'components/Link/Link';
 import ShareDropdown from 'components/Share/ShareDropdown';
 import moment from 'moment';
-//import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import { Button } from 'reactstrap';
-//import DataLoader from './DataLoader';
+import DataLoader from './DataLoader';
 import './EventPage.scss';
+
+const determineEventTime = (eventItem: FBEvent) => {
+  let timeString;
+  if (eventItem?.start_time)
+    timeString = moment(eventItem?.start_time).format('h:mm a');
+  if (eventItem?.end_time)
+    timeString = `${timeString} - ${moment(eventItem?.end_time).format(
+      'h:mm a'
+    )}`;
+  return timeString;
+};
+
+const DirectionsButton = ({
+  event,
+  className,
+}: {
+  event: FBEvent;
+  className: string;
+}) => {
+  return (
+    <div className={className}>
+      {event?.place?.location?.street || event?.place?.name ? (
+        <Link
+          style={{ fontWeight: 400 }}
+          newWindow
+          to={`https://www.google.com/maps/search/?api=1&query=${
+            event?.place?.location?.street ?? event?.place?.name
+          }`}
+        >
+          <img style={{ marginRight: 10 }} src="/static/svg/Map-Location.svg" />
+          Get Directions
+        </Link>
+      ) : null}
+    </div>
+  );
+};
+
+const AddToCalendarButton = ({
+  event,
+  className,
+}: {
+  event: FBEvent;
+  className: string;
+}) => {
+  return (
+    <div className={className}>
+      <AddToCalendar
+        event={{
+          summary: event.name ?? '',
+          description: event.description ?? '',
+          start: moment(event.start_time).format('YYYY-MM-DDTHH:mm:ssZ'),
+          end: moment(event.end_time).format('YYYY-MM-DDTHH:mm:ssZ'),
+          location: event?.place?.name ?? '',
+        }}
+        color="black"
+        textDecoration="always"
+      />
+    </div>
+  );
+};
+
+const CTAContainer = ({
+  event,
+  className,
+}: {
+  event: FBEvent;
+  className: string;
+}) => {
+  return (
+    <div className={className}>
+      <div className="EventButtonContainer">
+        {event?.ticket_uri ? (
+          <Link
+            className="EventPageButton"
+            style={{ fontWeight: 400 }}
+            newWindow
+            to={event?.ticket_uri ?? ''}
+          >
+            <img
+              className="EventPageButtonIcon"
+              src="/static/svg/Register-white.svg"
+              alt="Register Icon"
+            />
+            <span className="EventPageButtonLabel">Register</span>
+          </Link>
+        ) : null}
+        <ShareDropdown
+          data={{ id: event.id }}
+          bgColor="black-bg"
+          buttonType="short-event"
+          shareType="event"
+        />
+      </div>
+    </div>
+  );
+};
 
 export default function EventPage(): JSX.Element {
   const location = useLocation<any>();
   const history = useHistory();
-
-  if (!location.state || !location?.state?.event?.id) {
-    history.push('/');
-    return <></>;
-  }
-  //console.log('eventId', location.state.event.id);
-  document.title = location.state.event.name;
-  //console.log(location.state.event?.end_time);
-  const determineEventTime = () => {
-    let timeString;
-    if (location.state.event?.start_time)
-      timeString = moment(location.state.event?.start_time).format('h:mm a');
-    if (location.state.event?.end_time)
-      timeString = `${timeString} - ${moment(
-        location.state.event?.end_time
-      ).format('h:mm a')}`;
-    return timeString;
-  };
-  // const [event, setEvent] = useState<FBEvent>();
-  // useEffect(function fetchEventData() {
-  //   const load = async () => {
-  //     const data = await DataLoader.loadEvent(location.state.event?.id);
-  //     console.log({ yes: data });
-  //   };
-  //   load();
-  // }, []);
+  const [event, setEvent] = useState(location?.state?.event);
+  const [isLoading, setIsLoading] = useState(!Boolean(location?.state?.event));
+  useEffect(
+    function fetchEventData() {
+      console.log({ location });
+      if (!location.state || !location?.state?.event?.id) {
+        console.log(window.location.pathname);
+      }
+      const load = async () => {
+        if (location.hash) {
+          try {
+            const data = await DataLoader.loadEvent(
+              location.hash.split('#')[1]
+            );
+            setEvent(data);
+          } catch (err) {
+            history.push('/');
+          } finally {
+            setIsLoading(false);
+          }
+        } else {
+          history.push('/');
+        }
+      };
+      load();
+    },
+    [location?.hash, location?.state?.event]
+  );
+  useEffect(() => {
+    if (event?.name) document.title = event.name;
+  }, [event]);
+  if (!event && isLoading)
+    return <div className="EventItemContainer">Loading...</div>;
   return (
     <div className={`EventItemContainer`}>
-      <div className={`EventItemH1`}> {location.state.event.name}</div>
-      <div
-        style={{
-          flex: 1,
-          flexDirection: 'row',
-          display: 'flex',
-          flexWrap: 'wrap',
-          paddingTop: 24,
-        }}
-      >
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div className={`EventItemH1`}> {event.name}</div>
+      <div className="EventItemContentContainer">
+        <div className="EventItemColumn">
           <div className={`EventItemH2`}> About This Event</div>
           <img
-            src={location.state.event.cover?.source}
-            alt={location.state.event.name}
+            src={event.cover?.source}
+            alt={event.name}
             className="EventItemImg"
           />
-          <div className={`EventItemDescription`}>
-            {location.state.event?.description ??
-              'Come to make a great marriage even better or help a struggling marriage survive. Over eight sessions, couples will discuss topics like effective communication, resolving conflict and much more. $40 per couple.'}
-          </div>
-          <div className="EventButtonContainer">
-            {location?.state?.event?.ticket_uri ? (
-              <Button className="EventPageButton" onClick={() => null}>
-                <img
-                  className="EventPageButtonIcon"
-                  src="/static/svg/Register-white.svg"
-                  alt="Register Icon"
-                />
-                <span className="EventPageButtonLabel">Register</span>
-              </Button>
-            ) : null}
-            <div style={{ marginTop: -5 }}>
-              <ShareDropdown
-                data={{ id: location.state.event.id }}
-                bgColor="black-bg"
-                buttonType="thick"
-                shareType="event"
-              />
-            </div>
-          </div>
+          <div className={`EventItemDescription`}>{event?.description}</div>
+          <CTAContainer className="EventButtonContainerMobile" event={event} />
         </div>
-        <div
-          style={{
-            marginLeft: 22,
-            display: 'flex',
-            flexDirection: 'column',
-            flex: 0.5,
-          }}
-        >
-          {location.state.event?.start_time ||
-          location.state.event?.end_time ? (
-            <div style={{ marginTop: 10 }}>
+        <div className="EventItemColumn">
+          {event?.start_time || event?.end_time ? (
+            <>
               <div className={`EventItemH4`}>
                 <span style={{ flex: 1 }}>Date &amp; Time</span>
-                <div style={{ display: 'flex', flex: 0.5 }}>
-                  <AddToCalendar
-                    className="one-image-calendar"
-                    event={{
-                      summary: location.state.event.name,
-                      description: location.state.event.description,
-                      start: moment(location.state.event.start_time).format(
-                        'YYYY-MM-DDTHH:mm:ssZ'
-                      ),
-                      end: moment(location.state.event.end_time).format(
-                        'YYYY-MM-DDTHH:mm:ssZ'
-                      ),
-                      location: location.state.event.venue?.name,
-                    }}
-                    color="black"
-                    textDecoration="always"
-                  />
-                </div>
+                <AddToCalendarButton
+                  event={event}
+                  className="EventCalendarButtonContainer"
+                />
               </div>
               <div className={`EventItemDescription`}>
-                {moment(location.state.event?.start_time).format('dddd, MMM D')}{' '}
+                {moment(event?.start_time).format('dddd, MMM D')}{' '}
               </div>
               <div className={`EventItemDescription`}>
-                {determineEventTime()}
+                {determineEventTime(event)}
               </div>
-            </div>
+              <AddToCalendarButton
+                event={event}
+                className="EventCalendarButtonContainerMobile"
+              />
+            </>
           ) : null}
-          {location.state.event?.place?.location ? (
-            <div style={{ marginTop: 40 }}>
-              <div className={`EventItemH4`}>
-                <span style={{ flex: 1, display: 'flex' }}>Location</span>{' '}
-                <div style={{ display: 'flex', flex: 0.5 }}>
-                  {location.state.event?.place?.location?.street ? (
-                    <Link
-                      style={{ fontWeight: 400 }}
-                      to={`https://www.google.com/maps/search/?api=1&query=${location.state.event?.place?.location?.street}`}
-                    >
-                      <img
-                        style={{ marginRight: 10 }}
-                        src="/static/svg/Map-Location.svg"
-                      />
-                      Get Directions
-                    </Link>
-                  ) : null}
-                </div>
-              </div>
-              {location.state.event?.place?.location?.street ? (
-                <div className={`EventItemDescription`}>
-                  {location.state.event?.place?.location?.street}
-                </div>
-              ) : null}
-              {location.state.event?.place?.location?.city ||
-              location.state.event.place?.location?.state ||
-              location.state.event.place?.location?.zip ? (
-                <div className={`EventItemDescription`}>
-                  {location.state.event.place?.location?.city ?? 'Oakville'}{' '}
-                  {location.state.event.place?.location?.state ?? 'ON'}{' '}
-                  {location.state.event.place?.location?.zip ?? 'L6H 6E1'}{' '}
-                </div>
-              ) : null}
+
+          <div style={{ marginTop: 40 }}>
+            <div className={`EventItemH4`}>
+              <span style={{ flex: 1, display: 'flex' }}>Location</span>{' '}
+              <DirectionsButton
+                event={event}
+                className="EventCalendarButtonContainer"
+              />
             </div>
-          ) : null}
+            <div className={`EventItemDescription`} style={{ width: '60%' }}>
+              {event.place?.location ? (
+                <>
+                  {event.place?.location?.city ?? 'Oakville'}
+                  {event.place?.location?.state ?? 'ON'}
+                  {event.place?.location?.zip ?? 'L6H 6E1'}
+                </>
+              ) : (
+                event.place.name
+              )}
+            </div>
+            <DirectionsButton
+              event={event}
+              className="EventCalendarButtonContainerMobile"
+            />
+          </div>
         </div>
+        <CTAContainer className="EventButtonContainerDesktop" event={event} />
       </div>
     </div>
   );

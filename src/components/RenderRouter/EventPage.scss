@@ -1,6 +1,14 @@
 .EventPageButton {
   background-color: #1a1a1a;
   padding: 16px 24px;
+  height: 60px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+    opacity: 0.7;
+    transition: all 0.2s ease;
+  }
   border-radius: 0px;
   .EventPageButtonIcon {
     margin-right: 16px;
@@ -12,7 +20,6 @@
     color: #ffffff;
   }
 }
-
 .EventButtonContainer {
   display: flex;
   flex-direction: row;
@@ -22,19 +29,35 @@
     margin-right: 24px;
   }
 }
-
-.EventItemContainer {
-  position: relative;
-  padding-top: 70px;
+.EventItemColumn {
   display: flex;
   flex-direction: column;
-  left: 11vw;
+}
+.EventCalendarButtonContainerMobile {
+  display: none;
+}
+.EventItemContainer {
+  position: relative;
+  padding-top: clamp(70px, 6.861vw, 120px);
+  display: flex;
+  flex-direction: column;
+  margin-left: 11vw;
   width: 89vw;
-  height: 100vh;
+  min-height: 100vh;
   flex: 1;
   color: black;
-  background-color: transparent;
+  background-color: #fff;
   padding-bottom: 40px;
+  .EventItemContentContainer {
+    flex: 1;
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 24px;
+    > :nth-child(even) {
+      margin-left: clamp(22px, 5vw, 10vw);
+    }
+  }
 }
 
 .EventItemImg {
@@ -43,14 +66,15 @@
   object-fit: cover;
   margin-bottom: 32px;
 }
-
+.EventButtonContainerDesktop {
+  display: none;
+}
 .EventItemH1 {
   color: #1a1a1a;
   letter-spacing: -0.5px;
   line-height: 56px;
   font-family: Graphik Web;
   display: flex;
-  flex: 1;
   font-weight: bold;
   font-size: 48px;
   padding-bottom: 16px;
@@ -60,7 +84,6 @@
   color: #1a1a1a;
   font-family: Graphik Web;
   display: flex;
-  flex: 1;
   font-weight: bold;
   font-size: 24px;
   padding-bottom: 16px;
@@ -71,11 +94,9 @@
   font-family: Graphik Web;
   display: flex;
   flex-direction: row;
-  flex: 1;
   font-weight: bold;
   font-size: 16px;
-  margin-bottom: 4px;
-  line-height: 24px;
+  line-height: 32px;
 }
 
 .EventItemDescription {
@@ -83,24 +104,89 @@
   display: flex;
   flex-wrap: wrap;
   color: #54565a;
-  flex: 1;
   line-height: 24px;
   font-size: 16px;
   width: 500px;
 }
-
-@media (max-width: 767px) {
+.EventCalendarButtonContainer {
+  display: flex;
+  flex: 0.5;
+  margin-top: -10px;
+}
+@media (min-width: 768px) and (max-width: 1200px) {
+  .EventCalendarButtonContainerMobile {
+    margin-top: 20px;
+    display: block;
+  }
+  .EventCalendarButtonContainer {
+    display: none;
+  }
   .EventItemContainer {
+    margin-left: 5.469vw;
+    width: calc(100vw - 5px);
+    .EventItemContentContainer {
+      > :nth-child(even) {
+        flex: 0;
+        margin-left: 12vw;
+      }
+    }
+  }
+  .EventItemImg {
+    width: 344px;
+    height: 176px;
+  }
+  .EventItemDescription {
+    width: 344px;
+  }
+}
+@media (max-width: 767px) {
+  .EventPageButton {
+    padding: 16px 16px;
+  }
+
+  .EventButtonContainerMobile {
+    display: none;
+  }
+  .EventButtonContainerDesktop {
+    display: block;
+  }
+  .EventCalendarButtonContainerMobile {
+    margin-top: 20px;
+    display: block;
+  }
+  .EventCalendarButtonContainer {
+    display: none;
+  }
+  .EventItemImg {
+    width: 100vw;
+    height: calc(100vw * 0.51);
+    margin-left: -5vw;
+  }
+  .EventItemDescription {
+    width: unset;
+    padding-right: 6vw;
+    display: flex;
+    flex: 1;
+  }
+  .EventItemContainer {
+    z-index: 100000;
     position: relative;
     top: 20vw;
-    left: 0vw;
+    margin-left: 0vw;
     margin-bottom: 3.5vh;
+    padding-top: 50px;
     width: 100%;
-    padding-bottom: 5vh;
     padding-left: 5vw;
     padding-right: 5vw;
     &.open {
       padding-bottom: 80px;
+    }
+    .EventItemContentContainer {
+      > :nth-child(even) {
+        margin-top: 40px;
+        margin-left: 0px;
+        width: 100%;
+      }
     }
   }
 }

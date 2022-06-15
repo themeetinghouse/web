@@ -18,7 +18,7 @@ type ShareDropdownColor = 'white-bg' | 'black-bg';
 type ShareDropdownProps = {
   data?: any;
   bgColor: ShareDropdownColor;
-  buttonType: 'wide' | 'short' | 'thick';
+  buttonType: 'wide' | 'short' | 'thick' | 'short-event';
   shareType: 'teaching' | 'blogpost' | 'livestream' | 'event';
 };
 
