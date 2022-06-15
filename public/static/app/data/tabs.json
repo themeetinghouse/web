@@ -1,6 +1,22 @@
-{
-  "homeVisible": true,
-  "teachingVisible": true,
-  "featuredVisible": true,
-  "moreVisible": true
-}
+[
+  {
+    "name": "home",
+    "visible": true,
+    "groups": ["default"]
+  },
+  {
+    "name": "Teaching",
+    "visible": true,
+    "groups": ["default"]
+  },
+  {
+    "name": "Featured",
+    "visible": true,
+    "groups": ["default"]
+  },
+  {
+    "name": "More",
+    "visible": true,
+    "groups": ["default"]
+  }
+]
