@@ -29,6 +29,11 @@ class HeroItem extends React.Component<Props, State> {
     this.navigate = this.navigate.bind(this);
     this.setData = this.setData.bind(this);
   }
+  componentDidUpdate(prevProps: Props) {
+    if (prevProps.content !== this.props.content) {
+      this.setState({ content: this.props.content });
+    }
+  }
   async componentDidMount() {
     const query = this.props.content;
     if (query.class === 'locations') {

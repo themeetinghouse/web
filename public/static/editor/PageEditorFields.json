@@ -1,0 +1,68 @@
+[
+  {
+    "type": "string",
+    "fieldName": "name",
+    "default": "new page"
+  },
+  {
+    "type": "string",
+    "fieldName": "title",
+    "default": "The Meeting House"
+  },
+  {
+    "type": "string",
+    "fieldName": "keywords",
+    "default": "Church, Toronto, Anabaptist, Christian, Jesus, Home church, Be In Christ, Spirituality, Christianity"
+  },
+  {
+    "type": "string",
+    "fieldName": "description",
+    "default": "When’s the last time someone asked you what you believe? We’re a church that loves to ask questions, and loves people with questions. We don’t have all the answers, but exploring together is pretty much our favourite thing."
+  },
+  {
+    "type": "object",
+    "fieldName": "pageConfig",
+    "default": [
+      {
+        "type": "boolean",
+        "fieldName": "showLive",
+        "default": true
+      },
+      {
+        "type": "boolean",
+        "fieldName": "movingMenu",
+        "default": true
+      },
+      {
+        "type": "boolean",
+        "fieldName": "showLogoText",
+        "default": true
+      },
+      {
+        "type": "string",
+        "fieldName": "logoColor",
+        "default": "black"
+      },
+      {
+        "type": "boolean",
+        "fieldName": "showSearch",
+        "default": true
+      },
+      {
+        "type": "boolean",
+        "fieldName": "showFooter",
+        "default": true
+      },
+      {
+        "type": "boolean",
+        "fieldName": "showMenu",
+        "default": true
+      },
+      {
+        "type": "boolean",
+        "fieldName": "weatherAlert",
+        "default": false
+      }
+    ]
+  }
+]

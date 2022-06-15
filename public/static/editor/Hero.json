@@ -1,0 +1,95 @@
+[
+  {
+    "type": "hero",
+    "items": [
+      {
+        "type": "string",
+        "fieldName": "name",
+        "default": "hero"
+      },
+      {
+        "type": "string",
+        "fieldName": "style",
+        "default": "full"
+      },
+      {
+        "type": "string",
+        "fieldName": "header1",
+        "default": "Home Church"
+      },
+      {
+        "type": "boolean",
+        "fieldName": "showSpecial",
+        "default": false
+      },
+
+      {
+        "type": "string",
+        "fieldName": "header2",
+        "default": ""
+      },
+      {
+        "type": "string",
+        "fieldName": "text1",
+        "default": ""
+      },
+      {
+        "type": "object",
+        "fieldName": "button1",
+        "default": [
+          {
+            "type": "string",
+            "fieldName": "text",
+            "default": ""
+          },
+          {
+            "type": "string",
+            "fieldName": "action",
+            "default": ""
+          },
+          {
+            "type": "string",
+            "fieldName": "description",
+            "default": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "content",
+    "items": [
+      {
+        "type": "string",
+        "fieldName": "style",
+        "default": "oneImage"
+      },
+      {
+        "type": "string",
+        "fieldName": "header1",
+        "default": "test"
+      },
+      {
+        "type": "string",
+        "fieldName": "text1",
+        "default": "test"
+      },
+      {
+        "type": "object",
+        "fieldName": "image1",
+        "default": [
+          {
+            "type": "string",
+            "fieldName": "src",
+            "default": ""
+          },
+          {
+            "type": "string",
+            "fieldName": "alt",
+            "default": ""
+          }
+        ]
+      }
+    ]
+  }
+]

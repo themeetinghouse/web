@@ -1,4 +1,4 @@
-﻿import React from 'react';
+﻿import React, { useContext } from 'react';
 import {
   Collapse,
   Navbar,
@@ -15,6 +15,7 @@ import './menu.scss';
 import moment from 'moment-timezone';
 
 import { Link } from 'components/Link/Link';
+import { EditorContext } from '../../pages/admin/Editor/EditorContext';
 
 import RSNavLinkWrapper from './RSNavLinkWrapper';
 import TMHLogo from './TMHLogo';
@@ -55,6 +56,23 @@ interface State {
   expand: any;
   showNotes: boolean;
   logoOffset: boolean;
+}
+interface hcProps {
+  children: any;
+}
+function HomeMenuContainer(props: hcProps) {
+  const editorContext = useContext(EditorContext);
+  return (
+    <div
+      style={
+        editorContext.content
+          ? { zIndex: 100000, visibility: 'hidden' }
+          : { zIndex: 100000 }
+      }
+    >
+      {props.children}
+    </div>
+  );
 }
 
 class HomeMenu extends React.Component<Props, State> {
@@ -147,7 +165,7 @@ class HomeMenu extends React.Component<Props, State> {
 
   render() {
     return !this.state.isSearch ? (
-      <div style={{ zIndex: 100000 }}>
+      <HomeMenuContainer>
         <AnnouncementBar
           setShowBar={(val) => this.setState({ logoOffset: val })}
           showLive={this.state.showLive}
@@ -278,7 +296,7 @@ class HomeMenu extends React.Component<Props, State> {
             ) : null}
           </div>
         </div>
-      </div>
+      </HomeMenuContainer>
     ) : null;
   }
 }

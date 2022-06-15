@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import ErrorBoundary from 'components/ErrorBoundry';
@@ -14,6 +14,9 @@ import moment from 'moment';
 import RenderRouterItemWrapper from './RenderRouterItemWrapper';
 import EventPage from './EventPage';
 import TMHCarousel from 'components/TMHCarousel/TMHCarousel';
+import { Button, Modal } from 'reactstrap';
+import { EditorContext } from 'pages/admin/Editor/EditorContext';
+import { renderEditorList } from 'pages/admin/Editor/PageConfigEditor';
 
 const SimpleItem = React.lazy(() => import('./SimpleItem'));
 const SearchItem = React.lazy(() => import('./SearchItem'));
@@ -38,6 +41,7 @@ const PaymentItem = React.lazy(() => import('./PaymentItem'));
 const TeachingSearch = React.lazy(() => import('./TeachingSearch'));
 const PodcastPlayer = React.lazy(() => import('./PodcastPlayer'));
 const RegatherItem = React.lazy(() => import('./RegatherItem'));
+
 const VideoPlayerLiveLeadersDay = React.lazy(
   () => import('./VideoPlayerLive_leadersday')
 );
@@ -47,8 +51,72 @@ interface Props extends RouteComponentProps {
   content: any;
   data: any;
 }
+interface PropsAdmin {
+  item: any;
+  index: any;
+}
+function RenderAdmin(props: PropsAdmin): JSX.Element | null {
+  const editorContext = useContext(EditorContext);
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const [componentList, setComponentList] = useState<any>();
+  useEffect(() => {
+    const updateComponents = async () => {
+      try {
+        const z = await fetch('/static/editor/Hero.json');
+        const z1 = await z.json();
+        console.log({ components: z1 });
+        setComponentList(z1);
+      } catch (e) {
+        console.log({ e: e });
+      }
+    };
+    updateComponents();
+  }, []);
 
-class RenderRouter extends React.Component<Props> {
+  return editorContext.content ? (
+    <>
+      <Button
+        onClick={() => {
+          setShowModal(true);
+        }}
+      >
+        Edit
+      </Button>
+      <Button>Move Up</Button>
+      <Button>Move Down</Button>
+      <Button
+        onClick={() => {
+          editorContext.deleteContent(props.index);
+        }}
+      >
+        X
+      </Button>
+      <Modal isOpen={showModal} style={{ zIndex: 100000 }}>
+        {componentList &&
+        componentList.filter((x: any) => x.type == props.item.type)[0].items
+          ? renderEditorList(
+              ['page', 'content', props.index],
+              componentList.filter((x: any) => x.type == props.item.type)[0]
+                .items
+            )
+          : null}
+        <Button
+          onClick={() => {
+            setShowModal(false);
+          }}
+        >
+          Done
+        </Button>
+      </Modal>
+    </>
+  ) : null;
+}
+type State = { content: any };
+class RenderRouter extends React.Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+    this.state = { content: props.content };
+  }
   renderItemNow(item: any, index: any): JSX.Element | null {
     switch (item.type) {
       case 'timer':
@@ -64,7 +132,7 @@ class RenderRouter extends React.Component<Props> {
       case 'series-archive':
         return (
           <ArchiveItem
-            pageConfig={this.props.content.page.pageConfig}
+            pageConfig={this.state.content.page.pageConfig}
             key={index}
             content={item}
             data={this.props.data}
@@ -91,7 +159,7 @@ class RenderRouter extends React.Component<Props> {
       case 'list':
         return (
           <ListItem
-            pageConfig={this.props.content.page.pageConfig}
+            pageConfig={this.state.content.page.pageConfig}
             data={this.props.data}
             key={index}
             content={item}
@@ -152,37 +220,43 @@ class RenderRouter extends React.Component<Props> {
         return null;
     }
   }
+  componentDidUpdate(prevProps: Props) {
+    if (prevProps.content !== this.props.content) {
+      this.setState({ content: this.props.content });
+    }
+  }
   renderItem() {
-    if (this.props.content != null)
-      return this.props.content.page.content.map((item: any, index: any) => {
+    if (this.state.content != null) {
+      return this.state.content.page.content.map((item: any, index: any) => {
         console.log({ type: item.type });
         return (
           <ErrorBoundary key={index}>
             <RenderRouterItemWrapper index={index}>
+              <RenderAdmin item={item} index={index} />
               {this.renderItemNow(item, index)}
             </RenderRouterItemWrapper>
           </ErrorBoundary>
         );
       });
-    else return null;
+    } else return null;
   }
   render() {
-    if (!this.props.content) return null;
+    if (!this.state.content) return null;
 
     return (
       <>
         <Helmet>
-          <title>{this.props.content.page.title}</title>
-          <meta name="keywords" content={this.props.content.page.keywords} />
+          <title>{this.state.content.page.title}</title>
+          <meta name="keywords" content={this.state.content.page.keywords} />
           <meta
             name="description"
-            content={this.props.content.page.description}
+            content={this.state.content.page.description}
           />
         </Helmet>
         {this.renderItem()}
-        {this.props.content.page.pageConfig.showFooter ? <HomeFooter /> : null}
-        {this.props.content.page.name === 'notes' ? <AppPromo /> : null}
-        <HomeMenu pageConfig={this.props.content.page.pageConfig} />
+        {this.state.content.page.pageConfig.showFooter ? <HomeFooter /> : null}
+        {this.state.content.page.name === 'notes' ? <AppPromo /> : null}
+        <HomeMenu pageConfig={this.state.content.page.pageConfig} />
       </>
     );
   }
