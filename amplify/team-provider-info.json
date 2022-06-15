@@ -137,7 +137,7 @@
         },
         "tmhMetadataFacebook": {
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "s3Key": "amplify-builds/tmhMetadataFacebook-6c66745837696e6d7854-build.zip"
+          "s3Key": "amplify-builds/tmhMetadataFacebook-396f6d48536143516274-build.zip"
         },
         "tmhF1SyncGroupPermissions": {
           "userPoolId": "us-east-1_KiJzP2dH5",
@@ -279,6 +279,14 @@
           "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
           "s3Key": "amplify-builds/tmhStripeDeletePaymentMethod-3532596d503254394e32-build.zip"
+        },
+        "sitemap": {
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/sitemap-356331714c374b495056-build.zip"
+        },
+        "sitemapgenerator": {
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/sitemapgenerator-4947374d495753452b37-build.zip"
         }
       },
       "notifications": {
