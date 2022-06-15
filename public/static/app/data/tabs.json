@@ -1,18 +1,6 @@
-[
-  {
-    "name": "home",
-    "component": "HomeStack"
-  },
-  {
-    "name": "Teaching",
-    "component": "TeachingStack"
-  },
-  {
-    "name": "Featured",
-    "component": "FeaturedStack"
-  },
-  {
-    "name": "More",
-    "component": "MoreStack"
-  }
-]
+{
+  "homeVisible": true,
+  "teachingVisible": true,
+  "featuredVisible": true,
+  "moreVisible": true
+}
