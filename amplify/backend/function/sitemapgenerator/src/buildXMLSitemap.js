@@ -62,9 +62,54 @@ export const getVideoByVideoType = `query GetVideoByVideoType(
 }
 `;
 
-const fetchVideos = async () => {
+const fetchPlaylists = async () => {
+  try {
+    const idsToFilter = [
+      '',
+      'after-party',
+      'youth-watchparty',
+      'adult-sunday-teaser',
+      'bbq',
+      'Christmas-eves',
+      'Christmas-shorts',
+      'Christmas-funny',
+      'q-eh',
+      'Annual Report',
+      'Home Church Hangouts',
+      'compassion-training',
+      'kidmax-live',
+      'kids-training',
+      'connect training',
+      'HC101',
+      'HC102',
+      'FallHC2021',
+      'tech-training',
+      'parish-leadership',
+      'regather-internal',
+      'regather-external',
+    ]; // add playlists to be filtered here
+    const response = await axios.get(
+      'https://www.themeetinghouse.com/static/data/import-video.json'
+    );
+    const playlistIds = response?.data?.map((playlist) => playlist.id) ?? [];
+    const filteredIds = playlistIds.filter(
+      (id) =>
+        !id.includes('hidden') &&
+        id !== idsToFilter.find((filterId) => filterId === id)
+    );
+    console.log({ 'fetching the following playlists': filteredIds });
+    return filteredIds;
+  } catch (error) {
+    console.error({ 'failed to get playlists': error });
+    return [];
+  }
+};
+
+const fetchVideos = async (playlistId) => {
+  let requestCounter = 0;
   let videos = [];
   const loadNext = async (nextToken = null) => {
+    ++requestCounter;
     try {
       const graphqlData = await axios({
         url: process.env.API_THEMEETINGHOUSE_GRAPHQLAPIENDPOINTOUTPUT,
@@ -75,7 +120,7 @@ const fetchVideos = async () => {
         data: {
           query: getVideoByVideoType,
           variables: {
-            videoTypes: 'adult-sunday',
+            videoTypes: playlistId,
             limit: 200,
             sortDirection: 'DESC',
             nextToken: nextToken,
@@ -94,6 +139,7 @@ const fetchVideos = async () => {
     }
   };
   await loadNext();
+  console.log({ [playlistId]: `${requestCounter} requests` });
   return videos;
 };
 
@@ -110,7 +156,14 @@ ${siteMapNames
 </sitemapindex>`;
 };
 const buildVideoLinksString = async () => {
-  const videos = await fetchVideos();
+  const playlistIds = await fetchPlaylists();
+  const loadAllVideos = async (playlistIds) => {
+    const requests = playlistIds.map((playlistId) => fetchVideos(playlistId));
+    const results = await Promise.all(requests);
+    return results.flat();
+  };
+  const videos = await loadAllVideos(playlistIds);
+  console.log('#', videos.length, ' videos to be indexed.');
   const videoLinks = videos
     .map((video) => {
       return `  <url>
