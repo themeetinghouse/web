@@ -9,9 +9,8 @@ import {
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 
 import { Editor } from 'react-draft-wysiwyg';
-import Amplify, { Auth } from 'aws-amplify';
+import { Auth } from '@aws-amplify/auth';
 import BlogPreview from './BlogPreview';
-import awsmobile from '../../aws-exports';
 import * as queries from '../../graphql/queries';
 import * as mutations from '../../graphql/mutations';
 import * as adminQueries from './queries';
@@ -51,8 +50,6 @@ interface BibleVerseJSON {
   queryString: string;
   passageRef: string;
 }
-
-Amplify.configure(awsmobile);
 
 interface State {
   notesEditorState: EditorState;

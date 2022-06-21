@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactGA from 'react-ga';
-import Amplify from 'aws-amplify';
 import {
   Route,
   Switch,
@@ -10,7 +9,6 @@ import {
 } from 'react-router-dom';
 import { captureException } from '@sentry/browser';
 import { getRedirect, Redirect as RedirectType } from './getRedirects';
-import awsconfig from '../../src/aws-exports';
 import '../custom.scss';
 const ContentPage = React.lazy(() => import('components/Loaders/ContentPage'));
 const Videos = React.lazy(() => import('../components/Loaders/Videos'));
@@ -24,8 +22,6 @@ if (window.location.hostname === 'localhost')
 else if (window.location.hostname.includes('beta'))
   ReactGA.initialize('UA-4554612-19');
 else ReactGA.initialize('UA-4554612-3');
-
-Amplify.configure(awsconfig);
 
 export interface RouteParams {
   id?: string;

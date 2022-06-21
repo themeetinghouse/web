@@ -1,5 +1,6 @@
-import Amplify, { Analytics, API, Auth, graphqlOperation } from 'aws-amplify';
-
+import { API, graphqlOperation } from '@aws-amplify/api';
+import Auth from '@aws-amplify/auth';
+import Analytics from '@aws-amplify/analytics';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 //import * as Linking from 'expo-linking';
 import moment from 'moment';
@@ -13,7 +14,6 @@ import {
   TmhF1SyncGroupPermissionsQuery,
   TmhStripeAddCustomerQuery,
 } from 'API';
-import awsconfig from '../../../src/aws-exports';
 import * as mutations from '../../../src/graphql/mutations';
 import * as queries from '../../../src/graphql/queries';
 import {
@@ -27,7 +27,6 @@ import { GraphQLResult } from '@aws-amplify/api';
 import { CreateTMHUserInput, GetTmhUserQuery } from 'API';
 import Validate from './Validate';
 import PaymentsCommon from '../../pages/users/paymentsCommon';
-Amplify.configure(awsconfig);
 
 //const PERSISTENCE_KEY = "NAVIGATION_STATE"
 

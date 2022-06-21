@@ -13,8 +13,7 @@
 @font-face {
   font-family: 'Graphik XXCond Web';
   src: local('Graphik XXCond Web'),
-    url('GraphikXXCondensed-Black-Web.woff2') format('woff2'),
-    url('GraphikXXCondensed-Black-Web.woff') format('woff');
+    url('GraphikXXCondensed-Black-Web.woff2') format('woff2');
   font-weight: 800;
   font-style: normal;
   font-stretch: normal;
@@ -49,8 +48,7 @@
 
 @font-face {
   font-family: 'Graphik Web';
-  src: local('Graphik Web'), url('Graphik-Semibold-Web.woff2') format('woff2'),
-    url('Graphik-Semibold-Web.woff') format('woff');
+  src: local('Graphik Web'), url('Graphik-Semibold-Web.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
   font-stretch: normal;
@@ -67,8 +65,7 @@
 
 @font-face {
   font-family: 'Graphik Web';
-  src: local('Graphik Web'), url('Graphik-Medium-Web.woff2') format('woff2'),
-    url('Graphik-Medium-Web.woff') format('woff');
+  src: local('Graphik Web'), url('Graphik-Medium-Web.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
@@ -85,8 +82,7 @@
 
 @font-face {
   font-family: 'Graphik Web';
-  src: local('Graphik Web'), url('Graphik-Regular-Web.woff2') format('woff2'),
-    url('Graphik-Regular-Web.woff') format('woff');
+  src: local('Graphik Web'), url('Graphik-Regular-Web.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;

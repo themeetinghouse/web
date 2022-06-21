@@ -1,10 +1,8 @@
 import React from 'react';
 import * as customQueries from '../../graphql-custom/customQueries';
 import * as mutations from '../../graphql/mutations';
-import Amplify from 'aws-amplify';
-import { API } from 'aws-amplify';
+import { API } from '@aws-amplify/api';
 import './import-video.scss';
-import awsmobile from '../../aws-exports';
 //import { v4 as uuidv4 } from 'uuid';
 //import ImportYoutube from '../../components/ImportYoutube/ImportYoutube';
 import { EmptyProps } from '../../utils';
@@ -21,7 +19,6 @@ import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 //import { DeleteCustomPlaylistMutation } from 'API';
 //import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 
-Amplify.configure(awsmobile);
 type Videos = NonNullable<
   NonNullable<GraphQLResult<ListVideosQuery>['data']>['listVideos']
 >['items'];

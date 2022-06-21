@@ -1,6 +1,5 @@
 import './Announcements.scss';
-import Amplify, { API } from 'aws-amplify';
-import awsmobile from '../../aws-exports';
+import { API } from '@aws-amplify/api';
 import DataLoader, {
   ListF1ListGroup2sData,
 } from 'components/RenderRouter/DataLoader';
@@ -17,8 +16,6 @@ import {
 import TransactionPaginate from 'pages/users/Transactions/TransactionsPaginate';
 import './homechurch.scss';
 import { Modal } from 'reactstrap';
-
-Amplify.configure(awsmobile);
 
 type HMInfoEdit = {
   onlineConnectUrl: string;

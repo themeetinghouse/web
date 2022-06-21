@@ -1,7 +1,5 @@
 import React, { lazy } from 'react';
 import AdminMenu from '../../components/Menu/AdminMenu';
-import Amplify from 'aws-amplify';
-import awsmobile from '../../aws-exports';
 import { Route, Switch } from 'react-router-dom';
 const ImportVideo = lazy(() => import('../../pages/admin/import-video'));
 const MoveVideo = lazy(() => import('../../pages/admin/move-video'));
@@ -13,8 +11,6 @@ const Announcements = lazy(() => import('../../pages/admin/Announcements'));
 const HomeChurch = lazy(() => import('../../pages/admin/homechurch'));
 const Redirect = lazy(() => import('../../pages/admin/Redirect'));
 const Editor = lazy(() => import('../../pages/admin/Editor/Editor'));
-
-Amplify.configure(awsmobile);
 
 class Admin extends React.Component {
   render() {

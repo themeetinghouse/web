@@ -1,16 +1,12 @@
 import React, { EventHandler, SyntheticEvent } from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import './ArchiveItem.scss';
-import Amplify from 'aws-amplify';
-import awsmobile from '../../aws-exports';
 import DataLoader, {
   VideoByVideoTypeData,
   SeriesByTypeData,
 } from './DataLoader';
 import VideoOverlay from '../VideoOverlay/VideoOverlay';
 import format from 'date-fns/format';
-
-Amplify.configure(awsmobile);
 
 type listData = SeriesByTypeData | VideoByVideoTypeData;
 

@@ -1,10 +1,7 @@
 import { useState, useEffect } from 'react';
 import './Announcements.scss';
-import Amplify from 'aws-amplify';
-import awsmobile from '../../aws-exports';
-import { API } from 'aws-amplify';
 import { v4 as uuidv4 } from 'uuid';
-import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
+import { GraphQLResult, GRAPHQL_AUTH_MODE, API } from '@aws-amplify/api';
 
 import {
   CreateAnnouncementMutationVariables,
@@ -27,7 +24,6 @@ import {
 } from 'API';
 import DataLoader, { LocationData } from 'components/RenderRouter/DataLoader';
 
-Amplify.configure(awsmobile);
 type AnnouncementData = CreateAnnouncementMutationVariables['input'];
 
 type NonNullAnnouncements = NonNullable<

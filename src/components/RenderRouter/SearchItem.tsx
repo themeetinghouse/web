@@ -3,8 +3,7 @@ import './SearchItem.scss';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { GraphQLResult } from '@aws-amplify/api';
 
-import Amplify, { API, graphqlOperation } from 'aws-amplify';
-import awsmobile from '../../aws-exports';
+import { API, graphqlOperation } from '@aws-amplify/api';
 import * as queries from '../../graphql/queries';
 import Highlighter from 'react-highlight-words';
 import DataLoader, { CompassionData, StaffData } from './DataLoader';
@@ -19,7 +18,6 @@ import {
 } from 'API';
 import RenderRouter from './RenderRouter';
 import { Button } from 'reactstrap';
-Amplify.configure(awsmobile);
 
 interface Props extends RouteComponentProps {
   content: any;
