@@ -1,0 +1,96 @@
+.MyAccountNavContainer {
+  z-index: 15000;
+  justify-content: center;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #1a1a1a;
+  padding: 32px 32px 32px 32px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  .MyAccountTMHLogoContainer {
+    width: 10.972vw;
+  }
+
+  .MyAccountTMHLogo {
+    align-self: center;
+    width: 40px;
+    height: 47px;
+    cursor: pointer;
+  }
+  .hamburgerToggle {
+    display: none;
+  }
+  .CloseButton {
+    cursor: pointer;
+    display: inherit;
+    position: absolute;
+    right: 25px;
+  }
+  .MyAccountNav {
+    padding-top: 16px;
+    margin-left: -32px;
+    display: flex;
+    margin-bottom: 0;
+    justify-content: flex-start;
+    list-style: none;
+    list-style-type: none;
+  }
+  .MyAccountNav .navItem {
+    max-height: 50px;
+    text-decoration: unset;
+    font-family: Graphik Web;
+    margin-right: 39px;
+    color: white;
+    font-weight: lighter; // needs to be 300
+    text-align: left;
+    font-size: 1.25em;
+    &.active {
+      font-weight: 700;
+      text-decoration: underline;
+    }
+  }
+  @media (max-width: 768px) {
+    .hide {
+      display: none;
+    }
+    .CloseButton {
+      margin-top: 8px;
+    }
+    .MyAccountNav {
+      .navItem {
+        margin-left: 22px;
+        margin-bottom: 32px;
+        font-size: 32px;
+        font-weight: 700;
+      }
+      flex-direction: column;
+      margin-left: unset;
+      margin-top: 84px;
+    }
+    max-height: 74px;
+    padding: 8px;
+    .hamburgerToggle {
+      :nth-child(even) {
+        max-width: 20px;
+      }
+      :nth-child(odd) {
+        max-width: 30px;
+      }
+      cursor: pointer;
+      display: inherit;
+      position: absolute;
+      margin-top: 24px;
+      right: 25px;
+    }
+    .MyAccountTMHLogoContainer {
+      top: 12px;
+      left: 24px;
+      position: absolute;
+    }
+  }
+}

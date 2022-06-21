@@ -1,69 +1,267 @@
+import { Storage } from 'aws-amplify';
 import React, { useEffect, useState } from 'react';
 import { Button, Modal } from 'reactstrap';
+import { v4 as uuidv4 } from 'uuid';
 import { EditorContext } from './EditorContext';
 
-export const renderEditorList = (
-  parents: (string | number)[],
-  list: Record<string, any>
-): any => {
+type Props = {
+  folder: string;
+  onChange(url: string): void;
+};
+
+const ImageModal = (props: Props) => {
+  const [files, setFiles] = useState<string[]>([]);
+  const [showImageModal, setShowImageModal] = useState(false);
+  const handleImageUpload = async (
+    event: React.ChangeEvent<HTMLInputElement>
+  ): Promise<void> => {
+    try {
+      const image = event?.target?.files?.[0];
+
+      //  this.setState({ imageTypeWarning: !image?.name.endsWith('jpg') });
+
+      if (image) {
+        const filepath = 'static/images/editor/' + uuidv4() + image?.name;
+        await Storage.put(filepath, image, {
+          contentType: 'image/*',
+          acl: 'public-read',
+        });
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
+  const loadFiles = async () => {
+    try {
+      console.log(props.folder);
+      const files1 = await Storage.list(props.folder);
+      console.log({ files1: files1 });
+      const mfiles1 = files1.map(async (z) => {
+        return await Storage.get(z.key ?? '');
+      });
+      const z = await Promise.all(mfiles1);
+      setFiles(z);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  useEffect(() => {
+    loadFiles();
+  }, []);
+  return (
+    <>
+      <button
+        onClick={() => {
+          setShowImageModal(true);
+        }}
+      >
+        Pick an Image
+      </button>
+      <Modal style={{ zIndex: 100001 }} isOpen={showImageModal}>
+        <div>
+          {files?.map((item) => {
+            console.log(item);
+            return (
+              <div
+                key={item}
+                onClick={() => {
+                  props.onChange(item);
+                }}
+              >
+                <img src={item} width={80} height={60} />
+              </div>
+            );
+          })}
+        </div>
+        <input
+          type="file"
+          accept="image/jpg"
+          onChange={(e) => {
+            handleImageUpload(e);
+            loadFiles();
+          }}
+        />
+        <Button
+          onClick={() => {
+            setShowImageModal(false);
+          }}
+        >
+          Done
+        </Button>
+      </Modal>
+    </>
+  );
+};
+
+type PropsEditor = {
+  parents: (string | number)[];
+  list: Record<string, any>;
+};
+export const RenderEditorList = (props: PropsEditor): any => {
   const content = React.useContext(EditorContext);
+  console.log({ parents: props.parents });
+  console.log({ list: props.list });
   let currentItem: any = content.content;
-  parents.forEach((z) => {
+  props.parents.forEach((z) => {
     currentItem = currentItem[z] as any;
   });
   console.log({ currentItem: currentItem });
-  console.log({ list: list });
-  return list?.map((item: { type: any; default: any; fieldName: string }) => {
-    switch (item.type) {
-      case 'string':
-        return (
-          <div>
-            {item.fieldName}:
-            <input
-              name={item.fieldName}
-              type="text"
-              value={(currentItem as any)[item.fieldName]}
-              onChange={(value) => {
-                content.editContent(
-                  parents,
-                  item.fieldName,
-                  value.target.value
-                );
-              }}
+  console.log({ list: props.list });
+  return props.list?.map(
+    (item: {
+      type: any;
+      default: any;
+      fieldName: string;
+      options: string[] | null | undefined;
+      fields: any[];
+      folder: string;
+    }) => {
+      switch (item.type) {
+        case 'array':
+          return (
+            <div>
+              {item.fieldName}:
+              <div style={{ borderWidth: 1 }}>
+                {(currentItem as any)[item.fieldName]?.map(
+                  (z: any, index: number) => {
+                    return (
+                      <>
+                        <RenderEditorList
+                          key={index}
+                          parents={[...props.parents, item.fieldName, index]}
+                          list={item.fields}
+                        />
+                        <button
+                          onClick={() => {
+                            const arr1 = [
+                              ...(currentItem as any)[item.fieldName],
+                            ];
+                            arr1.splice(index, 1);
+                            content.editContent(
+                              props.parents,
+                              item.fieldName,
+                              arr1
+                            );
+                          }}
+                        >
+                          delete item
+                        </button>
+                      </>
+                    );
+                  }
+                )}
+              </div>
+              <button
+                onClick={() => {
+                  content.editContent(props.parents, item.fieldName, [
+                    ...(currentItem as any)[item.fieldName],
+                    item.default,
+                  ]);
+                }}
+              >
+                add item
+              </button>
+            </div>
+          );
+          break;
+        case 'image':
+          return (
+            <>
+              <input
+                name={item.fieldName}
+                type="text"
+                value={(currentItem as any)[item.fieldName]}
+                onChange={(value) => {
+                  content.editContent(
+                    props.parents,
+                    item.fieldName,
+                    value.target.value
+                  );
+                }}
+              />
+
+              <ImageModal
+                onChange={(url) => {
+                  content.editContent(props.parents, item.fieldName, url);
+                }}
+                folder={item.folder}
+              ></ImageModal>
+            </>
+          );
+          break;
+        case 'string':
+          return (
+            <div>
+              {item.fieldName}:
+              {item.options ? (
+                <select
+                  value={(currentItem as any)[item.fieldName]}
+                  onChange={(value) => {
+                    content.editContent(
+                      props.parents,
+                      item.fieldName,
+                      value.target.value
+                    );
+                  }}
+                >
+                  {item.options.map((z) => {
+                    return (
+                      <option key={z} value={z}>
+                        {z}
+                      </option>
+                    );
+                  })}
+                </select>
+              ) : (
+                <input
+                  name={item.fieldName}
+                  type="text"
+                  value={(currentItem as any)[item.fieldName]}
+                  onChange={(value) => {
+                    content.editContent(
+                      props.parents,
+                      item.fieldName,
+                      value.target.value
+                    );
+                  }}
+                />
+              )}
+            </div>
+          );
+          break;
+        case 'boolean':
+          return (
+            <div>
+              {item.fieldName}:{' '}
+              <input
+                name={item.fieldName}
+                type="checkbox"
+                checked={(currentItem as any)[item.fieldName]}
+                onChange={(value) => {
+                  console.log(value.target.value);
+                  content.editContent(
+                    props.parents,
+                    item.fieldName,
+                    !(currentItem as any)[item.fieldName]
+                  );
+                }}
+              />
+            </div>
+          );
+          break;
+        case 'object':
+          return (
+            <RenderEditorList
+              parents={[...props.parents, item.fieldName]}
+              list={item.default as Record<string, any>}
             />
-          </div>
-        );
-        break;
-      case 'boolean':
-        return (
-          <div>
-            {item.fieldName}:{' '}
-            <input
-              name={item.fieldName}
-              type="checkbox"
-              checked={(currentItem as any)[item.fieldName]}
-              onChange={(value) => {
-                console.log(value.target.value);
-                content.editContent(
-                  parents,
-                  item.fieldName,
-                  !(currentItem as any)[item.fieldName]
-                );
-              }}
-            />
-          </div>
-        );
-        break;
-      case 'object':
-        return renderEditorList(
-          [...parents, item.fieldName],
-          item.default as Record<string, any>
-        );
-        break;
-      case 'default':
-        return null;
+          );
+          break;
+        case 'default':
+          return null;
+      }
     }
-  });
+  );
 };
 
 export const PageConfigEditor = () => {
@@ -125,7 +323,9 @@ export const PageConfigEditor = () => {
         Add Component
       </Button>
       <Modal isOpen={modalVisible} style={{ zIndex: 100000 }}>
-        {editorList ? renderEditorList(['page'], editorList) : null}
+        {editorList ? (
+          <RenderEditorList parents={['page']} list={editorList} />
+        ) : null}
         <Button
           onClick={() => {
             setModalVisible(false);

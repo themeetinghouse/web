@@ -10,7 +10,8 @@
       {
         "type": "string",
         "fieldName": "style",
-        "default": "full"
+        "default": "full",
+        "options": ["full", "connect", "partialNoFooter", "partial"]
       },
       {
         "type": "string",
@@ -18,20 +19,83 @@
         "default": "Home Church"
       },
       {
-        "type": "boolean",
-        "fieldName": "showSpecial",
-        "default": false
-      },
-
-      {
         "type": "string",
         "fieldName": "header2",
         "default": ""
       },
       {
+        "type": "boolean",
+        "fieldName": "showSpecial",
+        "default": false
+      },
+      {
+        "type": "string",
+        "fieldName": "showSpecialNavigateTo",
+        "default": ""
+      },
+      {
+        "type": "string",
+        "fieldName": "showSpecialText",
+        "default": ""
+      },
+      {
+        "type": "array",
+        "fieldName": "image1",
+        "fields": [
+          {
+            "type": "image",
+            "folder": "static/images/editor/",
+            "fieldName": "src",
+            "default": ""
+          },
+          {
+            "type": "string",
+            "fieldName": "alt",
+            "default": ""
+          }
+        ],
+        "default": []
+      },
+
+      {
         "type": "string",
         "fieldName": "text1",
         "default": ""
+      },
+      {
+        "type": "string",
+        "fieldName": "text2",
+        "default": ""
+      },
+      {
+        "type": "string",
+        "fieldName": "link1Text",
+        "default": ""
+      },
+      {
+        "type": "string",
+        "fieldName": "link1AriaLabel",
+        "default": ""
+      },
+      {
+        "type": "string",
+        "fieldName": "link1Action",
+        "default": ""
+      },
+      {
+        "type": "class",
+        "fieldName": "link1Action",
+        "default": "locations"
+      },
+      {
+        "type": "boolean",
+        "fieldName": "showLocationSearch",
+        "default": false
+      },
+      {
+        "type": "boolean",
+        "fieldName": "hasFooter",
+        "default": true
       },
       {
         "type": "object",
@@ -62,7 +126,17 @@
       {
         "type": "string",
         "fieldName": "style",
-        "default": "oneImage"
+        "default": "oneImage",
+        "options": [
+          "oneImage",
+          "oneImageBlackRight",
+          "mad",
+          "greyTwoText",
+          "oneImageBlackRightExtended",
+          "pieChart",
+          "oneImageYellow",
+          "banner-cards"
+        ]
       },
       {
         "type": "string",
@@ -71,15 +145,58 @@
       },
       {
         "type": "string",
+        "fieldName": "header2",
+        "default": "test"
+      },
+      {
+        "type": "string",
         "fieldName": "text1",
         "default": "test"
       },
       {
-        "type": "object",
-        "fieldName": "image1",
-        "default": [
+        "type": "string",
+        "fieldName": "text2",
+        "default": "test"
+      },
+      {
+        "type": "array",
+        "fieldName": "list",
+        "fields": [
           {
             "type": "string",
+            "fieldName": "type",
+            "default": "link",
+            "options": ["link", "arrow"]
+          },
+          {
+            "type": "string",
+            "fieldName": "title",
+            "default": "find community"
+          },
+          {
+            "type": "string",
+            "fieldName": "navigateTo",
+            "default": "/community"
+          },
+          {
+            "type": "boolean",
+            "fieldName": "openNewBrowser",
+            "default": true
+          },
+          {
+            "type": "string",
+            "fieldName": "description",
+            "default": ""
+          }
+        ],
+        "default": []
+      },
+      {
+        "type": "array",
+        "fieldName": "image1",
+        "fields": [
+          {
+            "type": "image",
             "fieldName": "src",
             "default": ""
           },
@@ -88,7 +205,8 @@
             "fieldName": "alt",
             "default": ""
           }
-        ]
+        ],
+        "default": []
       }
     ]
   }

@@ -1,22 +1,23 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 import ErrorBoundary from 'components/ErrorBoundry';
-import ContentItem from './ContentItem';
-import BlogItem from './BlogItem';
-import ListItem from './ListItem';
-import HeroItem from './HeroItem';
-import HomeMenu from 'components/Menu/HomeMenu';
 import HomeFooter from 'components/Menu/HomeFooter';
-import AppPromo from '../AppPromo/AppPromo';
-import { GEProvider } from './GiveComponents/GEContext';
-import moment from 'moment';
-import RenderRouterItemWrapper from './RenderRouterItemWrapper';
-import EventPage from './EventPage';
+import HomeMenu from 'components/Menu/HomeMenu';
+import HorizMenu from 'components/Menu/HorizMenu';
 import TMHCarousel from 'components/TMHCarousel/TMHCarousel';
-import { Button, Modal } from 'reactstrap';
+import moment from 'moment';
 import { EditorContext } from 'pages/admin/Editor/EditorContext';
-import { renderEditorList } from 'pages/admin/Editor/PageConfigEditor';
+import { RenderEditorList } from 'pages/admin/Editor/PageConfigEditor';
+import React, { useContext, useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
+import { Button, Modal } from 'reactstrap';
+import AppPromo from '../AppPromo/AppPromo';
+import BlogItem from './BlogItem';
+import ContentItem from './ContentItem';
+import EventPage from './EventPage';
+import { GEProvider } from './GiveComponents/GEContext';
+import HeroItem from './HeroItem';
+import ListItem from './ListItem';
+import RenderRouterItemWrapper from './RenderRouterItemWrapper';
 
 const SimpleItem = React.lazy(() => import('./SimpleItem'));
 const SearchItem = React.lazy(() => import('./SearchItem'));
@@ -93,13 +94,15 @@ function RenderAdmin(props: PropsAdmin): JSX.Element | null {
       </Button>
       <Modal isOpen={showModal} style={{ zIndex: 100000 }}>
         {componentList &&
-        componentList.filter((x: any) => x.type == props.item.type)[0].items
-          ? renderEditorList(
-              ['page', 'content', props.index],
+        componentList.filter((x: any) => x.type == props.item.type)[0].items ? (
+          <RenderEditorList
+            parents={['page', 'content', props.index]}
+            list={
               componentList.filter((x: any) => x.type == props.item.type)[0]
                 .items
-            )
-          : null}
+            }
+          />
+        ) : null}
         <Button
           onClick={() => {
             setShowModal(false);
@@ -232,8 +235,10 @@ class RenderRouter extends React.Component<Props, State> {
         return (
           <ErrorBoundary key={index}>
             <RenderRouterItemWrapper index={index}>
-              <RenderAdmin item={item} index={index} />
-              {this.renderItemNow(item, index)}
+              <ErrorBoundary>
+                <RenderAdmin item={item} index={index} />
+              </ErrorBoundary>
+              <ErrorBoundary>{this.renderItemNow(item, index)}</ErrorBoundary>
             </RenderRouterItemWrapper>
           </ErrorBoundary>
         );
@@ -253,10 +258,15 @@ class RenderRouter extends React.Component<Props, State> {
             content={this.state.content.page.description}
           />
         </Helmet>
+
         {this.renderItem()}
         {this.state.content.page.pageConfig.showFooter ? <HomeFooter /> : null}
         {this.state.content.page.name === 'notes' ? <AppPromo /> : null}
-        <HomeMenu pageConfig={this.state.content.page.pageConfig} />
+        {this.state.content.page.pageConfig.menuType == 'horiz' ? (
+          <HorizMenu navigationItems={[]} toggle={() => null} open={false} />
+        ) : (
+          <HomeMenu pageConfig={this.state.content.page.pageConfig} />
+        )}
       </>
     );
   }
