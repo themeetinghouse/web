@@ -1,5 +1,5 @@
-﻿import { Container, Row, Col } from 'reactstrap';
-import { Link } from 'components/Link/Link';
+﻿import { Link } from 'components/Link/Link';
+import { Col, Container, Row } from 'reactstrap';
 import './HomeFooter.scss';
 
 export default function HomeFooter() {
@@ -31,7 +31,7 @@ export default function HomeFooter() {
     },
     {
       platform: 'Discord',
-      link: 'https://www.tinyurl.com/TMH-discord',
+      link: 'https://discord.gg/f2XEMyNVVr',
       svg: '/static/svg/Discord.svg',
     },
   ];
