@@ -75,9 +75,9 @@
     "location": {
       "longitude": -79.8302872,
       "latitude": 43.3439882,
-      "address": "SilveryCity Burlington, 1250 Brant Street"
+      "address": ""
     },
-    "serviceTimes": ["10:00am"]
+    "serviceTimes": ["11:00am"]
   },
   {
     "id": "hamilton-downtown",
