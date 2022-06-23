@@ -91,15 +91,6 @@
   },
   {
     "Staff": true,
-    "FirstName": "Christine",
-    "LastName": "Gratton",
-    "Phone": "905.287.7000, ext. 806",
-    "Position": "Jesus Collective Marketing and Project Manager",
-    "sites": ["Communications"],
-    "Email": "Christine.Gratton@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
     "FirstName": "Christian",
     "LastName": "Nikodemus",
     "Phone": "905.287.7000",
@@ -244,15 +235,6 @@
   },
   {
     "Staff": true,
-    "FirstName": "Jon",
-    "LastName": "Hand",
-    "Phone": "905.287.7000, ext. 844",
-    "Position": "Jesus Collective Leadership Formation Pastor",
-    "sites": ["Site Leadership", "Pastoral"],
-    "Email": "Jon.Hand@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
     "FirstName": "Jordan",
     "LastName": "Duerrstein",
     "Phone": "905.287.7000, ext. 867",
@@ -322,15 +304,6 @@
     "Position": "Finance Director",
     "sites": ["Operations"],
     "Email": "korede.agbenla@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
-    "FirstName": "Laura",
-    "LastName": "Hanna",
-    "Phone": "905.287.7000, ext. 815",
-    "Position": "Jesus Collective Interim Associate Director",
-    "sites": ["Site Leadership"],
-    "Email": "Laura.Hanna@themeetinghouse.com"
   },
   {
     "Staff": true,
@@ -487,15 +460,6 @@
   },
   {
     "Staff": true,
-    "FirstName": "Olivia",
-    "LastName": "Vanderwal",
-    "Phone": "905.287.7000, ext. 868",
-    "Position": "Jesus Collective Communications Liaison",
-    "sites": ["Communications"],
-    "Email": "Olivia.Vanderwal@jesuscollective.com"
-  },
-  {
-    "Staff": true,
     "FirstName": "Phil",
     "LastName": "Prendergast",
     "Phone": "905.287.7000, ext. 849",
@@ -628,14 +592,5 @@
     "Position": "Assistant Technical Director & Audio Engineer",
     "sites": ["Communications"],
     "Email": "willem.Sennema@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
-    "FirstName": "Zulema",
-    "LastName": "Evans",
-    "Phone": "905.287.7000, ext. 832",
-    "Position": "Jesus Collective Project Manager",
-    "sites": ["Site Leadership"],
-    "Email": "Zulema.Evans@themeetinghouse.com"
   }
 ]
