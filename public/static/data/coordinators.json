@@ -68,13 +68,6 @@
     "Position": "Interim Associate Pastor"
   },
   {
-    "FirstName": "Sue",
-    "LastName": "VanEgdom",
-    "sites": ["HMAN"],
-    "Email": "sue.vanegdom@themeetinghouse.com",
-    "Position": "Compassion Coordinator"
-  },
-  {
     "FirstName": "Lisana",
     "LastName": "Walks",
     "sites": ["NMKT"],
@@ -126,12 +119,6 @@
     "FirstName": "Kareema",
     "LastName": "Giscombe-Bartley",
     "sites": ["BRAM"],
-    "Position": "Compassion Coordinator"
-  },
-  {
-    "FirstName": "Terri",
-    "LastName": "Busch",
-    "sites": ["HMAN"],
     "Position": "Compassion Coordinator"
   },
   {
@@ -216,7 +203,7 @@
   {
     "FirstName": "Cynthia",
     "LastName": "Eden",
-    "sites": ["HMMT"],
+    "sites": ["HMMT, HMDT"],
     "Position": "Compassion Coordinator"
   },
   {
