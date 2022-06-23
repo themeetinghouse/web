@@ -10,6 +10,15 @@
   },
   {
     "Staff": true,
+    "FirstName": "Ann",
+    "LastName": "Jobes",
+    "Phone": "905.287.7000",
+    "Position": "Executive Assistance & Board Administrator",
+    "sites": ["Site Leadership"],
+    "Email": "Ann.Jobes@themeetinghouse.com"
+  },
+  {
+    "Staff": true,
     "FirstName": "Anna",
     "LastName": "Lakatos",
     "Phone": "905.287.7000, ext. 842",
