@@ -37,12 +37,12 @@
     }
   }
   .madContainerDiv1 {
-    width: 30vw;
+    width: 38vw;
+    padding-right: 3vw;
     height: 30vw;
     padding-top: 4vw;
   }
   .madContainerDiv2 {
-    padding-left: 8vw;
     padding-right: 0;
     &.madReverse {
       flex: unset;
@@ -52,7 +52,7 @@
   }
   .madPosition {
     position: relative;
-    width: 80vw;
+    width: 90vw;
     left: 20vw;
     height: 46vw;
     z-index: 100;
@@ -82,7 +82,7 @@
     height: 42vw;
     bottom: 3.75vw;
     top: -3.5vw;
-    right: 5vw;
+    right: 7vw;
     border: solid 16px theme.$onyxblacktext;
     &.madReverse {
       right: unset;
@@ -99,12 +99,13 @@
     font-size: 1.2vw;
   }
   .madAContainer {
+    width: 32vw;
+    margin-top: 0px !important;
+    height: unset !important;
     text-align: left;
-    top: -3vw;
-    left: 3vw;
-    width: 28vw;
+    padding: 0px !important;
+    padding-top: 20px !important;
     border: none;
-    margin: -3.3vw;
   }
   .madAContainer:hover {
     .madarrow {
@@ -115,7 +116,7 @@
   .madarrow {
     float: right;
     padding-top: 0px;
-    width: 24px;
+    width: clamp(16px, 1.8vw, 24px);
     transition: 1s;
   }
   /* end Mad */
@@ -685,12 +686,12 @@
   .madContainer {
     flex-direction: column-reverse;
     display: flex;
-    padding-bottom: 60px;
+    padding-bottom: 136px;
   }
   .madPosition {
     position: relative;
     left: 5vw;
-    width: 80vw;
+    width: 90vw;
     z-index: 100;
   }
   .madH1 {
@@ -739,9 +740,10 @@
   }
   .madAContainer {
     text-align: left;
+    padding-bottom: 0px !important;
     top: 6vw;
     left: 0vw;
-    width: 80vw;
+    width: 100vw;
     border: none;
   }
   .madarrow {
