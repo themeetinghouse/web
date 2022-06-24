@@ -562,7 +562,6 @@ export class ContentItem extends React.Component<Props, State> {
             <img
               onClick={() => {
                 this.setState({ mapSelected: false });
-                this.clearLocationSelection();
               }}
               style={
                 this.state.mapSelected ? {} : { backgroundColor: '#EFEFF0' }
@@ -574,7 +573,6 @@ export class ContentItem extends React.Component<Props, State> {
             <img
               onClick={() => {
                 this.setState({ mapSelected: true });
-                this.clearLocationSelection();
               }}
               style={
                 this.state.mapSelected ? { backgroundColor: '#EFEFF0' } : {}
