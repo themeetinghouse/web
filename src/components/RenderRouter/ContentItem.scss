@@ -52,7 +52,7 @@
   }
   .madPosition {
     position: relative;
-    width: 90vw;
+    width: 80vw;
     left: 20vw;
     height: 46vw;
     z-index: 100;
@@ -82,7 +82,7 @@
     height: 42vw;
     bottom: 3.75vw;
     top: -3.5vw;
-    right: 7vw;
+    right: 3vw;
     border: solid 16px theme.$onyxblacktext;
     &.madReverse {
       right: unset;
