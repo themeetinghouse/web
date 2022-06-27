@@ -38,7 +38,7 @@
                   "text": "Our Senior Leadership Team and Board of Overseers are committed to regular, informative, and transparent communication throughout this season. You can expect an update email at least once per month, in addition to other touchpoints."
                 },
                 {
-                  "class": "SimpleItemBoldText",
+                  "class": "SimpleItemTextBold",
                   "text": "Victim Advocacy"
                 },
                 {
@@ -96,7 +96,7 @@
                 "href": "https://form.jotform.com/220701021515538"
               },
               {
-                "class": "SimpleItemBoldText",
+                "class": "SimpleItemTextBold",
                 "text": "Care and Healing"
               },
               {
