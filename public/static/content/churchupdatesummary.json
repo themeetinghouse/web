@@ -28,11 +28,10 @@
           "header1": "Church Family Updates",
           "header2": "",
           "text": [
-            {
-              "type": "simple",
-              "header1": "June 17, 2022",
-              "header2": "",
-              "text": [
+                {
+                "class": "SimpleItemTextBold",
+                "text": "June 17, 2022"
+                },
                 {
                   "class": "SimpleItemText",
                   "text": "Our Senior Leadership Team and Board of Overseers are committed to regular, informative, and transparent communication throughout this season. You can expect an update email at least once per month, in addition to other touchpoints."
@@ -106,9 +105,7 @@
               {
                 "class": "SimpleItemText",
                 "text": "We trust this information is helpful. Thank you for praying with us and walking this journey together as we fix our eyes on Jesus."
-              }
-              ]
-            },
+              },
             {
                 "class": "SimpleItemTextBold",
                 "text": "June 7, 2022"
@@ -154,22 +151,22 @@
             {
                 "class": "SimpleItemText",
                 "text": "If you are unable to attend in person, we will be livestreaming the gathering at the link below. You can click it now if you know you won't be able to attend in order to add it to your calendar."
-            },
-            {
+              },
+              {
               "type": "link",
               "class": "SimpleItemLink",
               "text": "Livestream Link",
               "href": "https://youtu.be/TOypJQmumEM"
-            },
-            {
+              },
+              {
               "class": "SimpleItemText",
               "text": " "
-            },
-            {
+              },
+              {
                 "class": "SimpleItemTextBold",
                 "text": "June 6, 2022"
-            },
-            {
+              },
+              {
                 "class": "SimpleItemText",
                 "text": "Today we learned that Hamilton Police have arrested former pastor Bruxy Cavey and charged him with sexual assault. The release from the Hamilton Police states that at the time of the assault, Bruxy was the Teaching Pastor at The Meeting House. You can find the release statement below:"
               },
@@ -231,11 +228,11 @@
                 "class": "SimpleItemText",
                 "text": "Senior Leadership Team &amp; The Board of Overseers"
               },
-            {
+              {
                 "class": "SimpleItemTextBold",
                 "text": "May 21, 2022"
-            },
-            {
+              },
+              {
                 "class": "SimpleItemText",
                 "text": "On May 13th, we shared that more concerning allegations, unrelated to Bruxy Cavey, came to our attention."
               },
@@ -262,7 +259,7 @@
               {
                 "class": "SimpleItemTextBold",
                 "text": "May 13, 2022"
-            },
+              },
               {
                 "class": "SimpleItemText",
                 "text": "At the end of March, we shared the news that two further allegations of sexual misconduct had been brought forward through our victim advocate, and that another investigation was underway at the request of the complainants. Since then, an additional allegation has come forward and been added to the new investigation. All of these allegations relate to Bruxy Cavey. We expect this investigation will proceed on a similar timeline to the first investigation. We’ll continue to update you as we are able."
@@ -282,7 +279,7 @@
               {
                 "class": "SimpleItemTextBold",
                 "text": "March 19, 2022"
-            },
+              },
               {
                 "class": "SimpleItemText",
                 "text": "As we shared last weekend, we have engaged a third-party victim advocate, Melodie Bissell, to independently and confidentially receive any concerns or allegations of sexual misconduct (including sexual abuse, sexual harassment, or abuse of power or authority) by a pastor, staff member, or lay leader within The Meeting House, whether current or historical."
@@ -399,9 +396,9 @@
                 "class": "SimpleItemText",
                 "text": "Maggie John - Chair of the Overseers Board"
               }  
-          ]
-        }
+            ]
+          }
       ]
     }
-  }
+}
   
