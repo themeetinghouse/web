@@ -6,6 +6,7 @@ type FadeBabyHeroImageProps = {
   imageSrc: ItemImage['src'];
   fallbackUrl?: string;
   breakpointSizes?: { [maxWidth: string]: number };
+  noShowOnStartup?: boolean; // if true, will require manual setting of opacity to 1
 } & React.DetailedHTMLProps<
   React.ImgHTMLAttributes<HTMLImageElement>,
   HTMLImageElement
@@ -17,6 +18,7 @@ export default function FadeImage({
   fallbackUrl,
   imageSrc,
   alt,
+  noShowOnStartup,
   ...htmlProps
 }: FadeBabyHeroImageProps) {
   const [isError, setIsError] = useState(false);
@@ -29,7 +31,7 @@ export default function FadeImage({
         src={isError ? fallbackUrl : imageSrc}
         className={`${className} fadeImage`}
         onLoad={(e) => {
-          e.currentTarget.style.opacity = '1';
+          if (!noShowOnStartup) e.currentTarget.style.opacity = '1';
         }}
         onError={() => setIsError(true)}
         {...htmlProps}
@@ -43,7 +45,7 @@ export default function FadeImage({
       className={`${className} fadeImage`}
       fallbackUrl={fallbackSrc}
       onLoad={(e) => {
-        e.currentTarget.style.opacity = '1';
+        if (!noShowOnStartup) e.currentTarget.style.opacity = '1';
       }}
       {...htmlProps}
     />

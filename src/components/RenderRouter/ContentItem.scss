@@ -82,7 +82,7 @@
     height: 42vw;
     bottom: 3.75vw;
     top: -3.5vw;
-    right: 3vw;
+    right: 1vw;
     border: solid 16px theme.$onyxblacktext;
     &.madReverse {
       right: unset;
@@ -92,6 +92,7 @@
   .madImage {
     height: 35vw;
     width: 35vw;
+    background-color: #fff;
     object-fit: cover;
     top: 3.5vw;
   }
@@ -100,7 +101,7 @@
   }
   .madAContainer {
     width: 32vw;
-    margin-top: 0px !important;
+    margin-top: 2px !important;
     height: unset !important;
     text-align: left;
     padding: 0px !important;
@@ -741,6 +742,7 @@
   .madAContainer {
     text-align: left;
     padding-bottom: 0px !important;
+    padding-top: 20px !important;
     top: 6vw;
     left: 0vw;
     width: 100vw;
