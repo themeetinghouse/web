@@ -54,11 +54,9 @@ export default class SignIn extends React.Component<Props, State> {
       this.setState({ fromVerified: this.props.route?.params?.fromVerified });
     }
   }
-
   async changeAuthState(
     action: UserActions,
     state: string,
-
     data?: AuthStateData | null
   ): Promise<void> {
     this.setState({
@@ -68,7 +66,6 @@ export default class SignIn extends React.Component<Props, State> {
     });
     if (action.onStateChange) await action.onStateChange(state, data ?? null);
   }
-
   validateLogin(): boolean {
     if (!/^\S*$/.test(this.state.user)) {
       this.setState({ authError: 'Email cannot contain spaces' });
@@ -121,8 +118,25 @@ export default class SignIn extends React.Component<Props, State> {
     return (
       <SignIn.UserConsumer>
         {({ userState, userActions }) => {
-          console.log(userState);
+          console.log({ userState });
           if (!userState) return null;
+          try {
+            const cognitoUser = Auth.currentAuthenticatedUser();
+            cognitoUser.then((user) => {
+              const currentSession = Auth.currentSession();
+              currentSession.then((session) => {
+                user.refreshSession(
+                  session.getRefreshToken(),
+                  (err: any, session: any) => {
+                    console.log('session', err, session);
+                    if (!err) this.changeAuthState(userActions, 'signedIn');
+                  }
+                );
+              });
+            });
+          } catch (e) {
+            console.log('Unable to refresh Token', e);
+          }
           return (
             <>
               {userState.authState === 'signIn' ||

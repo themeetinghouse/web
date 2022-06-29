@@ -1,5 +1,5 @@
 import { LinkButton } from 'components/Link/Link';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Spinner } from 'reactstrap';
 import './RecentTransactionsCard.scss';
 
@@ -7,12 +7,21 @@ import { UserContext } from 'components/Auth/UserContext';
 import moment from 'moment';
 
 export default function RecentTransactionsCard(): JSX.Element {
+  const [isLoading, setIsLoading] = useState(true);
   const UserConsumer = useContext(UserContext);
   useEffect(() => {
-    UserConsumer.userActions.getReceipts();
+    UserConsumer.userActions
+      .getReceipts()
+      .then((complete) => {
+        console.log({ complete });
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error({ error });
+        setIsLoading(false);
+      });
   }, []);
   const lastTransacs = UserConsumer.userState?.f1Transactions;
-  const isLoading = lastTransacs == null;
   return (
     <div className="Recent-Trans">
       {isLoading ? (
@@ -77,7 +86,7 @@ export default function RecentTransactionsCard(): JSX.Element {
         </>
       ) : (
         <>
-          <p>
+          <p style={{ flex: 1 }}>
             <b>No recent transactions</b>
           </p>
           <LinkButton className="ViewAllButton" to={'/account/transactions'}>
