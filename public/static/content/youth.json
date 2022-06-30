@@ -53,7 +53,7 @@
         "text1": "Here's what we're learning in Jr High Weekend this week:",
         "image1": [
           {
-            "src": "/static/photos/series/ky-jrhigh-Campfire.jpg",
+            "src": "/static/images/ky-jrhigh-Campfire.jpg",
             "alt": "Campfire"
           }
         ],
@@ -90,7 +90,7 @@
         "text1": "Here's what our Jr High Midweek students are learning this week:",
         "image1": [
           {
-            "src": "/static/photos/series/ky-youth-Campfire.jpg",
+            "src": "/static/images/ky-youth-Campfire.jpg",
             "alt": "Campfire"
           }
         ],
