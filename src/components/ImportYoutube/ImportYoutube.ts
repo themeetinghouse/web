@@ -1,8 +1,8 @@
 import * as queries from '../../graphql/queries';
 import * as customqueries from '../../graphql-custom/customQueries';
 import * as mutations from '../../graphql/mutations';
-import Amplify, { API, graphqlOperation } from 'aws-amplify';
-import awsmobile from '../../aws-exports';
+import { API, graphqlOperation } from '@aws-amplify/api';
+
 import {
   CreateVideoMutation,
   GetVideoByYoutubeIdentQuery,
@@ -16,8 +16,6 @@ import { DeepPartial } from '../../utils';
 import ignorePlaylist from './ignore-playlists';
 import moment from 'moment';
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
-
-Amplify.configure(awsmobile);
 
 type YouTubePlaylist = NonNullable<
   GetYoutubePlaylistQuery['getYoutubePlaylist']['items']

@@ -2,9 +2,7 @@ import React from 'react';
 import * as queries from '../../graphql/queries';
 import * as mutations from '../../graphql/mutations';
 import { EmptyProps } from '../../utils';
-import Amplify, { API } from 'aws-amplify';
 import { Modal } from 'reactstrap';
-import awsmobile from '../../aws-exports';
 import { isSafari } from 'react-device-detect';
 import moment from 'moment';
 import { v4 as uuidv4 } from 'uuid';
@@ -17,9 +15,7 @@ import {
   UpdateLivestreamMutation,
 } from 'API';
 import './livestream.scss';
-import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
-
-Amplify.configure(awsmobile);
+import { GraphQLResult, GRAPHQL_AUTH_MODE, API } from '@aws-amplify/api';
 
 const menuInit = [
   {

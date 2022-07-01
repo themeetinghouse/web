@@ -3,7 +3,7 @@ import {
   F1ListGroupsQuery,
   ListHomeChurchInfosQuery,
 } from 'API';
-import Amplify, { API } from 'aws-amplify';
+import API from '@aws-amplify/api';
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import * as queries from '../../graphql/queries';
 import Badge from 'components/Badge/Badge';
@@ -24,14 +24,11 @@ import { isMobile } from 'react-device-detect';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import Select, { Styles } from 'react-select';
 import { Spinner } from 'reactstrap';
-import awsmobile from '../../aws-exports';
 import DataLoader, { LocationData } from './DataLoader';
 import './HomeChurchItem.scss';
 
 const MAP_BUTTON = '/static/svg/Map, Generic.svg';
 const LIST_BUTTON = '/static/svg/List, Generic.svg';
-
-Amplify.configure(awsmobile);
 
 const HOME_CHURCH_PIN_URL = '/static/svg/HomeChurchPin.svg';
 const HOME_CHURCH_PIN_SELECTED_URL = '/static/svg/HomeChurchPin-selected.svg';

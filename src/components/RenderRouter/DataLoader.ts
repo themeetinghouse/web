@@ -1,9 +1,12 @@
 import * as queries from '../../graphql/queries';
 import * as customQueries from '../../graphql-custom/customQueries';
-import Amplify, { API, graphqlOperation } from 'aws-amplify';
-import awsmobile from '../../aws-exports';
 import moment from 'moment';
-import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
+import {
+  API,
+  graphqlOperation,
+  GraphQLResult,
+  GRAPHQL_AUTH_MODE,
+} from '@aws-amplify/api';
 
 import {
   GetSeriesQuery,
@@ -33,8 +36,6 @@ import {
   FBEvent,
   GetFbEventQuery,
 } from '../../API';
-
-Amplify.configure(awsmobile);
 
 export interface DataLoaderQuery {
   class: string;

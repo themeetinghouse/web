@@ -2,11 +2,11 @@ import React from 'react';
 import { EditorState, ContentState, convertToRaw } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 import BlogPreview from './BlogPreview';
-import awsmobile from '../../aws-exports';
 import * as customQueries from '../../graphql-custom/customQueries';
 import * as queries from '../../graphql/queries';
 import * as mutations from '../../graphql/mutations';
-import Amplify, { API, Storage } from 'aws-amplify';
+import API, { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
+import Storage from '@aws-amplify/storage';
 import { Modal } from 'reactstrap';
 import { v4 as uuidv4 } from 'uuid';
 import draftToHtml from 'draftjs-to-html';
@@ -16,7 +16,6 @@ import { EmptyProps } from 'utils';
 import 'react-datepicker/dist/react-datepicker.css';
 import format from 'date-fns/format';
 import parse from 'date-fns/parse';
-import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 
 import './create-blog.scss';
 import {
@@ -37,8 +36,6 @@ import {
   CreateBlogToVideoSeriesInput,
   DeleteBlogToVideoSeriesInput,
 } from 'API';
-
-Amplify.configure(awsmobile);
 
 const S3_BUCKET =
   'https://themeetinghouse-usercontentstoragetmhusercontent-tmhprod.s3.amazonaws.com/public/';

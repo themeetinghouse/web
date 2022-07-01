@@ -11,14 +11,11 @@ import {
   Label,
   Spinner,
 } from 'reactstrap';
-import Amplify, { API, graphqlOperation } from 'aws-amplify';
+import { API, graphqlOperation } from 'aws-amplify';
 
 import * as queries from '../../graphql/queries';
-import awsmobile from '../../aws-exports';
 import './homeChurchContactModal.scss';
 import { isMobileOnly } from 'react-device-detect';
-
-Amplify.configure(awsmobile);
 
 interface Props {
   show: any;
