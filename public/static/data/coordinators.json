@@ -68,13 +68,6 @@
     "Position": "Interim Associate Pastor"
   },
   {
-    "FirstName": "Sue",
-    "LastName": "VanEgdom",
-    "sites": ["HMAN"],
-    "Email": "sue.vanegdom@themeetinghouse.com",
-    "Position": "Compassion Coordinator"
-  },
-  {
     "FirstName": "Lisana",
     "LastName": "Walks",
     "sites": ["NMKT"],
@@ -129,12 +122,6 @@
     "Position": "Compassion Coordinator"
   },
   {
-    "FirstName": "Terri",
-    "LastName": "Busch",
-    "sites": ["HMAN"],
-    "Position": "Compassion Coordinator"
-  },
-  {
     "FirstName": "Lil",
     "LastName": "Horne",
     "sites": ["KIT"],
@@ -173,6 +160,13 @@
     "sites": ["RHLL"],
     "Email": "chris.pullenayegem@themeetinghouse.com",
     "Position": "Interim Pastor"
+  },
+  {
+    "FirstName": "Shelley",
+    "LastName": "McNab",
+    "sites": ["TOBC"],
+    "Email": "Shelley.McNab@themeetinghouse.com",
+    "Position": "Toronto Youth Associate"
   },
   {
     "FirstName": "Jasmine",
@@ -216,7 +210,7 @@
   {
     "FirstName": "Cynthia",
     "LastName": "Eden",
-    "sites": ["HMMT"],
+    "sites": ["HMDT"],
     "Position": "Compassion Coordinator"
   },
   {
@@ -458,7 +452,8 @@
     "FirstName": "Anthony",
     "LastName": "Mak",
     "sites": ["RHLL"],
-    "Position": "Weekend Service Producer"
+    "Email": "kelly.mak@themeetinghouse.com",
+    "Position": "Youth Coordinator"
   },
   {
     "FirstName": "Kelly",
@@ -487,6 +482,13 @@
     "sites": ["TOBC"],
     "Email": "martybarons@gmail.com",
     "Position": "Music Coordinator"
+  },
+  {
+    "FirstName": "Alex",
+    "LastName": "Lippa",
+    "sites": ["TOUP"],
+    "Email": "Alex.Lippa@themeetinghouse.com",
+    "Position": "Toronto Youth Associate"
   },
   {
     "FirstName": "Russ",
@@ -580,18 +582,6 @@
     "Position": "Kidmax Coordinator"
   },
   {
-    "FirstName": "Kylah",
-    "LastName": "Adams",
-    "sites": ["NMKT"],
-    "Position": "Youth Coordinator"
-  },
-  {
-    "FirstName": "Barry",
-    "LastName": "Smith",
-    "sites": ["NMKT"],
-    "Position": "Youth Coordinator"
-  },
-  {
     "FirstName": "Aaron",
     "LastName": "Webber",
     "sites": ["OTTA"],
@@ -606,24 +596,10 @@
     "Position": "Youth Coordinator"
   },
   {
-    "FirstName": "Adrienne T.",
-    "LastName": "Sulistyo",
-    "sites": ["RHLL"],
-    "Email": "adrienne.sulistyo@themeetinghouse.com",
-    "Position": "Youth Coordinator"
-  },
-  {
     "FirstName": "Carol",
     "LastName": "Babcock",
     "sites": ["SAND"],
     "Position": "Tech Coordinator"
-  },
-  {
-    "FirstName": "Liz",
-    "LastName": "Dale",
-    "sites": ["TODT"],
-    "Email": "liz.dale@themeetinghouse.com",
-    "Position": "Youth Coordinator"
   },
   {
     "FirstName": "Jeremy",

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { CSSProperties, useEffect, useState } from 'react';
 import { PieChart } from 'react-minimal-pie-chart';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { ScaledImage } from 'components/ScaledImage';
@@ -7,6 +7,7 @@ import { ItemImage } from '../types';
 import './ContentItem.scss';
 import DataLoader, { LocationData, LocationQuery } from './DataLoader';
 import AddToCalendar, { Event } from '../AddToCalendar/AddToCalendar';
+import FadeImage from 'components/ScaledImage/FadeImage';
 
 type ContentList = Array<
   | {
@@ -74,6 +75,8 @@ interface Props extends RouteComponentProps {
 
 function ContentItem({ content, nextItem }: Props) {
   const [data, setData] = useState<LocationData[]>();
+
+  const [currentImage, setCurrentImage] = useState(0);
   useEffect(() => {
     const loadLocations = async () => {
       if (content.style === 'youth') {
@@ -133,7 +136,17 @@ function ContentItem({ content, nextItem }: Props) {
 
         case 'arrow':
           return (
-            <LinkButton className="madAContainer" key={id} to={item.navigateTo}>
+            <LinkButton
+              onMouseEnter={() => {
+                // needed to display last image if mismatched number of links and images
+                if (content?.image1?.length && id > content?.image1?.length - 1)
+                  setCurrentImage(content?.image1?.length - 1);
+                else setCurrentImage(id);
+              }}
+              className="madAContainer"
+              key={id}
+              to={item.navigateTo}
+            >
               {item.title}
               <img
                 className="madarrow"
@@ -160,7 +173,6 @@ function ContentItem({ content, nextItem }: Props) {
       }
     });
   };
-
   const image1 = content.image1
     ? content.image1[Math.floor(Math.random() * content.image1.length)]
     : undefined;
@@ -551,11 +563,36 @@ function ContentItem({ content, nextItem }: Props) {
                 <div
                   className={`madrec ${content.reverse ? 'madReverse' : ''}`}
                 ></div>
-                <ScaledImage
-                  image={image1}
-                  className="madImage"
-                  breakpointSizes={heroBreakpoints}
-                />
+                <div className="madImage">
+                  {content?.image1?.map((image, index) => {
+                    const shouldShow =
+                      (content?.image1?.length &&
+                        content.image1.length === 1) ||
+                      index === currentImage;
+                    const fadeStyle: CSSProperties = shouldShow
+                      ? {
+                          opacity: 1,
+                          position: 'absolute',
+                          top: 0,
+                        }
+                      : {
+                          opacity: 0,
+                          position: 'absolute',
+                          top: 0,
+                        };
+                    return (
+                      <FadeImage
+                        noShowOnStartup
+                        key={image.src}
+                        imageSrc={image.src ?? ''}
+                        alt={image.alt ?? ''}
+                        style={fadeStyle}
+                        className="madImage"
+                        breakpointSizes={heroBreakpoints}
+                      />
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>

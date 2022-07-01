@@ -46,7 +46,7 @@
           }
         ],
         "header1": "Burlington",
-        "text1": "Sundays at 10:00am",
+        "text1": "Sundays at 11:00am",
         "text2": "More details below.",
         "text3": "",
         "customLiveLink": "themeetinghouse.com/live",
@@ -61,12 +61,12 @@
         "type": "content",
         "style": "greyTwoText",
         "header1": "Find out more of the details here...",
-        "text1": "We gather as a large group at SilverCity Burlington every Sunday at 10am and provide different programming for kids depending on the week.",
+        "text1": "For the months of July and August we are mixing things up as a church to focus on building a healthy community of people who eat, laugh, play and worship together. We hope you will come and join in on the fun!",
         "list": [
           {
             "type": "link",
-            "title": "March-June In-Person Gatherings",
-            "navigateTo": "/static/pdfs/parishes/TMH Burlington In-Person Gatherings for March - June.pdf"
+            "title": "July & August In-Person Gatherings",
+            "navigateTo": "/static/pdfs/parishes/TMH Burlington In-Person Gatherings for July & August.pdf"
           }
         ]
       },
