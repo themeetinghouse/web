@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
-import { isArray } from 'util';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 import './LadderList.scss';
 
 interface Props extends RouteComponentProps {
@@ -28,7 +27,7 @@ class LadderList extends React.Component<Props, State> {
         >
           <div className="LadderListItemContainer">
             {this.props.children &&
-              isArray(this.props.children) &&
+              Array.isArray(this.props.children) &&
               this.props.children.map((child, index) =>
                 child ? (
                   <div className="LadderListItem" key={index}>

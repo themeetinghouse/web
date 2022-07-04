@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
-import { isArray } from 'util';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 import './HorizontalScrollList.scss';
 
 interface Props extends RouteComponentProps {
@@ -192,7 +191,7 @@ class HorizontalScrollList extends React.Component<Props, State> {
           >
             {/* Each child will be sized to determine how many pages we need compared to the overall width of the container */}
             {this.props.children &&
-              isArray(this.props.children) &&
+              Array.isArray(this.props.children) &&
               this.props.children.map((child, index) =>
                 child ? (
                   <div className="HorizontalScrollListItem" key={index}>
