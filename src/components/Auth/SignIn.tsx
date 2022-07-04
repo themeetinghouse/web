@@ -49,6 +49,7 @@ export default function SignIn(props: SignInProps) {
         changeAuthState(userActions, 'signedIn');
       }
     } catch (error) {
+      changeAuthState(userActions, 'signIn');
       console.log(error);
     }
   };

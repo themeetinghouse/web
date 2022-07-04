@@ -116,7 +116,6 @@ export default function ProfileCard(): JSX.Element {
           <LinkButton
             onClick={async () => {
               await Auth.signOut();
-              //history.push('/');
             }}
             style={{
               marginTop: 30,
@@ -131,7 +130,7 @@ export default function ProfileCard(): JSX.Element {
               borderWidth: 4,
               borderColor: 'black',
             }}
-            to={''}
+            to={'/signin'}
           >
             Logout
           </LinkButton>
