@@ -1,5 +1,101 @@
 [
   {
+    "type": "faq",
+    "items": []
+  },
+  {
+    "type": "simple",
+    "items": []
+  },
+  {
+    "type": "blog",
+    "items": []
+  },
+  {
+    "type": "distance-groups",
+    "items": []
+  },
+  {
+    "type": "form",
+    "items": []
+  },
+  {
+    "type": "event",
+    "items": []
+  },
+  {
+    "type": "home-church",
+    "items": []
+  },
+  {
+    "type": "give2",
+    "items": []
+  },
+  {
+    "type": "give",
+    "items": []
+  },
+  {
+    "type": "goContent",
+    "items": []
+  },
+  {
+    "type": "liveVideoPlayer",
+    "items": []
+  },
+  {
+    "type": "post",
+    "items": []
+  },
+  {
+    "type": "weather",
+    "items": []
+  },
+  {
+    "type": "give",
+    "items": []
+  },
+  {
+    "type": "podcast-player",
+    "items": []
+  },
+  {
+    "type": "search",
+    "items": []
+  },
+  {
+    "type": "series-archive",
+    "items": []
+  },
+  {
+    "type": "videoPlayer",
+    "items": []
+  },
+  {
+    "type": "teaching",
+    "items": []
+  },
+  {
+    "type": "teachingsearch",
+    "items": []
+  },
+  {
+    "type": "video-archive",
+    "items": []
+  },
+  {
+    "type": "podcasts",
+    "items": []
+  },
+  {
+    "type": "sunday-morning",
+    "items": []
+  },
+  {
+    "type": "og-tags",
+    "items": []
+  },
+  {
     "type": "hero",
     "items": [
       {
@@ -120,6 +216,140 @@
       }
     ]
   },
+  {
+    "type": "list",
+    "items": [
+      {
+        "type": "string",
+        "fieldName": "style",
+        "default": "imageList",
+        "options": [
+          "imageList",
+          "imageListHeader",
+          "oneImage",
+          "horizontalBig",
+          "staff",
+          "ladder",
+          "grid",
+          "vertical",
+          "blogs",
+          "horizontal",
+          "curious-ui",
+          "horizontal-video-player"
+        ]
+      },
+      {
+        "type": "string",
+        "fieldName": "class",
+        "default": "user-defined",
+        "options": [
+          "user-defined",
+          "staff",
+          "events",
+          "instagram",
+          "compassion",
+          "blogs",
+          "overseers",
+          "videos",
+          "curious",
+          "series",
+          "watch-page"
+        ]
+      },
+      {
+        "type": "string",
+        "fieldName": "subclass",
+        "default": ""
+      },
+      {
+        "type": "string",
+        "fieldName": "header1",
+        "default": "Teaching"
+      },
+      {
+        "type": "string",
+        "fieldName": "filterField",
+        "default": ""
+      },
+      {
+        "type": "string",
+        "fieldName": "filterValue",
+        "default": ""
+      },
+      {
+        "type": "string",
+        "fieldName": "text1",
+        "default": "text..."
+      },
+      {
+        "type": "stringArray",
+        "fieldName": "facebookEvents",
+        "default": []
+      },
+      {
+        "type": "string",
+        "fieldName": "selector",
+        "default": ""
+      },
+      {
+        "type": "string",
+        "fieldName": "status",
+        "default": ""
+      },
+      {
+        "type": "string",
+        "fieldName": "sortOrder",
+        "default": ""
+      },
+      {
+        "type": "boolean",
+        "fieldName": "skipFirstPost",
+        "default": false
+      },
+      {
+        "type": "boolean",
+        "fieldName": "showEpisodeNumbers",
+        "default": false
+      },
+      {
+        "type": "number",
+        "fieldName": "loadPer",
+        "default": 50
+      },
+      {
+        "type": "array",
+        "fieldName": "list",
+        "fields": [
+          {
+            "type": "string",
+            "fieldName": "title",
+            "default": "Title"
+          },
+          {
+            "type": "string",
+            "fieldName": "text",
+            "default": "Text"
+          },
+          {
+            "type": "string",
+            "fieldName": "imageSrc",
+            "default": ""
+          },
+          {
+            "type": "string",
+            "fieldName": "imageAlt",
+            "default": true
+          },
+          {
+            "type": "string",
+            "fieldName": "navigateTo",
+            "default": ""
+          }
+        ]
+      }
+    ]
+  },
+
   {
     "type": "content",
     "items": [

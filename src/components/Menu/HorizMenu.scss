@@ -1,4 +1,4 @@
-.MyAccountNavContainer {
+.HorizMyAccountNavContainer {
   z-index: 15000;
   justify-content: center;
   width: 100%;
@@ -12,26 +12,26 @@
   flex-direction: row;
   justify-content: flex-start;
 
-  .MyAccountTMHLogoContainer {
+  .HorizMyAccountTMHLogoContainer {
     width: 10.972vw;
   }
 
-  .MyAccountTMHLogo {
+  .HorizMyAccountTMHLogo {
     align-self: center;
     width: 40px;
     height: 47px;
     cursor: pointer;
   }
-  .hamburgerToggle {
+  .HorizhamburgerToggle {
     display: none;
   }
-  .CloseButton {
+  .HorizCloseButton {
     cursor: pointer;
     display: inherit;
     position: absolute;
     right: 25px;
   }
-  .MyAccountNav {
+  .HorizMyAccountNav {
     padding-top: 16px;
     margin-left: -32px;
     display: flex;
@@ -40,7 +40,7 @@
     list-style: none;
     list-style-type: none;
   }
-  .MyAccountNav .navItem {
+  .HorizMyAccountNav .navItem {
     max-height: 50px;
     text-decoration: unset;
     font-family: Graphik Web;
@@ -55,13 +55,13 @@
     }
   }
   @media (max-width: 768px) {
-    .hide {
+    .Horizhide {
       display: none;
     }
-    .CloseButton {
+    .HorizCloseButton {
       margin-top: 8px;
     }
-    .MyAccountNav {
+    .HorizMyAccountNav {
       .navItem {
         margin-left: 22px;
         margin-bottom: 32px;
@@ -87,7 +87,7 @@
       margin-top: 24px;
       right: 25px;
     }
-    .MyAccountTMHLogoContainer {
+    .HorizMyAccountTMHLogoContainer {
       top: 12px;
       left: 24px;
       position: absolute;

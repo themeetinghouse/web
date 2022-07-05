@@ -3,6 +3,10 @@ import React from 'react';
 export const EditorContext = React.createContext({
   addContent: (value: any): any => null,
   deleteContent: (index: number): any => null,
+
+  loadContent: async (filename: string): Promise<void> => {
+    null;
+  },
   editContent: (
     parents: (string | number)[],
     fieldName: string,

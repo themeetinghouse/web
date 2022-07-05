@@ -1,3 +1,4 @@
+import { S3ProviderListOutputItem } from '@aws-amplify/storage';
 import { Storage } from 'aws-amplify';
 import React, { useEffect, useState } from 'react';
 import { Button, Modal } from 'reactstrap';
@@ -265,19 +266,185 @@ export const RenderEditorList = (props: PropsEditor): any => {
 };
 
 export const PageConfigEditor = () => {
-  const [addModalVisible, setAddModalVisible] = useState(false);
+  return (
+    <>
+      <SaveModal />
+      <LoadModal />
+      <PageSettingsModal />
+      <AddListModal />
+    </>
+  );
+};
+
+function LoadModal() {
+  const [loadContent, setLoadContent] = useState<S3ProviderListOutputItem[]>(
+    []
+  );
+
+  const content = React.useContext(EditorContext);
+  const [saveModalVisible, setSaveModalVisible] = useState(false);
+  useEffect(() => {
+    const updateLoadContent = async () => {
+      setLoadContent(await Storage.list('savedContent/'));
+    };
+    updateLoadContent();
+  }, [saveModalVisible]);
+
+  const loadFile = async (location: string) => {
+    try {
+      await content.loadContent(location);
+    } catch (e) {
+      console.log({ e: e });
+    }
+  };
+
+  return (
+    <>
+      <Button
+        style={{ zIndex: 100000 }}
+        onClick={() => {
+          setSaveModalVisible(true);
+        }}
+      >
+        Load...
+      </Button>
+      <Modal isOpen={saveModalVisible} style={{ zIndex: 100000 }}>
+        {loadContent.map((item) => {
+          return (
+            <div
+              onClick={() => {
+                loadFile(item.key ?? 'unknown');
+                setSaveModalVisible(false);
+              }}
+              key={item.key}
+            >
+              {item.key?.replace('savedContent/', '')}
+            </div>
+          );
+        })}
+
+        <Button
+          onClick={() => {
+            setSaveModalVisible(false);
+          }}
+        >
+          Cancel
+        </Button>
+      </Modal>
+    </>
+  );
+}
+
+function SaveModal() {
+  const [savedContent, setSavedContent] = useState<S3ProviderListOutputItem[]>(
+    []
+  );
+  const [saveLocation, setSaveLocation] = useState<string>('');
+
+  const content = React.useContext(EditorContext);
+  const [saveModalVisible, setSaveModalVisible] = useState(false);
+  useEffect(() => {
+    const updateSavedContent = async () => {
+      setSavedContent(await Storage.list('savedContent/'));
+    };
+    updateSavedContent();
+  }, [saveModalVisible]);
+
+  const saveFile = async (location: string, json: any) => {
+    try {
+      await Storage.put('savedContent/' + location, json);
+    } catch (e) {
+      console.log({ e: e });
+    }
+  };
+
+  return (
+    <>
+      {' '}
+      <Button
+        style={{ zIndex: 100000 }}
+        onClick={() => {
+          setSaveModalVisible(true);
+        }}
+      >
+        Save...
+      </Button>
+      <Modal isOpen={saveModalVisible} style={{ zIndex: 100000 }}>
+        {savedContent.map((item) => {
+          return (
+            <div key={item.key}>{item.key?.replace('savedContent/', '')}</div>
+          );
+        })}
+        <div>
+          Filename:
+          <input
+            type="text"
+            value={saveLocation}
+            onChange={(e) => {
+              setSaveLocation(e.target.value);
+            }}
+          />
+        </div>
+        <Button
+          onClick={() => {
+            saveFile(saveLocation, content.content);
+            setSaveModalVisible(false);
+          }}
+        >
+          Done
+        </Button>
+      </Modal>
+    </>
+  );
+}
+function PageSettingsModal() {
   const [modalVisible, setModalVisible] = useState(false);
   const [editorList, setEditorList] = useState<any>();
-  const [addList, setAddList] = useState<any>();
-  const content = React.useContext(EditorContext);
-
   useEffect(() => {
     const updateEditorList = async () => {
       try {
         const z = await fetch('/static/editor/PageEditorFields.json');
         const z1 = await z.json();
         setEditorList(z1);
+      } catch (e) {
+        console.log({ e: e });
+      }
+    };
+    updateEditorList();
+  }, []);
+  return (
+    <>
+      <Button
+        style={{ zIndex: 100000 }}
+        onClick={() => {
+          setModalVisible(true);
+        }}
+      >
+        Page Settings
+      </Button>
+      <Modal isOpen={modalVisible} style={{ zIndex: 100000 }}>
+        {editorList ? (
+          <RenderEditorList parents={['page']} list={editorList} />
+        ) : null}
+        <Button
+          onClick={() => {
+            setModalVisible(false);
+          }}
+        >
+          Done
+        </Button>
+      </Modal>
+    </>
+  );
+}
+function AddListModal() {
+  const [addModalVisible, setAddModalVisible] = useState(false);
+  const content = React.useContext(EditorContext);
+  const [addList, setAddList] = useState<any>();
 
+  useEffect(() => {
+    const updateEditorList = async () => {
+      try {
         const z2 = await fetch('/static/editor/AddFields.json');
         const z3 = await z2.json();
         setAddList(z3);
@@ -302,18 +469,8 @@ export const PageConfigEditor = () => {
       );
     });
   };
-
-  console.log({ editorList: editorList });
   return (
     <>
-      <Button
-        style={{ zIndex: 100000 }}
-        onClick={() => {
-          setModalVisible(true);
-        }}
-      >
-        Page Settings
-      </Button>
       <Button
         style={{ zIndex: 100000 }}
         onClick={() => {
@@ -322,20 +479,8 @@ export const PageConfigEditor = () => {
       >
         Add Component
       </Button>
-      <Modal isOpen={modalVisible} style={{ zIndex: 100000 }}>
-        {editorList ? (
-          <RenderEditorList parents={['page']} list={editorList} />
-        ) : null}
-        <Button
-          onClick={() => {
-            setModalVisible(false);
-          }}
-        >
-          Done
-        </Button>
-      </Modal>
       <Modal isOpen={addModalVisible} style={{ zIndex: 100000 }}>
-        {editorList ? renderAddList(addList) : null}
+        {addList ? renderAddList(addList) : null}
         <Button
           onClick={() => {
             setAddModalVisible(false);
@@ -346,4 +491,4 @@ export const PageConfigEditor = () => {
       </Modal>
     </>
   );
-};
+}

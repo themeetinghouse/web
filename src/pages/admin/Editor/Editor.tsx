@@ -1,10 +1,10 @@
+import { Storage } from 'aws-amplify';
 import RenderRouter from 'components/RenderRouter/RenderRouter';
 import React from 'react';
 import { EmptyProps } from 'utils';
 import './Editor.scss';
 import { EditorContext } from './EditorContext';
 import { PageConfigEditor } from './PageConfigEditor';
-
 const recurseEdit = (
   obj: any,
   parents: (string | number)[],
@@ -35,6 +35,7 @@ type State = {
     fieldName: string,
     value: any
   ) => null;
+  loadContent: (filename: string) => Promise<any>;
   data: any;
   content: any;
 };
@@ -47,6 +48,12 @@ class Editor extends React.Component<Props, State> {
     const z = recurseEdit(this.state.content, parents, fieldName, value);
     console.log(z);
     this.setState({ content: z });
+  };
+  loadContent = async (filename: string): Promise<void> => {
+    const z = await Storage.get(filename);
+    const json = await fetch(z);
+    //  console.log({ json: await json.json() });
+    this.setState({ content: await json.clone().json() });
   };
   deleteContent = (index: number): any => {
     const z = this.state.content;
@@ -62,16 +69,17 @@ class Editor extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
+      loadContent: this.loadContent,
       deleteContent: this.deleteContent,
       addContent: this.addContent,
       editContent: this.editContent,
       data: null,
       content: null,
     };
-    this.loadContent();
+    this.loadDefaultContent();
   }
 
-  async loadContent() {
+  async loadDefaultContent() {
     try {
       const z = await fetch('/static/editor/defaultPage.json');
       const z1 = await z.json();
