@@ -12,9 +12,15 @@ export default function ProfileCard(): JSX.Element {
   const UserConsumer = useContext(UserContext);
   //const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    UserConsumer.userActions.getCurrentUserProfile();
+    UserConsumer.userActions
+      .getCurrentUserProfile()
+      .then((ok) => {
+        console.log({ 'UserConsumer.userState': UserConsumer.userState });
+      })
+      .catch((error) => console.error({ error }));
   }, []);
   const userData = UserConsumer.userState?.user;
+  const userGroups = UserConsumer?.userState?.groups ?? [];
   return (
     <div className="Profile-Card">
       {userData == null ? (
@@ -27,20 +33,29 @@ export default function ProfileCard(): JSX.Element {
         </div>
       ) : (
         <>
-          {/* <img
+          <img
             alt="User Profile"
             className="profilePicture"
             src="/static/svg/Profile.svg"
-         ></img>*/}
-          <h3>
-            {userData.given_name} {userData.family_name}
-          </h3>
-          <span>Email</span>
-          {userData.email && (
-            <p style={{ overflowWrap: 'anywhere' }}>{userData.email}</p>
+          ></img>
+          {userData.given_name && userData.family_name && (
+            <h3>
+              {userData.given_name} {userData.family_name}
+            </h3>
           )}
-          <span>Mobile</span>
-          <p>{userData.phone}</p>
+          {userData.email && (
+            <>
+              <span>Email</span>
+              <p style={{ overflowWrap: 'anywhere' }}>{userData.email}</p>
+            </>
+          )}
+          {userData.phone && (
+            <>
+              <span>Mobile</span>
+              <p>{userData.phone}</p>
+            </>
+          )}
+
           <div className="AddressContainer">
             {userData.billingAddress?.line1 ||
               userData.billingAddress?.line2 ||
@@ -66,6 +81,28 @@ export default function ProfileCard(): JSX.Element {
               <p>{userData.billingAddress?.country}</p>
             )}
           </div>
+          <p
+            style={{
+              overflowWrap: 'anywhere',
+              marginBottom: 0,
+              fontWeight: 700,
+              color: '#212529',
+            }}
+          >
+            Groups:
+          </p>
+
+          <p
+            style={{
+              overflowWrap: 'anywhere',
+              fontSize: 12,
+              color: '#212529',
+            }}
+          >
+            {[...new Set(userGroups)]
+              ?.filter((group) => group !== 'Participant')
+              ?.map((a) => ` ${a},`)}
+          </p>
           <ClickableText style={{ display: 'block' }} to={'/account/profile'}>
             <img
               alt="Edit Icon"
@@ -75,16 +112,16 @@ export default function ProfileCard(): JSX.Element {
             ></img>
             Edit
           </ClickableText>
+          <div style={{ flex: 1 }}></div>
           <LinkButton
             onClick={async () => {
               await Auth.signOut();
-              //history.push('/');
             }}
             style={{
               marginTop: 30,
-              marginLeft: 'auto',
-              marginRight: 'auto',
+              marginRight: 0,
               fontSize: 16,
+              alignSelf: 'center',
               textAlign: 'center',
               width: 116,
               lineHeight: 'unset',
@@ -93,7 +130,7 @@ export default function ProfileCard(): JSX.Element {
               borderWidth: 4,
               borderColor: 'black',
             }}
-            to={''}
+            to={'/signin'}
           >
             Logout
           </LinkButton>

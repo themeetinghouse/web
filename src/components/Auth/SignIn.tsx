@@ -1,259 +1,232 @@
-import * as Sentry from '@sentry/browser';
 import { Auth } from 'aws-amplify';
+import * as Sentry from '@sentry/browser';
 import React from 'react';
-import './AuthPages.scss';
-import MyAccountNav from '../../pages/users/MyAccountNav/MyAccountNav';
 import { AuthStateData } from './AuthStateData';
 import { UserActions, UserContext } from './UserContext';
+import MyAccountNav from 'pages/users/MyAccountNav/MyAccountNav';
 import { Spinner } from 'reactstrap';
+import './AuthPages.scss';
 
-interface Props {
+type SignInProps = {
   navigation?: any;
   route?: any;
-}
-
-interface State {
+};
+type SignInState = {
   pass: string;
   user: string;
   authError: string;
   fromVerified: boolean;
   isLoading: boolean;
-}
+};
 
-export default class SignIn extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    console.log(props.route);
-    this.state = {
-      pass: '',
-      user: props.route?.params?.email ?? '',
-      authError: '',
-      fromVerified: props.route?.params?.fromVerified ?? false,
-      isLoading: false,
-    };
-  }
-  static UserConsumer = UserContext.Consumer;
-  UNSAFE_componentWillMount(): void {
-    console.log(this.props.route);
-    this.setState({
-      user: this.props.route?.params?.email ?? '',
-      fromVerified: this.props.route?.params?.fromVerified ?? false,
-    });
-  }
-  componentDidUpdate(prevProps: Props): void {
-    //        console.log({ CompUpdate: this.props.route })
-    if (this.props.route?.params?.email !== prevProps.route?.params?.email) {
-      //            console.log("UPDATE1")
-      this.setState({ user: this.props.route?.params?.email });
+export default function SignIn(props: SignInProps) {
+  const [state, setState] = React.useState<SignInState>({
+    pass: '',
+    user: props.route?.params?.email ?? '',
+    authError: '',
+    fromVerified: props.route?.params?.fromVerified ?? false,
+    isLoading: false,
+  });
+  const { userActions, userState } = React.useContext(UserContext);
+  const refreshSession = async (): Promise<void> => {
+    try {
+      const cognitoUser = await Auth.currentAuthenticatedUser();
+      const currentSession = await Auth.currentSession();
+      if (!currentSession.isValid()) {
+        try {
+          cognitoUser.refreshSession(
+            currentSession.getRefreshToken(),
+            (err: any) => {
+              if (err) throw err;
+              changeAuthState(userActions, 'signedIn');
+            }
+          );
+          console.log('Successfully refreshed session');
+        } catch (error) {
+          console.error({ error });
+        }
+      } else {
+        changeAuthState(userActions, 'signedIn');
+      }
+    } catch (error) {
+      changeAuthState(userActions, 'signIn');
+      console.log(error);
     }
+  };
+  React.useEffect(() => {
     if (
-      this.props.route?.params?.fromVerified !==
-      prevProps.route?.params?.fromVerified
+      props.route?.params?.fromVerified &&
+      props.route.params.fromVerified !== state.fromVerified
     ) {
-      //            console.log("UPDATE2")
-      this.setState({ fromVerified: this.props.route?.params?.fromVerified });
+      setState((prev) => ({
+        ...prev,
+        fromVerified: Boolean(props.route?.params?.fromVerified),
+      }));
     }
-  }
-
-  async changeAuthState(
+    if (props.route?.params?.email && props.route.params.email !== state.user) {
+      setState((prev) => ({ ...prev, user: props.route.params.email }));
+    }
+  }, [props.route?.params?.email, props.route?.params?.fromVerified]);
+  React.useEffect(() => {
+    const attemptToRefresh = async () => {
+      setState((prev) => ({ ...prev, isLoading: true }));
+      await refreshSession();
+      setState((prev) => ({ ...prev, isLoading: false }));
+    };
+    attemptToRefresh();
+  }, []);
+  const changeAuthState = async (
     action: UserActions,
     state: string,
-
-    data?: AuthStateData | null
-  ): Promise<void> {
-    this.setState({
+    data?: AuthStateData
+  ) => {
+    setState((prev) => ({
+      ...prev,
       pass: '',
       user: '',
       authError: '',
-    });
+    }));
     if (action.onStateChange) await action.onStateChange(state, data ?? null);
-  }
-
-  validateLogin(): boolean {
-    if (!/^\S*$/.test(this.state.user)) {
-      this.setState({ authError: 'Email cannot contain spaces' });
+  };
+  const validateLogin = (): boolean => {
+    if (!/^\S*$/.test(state.user)) {
+      setState((prev) => ({
+        ...prev,
+        authError: 'Email cannot contain spaces',
+      }));
       return false;
     }
-    if (!this.state.user) {
-      this.setState({ authError: 'Email cannot be empty' });
+    if (!state.user) {
+      setState((prev) => ({ ...prev, authError: 'Email cannot be empty' }));
       return false;
     }
-    if (!this.state.pass) {
-      this.setState({ authError: 'Password cannot be empty' });
+    if (!state.pass) {
+      setState((prev) => ({ ...prev, authError: 'Password cannot be empty' }));
       return false;
     }
     return true;
-  }
-  async handleSignIn(actions: any): Promise<void> {
-    if (this.validateLogin()) {
+  };
+  const handleSignIn = async (actions: UserActions) => {
+    if (validateLogin()) {
       try {
-        this.setState({ isLoading: true });
-        Sentry.setUser({ email: this.state.user?.toLowerCase() });
-        Sentry.setTag('User Email', this.state.user?.toLowerCase());
-        await Auth.signIn(this.state.user.toLowerCase(), this.state.pass).then(
+        setState((prev) => ({ ...prev, isLoading: true }));
+        Sentry.setUser({ email: state.user?.toLowerCase() });
+        Sentry.setTag('User Email', state.user?.toLowerCase());
+        await Auth.signIn(state.user.toLowerCase(), state.pass).then(
           async (user) => {
             if (user.challengeName == 'NEW_PASSWORD_REQUIRED') {
-              await this.changeAuthState(actions, 'requireNewPassword', user);
+              await changeAuthState(actions, 'requireNewPassword', user);
             } else {
-              await this.changeAuthState(actions, 'signedIn');
+              await changeAuthState(actions, 'signedIn');
             }
           }
         );
       } catch (err: any) {
-        this.setState({ authError: err.message });
+        setState((prev) => ({ ...prev, authError: err.message }));
         Sentry.configureScope((scope: any) => {
           scope.setUser(null);
         });
       } finally {
-        this.setState({ isLoading: false });
+        setState((prev) => ({ ...prev, isLoading: false }));
       }
     }
-  }
+  };
 
-  /*handleEnter(
-    actions: any,
-    keyEvent: NativeSyntheticEvent<TextInputKeyPressEventData>
-  ): void {
-    if (keyEvent.nativeEvent.key === 'Enter') this.handleSignIn(actions);
-  }
-*/
-  render(): React.ReactNode {
-    return (
-      <SignIn.UserConsumer>
-        {({ userState, userActions }) => {
-          console.log(userState);
-          if (!userState) return null;
-          return (
-            <>
-              {userState.authState === 'signIn' ||
-              userState.authState === 'signedOut' ||
-              userState.authState === 'signedUp' ? (
-                <div
-                  style={{ minHeight: '100vh' }}
-                  className="SignInPageContainer"
-                >
-                  <MyAccountNav
-                    navigationItems={[]}
-                    toggle={() => null}
-                    open={false}
-                  ></MyAccountNav>
-                  <div className="SignInContent">
-                    <div className="SignInForm">
-                      <p
-                        className="SignInHeader"
-                        //accessibilityRole="header"
-                      >
-                        The Meeting House Account Portal
-                      </p>
+  if (!userState) return null;
+  const showSignInForm =
+    userState.authState === 'signIn' ||
+    userState.authState === 'signedOut' ||
+    userState.authState === 'signedUp';
+  return showSignInForm ? (
+    <div style={{ minHeight: '100vh' }} className="SignInPageContainer">
+      <MyAccountNav
+        navigationItems={[]}
+        toggle={() => null}
+        open={false}
+      ></MyAccountNav>
+      <div className="SignInContent">
+        <form className="SignInForm">
+          <p className="SignInHeader">The Meeting House Account Portal</p>
+          <input
+            className="SignInInput"
+            disabled={state.isLoading}
+            type="email"
+            autoFocus
+            autoComplete="username"
+            placeholder="Email"
+            value={state.user}
+            onChange={(e) => {
+              e.persist();
+              setState((prev) => ({ ...prev, user: e.target.value }));
+            }}
+          ></input>
+          <input
+            disabled={state.isLoading}
+            className="SignInInput"
+            autoComplete="current-password"
+            type="password"
+            placeholder="Password"
+            value={state.pass}
+            onChange={(e) => {
+              e.persist();
+              setState((prev) => ({ ...prev, pass: e.target.value }));
+            }}
+          ></input>
 
-                      <input
-                        className="SignInInput"
-                        //  autoCompleteType="email"
-                        //textContentType="emailAddress"
-                        type="email"
-                        autoFocus
-                        //keyboardType="email-address"
-                        placeholder="Email"
-                        value={this.state.user}
-                        onChange={(e: any) =>
-                          this.setState({ user: e.target.value })
-                        }
-
-                        //secureTextEntry={false}
-                      ></input>
-                      <input
-                        className="SignInInput"
-                        // autoCompleteType="password"
-                        // textContentType="password"
-                        // onKeyPress={(e: any) => {
-                        //   this.handleEnter(userActions, e);
-                        // }}
-                        type="password"
-                        placeholder="Password"
-                        value={this.state.pass}
-                        onChange={(e: any) =>
-                          this.setState({ pass: e.target.value })
-                        }
-                      ></input>
-
-                      <div className="SignInButtonContainer">
-                        <button
-                          className="SignInButton white"
-                          //accessibilityLabel="Create account"
-                          //accessibilityHint="Navigate to account creation page"
-                          onClick={async () => {
-                            await this.changeAuthState(
-                              userActions,
-                              'signUp',
-                              null
-                            );
-                          }}
-                        >
-                          Create an Account
-                        </button>
-                        <button
-                          className="SignInButton"
-                          //  accessibilityLabel="Login"
-                          //  accessibilityHint="Navigate to platform"
-                          onClick={async () => {
-                            await this.handleSignIn(userActions);
-                          }}
-                        >
-                          {this.state.isLoading ? (
-                            <>
-                              <Spinner size="sm" /> Signing in...
-                            </>
-                          ) : (
-                            'Sign In'
-                          )}
-                        </button>
-                      </div>
-                      <button
-                        // accessibilityLabel="Forgot password"
-                        // accessibilityHint="Navigate to forgot password page"
-                        // accessibilityRole="button"
-                        style={{
-                          backgroundColor: 'white',
-                          padding: 0,
-                          border: 'none',
-                          width: '13ch',
-                          textAlign: 'left',
-                        }}
-                        onClick={async () => {
-                          await this.changeAuthState(
-                            userActions,
-                            'forgotPassword'
-                          );
-                        }}
-                      >
-                        <div>Forgot password?</div>
-                      </button>
-                      <div
-                      // accessibilityLiveRegion={'assertive'}
-                      // accessibilityRole="alert"
-                      >
-                        {this.state.authError ? (
-                          <img src="/static/svg/Announcement.svg" />
-                        ) : null}
-                        {this.state.authError}
-                      </div>
-                      <div
-                      //   accessible={this.state.fromVerified}
-                      //   accessibilityLiveRegion={'assertive'}
-                      //  accessibilityRole="alert"
-                      >
-                        {this.state.fromVerified
-                          ? 'User Verified. Please Login.'
-                          : null}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ) : null}
-            </>
-          );
-        }}
-      </SignIn.UserConsumer>
-    );
-  }
+          <div className="SignInButtonContainer">
+            <button
+              className="SignInButton white"
+              disabled={state.isLoading}
+              onClick={async () => {
+                await changeAuthState(userActions, 'signUp', undefined);
+              }}
+            >
+              Create an Account
+            </button>
+            <button
+              className="SignInButton"
+              disabled={state.isLoading}
+              onClick={async () => {
+                await handleSignIn(userActions);
+              }}
+            >
+              {state.isLoading ? (
+                <>
+                  <Spinner size="sm" /> Signing in...
+                </>
+              ) : (
+                'Sign In'
+              )}
+            </button>
+          </div>
+          <button
+            style={{
+              backgroundColor: 'white',
+              padding: 0,
+              border: 'none',
+              width: '13ch',
+              textAlign: 'left',
+            }}
+            disabled={state.isLoading}
+            onClick={async () => {
+              await changeAuthState(userActions, 'forgotPassword');
+            }}
+          >
+            Forgot password?
+          </button>
+          <div role="alert">
+            {state.authError ? (
+              <img src="/static/svg/Announcement.svg" />
+            ) : null}
+            {state.authError}
+          </div>
+          <div role="alert">
+            {state.fromVerified ? 'User Verified. Please Login.' : null}
+          </div>
+        </form>
+      </div>
+    </div>
+  ) : (
+    <div>Loading...</div>
+  );
 }

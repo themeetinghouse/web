@@ -1,5 +1,8 @@
 .Recent-Trans {
   background-color: white;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
   grid-area: Recent-Trans;
   table {
     width: 100%;

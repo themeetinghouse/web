@@ -6,12 +6,13 @@ import DashboardHome from './DashboardHome/DashboardHome';
 import GivePage from './Give/GivePage';
 import PaymentMethodsPage from './PaymentMethods/PaymentMethodsPage';
 import TransactionsPage from './Transactions/TransactionsPage';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import ProfilePage from './ProfilePage/ProfilePage';
 import { UserContext } from 'components/Auth/UserContext';
 import Admin from '../admin/index';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
+import { Auth } from 'aws-amplify';
 let env = 'unknown';
 if (window.location === undefined) env = 'mobile';
 else if (window.location.hostname === 'localhost') env = 'dev';
@@ -21,7 +22,7 @@ else env = 'prod';
 export default function AccountMain(): JSX.Element {
   const history = useHistory();
   const [open, setOpen] = useState(false);
-  const { userState } = useContext(UserContext);
+  const { userState, userActions } = useContext(UserContext);
   const [stripePromise] = useState(() =>
     loadStripe(
       env == 'beta'
@@ -29,10 +30,51 @@ export default function AccountMain(): JSX.Element {
         : 'pk_test_51HAcOAIlbu4bS03qE6aactYWmVDkD3scHYRNRWSFhZHIontFxTcf8eWb9ZzYAR9aIBug7Xr9xuyXFXzgTz5MMeJg00VDuFFRTk'
     )
   );
+  const refreshSession = async (): Promise<boolean> => {
+    try {
+      const cognitoUser = await Auth.currentAuthenticatedUser();
+      const currentSession = await Auth.currentSession();
+      if (currentSession.isValid()) return true;
+      try {
+        cognitoUser.refreshSession(
+          currentSession.getRefreshToken(),
+          (err: any) => {
+            if (err) throw err;
+          }
+        );
+        console.log('Successfully refreshed session');
+        return true;
+      } catch (error) {
+        console.error({ error });
+        return false;
+      }
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+  };
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
+    const shouldUpdate = async () => {
+      const isValidSession = await refreshSession();
+      if (!isValidSession) history.push('/signin');
+      else {
+        if (userState?.authState !== 'signedIn') {
+          await userActions.onStateChange('signedIn', null);
+        }
+      }
+    };
+    const runInterval = () => {
+      shouldUpdate();
+      interval = setInterval(shouldUpdate, 5000);
+    };
+    runInterval();
+    return () => {
+      clearInterval(interval);
+    };
+  }, [userState?.authState]);
   if (!userState || userState.authState !== 'signedIn') {
-    console.log('userState', userState);
-    history.push('/signin');
-    return <p>Redirecting</p>;
+    return <div>Loading...</div>;
   } else
     return (
       <div className="MyAccountContainer">
