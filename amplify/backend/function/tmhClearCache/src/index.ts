@@ -5,12 +5,12 @@
 Amplify Params - DO NOT EDIT */
 const AWS = require('aws-sdk');
 const S3 = new AWS.S3();
-const cloudfront = new AWS.cloudfront();
+const cloudfront = new AWS.CloudFront();
 import { deleteRecursive } from './deleteRecursive';
 export const handler = async (event) => {
   try {
     console.log(event);
-    deleteRecursive(
+    await deleteRecursive(
       S3,
       process.env.HOSTING_S3ANDCLOUDFRONT_HOSTINGBUCKETNAME,
       'cached'

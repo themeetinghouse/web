@@ -290,7 +290,7 @@
         },
         "tmhClearCache": {
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "s3Key": "amplify-builds/tmhClearCache-67757a53513138534337-build.zip"
+          "s3Key": "amplify-builds/tmhClearCache-785a35796131764f6b42-build.zip"
         }
       },
       "notifications": {

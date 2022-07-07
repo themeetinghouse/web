@@ -190,6 +190,22 @@
             {
               "Effect": "Allow",
               "Action": [
+                "cloudfront:CreateInvalidation"
+              ],
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:cloudfront::119330689042:distribution/EYO80SQB3QGL"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
                 "s3:GetObject",
                 "s3:ListBucket",
                 "s3:PutObject",
