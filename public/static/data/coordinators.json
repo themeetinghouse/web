@@ -466,7 +466,7 @@
     "LastName": "Mak",
     "sites": ["RHLL"],
     "Email": "Kelly.Mak@themeetinghouse.com",
-    "Position": "Admin Support"
+    "Position": "Prayer Coordinator & Admin Support"
   },
   {
     "FirstName": "Hazel",
@@ -532,6 +532,12 @@
     "LastName": "Chiu",
     "sites": ["RHLL"],
     "Position": "Tech Coordinator"
+  },
+  {
+    "FirstName": "Sandra",
+    "LastName": "Albione",
+    "sites": ["RHLL"],
+    "Position": "Compassion Coordinator"
   },
   {
     "FirstName": "Sue",
