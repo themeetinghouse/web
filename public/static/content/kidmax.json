@@ -52,13 +52,13 @@
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 1 - Praise - CAH EYs.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 2 - Praise - CAH EYs.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 1 - EY Activities.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 2 - EY Activities.pdf",
             "openNewBrowser": true
           },
           {
@@ -86,21 +86,21 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaJuly3.jpg",
-            "alt": "How do we pray?"
+            "src": "/static/images/KidsBigIdeaJuly10.jpg",
+            "alt": "Are all religions true?"
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 1 - Campfire - CAH Kids.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 2 - Campfire - CAH Kids.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activity",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 1 - Activity.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 2 - Activity.pdf",
             "openNewBrowser": true
           },
           {
