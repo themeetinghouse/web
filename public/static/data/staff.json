@@ -13,7 +13,7 @@
     "FirstName": "Ann",
     "LastName": "Jobes",
     "Phone": "905.287.7000",
-    "Position": "Executive Assistance & Board Administrator",
+    "Position": "Executive Assistant & Board Administrator",
     "sites": ["Site Leadership"],
     "Email": "Ann.Jobes@themeetinghouse.com"
   },
@@ -67,7 +67,7 @@
     "FirstName": "Chris",
     "LastName": "Chase",
     "Phone": "905.287.7000",
-    "Position": "Newmarket Lead Pastor",
+    "Position": "Newmarket & Digital Lead Pastor",
     "sites": ["Site Leadership", "NMKT", "Pastoral"],
     "Email": "Chris.Chase@themeetinghouse.com"
   },
@@ -409,7 +409,7 @@
     "FirstName": "Matt",
     "LastName": "Miles",
     "Phone": "905.287.7000, ext. 854",
-    "Position": "Interim Senior Director & Jesus Collective Executive Director",
+    "Position": "Interim Senior Director",
     "sites": ["Site Leadership"],
     "Email": "Matt.Miles@themeetinghouse.com"
   },
