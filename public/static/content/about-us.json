@@ -17,7 +17,7 @@
     "content": [
       {
         "type": "og-tags",
-        "image": "/static/images/about-us-2022.jpg",
+        "image": "/static/images/about-us.jpg",
         "url": "https://www.themeetinghouse.com/about-us",
         "title": "About Us",
         "description": "Get to know us better. We're a church that exists to grow loving communities of Jesus-followers who live and share his irreligious message."
@@ -27,11 +27,11 @@
         "style": "full",
         "image1": [
           {
-            "src": "/static/images/about-us-2022.jpg",
+            "src": "/static/images/about-us.jpg",
             "alt": "All of The Meeting House staff posing outside the building in Oakville."
           },
           {
-            "src": "/static/images/about-us-2022-2.jpg",
+            "src": "/static/images/about-us-new.jpg",
             "alt": "All of The Meeting House staff posing outside the building in Oakville."
           }
         ],
