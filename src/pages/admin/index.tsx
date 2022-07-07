@@ -1,6 +1,7 @@
 import React, { lazy } from 'react';
-import AdminMenu from '../../components/Menu/AdminMenu';
 import { Route, Switch } from 'react-router-dom';
+import AdminMenu from '../../components/Menu/AdminMenu';
+import { ClearCache } from './ClearCache';
 const ImportVideo = lazy(() => import('../../pages/admin/import-video'));
 const MoveVideo = lazy(() => import('../../pages/admin/move-video'));
 const CreateBlog = lazy(() => import('../../pages/admin/create-blog'));
@@ -37,6 +38,10 @@ class Admin extends React.Component {
           <Route path="/account/admin/livestream" render={() => <AddLive />} />
           <Route path="/account/admin/instagram" render={() => <GetInsta />} />
           <Route path="/account/admin/editor" render={() => <Editor />} />
+          <Route
+            path="/account/admin/clearCache"
+            render={() => <ClearCache />}
+          />
           <Route
             path="/account/admin/announcements"
             render={() => <Announcements />}

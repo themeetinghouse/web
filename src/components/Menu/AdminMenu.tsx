@@ -1,21 +1,21 @@
-﻿import 'bootstrap/dist/css/bootstrap.min.css';
-import { Auth } from 'aws-amplify';
+﻿import { Auth } from 'aws-amplify';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
-import { Link } from '../Link/Link';
 import {
   Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
   Nav,
+  Navbar,
+  NavbarBrand,
+  NavbarToggler,
   NavItem,
   NavLink as RSNavLink,
   UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
 } from 'reactstrap';
 import { EmptyProps } from '../../utils';
+import { Link } from '../Link/Link';
 import './adminmenu.scss';
 
 interface State {
@@ -92,6 +92,9 @@ export default class Menu extends React.Component<EmptyProps, State> {
               </NavItem>
               <NavItem>
                 <Link to="/account/admin/editor">Editor</Link>
+              </NavItem>
+              <NavItem>
+                <Link to="/account/admin/clearcache">Clear Cache</Link>
               </NavItem>
               <NavItem>
                 <RSNavLink href="https://github.com/themeetinghouse">

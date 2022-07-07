@@ -26,6 +26,7 @@ type Query {
   emailHomeChurch(name: String, email: String, message: String, homeChurchId: String): emailResponse @function(name: "emailHomeChurch-${env}")
   askQuestion(email: String, body: String): emailResponse @function(name: "QandEh-${env}")
   generatePdf(notes: String, questions: String, week: String, title: String, userId: String): pdfRes @function(name: "tmhnotespdf-${env}")
+  tmhClearCache(ignore:String):Boolean @function (name:"tmhClearCache-${env}") @aws_cognito_user_pools
   tmhPinpointListSegments(nextToken: String): PinpointSegmentList @function(name: "tmhPinpointListSegments-${env}")
   tmhPinpointCreateCampaign(name: String, description: String, segmentId: String, segmentVersion: String, schedule: PinpointScheduleInput, appleMessage: PinpointMessageInput, androidMessage: PinpointMessageInput): Boolean @function(name: "tmhPinpointCreateCampaign-${env}")
   tmhF1LinkUser: Boolean @function(name: "tmhF1LinkUser-${env}") @aws_cognito_user_pools

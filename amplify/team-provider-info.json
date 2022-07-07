@@ -287,6 +287,10 @@
         "sitemapgenerator": {
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
           "s3Key": "amplify-builds/sitemapgenerator-50686c7054616f71525a-build.zip"
+        },
+        "tmhClearCache": {
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/tmhClearCache-67757a53513138534337-build.zip"
         }
       },
       "notifications": {

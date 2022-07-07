@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "hosting": {
+      "S3AndCloudFront": [
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}

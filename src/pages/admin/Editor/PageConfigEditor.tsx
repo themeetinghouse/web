@@ -266,8 +266,17 @@ export const RenderEditorList = (props: PropsEditor): any => {
 };
 
 export const PageConfigEditor = () => {
+  const content = React.useContext(EditorContext);
+
   return (
     <>
+      <button
+        onClick={() => {
+          content.newContent();
+        }}
+      >
+        New
+      </button>
       <SaveModal />
       <LoadModal />
       <PageSettingsModal />
@@ -360,7 +369,6 @@ function SaveModal() {
 
   return (
     <>
-      {' '}
       <Button
         style={{ zIndex: 100000 }}
         onClick={() => {

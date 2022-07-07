@@ -36,10 +36,14 @@ type State = {
     value: any
   ) => null;
   loadContent: (filename: string) => Promise<any>;
+  newContent: () => Promise<any>;
   data: any;
   content: any;
 };
 class Editor extends React.Component<Props, State> {
+  newContent = async (): Promise<void> => {
+    await this.loadDefaultContent();
+  };
   editContent = (
     parents: (string | number)[],
     fieldName: string,
@@ -69,6 +73,7 @@ class Editor extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
+      newContent: this.newContent,
       loadContent: this.loadContent,
       deleteContent: this.deleteContent,
       addContent: this.addContent,

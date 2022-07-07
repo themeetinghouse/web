@@ -22,6 +22,7 @@
     "amplify:cognitodevtmhPreTokenGeneration": "cd amplify/backend/function/cognitodevtmhPreTokenGeneration/src && tsc && cd -",
     "amplify:cognitodevtmhPostAuthentication": "cd amplify/backend/function/cognitodevtmhPostAuthentication/src && tsc && cd -",
     "amplify:tmhPinpointCreateCampaign": "cd amplify/backend/function/tmhPinpointCreateCampaign/src && tsc && cd -",
+    "amplify:tmhClearCache": "cd amplify/backend/function/tmhClearCache/src && tsc && cd -",
     "amplify:tmhPinpointListSegments": "cd amplify/backend/function/tmhPinpointListSegments/src && tsc && cd -",
     "amplify:tmhPinpointCleanupEndpoints": "cd amplify/backend/function/tmhPinpointCleanupEndpoints/src && tsc && cd -",
     "amplify:tmhF1HomeChurch": "cd amplify/backend/function/tmhF1HomeChurch/src && tsc && cd -",

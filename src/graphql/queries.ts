@@ -2909,6 +2909,11 @@ export const generatePdf = /* GraphQL */ `
     }
   }
 `;
+export const tmhClearCache = /* GraphQL */ `
+  query TmhClearCache($ignore: String) {
+    tmhClearCache(ignore: $ignore)
+  }
+`;
 export const tmhPinpointListSegments = /* GraphQL */ `
   query TmhPinpointListSegments($nextToken: String) {
     tmhPinpointListSegments(nextToken: $nextToken) {
