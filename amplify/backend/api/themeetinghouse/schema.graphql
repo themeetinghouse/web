@@ -1275,7 +1275,6 @@ type SpeakerVideos @model @auth(rules: [{allow: public, operations: [read]}, {al
   speaker: Speaker @belongsTo(fields: ["speakerVideosSpeakerId"])
   videoPublishedDate: String
 }
-
 type Series @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Admin"], provider: userPools}]) @searchable {
   id: ID!
   videos: [Video] @hasMany(indexName: "byVideosSeries", fields: ["id"])

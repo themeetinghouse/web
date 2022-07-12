@@ -361,7 +361,18 @@ function SaveModal() {
 
   const saveFile = async (location: string, json: any) => {
     try {
-      await Storage.put('savedContent/' + location, json);
+      await Storage.put('savedContent/' + location + '.json', json, {
+        contentType: 'application/json',
+        acl: 'public-read',
+      });
+      await Storage.put(
+        'savedContent/' + location + '.json.' + Date.now().toString(),
+        json,
+        {
+          contentType: 'application/json',
+          acl: 'public-read',
+        }
+      );
     } catch (e) {
       console.log({ e: e });
     }
@@ -380,7 +391,9 @@ function SaveModal() {
       <Modal isOpen={saveModalVisible} style={{ zIndex: 100000 }}>
         {savedContent.map((item) => {
           return (
-            <div key={item.key}>{item.key?.replace('savedContent/', '')}</div>
+            <div key={item.key}>
+              {item.key?.replace('savedContent/', '').replace('.json', '')}
+            </div>
           );
         })}
         <div>

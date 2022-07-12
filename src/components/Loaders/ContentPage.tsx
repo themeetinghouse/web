@@ -1,10 +1,11 @@
 import Analytics from '@aws-amplify/analytics';
-import GenericModalPage from '../RenderRouter/GenericModalPage';
-import React from 'react';
-import { ReactElement, useEffect, useState } from 'react';
+import React, { ReactElement, useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
+import GenericModalPage from '../RenderRouter/GenericModalPage';
 const RenderRouter = React.lazy(() => import('../RenderRouter/RenderRouter'));
 const VideoOverlay = React.lazy(() => import('../VideoOverlay/VideoOverlay'));
+const S3_BUCKET =
+  'https://themeetinghouse-usercontentstoragetmhusercontent-tmhprod.s3.amazonaws.com/public/';
 
 const notFoundPageContent = fetch('/static/content/404.json')
   .then((response) => response.json())
@@ -28,12 +29,14 @@ export default function ContentPage(): ReactElement | null {
 
   useEffect(() => {
     (async () => {
+      let content;
       try {
-        let content = pages[jsonFile];
+        content = pages[jsonFile];
         if (!content) {
           const response = await fetch(
             '/static/content/' + jsonFile.toLowerCase() + '.json'
           );
+
           content = await response.json();
           setPages({
             [jsonFile]: content,
@@ -44,6 +47,15 @@ export default function ContentPage(): ReactElement | null {
         return;
       } catch (e) {
         console.error(e);
+        const location =
+          S3_BUCKET + 'savedContent/' + jsonFile.toLowerCase() + '.json';
+        console.log(location);
+        const response2 = await fetch(location);
+        content = await response2.json();
+        setPages({
+          [jsonFile]: content,
+          ...pages,
+        });
       }
 
       Analytics.record({
