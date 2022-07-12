@@ -195,7 +195,6 @@ class TeachingItem extends React.Component<Props, State> {
       this.props.history.push(`/videos/${data.series.id}/${data.id}`);
     }
   }
-
   setSelection(selection: string) {
     const { cookies } = this.props;
     cookies.set(this.props.content.group, selection, { path: '/' });
@@ -333,10 +332,9 @@ class TeachingItem extends React.Component<Props, State> {
                     this.handleClick(this.state.listData[this.state.teachingId])
                   }
                   imageSrc={this.determineTeachingImageSrc()}
-                  alt={
-                    this.state.listData[this.state.teachingId]
-                      .thumbnailDescription
-                  }
+                  alt={`${
+                    this.state.listData[this.state.teachingId].seriesTitle
+                  } series`}
                 />
               </div>
             </div>
@@ -347,10 +345,9 @@ class TeachingItem extends React.Component<Props, State> {
                   this.handleClick(this.state.listData[this.state.teachingId])
                 }
                 imageSrc={this.determineTeachingImageSrc()}
-                alt={
-                  this.state.listData[this.state.teachingId]
-                    .thumbnailDescription
-                }
+                alt={`${
+                  this.state.listData[this.state.teachingId].seriesTitle
+                } series`}
               />
             </div>
             <div className="teaching-mostrecent">Most recent</div>

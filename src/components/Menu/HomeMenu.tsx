@@ -191,6 +191,7 @@ class HomeMenu extends React.Component<Props, State> {
             {this.state.showSearch ? (
               <div>
                 <Button
+                  aria-label="Search the meeting house website"
                   className="search"
                   onClick={() => this.setState({ overlayType: 'search' })}
                 >
