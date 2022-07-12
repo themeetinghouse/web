@@ -70,12 +70,22 @@
           "defaultAuthentication": {
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
-              "description": "website",
-              "apiKeyExpirationDays": 180
+              "apiKeyExpirationDays": 180,
+              "apiKeyExpirationDate": "2023-01-08T02:05:04.868Z",
+              "description": "website"
             }
           }
         }
-      }
+      },
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "cognitodevtmh",
+          "attributes": [
+            "UserPoolId"
+          ]
+        }
+      ]
     },
     "image": {
       "service": "API Gateway",

@@ -824,8 +824,8 @@ export const getTakenoteLocations = /* GraphQL */ `
     }
   }
 `;
-export const getFbEvents = /* GraphQL */ `
-  query GetFbEvents($pageId: String) {
+export const getFBEvents = /* GraphQL */ `
+  query GetFBEvents($pageId: String) {
     getFBEvents(pageId: $pageId) {
       data {
         description
@@ -896,8 +896,8 @@ export const getFbEvents = /* GraphQL */ `
     }
   }
 `;
-export const getFbEvent = /* GraphQL */ `
-  query GetFbEvent($eventId: String) {
+export const getFBEvent = /* GraphQL */ `
+  query GetFBEvent($eventId: String) {
     getFBEvent(eventId: $eventId) {
       description
       end_time
@@ -3900,8 +3900,8 @@ export const searchF1ListGroup2s = /* GraphQL */ `
     }
   }
 `;
-export const getTnSeries = /* GraphQL */ `
-  query GetTnSeries($id: ID!) {
+export const getTNSeries = /* GraphQL */ `
+  query GetTNSeries($id: ID!) {
     getTNSeries(id: $id) {
       id
       TNident
@@ -4036,8 +4036,8 @@ export const getTnSeries = /* GraphQL */ `
     }
   }
 `;
-export const listTnSeries = /* GraphQL */ `
-  query ListTnSeries(
+export const listTNSeries = /* GraphQL */ `
+  query ListTNSeries(
     $id: ID
     $filter: ModelTNSeriesFilterInput
     $limit: Int
@@ -4165,8 +4165,8 @@ export const listTnSeries = /* GraphQL */ `
     }
   }
 `;
-export const getTnSeriesByIdent = /* GraphQL */ `
-  query GetTnSeriesByIdent(
+export const getTNSeriesByIdent = /* GraphQL */ `
+  query GetTNSeriesByIdent(
     $TNident: String!
     $sortDirection: ModelSortDirection
     $filter: ModelTNSeriesFilterInput
@@ -4294,8 +4294,8 @@ export const getTnSeriesByIdent = /* GraphQL */ `
     }
   }
 `;
-export const getTnSermon = /* GraphQL */ `
-  query GetTnSermon($id: ID!) {
+export const getTNSermon = /* GraphQL */ `
+  query GetTNSermon($id: ID!) {
     getTNSermon(id: $id) {
       id
       TNident
@@ -4432,8 +4432,8 @@ export const getTnSermon = /* GraphQL */ `
     }
   }
 `;
-export const listTnSermons = /* GraphQL */ `
-  query ListTnSermons(
+export const listTNSermons = /* GraphQL */ `
+  query ListTNSermons(
     $id: ID
     $filter: ModelTNSermonFilterInput
     $limit: Int
@@ -4568,8 +4568,8 @@ export const listTnSermons = /* GraphQL */ `
     }
   }
 `;
-export const getTnSermonByIdent = /* GraphQL */ `
-  query GetTnSermonByIdent(
+export const getTNSermonByIdent = /* GraphQL */ `
+  query GetTNSermonByIdent(
     $TNident: String!
     $sortDirection: ModelSortDirection
     $filter: ModelTNSermonFilterInput
@@ -25545,8 +25545,8 @@ export const searchWebPages = /* GraphQL */ `
     }
   }
 `;
-export const getTmhUser = /* GraphQL */ `
-  query GetTmhUser($id: ID!) {
+export const getTMHUser = /* GraphQL */ `
+  query GetTMHUser($id: ID!) {
     getTMHUser(id: $id) {
       id
       given_name
@@ -25579,8 +25579,8 @@ export const getTmhUser = /* GraphQL */ `
     }
   }
 `;
-export const listTmhUsers = /* GraphQL */ `
-  query ListTmhUsers(
+export const listTMHUsers = /* GraphQL */ `
+  query ListTMHUsers(
     $filter: ModelTMHUserFilterInput
     $limit: Int
     $nextToken: String

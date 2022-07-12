@@ -536,8 +536,8 @@ export const onDeleteF1ListGroup2 = /* GraphQL */ `
     }
   }
 `;
-export const onCreateTnSeries = /* GraphQL */ `
-  subscription OnCreateTnSeries {
+export const onCreateTNSeries = /* GraphQL */ `
+  subscription OnCreateTNSeries {
     onCreateTNSeries {
       id
       TNident
@@ -672,8 +672,8 @@ export const onCreateTnSeries = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateTnSeries = /* GraphQL */ `
-  subscription OnUpdateTnSeries {
+export const onUpdateTNSeries = /* GraphQL */ `
+  subscription OnUpdateTNSeries {
     onUpdateTNSeries {
       id
       TNident
@@ -808,8 +808,8 @@ export const onUpdateTnSeries = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteTnSeries = /* GraphQL */ `
-  subscription OnDeleteTnSeries {
+export const onDeleteTNSeries = /* GraphQL */ `
+  subscription OnDeleteTNSeries {
     onDeleteTNSeries {
       id
       TNident
@@ -944,8 +944,8 @@ export const onDeleteTnSeries = /* GraphQL */ `
     }
   }
 `;
-export const onCreateTnSermon = /* GraphQL */ `
-  subscription OnCreateTnSermon {
+export const onCreateTNSermon = /* GraphQL */ `
+  subscription OnCreateTNSermon {
     onCreateTNSermon {
       id
       TNident
@@ -1082,8 +1082,8 @@ export const onCreateTnSermon = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateTnSermon = /* GraphQL */ `
-  subscription OnUpdateTnSermon {
+export const onUpdateTNSermon = /* GraphQL */ `
+  subscription OnUpdateTNSermon {
     onUpdateTNSermon {
       id
       TNident
@@ -1220,8 +1220,8 @@ export const onUpdateTnSermon = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteTnSermon = /* GraphQL */ `
-  subscription OnDeleteTnSermon {
+export const onDeleteTNSermon = /* GraphQL */ `
+  subscription OnDeleteTNSermon {
     onDeleteTNSermon {
       id
       TNident
@@ -37688,8 +37688,8 @@ export const onDeleteWebPage = /* GraphQL */ `
     }
   }
 `;
-export const onCreateTmhUser = /* GraphQL */ `
-  subscription OnCreateTmhUser($owner: String) {
+export const onCreateTMHUser = /* GraphQL */ `
+  subscription OnCreateTMHUser($owner: String) {
     onCreateTMHUser(owner: $owner) {
       id
       given_name
@@ -37722,8 +37722,8 @@ export const onCreateTmhUser = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateTmhUser = /* GraphQL */ `
-  subscription OnUpdateTmhUser($owner: String) {
+export const onUpdateTMHUser = /* GraphQL */ `
+  subscription OnUpdateTMHUser($owner: String) {
     onUpdateTMHUser(owner: $owner) {
       id
       given_name
@@ -37756,8 +37756,8 @@ export const onUpdateTmhUser = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteTmhUser = /* GraphQL */ `
-  subscription OnDeleteTmhUser($owner: String) {
+export const onDeleteTMHUser = /* GraphQL */ `
+  subscription OnDeleteTMHUser($owner: String) {
     onDeleteTMHUser(owner: $owner) {
       id
       given_name

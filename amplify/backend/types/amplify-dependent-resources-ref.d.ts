@@ -233,6 +233,12 @@ export type AmplifyDependentResourcesAttributes = {
       LambdaExecutionRole: 'string';
       CloudWatchEventRule: 'string';
     };
+    tmhClearCache: {
+      Name: 'string';
+      Arn: 'string';
+      Region: 'string';
+      LambdaExecutionRole: 'string';
+    };
   };
   analytics: {
     themeetinghouse: {

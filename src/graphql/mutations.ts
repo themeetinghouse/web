@@ -563,8 +563,8 @@ export const deleteF1ListGroup2 = /* GraphQL */ `
     }
   }
 `;
-export const createTnSeries = /* GraphQL */ `
-  mutation CreateTnSeries(
+export const createTNSeries = /* GraphQL */ `
+  mutation CreateTNSeries(
     $input: CreateTNSeriesInput!
     $condition: ModelTNSeriesConditionInput
   ) {
@@ -702,8 +702,8 @@ export const createTnSeries = /* GraphQL */ `
     }
   }
 `;
-export const updateTnSeries = /* GraphQL */ `
-  mutation UpdateTnSeries(
+export const updateTNSeries = /* GraphQL */ `
+  mutation UpdateTNSeries(
     $input: UpdateTNSeriesInput!
     $condition: ModelTNSeriesConditionInput
   ) {
@@ -841,8 +841,8 @@ export const updateTnSeries = /* GraphQL */ `
     }
   }
 `;
-export const deleteTnSeries = /* GraphQL */ `
-  mutation DeleteTnSeries(
+export const deleteTNSeries = /* GraphQL */ `
+  mutation DeleteTNSeries(
     $input: DeleteTNSeriesInput!
     $condition: ModelTNSeriesConditionInput
   ) {
@@ -980,8 +980,8 @@ export const deleteTnSeries = /* GraphQL */ `
     }
   }
 `;
-export const createTnSermon = /* GraphQL */ `
-  mutation CreateTnSermon(
+export const createTNSermon = /* GraphQL */ `
+  mutation CreateTNSermon(
     $input: CreateTNSermonInput!
     $condition: ModelTNSermonConditionInput
   ) {
@@ -1121,8 +1121,8 @@ export const createTnSermon = /* GraphQL */ `
     }
   }
 `;
-export const updateTnSermon = /* GraphQL */ `
-  mutation UpdateTnSermon(
+export const updateTNSermon = /* GraphQL */ `
+  mutation UpdateTNSermon(
     $input: UpdateTNSermonInput!
     $condition: ModelTNSermonConditionInput
   ) {
@@ -1262,8 +1262,8 @@ export const updateTnSermon = /* GraphQL */ `
     }
   }
 `;
-export const deleteTnSermon = /* GraphQL */ `
-  mutation DeleteTnSermon(
+export const deleteTNSermon = /* GraphQL */ `
+  mutation DeleteTNSermon(
     $input: DeleteTNSermonInput!
     $condition: ModelTNSermonConditionInput
   ) {
@@ -37895,8 +37895,8 @@ export const deleteWebPage = /* GraphQL */ `
     }
   }
 `;
-export const createTmhUser = /* GraphQL */ `
-  mutation CreateTmhUser(
+export const createTMHUser = /* GraphQL */ `
+  mutation CreateTMHUser(
     $input: CreateTMHUserInput!
     $condition: ModelTMHUserConditionInput
   ) {
@@ -37932,8 +37932,8 @@ export const createTmhUser = /* GraphQL */ `
     }
   }
 `;
-export const updateTmhUser = /* GraphQL */ `
-  mutation UpdateTmhUser(
+export const updateTMHUser = /* GraphQL */ `
+  mutation UpdateTMHUser(
     $input: UpdateTMHUserInput!
     $condition: ModelTMHUserConditionInput
   ) {
@@ -37969,8 +37969,8 @@ export const updateTmhUser = /* GraphQL */ `
     }
   }
 `;
-export const deleteTmhUser = /* GraphQL */ `
-  mutation DeleteTmhUser(
+export const deleteTMHUser = /* GraphQL */ `
+  mutation DeleteTMHUser(
     $input: DeleteTMHUserInput!
     $condition: ModelTMHUserConditionInput
   ) {
