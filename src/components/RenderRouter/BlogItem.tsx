@@ -1,27 +1,27 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
+import { API } from 'aws-amplify';
 import {
-  getBlogSeries,
   getBlogByBlogStatus,
   getBlogsByVideoForWatchPage,
+  getBlogSeries,
 } from 'graphql-custom/customQueries';
-import { API } from 'aws-amplify';
-import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-import moment from 'moment';
-import { Link, LinkButton } from 'components/Link/Link';
 import {
-  GetBlogSeriesQuery,
   GetBlogByBlogStatusQuery,
   GetBlogByBlogStatusQueryVariables,
-  ModelSortDirection,
-  GetVideoQueryVariables,
+  GetBlogSeriesQuery,
   GetVideoQuery,
+  GetVideoQueryVariables,
+  ModelSortDirection,
 } from 'API';
-import { BlogItemContent } from 'components/types';
+import { Link, LinkButton } from 'components/Link/Link';
 import { BlogImage } from 'components/ScaledImage';
-import HorizontalScrollList from './HorizontalScrollList';
+import { BlogItemContent } from 'components/types';
+import moment from 'moment';
 import './BlogItem.scss';
+import HorizontalScrollList from './HorizontalScrollList';
 
 // Helper components
 interface BlogPreviewTextProps {
@@ -196,7 +196,7 @@ const BlogItem = ({ content }: Props) => {
       const todayString = today.format('YYYY-MM-DD');
       const queryVariables: GetBlogByBlogStatusQueryVariables = {
         publishedDate: { le: todayString },
-        blogStatus: status,
+        blogStatus: status ?? '',
         sortDirection: ModelSortDirection[sortOrder ?? 'DESC'],
         limit: 100,
         filter: { hiddenMainIndex: { ne: true } },

@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { CognitoUser } from '@aws-amplify/auth';
-import { AuthStateData } from './AuthStateData';
 import { GraphQLResult } from '@aws-amplify/api';
-import { GetTmhUserQuery, TmhF1SearchContributionReceiptsQuery } from 'API';
+import { CognitoUser } from '@aws-amplify/auth';
+import { GetTMHUserQuery, TmhF1SearchContributionReceiptsQuery } from 'API';
+import * as React from 'react';
+import { AuthStateData } from './AuthStateData';
 
 export type TMHUserData = {
   sub: string;
@@ -22,7 +22,7 @@ export interface UserState {
   hasCompletedPersonalProfile: ProfileStatus;
   userExists: boolean;
   user:
-    | NonNullable<GraphQLResult<GetTmhUserQuery>['data']>['getTMHUser']
+    | NonNullable<GraphQLResult<GetTMHUserQuery>['data']>['getTMHUser']
     | undefined
     | null;
   f1Transactions: NonNullable<

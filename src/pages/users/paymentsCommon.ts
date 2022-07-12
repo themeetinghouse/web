@@ -1,8 +1,8 @@
 import API, { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import {
-  GetTmhUserQuery,
-  TmhStripeListPaymentMethodsQuery,
+  GetTMHUserQuery,
   TmhF1SearchContributionReceiptsQuery,
+  TmhStripeListPaymentMethodsQuery,
 } from 'API';
 import { Auth } from 'aws-amplify';
 import * as queries from '../../graphql/queries';
@@ -36,19 +36,19 @@ export default class PaymentsCommon {
       ?.results;
   };
   static getCurrentUserProfile = async (): Promise<
-    GraphQLResult<GetTmhUserQuery>
+    GraphQLResult<GetTMHUserQuery>
   > => {
     const user = await Auth.currentAuthenticatedUser().catch(() => {
       console.log('No current authenticated user');
     });
     console.log(user);
     const tmhUser = (await API.graphql({
-      query: queries.getTmhUser,
+      query: queries.getTMHUser,
       variables: {
         id: user?.username,
       },
       authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-    })) as GraphQLResult<GetTmhUserQuery>;
+    })) as GraphQLResult<GetTMHUserQuery>;
     console.log(tmhUser);
     return tmhUser;
   };

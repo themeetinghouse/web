@@ -1,19 +1,18 @@
 import API, { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
-import { UserContext } from 'components/Auth/UserContext';
-import { useContext, useEffect, useRef } from 'react';
-import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { Spinner } from 'reactstrap';
-import ProfileForm from './ProfileForm';
-import './ProfilePage.scss';
-import * as queries from '../../../graphql/queries';
-import * as mutations from '../../../graphql/mutations';
 import {
   TmhStripeAddCustomerQuery,
   UpdateTMHUserInput,
-  UpdateTmhUserMutation,
+  UpdateTMHUserMutation,
 } from 'API';
+import { UserContext } from 'components/Auth/UserContext';
+import { useContext, useEffect, useRef, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { Spinner } from 'reactstrap';
 import { v4 as uuidv4 } from 'uuid';
+import * as mutations from '../../../graphql/mutations';
+import * as queries from '../../../graphql/queries';
+import ProfileForm from './ProfileForm';
+import './ProfilePage.scss';
 
 export default function ProfilePage() {
   const history = useHistory();
@@ -60,10 +59,10 @@ export default function ProfilePage() {
 
       console.log({ temp: temp });
       const updateTmhUser = (await API.graphql({
-        query: mutations.updateTmhUser,
+        query: mutations.updateTMHUser,
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
         variables: { input: temp },
-      })) as GraphQLResult<UpdateTmhUserMutation>;
+      })) as GraphQLResult<UpdateTMHUserMutation>;
       console.log({ updateUser: updateTmhUser });
       await updateUser();
     } catch (e: any) {

@@ -1,40 +1,40 @@
-import * as queries from '../../graphql/queries';
-import * as customQueries from '../../graphql-custom/customQueries';
-import moment from 'moment';
 import {
   API,
   graphqlOperation,
   GraphQLResult,
   GRAPHQL_AUTH_MODE,
 } from '@aws-amplify/api';
+import moment from 'moment';
+import * as customQueries from '../../graphql-custom/customQueries';
+import * as queries from '../../graphql/queries';
 
 import {
+  FBEvent,
+  GetBlogByBlogStatusQuery,
+  GetBlogByBlogStatusQueryVariables,
+  GetBlogQuery,
+  GetCustomPlaylistQuery,
+  GetCustomPlaylistQueryVariables,
+  GetFBEventQuery,
+  GetFBEventsQuery,
+  GetFBEventsQueryVariables,
+  GetInstaPhotosQuery,
+  GetInstaPhotosQueryVariables,
+  GetSeriesBySeriesTypeQuery,
+  GetSeriesBySeriesTypeQueryVariables,
   GetSeriesQuery,
   GetSeriesQueryVariables,
   GetVideoByVideoTypeQuery,
   GetVideoByVideoTypeQueryVariables,
-  ModelSortDirection,
-  ListSpeakersQuery,
-  ListSpeakersQueryVariables,
-  GetBlogByBlogStatusQuery,
-  GetBlogByBlogStatusQueryVariables,
-  GetSeriesBySeriesTypeQuery,
-  GetSeriesBySeriesTypeQueryVariables,
-  GetFbEventsQuery,
-  GetFbEventsQueryVariables,
-  GetCustomPlaylistQuery,
-  GetCustomPlaylistQueryVariables,
   ListCustomPlaylistsQuery,
   ListCustomPlaylistsQueryVariables,
   ListF1ListGroup2sQuery,
   ListF1ListGroup2sQueryVariables,
-  GetBlogQuery,
+  ListSpeakersQuery,
+  ListSpeakersQueryVariables,
+  ModelSortDirection,
   SearchBlogsQuery,
   SearchBlogsQueryVariables,
-  GetInstaPhotosQueryVariables,
-  GetInstaPhotosQuery,
-  FBEvent,
-  GetFbEventQuery,
 } from '../../API';
 
 export interface DataLoaderQuery {
@@ -249,7 +249,7 @@ export type BlogData = NonNullable<
 >[0];
 
 export type EventData = NonNullable<
-  NonNullable<GetFbEventsQuery['getFBEvents']>['data']
+  NonNullable<GetFBEventsQuery['getFBEvents']>['data']
 >[0];
 
 export type ListF1ListGroup2sData = NonNullable<
@@ -771,10 +771,10 @@ export default class DataLoader {
     try {
       const variables = { eventId: eventId };
       const getFbEvent = API.graphql({
-        query: queries.getFbEvent,
+        query: queries.getFBEvent,
         variables,
         authMode: GRAPHQL_AUTH_MODE.API_KEY,
-      }) as Promise<GraphQLResult<GetFbEventQuery>>;
+      }) as Promise<GraphQLResult<GetFBEventQuery>>;
       const json = await getFbEvent;
       return json.data?.getFBEvent as FBEvent;
     } catch (error) {
@@ -784,14 +784,14 @@ export default class DataLoader {
   }
 
   private static async getEvents(eventId: string): Promise<EventData[]> {
-    const variables: GetFbEventsQueryVariables = {
+    const variables: GetFBEventsQueryVariables = {
       pageId: eventId,
     };
     const getFbEvents = API.graphql({
-      query: queries.getFbEvents,
+      query: queries.getFBEvents,
       variables,
       authMode: GRAPHQL_AUTH_MODE.API_KEY,
-    }) as Promise<GraphQLResult<GetFbEventsQuery>>;
+    }) as Promise<GraphQLResult<GetFBEventsQuery>>;
     try {
       const json = await getFbEvents;
       console.debug('Success queries.getFBEvents: ' + json);
