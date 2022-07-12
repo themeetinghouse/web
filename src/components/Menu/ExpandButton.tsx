@@ -34,7 +34,8 @@ export default function ExpandButton(props: ExpandButtonProps) {
   return (
     <Button
       id={`${item}+`}
-      aria-label="Expand Menu"
+      aria-label={`Expand ${item}`}
+      aria-expanded={shouldExpand}
       className="expanderButton"
       onClick={setExpand}
     >

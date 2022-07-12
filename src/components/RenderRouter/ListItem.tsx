@@ -357,11 +357,19 @@ class ListItem extends React.Component<Props, State> {
     if (!item) {
       return null;
     }
+    const label = item?.series?.id?.includes('livestream')
+      ? `Navigate to watch ${moment(item.publishedDate).format(
+          'dddd, MMMM Do YYYY'
+        )} livestream.`
+      : `Navigate to watch episode ${item.episodeNumber} titled ${
+          item.episodeTitle
+        } ${item.seriesTitle ? ` from the ${item.seriesTitle} series` : ''}`;
     return (
       <button
         onClick={() => {
           this.handleClick(item);
         }}
+        aria-label={label}
         key={item.id ?? ''}
         className={
           'ListItemVideo' +
@@ -372,6 +380,7 @@ class ListItem extends React.Component<Props, State> {
         <img
           alt={
             (item as VideoByVideoTypeData)?.thumbnailDescription ||
+            `${item?.episodeTitle} thumbnail` ||
             'Video Thumbnail'
           }
           className="ListItemVideoThumb"
