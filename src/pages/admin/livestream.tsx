@@ -1,11 +1,4 @@
-import React from 'react';
-import * as queries from '../../graphql/queries';
-import * as mutations from '../../graphql/mutations';
-import { EmptyProps } from '../../utils';
-import { Modal } from 'reactstrap';
-import { isSafari } from 'react-device-detect';
-import moment from 'moment';
-import { v4 as uuidv4 } from 'uuid';
+import { API, GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import {
   CreateLivestreamMutation,
   CreateLivestreamMutationVariables,
@@ -14,8 +7,15 @@ import {
   ListLivestreamsQueryVariables,
   UpdateLivestreamMutation,
 } from 'API';
+import moment from 'moment';
+import React from 'react';
+import { isSafari } from 'react-device-detect';
+import { Modal } from 'reactstrap';
+import { v4 as uuidv4 } from 'uuid';
+import * as mutations from '../../graphql/mutations';
+import * as queries from '../../graphql/queries';
+import { EmptyProps } from '../../utils';
 import './livestream.scss';
-import { GraphQLResult, GRAPHQL_AUTH_MODE, API } from '@aws-amplify/api';
 
 const menuInit = [
   {
@@ -69,7 +69,7 @@ const liveInit = {
   startTime: '06:00',
   videoStartTime: '10:00',
   endTime: '13:00',
-  prerollYoutubeId: 'Gob46UJuNis',
+  prerollYoutubeId: 'DdKLazlFz0g',
   liveYoutubeId: '',
   liveVimeoId: '',
   showChat: true,
