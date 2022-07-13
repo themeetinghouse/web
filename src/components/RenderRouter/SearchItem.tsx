@@ -1,13 +1,9 @@
-import React from 'react';
-import './SearchItem.scss';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { GraphQLResult } from '@aws-amplify/api';
+import React from 'react';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
+import './SearchItem.scss';
 
 import { API, graphqlOperation } from '@aws-amplify/api';
-import * as queries from '../../graphql/queries';
-import Highlighter from 'react-highlight-words';
-import DataLoader, { CompassionData, StaffData } from './DataLoader';
-import { ScaledImage, BlogImage } from 'components/ScaledImage';
 import {
   SearchBlogSeriesQuery,
   SearchBlogsQuery,
@@ -16,8 +12,12 @@ import {
   SearchNotesQuery,
   SearchSeriesQuery,
 } from 'API';
-import RenderRouter from './RenderRouter';
+import { BlogImage, ScaledImage } from 'components/ScaledImage';
+import Highlighter from 'react-highlight-words';
 import { Button } from 'reactstrap';
+import * as queries from '../../graphql/queries';
+import DataLoader, { CompassionData, StaffData } from './DataLoader';
+import RenderRouter from './RenderRouter';
 
 interface Props extends RouteComponentProps {
   content: any;
@@ -216,11 +216,17 @@ class ContentItem extends React.Component<Props, State> {
       .then((json: any) => {
         console.log(json);
         if (nextId == null)
-          this.setState({ searchResults: json.data.fuzzySearchVideos.items });
+          this.setState({
+            searchResults: json.data.fuzzySearchVideos.items.filter(
+              (z: any) => !z.series.seriesType.includes('hidden')
+            ),
+          });
         else
           this.setState({
             searchResults: this.state.searchResults.concat(
-              json.data.fuzzySearchVideos.items
+              json.data.fuzzySearchVideos.items.filter(
+                (z: any) => !z.series.seriesType.includes('hidden')
+              )
             ),
           });
 
@@ -275,12 +281,16 @@ class ContentItem extends React.Component<Props, State> {
         console.log(json);
         if (nextId == null)
           this.setState({
-            searchSeries: json.data?.searchSeries?.items,
+            searchSeries: json.data?.searchSeries?.items.filter(
+              (z: any) => !z?.seriesType?.includes('hidden')
+            ),
           });
         else
           this.setState({
             searchSeries: this.state.searchSeries.concat(
-              json.data?.searchSeries?.items
+              json.data?.searchSeries?.items.filter(
+                (z: any) => !z?.seriesType?.includes('hidden')
+              )
             ),
           });
 

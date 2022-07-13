@@ -238,7 +238,7 @@
                 "ApiId": {
                     "Ref": "AppSyncApiId"
                 },
-                "DataSourceName": "ElasticSearchDomain",
+                "DataSourceName": "OpenSearchDataSource",
                 "FieldName": "fuzzySearchVideos",
                 "TypeName": "Query",
                 "RequestMappingTemplateS3Location": {
@@ -297,7 +297,7 @@
                 "ApiId": {
                     "Ref": "AppSyncApiId"
                 },
-                "DataSourceName": "ElasticSearchDomain",
+                "DataSourceName": "OpenSearchDataSource",
                 "FieldName": "fuzzySearchVideosByType",
                 "TypeName": "Query",
                 "RequestMappingTemplateS3Location": {
