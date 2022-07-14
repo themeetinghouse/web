@@ -48,7 +48,7 @@
         "header1": "Kitchener",
         "text1": "Sundays at 10:00am",
         "text2": "Meeting every 2nd & 4th Sunday of the month",
-        "text3": "",
+        "text3": "Not meeting in-person on: Jul 17, & 31, Aug 7 & 21",
         "customLiveLink": "themeetinghouse.com/live",
         "register": false,
         "addToCalendar": true,
@@ -56,6 +56,15 @@
         "class": "locations",
         "filterField": "id",
         "filterValue": "kitchener"
+      },
+      {
+        "type": "content",
+        "style": "greyTwoText",
+        "header1": "Additional Service Details",
+        "text1": "Dinner Church, 12:30–2:30pm every 3rd Sunday of the month: Jul 17 & Aug 21 (St Thomas Church, 110 Francis St, Cambridge). See our Gathering Finder for Home Churches and other meet-ups throughout the week.",
+        "list": [
+          
+        ]
       },
       {
         "type": "list",
