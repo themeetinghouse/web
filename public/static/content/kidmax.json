@@ -57,8 +57,8 @@
           },
           {
             "type": "link",
-            "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 3 - EY Activities.pdf",
+            "title": "Download Early Years Activity",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 3 - EY Activity.pdf",
             "openNewBrowser": true
           },
           {
