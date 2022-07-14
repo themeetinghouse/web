@@ -1,15 +1,15 @@
-import React from 'react';
-import './VideoPlayerLive.scss';
-import * as queries from '../../graphql/queries';
-import * as customQueries from '../../graphql-custom/customQueries';
-import { API } from 'aws-amplify';
-import moment from 'moment-timezone';
-import { ListLivestreamsQuery } from '../../API';
-import { Link, LinkButton } from 'components/Link/Link';
-import { isMobile } from 'react-device-detect';
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
-import ShareDropdown from 'components/Share/ShareDropdown';
+import { API } from 'aws-amplify';
 import AddToCalendar from 'components/AddToCalendar/AddToCalendar';
+import { Link, LinkButton } from 'components/Link/Link';
+import ShareDropdown from 'components/Share/ShareDropdown';
+import moment from 'moment-timezone';
+import React from 'react';
+import { isMobile } from 'react-device-detect';
+import { ListLivestreamsQuery } from '../../API';
+import * as customQueries from '../../graphql-custom/customQueries';
+import * as queries from '../../graphql/queries';
+import './VideoPlayerLive.scss';
 
 type LiveData = NonNullable<
   NonNullable<NonNullable<ListLivestreamsQuery['listLivestreams']>['items']>[0]
@@ -509,7 +509,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
             className="LiveVideoPlayerIframe"
             allowFullScreen
             src={
-              'https://www.youtube.com/embed/Gob46UJuNis?color=white&autoplay=1&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0'
+              'https://www.youtube.com/embed/DdKLazlFz0g?color=white&autoplay=1&cc_load_policy=1&showTitle=0&controls=1&modestbranding=1&rel=0'
             }
             frameBorder="0"
             allow="speakers; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
