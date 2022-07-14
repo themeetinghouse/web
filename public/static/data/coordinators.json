@@ -124,16 +124,16 @@
   {
     "FirstName": "Lil",
     "LastName": "Horne",
-    "sites": ["KIT"],
+    "sites": ["WAT", "KIT"],
     "Email": "liliana.horne@themeetinghouse.com",
-    "Position": "Interim Associate Pastor"
+    "Position": "Cambridge Hub"
   },
   {
     "FirstName": "Barb",
     "LastName": "Zupko",
-    "sites": ["KIT"],
+    "sites": ["WAT", "KIT"],
     "Email": "barbara.zupko@themeetinghouse.com",
-    "Position": "Parish Administrator"
+    "Position": "Region Administrator"
   },
   {
     "FirstName": "Amie",
@@ -321,7 +321,7 @@
   {
     "FirstName": "Max",
     "LastName": "Chute",
-    "sites": ["WAT"],
+    "sites": ["WAT", "KIT"],
     "Email": "kidmax.waterloo@themeetinghouse.com",
     "Position": "Kidmax Coordinator"
   },
@@ -429,7 +429,7 @@
   {
     "FirstName": "Savannah",
     "LastName": "Edwards",
-    "sites": ["WAT"],
+    "sites": ["WAT", "KIT"],
     "Email": "savannah.edwards@themeetinghouse.com",
     "Position": "Parish Communications and Media Coordinator"
   },
@@ -555,28 +555,22 @@
   {
     "FirstName": "Maddy",
     "LastName": "Neufeld",
-    "sites": ["WAT"],
-    "Email": "mmkneufeld@gmail.com",
-    "Position": "Family and Children’s Ministry Coordinator"
-  },
-  {
-    "FirstName": "Maddy",
-    "LastName": "Neufeld",
-    "sites": ["KIT"],
-    "Email": "mmkneufeld@gmail.com",
-    "Position": "Family and Children’s Ministry Coordinator"
+    "sites": ["WAT", "KIT"],
+    "Email": "madeleine.neufeld@themeetinghouse.com",
+    "Position": "Family Minister"
   },
   {
     "FirstName": "Fraser & Maria",
     "LastName": "Haig",
-    "sites": ["WAT"],
-    "Email": "fraser_haig@wrdsb.ca, mtleahy5@gmail.com",
+    "sites": ["WAT", "KIT"],
+    "Email": "waterloo.music@themeetinghouse.com",
     "Position": "Music Coordinators"
   },
   {
     "FirstName": "Adam",
     "LastName": "Neufeld",
-    "sites": ["WAT"],
+    "sites": ["WAT", "KIT"],
+    "Email": "abneuf8@gmail.com",
     "Position": "Tech Coordinator"
   },
   {
