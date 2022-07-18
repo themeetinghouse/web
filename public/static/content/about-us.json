@@ -87,12 +87,6 @@
             "title": "Huddle Questions",
             "navigateTo": "/static/pdfs/Policies-and-Statements/Huddle Questions_September 2019.pdf",
             "openNewBrowser": true
-          },
-          {
-            "type": "link",
-            "title": "The Authority of the Word of God in Print",
-            "navigateTo": "/static/pdfs/Policies-and-Statements/The Authority of the Word of God in Print.pdf",
-            "openNewBrowser": true
           }
         ]
       },
