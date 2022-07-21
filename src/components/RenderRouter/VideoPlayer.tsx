@@ -74,6 +74,8 @@ export default class VideoPlayer extends React.Component<Props, State> {
           videoId={this.state.data.id}
           className="VideoPlayerIframe"
           opts={{
+            width: '100%',
+            height: '100%',
             playerVars: {
               color: 'white',
               autoplay: 1,
