@@ -195,9 +195,9 @@ export default function BlogReader({ data, style }: Props) {
         const descriptionMetaTag = Array.from(metaTags).find(
           (tag, index) => tag.name === 'description'
         );
-        if (descriptionMetaTag && data && data.description)
+        if (descriptionMetaTag && data.description)
           descriptionMetaTag.content = data.description;
-        if (keywordsMetaTag && data && data.tags)
+        if (keywordsMetaTag && data.tags)
           keywordsMetaTag.content = data.tags.join(', ');
       }
     },
