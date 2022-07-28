@@ -52,13 +52,13 @@
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 4 - Praise - CAH EYs.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 5 - Praise - CAH EYs.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 4 - EY Activities.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 5 - EY Activities.pdf",
             "openNewBrowser": true
           },
           {
@@ -87,20 +87,20 @@
         "image1": [
           {
             "src": "/static/images/KidsBigIdeaJuly24.jpg",
-            "alt": "Why are there so many different kinds of churches?"
+            "alt": "Do we have to choose between science and the Bible?"
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 4 - Campfire - CAH Kids.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 5 - Campfire - CAH Kids.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activity",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 4 - Activity.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 5 - Activity.pdf",
             "openNewBrowser": true
           },
           {
