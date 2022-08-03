@@ -44,27 +44,27 @@
         "text1": "Here's what we're learning in early years this week:",
         "image1": [
           {
-            "src": "/static/images/EYBigIdeaJuly.jpg",
-            "alt": "This month's big idea: We can praise God."
+            "src": "/static/images/EY_Social Media - Big Idea - Good News.jpg",
+            "alt": "This month's big idea: The good news is...Jesus shows us God's love, saves us from sin, sets up God's kingdom, and we can be with Jesus forever."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 5 - Praise - CAH EYs.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 1 - Good News - CAH EYs.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 5 - EY Activities.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 1 - EY Activities.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Key Verse Colouring Page",
-            "navigateTo": "/static/pdfs/kidmax-files/EY - Key Verse Colouring Page - July.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Key Verse Colouring Page - Good News.pdf",
             "openNewBrowser": true
           }
         ]
@@ -86,27 +86,27 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/KidsBigIdeaJuly31.jpg",
-            "alt": "Do we have to choose between science and the Bible?"
+            "src": "/static/images/Social Media - BigIdea - Look of Love - Wk1.jpg",
+            "alt": "We can share God's goodness with others."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 5 - Campfire - CAH Kids.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 1 - Look of Love - CAH Kids.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
-            "title": "Download Kids Activity",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 5 - Activity.pdf",
+            "title": "Download Kids Activities",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 1 - Activities.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Key Verse Colouring Page",
-            "navigateTo": "/static/pdfs/kidmax-files/Kids - Key Verse Colouring Page - July.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Key Verse Colouring Page - Look of Love.pdf",
             "openNewBrowser": true
           }
         ]
