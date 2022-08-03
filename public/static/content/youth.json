@@ -53,21 +53,21 @@
         "text1": "Here's what we're learning in Jr High Weekend this week:",
         "image1": [
           {
-            "src": "/static/images/ky-jrhigh-Campfire.jpg",
-            "alt": "Campfire"
+            "src": "/static/images/ky-jrhigh-The Look of Love Part II.jpg",
+            "alt": "The Look of Love Part II"
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Weekend Lesson",
-            "navigateTo": "/static/pdfs/youth-files/Wk 5 - Campfire - JH Weekend.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 1 - The Look of Love - JH Weekend.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
-            "title": "Download Weekend Activities",
-            "navigateTo": "/static/pdfs/youth-files/Wk 5 - Activities.pdf",
+            "title": "Download Weekend Activity",
+            "navigateTo": "/static/pdfs/youth-files/Wk 1 - Activity.pdf",
             "openNewBrowser": true
           }
       
@@ -90,21 +90,21 @@
         "text1": "Here's what our Jr High Midweek students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/ky-youth-Campfire.jpg",
-            "alt": "Campfire"
+            "src": "/static/images/ky-youth-ky-youth-The Look of Love Part II.jpg",
+            "alt": "The Look of Love Part II"
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Midweek Lesson",
-            "navigateTo": "/static/pdfs/youth-files/Wk 5 - Campfire - JH Midweek.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 1 - Look of Love - JH Midweek.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Midweek Small Group Leader Notes",
-            "navigateTo": "/static/pdfs/youth-files/Wk 5 - Campfire - JH Midweek SGL Notes.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 1 - Look of Love - JH Midweek SGL Notes.pdf",
             "openNewBrowser": true
           }
         ]
