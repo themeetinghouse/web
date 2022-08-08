@@ -609,6 +609,20 @@
     "Position": "Kidmax Coordinator"
   },
   {
+    "FirstName": "Nathan",
+    "LastName": "Harris",
+    "sites": ["HMDT"],
+    "Email": "nathan.harris@themeetinghouse.com",
+    "Position": "Tech Coordinator"
+  },
+  {
+    "FirstName": "Amanda",
+    "LastName": "Le Blanc",
+    "sites": ["HMDT"],
+    "Email": "amanda.leblanc@themeetinghouse.com",
+    "Position": "Welcome Coordinator"
+  },
+  {
     "FirstName": "Leslie",
     "LastName": "Walcott",
     "sites": ["SAND"],
