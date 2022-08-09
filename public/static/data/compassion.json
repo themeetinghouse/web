@@ -332,9 +332,9 @@
   {
     "id": 43,
     "sites": ["toronto-east"],
-    "name": "East End United Food Bank",
-    "description": "East End United's Food Bank serves 200-300 households each week. We partner through our giving, food drives, and in serving community dinners.",
-    "website": "https://eastendunited.ca/food-bank-community-dinner/",
+    "name": "Nourish East End Free Food Market",
+    "description": "Nourish East End Free Food Market serves 200-300 households each week. We partner through our giving, food drives, and in serving community dinners.",
+    "website": "https://www.eastendunited.ca/nourish-east-end.html#aboutnee",
     "image": "/static/photos/compassion/Nourish East End.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   },
