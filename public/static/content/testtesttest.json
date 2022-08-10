@@ -50,7 +50,7 @@
         {
           "type": "content",
           "style": "oneImage",
-          "header1": "Church Family Updates",
+          "header1": "Investigation Updates",
           "header2": "",
           "text1": "Click below to read the latest updates from The Meeting House regarding the on-going investigations.",
           "image1": [
@@ -62,13 +62,13 @@
           "list": [
             {
               "type": "link",
-              "title": "June 17, 2022 Update",
-              "navigateTo": "/june17-communityupdate"
+              "title": "Read the Latest Updates",
+              "navigateTo": "/churchupdatessummary"
             },
             {
               "type": "button",
               "title": "Victim Advocacy",
-              "navigateTo": "/june7-communitygathering"
+              "navigateTo": "/victimadvocacy"
             }
           ]
         },
