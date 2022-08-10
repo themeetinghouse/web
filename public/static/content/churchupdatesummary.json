@@ -95,6 +95,10 @@
                 "href": "https://form.jotform.com/220701021515538"
               },
               {
+                "class": "SimpleItemText",
+                "text": " "
+              },
+              {
                 "class": "SimpleItemTextBold",
                 "text": "Care and Healing"
               },
