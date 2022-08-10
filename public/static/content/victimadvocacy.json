@@ -62,27 +62,7 @@
         "list": [
           {
             "type": "link",
-            "title": "June 17, 2022 Update",
-            "navigateTo": "/june17-communityupdate"
-          },
-          {
-            "type": "link",
-            "title": "June 7, 2022 Community Gathering",
-            "navigateTo": "/june7-communitygathering"
-          },
-          {
-            "type": "link",
-            "title": "June 6, 2022 Update",
-            "navigateTo": "/june6-communityupdate"
-          },
-          {
-            "type": "link",
-            "title": "May 21, 2022 Update",
-            "navigateTo": "/may21-communityupdate"
-          },
-          {
-            "type": "link",
-            "title": "Previous Updates",
+            "title": "Latest Updates",
             "navigateTo": "/churchupdatesummary"
           }
         ]
