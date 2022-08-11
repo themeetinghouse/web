@@ -52,13 +52,13 @@
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 1 - Good News - CAH EYs.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 2 - Good News - CAH EYs.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 1 - EY Activities.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 2 - EY Activities.pdf",
             "openNewBrowser": true
           },
           {
@@ -86,21 +86,21 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/Social Media - BigIdea - Look of Love - Wk1.jpg",
-            "alt": "We can share God's goodness with others."
+            "src": "/static/images/Social Media - BigIdea - Look of Love - Wk2.jpg",
+            "alt": "We know how to be faithful because God is faithful to us."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 1 - Look of Love - CAH Kids.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 2 - Look of Love - CAH Kids.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 1 - Activities.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 2 - Activities.pdf",
             "openNewBrowser": true
           },
           {
