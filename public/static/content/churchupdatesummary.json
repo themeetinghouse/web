@@ -56,6 +56,10 @@
               },
               {
                 "class": "SimpleItemText",
+                "text": " "
+              },
+              {
+                "class": "SimpleItemText",
                 "text": "Our Town Hall is tomorrow, Sunday, August 14, from 7:00 PM—8:30 PM at The Meeting House Oakville, 2700 Bristol Circle, Oakville. The doors will open at 6:30 PM. Please enter through the West entrance, and we will gather in the theatre."
               },
             {
@@ -70,6 +74,10 @@
             },
             {
               "class": "SimpleItemText",
+              "text": " "
+            },
+            {
+              "class": "SimpleItemText",
               "text": "If you are unable to attend in person, we will be livestreaming the gathering at the link below:"
             },
             {
@@ -77,6 +85,10 @@
               "class": "SimpleItemLink",
               "text": "Livestream Link",
               "href": "https://youtu.be/aTNCEYSoHRk"
+            },
+            {
+              "class": "SimpleItemText",
+              "text": " "
             },
             {
               "class": "SimpleItemText",
@@ -95,6 +107,10 @@
               "class": "SimpleItemLink",
               "text": "Understanding Sexual Abuse by a Church Leader or Caregiver",
               "href": "https://abuseresponseandprevention.ca/wp-content/uploads/2018/05/UnderstandingSexualAbusebyaChurchLeaderBooklet18_web.pdf"
+            },
+            {
+              "class": "SimpleItemText",
+              "text": " "
             },
             {
               "class": "SimpleItemText",
@@ -213,6 +229,10 @@
               "class": "SimpleItemLink",
               "text": "Online referral form",
               "href": "https://form.jotform.com/220701021515538"
+            },
+            {
+              "class": "SimpleItemText",
+              "text": " "
             },
             {
               "class": "SimpleItemText",
