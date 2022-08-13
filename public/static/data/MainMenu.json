@@ -20,10 +20,6 @@
         "location": "/teaching-curated"
       },
       {
-        "name": "One Story Videos",
-        "location": "/teaching-kids-youth"
-      },
-      {
         "name": "Podcasts",
         "location": "/teaching-podcasts"
       },
@@ -54,5 +50,9 @@
   {
     "name": "Locations",
     "location": "/locations"
+  },
+  {
+    "name": "Victim Advocacy",
+    "location": "/victimadvocacy"
   }
 ]
