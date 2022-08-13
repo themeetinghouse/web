@@ -25,9 +25,9 @@
       {
         "type": "hero",
         "style": "full",
-        "showSpecial": false,
-        "showSpecialNavigateTo": "",
-        "showSpecialText": "",
+        "showSpecial": true,
+        "showSpecialNavigateTo": "/victimadvocacy",
+        "showSpecialText": "Victim Advocacy and Latest Update",
         "image1": [
           {
             "src": "/static/images/homepage-1-1.jpg",
@@ -98,7 +98,7 @@
           {
             "type": "button",
             "title": "Victim Advocacy",
-            "navigateTo": "/victimadovacy"
+            "navigateTo": "/victimadvocacy"
           }
         ]
       },
