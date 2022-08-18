@@ -30,6 +30,11 @@ export default function HomeFooter() {
       svg: '/static/svg/tiktok.svg',
     },
     {
+      platform: 'RSS Blog',
+      link: 'https://www.themeetinghouse.com/static/sitemap2.xml',
+      svg: '/static/svg/rss.svg',
+    },
+    {
       platform: 'Discord',
       link: 'https://discord.gg/f2XEMyNVVr',
       svg: '/static/svg/Discord.svg',

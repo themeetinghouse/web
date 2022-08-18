@@ -284,7 +284,22 @@ const BlogItem = ({ content }: Props) => {
     return blog ? (
       <div className="blog-item">
         <div className="blog">
-          <h1 className="blog-h1 tmh-header1 b">{header1}</h1>
+          <h1 className="blog-h1 tmh-header1 b">
+            {header1}
+            <a
+              href={'https://www.themeetinghouse.com/static/sitemap2.xml'}
+              rel="noopener noreferrer"
+              target="_blank"
+              style={{ marginLeft: 8 }}
+            >
+              <img
+                src={'/static/svg/rss-orange.svg'}
+                alt={'RSS Logo'}
+                width={24}
+                height={24}
+              />
+            </a>
+          </h1>
           <div className="blog-blackbox">
             <div className="blog-post-title">{blog?.blogTitle}</div>
             <div className="blogdiv blogauthor">
