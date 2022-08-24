@@ -40,9 +40,9 @@
     "name": "Ancaster",
     "pastorEmail": "Mike.slack@themeetinghouse.com",
     "location": {
-      "longitude": -79.95394369999997,
-      "latitude": 43.2272571,
-      "address": "SilverCity Ancaster, 771 Golf Links Road"
+      "longitude": 0.1,
+      "latitude": 0.1,
+      "address": ""
     },
     "serviceTimes": ["10:00am"]
   },
