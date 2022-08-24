@@ -47,7 +47,7 @@
         ],
         "header1": "Uptown Toronto",
         "text1": "Livestream at 10:00am",
-        "text2": "Not meeting in-person for the summer.",
+        "text2": "Not meeting in-person",
         "customLiveLink": "themeetinghouse.com/live",
         "register": false,
         "addToCalendar": true,
