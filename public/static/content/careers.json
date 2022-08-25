@@ -79,6 +79,11 @@
             "type": "link",
             "title": "Alliston Family Engagement Coordinator",
             "navigateTo": "/static/pdfs/careers/Family Engagement Coordinator (Part-Time).pdf"
+          },
+          {
+            "type": "link",
+            "title": "Richmond Hill Family Ministries Associate",
+            "navigateTo": "/static/pdfs/careers/Richmond Hill Family Ministries Associate.pdf"
           }
         ],
         "image1": [
