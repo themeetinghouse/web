@@ -61,7 +61,7 @@
           {
             "type": "link",
             "title": "Download Weekend Lesson",
-            "navigateTo": "/static/pdfs/youth-files/Wk 3 - The Look of Love - JH Weekend.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 4 - The Look of Love - JH Weekend.pdf",
             "openNewBrowser": true
           }
       
@@ -92,13 +92,13 @@
           {
             "type": "link",
             "title": "Download Midweek Lesson",
-            "navigateTo": "/static/pdfs/youth-files/Wk 3 - Look of Love - JH Midweek.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 4 - Look of Love - JH Midweek.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Midweek Small Group Leader Notes",
-            "navigateTo": "/static/pdfs/youth-files/Wk 3 - Look of Love - JH Midweek SGL Notes.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 4 - Look of Love - JH Midweek SGL Notes.pdf",
             "openNewBrowser": true
           }
         ]
