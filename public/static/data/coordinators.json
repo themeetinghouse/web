@@ -193,6 +193,7 @@
     "FirstName": "Cathy",
     "LastName": "Ralph",
     "sites": ["BURL"],
+    "Email": "cathysue15@gmail.com",
     "Position": "Connect Coordinator"
   },
   {
@@ -205,12 +206,14 @@
     "FirstName": "Anne",
     "LastName": "Innis",
     "sites": ["BURL"],
+    "Email": "innis.anne58@gmail.com",
     "Position": "Prayer Coordinator"
   },
   {
     "FirstName": "Sarah",
     "LastName": "Hildebrandt",
     "sites": ["BURL"],
+    "Email":"mskghildebrandt@yahoo.com",
     "Position": "Prayer Coordinator"
   },
   {
