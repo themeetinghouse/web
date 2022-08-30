@@ -239,6 +239,18 @@
     "Position": "Connect Coordinator"
   },
   {
+    "FirstName": "Stephanie",
+    "LastName": "Guillen",
+    "sites": ["TOBC"],
+    "Position": "Sunday Morning Prayer"
+  },
+  {
+    "FirstName": "Juliane",
+    "LastName": "Kennedy",
+    "sites": ["TOBC"],
+    "Position": "Sunday Morning Prayer"
+  },
+  {
     "FirstName": "Carol",
     "LastName": "MacLean",
     "sites": ["TODT"],
@@ -331,13 +343,6 @@
     "sites": ["BRFD"],
     "Email": "josh.woodward@themeetinghouse.com",
     "Position": "Ministry Associate & Youth Coordinator"
-  },
-  {
-    "FirstName": "Kristin",
-    "LastName": "Van Hoeve",
-    "sites": ["BRFD"],
-    "Email": "kristinvanhoeve@gmail.com",
-    "Position": "Kidmax Coordinator"
   },
   {
     "FirstName": "Bryan",
