@@ -73,7 +73,7 @@
     "html-to-draftjs": "^1.5.0",
     "jquery": "^3.5.1",
     "moment": "^2.29.1",
-    "moment-timezone": "^0.5.32",
+    "moment-timezone": "^0.5.35",
     "react": "^16.13.0",
     "react-cookie": "^4.0.1",
     "react-datepicker": "^3.8.0",
