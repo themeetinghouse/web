@@ -559,15 +559,6 @@
   },
   {
     "Staff": true,
-    "FirstName": "Steve",
-    "LastName": "MacDouell",
-    "Phone": "905.287.7000",
-    "Position": "Downtown Toronto Lead Pastor",
-    "sites": ["TODT", "Pastoral"],
-    "Email": "Steve.Macdouell@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
     "FirstName": "Tammy",
     "LastName": "Lembo",
     "Phone": "905.287.7000, ext. 830",
