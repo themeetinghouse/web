@@ -100,15 +100,6 @@
   },
   {
     "Staff": true,
-    "FirstName": "Dagmar",
-    "LastName": "Morgan-Sinclair",
-    "Phone": "905.287.7000, ext. 848",
-    "Position": "Hamilton Mountain Lead Pastor (on leave)",
-    "sites": ["HMMT", "Pastoral"],
-    "Email": "Dagmar.Morgan@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
     "FirstName": "Dan",
     "LastName": "Fenty",
     "Phone": "905.287.7000",
