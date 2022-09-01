@@ -44,27 +44,27 @@
         "text1": "Here's what we're learning in early years this week:",
         "image1": [
           {
-            "src": "/static/images/EY_Social Media - Big Idea - Good News.jpg",
-            "alt": "This month's big idea: The good news is...Jesus shows us God's love, saves us from sin, sets up God's kingdom, and we can be with Jesus forever."
+            "src": "/static/images/EY_Social Media - Big Idea - Creation.jpg",
+            "alt": "This month's big idea: God created a very good world."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 4 - Good News - CAH EYs.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 1 - Creation - CAH EYs.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 4 - EY Activities.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 1 - EY Activities.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Key Verse Colouring Page",
-            "navigateTo": "/static/pdfs/kidmax-files/Key Verse Colouring Page - Good News.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Key Verse Colouring Page - Creation.pdf",
             "openNewBrowser": true
           }
         ]
@@ -86,27 +86,27 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/Social Media - BigIdea - Look of Love - Wk4.jpg",
-            "alt": "Choosing self-control helps us love well."
+            "src": "/static/images/Social Media - BigIdea - Genesis Joseph - Wk1.jpg",
+            "alt": "Everyone has a part to play in God's story."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 4 - Look of Love - CAH Kids.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 1 - Joseph - CAH Kids.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activity",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 4 - Activity.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 1 - Activities.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Key Verse Colouring Page",
-            "navigateTo": "/static/pdfs/kidmax-files/Key Verse Colouring Page - Look of Love.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Key Verse Colouring Page - Genesis Joseph.pdf",
             "openNewBrowser": true
           }
         ]
