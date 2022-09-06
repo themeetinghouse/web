@@ -227,15 +227,6 @@
   {
     "Staff": true,
     "FirstName": "Jordan",
-    "LastName": "Duerrstein",
-    "Phone": "905.287.7000, ext. 867",
-    "Position": "Kitchener-Waterloo Lead Pastor",
-    "sites": ["WAT", "KIT", "Pastoral"],
-    "Email": "Jordan.Duerrstein@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
-    "FirstName": "Jordan",
     "LastName": "Taylor",
     "Phone": "905.287.7000",
     "Position": "Burlington Lead Pastor",
