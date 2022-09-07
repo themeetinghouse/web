@@ -314,13 +314,6 @@
     "Position": "Kidmax Coordinator"
   },
   {
-    "FirstName": "Jacob",
-    "LastName": "Winter",
-    "sites": ["TODT"],
-    "Email": "jacob.winter@themeetinghouse.com",
-    "Position": "Kidmax Coordinator"
-  },
-  {
     "FirstName": "Melanie",
     "LastName": "Monds",
     "sites": ["TOHP"],
@@ -573,13 +566,6 @@
     "sites": ["TOUP"],
     "Email": "jeremy.trites@themeetinghouse.com",
     "Position": "Tech Coordinator"
-  },
-  {
-    "FirstName": "Kelly",
-    "LastName": "Dunwell",
-    "sites": ["TOUP"],
-    "Email": "kelly.dunwell@themeetinghouse.com",
-    "Position": "Kidmax Coordinator"
   },
   {
     "FirstName": "Heidi",
