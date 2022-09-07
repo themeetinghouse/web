@@ -47,7 +47,7 @@
         ],
         "header1": "London",
         "text1": "Sundays at 1:45pm",
-        "text2": "Details below for long-weekend services",
+        "text2": "",
         "customLiveLink": "themeetinghouse.com/live",
         "register": false,
         "addToCalendar": true,
@@ -55,15 +55,6 @@
         "class": "locations",
         "filterField": "id",
         "filterValue": "london"
-      },
-      {
-        "type": "content",
-        "style": "greyTwoText",
-        "header1": "Sunday Rhythms for June-September",
-        "text1": "Rest & Reconnect Sundays (a chance for our community to find extra rest and be able to reconnect with themselves, their families and the neighbours that surround them). Date: Sept 4.",
-        "list": [
-          
-        ]
       },
       {
         "type": "list",

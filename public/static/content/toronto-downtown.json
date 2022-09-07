@@ -46,8 +46,8 @@
           }
         ],
         "header1": "Downtown Toronto",
-        "text1": "Every other Sunday at 10:00am",
-        "text2": "Not meeting in-person until Sep 11",
+        "text1": "Sunday Livestream at 10am",
+        "text2": "Not meeting in-person",
         "customLiveLink": "themeetinghouse.com/live",
         "register": false,
         "addToCalendar": true,
