@@ -7,6 +7,13 @@
     "Position": "Sandbanks Lead Pastor"
   },
   {
+    "FirstName": "Ruth",
+    "LastName": "Wright",
+    "sites": ["ALLI"],
+    "Email": "ruth.wright@themeetinghouse.com",
+    "Position": "Parish Ministries Director"
+  },
+  {
     "FirstName": "Brenda",
     "LastName": "Powling",
     "sites": ["ALLI"],
@@ -333,13 +340,6 @@
     "sites": ["HMDT"],
     "Email": "Nathan.scott@themeetinghouse.com",
     "Position": "Music Coordinator"
-  },
-  {
-    "FirstName": "Ruth",
-    "LastName": "Wright",
-    "sites": ["ALLI"],
-    "Email": "ruth.wright@themeetinghouse.com",
-    "Position": "Parish Ministries Director"
   },
   {
     "FirstName": "Stephanie",
