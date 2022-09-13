@@ -545,22 +545,6 @@
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
-    "id": 70,
-    "sites": ["alliston"],
-    "name": "Alliston Out of the Cold",
-    "description": "Alliston Out of the Cold provides safe, respectful and welcoming accommodation for those encountering homelessness from November to April. They also organize community meals and facilitate connection to further services, resources, and community. The Meeting House Alliston partners with AOTC by volunteering for shifts, providing meals, hosting the community dinners, and extending community through our Sunday gathering and Home Church experience. ",
-    "image": "/static/images/compassion/none.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 71,
-    "sites": ["alliston"],
-    "name": "The Door Youth Centre",
-    "description": "The Door Youth Centre acts as a community and support hub for youth aged 13 to 19. Through drop-in, lunch, and life skills programs, The Door seeks to be a place of support for at-risk teens and their families. The Meeting House Alliston financially supports the work of The Door and regularly partners with their strategic initiatives.",
-    "image": "/static/photos/compassion/The Door.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
     "id": 72,
     "sites": ["peacemakers"],
     "name": "Indigenous & Settler Reconciliation:",
