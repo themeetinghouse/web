@@ -1,12 +1,5 @@
 [
-  {
-    "FirstName": "Michael",
-    "LastName": "Kotsopoulos",
-    "sites": ["ALLI"],
-    "Email": "michael.kotsopoulos@themeetinghouse.com",
-    "Position": "Alliston Lead Pastor"
-  },
-  {
+ {
     "FirstName": "Brent",
     "LastName": "Babcock",
     "sites": ["SAND"],
@@ -14,8 +7,8 @@
     "Position": "Sandbanks Lead Pastor"
   },
   {
-    "FirstName": "Amy",
-    "LastName": "Thompson",
+    "FirstName": "Brenda",
+    "LastName": "Powling",
     "sites": ["ALLI"],
     "Email": "alliston.compassion@themeetinghouse.com",
     "Position": "Compassion Coordinator"
@@ -254,8 +247,8 @@
     "Position": "Sunday Morning Prayer"
   },
   {
-    "FirstName": "Teresa",
-    "LastName": "Kotsopoulos",
+    "FirstName": "Colleen",
+    "LastName": "Johnson",
     "sites": ["ALLI"],
     "Email": "alliston.kidmax@themeetinghouse.com",
     "Position": "Kidmax Coordinator"
@@ -346,7 +339,7 @@
     "LastName": "Wright",
     "sites": ["ALLI"],
     "Email": "ruth.wright@themeetinghouse.com",
-    "Position": "Music Coordinator"
+    "Position": "Parish Ministries Director"
   },
   {
     "FirstName": "Stephanie",
@@ -498,13 +491,6 @@
     "LastName": "Yoo",
     "sites": ["TOUP"],
     "Position": "Welcome Coordinator"
-  },
-  {
-    "FirstName": "Colleen",
-    "LastName": "Johnson",
-    "sites": ["ALLI"],
-    "Email": "alliston.youth@themeetinghouse.com",
-    "Position": "Youth Coordinator"
   },
   {
     "FirstName": "Maddy",
