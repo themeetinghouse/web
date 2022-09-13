@@ -307,15 +307,6 @@
   },
   {
     "Staff": true,
-    "FirstName": "Lindsay",
-    "LastName": "Hart",
-    "Phone": "905.287.7000, ext. 817",
-    "Position": "Oakville Youth Pastor",
-    "sites": ["OAKV", "Pastoral", "Youth"],
-    "Email": "Lindsay.Hart@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
     "FirstName": "Lisa",
     "LastName": "Brown",
     "Phone": "905.287.7000, ext. 818",
