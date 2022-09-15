@@ -61,13 +61,13 @@
           {
             "type": "link",
             "title": "Download Weekend Lesson",
-            "navigateTo": "/static/pdfs/youth-files/Wk 2 - Joseph - JH Weekend.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 3 - Joseph - JH Weekend.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
-            "title": "Download Weekend Activities",
-            "navigateTo": "/static/pdfs/youth-files/Wk 2 - Activities.pdf",
+            "title": "Download Weekend Activity",
+            "navigateTo": "/static/pdfs/youth-files/Wk 3 - Activity.pdf",
             "openNewBrowser": true
           }
       
@@ -98,13 +98,13 @@
           {
             "type": "link",
             "title": "Download Midweek Lesson",
-            "navigateTo": "/static/pdfs/youth-files/Wk 2 - Joseph - JH Midweek.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 3 - Joseph - JH Midweek.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Midweek Small Group Leader Notes",
-            "navigateTo": "/static/pdfs/youth-files/Wk 2 - Joseph - JH Midweek SGL Notes.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 3 - Joseph - JH Midweek SGL Notes.pdf",
             "openNewBrowser": true
           }
         ]
