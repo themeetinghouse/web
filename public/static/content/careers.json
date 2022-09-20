@@ -77,6 +77,11 @@
         "list": [
           {
             "type": "link",
+            "title": "Hamilton Region Kids Ministry Associate",
+            "navigateTo": "/static/pdfs/careers/Hamilton Region - Ministry Associate - Kids.pdf"
+          },
+          {
+            "type": "link",
             "title": "Alliston Family Engagement Coordinator",
             "navigateTo": "/static/pdfs/careers/Family Engagement Coordinator (Part-Time).pdf"
           },
