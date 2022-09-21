@@ -69,12 +69,8 @@
       },
       {
         "type": "list",
-        "style": "staff",
-        "class": "staff",
-        "header1": "Counsellors",
-        "text1": "The professional counsellors below are available to provide support should anyone in The Meeting House church need it.",
-        "filterField": "sites",
-        "filterValue": "Counsellors"
+        "header1": "Counselling",
+        "text1": "If you need financial assistance with counselling, please speak to your local pastor."
       },
       {
         "type": "content",
