@@ -58,6 +58,11 @@
         "list": [
           {
             "type": "link",
+            "title": "Waterloo Regional Lead Pastor",
+            "navigateTo": "/static/pdfs/careers/Waterloo Region - Regional Lead Pastor.pdf"
+          },
+          {
+            "type": "link",
             "title": "Facility Manager",
             "navigateTo": "/static/pdfs/careers/Facility Manager 2022-v2.pdf"
           }
