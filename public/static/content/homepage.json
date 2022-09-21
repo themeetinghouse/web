@@ -79,7 +79,7 @@
         "style": "oneImage",
         "header1": "Investigation Updates",
         "header2": "",
-        "text1": "Click below to read the latest updates from The Meeting House regarding the on-going investigations.",
+        "text1": "Click below to read the investigation updates from The Meeting House.",
         "image1": [
           {
             "src": "/static/images/TMH_House_Symbol_1280x1280.jpg",
@@ -89,7 +89,7 @@
         "list": [
           {
             "type": "link",
-            "title": "Latest Updates",
+            "title": "Updates",
             "navigateTo": "/churchupdatesummary"
           },
           {
