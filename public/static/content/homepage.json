@@ -25,9 +25,6 @@
       {
         "type": "hero",
         "style": "full",
-        "showSpecial": true,
-        "showSpecialNavigateTo": "/victimadvocacy",
-        "showSpecialText": "Victim Advocacy and Latest Update",
         "image1": [
           {
             "src": "/static/images/homepage-1-1.jpg",
