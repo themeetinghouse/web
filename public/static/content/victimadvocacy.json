@@ -68,8 +68,10 @@
         ]
       },
       {
-        "type": "list",
+        "type": "content",
+        "style": "greyTwoText",
         "header1": "Counselling",
+        "header2": "",
         "text1": "If you need financial assistance with counselling, please speak to your local pastor."
       },
       {
