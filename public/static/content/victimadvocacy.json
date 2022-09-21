@@ -69,17 +69,10 @@
       },
       {
         "type": "content",
-        "style": "greyTwoText",
-        "header1": "Counselling",
-        "header2": "",
-        "text1": "If you need financial assistance with counselling, please speak to your local pastor."
-      },
-      {
-        "type": "content",
         "style": "oneImageBlackRight",
         "header1": "Connect with a pastor",
         "header2": "",
-        "text1": "If you need to process further, you can connect with a lead pastor.",
+        "text1": "If you need to process further, you can connect with a lead pastor. If you need financial assistance with counselling, please speak to your local pastor.",
         "list": [
           {
             "type": "link",
