@@ -52,13 +52,13 @@
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 3 - Creation - CAH EYs.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 4 - Creation - CAH EYs.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 3 - EY Activities.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 4 - EY Activities.pdf",
             "openNewBrowser": true
           },
           {
@@ -86,21 +86,15 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/Social Media - BigIdea - Genesis Joseph - Wk3.jpg",
-            "alt": "Even when things don't look good, God is with us."
+            "src": "/static/images/Social Media - BigIdea - Genesis Joseph - Wk4.jpg",
+            "alt": "God can partner with us anywhere."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 3 - Joseph - CAH Kids.pdf",
-            "openNewBrowser": true
-          },
-          {
-            "type": "link",
-            "title": "Download Kids Activity",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 3 - Activity.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 4 - Joseph - CAH Kids.pdf",
             "openNewBrowser": true
           },
           {
