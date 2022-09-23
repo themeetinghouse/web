@@ -7,6 +7,13 @@
     "Position": "Sandbanks Lead Pastor"
   },
   {
+    "FirstName": "Steve",
+    "LastName": "Kerr",
+    "sites": ["ALLI"],
+    "Email": "steve.kerr@themeetinghouse.com",
+    "Position": "Alliston Lead Pastor"
+  },
+  {
     "FirstName": "Ruth",
     "LastName": "Wright",
     "sites": ["ALLI"],
