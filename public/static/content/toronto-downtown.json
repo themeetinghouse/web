@@ -46,8 +46,8 @@
           }
         ],
         "header1": "Downtown Toronto",
-        "text1": "Sunday Livestream at 10am",
-        "text2": "Not meeting in-person",
+        "text1": "Sundays at 10:00am",
+        "text2": "",
         "customLiveLink": "themeetinghouse.com/live",
         "register": false,
         "addToCalendar": true,
