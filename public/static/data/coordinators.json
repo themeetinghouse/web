@@ -1,17 +1,10 @@
 [
- {
-    "FirstName": "Brent",
-    "LastName": "Babcock",
-    "sites": ["SAND"],
-    "Email": "brent.babcock@themeetinghouse.com",
-    "Position": "Sandbanks Lead Pastor"
-  },
   {
     "FirstName": "Steve",
     "LastName": "Kerr",
-    "sites": ["ALLI"],
+    "sites": ["SAND"],
     "Email": "steve.kerr@themeetinghouse.com",
-    "Position": "Alliston Lead Pastor"
+    "Position": "Sandbanks Lead Pastor"
   },
   {
     "FirstName": "Ruth",
