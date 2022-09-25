@@ -58,25 +58,6 @@
       {
         "type": "content",
         "style": "oneImage",
-        "header1": "We're On Your Team",
-        "text1": "Community is a party and we want to make sure everyone's invited. Ready to connect with people who want to do this together?",
-        "list": [
-          {
-            "type": "link",
-            "title": "Find Community",
-            "navigateTo": "/community"
-          }
-        ],
-        "image1": [
-          {
-            "src": "/static/images/homepage-2-new.jpg",
-            "alt": "Group of friends from church sitting together, and talking."
-          }
-        ]
-      },
-      {
-        "type": "content",
-        "style": "oneImage",
         "header1": "Investigation Updates",
         "header2": "",
         "text1": "Click below to read the investigation updates from The Meeting House.",
@@ -96,6 +77,25 @@
             "type": "button",
             "title": "Victim Advocacy",
             "navigateTo": "/victimadvocacy"
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "style": "oneImage",
+        "header1": "We're On Your Team",
+        "text1": "Community is a party and we want to make sure everyone's invited. Ready to connect with people who want to do this together?",
+        "list": [
+          {
+            "type": "link",
+            "title": "Find Community",
+            "navigateTo": "/community"
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/homepage-2-new.jpg",
+            "alt": "Group of friends from church sitting together, and talking."
           }
         ]
       },
