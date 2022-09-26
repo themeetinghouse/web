@@ -76,7 +76,7 @@
   {
     "FirstName": "Jenny",
     "LastName": "Nasmith Yandt",
-    "sites": ["OTTA"],
+    "sites": ["OTTA", "Distance_Region"],
     "Email": "jenny.nasmithyandt@themeetinghouse.com",
     "Position": "Ottawa Ministry Associate"
   },
@@ -104,14 +104,14 @@
   {
     "FirstName": "Rosi",
     "LastName": "Simon",
-    "sites": ["PAR"],
+    "sites": ["PAR", "Distance_Region"],
     "Email": "rosi.simon@themeetinghouse.com",
     "Position": "Parry Sound Ministry Associate (Support)"
   },
   {
     "FirstName": "Amanda",
     "LastName": "Shaw",
-    "sites": ["PAR"],
+    "sites": ["PAR", "Distance_Region"],
     "Email": "amanda.shaw@themeetinghouse.com",
     "Position": "Ministry Associate"
   },
@@ -124,14 +124,14 @@
   {
     "FirstName": "Maddy",
     "LastName": "Neufeld",
-    "sites": ["WAT", "KIT"],
+    "sites": ["WAT", "KIT", "Waterloo_Region"],
     "Email": "madeleine.neufeld@themeetinghouse.com",
     "Position": "Ministry Associate (Interim Lead Pastor)"
   },
   {
     "FirstName": "Barb",
     "LastName": "Zupko",
-    "sites": ["WAT", "KIT"],
+    "sites": ["WAT", "KIT", "Waterloo_Region"],
     "Email": "barbara.zupko@themeetinghouse.com",
     "Position": "Ministry Associate (Support)"
   },
@@ -145,7 +145,7 @@
   {
     "FirstName": "Amie",
     "LastName": "Latta",
-    "sites": ["LOND"],
+    "sites": ["LOND", "Distance_Region"],
     "Email": "amie.latta@themeetinghouse.com",
     "Position": "London Ministry Associate"
   },
@@ -171,7 +171,7 @@
   {
     "FirstName": "Shelley",
     "LastName": "McNab",
-    "sites": ["TOBC"],
+    "sites": ["TOBC", "Toronto_Region"],
     "Email": "Shelley.McNab@themeetinghouse.com",
     "Position": "East Youth Ministry Associate"
   },
@@ -269,7 +269,7 @@
   {
     "FirstName": "Darcie",
     "LastName": "Dow",
-    "sites": ["OTTA"],
+    "sites": ["OTTA", "Distance_Region"],
     "Email": "darcie.dow@themeetinghouse.com",
     "Position": "Ottawa Kids Ministry Associate"
   },
@@ -310,7 +310,7 @@
   {
     "FirstName": "Melanie",
     "LastName": "Monds",
-    "sites": ["TOHP"],
+    "sites": ["TOHP", "Toronto_Region"],
     "Position": "Ministry Associate"
   },
   {
@@ -445,7 +445,7 @@
   {
     "FirstName": "Alex",
     "LastName": "Lippa",
-    "sites": ["TOUP"],
+    "sites": ["TOUP", "Toronto_Region"],
     "Email": "Alex.Lippa@themeetinghouse.com",
     "Position": "West Youth Ministry Associate"
   },
@@ -562,7 +562,7 @@
   {
     "FirstName": "Amanda",
     "LastName": "Le Blanc",
-    "sites": ["HMDT"],
+    "sites": ["HMDT", "Hamilton_Region"],
     "Email": "amanda.leblanc@themeetinghouse.com",
     "Position": "Parry Sound Ministry Associate"
   },
