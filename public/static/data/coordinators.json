@@ -122,11 +122,11 @@
     "Position": "Compassion Coordinator"
   },
   {
-    "FirstName": "Lil",
-    "LastName": "Horne",
+    "FirstName": "Maddy",
+    "LastName": "Neufeld",
     "sites": ["WAT", "KIT"],
-    "Email": "liliana.horne@themeetinghouse.com",
-    "Position": "Cambridge Hub"
+    "Email": "madeleine.neufeld@themeetinghouse.com",
+    "Position": "Ministry Associate (Interim Lead Pastor)"
   },
   {
     "FirstName": "Barb",
@@ -134,6 +134,13 @@
     "sites": ["WAT", "KIT"],
     "Email": "barbara.zupko@themeetinghouse.com",
     "Position": "Ministry Associate (Support)"
+  },
+  {
+    "FirstName": "Lil",
+    "LastName": "Horne",
+    "sites": ["WAT", "KIT"],
+    "Email": "liliana.horne@themeetinghouse.com",
+    "Position": "Cambridge Hub"
   },
   {
     "FirstName": "Amie",
@@ -496,13 +503,6 @@
     "LastName": "Yoo",
     "sites": ["TOUP"],
     "Position": "Welcome Coordinator"
-  },
-  {
-    "FirstName": "Maddy",
-    "LastName": "Neufeld",
-    "sites": ["WAT", "KIT"],
-    "Email": "madeleine.neufeld@themeetinghouse.com",
-    "Position": "Ministry Associate (Interim Lead Pastor)"
   },
   {
     "FirstName": "Fraser & Maria",
