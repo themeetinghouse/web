@@ -31,7 +31,7 @@
     "FirstName": "Brad",
     "LastName": "Eager",
     "Phone": "905.287.7000, ext. 833",
-    "Position": "Regional Pastor - Youth",
+    "Position": "Regional Youth Pastor",
     "sites": ["OAKV", "Pastoral", "Youth"],
     "Email": "Brad.Eager@themeetinghouse.com"
   },
@@ -67,7 +67,7 @@
     "FirstName": "Chris",
     "LastName": "Chase",
     "Phone": "905.287.7000",
-    "Position": "Newmarket Lead Pastor",
+    "Position": "Newmarket & Digital Pastor",
     "sites": ["Site Leadership", "NMKT", "Pastoral"],
     "Email": "Chris.Chase@themeetinghouse.com"
   },
@@ -85,7 +85,7 @@
     "FirstName": "Christine",
     "LastName": "Gerber",
     "Phone": "905.287.7000, ext. 855",
-    "Position": "Regional Pastor - Brampton",
+    "Position": "Regional Pastor",
     "sites": ["BRAM", "Pastoral"],
     "Email": "Christine.Gerber@themeetinghouse.com"
   },
@@ -130,7 +130,7 @@
     "FirstName": "Eric",
     "LastName": "Versluis",
     "Phone": "905.287.7000, ext 836",
-    "Position": "Ottawa Lead Pastor",
+    "Position": "Regional Lead Pastor",
     "sites": ["OTTA", "Pastoral"],
     "Email": "Eric.Versluis@themeetinghouse.com"
   },
@@ -166,7 +166,7 @@
     "FirstName": "Hailey",
     "LastName": "Tollefson",
     "Phone": "905.287.7000",
-    "Position": "Regional Pastor - Kids",
+    "Position": "Regional Kids Pastor",
     "sites": ["OAKV","Children"],
     "Email": "hailey.tollefson@themeetinghouse.com"
   },
@@ -202,7 +202,7 @@
     "FirstName": "Jennifer",
     "LastName": "McWilliams",
     "Phone": "905.287.7000, ext. 838",
-    "Position": "East Toronto Lead Pastor",
+    "Position": "Regional Pastor",
     "sites": ["TOBC", "Pastoral"],
     "Email": "Jennifer.McWilliams@themeetinghouse.com"
   },
@@ -211,7 +211,7 @@
     "FirstName": "Jeremy",
     "LastName": "McClung",
     "Phone": "905.287.7000",
-    "Position": "Parry Sound Lead Pastor",
+    "Position": "Parry Sound Pastor",
     "sites": ["PAR", "Pastoral"],
     "Email": "Jeremy.McClung@themeetinghouse.com"
   },
@@ -229,7 +229,7 @@
     "FirstName": "Jordan",
     "LastName": "Taylor",
     "Phone": "905.287.7000",
-    "Position": "Regional Pastor - Burlington",
+    "Position": "Regional Pastor",
     "sites": ["BURL", "Pastoral"],
     "Email": "Jordan.taylor@themeetinghouse.com"
   },
@@ -283,7 +283,7 @@
     "FirstName": "Laura",
     "LastName": "Jory",
     "Phone": "905.287.7000, ext. 829",
-    "Position": "Ministry Associate - Oakville Kids",
+    "Position": "Kids Ministry Associate",
     "sites": ["OAKV", "Children"],
     "Email": "Laura.Jory@themeetinghouse.com"
   },
@@ -310,7 +310,7 @@
     "FirstName": "Lisa",
     "LastName": "Goetze",
     "Phone": "905.287.7000, ext. 819",
-    "Position": "Regional Pastor - Downtown Focus",
+    "Position": "Regional Pastor",
     "sites": ["TODT", "Pastoral"],
     "Email": "Lisa.Goetze@themeetinghouse.com"
   },
@@ -382,7 +382,7 @@
     "FirstName": "Mike",
     "LastName": "Finnie",
     "Phone": "905.287.7000, ext. 824",
-    "Position": "Regional Lead Pastor - Halton-Peel",
+    "Position": "Regional Lead Pastor",
     "sites": ["OAKV", "Pastoral"],
     "Email": "Mike.Finnie@themeetinghouse.com"
   },
@@ -391,7 +391,7 @@
     "FirstName": "Mike",
     "LastName": "Slack",
     "Phone": "905.287.7000, ext. 831",
-    "Position": "Ancaster Lead Pastor",
+    "Position": "Regional Pastor",
     "sites": ["HMAN", "Pastoral", "GLOBAL"],
     "Email": "Mike.Slack@themeetinghouse.com"
   },
@@ -427,7 +427,7 @@
     "FirstName": "Phil",
     "LastName": "Prendergast",
     "Phone": "905.287.7000, ext. 849",
-    "Position": "London Lead Pastor",
+    "Position": "London Pastor",
     "sites": ["LOND", "Pastoral"],
     "Email": "Phil.Prendergast@themeetinghouse.com"
   },
@@ -436,7 +436,7 @@
     "FirstName": "Quincy",
     "LastName": "Bergman",
     "Phone": "905.287.7000, ext. 828",
-    "Position": "Regional Pastor - Oakville",
+    "Position": "Regional Lead Pastor",
     "sites": ["OAKV", "Pastoral"],
     "Email": "Quincy.Bergman@themeetinghouse.com"
   },
@@ -445,7 +445,7 @@
     "FirstName": "Rachael",
     "LastName": "Bawn",
     "Phone": "905.287.7000",
-    "Position": "Regional Pastor - Worship Arts",
+    "Position": "Regional Worship & Arts Pastor",
     "sites": ["OAKV", "Pastoral"],
     "Email": "rachael.bawn@themeetinghouse.com"
   },
@@ -472,7 +472,7 @@
     "FirstName": "Rob",
     "LastName": "Schellenberg",
     "Phone": "905.287.7000, ext. 846",
-    "Position": "High Park Lead Pastor",
+    "Position": "Regional Lead Pastor",
     "sites": ["TOHP", "Pastoral"],
     "Email": "Rob.Schellenberg@themeetinghouse.com"
   },

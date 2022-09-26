@@ -78,7 +78,7 @@
     "LastName": "Nasmith Yandt",
     "sites": ["OTTA"],
     "Email": "jenny.nasmithyandt@themeetinghouse.com",
-    "Position": "Ministry Associate"
+    "Position": "Ottawa Ministry Associate"
   },
   {
     "FirstName": "April",
@@ -106,14 +106,14 @@
     "LastName": "Simon",
     "sites": ["PAR"],
     "Email": "rosi.simon@themeetinghouse.com",
-    "Position": "Parish Administrator"
+    "Position": "Parry Sound Ministry Associate (Support)"
   },
   {
     "FirstName": "Amanda",
     "LastName": "Shaw",
     "sites": ["PAR"],
     "Email": "amanda.shaw@themeetinghouse.com",
-    "Position": "Compassion Coordinator"
+    "Position": "Ministry Associate"
   },
   {
     "FirstName": "Kareema",
@@ -133,14 +133,14 @@
     "LastName": "Zupko",
     "sites": ["WAT", "KIT"],
     "Email": "barbara.zupko@themeetinghouse.com",
-    "Position": "Region Administrator"
+    "Position": "Ministry Associate (Support)"
   },
   {
     "FirstName": "Amie",
     "LastName": "Latta",
     "sites": ["LOND"],
     "Email": "amie.latta@themeetinghouse.com",
-    "Position": "Parish Administrator"
+    "Position": "London Ministry Associate"
   },
   {
     "FirstName": "Kate",
@@ -166,7 +166,7 @@
     "LastName": "McNab",
     "sites": ["TOBC"],
     "Email": "Shelley.McNab@themeetinghouse.com",
-    "Position": "Toronto Youth Associate"
+    "Position": "East Youth Ministry Associate"
   },
   {
     "FirstName": "Erica",
@@ -264,7 +264,7 @@
     "LastName": "Dow",
     "sites": ["OTTA"],
     "Email": "darcie.dow@themeetinghouse.com",
-    "Position": "Kidmax Coordinator"
+    "Position": "Ottawa Kids Ministry Associate"
   },
   {
     "FirstName": "Dave",
@@ -304,7 +304,7 @@
     "FirstName": "Melanie",
     "LastName": "Monds",
     "sites": ["TOHP"],
-    "Position": "Kidmax Coordinator"
+    "Position": "Ministry Associate"
   },
   {
     "FirstName": "Max",
@@ -440,7 +440,7 @@
     "LastName": "Lippa",
     "sites": ["TOUP"],
     "Email": "Alex.Lippa@themeetinghouse.com",
-    "Position": "Toronto Youth Associate"
+    "Position": "West Youth Ministry Associate"
   },
   {
     "FirstName": "Russ",
@@ -502,7 +502,7 @@
     "LastName": "Neufeld",
     "sites": ["WAT", "KIT"],
     "Email": "madeleine.neufeld@themeetinghouse.com",
-    "Position": "Family Minister"
+    "Position": "Ministry Associate (Interim Lead Pastor)"
   },
   {
     "FirstName": "Fraser & Maria",
@@ -564,7 +564,7 @@
     "LastName": "Le Blanc",
     "sites": ["HMDT"],
     "Email": "amanda.leblanc@themeetinghouse.com",
-    "Position": "Welcome Coordinator"
+    "Position": "Parry Sound Ministry Associate"
   },
   {
     "FirstName": "Leslie",
