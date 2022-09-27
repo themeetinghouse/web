@@ -83,6 +83,26 @@
       {
         "type": "content",
         "style": "mad",
+        "header1": "Local Teaching",
+        "header2": "",
+        "text1": "All our recent East Toronto teaching in one place.",
+        "list": [
+          {
+            "type": "arrow",
+            "title": "Anchor",
+            "navigateTo": "https://www.anchor.fm/tmheasttoronto"
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/spirituality-2-2.jpg",
+            "alt": "Two men talking"
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "style": "mad",
         "header1": "Kids & Youth",
         "header2": "",
         "text1": "We work together to create a safe community where our kids and youth can learn to love and follow Jesus. We do this through building relationships, equipping parents, and developing our own curriculum. ",
