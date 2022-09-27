@@ -14,5 +14,8 @@
       "suppressschemamigrationprompt": true,
       "securityEnhancementNotification": false
     }
+  },
+  "debug": {
+    "shareProjectConfig": true
   }
 }
