@@ -183,7 +183,10 @@ export interface LocationQuery extends DataLoaderQuery {
 export interface LocationData {
   id: string;
   name: string;
+  region: string;
+  regionShortName: string;
   pastorEmail: string;
+  serviceTimeDescription: string;
   location: {
     longitude: number;
     latitude: number;
@@ -980,7 +983,12 @@ export default class DataLoader {
         if (!query.filterField) {
           return true;
         }
-        return location[query.filterField as 'id'] === query.filterValue;
+
+        if (Array.isArray(query.filterValue)) {
+          return query.filterValue.includes(
+            location[query.filterField as 'id']
+          );
+        } else return location[query.filterField as 'id'] === query.filterValue;
       })
       .sort((a, b) => {
         return a.name == 'Global' ? -1 : a.name?.localeCompare(b.name);

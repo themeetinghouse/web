@@ -93,7 +93,10 @@
   {
     "id": "toronto-downtown",
     "name": "Toronto - Downtown",
+    "regionShortName": "Downtown",
+    "region": "Toronto",
     "pastorEmail": "Steve.Macdouell@themeetinghouse.com",
+    "serviceTimeDescription": "Meetings are paused",
     "location": {
       "longitude": -79.391418,
       "latitude": 43.648869,
@@ -115,7 +118,10 @@
   {
     "id": "toronto-east",
     "name": "Toronto - East",
+    "regionShortName": "East",
+    "region": "Toronto",
     "pastorEmail": "Jennifer.McWilliams@themeetinghouse.com",
+    "serviceTimeDescription": "Jan 1, 8, 15 - then paused for a week",
     "location": {
       "longitude": -79.3166538,
       "latitude": 43.6664844,
@@ -126,6 +132,9 @@
   {
     "id": "toronto-high-park",
     "name": "Toronto - High Park",
+    "regionShortName": "High Park",
+    "region": "Toronto",
+    "serviceTimeDescription": "Every Second week (May 3, 17)",
     "pastorEmail": "Rob.Schellenberg@themeetinghouse.com",
     "location": {
       "longitude": -79.4921797,
@@ -137,6 +146,7 @@
   {
     "id": "kitchener",
     "name": "Kitchener",
+
     "pastorEmail": "jordan.duerrstein@themeetinghouse.com ",
     "location": {
       "longitude": -80.387502,
@@ -148,6 +158,7 @@
   {
     "id": "london",
     "name": "London",
+
     "pastorEmail": "amie.latta@themeetinghouse.com",
     "location": {
       "longitude": -81.29423741528805,
@@ -230,6 +241,9 @@
   {
     "id": "toronto-uptown",
     "name": "Toronto - Uptown",
+    "regionShortName": "Uptown",
+    "serviceTimeDescription": "Every Sunday @ 10am",
+    "region": "Toronto",
     "pastorEmail": "Eric.Versluis@themeetinghouse.com",
     "location": {
       "longitude": -79.455526,

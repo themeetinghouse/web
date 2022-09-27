@@ -1,0 +1,1218 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Root Stack for AWS Amplify CLI",
+  "Parameters": {
+    "DeploymentBucketName": {
+      "Description": "Name of the common deployment bucket provided by the parent stack",
+      "Type": "String",
+      "Default": "DeploymentBucket"
+    },
+    "AuthRoleName": {
+      "Type": "String",
+      "Default": "AuthRoleName"
+    },
+    "UnauthRoleName": {
+      "Type": "String",
+      "Default": "UnauthRoleName"
+    }
+  },
+  "Resources": {
+    "DeploymentBucket": {
+      "Type": "AWS::S3::Bucket",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "BucketName": {
+          "Ref": "DeploymentBucketName"
+        }
+      }
+    },
+    "AuthRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "RoleName": {
+          "Ref": "AuthRoleName"
+        },
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Sid": "",
+              "Effect": "Deny",
+              "Principal": {
+                "Federated": "cognito-identity.amazonaws.com"
+              },
+              "Action": "sts:AssumeRoleWithWebIdentity"
+            }
+          ]
+        }
+      }
+    },
+    "UnauthRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "RoleName": {
+          "Ref": "UnauthRoleName"
+        },
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Sid": "",
+              "Effect": "Deny",
+              "Principal": {
+                "Federated": "cognito-identity.amazonaws.com"
+              },
+              "Action": "sts:AssumeRoleWithWebIdentity"
+            }
+          ]
+        }
+      }
+    },
+    "AuthTriggerCustomLambdaStack": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json",
+        "Parameters": {
+          "env": "tmhprod",
+          "userpoolId": {
+            "Fn::GetAtt": [
+              "authcognitodevtmh",
+              "Outputs.UserPoolId"
+            ]
+          },
+          "userpoolArn": {
+            "Fn::GetAtt": [
+              "authcognitodevtmh",
+              "Outputs.UserPoolArn"
+            ]
+          },
+          "functioncognitodevtmhPreSignupArn": {
+            "Fn::GetAtt": [
+              "functioncognitodevtmhPreSignup",
+              "Outputs.Arn"
+            ]
+          },
+          "functioncognitodevtmhPreSignupName": {
+            "Fn::GetAtt": [
+              "functioncognitodevtmhPreSignup",
+              "Outputs.Name"
+            ]
+          },
+          "functioncognitodevtmhPreTokenGenerationArn": {
+            "Fn::GetAtt": [
+              "functioncognitodevtmhPreTokenGeneration",
+              "Outputs.Arn"
+            ]
+          },
+          "functioncognitodevtmhPreTokenGenerationName": {
+            "Fn::GetAtt": [
+              "functioncognitodevtmhPreTokenGeneration",
+              "Outputs.Name"
+            ]
+          },
+          "functioncognitodevtmhPostAuthenticationArn": {
+            "Fn::GetAtt": [
+              "functioncognitodevtmhPostAuthentication",
+              "Outputs.Arn"
+            ]
+          },
+          "functioncognitodevtmhPostAuthenticationName": {
+            "Fn::GetAtt": [
+              "functioncognitodevtmhPostAuthentication",
+              "Outputs.Name"
+            ]
+          }
+        }
+      },
+      "DependsOn": [
+        "authcognitodevtmh",
+        "functioncognitodevtmhPreSignup",
+        "functioncognitodevtmhPreTokenGeneration",
+        "functioncognitodevtmhPostAuthentication"
+      ]
+    },
+    "authcognitodevtmh": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/auth/cognitodevtmh-cloudformation-template.yml",
+        "Parameters": {
+          "identityPoolName": "tmhident",
+          "allowUnauthenticatedIdentities": true,
+          "resourceNameTruncated": "cognit79c0e771",
+          "userPoolName": "The Meeting House",
+          "autoVerifiedAttributes": "email",
+          "mfaConfiguration": "OPTIONAL",
+          "mfaTypes": "TOTP",
+          "smsAuthenticationMessage": "Your authentication code is {####}",
+          "smsVerificationMessage": "Your verification code is {####}",
+          "emailVerificationSubject": "Your verification code",
+          "emailVerificationMessage": "Your verification code is {####}",
+          "defaultPasswordPolicy": false,
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": "Requires Lowercase,Requires Uppercase,Requires Numbers,Requires Symbols",
+          "requiredAttributes": "email",
+          "aliasAttributes": "",
+          "userpoolClientGenerateSecret": true,
+          "userpoolClientRefreshTokenValidity": 30,
+          "userpoolClientWriteAttributes": "email",
+          "userpoolClientReadAttributes": "email",
+          "userpoolClientLambdaRole": "cognitodevtmh_userpoolclient_lambda_role",
+          "userpoolClientSetAttributes": false,
+          "thirdPartyAuth": true,
+          "openIdLogPolicy": "cognitodevtmh_openid_lambda_log_policy",
+          "roleExternalId": "cognitodevtmh_role_external_id",
+          "useDefault": "manual",
+          "authSelections": "identityPoolAndUserPool",
+          "resourceName": "cognitodevtmh",
+          "authProviders": "graph.facebook.com,accounts.google.com,www.amazon.com",
+          "authRoleArn": {
+            "Fn::GetAtt": [
+              "AuthRole",
+              "Arn"
+            ]
+          },
+          "unauthRoleArn": {
+            "Fn::GetAtt": [
+              "UnauthRole",
+              "Arn"
+            ]
+          },
+          "userPoolGroups": true,
+          "adminQueries": true,
+          "triggers": "{\n  \"PostAuthentication\": [\n    \"custom\"\n  ],\n  \"PreSignup\": [\n    \"custom\"\n  ],\n  \"PreTokenGeneration\": [\n    \"custom\"\n  ]\n}",
+          "hostedUI": false,
+          "userPoolGroupList": "admin",
+          "adminQueryGroup": "admin",
+          "serviceName": "Cognito",
+          "parentStack": {
+            "Ref": "AWS::StackId"
+          },
+          "breakCircularDependency": true,
+          "permissions": "",
+          "dependsOn": "[object Object],[object Object],[object Object]",
+          "authTriggerConnections": "[\n  {\n    \"triggerType\": \"PostAuthentication\",\n    \"lambdaFunctionName\": \"cognitodevtmhPostAuthentication\"\n  },\n  {\n    \"triggerType\": \"PreSignUp\",\n    \"lambdaFunctionName\": \"cognitodevtmhPreSignup\"\n  },\n  {\n    \"triggerType\": \"PreTokenGeneration\",\n    \"lambdaFunctionName\": \"cognitodevtmhPreTokenGeneration\"\n  }\n]",
+          "facebookAppId": "abc",
+          "googleClientId": "def",
+          "amazonAppId": "ghi",
+          "env": "tmhprod"
+        }
+      }
+    },
+    "authuserPoolGroups": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/auth/template.json",
+        "Parameters": {
+          "AuthRoleArn": {
+            "Fn::GetAtt": [
+              "AuthRole",
+              "Arn"
+            ]
+          },
+          "UnauthRoleArn": {
+            "Fn::GetAtt": [
+              "UnauthRole",
+              "Arn"
+            ]
+          },
+          "authcognitodevtmhUserPoolId": {
+            "Fn::GetAtt": [
+              "authcognitodevtmh",
+              "Outputs.UserPoolId"
+            ]
+          },
+          "authcognitodevtmhAppClientIDWeb": {
+            "Fn::GetAtt": [
+              "authcognitodevtmh",
+              "Outputs.AppClientIDWeb"
+            ]
+          },
+          "authcognitodevtmhAppClientID": {
+            "Fn::GetAtt": [
+              "authcognitodevtmh",
+              "Outputs.AppClientID"
+            ]
+          },
+          "authcognitodevtmhIdentityPoolId": {
+            "Fn::GetAtt": [
+              "authcognitodevtmh",
+              "Outputs.IdentityPoolId"
+            ]
+          },
+          "env": "tmhprod"
+        }
+      }
+    },
+    "apithemeetinghouse": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "Parameters": {
+          "CreateAPIKey": 1,
+          "AppSyncApiName": "themeetinghouse",
+          "DynamoDBBillingMode": "PAY_PER_REQUEST",
+          "DynamoDBEnableServerSideEncryption": "false",
+          "AuthCognitoUserPoolId": {
+            "Fn::GetAtt": [
+              "authcognitodevtmh",
+              "Outputs.UserPoolId"
+            ]
+          },
+          "authRoleName": {
+            "Ref": "AuthRoleName"
+          },
+          "S3DeploymentBucket": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "S3DeploymentRootKey": "amplify-appsync-files/aa7775ffc9f94e2df543699acaf9e06ed54cfdb9",
+          "env": "tmhprod"
+        }
+      }
+    },
+    "apiimage": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/api/image-cloudformation-template.json",
+        "Parameters": {
+          "authRoleName": {
+            "Ref": "AuthRoleName"
+          },
+          "unauthRoleName": {
+            "Ref": "UnauthRoleName"
+          },
+          "functionthemeetinghousea5cd4619Name": {
+            "Fn::GetAtt": [
+              "functionthemeetinghousea5cd4619",
+              "Outputs.Name"
+            ]
+          },
+          "functionthemeetinghousea5cd4619Arn": {
+            "Fn::GetAtt": [
+              "functionthemeetinghousea5cd4619",
+              "Outputs.Arn"
+            ]
+          },
+          "env": "tmhprod"
+        }
+      }
+    },
+    "apiAdminQueries": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/api/admin-queries-cloudformation-template.json",
+        "Parameters": {
+          "authRoleName": {
+            "Ref": "AuthRoleName"
+          },
+          "unauthRoleName": {
+            "Ref": "UnauthRoleName"
+          },
+          "authcognitodevtmhUserPoolId": {
+            "Fn::GetAtt": [
+              "authcognitodevtmh",
+              "Outputs.UserPoolId"
+            ]
+          },
+          "functionAdminQueriesa1b7e2e8Arn": {
+            "Fn::GetAtt": [
+              "functionAdminQueriesa1b7e2e8",
+              "Outputs.Arn"
+            ]
+          },
+          "functionAdminQueriesa1b7e2e8Name": {
+            "Fn::GetAtt": [
+              "functionAdminQueriesa1b7e2e8",
+              "Outputs.Name"
+            ]
+          },
+          "env": "tmhprod"
+        }
+      }
+    },
+    "hostingS3AndCloudFront": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/hosting/template.json",
+        "Parameters": {
+          "bucketName": "heeetingouse-20190312104205-hostingbucket",
+          "env": "tmhprod"
+        }
+      }
+    },
+    "functionthemeetinghousea5cd4619": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/function/themeetinghousea5cd4619-cloudformation-template.json",
+        "Parameters": {
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/themeetinghousea5cd4619-346e706431695a427059-build.zip",
+          "hostingS3AndCloudFrontHostingBucketName": {
+            "Fn::GetAtt": [
+              "hostingS3AndCloudFront",
+              "Outputs.HostingBucketName"
+            ]
+          },
+          "env": "tmhprod"
+        }
+      }
+    },
+    "functionemailHomeChurch": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/function/emailHomeChurch-cloudformation-template.json",
+        "Parameters": {
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/emailHomeChurch-53536546627839364e74-build.zip",
+          "env": "tmhprod"
+        }
+      }
+    },
+    "functionS3Triggerd90d52fa": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/function/S3Triggerd90d52fa-cloudformation-template.json",
+        "Parameters": {
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/S3Triggerd90d52fa-55585256336f73466775-build.zip",
+          "env": "tmhprod"
+        }
+      }
+    },
+    "functiontmhMetadataFacebook": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/function/tmhMetadataFacebook-cloudformation-template.json",
+        "Parameters": {
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/tmhMetadataFacebook-3865716770744637496a-build.zip",
+          "env": "tmhprod"
+        }
+      }
+    },
+    "functionQandEh": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/function/QandEh-cloudformation-template.json",
+        "Parameters": {
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/QandEh-633463453155436a3972-build.zip",
+          "env": "tmhprod"
+        }
+      }
+    },
+    "functiongetBiblePassage": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/function/getBiblePassage-cloudformation-template.json",
+        "Parameters": {
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/getBiblePassage-442f576762745a74537a-build.zip",
+          "env": "tmhprod"
+        }
+      }
+    },
+    "functionsocialBotHandler": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/function/socialBotHandler-cloudformation-template.json",
+        "Parameters": {
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/socialBotHandler-356435453137546e4130-build.zip",
+          "env": "tmhprod"
+        }
+      }
+    },
+    "functiontmhF1HomeChurch": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/function/tmhF1HomeChurch-cloudformation-template.json",
+        "Parameters": {
+          "CloudWatchRule": "cron(0 9 * * ? *)",
+          "userPoolId": "us-east-1_KiJzP2dH5",
+          "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
+          "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/tmhF1HomeChurch-39696c54744d37434f4f-build.zip",
+          "apithemeetinghouseGraphQLAPIIdOutput": {
+            "Fn::GetAtt": [
+              "apithemeetinghouse",
+              "Outputs.GraphQLAPIIdOutput"
+            ]
+          },
+          "apithemeetinghouseGraphQLAPIEndpointOutput": {
+            "Fn::GetAtt": [
+              "apithemeetinghouse",
+              "Outputs.GraphQLAPIEndpointOutput"
+            ]
+          },
+          "apithemeetinghouseGraphQLAPIKeyOutput": {
+            "Fn::GetAtt": [
+              "apithemeetinghouse",
+              "Outputs.GraphQLAPIKeyOutput"
+            ]
+          },
+          "functiongetBiblePassageName": {
+            "Fn::GetAtt": [
+              "functiongetBiblePassage",
+              "Outputs.Name"
+            ]
+          },
+          "env": "tmhprod"
+        }
+      }
+    },
+    "functiontmhnotespdf": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/function/tmhnotespdf-cloudformation-template.json",
+        "Parameters": {
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/tmhnotespdf-2b747838667a75697831-build.zip",
+          "env": "tmhprod"
+        }
+      }
+    },
+    "functionAdminQueriesb1fe1491": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/function/AdminQueriesb1fe1491-cloudformation-template.json",
+        "Parameters": {
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/AdminQueriesb1fe1491-61584b386e6e34646b6c-build.zip",
+          "env": "tmhprod"
+        }
+      }
+    },
+    "functioncognitodevtmhPreSignup": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/function/cognitodevtmhPreSignup-cloudformation-template.json",
+        "Parameters": {
+          "modules": "custom",
+          "resourceName": "cognitodevtmhPreSignup",
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/cognitodevtmhPreSignup-654b7a67474f4575796e-build.zip",
+          "env": "tmhprod"
+        }
+      }
+    },
+    "functiontmhF1AssignmentSync": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/function/tmhF1AssignmentSync-cloudformation-template.json",
+        "Parameters": {
+          "CloudWatchRule": "cron(0 1 * * ? *)",
+          "userPoolId": "us-east-1_KiJzP2dH5",
+          "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
+          "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/tmhF1AssignmentSync-48434a6472704d4f2b42-build.zip",
+          "apithemeetinghouseGraphQLAPIIdOutput": {
+            "Fn::GetAtt": [
+              "apithemeetinghouse",
+              "Outputs.GraphQLAPIIdOutput"
+            ]
+          },
+          "apithemeetinghouseGraphQLAPIEndpointOutput": {
+            "Fn::GetAtt": [
+              "apithemeetinghouse",
+              "Outputs.GraphQLAPIEndpointOutput"
+            ]
+          },
+          "apithemeetinghouseGraphQLAPIKeyOutput": {
+            "Fn::GetAtt": [
+              "apithemeetinghouse",
+              "Outputs.GraphQLAPIKeyOutput"
+            ]
+          },
+          "env": "tmhprod"
+        }
+      }
+    },
+    "functiontmhF1LinkUser": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/function/tmhF1LinkUser-cloudformation-template.json",
+        "Parameters": {
+          "userPoolId": "us-east-1_KiJzP2dH5",
+          "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
+          "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/tmhF1LinkUser-356b5448702b7070375a-build.zip",
+          "authcognitodevtmhUserPoolId": {
+            "Fn::GetAtt": [
+              "authcognitodevtmh",
+              "Outputs.UserPoolId"
+            ]
+          },
+          "apithemeetinghouseGraphQLAPIIdOutput": {
+            "Fn::GetAtt": [
+              "apithemeetinghouse",
+              "Outputs.GraphQLAPIIdOutput"
+            ]
+          },
+          "apithemeetinghouseGraphQLAPIEndpointOutput": {
+            "Fn::GetAtt": [
+              "apithemeetinghouse",
+              "Outputs.GraphQLAPIEndpointOutput"
+            ]
+          },
+          "apithemeetinghouseGraphQLAPIKeyOutput": {
+            "Fn::GetAtt": [
+              "apithemeetinghouse",
+              "Outputs.GraphQLAPIKeyOutput"
+            ]
+          },
+          "env": "tmhprod"
+        }
+      }
+    },
+    "functionthemeetinghousetmhShared": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/function/themeetinghousetmhShared-awscloudformation-template.json",
+        "Parameters": {
+          "runtimes": "nodejs14.x",
+          "description": "Updated layer version 2021-08-26T04:35:16.514Z",
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/themeetinghousetmhShared-LambdaLayerVersiona24641c2-build.zip",
+          "env": "tmhprod"
+        }
+      }
+    },
+    "functiontmhF1SearchContributionReceipts": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/function/tmhF1SearchContributionReceipts-cloudformation-template.json",
+        "Parameters": {
+          "userPoolId": "us-east-1_KiJzP2dH5",
+          "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
+          "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/tmhF1SearchContributionReceipts-39493878667878697065-build.zip",
+          "env": "tmhprod"
+        }
+      }
+    },
+    "functioncognitodevtmhPreTokenGeneration": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/function/cognitodevtmhPreTokenGeneration-cloudformation-template.json",
+        "Parameters": {
+          "modules": "custom",
+          "resourceName": "cognitodevtmhPreTokenGeneration",
+          "userPoolId": "us-east-1_KiJzP2dH5",
+          "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
+          "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/cognitodevtmhPreTokenGeneration-6764725134386a556736-build.zip",
+          "functionthemeetinghousetmhSharedArn": {
+            "Fn::GetAtt": [
+              "functionthemeetinghousetmhShared",
+              "Outputs.Arn"
+            ]
+          },
+          "apithemeetinghouseGraphQLAPIIdOutput": {
+            "Fn::GetAtt": [
+              "apithemeetinghouse",
+              "Outputs.GraphQLAPIIdOutput"
+            ]
+          },
+          "apithemeetinghouseGraphQLAPIEndpointOutput": {
+            "Fn::GetAtt": [
+              "apithemeetinghouse",
+              "Outputs.GraphQLAPIEndpointOutput"
+            ]
+          },
+          "apithemeetinghouseGraphQLAPIKeyOutput": {
+            "Fn::GetAtt": [
+              "apithemeetinghouse",
+              "Outputs.GraphQLAPIKeyOutput"
+            ]
+          },
+          "env": "tmhprod"
+        }
+      }
+    },
+    "functiontmhF1SyncGroupPermissions": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/function/tmhF1SyncGroupPermissions-cloudformation-template.json",
+        "Parameters": {
+          "userPoolId": "us-east-1_KiJzP2dH5",
+          "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
+          "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/tmhF1SyncGroupPermissions-674753384946552f4b2f-build.zip",
+          "env": "tmhprod"
+        }
+      }
+    },
+    "functionAdminQueriesa1b7e2e8": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/function/AdminQueriesa1b7e2e8-cloudformation-template.json",
+        "Parameters": {
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/AdminQueriesa1b7e2e8-70653256727570787251-build.zip",
+          "authcognitodevtmhUserPoolId": {
+            "Fn::GetAtt": [
+              "authcognitodevtmh",
+              "Outputs.UserPoolId"
+            ]
+          },
+          "env": "tmhprod"
+        }
+      }
+    },
+    "functiontmhStripeDeleteSubscription": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/function/tmhStripeDeleteSubscription-cloudformation-template.json",
+        "Parameters": {
+          "userPoolId": "us-east-1_KiJzP2dH5",
+          "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
+          "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/tmhStripeDeleteSubscription-2f4c596372567142767a-build.zip",
+          "functionthemeetinghousetmhSharedArn": {
+            "Fn::GetAtt": [
+              "functionthemeetinghousetmhShared",
+              "Outputs.Arn"
+            ]
+          },
+          "env": "tmhprod"
+        }
+      }
+    },
+    "functiontmhStripeListPaymentMethods": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/function/tmhStripeListPaymentMethods-cloudformation-template.json",
+        "Parameters": {
+          "userPoolId": "us-east-1_KiJzP2dH5",
+          "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
+          "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/tmhStripeListPaymentMethods-2b6b5431505a7861496f-build.zip",
+          "functionthemeetinghousetmhSharedArn": {
+            "Fn::GetAtt": [
+              "functionthemeetinghousetmhShared",
+              "Outputs.Arn"
+            ]
+          },
+          "env": "tmhprod"
+        }
+      }
+    },
+    "functiontmhStripeAddSubscription": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/function/tmhStripeAddSubscription-cloudformation-template.json",
+        "Parameters": {
+          "userPoolId": "us-east-1_KiJzP2dH5",
+          "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
+          "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/tmhStripeAddSubscription-6d635353457970715775-build.zip",
+          "functionthemeetinghousetmhSharedArn": {
+            "Fn::GetAtt": [
+              "functionthemeetinghousetmhShared",
+              "Outputs.Arn"
+            ]
+          },
+          "env": "tmhprod"
+        }
+      }
+    },
+    "functiontmhStripeListSubscriptions": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/function/tmhStripeListSubscriptions-cloudformation-template.json",
+        "Parameters": {
+          "userPoolId": "us-east-1_KiJzP2dH5",
+          "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
+          "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/tmhStripeListSubscriptions-687834504a4768503952-build.zip",
+          "functionthemeetinghousetmhSharedArn": {
+            "Fn::GetAtt": [
+              "functionthemeetinghousetmhShared",
+              "Outputs.Arn"
+            ]
+          },
+          "env": "tmhprod"
+        }
+      }
+    },
+    "functiontmhStripeAddCustomer": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/function/tmhStripeAddCustomer-cloudformation-template.json",
+        "Parameters": {
+          "userPoolId": "us-east-1_KiJzP2dH5",
+          "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
+          "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/tmhStripeAddCustomer-326135686e452b713157-build.zip",
+          "functionthemeetinghousetmhSharedArn": {
+            "Fn::GetAtt": [
+              "functionthemeetinghousetmhShared",
+              "Outputs.Arn"
+            ]
+          },
+          "env": "tmhprod"
+        }
+      }
+    },
+    "functiontmhStripeAddPaymentMethod": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/function/tmhStripeAddPaymentMethod-cloudformation-template.json",
+        "Parameters": {
+          "userPoolId": "us-east-1_KiJzP2dH5",
+          "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
+          "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/tmhStripeAddPaymentMethod-73677237336a6e777350-build.zip",
+          "functionthemeetinghousetmhSharedArn": {
+            "Fn::GetAtt": [
+              "functionthemeetinghousetmhShared",
+              "Outputs.Arn"
+            ]
+          },
+          "env": "tmhprod"
+        }
+      }
+    },
+    "functioncognitodevtmhPostAuthentication": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/function/cognitodevtmhPostAuthentication-cloudformation-template.json",
+        "Parameters": {
+          "modules": "custom",
+          "resourceName": "cognitodevtmhPostAuthentication",
+          "userPoolId": "us-east-1_KiJzP2dH5",
+          "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
+          "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/cognitodevtmhPostAuthentication-346567327133314c7153-build.zip",
+          "apithemeetinghouseGraphQLAPIIdOutput": {
+            "Fn::GetAtt": [
+              "apithemeetinghouse",
+              "Outputs.GraphQLAPIIdOutput"
+            ]
+          },
+          "apithemeetinghouseGraphQLAPIEndpointOutput": {
+            "Fn::GetAtt": [
+              "apithemeetinghouse",
+              "Outputs.GraphQLAPIEndpointOutput"
+            ]
+          },
+          "apithemeetinghouseGraphQLAPIKeyOutput": {
+            "Fn::GetAtt": [
+              "apithemeetinghouse",
+              "Outputs.GraphQLAPIKeyOutput"
+            ]
+          },
+          "env": "tmhprod"
+        }
+      }
+    },
+    "functiontmhPinpointCreateCampaign": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/function/tmhPinpointCreateCampaign-cloudformation-template.json",
+        "Parameters": {
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/tmhPinpointCreateCampaign-566368314b7953566e62-build.zip",
+          "analyticsthemeetinghouseId": {
+            "Fn::GetAtt": [
+              "analyticsthemeetinghouse",
+              "Outputs.Id"
+            ]
+          },
+          "analyticsthemeetinghouseRegion": {
+            "Fn::GetAtt": [
+              "analyticsthemeetinghouse",
+              "Outputs.Region"
+            ]
+          },
+          "env": "tmhprod"
+        }
+      }
+    },
+    "functiontmhPinpointListSegments": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/function/tmhPinpointListSegments-cloudformation-template.json",
+        "Parameters": {
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/tmhPinpointListSegments-446a764862646666636a-build.zip",
+          "analyticsthemeetinghouseId": {
+            "Fn::GetAtt": [
+              "analyticsthemeetinghouse",
+              "Outputs.Id"
+            ]
+          },
+          "analyticsthemeetinghouseRegion": {
+            "Fn::GetAtt": [
+              "analyticsthemeetinghouse",
+              "Outputs.Region"
+            ]
+          },
+          "env": "tmhprod"
+        }
+      }
+    },
+    "functiontmhPinpointCleanupEndpoints": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/function/tmhPinpointCleanupEndpoints-cloudformation-template.json",
+        "Parameters": {
+          "CloudWatchRule": "cron(0 1 * * ? *)",
+          "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
+          "s3Key": "amplify-builds/tmhPinpointCleanupEndpoints-73364b6e723878354137-build.zip",
+          "authcognitodevtmhUserPoolId": {
+            "Fn::GetAtt": [
+              "authcognitodevtmh",
+              "Outputs.UserPoolId"
+            ]
+          },
+          "analyticsthemeetinghouseId": {
+            "Fn::GetAtt": [
+              "analyticsthemeetinghouse",
+              "Outputs.Id"
+            ]
+          },
+          "analyticsthemeetinghouseRegion": {
+            "Fn::GetAtt": [
+              "analyticsthemeetinghouse",
+              "Outputs.Region"
+            ]
+          },
+          "env": "tmhprod"
+        }
+      }
+    },
+    "analyticsthemeetinghouse": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/analytics/pinpoint-cloudformation-template.json",
+        "Parameters": {
+          "appName": "themeetinghouse",
+          "roleName": "pinpointLambdaRolef2d7936e",
+          "cloudWatchPolicyName": "cloudWatchPolicyf2d7936e",
+          "pinpointPolicyName": "pinpointPolicyf2d7936e",
+          "authPolicyName": "pinpoint_amplify_f2d7936e",
+          "unauthPolicyName": "pinpoint_amplify_f2d7936e",
+          "authRoleName": {
+            "Ref": "AuthRoleName"
+          },
+          "unauthRoleName": {
+            "Ref": "UnauthRoleName"
+          },
+          "authRoleArn": {
+            "Fn::GetAtt": [
+              "AuthRole",
+              "Arn"
+            ]
+          },
+          "env": "tmhprod"
+        }
+      }
+    },
+    "storagetmhusercontent": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/themeetinghouse-tmhprod-20191031042029-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
+        "Parameters": {
+          "bucketName": "themeetinghouse-usercontent",
+          "authPolicyName": "s3_amplify_e58401fe",
+          "unauthPolicyName": "s3_amplify_e58401fe",
+          "authRoleName": {
+            "Ref": "AuthRoleName"
+          },
+          "unauthRoleName": {
+            "Ref": "UnauthRoleName"
+          },
+          "selectedGuestPermissions": "s3:GetObject,s3:ListBucket",
+          "selectedAuthenticatedPermissions": "s3:PutObjectAcl,s3:PutObject,s3:GetObject,s3:ListBucket,s3:DeleteObject",
+          "s3PermissionsAuthenticatedPublic": "s3:PutObject,s3:PutObjectAcl,s3:GetObject,s3:DeleteObject",
+          "s3PublicPolicy": "Public_policy_6b1106fc",
+          "s3PermissionsAuthenticatedUploads": "s3:PutObject,s3:PutObjectAcl",
+          "s3UploadsPolicy": "Uploads_policy_6b1106fc",
+          "s3PermissionsAuthenticatedProtected": "s3:PutObject,s3:PutObjectAcl,s3:GetObject,s3:DeleteObject",
+          "s3ProtectedPolicy": "Protected_policy_857d338b",
+          "s3PermissionsAuthenticatedPrivate": "s3:PutObject,s3:GetObject,s3:DeleteObject",
+          "s3PrivatePolicy": "Private_policy_857d338b",
+          "AuthenticatedAllowList": "ALLOW",
+          "s3ReadPolicy": "read_policy_6b1106fc",
+          "s3PermissionsGuestPublic": "s3:GetObject",
+          "s3PermissionsGuestUploads": "DISALLOW",
+          "GuestAllowList": "ALLOW",
+          "triggerFunction": "S3Triggerd90d52fa",
+          "functionS3Triggerd90d52faName": {
+            "Fn::GetAtt": [
+              "functionS3Triggerd90d52fa",
+              "Outputs.Name"
+            ]
+          },
+          "functionS3Triggerd90d52faArn": {
+            "Fn::GetAtt": [
+              "functionS3Triggerd90d52fa",
+              "Outputs.Arn"
+            ]
+          },
+          "functionS3Triggerd90d52faLambdaExecutionRole": {
+            "Fn::GetAtt": [
+              "functionS3Triggerd90d52fa",
+              "Outputs.LambdaExecutionRole"
+            ]
+          },
+          "env": "tmhprod"
+        }
+      }
+    },
+    "UpdateRolesWithIDPFunction": {
+      "DependsOn": [
+        "AuthRole",
+        "UnauthRole",
+        "authcognitodevtmh"
+      ],
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "ZipFile": {
+            "Fn::Join": [
+              "\n",
+              [
+                "const response = require('cfn-response');",
+                "const aws = require('aws-sdk');",
+                "let responseData = {};",
+                "exports.handler = function(event, context) {",
+                "  try {",
+                "    let authRoleName = event.ResourceProperties.authRoleName;",
+                "    let unauthRoleName = event.ResourceProperties.unauthRoleName;",
+                "    let idpId = event.ResourceProperties.idpId;",
+                "    let promises = [];",
+                "    let authParamsJson = { 'Version': '2012-10-17','Statement': [{'Effect': 'Allow','Principal': {'Federated': 'cognito-identity.amazonaws.com'},'Action': 'sts:AssumeRoleWithWebIdentity','Condition': {'StringEquals': {'cognito-identity.amazonaws.com:aud': idpId},'ForAnyValue:StringLike': {'cognito-identity.amazonaws.com:amr': 'authenticated'}}}]};",
+                "    let unauthParamsJson = { 'Version': '2012-10-17','Statement': [{'Effect': 'Allow','Principal': {'Federated': 'cognito-identity.amazonaws.com'},'Action': 'sts:AssumeRoleWithWebIdentity','Condition': {'StringEquals': {'cognito-identity.amazonaws.com:aud': idpId},'ForAnyValue:StringLike': {'cognito-identity.amazonaws.com:amr': 'unauthenticated'}}}]};",
+                "    if (event.RequestType == 'Delete') {",
+                "        delete authParamsJson.Statement[0].Condition;",
+                "        delete unauthParamsJson.Statement[0].Condition;",
+                "        let authParams = { PolicyDocument: JSON.stringify(authParamsJson),RoleName: authRoleName};",
+                "        let unauthParams = {PolicyDocument: JSON.stringify(unauthParamsJson),RoleName: unauthRoleName};",
+                "        const iam = new aws.IAM({ apiVersion: '2010-05-08', region: event.ResourceProperties.region});",
+                "        promises.push(iam.updateAssumeRolePolicy(authParams).promise());",
+                "        promises.push(iam.updateAssumeRolePolicy(unauthParams).promise());",
+                "        Promise.all(promises)",
+                "         .then((res) => {",
+                "            console.log(\"delete response data\" + JSON.stringify(res));",
+                "            response.send(event, context, response.SUCCESS, {});",
+                "         });",
+                "    }",
+                "    if (event.RequestType == 'Update' || event.RequestType == 'Create') {",
+                "       const iam = new aws.IAM({ apiVersion: '2010-05-08', region: event.ResourceProperties.region});",
+                "        let authParams = { PolicyDocument: JSON.stringify(authParamsJson),RoleName: authRoleName};",
+                "        let unauthParams = {PolicyDocument: JSON.stringify(unauthParamsJson),RoleName: unauthRoleName};",
+                "        promises.push(iam.updateAssumeRolePolicy(authParams).promise());",
+                "        promises.push(iam.updateAssumeRolePolicy(unauthParams).promise());",
+                "        Promise.all(promises)",
+                "         .then((res) => {",
+                "            console.log(\"createORupdate\" + res);",
+                "            console.log(\"response data\" + JSON.stringify(res));",
+                "            response.send(event, context, response.SUCCESS, {});",
+                "         });",
+                "    }",
+                "  } catch(err) {",
+                "       console.log(err.stack);",
+                "       responseData = {Error: err};",
+                "       response.send(event, context, response.FAILED, responseData);",
+                "       throw err;",
+                "  }",
+                "};"
+              ]
+            ]
+          }
+        },
+        "Handler": "index.handler",
+        "Runtime": "nodejs12.x",
+        "Timeout": 300,
+        "Role": {
+          "Fn::GetAtt": [
+            "UpdateRolesWithIDPFunctionRole",
+            "Arn"
+          ]
+        }
+      }
+    },
+    "UpdateRolesWithIDPFunctionOutputs": {
+      "Type": "Custom::LambdaCallout",
+      "Properties": {
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "UpdateRolesWithIDPFunction",
+            "Arn"
+          ]
+        },
+        "region": {
+          "Ref": "AWS::Region"
+        },
+        "idpId": {
+          "Fn::GetAtt": [
+            "authcognitodevtmh",
+            "Outputs.IdentityPoolId"
+          ]
+        },
+        "authRoleName": {
+          "Ref": "AuthRoleName"
+        },
+        "unauthRoleName": {
+          "Ref": "UnauthRoleName"
+        }
+      }
+    },
+    "UpdateRolesWithIDPFunctionRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "RoleName": {
+          "Fn::Join": [
+            "",
+            [
+              {
+                "Ref": "AuthRoleName"
+              },
+              "-idp"
+            ]
+          ]
+        },
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": [
+                  "lambda.amazonaws.com"
+                ]
+              },
+              "Action": [
+                "sts:AssumeRole"
+              ]
+            }
+          ]
+        },
+        "Policies": [
+          {
+            "PolicyName": "UpdateRolesWithIDPFunctionPolicy",
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "logs:CreateLogGroup",
+                    "logs:CreateLogStream",
+                    "logs:PutLogEvents"
+                  ],
+                  "Resource": "arn:aws:logs:*:*:*"
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": "iam:UpdateAssumeRolePolicy",
+                  "Resource": {
+                    "Fn::GetAtt": [
+                      "AuthRole",
+                      "Arn"
+                    ]
+                  }
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": "iam:UpdateAssumeRolePolicy",
+                  "Resource": {
+                    "Fn::GetAtt": [
+                      "UnauthRole",
+                      "Arn"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "Outputs": {
+    "Region": {
+      "Description": "CloudFormation provider root stack Region",
+      "Value": {
+        "Ref": "AWS::Region"
+      },
+      "Export": {
+        "Name": {
+          "Fn::Sub": "${AWS::StackName}-Region"
+        }
+      }
+    },
+    "StackName": {
+      "Description": "CloudFormation provider root stack ID",
+      "Value": {
+        "Ref": "AWS::StackName"
+      },
+      "Export": {
+        "Name": {
+          "Fn::Sub": "${AWS::StackName}-StackName"
+        }
+      }
+    },
+    "StackId": {
+      "Description": "CloudFormation provider root stack name",
+      "Value": {
+        "Ref": "AWS::StackId"
+      },
+      "Export": {
+        "Name": {
+          "Fn::Sub": "${AWS::StackName}-StackId"
+        }
+      }
+    },
+    "DeploymentBucketName": {
+      "Description": "CloudFormation provider root stack deployment bucket name",
+      "Value": {
+        "Ref": "DeploymentBucketName"
+      },
+      "Export": {
+        "Name": {
+          "Fn::Sub": "${AWS::StackName}-DeploymentBucketName"
+        }
+      }
+    },
+    "AuthRoleArn": {
+      "Value": {
+        "Fn::GetAtt": [
+          "AuthRole",
+          "Arn"
+        ]
+      }
+    },
+    "UnauthRoleArn": {
+      "Value": {
+        "Fn::GetAtt": [
+          "UnauthRole",
+          "Arn"
+        ]
+      }
+    },
+    "AuthRoleName": {
+      "Value": {
+        "Ref": "AuthRole"
+      }
+    },
+    "UnauthRoleName": {
+      "Value": {
+        "Ref": "UnauthRole"
+      }
+    }
+  }
+}

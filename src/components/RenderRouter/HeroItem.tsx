@@ -36,7 +36,8 @@ class HeroItem extends React.Component<Props, State> {
   }
   async componentDidMount() {
     const query = this.props.content;
-    if (query.class === 'locations') {
+    if (query.class === 'locations' || query.class === 'region') {
+      console.log('REGION');
       const data = await DataLoader.getLocations(query);
       this.setData(data);
     }
@@ -315,7 +316,78 @@ class HeroItem extends React.Component<Props, State> {
                 <h2 className="heroH2">{this.state.content.header2}</h2>
               )
             )}
-            <hr className="heroHr"></hr>
+
+            {this.state.content.hideHr ? null : <hr className="heroHr"></hr>}
+            {this.state.content.class == 'region' ? (
+              <div style={{ width: '32vw' }}>
+                {this.state.locationData.map((z: LocationData) => {
+                  return (
+                    <>
+                      <div
+                        key={z.id}
+                        style={{
+                          width: '32vw',
+
+                          borderBottomWidth: 1,
+                          borderBottomStyle: 'solid',
+                          borderColor: '#ffffff',
+                        }}
+                      >
+                        <span
+                          className="heroText1"
+                          style={{ display: 'inline-block', width: '27vw' }}
+                        >
+                          {z.regionShortName}
+                        </span>
+                        <span
+                          className="heroText1"
+                          style={{
+                            display: 'inline-block',
+                            width: '2vw',
+                          }}
+                        >
+                          <a href={'mailto:' + z.pastorEmail}>
+                            <button className="calendarButton contactPastor">
+                              <img
+                                className="calendarImageRegion"
+                                src="/static/svg/Contact-white.svg"
+                                alt="Contact Icon"
+                              />
+                            </button>
+                          </a>
+                        </span>
+                        <span
+                          className="heroText1"
+                          style={{
+                            display: 'inline-block',
+                            width: '3vw',
+                          }}
+                        >
+                          <AddToCalendar
+                            textDecoration="always"
+                            color="white"
+                            isIcon={true}
+                            event={this.getCalendarEventForLocation(z)}
+                          />
+                        </span>
+                      </div>
+                      <div className="heroText1">
+                        <span
+                          className="heroText1"
+                          style={{
+                            display: 'inline-block',
+                            width: '32vw',
+                          }}
+                        >
+                          {z.serviceTimeDescription}
+                        </span>
+                      </div>
+                    </>
+                  );
+                })}
+              </div>
+            ) : null}
+
             <div className="heroText1">{this.state.content.text1}</div>
             <div className="heroText2">{this.state.content.text2}</div>
             <div className="heroText2">{this.state.content.text3}</div>
@@ -358,48 +430,14 @@ class HeroItem extends React.Component<Props, State> {
                 </Link>
               ) : this.state.content.addToCalendar ? (
                 this.state.locationData.length === 1 ? (
-                  this.state.content.header1 === 'Ancaster' ||
-                  this.state.content.header1 === 'Burlington' ||
-                  this.state.content.header1 === 'Toronto East' ? (
-                    moment().isBefore(moment('2021-04-02', 'YYYY-MM-DD')) ? (
-                      <Link
-                        to={this.state.content.customLiveLink ?? '/live'}
-                        className="calendarButton"
-                        style={{
-                          color: 'white',
-                          paddingLeft: 0,
-                          paddingRight: 32,
-                        }}
-                        aria-label="Save my spot"
-                      >
-                        <img
-                          height={25}
-                          className="calendarImage"
-                          src="/static/svg/Youtube.svg"
-                          alt="Contact Icon"
-                        />
-                        Save My Spot
-                      </Link>
-                    ) : (
-                      <AddToCalendar
-                        style={{ marginRight: 25 }}
-                        textDecoration="always"
-                        color="white"
-                        event={this.getCalendarEventForLocation(
-                          this.state.locationData[0]
-                        )}
-                      />
-                    )
-                  ) : (
-                    <AddToCalendar
-                      style={{ marginRight: 25 }}
-                      textDecoration="always"
-                      color="white"
-                      event={this.getCalendarEventForLocation(
-                        this.state.locationData[0]
-                      )}
-                    />
-                  )
+                  <AddToCalendar
+                    style={{ marginRight: 25 }}
+                    textDecoration="always"
+                    color="white"
+                    event={this.getCalendarEventForLocation(
+                      this.state.locationData[0]
+                    )}
+                  />
                 ) : null
               ) : this.state.content.secondaryCTA ? (
                 this.renderSecondaryCTA(this.state.content.secondaryCTA)

@@ -26,6 +26,7 @@ interface Props {
   textDecoration?: 'always' | 'hover';
   style?: React.CSSProperties;
   className?: string;
+  isIcon?: boolean;
 }
 /**
  * This function can be attributed to Jason Salzman.
@@ -158,6 +159,7 @@ export default function AddToCalendar({
   transparentBackground,
   style,
   className,
+  isIcon = false,
 }: Props) {
   const strokeColor = color === 'white' ? '#FFFFFF' : '#1A1A1A';
   const [open, setOpen] = useState(false);
@@ -169,8 +171,8 @@ export default function AddToCalendar({
     <div className={'add-to-calendar-wrapper ' + className} style={style}>
       <svg
         style={{ marginRight: 10 }}
-        width={25}
-        height={25}
+        width={isIcon ? 15 : 25}
+        height={isIcon ? 15 : 25}
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -229,7 +231,7 @@ export default function AddToCalendar({
               : ''
           }`}
         >
-          Add to Calendar
+          {!isIcon ? 'Add to Calendar' : null}
         </DropdownToggle>
         <DropdownMenu>
           {platforms.map((platform) => {
