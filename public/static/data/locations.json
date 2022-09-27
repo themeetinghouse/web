@@ -95,12 +95,12 @@
     "name": "Toronto - Downtown",
     "regionShortName": "Downtown",
     "region": "Toronto",
-    "pastorEmail": "Steve.Macdouell@themeetinghouse.com",
     "serviceTimeDescription": "Meetings are paused",
+    "pastorEmail": "Lisa.Goetze@themeetinghouse.com",
     "location": {
-      "longitude": -79.391418,
-      "latitude": 43.648869,
-      "address": "Scotiabank Theatre, 259 Richmond St. W"
+      "longitude": -79.39134448465478,
+      "latitude": 43.65219133132586,
+      "address": "St. George by the Grange Anglican Church, 30 Stephanie St"
     },
     "serviceTimes": ["10:00am"]
   },

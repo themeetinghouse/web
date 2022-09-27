@@ -75,10 +75,24 @@
         "text1": "When we're not practicing social distancing because of COVID-19, these are the ways we typically connect.",
         "list": [
           {
+            "title": "Sunday Morning",
+            "text": "We gather on Sundays across multiple locations for teaching, music, prayer, and volunteering. We make space for spiritual seekers to come and ask questions, connect with community, and explore faith.",
+            "imageSrc": "/static/images/community-3-1.jpg",
+            "imageAlt": "Three people standing by the doors of the Oakville building.",
+            "navigateTo": "/sunday-morning"
+          },
+          {
+            "title": "Sunday Livestream",
+            "text": "We're live every Sunday at 10:00am EDT. A one hour livestream experience with stories, music, and teaching. If you're looking for a good first step, this is it. See you this Sunday!",
+            "imageSrc": "/static/images/corona-2-3.jpg",
+            "imageAlt": "Screen shot of Jimmy teaching during Sunday morning livestream at The Meeting House.",
+            "navigateTo": "/live"
+          },
+          {
             "title": "Home Church",
             "text": "In response to COVID-19 our home churches are now meeting online. During the week, we meet in small groups to study and apply Sunday's teaching, build relationships, and care for our neighbourhoods. We call this Home Church—and it's kind of the best thing we've got going.",
             "imageSrc": "/static/images/community-3-2.jpg",
-            "imageAlt": "Three people sitting around a dining room table eating snacks",
+            "imageAlt": "Three people sitting around a dining room table eating snacks.",
             "navigateTo": "/homechurch"
           },
           {
@@ -87,13 +101,6 @@
             "imageSrc": "/static/images/community-3-3.jpg",
             "imageAlt": "Two kids smiling",
             "navigateTo": "/kids-and-youth"
-          },
-          {
-            "title": "Sunday Livestream",
-            "text": "Curious but not sure what to expect? We gather to learn how we can grow as followers of Jesus who love others well. Due to COVID-19, we have transitioned our physical gatherings to online every Sunday at 10:00am EDT.",
-            "imageSrc": "/static/images/community-3-1.jpg",
-            "imageAlt": "Three people standing by the doors of the Oakville site",
-            "navigateTo": "/sunday-morning"
           }
         ]
       },
