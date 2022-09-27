@@ -1,7 +1,9 @@
 import DataLoader from './DataLoader';
 import { API } from '__mocks__/aws-amplify';
 import { ModelSortDirection } from 'API';
-
+import awsmobile from 'aws-exports';
+import Amplify from 'aws-amplify';
+Amplify.configure(awsmobile);
 describe('series', () => {
   test('return series data', async () => {
     API.graphql.mockResolvedValue({
