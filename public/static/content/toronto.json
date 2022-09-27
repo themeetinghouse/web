@@ -62,7 +62,7 @@
         "header1": "Our Team",
         "text1": "These are the folks that help make community, discipleship, and Sunday mornings happen.",
         "filterField": "sites",
-        "filterValue": "TODT"
+        "filterValue": "Toronto_Region"
       },
       {
         "type": "list",
@@ -70,7 +70,12 @@
         "class": "events",
         "header1": "Upcoming Events",
         "header2": "",
-        "facebookEvents": ["188440474508616", "220608684658029"]
+        "facebookEvents": [
+          "725999090807589",
+          "1770683463163459",
+          "188440474508616",
+          "220608684658029"
+        ]
       },
       {
         "type": "list",
@@ -145,12 +150,17 @@
         "style": "mad",
         "header1": "Local Teaching",
         "header2": "",
-        "text1": "All our recent Downtown Toronto teaching in one place.",
+        "text1": "All our recent Toronto Region teaching in one place.",
         "list": [
           {
             "type": "arrow",
-            "title": "Spotify",
+            "title": "Downtown Teaching",
             "navigateTo": "https://open.spotify.com/show/2lwTMOPb6LcIye45x6BHwV?si=EJRtnkywTJyrH-znor_wog"
+          },
+          {
+            "type": "arrow",
+            "title": "Toronto East Teaching",
+            "navigateTo": "https://www.anchor.fm/tmheasttoronto"
           }
         ],
         "image1": [
