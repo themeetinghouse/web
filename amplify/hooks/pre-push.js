@@ -5,7 +5,7 @@ const parameters = JSON.parse(fs.readFileSync(0, { encoding: 'utf8' }));
 const currentCLIMajorVersion = parameters.data.amplify.version.split('.')[0];
 console.log('Amplify CLI major version: ', currentCLIMajorVersion);
 
-const MINIMUM_MAJOR_AMPLIFY_CLI_VERSION = 9;
+const MINIMUM_MAJOR_AMPLIFY_CLI_VERSION = 10;
 console.log(
   'Minimum required Amplify CLI major version: ',
   MINIMUM_MAJOR_AMPLIFY_CLI_VERSION
