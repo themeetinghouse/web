@@ -1,0 +1,143 @@
+{
+    "page": {
+      "name": "training",
+      "title": "Training",
+      "keywords": "Training, elders, coordinators, links, hub, training hub, elders hub, resources",
+      "description": "This page provides all of the links to training materials for elders and key coordinators.",
+      "pageConfig": {
+        "showLive": true,
+        "movingMenu": false,
+        "showLogoText": true,
+        "logoColor": "black",
+        "showSearch": true,
+        "showFooter": true,
+        "showMenu": true
+      },
+      "content": [
+        {
+          "type": "og-tags",
+          "image": "/static/images/covid-1-2.jpg",
+          "url": "https://www.themeetinghouse.com/welcomehome",
+          "title": "Training Hub",
+          "description": "This webpage is designed to be a one stop information and training hub for our elders and key volunteers.  It can host links to any training or resourcing material we would like to make available to our teams and content can be updated as often as needed as circumstances or restrictions change."
+        },
+        {
+          "type": "hero",
+          "style": "full",
+          "image1": [
+            {
+              "src": "/static/images/homepage-1-1.jpg",
+              "alt": "Man sitting outside on a backyard patio talking and laughing with a group of friends."
+            },
+            {
+              "src": "/static/images/homepage-1-2.jpg",
+              "alt": "Young man talking to his friend outside a church building."
+            },
+            {
+              "src": "/static/images/homepage-1-5.jpg",
+              "alt": "Two men talking outside on a backyard patio."
+            },
+            {
+              "src": "/static/images/homepage-1-6.jpg",
+              "alt": "Young woman talking to a friend outside on a backyard patio."
+            },
+            {
+              "src": "/static/images/homepage-1-8.jpg",
+              "alt": "Young woman in a face mask is sitting and talking to a friend off camera."
+            }
+          ],
+          "header1": "Training and Info",
+          "header2": "",
+          "text1": "Our one-stop hub for elders and key volunteers as we navigate this next season together. Keep scrolling for links to the latest trainings and resources to help us love and support our communities well."
+        },
+        {
+          "type": "list",
+          "style": "horizontal",
+          "class": "videos",
+          "subclass": "regather-internal",
+          "limit": 25,
+          "sortOrder": "DESC",
+          "header1": "Welcome Home"
+        },
+        {
+          "type": "list",
+          "style": "horizontal",
+          "class": "videos",
+          "subclass": "kids-training",
+          "limit": 25,
+          "sortOrder": "DESC",
+          "header1": "Kidmax Team Videos"
+        },
+        {
+          "type": "list",
+          "style": "horizontal",
+          "class": "videos",
+          "subclass": "compassion-training",
+          "limit": 25,
+          "sortOrder": "DESC",
+          "header1": "Compassion Videos"
+        },
+        {
+          "type": "content",
+          "style": "oneImage",
+          "header1": "Home Church Resources",
+          "text1":"All training and equipping resources for elders will be available through this one webpage.",
+          "list": [
+            {
+              "type": "link",
+              "title": "Elders Hub",
+              "navigateTo": "/elders-hub"
+            }
+          ],
+          "image1": [
+            {
+              "src": "/static/images/make-a-difference-3.jpg",
+              "alt": "A woman is on her phone outside."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "style": "horizontal",
+          "class": "videos",
+          "subclass": "connect training",
+          "limit": 25,
+          "sortOrder": "DESC",
+          "header1": "Connect Team Videos"
+        },
+        {
+        "type": "list",
+        "style": "horizontal",
+        "class": "videos",
+        "subclass": "tech-training",
+        "limit": 25,
+        "sortOrder": "DESC",
+        "header1": "Tech Video"
+        },
+        {
+          "type": "content",
+          "style": "oneImageBlackRight",
+          "header1": "Still need help?",
+          "text1": "If you haven't found the info you're looking for, we want to hear from you! You're an important part of making church happen, and we want to make sure you've got everything you need.",
+          "list": [
+            {
+              "type": "link",
+              "title": "Ask a question",
+              "navigateTo": "/connect"
+            },
+            {
+              "type": "link",
+              "title": "Go to The Meeting House website",
+              "navigateTo": "homepage"
+            }
+          ],
+          "image1": [
+            {
+              "src": "/static/images/corona-7.jpg",
+              "alt": "A viewer is watching The Meeting House livestream on their laptop."
+            }
+          ]
+        }
+      ]
+    }
+  }
