@@ -2,6 +2,9 @@
   {
     "id": "alliston",
     "name": "Alliston",
+    "regionShortName": "Alliston",
+    "serviceTimeDescription":"Every Sunday @ 10:30am",
+    "region": "Distance",
     "pastorEmail": "ruth.wright@themeetinghouse.com",
     "location": {
       "longitude": -79.870798,
@@ -27,7 +30,10 @@
   {
     "id": "sandbanks",
     "name": "Sandbanks",
-    "pastorEmail": "brent.babcock@themeetinghouse.com",
+    "regionShortName": "Sandbanks",
+    "serviceTimeDescription":"Every Sunday @ 10am",
+    "region": "Distance",
+    "pastorEmail": "steve.kerr@themeetinghouse.com",
     "location": {
       "longitude": -77.2674762,
       "latitude": 43.9188665,
@@ -38,6 +44,9 @@
   {
     "id": "ancaster",
     "name": "Ancaster",
+    "regionShortName": "Ancaster",
+    "serviceTimeDescription":"Every Sunday @ 10am",
+    "region": "Hamilton",
     "pastorEmail": "Mike.slack@themeetinghouse.com",
     "location": {
       "longitude": 0.1,
@@ -49,6 +58,9 @@
   {
     "id": "brampton",
     "name": "Brampton",
+    "regionShortName": "Brampton",
+    "serviceTimeDescription":"Oct 23, Nov 27, Dec 23 at Alderlea",
+    "region": "Peel",
     "pastorEmail": "Christine.Gerber@themeetinghouse.com",
     "location": {
       "longitude": -79.7607954,
@@ -60,6 +72,9 @@
   {
     "id": "brantford",
     "name": "Brantford",
+    "regionShortName": "Brantford",
+    "serviceTimeDescription":"Every Sunday @ 10am",
+    "region": "Peel",
     "pastorEmail": "josh.woodward@themeetinghouse.com",
     "location": {
       "longitude": -80.268426,
@@ -71,6 +86,9 @@
   {
     "id": "burlington",
     "name": "Burlington",
+    "regionShortName": "Burlington",
+    "serviceTimeDescription":"Every Sunday @ 11am",
+    "region": "Peel",
     "pastorEmail": "Jordan.Taylor@themeetinghouse.com",
     "location": {
       "longitude": -79.8302872,
@@ -82,6 +100,9 @@
   {
     "id": "hamilton-downtown",
     "name": "Hamilton - Downtown",
+    "regionShortName": "Downtown",
+    "serviceTimeDescription":"Every Sunday @ 10am",
+    "region": "Hamilton",
     "pastorEmail": "Jimmy.Rushton@themeetinghouse.com",
     "location": {
       "longitude": -79.8702504,
@@ -95,7 +116,7 @@
     "name": "Toronto - Downtown",
     "regionShortName": "Downtown",
     "region": "Toronto",
-    "serviceTimeDescription": "Meetings are paused",
+    "serviceTimeDescription": "Every Sunday @ 10am",
     "pastorEmail": "Lisa.Goetze@themeetinghouse.com",
     "location": {
       "longitude": -79.39134448465478,
@@ -107,7 +128,10 @@
   {
     "id": "hamilton-mountain",
     "name": "Hamilton Mountain",
-    "pastorEmail": "Dagmar.Morgan-Sinclair@themeetinghouse.com",
+    "regionShortName": "East",
+    "serviceTimeDescription":"Every Sunday @ 10am",
+    "region": "Hamilton",
+    "pastorEmail": "Jimmy.Rushton@themeetinghouse.com",
     "location": {
       "longitude": -79.78769676593981,
       "latitude": 43.19427197465928,
@@ -121,7 +145,7 @@
     "regionShortName": "East",
     "region": "Toronto",
     "pastorEmail": "Jennifer.McWilliams@themeetinghouse.com",
-    "serviceTimeDescription": "Jan 1, 8, 15 - then paused for a week",
+    "serviceTimeDescription": "Every Sunday @ 10am",
     "location": {
       "longitude": -79.3166538,
       "latitude": 43.6664844,
@@ -134,7 +158,7 @@
     "name": "Toronto - High Park",
     "regionShortName": "High Park",
     "region": "Toronto",
-    "serviceTimeDescription": "Every Second week (May 3, 17)",
+    "serviceTimeDescription": "Every Sunday @ 10am",
     "pastorEmail": "Rob.Schellenberg@themeetinghouse.com",
     "location": {
       "longitude": -79.4921797,
@@ -146,8 +170,10 @@
   {
     "id": "kitchener",
     "name": "Kitchener",
-
-    "pastorEmail": "jordan.duerrstein@themeetinghouse.com ",
+    "regionShortName": "Kitchener",
+    "serviceTimeDescription":"Every Sunday @ 10am",
+    "region": "Waterloo",
+    "pastorEmail": "madeleine.neufeld@themeetinghouse.com",
     "location": {
       "longitude": -80.387502,
       "latitude": 43.4054,
@@ -158,18 +184,23 @@
   {
     "id": "london",
     "name": "London",
-
+    "regionShortName": "London",
+    "serviceTimeDescription":"Every Sunday @ 9:30am",
+    "region": "Distance",
     "pastorEmail": "amie.latta@themeetinghouse.com",
     "location": {
       "longitude": -81.29423741528805,
       "latitude": 42.999934444016944,
       "address": "Church of the Transfiguration, 33 Bromleigh Ave"
     },
-    "serviceTimes": ["1:45pm"]
+    "serviceTimes": ["9:30am"]
   },
   {
     "id": "newmarket",
     "name": "Newmarket",
+    "regionShortName": "Newmarket",
+    "serviceTimeDescription":"Every Sunday @ 10am",
+    "region": "Distance",
     "pastorEmail": "chris.chase@themeetinghouse.com",
     "location": {
       "longitude": -79.555998,
@@ -181,6 +212,9 @@
   {
     "id": "oakville",
     "name": "Oakville",
+    "regionShortName": "Oakville",
+    "serviceTimeDescription":"Every Sunday @ 9:30am",
+    "region": "Peel",
     "pastorEmail": "oakville.pastor@themeetinghouse.com",
     "location": {
       "longitude": -79.685926,
@@ -207,6 +241,9 @@
   {
     "id": "ottawa",
     "name": "Ottawa",
+    "regionShortName": "Ottawa",
+    "serviceTimeDescription":"Not meeting on Oct 9",
+    "region": "Distance",
     "pastorEmail": "Eric.Versluis@themeetinghouse.com",
     "location": {
       "longitude": -75.6901723,
@@ -219,6 +256,9 @@
   {
     "id": "parry-sound",
     "name": "Parry Sound",
+    "regionShortName": "Parry Sound",
+    "serviceTimeDescription":"Every Sunday @ 10am",
+    "region": "Distance",
     "pastorEmail": "parrysound@themeetinghouse.com",
     "location": {
       "longitude": -80.036396,
@@ -230,6 +270,9 @@
   {
     "id": "richmond-hill",
     "name": "Richmond Hill",
+    "regionShortName": "Richmond Hill",
+    "serviceTimeDescription":"Every Sunday @ 2pm",
+    "region": "Distance",
     "pastorEmail": "chris.pullenayegem@themeetinghouse.com",
     "location": {
       "longitude": -79.43721571533477,
@@ -244,7 +287,7 @@
     "regionShortName": "Uptown",
     "serviceTimeDescription": "Every Sunday @ 10am",
     "region": "Toronto",
-    "pastorEmail": "Eric.Versluis@themeetinghouse.com",
+    "pastorEmail": "rob.schellenberg@themeetinghouse.com",
     "location": {
       "longitude": -79.455526,
       "latitude": 43.725822,
@@ -255,7 +298,10 @@
   {
     "id": "waterloo",
     "name": "Waterloo",
-    "pastorEmail": "Jordan.Duerrstein@themeetinghouse.com",
+    "regionShortName": "Waterloo",
+    "serviceTimeDescription":"Every Sunday @ 10am",
+    "region": "Waterloo",
+    "pastorEmail": "madeleine.neufeld@themeetinghouse.com",
     "location": {
       "longitude": -80.527216,
       "latitude": 43.498807,

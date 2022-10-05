@@ -44,7 +44,7 @@
           {
             "type": "link",
             "title": "Connect with Healing Care",
-            "navigateTo": "mailto:healingcare@themeetinghouse.com"
+            "navigateTo": "https://sites.google.com/themeetinghouse.com/care-ministries/healing-care"
           }
         ],
         "image1": [
@@ -65,28 +65,14 @@
             "text": "Trained caregivers are available to help you cope when life becomes difficult. Whether it’s a divorce, unemployment, a tough diagnosis or any other difficulty,  a Stephen Minister will meet with you weekly to offer one to one Christ-centred care, support, encouragement and prayer.  Click here to find out more about Stephen Ministry.",
             "imageSrc": "/static/images/care-ministries-4.jpg",
             "imageAlt": "Two men greeting each other.",
-            "navigateTo": "mailto:oakville.stephenministry@themeetinghouse.com"
+            "navigateTo": "https://sites.google.com/themeetinghouse.com/care-ministries/stephen-ministry"
           },
           {
             "title": "Divorce Care",
             "text": "Led by others who have successfully recovered from divorce, this friendly, caring group will journey alongside you through one of life’s most difficult experiences. Click here to register for Divorce Care starting on January 11.",
             "imageSrc": "/static/images/care-ministries-6.jpg",
             "imageAlt": "A young man sits on a stoop outside of a building.",
-            "navigateTo": "https://tiny.cc/oakvdivorcecare"
-          },
-          {
-            "title": "Parenting Teens & Tweens",
-            "text": "Join our seasoned facilitators and other parents as we dive into a broad array of topics affecting parents and their teens today. Click here to email the leader and learn how you can participate.",
-            "imageSrc": "/static/images/care-ministries-7.jpg",
-            "imageAlt": "Two mothers discussing their children over coffee.",
-            "navigateTo": "mailto:oakville.parentingteens@themeetinghouse.com"
-          },
-          {
-            "title": "The Marriage Course",
-            "text": "This course is for couples who want to make a good marriage better, those struggling with some area of their relationship, and those thinking about getting married. Click here to email the marriage course leader today.",
-            "imageSrc": "/static/images/care-ministries-9.jpg",
-            "imageAlt": "A young couple smiling and walking together in a field.",
-            "navigateTo": "mailto:bruce.miller@themeetinghouse.com"
+            "navigateTo": "https://sites.google.com/themeetinghouse.com/care-ministries/divorcecare"
           }
         ]
       },
@@ -100,7 +86,7 @@
           {
             "type": "link",
             "title": "Submit Prayer Request",
-            "navigateTo": "mailto:oakville.prayer@themeetinghouse.com"
+            "navigateTo": "https://sites.google.com/themeetinghouse.com/care-ministries/prayer-team"
           }
         ],
         "image1": [

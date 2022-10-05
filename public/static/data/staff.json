@@ -20,7 +20,7 @@
   {
     "Staff": true,
     "FirstName": "Anna",
-    "LastName": "Lakatos",
+    "LastName": "Ajiboye",
     "Phone": "905.287.7000, ext. 842",
     "Position": "Regional Worship & Arts Pastor (on leave)",
     "sites": ["OAKV", "Pastoral", "Peel_Region"],
@@ -259,15 +259,6 @@
     "Position": "Oakville Care Team Pastor (on leave)",
     "sites": ["OAKV", "Pastoral"],
     "Email": "Kathy.Bernard@themeetinghouse.com"
-  },
-  {
-    "Staff": true,
-    "FirstName": "Kim",
-    "LastName": "Knight",
-    "Phone": "905.287.7000",
-    "Position": "Human Resources Manager",
-    "sites": ["Operations"],
-    "Email": "kim.knight@themeetinghouse.com"
   },
   {
     "Staff": true,
