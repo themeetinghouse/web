@@ -299,6 +299,20 @@
           "Id": "20b026ebefc445dd82e5a853dff62770",
           "Region": "us-east-1"
         }
+      },
+      "api": {
+        "themeetinghouse": {},
+        "image": {},
+        "AdminQueries": {}
+      },
+      "hosting": {
+        "S3AndCloudFront": {}
+      },
+      "analytics": {
+        "themeetinghouse": {}
+      },
+      "storage": {
+        "tmhusercontent": {}
       }
     }
   },

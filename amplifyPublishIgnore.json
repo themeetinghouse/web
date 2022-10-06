@@ -1,8 +1,8 @@
 [
-  "/static/photos/compassion/*",
-  "/static/photos/staff/*",
-  "/static/photos/series/*",
-  "/static/photos/overseers/*",
-  "/static/photos/coordinators/*",
-  "/static/images/*"
+    "/static/photos/compassion/*",
+    "/static/photos/staff/*",
+    "/static/photos/series/*",
+    "/static/photos/overseers/*",
+    "/static/photos/coordinators/*",
+    "/static/images/*"
 ]
