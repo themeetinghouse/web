@@ -52,19 +52,19 @@
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 4 - Creation - CAH EYs.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 1-5 - Promises - 1.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 4 - EY Activities.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 2 - EY Activities.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Key Verse Colouring Page",
-            "navigateTo": "/static/pdfs/kidmax-files/Key Verse Colouring Page - Creation.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Key Verse Colouring Page - Promises.pdf",
             "openNewBrowser": true
           }
         ]
@@ -86,21 +86,21 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/Social Media - BigIdea - Wilderness - Wk1.jpg",
-            "alt": "God always hears us."
+            "src": "/static/images/Social Media - BigIdea - Wilderness - Wk2.jpg",
+            "alt": "God helps us live the best way."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 4 - Joseph - CAH Kids.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 2 - Wilderness - Gr 1-2.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Key Verse Colouring Page",
-            "navigateTo": "/static/pdfs/kidmax-files/Key Verse Colouring Page - Genesis Joseph.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Key Verse Colouring Page - Wilderness.pdf",
             "openNewBrowser": true
           }
         ]
