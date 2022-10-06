@@ -553,9 +553,16 @@
     "Position": "Tech Coordinator"
   },
   {
+    "FirstName": "Andi",
+    "LastName": "Ovenden",
+    "sites": ["HMDT", "Hamilton_Region"],
+    "Email": "andi.ovenden@themeetinghouse.com",
+    "Position": "Youth Coordinator"
+  },
+  {
     "FirstName": "Amanda",
     "LastName": "Le Blanc",
-    "sites": ["HMDT", "Hamilton_Region"],
+    "sites": ["PRSN", "Distance_Region"],
     "Email": "amanda.leblanc@themeetinghouse.com",
     "Position": "Parry Sound Ministry Associate"
   },
