@@ -39,7 +39,7 @@ function ShareButton({ className }: HTMLAttributes<HTMLDivElement>) {
               className="ShareOption"
               url={window.location.href}
             >
-              <DropdownItem as="button" className="dropitem">
+              <DropdownItem as="div" className="dropitem">
                 <FacebookIcon className="social-share-icon" size={32} round />
                 Facebook
               </DropdownItem>

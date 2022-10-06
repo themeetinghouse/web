@@ -720,7 +720,7 @@ export class ContentItem extends React.Component<Props, State> {
                       false
                     )
                   }
-                  placeholder="Select Parish"
+                  placeholder="Select Region/Community"
                   styles={this.styleSelect}
                   ref={(ref) => this.selectControlLocation == ref}
                   menuShouldScrollIntoView={true}

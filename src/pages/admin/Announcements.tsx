@@ -309,7 +309,7 @@ export default function Announcements(): JSX.Element {
               <b>Expiration Date:</b>
               {announcement?.expirationDate}
               <br></br>
-              <b>Parish:</b>
+              <b>Region/Community:</b>
               {announcement?.parish}
             </p>
           </div>
@@ -471,7 +471,7 @@ export default function Announcements(): JSX.Element {
               />
             </label>
             <label style={{ display: 'block', fontWeight: 700 }}>
-              Parishes:<br></br>
+              Region/Community:<br></br>
             </label>
             {locations.length > 0
               ? locations.map((location, index) => {
@@ -860,7 +860,7 @@ export default function Announcements(): JSX.Element {
               />
             </label>
             <label style={{ display: 'block', fontWeight: 700 }}>
-              Parishes:<br></br>
+              Region/Community:<br></br>
             </label>
             {locations && locations.length > 0
               ? locations.map((location: Location, index: number) => {
@@ -1173,7 +1173,7 @@ export default function Announcements(): JSX.Element {
         <p className="announcementHeaderText">Announcements</p>
 
         <label style={{ marginLeft: 60 }}>
-          Filter By Parish
+          Filter By Region/Community
           <select
             className="regionalFilter"
             value={locationFilter}
