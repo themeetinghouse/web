@@ -53,21 +53,21 @@
         "text1": "Here's what we're learning in Jr High Weekend this week:",
         "image1": [
           {
-            "src": "/static/photos/series/ky-jrhigh-Genesis Joseph.jpg",
-            "alt": "Genesis Joseph"
+            "src": "/static/photos/series/ky-jrhigh-Exodus Wilderness.jpg",
+            "alt": "Exodus Wilderness"
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Weekend Lesson",
-            "navigateTo": "/static/pdfs/youth-files/Wk 4 - Joseph - JH Weekend.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 2 - Wilderness - Jr High Weekend.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Weekend Activity",
-            "navigateTo": "/static/pdfs/youth-files/Wk 4 - Activity.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 2 - Activity.pdf",
             "openNewBrowser": true
           }
       
@@ -90,21 +90,21 @@
         "text1": "Here's what our Jr High Midweek students are learning this week:",
         "image1": [
           {
-            "src": "/static/photos/series/ky-youth-Genesis Joseph.jpg",
-            "alt": "Genesis Joseph"
+            "src": "/static/photos/series/ky-youth-Exodus Wilderness.jpg",
+            "alt": "Exodus Wilderness"
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Midweek Lesson",
-            "navigateTo": "/static/pdfs/youth-files/Wk 4 - Joseph - JH Midweek.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wilderness - JH Midweek - Wk 2.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Midweek Small Group Leader Notes",
-            "navigateTo": "/static/pdfs/youth-files/Wk 4 - Joseph - JH Midweek SGL Notes.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wilderness - JH Midweek SGL Notes - Wk 2.pdf",
             "openNewBrowser": true
           }
         ]
