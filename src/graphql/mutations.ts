@@ -38012,6 +38012,7 @@ export const createTMHPerson = /* GraphQL */ `
     $condition: ModelTMHPersonConditionInput
   ) {
     createTMHPerson(input: $input, condition: $condition) {
+      id
       email
       firstName
       lastName
@@ -38034,6 +38035,7 @@ export const updateTMHPerson = /* GraphQL */ `
     $condition: ModelTMHPersonConditionInput
   ) {
     updateTMHPerson(input: $input, condition: $condition) {
+      id
       email
       firstName
       lastName
@@ -38056,6 +38058,7 @@ export const deleteTMHPerson = /* GraphQL */ `
     $condition: ModelTMHPersonConditionInput
   ) {
     deleteTMHPerson(input: $input, condition: $condition) {
+      id
       email
       firstName
       lastName

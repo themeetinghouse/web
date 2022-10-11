@@ -1540,9 +1540,10 @@ type TMHUser @model @auth(rules: [{allow: owner, ownerField: "owner", operations
 }
 
 type TMHPerson @model @searchable @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Admin"], provider: userPools}]) {
-  email: AWSEmail! @primaryKey
-  firstName: String!
-  lastName: String!
+  id: ID!
+  email: AWSEmail
+  firstName: String
+  lastName: String
   image: AWSURL
   phone: String
   extension: String
@@ -1569,4 +1570,4 @@ type Address {
   postal_code: String
   state: String
 }
-                     
+                          

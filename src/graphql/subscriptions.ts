@@ -37793,6 +37793,7 @@ export const onDeleteTMHUser = /* GraphQL */ `
 export const onCreateTMHPerson = /* GraphQL */ `
   subscription OnCreateTMHPerson {
     onCreateTMHPerson {
+      id
       email
       firstName
       lastName
@@ -37812,6 +37813,7 @@ export const onCreateTMHPerson = /* GraphQL */ `
 export const onUpdateTMHPerson = /* GraphQL */ `
   subscription OnUpdateTMHPerson {
     onUpdateTMHPerson {
+      id
       email
       firstName
       lastName
@@ -37831,6 +37833,7 @@ export const onUpdateTMHPerson = /* GraphQL */ `
 export const onDeleteTMHPerson = /* GraphQL */ `
   subscription OnDeleteTMHPerson {
     onDeleteTMHPerson {
+      id
       email
       firstName
       lastName

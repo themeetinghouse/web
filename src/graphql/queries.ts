@@ -25621,8 +25621,9 @@ export const listTMHUsers = /* GraphQL */ `
   }
 `;
 export const getTMHPerson = /* GraphQL */ `
-  query GetTMHPerson($email: AWSEmail!) {
-    getTMHPerson(email: $email) {
+  query GetTMHPerson($id: ID!) {
+    getTMHPerson(id: $id) {
+      id
       email
       firstName
       lastName
@@ -25641,20 +25642,13 @@ export const getTMHPerson = /* GraphQL */ `
 `;
 export const listTMHPeople = /* GraphQL */ `
   query ListTMHPeople(
-    $email: AWSEmail
     $filter: ModelTMHPersonFilterInput
     $limit: Int
     $nextToken: String
-    $sortDirection: ModelSortDirection
   ) {
-    listTMHPeople(
-      email: $email
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      sortDirection: $sortDirection
-    ) {
+    listTMHPeople(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
+        id
         email
         firstName
         lastName
@@ -25689,6 +25683,7 @@ export const tMHPersonByIsTeacher = /* GraphQL */ `
       nextToken: $nextToken
     ) {
       items {
+        id
         email
         firstName
         lastName
@@ -25723,6 +25718,7 @@ export const tMHPersonByIsStaff = /* GraphQL */ `
       nextToken: $nextToken
     ) {
       items {
+        id
         email
         firstName
         lastName
@@ -25757,6 +25753,7 @@ export const tMHPersonByIsOverseer = /* GraphQL */ `
       nextToken: $nextToken
     ) {
       items {
+        id
         email
         firstName
         lastName
@@ -25791,6 +25788,7 @@ export const tMHPersonByIsCoordinator = /* GraphQL */ `
       nextToken: $nextToken
     ) {
       items {
+        id
         email
         firstName
         lastName
@@ -25827,6 +25825,7 @@ export const searchTMHPeople = /* GraphQL */ `
       aggregates: $aggregates
     ) {
       items {
+        id
         email
         firstName
         lastName
