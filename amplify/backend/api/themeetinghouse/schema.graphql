@@ -1547,6 +1547,7 @@ type TMHPerson @model @searchable @auth(rules: [{allow: public, operations: [rea
   image: AWSURL
   phone: String
   extension: String
+  sites: [String]
   position: String
   isTeacher: String @default(value: "false") @index(name: "byIsTeacher", queryField: "TMHPersonByIsTeacher")
   isStaff: String @default(value: "false") @index(name: "byIsStaff", queryField: "TMHPersonByIsStaff")
@@ -1570,4 +1571,4 @@ type Address {
   postal_code: String
   state: String
 }
-                          
+                           

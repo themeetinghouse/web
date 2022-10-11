@@ -37800,6 +37800,7 @@ export const onCreateTMHPerson = /* GraphQL */ `
       image
       phone
       extension
+      sites
       position
       isTeacher
       isStaff
@@ -37820,6 +37821,7 @@ export const onUpdateTMHPerson = /* GraphQL */ `
       image
       phone
       extension
+      sites
       position
       isTeacher
       isStaff
@@ -37840,6 +37842,7 @@ export const onDeleteTMHPerson = /* GraphQL */ `
       image
       phone
       extension
+      sites
       position
       isTeacher
       isStaff

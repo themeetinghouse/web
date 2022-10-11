@@ -25630,6 +25630,7 @@ export const getTMHPerson = /* GraphQL */ `
       image
       phone
       extension
+      sites
       position
       isTeacher
       isStaff
@@ -25655,6 +25656,7 @@ export const listTMHPeople = /* GraphQL */ `
         image
         phone
         extension
+        sites
         position
         isTeacher
         isStaff
@@ -25690,6 +25692,7 @@ export const tMHPersonByIsTeacher = /* GraphQL */ `
         image
         phone
         extension
+        sites
         position
         isTeacher
         isStaff
@@ -25725,6 +25728,7 @@ export const tMHPersonByIsStaff = /* GraphQL */ `
         image
         phone
         extension
+        sites
         position
         isTeacher
         isStaff
@@ -25760,6 +25764,7 @@ export const tMHPersonByIsOverseer = /* GraphQL */ `
         image
         phone
         extension
+        sites
         position
         isTeacher
         isStaff
@@ -25795,6 +25800,7 @@ export const tMHPersonByIsCoordinator = /* GraphQL */ `
         image
         phone
         extension
+        sites
         position
         isTeacher
         isStaff
@@ -25832,6 +25838,7 @@ export const searchTMHPeople = /* GraphQL */ `
         image
         phone
         extension
+        sites
         position
         isTeacher
         isStaff
