@@ -1539,6 +1539,19 @@ type TMHUser @model @auth(rules: [{allow: owner, ownerField: "owner", operations
   f1HouseholdId: String @auth(rules: [{allow: owner, ownerField: "owner", operations: [read]}, {allow: groups, groups: ["PaymentService"]}])
 }
 
+type TMHPerson @model @searchable @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Admin"], provider: userPools}]) {
+  email: AWSEmail! @primaryKey
+  firstName: String!
+  lastName: String!
+  image: AWSURL
+  phone: AWSPhone
+  position: String
+  isTeacher: String @default(value: "false") @index(name: "byIsTeacher", queryField: "TMHPersonByIsTeacher")
+  isStaff: String @default(value: "false") @index(name: "byIsStaff", queryField: "TMHPersonByIsStaff")
+  isCoordinator: String @default(value: "false") @index(name: "byIsCoordinator", queryField: "TMHPersonByIsOverseer")
+  isOverseer: String @default(value: "false") @index(name: "byIsOverseer", queryField: "TMHPersonByIsCoordinator")
+}
+
 type PrivateImage {
   userId: String
   filenameSmall: String
