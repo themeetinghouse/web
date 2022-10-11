@@ -38006,3 +38006,66 @@ export const deleteTMHUser = /* GraphQL */ `
     }
   }
 `;
+export const createTMHPerson = /* GraphQL */ `
+  mutation CreateTMHPerson(
+    $input: CreateTMHPersonInput!
+    $condition: ModelTMHPersonConditionInput
+  ) {
+    createTMHPerson(input: $input, condition: $condition) {
+      email
+      firstName
+      lastName
+      image
+      phone
+      position
+      isTeacher
+      isStaff
+      isCoordinator
+      isOverseer
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateTMHPerson = /* GraphQL */ `
+  mutation UpdateTMHPerson(
+    $input: UpdateTMHPersonInput!
+    $condition: ModelTMHPersonConditionInput
+  ) {
+    updateTMHPerson(input: $input, condition: $condition) {
+      email
+      firstName
+      lastName
+      image
+      phone
+      position
+      isTeacher
+      isStaff
+      isCoordinator
+      isOverseer
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteTMHPerson = /* GraphQL */ `
+  mutation DeleteTMHPerson(
+    $input: DeleteTMHPersonInput!
+    $condition: ModelTMHPersonConditionInput
+  ) {
+    deleteTMHPerson(input: $input, condition: $condition) {
+      email
+      firstName
+      lastName
+      image
+      phone
+      position
+      isTeacher
+      isStaff
+      isCoordinator
+      isOverseer
+      createdAt
+      updatedAt
+    }
+  }
+`;
