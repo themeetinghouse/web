@@ -38017,6 +38017,7 @@ export const createTMHPerson = /* GraphQL */ `
       lastName
       image
       phone
+      extension
       position
       isTeacher
       isStaff
@@ -38038,6 +38039,7 @@ export const updateTMHPerson = /* GraphQL */ `
       lastName
       image
       phone
+      extension
       position
       isTeacher
       isStaff
@@ -38059,6 +38061,7 @@ export const deleteTMHPerson = /* GraphQL */ `
       lastName
       image
       phone
+      extension
       position
       isTeacher
       isStaff
