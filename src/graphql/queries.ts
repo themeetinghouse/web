@@ -25620,3 +25620,249 @@ export const listTMHUsers = /* GraphQL */ `
     }
   }
 `;
+export const getTMHPerson = /* GraphQL */ `
+  query GetTMHPerson($id: ID!) {
+    getTMHPerson(id: $id) {
+      id
+      email
+      firstName
+      lastName
+      image
+      phone
+      extension
+      sites
+      position
+      isTeacher
+      isStaff
+      isCoordinator
+      isOverseer
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listTMHPeople = /* GraphQL */ `
+  query ListTMHPeople(
+    $filter: ModelTMHPersonFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listTMHPeople(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        email
+        firstName
+        lastName
+        image
+        phone
+        extension
+        sites
+        position
+        isTeacher
+        isStaff
+        isCoordinator
+        isOverseer
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const tMHPersonByIsTeacher = /* GraphQL */ `
+  query TMHPersonByIsTeacher(
+    $isTeacher: String!
+    $sortDirection: ModelSortDirection
+    $filter: ModelTMHPersonFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    TMHPersonByIsTeacher(
+      isTeacher: $isTeacher
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        email
+        firstName
+        lastName
+        image
+        phone
+        extension
+        sites
+        position
+        isTeacher
+        isStaff
+        isCoordinator
+        isOverseer
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const tMHPersonByIsStaff = /* GraphQL */ `
+  query TMHPersonByIsStaff(
+    $isStaff: String!
+    $sortDirection: ModelSortDirection
+    $filter: ModelTMHPersonFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    TMHPersonByIsStaff(
+      isStaff: $isStaff
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        email
+        firstName
+        lastName
+        image
+        phone
+        extension
+        sites
+        position
+        isTeacher
+        isStaff
+        isCoordinator
+        isOverseer
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const tMHPersonByIsOverseer = /* GraphQL */ `
+  query TMHPersonByIsOverseer(
+    $isCoordinator: String!
+    $sortDirection: ModelSortDirection
+    $filter: ModelTMHPersonFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    TMHPersonByIsOverseer(
+      isCoordinator: $isCoordinator
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        email
+        firstName
+        lastName
+        image
+        phone
+        extension
+        sites
+        position
+        isTeacher
+        isStaff
+        isCoordinator
+        isOverseer
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const tMHPersonByIsCoordinator = /* GraphQL */ `
+  query TMHPersonByIsCoordinator(
+    $isOverseer: String!
+    $sortDirection: ModelSortDirection
+    $filter: ModelTMHPersonFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    TMHPersonByIsCoordinator(
+      isOverseer: $isOverseer
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        email
+        firstName
+        lastName
+        image
+        phone
+        extension
+        sites
+        position
+        isTeacher
+        isStaff
+        isCoordinator
+        isOverseer
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const searchTMHPeople = /* GraphQL */ `
+  query SearchTMHPeople(
+    $filter: SearchableTMHPersonFilterInput
+    $sort: [SearchableTMHPersonSortInput]
+    $limit: Int
+    $nextToken: String
+    $from: Int
+    $aggregates: [SearchableTMHPersonAggregationInput]
+  ) {
+    searchTMHPeople(
+      filter: $filter
+      sort: $sort
+      limit: $limit
+      nextToken: $nextToken
+      from: $from
+      aggregates: $aggregates
+    ) {
+      items {
+        id
+        email
+        firstName
+        lastName
+        image
+        phone
+        extension
+        sites
+        position
+        isTeacher
+        isStaff
+        isCoordinator
+        isOverseer
+        createdAt
+        updatedAt
+      }
+      nextToken
+      total
+      aggregateItems {
+        name
+        result {
+          ... on SearchableAggregateScalarResult {
+            value
+          }
+          ... on SearchableAggregateBucketResult {
+            buckets {
+              key
+              doc_count
+            }
+          }
+        }
+      }
+    }
+  }
+`;

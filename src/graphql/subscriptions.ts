@@ -37790,3 +37790,66 @@ export const onDeleteTMHUser = /* GraphQL */ `
     }
   }
 `;
+export const onCreateTMHPerson = /* GraphQL */ `
+  subscription OnCreateTMHPerson {
+    onCreateTMHPerson {
+      id
+      email
+      firstName
+      lastName
+      image
+      phone
+      extension
+      sites
+      position
+      isTeacher
+      isStaff
+      isCoordinator
+      isOverseer
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateTMHPerson = /* GraphQL */ `
+  subscription OnUpdateTMHPerson {
+    onUpdateTMHPerson {
+      id
+      email
+      firstName
+      lastName
+      image
+      phone
+      extension
+      sites
+      position
+      isTeacher
+      isStaff
+      isCoordinator
+      isOverseer
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteTMHPerson = /* GraphQL */ `
+  subscription OnDeleteTMHPerson {
+    onDeleteTMHPerson {
+      id
+      email
+      firstName
+      lastName
+      image
+      phone
+      extension
+      sites
+      position
+      isTeacher
+      isStaff
+      isCoordinator
+      isOverseer
+      createdAt
+      updatedAt
+    }
+  }
+`;
