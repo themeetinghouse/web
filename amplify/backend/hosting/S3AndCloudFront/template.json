@@ -85,6 +85,12 @@
             ],
             "Properties": {
                 "DistributionConfig": {
+                    "Aliases":["www.themeetinghouse.com","toronto.themeetinghouse.com"],
+                    "ViewerCertificate":{
+                        "AcmCertificateArn" : "arn:aws:acm:us-east-1:119330689042:certificate/6b89056a-f405-4c66-9d87-c3a0a1bfe2dd",
+                        "MinimumProtocolVersion" : "TLSv1.2_2021",
+                        "SslSupportMethod" : "sni-only"
+                      },
                     "Origins": [
                         {
                             "DomainName": {
@@ -107,6 +113,19 @@
                                     ]
                                 }
                             }
+                        },
+                        {
+                            "DomainName": "heeetingouse-20190312104205-hostingbucket-tmhprod.s3-website-us-east-1.amazonaws.com",
+                          
+                            "Id": "hostingS3BucketWeb",
+                            "CustomOriginConfig": {
+                                "HTTPPort" : 80,
+                                "HTTPSPort" : 443,
+                                "OriginKeepaliveTimeout" : 5,
+                                "OriginProtocolPolicy" : "http-only",
+                                "OriginReadTimeout" : 30,
+                                "OriginSSLProtocols" : [ "TLSv1.2" ]
+                              }
                         }
                     ],
                     "Enabled": "true",
@@ -125,7 +144,7 @@
                             "DefaultTTL": 86400,
                             "MaxTTL": 31536000,
                             "MinTTL": 60,
-                            "TargetOriginId": "hostingS3Bucket",
+                            "TargetOriginId": "hostingS3BucketWeb",
                             "ForwardedValues": {
                                 "QueryString": "false"
                             },
@@ -171,7 +190,7 @@
                             "ErrorCachingMinTTL": 300,
                             "ErrorCode": 404,
                             "ResponseCode": 200,
-                            "ResponsePagePath": "/"
+                            "ResponsePagePath": "/index.html"
                         }
                     ]
                 }
