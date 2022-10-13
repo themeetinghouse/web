@@ -40,8 +40,7 @@
         "type": "list",
         "style": "staff",
         "class": "staff",
-        "header1": "Staff",
-        "text1": "Some call us the dream team."
+        "header1": "Staff"
       },
       {
         "type": "list",
