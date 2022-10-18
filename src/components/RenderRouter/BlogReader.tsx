@@ -21,7 +21,6 @@ import './BlogReader.scss';
 
 function ShareButton({ className }: HTMLAttributes<HTMLDivElement>) {
   const [open, setOpen] = useState(false);
-
   return (
     <div className={className} data-testid="share">
       <Dropdown isOpen={open} toggle={() => setOpen((prev) => !prev)}>
@@ -34,7 +33,10 @@ function ShareButton({ className }: HTMLAttributes<HTMLDivElement>) {
           Share
         </DropdownToggle>
         <Fade timeout={1000}>
-          <DropdownMenu className="ShareMenu">
+          <DropdownMenu
+            className="ShareMenu"
+            style={!open ? { display: 'none' } : {}}
+          >
             <FacebookShareButton
               className="ShareOption"
               url={window.location.href}
@@ -182,7 +184,25 @@ export default function BlogReader({ data, style }: Props) {
       }
     }
   }, [style]);
-
+  useEffect(
+    function updateTags() {
+      if (style === 'blog' && data && 'blogTitle' in data) {
+        document.title = data.blogTitle + ' by ' + data.author ?? '';
+        const metaTags = document.getElementsByTagName('meta');
+        const keywordsMetaTag = Array.from(metaTags).find(
+          (tag, index) => tag.name === 'keywords'
+        );
+        const descriptionMetaTag = Array.from(metaTags).find(
+          (tag, index) => tag.name === 'description'
+        );
+        if (descriptionMetaTag && data.description)
+          descriptionMetaTag.content = data.description;
+        if (keywordsMetaTag && data.tags)
+          keywordsMetaTag.content = data.tags.join(', ');
+      }
+    },
+    [style, data]
+  );
   if (style === 'blog' && data && 'blogTitle' in data) {
     const { x, y } = selectedPosition;
 

@@ -47,8 +47,7 @@
         ],
         "header1": "Kitchener",
         "text1": "Sundays at 10:00am",
-        "text2": "See service details below.",
-        "text3": "",
+        "text2": "",
         "customLiveLink": "themeetinghouse.com/live",
         "register": false,
         "addToCalendar": true,
@@ -56,15 +55,6 @@
         "class": "locations",
         "filterField": "id",
         "filterValue": "kitchener"
-      },
-      {
-        "type": "content",
-        "style": "greyTwoText",
-        "header1": "Additional Details",
-        "text1": "Our last Sunday gathering at Cineplex will be October 9. We will be moving into a new location starting October 16 and every Sunday following: Rockway Mennonite Collegiate, 110 Doon Rd, Kitchener. See our Gathering Finder for Home Churches and other meet-ups throughout the week.",
-        "list": [
-          
-        ]
       },
       {
         "type": "list",
