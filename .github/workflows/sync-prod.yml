@@ -1,0 +1,38 @@
+name: S3 Sync Prod
+
+ on:
+   push:
+     branches: 
+       - master
+     paths:
+       - public/static/**
+   workflow_dispatch:
+
+ jobs:
+   deploy:
+     name: Upload to Amazon S3
+     runs-on: ubuntu-latest
+
+     steps:
+     - name: Checkout
+       uses: actions/checkout@v2
+
+     - name: Setup Python
+       uses: actions/setup-python@v2
+       with:
+         python-version: 3.8
+
+     - name: Configure AWS credentials from Production account
+       uses: aws-actions/configure-aws-credentials@v1
+       with:
+         aws-access-key-id: ${{ secrets.PROD_AWS_ACCESS_KEY_ID }}
+         aws-secret-access-key: ${{ secrets.PROD_AWS_SECRET_ACCESS_KEY }}
+         aws-region: us-east-1
+
+     - name: Lint JSON files
+       run: python ./scripts/json-lint.py
+
+     - name: Copy files to the production website with the AWS CLI
+       run: aws s3 sync ./public/static s3://heeetingouse-20190312104205-hostingbucket-tmhprod/static
+     - name: Cache invalidation
+       run: aws cloudfront create-invalidation --distribution-id EYO80SQB3QGL --paths '/static/*'
