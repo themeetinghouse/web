@@ -18,7 +18,7 @@ import { GEProvider } from './GiveComponents/GEContext';
 import HeroItem from './HeroItem';
 import ListItem from './ListItem';
 import RenderRouterItemWrapper from './RenderRouterItemWrapper';
-
+const CombinedMap = React.lazy(() => import('./CombinedMap'));
 const SimpleItem = React.lazy(() => import('./SimpleItem'));
 const SearchItem = React.lazy(() => import('./SearchItem'));
 const IFrameItem = React.lazy(() => import('./IFrameItem'));
@@ -159,6 +159,8 @@ class RenderRouter extends React.Component<Props, State> {
         return <VideoPlayerLiveLeadersDay key={index} content={item} />;
       case 'horizontal-list':
         return <TMHCarousel key={index} content={item} />;
+      case 'map':
+        return <CombinedMap key={index} content={item} />;
       case 'list':
         return (
           <ListItem

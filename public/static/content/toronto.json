@@ -56,6 +56,15 @@
         "filterValue": ["Toronto"]
       },
       {
+        "type": "map",
+        "style": "staff",
+        "class": "staff",
+        "header1": "Our Region",
+        "text1": "These are the folks that help make community, discipleship, and Sunday mornings happen.",
+        "filterField": "sites",
+        "filterValue": "Toronto_Region"
+      },
+      {
         "type": "list",
         "style": "staff",
         "class": "staff",

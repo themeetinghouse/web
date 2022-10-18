@@ -1,0 +1,547 @@
+@use '../../theme';
+.CombinedMapButtonContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@media (max-width: 950px) {
+  .CombinedMapButtonContainer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.CombinedMapFormItemContainer {
+  height: 149px;
+  padding: 10px;
+  .DaySelect {
+    font-size: 1rem;
+    font-weight: 400;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-radius: 0;
+  }
+  .ClearAllButton {
+    width: 100px;
+    white-space: nowrap;
+    font-size: 12px;
+    line-height: 41px;
+    font-weight: normal;
+    background: #ffffff;
+    border: none;
+    height: 43px;
+    padding: 0 10px;
+    cursor: pointer;
+    color: theme.$onyxblacktext;
+    &:hover {
+      text-decoration: underline !important;
+    }
+  }
+}
+
+.gm-style .gm-style-iw {
+  background-color: #1a1a1a;
+  color: white;
+  border-radius: 0;
+}
+
+.gm-style .gm-style-iw-d {
+  overflow: hidden !important;
+  padding: 16px;
+}
+
+.ListButton {
+  width: 72px;
+  height: 56px;
+  background-color: white;
+  padding: 8px;
+}
+
+.CombinedMapItemMapInfoWindowDiv1 {
+  font-family: Graphik Web;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.CombinedMapItemMapInfoWindowDiv3 {
+  font-family: Graphik Web;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.CombinedMapItemMapInfoWindowDiv2 {
+  line-height: 18px;
+  margin: 12px auto;
+}
+
+.CombinedMapItemMapInfoWindowDayOfWeek {
+  font-size: 16px;
+  font-family: Graphik Web;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+.CombinedMapItemMapInfoWindowTimeOfDay {
+  font-family: Graphik Web;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 5px;
+}
+
+.CombinedMapDayOfWeek {
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  display: inline;
+  color: theme.$onyxblacktext;
+}
+
+.CombinedMapTimeOfDay {
+  margin-top: 4px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  margin-bottom: 16px;
+  color: theme.$onyxblacktext;
+}
+
+.ContactLeadersButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: Graphik Web;
+  color: theme.$onyxblacktext !important;
+  background: #ffffff !important;
+  border-width: 0px;
+  border-radius: 0;
+  font-size: 16px;
+  text-decoration: none;
+  text-underline-offset: 0.25em;
+  font-weight: normal;
+  cursor: pointer;
+  padding: 12px 0px;
+  &.ContactLeadersButton:hover {
+    border-width: 0px;
+    border-radius: 0;
+    background-color: #ffffff;
+    color: theme.$onyxblacktext;
+    text-decoration: underline !important;
+    font-weight: normal;
+  }
+  .ContactLeadersIcon {
+    padding-right: 10px;
+    height: 25px;
+  }
+}
+
+.LoadingContainer {
+  padding: 20px;
+  padding-left: 0;
+  margin-right: 10px;
+  .LoadingTitleContainer {
+    .spinner-border {
+      vertical-align: middle;
+    }
+    .LoadingTitle {
+      font-size: 18px;
+      vertical-align: middle;
+      padding-left: 10px;
+      font-weight: 700;
+      color: theme.$onyxblacktext;
+    }
+  }
+  .LoadingItem {
+    vertical-align: middle;
+    font-size: 14px;
+    margin: 10px;
+    font-weight: 600;
+    display: inline-block;
+    white-space: nowrap;
+    img {
+      width: 16px;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    .LoadingLocationLabel {
+      vertical-align: middle;
+      color: theme.$onyxblacktext;
+    }
+    .LoadingImage {
+      display: inline-block;
+    }
+    .LoadedImage {
+      display: none;
+    }
+    &.Loaded {
+      .LoadingImage {
+        display: none;
+      }
+      .LoadedImage {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.UpdateLocationButton {
+  border: 1px solid theme.$coolgray11;
+  background-color: theme.$body-bg;
+  border-radius: 2px;
+}
+
+@media (min-width: 768px) {
+  .LoadingMargin {
+    max-height: calc(88vh - 221px);
+  }
+  .ListButton {
+    display: none;
+  }
+  .CombinedMapItem {
+    height: 100vh;
+    position: static;
+    padding-bottom: 5vw;
+    padding-top: 2vh;
+  }
+  .CombinedMapItemDiv1 {
+    position: relative;
+    left: 20vw;
+    width: 80vw;
+  }
+  .CombinedMapItemDiv2 {
+    position: absolute;
+    left: 40vw;
+    width: 40vw;
+    height: 88vh;
+  }
+  .CombinedMapItemDiv3 {
+    position: absolute;
+    left: 0vw;
+    width: 40vw;
+    height: 88vh;
+  }
+  .CombinedMapItemDiv5 {
+    border-bottom-width: 1px;
+    margin-bottom: 10px;
+    border-bottom-color: #c8c8c8;
+    border-bottom-style: solid;
+    padding-bottom: 10px;
+  }
+  .CombinedMapItemListData {
+    overflow-y: auto;
+    height: calc(88vh - 149px);
+    padding: 0 10px 10px;
+  }
+  .CombinedMapItemMap {
+    left: 0vw;
+    width: 40vw;
+    height: 68vh;
+  }
+  .CombinedMapItemA {
+    white-space: nowrap;
+    color: #1a1a1a;
+  }
+  .CombinedMapItemImage {
+    margin-right: 0.5vw;
+    margin-top: 0.5vw;
+    margin-bottom: 0.5vw;
+  }
+  .CombinedMapH1 {
+    font-size: 48px;
+    font-family: Graphik Web;
+    font-weight: bold;
+    color: theme.$onyxblacktext;
+  }
+  .CombinedMapH3 {
+    padding-left: 0px;
+    font-size: 24px;
+    font-family: Graphik Web;
+    font-weight: bold;
+    margin-top: 15px;
+    color: theme.$onyxblacktext;
+    cursor: pointer;
+    border: none;
+    background-color: #ffffff;
+    &:hover {
+      text-decoration: underline;
+    }
+    &.selected {
+      text-decoration: underline;
+    }
+  }
+  .CombinedMapAddress,
+  .CombinedMapDistances {
+    font-size: 16px;
+    font-family: Graphik Web;
+    color: theme.$coolgray11;
+  }
+  .CombinedMapSiteAffiliation {
+    margin-bottom: 4px;
+    display: inline;
+  }
+}
+
+.CombinedMapLoading-enter {
+  opacity: 0.01;
+  &.CombinedMapLoading-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+  }
+}
+
+.CombinedMapLoading-leave {
+  opacity: 1;
+  &.CombinedMapLoading-leave-active {
+    opacity: 0.01;
+    transition: all 750ms ease-in;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .CombinedMapItem {
+    height: 100vh;
+    position: static;
+    padding-bottom: 5vw;
+    padding-top: 2vh;
+  }
+  .CombinedMapItemDiv1 {
+    position: relative;
+    left: 20vw;
+    width: 80vw;
+  }
+  .CombinedMapItemDiv2 {
+    position: absolute;
+    left: 40vw;
+    width: 40vw;
+    height: 88vh;
+  }
+  .CombinedMapItemDiv3 {
+    position: absolute;
+    left: 0vw;
+    width: 40vw;
+    height: 100vh;
+  }
+  .CombinedMapFormItemContainer {
+    display: flex;
+    flex-direction: row;
+    .LocationSelect {
+      flex-grow: 2;
+    }
+    .DaySelect {
+      flex-grow: 1;
+    }
+  }
+  .CombinedMapItemListData {
+    overflow-y: auto;
+    height: calc(88vh - 149px);
+  }
+  .CombinedMapItemMap {
+    left: 0vw;
+    width: 40vw;
+    height: 48vh;
+  }
+  .CombinedMapItemA {
+    white-space: nowrap;
+    color: #1a1a1a;
+  }
+  .CombinedMapItemImage {
+    margin-right: 0.5vw;
+    margin-top: 0.5vw;
+    margin-bottom: 0.5vw;
+  }
+  .CombinedMapH1 {
+    font-size: 24px;
+    font-family: Graphik Web;
+    font-weight: bold;
+    color: theme.$onyxblacktext;
+  }
+  .CombinedMapH3 {
+    padding-left: 0px;
+    font-size: 20px;
+    font-family: Graphik Web;
+    color: theme.$onyxblacktext;
+  }
+  .CombinedMapAddress,
+  .CombinedMapDistances {
+    font-size: 16px;
+    font-family: Graphik Web;
+  }
+  .CombinedMapDayOfWeek {
+    font-size: 14px;
+    color: theme.$onyxblacktext;
+  }
+  .CombinedMapTimeOfDay {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: theme.$onyxblacktext;
+  }
+}
+
+@media (max-width: 767px) {
+  .gm-style .gm-style-iw {
+    max-height: 600px !important;
+    max-width: 300px !important;
+  }
+  .gm-style .gm-style-iw-d {
+    max-height: 600px !important;
+    max-width: 280px !important;
+  }
+  .loadingMargin {
+    margin-top: 15vw;
+  }
+  .CombinedMapDayOfWeek {
+    display: inline;
+  }
+  .CombinedMapFormItemContainer {
+    position: absolute;
+    top: 25vw;
+    width: 100%;
+    .LocationSelect {
+      flex-grow: 3;
+      width: 100%;
+      flex-shrink: 0;
+    }
+    .DaySelect {
+      flex-grow: 1;
+      flex-shrink: 1;
+      font-size: 1rem;
+      font-weight: 400;
+      width: 100%;
+      padding-top: 0;
+      padding-bottom: 0;
+      border-radius: 0;
+    }
+    .ClearAllButton {
+      white-space: nowrap;
+      font-size: 12px;
+      line-height: 41px;
+      font-weight: normal;
+      background: #ffffff;
+      border: none;
+      height: 43px;
+      padding: 0 10px;
+      cursor: pointer;
+      color: theme.$onyxblacktext;
+      &:hover {
+        text-decoration: underline !important;
+      }
+    }
+  }
+  .LoadingContainer {
+    position: absolute;
+    top: 35vw;
+    margin-left: -5vw;
+    padding-left: 15px;
+    .LoadingTitle {
+      font-size: 16px !important;
+    }
+  }
+  .CombinedMapItem {
+    padding-bottom: 5vw;
+    padding-top: 5vh;
+  }
+  .CombinedMapItemDiv1 {
+    position: relative;
+    left: 5vw;
+    width: 90%;
+  }
+  .CombinedMapItemDiv2 {
+    position: relative;
+    // left: 0vw;
+    top: 40vw;
+    margin-bottom: 35vw;
+    width: 100%;
+    height: 56vh;
+  }
+  .CombinedMapItemDiv3 {
+    left: 0vw;
+    width: 90vw;
+  }
+  .CombinedMapItemDiv4 {
+    display: flex;
+    flex-direction: row;
+  }
+  .CombinedMapItemListData {
+    position: relative;
+    top: 52vh;
+    padding-bottom: 52vh;
+  }
+  .MapView {
+    .CombinedMapItemListData {
+      display: none;
+    }
+  }
+  .ListView {
+    .CombinedMapItemMap {
+      display: none;
+    }
+    .CombinedMapItemDiv2 {
+      height: 0vh;
+    }
+    .CombinedMapItemListData {
+      top: -53vh;
+      padding-bottom: 0;
+    }
+    .CombinedMapItemDiv3 {
+      height: 0;
+    }
+  }
+  .CombinedMapItemMap {
+    left: 0vw;
+    height: 88vh;
+  }
+  .CombinedMapItemA {
+    white-space: nowrap;
+    color: #1a1a1a;
+  }
+  .CombinedMapItemImage {
+    margin-right: 0.5vw;
+    margin-top: 0.5vw;
+    margin-bottom: 0.5vw;
+  }
+  .CombinedMapH1 {
+    font-size: 24px;
+    font-family: Graphik Web;
+    font-weight: bold;
+    color: theme.$onyxblacktext;
+  }
+  .CombinedMapH3 {
+    padding-left: 0px;
+    font-size: 24px;
+    font-family: Graphik Web;
+    line-height: 8.55vw;
+    font-weight: 800;
+    border: none;
+    background-color: #ffffff;
+    color: theme.$onyxblacktext;
+  }
+  .CombinedMapAddress,
+  .CombinedMapDistances {
+    font-size: 4.3vw;
+    line-height: 6.4vw;
+    font-family: Graphik Web;
+  }
+  .CombinedMapSiteAffiliation {
+    display: inline;
+    font-size: 4.3vw;
+    font-weight: 800;
+  }
+  .CombinedMapItemDiv5 {
+    margin-bottom: 3vh;
+    padding-bottom: 3vh;
+    border-bottom: 1px solid theme.$coolgray11;
+  }
+  .CombinedMapItemMapInfoWindowDiv1 {
+    font-size: 16px;
+  }
+  .CombinedMapItemMapInfoWindowDiv2 {
+    font-size: 16px;
+  }
+  .CombinedMapItemMapInfoWindowDayOfWeek {
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .CombinedMapItemMapInfoWindowTimeOfDay {
+    font-size: 14px;
+    font-weight: 700;
+  }
+}
