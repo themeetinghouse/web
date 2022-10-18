@@ -372,6 +372,8 @@ if __name__ == '__main__':
                             pass
                         elif item_type == 'horizontal-list':
                             pass
+                        elif item_type == 'map':
+                            pass
                         else:
                             raise Exception(f'unknown content type: {item_type}')
 
