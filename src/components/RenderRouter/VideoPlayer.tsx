@@ -37,8 +37,19 @@ export default class VideoPlayer extends React.Component<Props, State> {
   pauseVideo(): void {
     if (this.state.videoPlayer?.f) this.state.videoPlayer.pauseVideo();
   }
-
+  updateTags(): void {
+    const pageTitle = `
+    ${this.state.data.seriesTitle} - E${this.state.data.episodeNumber}. ${this.state.data.episodeTitle}`;
+    if (document.title !== pageTitle) document.title = pageTitle;
+    const metaTags = document.getElementsByTagName('meta');
+    const descriptionMetaTag = Array.from(metaTags).find(
+      (tag, index) => tag.name === 'description'
+    );
+    if (descriptionMetaTag)
+      descriptionMetaTag.content = this.state.data.description;
+  }
   componentDidUpdate(): void {
+    this.updateTags();
     for (let i = 0; i < this.state.watchPageVideoElements.length; i++) {
       this.state.watchPageVideoElements[i].addEventListener('click', () =>
         this.pauseVideo()
