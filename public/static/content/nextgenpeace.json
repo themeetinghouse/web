@@ -1,168 +1,170 @@
 {
-    "page": {
-      "name": "peacemakers",
-      "title": "Peacemakers",
-      "keywords": "peacemakers",
-      "description": "The page for The Meeting House 2021 Peacemakers campaign in partnership with MCC Canada.",
-      "pageConfig": {
-        "showLive": true,
-        "movingMenu": false,
-        "showLogoText": true,
-        "logoColor": "black",
-        "showSearch": true,
-        "showFooter": true,
-        "showMenu": true
+  "page": {
+    "name": "peacemakers",
+    "title": "Peacemakers",
+    "keywords": "peacemakers",
+    "description": "The page for The Meeting House 2021 Peacemakers campaign in partnership with MCC Canada.",
+    "pageConfig": {
+      "showLive": true,
+      "movingMenu": false,
+      "showLogoText": true,
+      "logoColor": "black",
+      "showSearch": true,
+      "showFooter": true,
+      "showMenu": true
+    },
+    "content": [
+      {
+        "type": "og-tags",
+        "image": "/static/images/PM2022_K&Y-Web-Hero_1.jpg",
+        "url": "https://www.themeetinghouse.com/nextgenpeace",
+        "title": "Peacemakers for Kids and Youth",
+        "description": "Is peace impossible? That depends on you."
       },
-      "content": [
-        {
-          "type": "og-tags",
-          "image": "/static/images/PM2022_K&Y-Web-Hero_1.jpg",
-          "url": "https://www.themeetinghouse.com/nextgenpeace",
-          "title": "Peacemakers for Kids and Youth",
-          "description": "Is peace impossible? That depends on you."
-        },
-        {
-          "type": "hero",
-          "style": "full",
-          "image1": [
-            {
-              "src": "/static/images/PM2022_K&Y-Web-Hero_1.jpg",
-              "alt": "Five teenagers talking in a classroom."
-            }
-          ],
-          "header1": "Peace is for all ages.",
-          "text1": "This year, through our annual Peacemakers campaign, we want to not only raise the money necessary to support life-changing peacebuilding projects, but we also want to inspire you to take action.",
-          "button1": {
-            "text": "Watch Video",
-            "buttonColor":"yellow",
-            "action": "https://www.themeetinghouse.com/videos/compassion-Peacemakers/9EALzMRl7j4",
-            "description": "Introduction to our Peacemakers campaign for Kids and Youth and watch video button."
+      {
+        "type": "hero",
+        "style": "full",
+        "image1": [
+          {
+            "src": "/static/images/PM2022_K&Y-Web-Hero_1.jpg",
+            "alt": "Five teenagers talking in a classroom."
           }
-        },
-        {
-          "type": "list",
-          "style": "horizontal",
-          "class": "videos",
-          "subclass": "compassion",
-          "sortOrder": "DESC",
-          "header1": "Learn",
-          "showEpisodeNumbers": false
-        },
-        {
-          "type": "content",
-          "style": "mad",
-          "header1": "Take Action",
-          "text1": "What does justice look like and how can we take meaningful action to work towards peace in our communities and around the world? Check out the resources below for activities you can do with your family.",
-          "list": [
-            {
-              "type": "arrow",
-              "title": "Prayer and Mindfulness",
-              "navigateTo": "/static/pdfs/compassion/2021-22-Peacemakers-NextGen-Prayer-and-Mindfulness.pdf"
-            },
-            {
-              "type": "arrow",
-              "title": "Water Usage",
-              "navigateTo": "/static/pdfs/compassion/2021-22-Peacemakers-NextGen-water-usage.pdf"
-            },
-            {
-              "type": "arrow",
-              "title": "Water on Wheels",
-              "navigateTo": "/static/pdfs/compassion/2021-22-Peacemakers-NextGen -Water-on-Wheels.pdf"
-            },
-            {
-              "type": "arrow",
-              "title": "Start a fundraiser",
-              "navigateTo": "https://go.dojiggy.io/c/deae7e"
-            }
-          ],
-          "image1": [
-            {
-              "src": "/static/images/PM2022_Kids&Youth_Mod_1.jpg",
-              "alt": "A little girl baking muffins with her dad amazed at her skill"
-            }
-          ]
-        },
-        {
-          "type": "horizontal-list",
-          "header1": "Join a Fundraiser",
-          "list": [
-            {
-              "title": "Create a Fundraiser",
-              "text": "Click here to start your own fundraiser for peacemakers.",
-              "imageSrc": "/static/images/CreateAFundraiser-1125x840.jpg",
-              "imageAlt": "Black and yellow graphic with the words create a fundraiser.",
-              "navigateTo": "https://go.dojiggy.io/c/deae7e"
-            },
-            {
-              "title": "Silent Auction",
-              "text": "Parishes from all over have donated some great items for our online silent auction!",
-              "imageSrc": "/static/images/SilentAuction_1125x840.jpg",
-              "imageAlt": "Black and yellow graphic with the words silence auction.",
-              "navigateTo": "https://go.dojiggy.io/peacemakers-2022/Auction/Details"
-            },
-            {
-              "title": "Oakville BFG Book Sale",
-              "text": "Looking for something new to read? Come by our used book sale on Sunday May 22 before and after the 9:30am service in Oakville.",
-              "imageSrc": "/static/images/Oakville_BFG_BookSale.jpg",
-              "imageAlt": "Black and yellow graphic with the words Oakville BFG book sale.",
-              "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/booksale/Team/Details"
-            },          {
-              "title": "Downtown Hamilton The Art Peace",
-              "text": "Join the downtown Hamilton community for a fun night of wine, cheese, and art.",
-              "imageSrc": "/static/images/The_art_peace.jpg",
-              "imageAlt": "Black and yellow graphic with the words Downtown Hamilton The Art Peace.",
-              "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/theartpeace/Team/Details"
-            },          {
-              "title": "Oakville Peace Wreaths",
-              "text": "We invite you to participate in our Peacemakers Raffle! For a donation of 3$ you can win one of 3 handcrafted spring wreathes.",
-              "imageSrc": "/static/images/Oakville_Peace_Wreaths.jpg",
-              "imageAlt": "Black and yellow graphic with the words Oakville Peace Wreaths.",
-              "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/50a233"
-            },          
-            {
-              "title": "Ottawa Scone Baking",
-              "text": "Join April when she goes live on The Meeting House Ottawa's Facebook page to share all her scone-related tips and tricks. Get a tasty treat for your troubles. Suggested donation: $5 per viewer.",
-              "imageSrc": "/static/images/Ottawa_Scone_Baking.jpg",
-              "imageAlt": "Black and yellow graphic with the words Ottawa Scone Baking.",
-              "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/scones"
-            },
-            {
-              "title": "Ottawa Knitting with Jasmine",
-              "text": "Jasmine Duckworth has kindly offered to teach us some knitting. Join us on Sunday, May 29 before church in Ottawa to learn to knit a dishcloth, repair your own knitwear, or drop something off to be repaired by Jasmine's expert hands.",
-              "imageSrc": "/static/images/Ottawa_Knitting_with_jasmine.jpg",
-              "imageAlt": "Black and yellow graphic with the words Ottawa Knitting with Jasmine.",
-              "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/knitting"
-            },
-            {
-              "title": "Burlington Lemonade Stand",
-              "text": "Thirsty? Come by Viewmount Rd in Oakville on Sunday May 15th between 1 and 3pm for some delicious lemonade and cookies!",
-              "imageSrc": "/static/images/BurlingtonLemonadeStand-1125x840.jpg",
-              "imageAlt": "Black and yellow graphic with the words burlington lemonade stand.",
-              "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/lemonade/Team/Details"
-            },
-            {
-              "title": "Oakville Refugee Encounter",
-              "text": "In the history of humanity, there have never been as many refugees around the world as we are seeing today. Join us for our 3rd Annual Refugee Encounter to learn more about Tayiba and Elyas’ journey since fleeing their home in Ethiopia. Learn how your donation can support refugees on their journey to a new life. Debit or credit accepted.",
-              "imageSrc": "/static/images/OakvilleRefugeeEncounter_1125x840.jpg",
-              "imageAlt": "Black and yellow graphic with the words oakville refugee encounter.",
-              "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/oakvillerefugeeencounter/Team/Details"
-            },
-            {
-              "title": "Newmarket Hike for Peace",
-              "text": "Angela is hiking 200km in the next four weeks to raise awareness for Peacemakers.",
-              "imageSrc": "/static/images/NewmarketHikeforPeace_1125x840.jpg",
-              "imageAlt": "Black and yellow graphic with the words Hike for Peace.",
-              "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/nmkthikeforpeace/Team/Details"
-            },
-            {
-              "title": "Alliston Peace it together Garage Sale",
-              "text": "Held at PPG Park Pavilion in Alliston. May 29th 10am-2pm (behind the Alliston Fire Hall)",
-              "imageSrc": "/static/images/AllistonPeaceittogetherGarageSale_1125x840.jpg",
-              "imageAlt": "Black and yellow graphic with the words Alliston Peace it together Garage Sale.",
-              "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/alliston/Team/Details"
-            }
-          ]
+        ],
+        "header1": "Peace is for all ages.",
+        "text1": "This year, through our annual Peacemakers campaign, we want to not only raise the money necessary to support life-changing peacebuilding projects, but we also want to inspire you to take action.",
+        "button1": {
+          "text": "Watch Video",
+          "buttonColor": "yellow",
+          "action": "https://www.themeetinghouse.com/videos/compassion-Peacemakers/9EALzMRl7j4",
+          "description": "Introduction to our Peacemakers campaign for Kids and Youth and watch video button."
         }
-      ]
-    }
+      },
+      {
+        "type": "list",
+        "style": "horizontal",
+        "class": "videos",
+        "subclass": "compassion",
+        "sortOrder": "DESC",
+        "header1": "Learn",
+        "showEpisodeNumbers": false
+      },
+      {
+        "type": "content",
+        "style": "mad",
+        "header1": "Take Action",
+        "text1": "What does justice look like and how can we take meaningful action to work towards peace in our communities and around the world? Check out the resources below for activities you can do with your family.",
+        "list": [
+          {
+            "type": "arrow",
+            "title": "Prayer and Mindfulness",
+            "navigateTo": "/static/pdfs/compassion/2021-22-Peacemakers-NextGen-Prayer-and-Mindfulness.pdf"
+          },
+          {
+            "type": "arrow",
+            "title": "Water Usage",
+            "navigateTo": "/static/pdfs/compassion/2021-22-Peacemakers-NextGen-water-usage.pdf"
+          },
+          {
+            "type": "arrow",
+            "title": "Water on Wheels",
+            "navigateTo": "/static/pdfs/compassion/2021-22-Peacemakers-NextGen -Water-on-Wheels.pdf"
+          },
+          {
+            "type": "arrow",
+            "title": "Start a fundraiser",
+            "navigateTo": "https://go.dojiggy.io/c/deae7e"
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/PM2022_Kids&Youth_Mod_1.jpg",
+            "alt": "A little girl baking muffins with her dad amazed at her skill"
+          }
+        ]
+      },
+      {
+        "type": "horizontal-list",
+        "header1": "Join a Fundraiser",
+        "list": [
+          {
+            "title": "Create a Fundraiser",
+            "text": "Click here to start your own fundraiser for peacemakers.",
+            "imageSrc": "/static/images/CreateAFundraiser-1125x840.jpg",
+            "imageAlt": "Black and yellow graphic with the words create a fundraiser.",
+            "navigateTo": "https://go.dojiggy.io/c/deae7e"
+          },
+          {
+            "title": "Silent Auction",
+            "text": "Communities from all over have donated some great items for our online silent auction!",
+            "imageSrc": "/static/images/SilentAuction_1125x840.jpg",
+            "imageAlt": "Black and yellow graphic with the words silence auction.",
+            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/Auction/Details"
+          },
+          {
+            "title": "Oakville BFG Book Sale",
+            "text": "Looking for something new to read? Come by our used book sale on Sunday May 22 before and after the 9:30am service in Oakville.",
+            "imageSrc": "/static/images/Oakville_BFG_BookSale.jpg",
+            "imageAlt": "Black and yellow graphic with the words Oakville BFG book sale.",
+            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/booksale/Team/Details"
+          },
+          {
+            "title": "Downtown Hamilton The Art Peace",
+            "text": "Join the downtown Hamilton community for a fun night of wine, cheese, and art.",
+            "imageSrc": "/static/images/The_art_peace.jpg",
+            "imageAlt": "Black and yellow graphic with the words Downtown Hamilton The Art Peace.",
+            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/theartpeace/Team/Details"
+          },
+          {
+            "title": "Oakville Peace Wreaths",
+            "text": "We invite you to participate in our Peacemakers Raffle! For a donation of 3$ you can win one of 3 handcrafted spring wreathes.",
+            "imageSrc": "/static/images/Oakville_Peace_Wreaths.jpg",
+            "imageAlt": "Black and yellow graphic with the words Oakville Peace Wreaths.",
+            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/50a233"
+          },
+          {
+            "title": "Ottawa Scone Baking",
+            "text": "Join April when she goes live on The Meeting House Ottawa's Facebook page to share all her scone-related tips and tricks. Get a tasty treat for your troubles. Suggested donation: $5 per viewer.",
+            "imageSrc": "/static/images/Ottawa_Scone_Baking.jpg",
+            "imageAlt": "Black and yellow graphic with the words Ottawa Scone Baking.",
+            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/scones"
+          },
+          {
+            "title": "Ottawa Knitting with Jasmine",
+            "text": "Jasmine Duckworth has kindly offered to teach us some knitting. Join us on Sunday, May 29 before church in Ottawa to learn to knit a dishcloth, repair your own knitwear, or drop something off to be repaired by Jasmine's expert hands.",
+            "imageSrc": "/static/images/Ottawa_Knitting_with_jasmine.jpg",
+            "imageAlt": "Black and yellow graphic with the words Ottawa Knitting with Jasmine.",
+            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/knitting"
+          },
+          {
+            "title": "Burlington Lemonade Stand",
+            "text": "Thirsty? Come by Viewmount Rd in Oakville on Sunday May 15th between 1 and 3pm for some delicious lemonade and cookies!",
+            "imageSrc": "/static/images/BurlingtonLemonadeStand-1125x840.jpg",
+            "imageAlt": "Black and yellow graphic with the words burlington lemonade stand.",
+            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/lemonade/Team/Details"
+          },
+          {
+            "title": "Oakville Refugee Encounter",
+            "text": "In the history of humanity, there have never been as many refugees around the world as we are seeing today. Join us for our 3rd Annual Refugee Encounter to learn more about Tayiba and Elyas’ journey since fleeing their home in Ethiopia. Learn how your donation can support refugees on their journey to a new life. Debit or credit accepted.",
+            "imageSrc": "/static/images/OakvilleRefugeeEncounter_1125x840.jpg",
+            "imageAlt": "Black and yellow graphic with the words oakville refugee encounter.",
+            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/oakvillerefugeeencounter/Team/Details"
+          },
+          {
+            "title": "Newmarket Hike for Peace",
+            "text": "Angela is hiking 200km in the next four weeks to raise awareness for Peacemakers.",
+            "imageSrc": "/static/images/NewmarketHikeforPeace_1125x840.jpg",
+            "imageAlt": "Black and yellow graphic with the words Hike for Peace.",
+            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/nmkthikeforpeace/Team/Details"
+          },
+          {
+            "title": "Alliston Peace it together Garage Sale",
+            "text": "Held at PPG Park Pavilion in Alliston. May 29th 10am-2pm (behind the Alliston Fire Hall)",
+            "imageSrc": "/static/images/AllistonPeaceittogetherGarageSale_1125x840.jpg",
+            "imageAlt": "Black and yellow graphic with the words Alliston Peace it together Garage Sale.",
+            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/alliston/Team/Details"
+          }
+        ]
+      }
+    ]
   }
+}

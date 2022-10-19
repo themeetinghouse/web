@@ -35,8 +35,8 @@
   },
 
   {
-    "name": "My Parish Team",
-    "subtext": "Contact a parish team member.",
+    "name": "My Local Team",
+    "subtext": "Contact a local community team member.",
     "location": "ParishTeam",
     "groups": ["default"],
     "external": false,

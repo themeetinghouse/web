@@ -35,7 +35,7 @@
         "text1": "Peacemakers is our opportunity to work towards peace and justice in some of the most vulnerable communities around the world. Take a step to become a peacemaker below.",
         "button1": {
           "text": "Watch Video",
-          "buttonColor":"yellow",
+          "buttonColor": "yellow",
           "action": "https://www.themeetinghouse.com/videos/compassion-Peacemakers/4blwlOGupgE",
           "description": "Introduction to our Peacemakers campaign and watch video button."
         }
@@ -138,24 +138,25 @@
           },
           {
             "title": "Silent Auction",
-            "text": "Parishes from all over have donated some great items for our online silent auction!",
+            "text": "Communities from all over have donated some great items for our online silent auction!",
             "imageSrc": "/static/images/SilentAuction_1125x840.jpg",
             "imageAlt": "Black and yellow graphic with the words silence auction.",
             "navigateTo": "https://go.dojiggy.io/peacemakers-2022/Auction/Details"
           },
-                    {
+          {
             "title": "Downtown Hamilton The Art Peace",
             "text": "Join the downtown Hamilton community on May 27 for a fun night of wine, cheese, and art.",
             "imageSrc": "/static/images/The_art_peace.jpg",
             "imageAlt": "Black and yellow graphic with the words Downtown Hamilton The Art Peace.",
             "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/theartpeace/Team/Details"
-          },          {
+          },
+          {
             "title": "Oakville Peace Wreaths",
             "text": "We invite you to participate in our Peacemakers Raffle! For a donation of 3$ you can win one of 3 handcrafted spring wreathes.",
             "imageSrc": "/static/images/Oakville_Peace_Wreaths.jpg",
             "imageAlt": "Black and yellow graphic with the words Oakville Peace Wreaths.",
             "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/d895ad/Team/Details"
-          },          
+          },
           {
             "title": "Ottawa Scone Baking",
             "text": "Join April on May 24 when she goes live on The Meeting House Ottawa's Facebook page to share all her scone-related tips and tricks. Get a tasty treat for your troubles. Suggested donation: $5 per viewer.",

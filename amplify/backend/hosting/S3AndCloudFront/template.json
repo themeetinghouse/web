@@ -85,7 +85,25 @@
             ],
             "Properties": {
                 "DistributionConfig": {
-                    "Aliases":["www.themeetinghouse.com","toronto.themeetinghouse.com"],
+                    "Aliases":[
+                        "www.themeetinghouse.com",
+                        "toronto.themeetinghouse.com",
+                        "waterloo-region.themeetinghouse.com",
+                        "hamilton.themeetinghouse.com",
+                        "peel.themeetinghouse.com",
+                        "london.themeetinghouse.com",
+                        "newmarket.themeetinghouse.com",
+                        "ottawa.themeetinghouse.com",
+                        "parry-sound.themeetinghouse.com",
+                        "richmond-hill.themeetinghouse.com",
+                        "alliston.themeetinghouse.com",
+                        "sandbanks.themeetinghouse.com",
+                        "global.themeetinghouse.com",
+                        "youth.themeetinghouse.com",
+                        "kidmax.themeetinghouse.com",
+                        "christmas.themeetinghouse.com",
+                        "easter.themeetinghouse.com"
+                        ],
                     "ViewerCertificate":{
                         "AcmCertificateArn" : "arn:aws:acm:us-east-1:119330689042:certificate/6b89056a-f405-4c66-9d87-c3a0a1bfe2dd",
                         "MinimumProtocolVersion" : "TLSv1.2_2021",

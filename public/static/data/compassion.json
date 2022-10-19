@@ -30,7 +30,7 @@
     "id": 3,
     "sites": ["brampton"],
     "name": "Hope Box",
-    "description": "Hope Boxes are a free faith based resource for those experiencing pregnancy or infant loss. The Brampton Parish helps by packing the boxes and writing encouragement notes for the families receiving the boxes.",
+    "description": "Hope Boxes are a free faith based resource for those experiencing pregnancy or infant loss. The Brampton Community helps by packing the boxes and writing encouragement notes for the families receiving the boxes.",
     "website": "https://hopeboxcanada.ca/",
     "image": "/static/photos/compassion/Hope Box Canada.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
@@ -41,7 +41,7 @@
     "name": "Brantford Blessing Centre",
     "description": "The Brantford Blessing Centre provides access to food for marginalized communities. We make and serve meals twice a month and assist with additional projects as they come up.",
     "image": "/static/images/compassion/none.jpg",
-    "website":"https://www.brantfordblessingcentre.org/",
+    "website": "https://www.brantfordblessingcentre.org/",
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
@@ -49,7 +49,7 @@
     "sites": ["brantford"],
     "name": "Friendship House",
     "description": "Friendship House is a drop-in centre that works to support the physical, emotional, and spiritual needs of guests. We support them primarily by donating to their food bank.",
-    "website":"https://www.friendship-house-of-brant.org/",
+    "website": "https://www.friendship-house-of-brant.org/",
     "image": "/static/images/compassion/none.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   },
@@ -472,7 +472,7 @@
     "id": 60,
     "sites": ["crossregional"],
     "name": "Local Engagement",
-    "description": "Parishes embed themselves into their communities to learn and listen to the unique opportunities that are present and then respond relationally and with humility. The result is a grassroots network of Jesus followers working for justice and building relationships with marginalized members of their community.",
+    "description": "Regions embed themselves into their communities to learn and listen to the unique opportunities that are present and then respond relationally and with humility. The result is a grassroots network of Jesus followers working for justice and building relationships with marginalized members of their community.",
     "image": "/static/photos/compassion/localengagement.jpg",
     "imagealt": "A meeting house volunteer sorting and organizing donations as part of a local compassion initative."
   },
@@ -628,7 +628,7 @@
     "id": 82,
     "sites": ["connect"],
     "name": "Prayer - Rob Schellenberg",
-    "description": "In these uncertain times, we need to focus on prayer more than ever. Join us for a convo around how to start a prayer team in your parish and how to navigate the challenges that prayer ministries often face.",
+    "description": "In these uncertain times, we need to focus on prayer more than ever. Join us for a convo around how to start a prayer team in your region and how to navigate the challenges that prayer ministries often face.",
     "image": "/static/photos/leadersdaypictures/Rob.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   },
@@ -636,7 +636,7 @@
     "id": 83,
     "sites": ["connect"],
     "name": "Compassion - Matt Thompson & Megan Enns",
-    "description": "​​We’ll look at what it means to be parish-minded within Compassion by taking a step back to analyze our parishes and the neighbourhoods we live in.",
+    "description": "​​We’ll look at what it means to be parish-minded within Compassion by taking a step back to analyze our regions and the neighbourhoods we live in.",
     "image": "/static/photos/leadersdaypictures/MattandMegan.jpg",
     "imagealt": "Placeholder image for Compassion Partner"
   },
