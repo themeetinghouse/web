@@ -1,7 +1,7 @@
 {
   "page": {
     "name": "toronto-downtown",
-    "title": "The Meeting House - Downtown Toronto",
+    "title": "The Meeting House - Halton-Peel Region",
     "keywords": "",
     "description": "",
     "pageConfig": {
@@ -17,9 +17,9 @@
       {
         "type": "og-tags",
         "image": "/static/images/og-images/toronto-downtown.jpg",
-        "url": "https://www.themeetinghouse.com/toronto",
-        "title": "The Meeting House - Toronto Region",
-        "description": "A loving community of irreligious Jesus-followers in Toronto."
+        "url": "https://www.themeetinghouse.com/peel",
+        "title": "The Meeting House - Halton-Peel Region",
+        "description": "A loving community of irreligious Jesus-followers in Halton-Peel."
       },
       {
         "type": "hero",
@@ -45,7 +45,7 @@
             "alt": "A large group of people hanging out together in an open concept living room for Home Church."
           }
         ],
-        "header1": "Toronto Region",
+        "header1": "Halton-Peel Region",
         "customLiveLink": "themeetinghouse.com/live",
         "register": false,
         "hideHr": true,
@@ -53,7 +53,7 @@
         "contactPastor": false,
         "class": "region",
         "filterField": "region",
-        "filterValue": ["Toronto"]
+        "filterValue": ["Peel"]
       },
       {
         "type": "map",
@@ -62,7 +62,7 @@
         "header1": "Our Region",
         "text1": "These are the folks that help make community, discipleship, and Sunday mornings happen.",
         "filterField": "sites",
-        "filterValue": "Toronto_Region"
+        "filterValue": "Peel_Region"
       },
       {
         "type": "list",
@@ -71,7 +71,7 @@
         "header1": "Our Team",
         "text1": "These are the folks that help make community, discipleship, and Sunday mornings happen.",
         "filterField": "sites",
-        "filterValue": "Toronto_Region"
+        "filterValue": "Peel_Region"
       },
       {
         "type": "list",
@@ -91,7 +91,7 @@
         "style": "grid",
         "class": "instagram",
         "filterField": "sites",
-        "filterValue": "toronto-downtown"
+        "filterValue": "peel"
       },
       {
         "type": "content",
@@ -141,7 +141,7 @@
         "header1": "Home Church",
         "header2": "",
         "text1": "Something really good happens when we gather in our neighbourhoods to share life, grow deeper spiritual friendships, and talk about how we can live Jesus-centred lives, all while we invite others to join us.",
-        "link1Text": "Browse Home Churches in Toronto",
+        "link1Text": "Browse Home Churches in Halton-Peel Region",
         "link1Action": "/find-homechurch"
       },
 
@@ -152,33 +152,9 @@
         "header1": "Make a Difference",
         "text1": "We want to use our money, time, and resources to love and serve people on the margins.",
         "filterField": "sites",
-        "filterValue": "toronto-downtown"
+        "filterValue": "peel"
       },
-      {
-        "type": "content",
-        "style": "mad",
-        "header1": "Local Teaching",
-        "header2": "",
-        "text1": "All our recent Toronto Region teaching in one place.",
-        "list": [
-          {
-            "type": "arrow",
-            "title": "Downtown Teaching",
-            "navigateTo": "https://open.spotify.com/show/2lwTMOPb6LcIye45x6BHwV?si=EJRtnkywTJyrH-znor_wog"
-          },
-          {
-            "type": "arrow",
-            "title": "Toronto East Teaching",
-            "navigateTo": "https://www.anchor.fm/tmheasttoronto"
-          }
-        ],
-        "image1": [
-          {
-            "src": "/static/images/spirituality-2-2.jpg",
-            "alt": "Two men talking"
-          }
-        ]
-      },
+
       {
         "type": "hero",
         "style": "connect",
