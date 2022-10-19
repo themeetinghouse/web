@@ -143,12 +143,6 @@
     "Position": "London Ministry Associate"
   },
   {
-    "FirstName": "Kate",
-    "LastName": "Thompson",
-    "sites": ["LOND", "Distance_Region"],
-    "Position": "Compassion Coordinator"
-  },
-  {
     "FirstName": "Matt",
     "LastName": "Thompson",
     "sites": ["LOND", "Distance_Region"],
@@ -512,17 +506,10 @@
     "Position": "Tech Coordinator"
   },
   {
-    "FirstName": "T.J.",
-    "LastName": "Zielman",
+    "FirstName": "Rachel",
+    "LastName": "Bakker",
     "sites": ["LOND", "Distance_Region"],
-    "Email": "tj.zielman@themeetinghouse.com",
-    "Position": "Youth Coordinator"
-  },
-  {
-    "FirstName": "Sarah",
-    "LastName": "Innes",
-    "sites": ["LOND", "Distance_Region"],
-    "Email": "sarah.innes@themeetinghouse.com",
+    "Email": "rachel.bakker@themeetinghouse.com",
     "Position": "Kidmax Coordinator"
   },
   {
