@@ -57,6 +57,11 @@
         "list": [
           {
             "type": "link",
+            "title": "Human Resources Manager",
+            "navigateTo": "/static/pdfs/careers/Human Resources Manager Fall 2022.pdf"
+          },
+          {
+            "type": "link",
             "title": "Oakville Regional Pastor",
             "navigateTo": "/static/pdfs/careers/Halton Peel Region - Regional Pastor (Oakville).pdf"
           },
