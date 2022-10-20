@@ -35,6 +35,10 @@ import {
   ModelSortDirection,
   SearchBlogsQuery,
   SearchBlogsQueryVariables,
+  TMHPerson,
+  TMHPersonByIsCoordinatorQuery,
+  TMHPersonByIsOverseerQuery,
+  TMHPersonByIsStaffQuery,
 } from '../../API';
 
 export interface DataLoaderQuery {
@@ -123,32 +127,11 @@ export interface InstaQuery extends DataLoaderQuery {
   limit?: number;
 }
 
-export interface StaffData {
-  Staff?: boolean;
-  FirstName: string;
-  LastName: string;
-  Phone: string;
-  Position: string;
-  sites: string[];
-  Email: string;
-  instagram?: string;
-  twitter?: string;
-  ImageVersion: string | null | undefined;
-}
-
 export interface OverseerQuery extends DataLoaderQuery {
   class: 'overseers';
 }
 
-export interface OverseerData {
-  FirstName: string;
-  LastName: string;
-  Position: string;
-  sites: string[];
-  ImageVersion: string | null | undefined;
-}
-
-export type PeopleData = StaffData | OverseerData;
+export type PeopleData = TMHPerson;
 
 export interface EventQuery extends DataLoaderQuery {
   class: 'events';
@@ -757,17 +740,16 @@ export default class DataLoader {
       console.error(e);
     }
   }
-
-  static sortStaff(list: StaffData[]): StaffData[] {
+  static sortStaff(list: TMHPerson[]): TMHPerson[] {
     return list.sort((a, b) => {
       if (
-        a.Position.includes('Lead Pastor') &&
-        b.Position.includes('Lead Pastor')
+        a.position?.includes('Lead Pastor') &&
+        b.position?.includes('Lead Pastor')
       )
-        return a.LastName.localeCompare(b.LastName);
-      else if (a.Position.includes('Lead Pastor')) return -1;
-      else if (b.Position.includes('Lead Pastor')) return 1;
-      else return a.LastName.localeCompare(b.LastName);
+        return a.lastName?.localeCompare(b.lastName ?? '') ?? 0;
+      else if (a.position?.includes('Lead Pastor')) return -1;
+      else if (b.position?.includes('Lead Pastor')) return 1;
+      else return a.lastName?.localeCompare(b.lastName ?? '') ?? 0;
     });
   }
   private static async getEvent(eventId: string): Promise<FBEvent | null> {
@@ -828,15 +810,39 @@ export default class DataLoader {
       });
   }
 
-  static async loadStaff(query: StaffQuery): Promise<StaffData[]> {
-    let response = await fetch('/static/data/staff.json');
-    const staff: StaffData[] = await response.json();
+  static async loadStaff(query: StaffQuery): Promise<TMHPerson[]> {
+    let staff: TMHPerson[] = [];
+    let coordinators: TMHPerson[] = [];
+    try {
+      const response = (await API.graphql({
+        query: queries.tMHPersonByIsStaff,
+        variables: { isStaff: 'true' },
+        authMode: GRAPHQL_AUTH_MODE.API_KEY,
+      })) as GraphQLResult<TMHPersonByIsStaffQuery>;
+      const staffMembers =
+        (response.data?.TMHPersonByIsStaff?.items as TMHPerson[]) ?? [];
+      if (staffMembers?.length) staff = staffMembers;
+      console.log({ staff });
+    } catch (error) {
+      console.log({ error });
+    }
     if (query.filterField === 'sites') {
-      response = await fetch('/static/data/coordinators.json');
-      const coordinators: StaffData[] = await response.json();
+      try {
+        const response = (await API.graphql({
+          query: queries.tMHPersonByIsOverseer,
+          variables: { isCoordinator: 'true' },
+          authMode: GRAPHQL_AUTH_MODE.API_KEY,
+        })) as GraphQLResult<TMHPersonByIsOverseerQuery>;
+        const coordinatorMembers =
+          (response.data?.TMHPersonByIsOverseer?.items as TMHPerson[]) ?? [];
+        if (coordinatorMembers?.length) coordinators = coordinatorMembers;
+        console.log({ coordinators });
+      } catch (error) {
+        console.log({ error });
+      }
       return this.sortStaff(staff).concat(coordinators);
     } else {
-      return staff;
+      return this.sortStaff(staff);
     }
   }
 
@@ -942,9 +948,23 @@ export default class DataLoader {
     return [];
   }
 
-  static async loadOverseers(): Promise<OverseerData[]> {
-    const response = await fetch('/static/data/overseers.json');
-    return response.json();
+  static async loadOverseers(): Promise<TMHPerson[]> {
+    let overseers: TMHPerson[] = [];
+    try {
+      const response = (await API.graphql({
+        query: queries.tMHPersonByIsCoordinator,
+        variables: { isOverseer: 'true' },
+        authMode: GRAPHQL_AUTH_MODE.API_KEY,
+      })) as GraphQLResult<TMHPersonByIsCoordinatorQuery>;
+      console.log({ response });
+      const overseerMembers =
+        (response.data?.TMHPersonByIsCoordinator?.items as TMHPerson[]) ?? [];
+      if (overseerMembers?.length) overseers = overseerMembers;
+      console.log({ overseerMembers });
+    } catch (overSeerError) {
+      console.log({ overSeerError });
+    }
+    return overseers;
   }
 
   static async loadEvents(query: EventQuery): Promise<EventData[]> {

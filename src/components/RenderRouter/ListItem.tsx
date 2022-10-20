@@ -3,8 +3,6 @@ import { withRouter, RouteComponentProps } from 'react-router-dom';
 import VideoOverlay from '../VideoOverlay/VideoOverlay';
 import DataLoader, {
   PeopleData,
-  StaffData,
-  OverseerData,
   EventData,
   CompassionData,
   DataQuery,
@@ -36,8 +34,9 @@ import { fallbackToImage } from 'components/ScaledImage/ScaledImage';
 import { Link, ArrowLink } from 'components/Link/Link';
 import { RouteParams } from '../../pages/HomePage';
 import moment from 'moment';
-import { ModelSortDirection } from 'API';
+import { ModelSortDirection, TMHPerson } from 'API';
 import { Margin } from '../types';
+import FadeImage from 'components/ScaledImage/FadeImage';
 
 interface Props extends RouteComponentProps<RouteParams> {
   content: any;
@@ -76,7 +75,6 @@ type ListData =
   | SpeakerData
   | VideoData
   | PeopleData
-  | OverseerData
   | EventData
   | CompassionData
   | SeriesByTypeData
@@ -620,71 +618,41 @@ class ListItem extends React.Component<Props, State> {
     );
   }
 
-  renderOverseer(
-    items: OverseerData | OverseerData[],
-    index: number
-  ): JSX.Element {
+  renderOverseer(items: TMHPerson[] | TMHPerson, index: number): JSX.Element {
     const isMobile = this.state.windowWidth < 768;
     if (isMobile) {
-      const item = items as OverseerData;
-      const image = {
-        src: `/static/photos/overseers/${item.FirstName}_${item.LastName}_app${
-          item.ImageVersion ? '_' + item.ImageVersion : ''
-        }.jpg`,
-        alt: `Head shot of ${item.FirstName} ${item.LastName}`,
-      };
+      const item = items as TMHPerson;
       return (
         <div key={index} className="ListItemDiv3">
-          <ScaledImage
-            image={image}
+          <FadeImage
+            alt={`Head shot of ${item.firstName} ${item.lastName}`}
             className="StaffImage"
-            fallbackUrl="/static/Individual.png"
-            breakpointSizes={{
-              320: 80,
-              480: 120,
-              640: 180,
-              1280: 320,
-              1920: 480,
-              2560: 640,
-            }}
+            imageSrc={item?.image ?? ''}
+            fallbackUrl={'/static/Individual.png'}
           />
           <div className="ListItemName">
-            {item.FirstName} {item.LastName}
+            {item.firstName} {item.lastName}
           </div>
-          <div className="ListItemPosition">{item.Position}</div>
+          <div className="ListItemPosition">{item.position}</div>
         </div>
       );
     }
-
     return (
       <div className="StaffFlexArea" key={index}>
-        {(items as OverseerData[]).map((item, index: number) => {
-          const image = {
-            src: `/static/photos/overseers/${item.FirstName}_${
-              item.LastName
-            }_app${item.ImageVersion ? '_' + item.ImageVersion : ''}.jpg`,
-            alt: `Head shot of ${item.FirstName} ${item.LastName}`,
-          };
+        {(items as TMHPerson[])?.map((item, index: number) => {
           return (
             <div key={index} className="StaffItem">
-              <ScaledImage
-                image={image}
+              <FadeImage
+                alt={`Head shot of ${item.firstName} ${item.lastName}`}
                 className="StaffImage"
-                fallbackUrl="/static/Individual.png"
-                breakpointSizes={{
-                  320: 80,
-                  480: 120,
-                  640: 180,
-                  1280: 320,
-                  1920: 480,
-                  2560: 640,
-                }}
+                imageSrc={item?.image ?? ''}
+                fallbackUrl={'/static/Individual.png'}
               />
               <div className="StaffInfo">
                 <div className="ListItemName">
-                  {item.FirstName} {item.LastName}
+                  {item.firstName} {item.lastName}
                 </div>
-                <div className="ListItemPosition">{item.Position}</div>
+                <div className="ListItemPosition">{item.position}</div>
               </div>
             </div>
           );
@@ -786,176 +754,83 @@ class ListItem extends React.Component<Props, State> {
       </Link>
     );
   }
-  renderStaff(items: StaffData | StaffData[], index: number) {
+  renderStaff(items: TMHPerson | TMHPerson[], index: number) {
     const isMobile = this.state.windowWidth < 768;
     if (isMobile) {
-      const data = items as StaffData;
-      const imgsrc =
-        '/static/photos/' +
-        (data.Staff == null ? 'coordinators' : 'staff') +
-        '/' +
-        (data.Staff == null ? data.sites[0] + '_' : '') +
-        data.FirstName +
-        '_' +
-        data.LastName +
-        '_app' +
-        (data.ImageVersion ? '_' + data.ImageVersion : '') +
-        '.jpg';
+      const data = items as TMHPerson;
       return (
         <div key={index} className="ListItemDiv3">
-          <ScaledImage
-            image={{
-              src: imgsrc,
-              alt: `Head shot of ${data.FirstName} ${data.LastName}`,
-            }}
+          <FadeImage
+            alt={`Head shot of ${data.firstName} ${data.lastName}`}
             className="StaffImage"
-            fallbackUrl="/static/Individual.png"
-            breakpointSizes={{
-              320: 80,
-              480: 120,
-              640: 180,
-              1280: 320,
-              1920: 480,
-              2560: 640,
-            }}
+            imageSrc={data?.image ?? ''}
+            fallbackUrl={'/static/Individual.png'}
           />
           <div className="ListItemName">
-            {data.FirstName} {data.LastName}
+            {data.firstName} {data.lastName}
           </div>
-          <div className="ListItemPosition">{data.Position}</div>
+          <div className="ListItemPosition">{data.position}</div>
           <div className="StaffContact">
-            {data.Email ? (
+            {data.email ? (
               <div className="ListItemEmail">
-                <a className="ListItemEmailText" href={'mailto:' + data.Email}>
+                <a className="ListItemEmailText" href={'mailto:' + data.email}>
                   Email
                 </a>
               </div>
             ) : null}
-            {data.Phone ? (
+            {data.phone ? (
               <div className="ListItemPhone">
-                <a
-                  className="ListItemEmailText"
-                  href={'tel:' + data.Phone.split(',')[0]}
-                >
-                  {data.Phone.split(',')[0]}
+                <a className="ListItemEmailText" href={'tel:' + data.phone}>
+                  {data.phone}
                 </a>{' '}
-                {data.Phone.split(',')[1]}
+                ext. {data.extension}
               </div>
             ) : null}
           </div>
-          {data.instagram != null ? (
-            <a
-              href={'https://twitter.com/' + data.instagram}
-              className="ListItemSocialLink"
-            >
-              <img
-                className="ListItemTwitter"
-                src="/static/svg/Twitter.svg"
-                alt="Twitter Logo"
-              />
-            </a>
-          ) : null}
-          {data.twitter != null ? (
-            <a
-              href={'https://www.instagram.com//' + data.twitter}
-              className="ListItemSocialLink"
-            >
-              <img
-                className="ListItemInstagram"
-                src="/static/svg/Instagram.svg"
-                alt="Instagram Logo"
-              />
-            </a>
-          ) : null}
         </div>
       );
     }
 
     return (
       <div className="StaffFlexArea" key={index}>
-        {(items as StaffData[]).map((item: any, index: number) => {
-          const imgsrc =
-            '/static/photos/' +
-            (item.Staff == null ? 'coordinators' : 'staff') +
-            '/' +
-            (item.Staff == null ? item.sites[0] + '_' : '') +
-            item.FirstName +
-            '_' +
-            item.LastName +
-            '_app' +
-            (item.ImageVersion ? '_' + item.ImageVersion : '') +
-            '.jpg';
+        {(items as TMHPerson[]).map((item, index: number) => {
           return (
             <div key={index} className="StaffItem">
-              <ScaledImage
-                image={{
-                  src: imgsrc,
-                  alt: `Head shot of ${item.FirstName} ${item.LastName}`,
-                }}
+              <FadeImage
+                alt={`Head shot of ${item.firstName} ${item.lastName}`}
                 className="StaffImage"
-                fallbackUrl="/static/Individual.png"
-                breakpointSizes={{
-                  320: 80,
-                  480: 120,
-                  640: 180,
-                  1280: 320,
-                  1920: 480,
-                  2560: 640,
-                }}
+                imageSrc={item?.image ?? ''}
+                fallbackUrl={'/static/Individual.png'}
               />
               <div className="StaffInfo">
                 <div className="ListItemName">
-                  {item.FirstName} {item.LastName}
+                  {item.firstName} {item.lastName}
                 </div>
-                <div className="ListItemPosition">{item.Position}</div>
+                <div className="ListItemPosition">{item.position}</div>
                 <div className="StaffContact">
-                  {item.Email ? (
+                  {item.email ? (
                     <div className="ListItemEmail">
                       <a
                         className="ListItemEmailText"
-                        href={'mailto:' + item.Email}
+                        href={'mailto:' + item.email}
                       >
-                        {item.Email.toLowerCase()}
+                        {item.email.toLowerCase()}
                       </a>
                     </div>
                   ) : null}
-                  {item.Phone ? (
+                  {item.phone ? (
                     <div className="ListItemPhone">
                       <a
                         className="ListItemEmailText"
-                        href={'tel:' + item.Phone.split(',')[0]}
+                        href={'tel:' + item.phone}
                       >
-                        {item.Phone.split(',')[0]}
+                        {item.phone}
                       </a>{' '}
-                      {item.Phone.split(',')[1]}
+                      ext. {item.extension}
                     </div>
                   ) : null}
                 </div>
               </div>
-              {item.instagram ? (
-                <a
-                  href={'https://twitter.com/' + item.twitter}
-                  className="ListItemSocialLink"
-                >
-                  <img
-                    className="ListItemTwitter"
-                    src="/static/svg/Twitter.svg"
-                    alt="Twitter Logo"
-                  />
-                </a>
-              ) : null}
-              {item.twitter ? (
-                <a
-                  href={'https://www.instagram.com/' + item.instagram}
-                  className="ListItemSocialLink"
-                >
-                  <img
-                    className="ListItemInstagram"
-                    src="/static/svg/Instagram.svg"
-                    alt="Instagram Logo"
-                  />
-                </a>
-              ) : null}
             </div>
           );
         })}
@@ -1171,7 +1046,7 @@ class ListItem extends React.Component<Props, State> {
 
     if (!item) return null;
     return (
-      <div className="ListInstagramTile">
+      <div key={item?.permalink} className="ListInstagramTile">
         <a href={item.permalink ?? ''}>
           <img
             src={item.media_url ?? ''}
@@ -1191,12 +1066,9 @@ class ListItem extends React.Component<Props, State> {
       case 'custom-playlist':
         return this.renderVideo(item as VideoData);
       case 'staff':
-        return this.renderStaff(item as StaffData | StaffData[], index);
+        return this.renderStaff(item as TMHPerson | TMHPerson[], index);
       case 'overseers':
-        return this.renderOverseer(
-          item as OverseerData | OverseerData[],
-          index
-        );
+        return this.renderOverseer(item as TMHPerson | TMHPerson, index);
       case 'events':
         return this.renderEvent(item as EventData);
       case 'instagram':

@@ -91,6 +91,9 @@ export default class Menu extends React.Component<EmptyProps, State> {
                 <Link to="/account/admin/redirects">Redirects</Link>
               </NavItem>
               <NavItem>
+                <Link to="/account/admin/people">People</Link>
+              </NavItem>
+              <NavItem>
                 <Link to="/account/admin/editor">Editor</Link>
               </NavItem>
               <NavItem>
