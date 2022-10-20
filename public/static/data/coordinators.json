@@ -437,13 +437,6 @@
     "Position": "West Youth Ministry Associate"
   },
   {
-    "FirstName": "Russ",
-    "LastName": "Skinner",
-    "sites": ["TOUP", "Toronto_Region"],
-    "Email": "russ.skinner@themeetinghouse.com",
-    "Position": "Weekend Service Producer"
-  },
-  {
     "FirstName": "Jason",
     "LastName": "Lise",
     "sites": ["HMDT", "Hamilton_Region"],
@@ -486,12 +479,6 @@
     "Position": "Compassion Coordinator"
   },
   {
-    "FirstName": "Sue",
-    "LastName": "Yoo",
-    "sites": ["TOUP", "Toronto_Region"],
-    "Position": "Welcome Coordinator"
-  },
-  {
     "FirstName": "Fraser & Maria",
     "LastName": "Haig",
     "sites": ["WAT", "KIT", "Waterloo_Region"],
@@ -516,13 +503,6 @@
     "FirstName": "Carol",
     "LastName": "Babcock",
     "sites": ["SAND", "Distance_Region"],
-    "Position": "Tech Coordinator"
-  },
-  {
-    "FirstName": "Jeremy",
-    "LastName": "Trites",
-    "sites": ["TOUP", "Toronto_Region"],
-    "Email": "jeremy.trites@themeetinghouse.com",
     "Position": "Tech Coordinator"
   },
   {
