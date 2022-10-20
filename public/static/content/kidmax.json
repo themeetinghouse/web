@@ -58,7 +58,7 @@
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 3 - EY Activities.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 4 - EY Activities.pdf",
             "openNewBrowser": true
           },
           {
@@ -86,15 +86,21 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/Social Media - BigIdea - Wilderness - Wk3.jpg",
-            "alt": "God helps us live the best way."
+            "src": "/static/images/Social Media - BigIdea - Wilderness - Wk4.jpg",
+            "alt": "God's love is bigger than our mistakes."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 3 - Wilderness - Gr 1-2.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 4 - Wilderness - Gr 1-2.pdf",
+            "openNewBrowser": true
+          },
+          {
+            "type": "link",
+            "title": "Download Kids Activites",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 4 - Activities.pdf",
             "openNewBrowser": true
           },
           {
