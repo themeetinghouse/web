@@ -111,6 +111,12 @@
           },
           {
             "type": "link",
+            "title": "2022 - Annual Report",
+            "navigateTo": "/static/pdfs/annual-reports/TMH_AnnualReport2022_v5.pdf",
+            "openNewBrowser": true
+          },
+          {
+            "type": "link",
             "title": "January 2022 Finance Update",
             "navigateTo": "/static/pdfs/annual-reports/January 2022 Finance Update.pdf",
             "openNewBrowser": true
