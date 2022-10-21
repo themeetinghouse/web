@@ -105,6 +105,12 @@
         "list": [
           {
             "type": "link",
+            "title": "2022 - AGM Document",
+            "navigateTo": "/static/pdfs/annual-reports/2022 AGM Supporting Documentation combined.pdf",
+            "openNewBrowser": true
+          },
+          {
+            "type": "link",
             "title": "January 2022 Finance Update",
             "navigateTo": "/static/pdfs/annual-reports/January 2022 Finance Update.pdf",
             "openNewBrowser": true
@@ -131,12 +137,6 @@
             "type": "link",
             "title": "2020 - AGM Document",
             "navigateTo": "/static/pdfs/annual-reports/2020_AGM_Report_1.pdf",
-            "openNewBrowser": true
-          },
-          {
-            "type": "link",
-            "title": "2019 - AGM Document",
-            "navigateTo": "/static/pdfs/annual-reports/2019 AGM Supporting Documentation-merged.pdf",
             "openNewBrowser": true
           }
         ]
