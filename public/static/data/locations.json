@@ -175,9 +175,9 @@
     "region": "Waterloo",
     "pastorEmail": "madeleine.neufeld@themeetinghouse.com",
     "location": {
-      "longitude": -80.387502,
-      "latitude": 43.4054,
-      "address": "Galaxy Cinemas Conestoga Mall, 550 King Street North"
+      "longitude": -80.4641284593693,
+      "latitude": 43.4356144678023,
+      "address": "Rockway Mennonite Collegiate, 110 Door Rd, Kitchener"
     },
     "serviceTimes": ["10:00am"]
   },
@@ -303,9 +303,9 @@
     "region": "Waterloo",
     "pastorEmail": "madeleine.neufeld@themeetinghouse.com",
     "location": {
-      "longitude": -80.527216,
-      "latitude": 43.498807,
-      "address": "Galaxy Cinemas Conestoga Mall, 550 King Street North"
+      "longitude":  -80.4641284593693,
+      "latitude": 43.4356144678023,
+      "address": "Rockway Mennonite Collegiate, 110 Door Rd, Kitchener"
     },
     "serviceTimes": ["10:00am"]
   },
