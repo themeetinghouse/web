@@ -6,10 +6,11 @@ import { GraphQLResult } from '@aws-amplify/api';
 import { ListTMHPeopleQuery, TMHPerson } from 'API';
 import PersonCard from './PersonCard';
 import PeopleManagerModal from './PeopleManagerModal';
-
-export default function People() {
+import { Spinner } from 'reactstrap';
+export default function PeopleManager() {
   const [peopleData, setPeopleData] = React.useState<TMHPerson[]>([]);
   const [searchTerm, setSearchTerm] = React.useState('');
+  const [isLoading, setIsLoading] = React.useState(false);
   const [showModal, setShowModal] = React.useState(false);
   const [selectedUser, setSelectedUser] = React.useState<TMHPerson | null>(
     null
@@ -25,15 +26,18 @@ export default function People() {
   };
   React.useEffect(() => {
     const loadStaff = async () => {
+      setIsLoading(true);
       try {
         const { data } = (await API.graphql({
           query: queries.listTMHPeople,
-          variables: { limit: 200 },
+          variables: { limit: 500 },
         })) as GraphQLResult<ListTMHPeopleQuery>;
         const people = (data?.listTMHPeople?.items as TMHPerson[]) ?? [];
         setPeopleData(people);
       } catch (error) {
         console.log({ error });
+      } finally {
+        setIsLoading(false);
       }
     };
     loadStaff();
@@ -53,6 +57,42 @@ export default function People() {
     }
     setPeopleData(newTempArr);
   };
+  const filteredPeeps = peopleData
+    .filter((person) => {
+      if (filterType === 'All') return true;
+      else if (
+        filterType === 'Coordinators' &&
+        person?.isCoordinator === 'true'
+      )
+        return true;
+      else if (filterType === 'Staff' && person?.isStaff === 'true')
+        return true;
+      else if (filterType === 'Teachers' && person?.isTeacher === 'true')
+        return true;
+      else if (filterType === 'Overseers' && person?.isOverseer === 'true')
+        return true;
+      else return false;
+    })
+    .filter((person) => {
+      const term = searchTerm.toLocaleLowerCase()?.trim().split(' ');
+      let exists = false;
+      if (!term.length) return true;
+      term.forEach((term) => {
+        if (person.firstName?.toLowerCase().includes(term)) {
+          exists = true;
+        }
+        if (person.lastName?.toLowerCase().includes(term)) {
+          exists = true;
+        }
+      });
+      return exists;
+    })
+    .sort((a, b) => {
+      const AfirstName = a?.firstName?.toLowerCase();
+      const BfirstName = b?.firstName?.toLowerCase();
+      if (AfirstName && BfirstName) return AfirstName.localeCompare(BfirstName);
+      return 0;
+    });
   return (
     <div className="PeopleManagerContainer">
       <div
@@ -116,54 +156,43 @@ export default function People() {
       </div>
 
       <div className="PeopleWrapper">
-        {peopleData
-          .filter((person) => {
-            if (filterType === 'All') return true;
-            else if (
-              filterType === 'Coordinators' &&
-              person?.isCoordinator === 'true'
-            )
-              return true;
-            else if (filterType === 'Staff' && person?.isStaff === 'true')
-              return true;
-            else if (filterType === 'Teachers' && person?.isTeacher === 'true')
-              return true;
-            else if (
-              filterType === 'Overseers' &&
-              person?.isOverseer === 'true'
-            )
-              return true;
-            else return false;
-          })
-          .filter((person) => {
-            const term = searchTerm.toLocaleLowerCase()?.trim().split(' ');
-            let exists = false;
-            if (!term.length) return true;
-            term.forEach((term) => {
-              if (person.firstName?.toLowerCase().includes(term)) {
-                exists = true;
-              }
-              if (person.lastName?.toLowerCase().includes(term)) {
-                exists = true;
-              }
-            });
-            return exists;
-          })
-          .sort((a, b) => {
-            const AfirstName = a?.firstName?.toLowerCase();
-            const BfirstName = b?.firstName?.toLowerCase();
-            if (AfirstName && BfirstName)
-              return AfirstName.localeCompare(BfirstName);
-            return 0;
-          })
-          .map((person) => (
-            <PersonCard
-              openModal={openModal}
-              key={person?.email ?? person?.firstName + ' ' + person?.lastName}
-              personData={person}
-            ></PersonCard>
-          ))}
+        {filteredPeeps.map((person) => (
+          <PersonCard
+            openModal={openModal}
+            key={person?.email ?? person?.firstName + ' ' + person?.lastName}
+            personData={person}
+          ></PersonCard>
+        ))}
       </div>
+      {!filteredPeeps?.length || isLoading ? (
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            flex: 1,
+          }}
+        >
+          {isLoading ? (
+            <Spinner />
+          ) : (
+            <>
+              <img
+                style={{ marginBottom: 16 }}
+                src="/static/svg/undraw_team_re_0bfe.svg"
+                width={150}
+                height={150}
+              />
+              <span style={{ color: '#1a1a1a', fontSize: 14 }}>
+                {peopleData?.length
+                  ? 'No people found.'
+                  : 'No people have been created. Click create to add people.'}
+              </span>
+            </>
+          )}
+        </div>
+      ) : null}
       {showModal ? (
         <PeopleManagerModal
           updateCallback={updatePeopleDataCallback}

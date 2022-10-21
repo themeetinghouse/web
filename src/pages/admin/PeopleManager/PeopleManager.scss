@@ -24,6 +24,8 @@ input[type='reset'] {
 .PeopleManagerContainer {
   display: flex;
   flex-direction: column;
+  min-height: 400px;
+  align-self: center;
   flex: 1;
   margin: 16px;
   padding: 16px;
@@ -86,7 +88,7 @@ label {
     text-transform: uppercase;
     margin-top: 2px;
     margin-bottom: 2px;
-    font-size: 11px;
+    font-size: 12px;
   }
   .PersonCardPosition {
     display: block;
@@ -94,7 +96,7 @@ label {
     color: grey;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    font-size: 8px;
+    font-size: 10px;
   }
 }
 
@@ -106,6 +108,7 @@ label {
   align-items: center;
   label {
     display: flex;
+    flex: 1;
     flex-direction: column;
     color: #1a1a1a;
     font-weight: 700;

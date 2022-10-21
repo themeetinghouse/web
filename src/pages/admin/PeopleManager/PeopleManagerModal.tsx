@@ -3,7 +3,7 @@ import React from 'react';
 import { API } from 'aws-amplify';
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import * as mutations from '../../../graphql/mutations';
-import { Modal } from 'reactstrap';
+import { Modal, Spinner } from 'reactstrap';
 import {
   CreateTMHPersonInput,
   CreateTMHPersonMutation,
@@ -94,17 +94,22 @@ export default function PeopleManagerModal({
     sites: selectedUser?.sites ?? [],
   });
   const [isLoading, setIsLoading] = React.useState(false);
+  const [isDeleting, setIsDeleting] = React.useState(false);
   const [siteString, setSitesString] = React.useState(
     selectedUser?.sites?.join(', ')
   );
   const [file, setFile] = React.useState<any>(null);
-  const updateTMHPerson = async (propsToUpdate: UpdateTMHPersonInput) => {
+  const updateTMHPerson = async (
+    propsToUpdate: UpdateTMHPersonInput,
+    fullName: string
+  ) => {
     try {
       setIsLoading(true);
-      console.log({ propsToUpdate });
+
       let s3Result = null;
-      if (file) s3Result = await uploadToS3();
+      if (file) s3Result = await uploadToS3(fullName);
       if (s3Result) propsToUpdate.image = s3Result;
+      console.log({ propsToUpdate });
       const updatedPerson = (await API.graphql({
         query: mutations.updateTMHPerson,
         variables: {
@@ -124,8 +129,9 @@ export default function PeopleManagerModal({
     }
   };
 
-  const deleteTMHPerson = async (userID: TMHPerson['id']) => {
+  const deleteTMHPerson = async (userID: string) => {
     try {
+      setIsDeleting(true);
       const deletedTMHPerson = (await API.graphql({
         query: mutations.deleteTMHPerson,
         variables: {
@@ -135,18 +141,24 @@ export default function PeopleManagerModal({
         },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       })) as GraphQLResult<DeleteTMHPersonMutation>;
-      console.log({ deletedTMHPerson });
+      if (deletedTMHPerson?.data?.deleteTMHPerson?.image) {
+        // delete from s3
+      }
       updateCallback(
         deletedTMHPerson?.data?.deleteTMHPerson as TMHPerson,
         'delete'
       );
     } catch (error) {
       console.log({ error });
+    } finally {
+      setIsDeleting(false);
     }
   };
   const createTMHPerson = async (newUser: CreateTMHPersonInput) => {
     setIsLoading(true);
     delete newUser.id;
+    if (!newUser.firstName && !newUser.lastName) return;
+    const fullName = `${newUser.firstName}_${newUser.lastName}`;
     const fieldsThatExist = Object.keys(newUser).filter(
       (key) => newUser[key as keyof CreateTMHPersonInput] !== ''
     );
@@ -156,7 +168,7 @@ export default function PeopleManagerModal({
         newNewUser[field] = newUser[field as keyof CreateTMHPersonInput];
     });
     let s3Result = null;
-    if (file) s3Result = await uploadToS3();
+    if (file) s3Result = await uploadToS3(fullName);
     if (s3Result) newNewUser.image = s3Result;
     try {
       const newTMHPerson = (await API.graphql({
@@ -181,7 +193,9 @@ export default function PeopleManagerModal({
 
   const handleSaveTMHPerson = async () => {
     if (!selectedUser) {
-      createTMHPerson(userData);
+      await createTMHPerson(userData);
+      clearFields();
+      closeModal();
       return;
     }
     const fieldsToUpdate = Object.keys(userData)
@@ -215,7 +229,13 @@ export default function PeopleManagerModal({
         if (key) newValues[key] = userData[key as keyof UpdateTMHPersonInput];
       }
     }
-    updateTMHPerson(newValues);
+    console.log({ newValues });
+    await updateTMHPerson(
+      newValues,
+      `${userData.firstName}_${userData.lastName}`
+    );
+    clearFields();
+    closeModal();
   };
   const clearFields = () => {
     setUserData({
@@ -233,11 +253,10 @@ export default function PeopleManagerModal({
       extension: '',
     });
   };
-  const uploadToS3 = async () => {
+  const uploadToS3 = async (fullName: string) => {
     const S3_BUCKET =
       'https://themeetinghouse-usercontentstoragetmhusercontent-tmhprod.s3.amazonaws.com/public/';
-    const userID = selectedUser?.id;
-    if (!file || !userID) return;
+    if (!file || !fullName) return;
     try {
       if (selectedUser?.image) {
         const oldKey = `personimages/${selectedUser?.image?.split('/').pop()}`;
@@ -245,7 +264,10 @@ export default function PeopleManagerModal({
       }
       const extension = file.name.split('.').pop();
       const path = 'personimages/';
-      const key = `${path}${userID}-image${new Date().getTime()}.${extension}`;
+      const key = `${path}${fullName.replaceAll(
+        /\s/g,
+        '_'
+      )}-${new Date().getTime()}.${extension}`;
       const result = await Storage.put(key, file, {
         acl: 'public-read',
       });
@@ -272,10 +294,18 @@ export default function PeopleManagerModal({
   };
   return (
     <Modal size="sm" isOpen={showModal}>
-      <div className="PersonModalContentContainer">
+      <form
+        className="PersonModalContentContainer"
+        onSubmit={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          handleSaveTMHPerson();
+        }}
+      >
         <ProfileImage setFile={setFile} large url={userData?.image ?? ''} />
-        <label htmlFor="firstName" style={{ marginTop: 16 }}>
-          First Name
+        <label>
+          <span>First Name</span>
+
           <input
             onChange={updateValue}
             value={userData?.firstName ?? ''}
@@ -284,8 +314,9 @@ export default function PeopleManagerModal({
             type="text"
           />
         </label>
-        <label htmlFor="lastName">
-          Last Name
+        <label>
+          <span>Last Name</span>
+
           <input
             onChange={updateValue}
             type="text"
@@ -294,8 +325,10 @@ export default function PeopleManagerModal({
             placeholder="Last Name"
           />
         </label>
-        <label htmlFor="position">
-          Position
+
+        <label>
+          <span>Position</span>
+
           <input
             onChange={updateValue}
             name="position"
@@ -304,8 +337,9 @@ export default function PeopleManagerModal({
             placeholder="Position"
           />
         </label>
-        <label htmlFor="phone">
-          Phone
+        <label>
+          <span>Phone</span>
+
           <input
             onChange={updateValue}
             name="phone"
@@ -314,8 +348,9 @@ export default function PeopleManagerModal({
             placeholder="Phone"
           />
         </label>
-        <label htmlFor="extension">
-          Extension
+        <label>
+          <span>Extension</span>
+
           <input
             onChange={updateValue}
             value={userData?.extension ?? ''}
@@ -328,8 +363,9 @@ export default function PeopleManagerModal({
             }}
           />
         </label>
-        <label htmlFor="email">
-          Email
+        <label>
+          <span>Email</span>
+
           <input
             onChange={updateValue}
             value={userData?.email ?? ''}
@@ -413,28 +449,52 @@ export default function PeopleManagerModal({
           {selectedUser ? (
             <button
               className="SaveButton"
+              type="button"
               style={{ marginRight: 8, backgroundColor: 'tomato' }}
-              disabled={isLoading}
+              disabled={isLoading || isDeleting}
               onClick={async () => {
-                await deleteTMHPerson(selectedUser.id);
-                clearFields();
-                closeModal();
+                if (
+                  confirm(
+                    `Are you sure you want to delete ${
+                      selectedUser?.firstName + ' ' + selectedUser?.lastName
+                    }`
+                  )
+                ) {
+                  await deleteTMHPerson(selectedUser.id);
+                  clearFields();
+                  closeModal();
+                }
               }}
             >
-              Delete
+              {isDeleting ? (
+                <>
+                  <Spinner type="grow" size="sm" />
+                  <span> Deleting</span>
+                </>
+              ) : (
+                'Delete'
+              )}
             </button>
           ) : null}
           <button
-            disabled={isLoading}
+            type="submit"
+            disabled={isLoading || isDeleting}
             className="SaveButton"
-            onClick={handleSaveTMHPerson}
           >
-            {isLoading ? 'Saving...' : 'Save'}
+            {isLoading ? (
+              <>
+                <Spinner type="grow" size="sm" />
+                <span> Saving</span>
+              </>
+            ) : (
+              'Save'
+            )}
           </button>
           <button
+            type="button"
             className="SaveButton white"
             style={{ marginLeft: 8 }}
-            disabled={isLoading}
+            disabled={isLoading || isDeleting}
             onClick={(e) => {
               clearFields();
               closeModal();
@@ -443,7 +503,7 @@ export default function PeopleManagerModal({
             Cancel
           </button>
         </div>
-      </div>
+      </form>
     </Modal>
   );
 }
