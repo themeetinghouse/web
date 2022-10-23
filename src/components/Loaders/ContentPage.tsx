@@ -18,7 +18,7 @@ export default function ContentPage(): ReactElement | null {
   const [content, setContent] = useState<any>(null);
   const [pages, setPages] = useState<Record<string, any>>({});
   let site = window.location.hostname.split('.')[0];
-  if (site == 'www') site = 'homepage';
+  if (site == 'www' || site == 'themeetinghouse') site = 'homepage';
   console.log({ site: site });
   const jsonFile = location.pathname.slice(1) || site || 'homepage';
   useEffect(() => {
