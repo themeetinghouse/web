@@ -829,12 +829,12 @@ export default class DataLoader {
     if (query.filterField === 'sites') {
       try {
         const response = (await API.graphql({
-          query: queries.tMHPersonByIsOverseer,
+          query: queries.tMHPersonByIsCoordinator,
           variables: { isCoordinator: 'true' },
           authMode: GRAPHQL_AUTH_MODE.API_KEY,
-        })) as GraphQLResult<TMHPersonByIsOverseerQuery>;
+        })) as GraphQLResult<TMHPersonByIsCoordinatorQuery>;
         const coordinatorMembers =
-          (response.data?.TMHPersonByIsOverseer?.items as TMHPerson[]) ?? [];
+          (response.data?.TMHPersonByIsCoordinator?.items as TMHPerson[]) ?? [];
         if (coordinatorMembers?.length) coordinators = coordinatorMembers;
         console.log({ coordinators });
       } catch (error) {
@@ -952,13 +952,13 @@ export default class DataLoader {
     let overseers: TMHPerson[] = [];
     try {
       const response = (await API.graphql({
-        query: queries.tMHPersonByIsCoordinator,
+        query: queries.tMHPersonByIsOverseer,
         variables: { isOverseer: 'true' },
         authMode: GRAPHQL_AUTH_MODE.API_KEY,
-      })) as GraphQLResult<TMHPersonByIsCoordinatorQuery>;
+      })) as GraphQLResult<TMHPersonByIsOverseerQuery>;
       console.log({ response });
       const overseerMembers =
-        (response.data?.TMHPersonByIsCoordinator?.items as TMHPerson[]) ?? [];
+        (response.data?.TMHPersonByIsOverseer?.items as TMHPerson[]) ?? [];
       if (overseerMembers?.length) overseers = overseerMembers;
       console.log({ overseerMembers });
     } catch (overSeerError) {
