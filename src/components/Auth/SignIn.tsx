@@ -175,6 +175,7 @@ export default function SignIn(props: SignInProps) {
 
           <div className="SignInButtonContainer">
             <button
+              type="button"
               className="SignInButton white"
               disabled={state.isLoading}
               onClick={async () => {
@@ -184,6 +185,7 @@ export default function SignIn(props: SignInProps) {
               Create an Account
             </button>
             <button
+              type="button"
               className="SignInButton"
               disabled={state.isLoading}
               onClick={async () => {
@@ -200,6 +202,7 @@ export default function SignIn(props: SignInProps) {
             </button>
           </div>
           <button
+            type="button"
             style={{
               backgroundColor: 'white',
               padding: 0,

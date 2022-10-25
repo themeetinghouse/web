@@ -12,6 +12,7 @@ const Announcements = lazy(() => import('../../pages/admin/Announcements'));
 const HomeChurch = lazy(() => import('../../pages/admin/homechurch'));
 const Redirect = lazy(() => import('../../pages/admin/Redirect'));
 const Editor = lazy(() => import('../../pages/admin/Editor/Editor'));
+const PeopleManager = lazy(() => import('./PeopleManager/PeopleManager'));
 
 class Admin extends React.Component {
   render() {
@@ -51,6 +52,10 @@ class Admin extends React.Component {
             render={() => <HomeChurch />}
           />
           <Route path="/account/admin/redirects" render={() => <Redirect />} />
+          <Route
+            path="/account/admin/people"
+            render={() => <PeopleManager />}
+          />
         </Switch>
       </div>
     );

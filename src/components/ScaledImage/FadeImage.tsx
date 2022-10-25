@@ -1,7 +1,7 @@
 import { ItemImage } from 'components/types';
 import ScaledImage from './ScaledImage';
 import './FadeImage.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 type FadeBabyHeroImageProps = {
   imageSrc: ItemImage['src'];
   fallbackUrl?: string;
@@ -21,19 +21,22 @@ export default function FadeImage({
   noShowOnStartup,
   ...htmlProps
 }: FadeBabyHeroImageProps) {
-  const [isError, setIsError] = useState(false);
+  const [uri, setUri] = useState(imageSrc);
   const breakpoints = breakpointSizes ?? defaultBreakPointSizes;
   const fallbackSrc = fallbackUrl ?? defaultFallbackSrc;
+  useEffect(() => {
+    if (imageSrc) setUri(imageSrc);
+  }, [imageSrc]);
   // catches external images
   if (!imageSrc.includes('/static/photos/series/baby-hero/')) {
     return (
       <img
-        src={isError ? fallbackUrl : imageSrc}
+        onError={(e) => setUri(fallbackSrc)}
+        src={uri}
         className={`${className} fadeImage`}
         onLoad={(e) => {
           if (!noShowOnStartup) e.currentTarget.style.opacity = '1';
         }}
-        onError={() => setIsError(true)}
         {...htmlProps}
       />
     );
