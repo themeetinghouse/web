@@ -694,6 +694,80 @@
   },
   {
     "id": 39,
+    "sites": ["kitchener"],
+    "name": "Ray of Hope",
+    "description": "Ray of Hope supports the disadvantaged, marginalized, and troubled through youth employment and addiction services and other community support programs. We support them financially and through collecting food items to distribute through their Community Centre.",
+    "website": "https://www.rayofhope.net/",
+    "image": "/static/photos/compassion/Ray of Hope.jpg",
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"659 King St E, #230, Kitchener, ON N2G 2M4",
+    "Phone":"(519) 578-8018",
+    "email":"",
+    "Social":"",
+    "location": {
+      "longitude": -80.4785757151875,
+      "latitude": 43.444676380759454, 
+      "address": "659 King St E, Suite 230"
+    }
+  },
+  {
+    "id": 40,
+    "sites": ["kitchener"],
+    "name": "Royal City Mission",
+    "description": "Royal City Mission is a downtown mission in Guelph, Ontario that provides a safe and loving environment for anyone who is in need. Each week they provide up to 600 meals, and a variety of programs at no charge.",
+    "website": "https://www.royalcitymission.ca/",
+    "image": "/static/images/compassion/none.jpg",
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"50 Quebec St, Guelph, ON N1H 2T4",
+    "Phone":"(519) 837-3777",
+    "email":"",
+    "Social":"",
+    "location": {
+      "longitude": -80.25030008678212,
+      "latitude": 43.548392731800796, 
+      "address": "50 Quebec St"
+    }
+  },
+  {
+    "id": 41,
+    "sites": ["kitchener"],
+    "name": "The Bridges",
+    "description": "Cambridge Shelter Corporation expanded an “Out of the Cold” program that ran in local churches during winters and turned it into The Bridges, a facility that now includes a year round emergency shelter, a drop-in centre, and 20 affordable, transitional, bachelor apartments.  It is designed to offer a continuum of housing services, and to offer a wide variety of supporting programs to help clients address the issues facing them to move forward.",
+   "website":"https://cambridgesheltercorp.ca/",
+    "image": "/static/photos/compassion/Cambridge Shelter.jpg",
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"26 Simcoe St, Cambridge, ON N1R 8P2",
+    "Phone":"(519) 624-9305",
+    "email":"",
+    "Social":"",
+    "location": {
+      "longitude": -80.31386810169869,
+      "latitude": 43.36513247464429,  
+      "address": "26 Simcoe St"
+    }
+  },
+  {
+    "id": 42,
+    "sites": ["kitchener"],
+    "name": "Cambridge Self Help Foodbank",
+    "description": "The Cambridge Self-Help Food Bank offers food and support to people and community groups in need within Cambridge and North Dumfries. They encourage self-reliance through programs and services.",
+    "website":"https://cambridgefoodbank.org/",
+    "image": "/static/images/compassion/none.jpg",
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"54 Ainslie St S, Cambridge, ON Canada N1R 3K3",
+    "Phone":"(519) 622-6550",
+    "email":"",
+    "Social":"",
+    "location": {
+      "longitude": -80.31405190169896,
+      "latitude": 43.35672689487665, 
+      "address": "54 Ainslie St S"
+    }
+  },
+
+
+  {
+    "id": 43,
     "sites": ["waterloo"],
     "name": "Compass",
     "description": "Compass assists, accompanies, and advocates for refugee claimants in our community. We support their Welcome Home program by helping newly arrived individuals and families get settled — this includes helping them prepare for job interviews, supplying necessities, and being a source of connection to the wider community.",
@@ -712,7 +786,7 @@
   },
   
   {
-    "id": 40,
+    "id": 44,
     "sites": ["sandbanks"],
     "name": "Youth Unlimited PEC",
     "description": "Life for teens is different than 20 years ago, with technology and social media that bombard us with societal pressures day and night. PEC Youth Unlimited is there to help teens learn to live with a twinkle in their eye in this ever changing world. Our vision for PEC is to see Prince Edward County filled with vibrant youth who are being transformed by the Spirit of Jesus and who are committed to serving the community.",
@@ -721,7 +795,7 @@
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
-    "id": 41,
+    "id": 45,
     "sites": ["sandbanks"],
     "name": "New Life Girls Home",
     "description": "To provide a safe place for young women with life-controlling problems to experience healing and transformation through a long-term Christian-based residential program.",
@@ -730,7 +804,7 @@
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
-    "id": 42,
+    "id": 46,
     "sites": ["sandbanks"],
     "name": "Gilead Fellowship Church",
     "description": "Gilead Fellowship Church has provided a full Christmas Dinner for the past 20 years at noon on the 25th. This is open to anyone in the community who may not have anyone to spend Christmas with and the complete dinner and fellowship is provided at no cost.",
@@ -738,7 +812,7 @@
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
-    "id": 43,
+    "id": 47,
     "sites": ["sandbanks"],
     "name": "West Lake Terrace Long Term Care Facility",
     "description": "To experience Hope, Purpose and Belonging in health care is the foundation of everything we strive for. It is reflected in our work, goals and motivation. In Hope, we find the promise of a brighter tomorrow. In Purpose, we give each day meaning by touching and changing the lives of others. And in Belonging, we share a sense of oneness, of community with our residents, staff and families.",
