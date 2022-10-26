@@ -2,11 +2,20 @@
   {
     "id": 1,
     "sites": ["brampton"],
-    "name": "Rising Angels",
-    "description": "Rising Angel's mission is to bring sex trade education to professionals and the public, and to provide supportive services and safe environments to women exploited by the sex trade, allowing them to experience physical, mental, social and spiritual restoration in their lives.",
-    "website": "https://www.risingangels.net",
-    "image": "/static/photos/compassion/rising angels.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
+    "name": "Dismas Fellowship Brampton",
+    "description": "Dismas Fellowship provides a safe community to worship for persons with a history of offence.",
+    "website": "https://dismasfellowshipnetwork.com/brampton/",
+    "image": "/static/photos/compassion/Dismas.jpg",
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"St. Andrews Presbyterian Church, 44 Church St E, Brampton, ON L6V 1G3",
+    "Phone":"(877) 554-1076",
+    "email":"kareema.bartley@themeetinghouse.com",
+    "Social":"",
+    "location": {
+      "longitude": -79.7613123016893,
+      "latitude": 43.68983832719201,
+      "address":"St. Andrews Presbyterian Church, 44 Church St E"
+    }
   },
   {
     "id": 2,
@@ -15,34 +24,53 @@
     "description": "Regeneration is a caring community that continually strives to provide dignity for those in need, as an expression of Christian love in action. They serve those living in extreme poverty and homelessness by meeting their physical and spiritual needs.",
     "website": "https://regenbrampton.com/",
     "image": "/static/photos/compassion/Regen Outreach.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"156 Main St N, Brampton, ON L6V 1N9",
+    "Phone":"(905) 796-5888",
+    "email":"kareema.bartley@themeetinghouse.com",
+    "Social":"@regenbrampton",
+    "location": {
+      "longitude": -79.76303864216263,
+      "latitude": 43.68903595567338,
+      "address":"156 Main St N"
+    }
   },
   {
     "id": 3,
     "sites": ["brampton"],
-    "name": "Dismas Fellowship Brampton",
-    "description": "Dismas Fellowship provides a safe community to worship for persons with a history of offence.",
-    "website": "https://www.friendsofdismas.com/what-i-do/dismas-fellowship-brampton-dates/",
-    "image": "/static/photos/compassion/Dismas.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
+    "name": "Rising Angels Awareness & Restorative Care",
+    "description": "Rising Angel's mission is to bring sex trade education to professionals and the public, and to provide supportive services and safe environments to women exploited by the sex trade, allowing them to experience physical, mental, social and spiritual restoration in their lives.",
+    "website": "https://www.risingangels.net",
+    "image": "/static/photos/compassion/rising angels.jpg",
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"",
+    "Phone":"(416) 254-1581",
+    "email":"kareema.bartley@themeetinghouse.com",
+    "Social":"@risingangelsrestorative",
+    "location": {
+      "longitude": 0.1,
+      "latitude": 0.1,
+      "address":""
+    }
   },
-  {
-    "id": 3,
-    "sites": ["brampton"],
-    "name": "Hope Box",
-    "description": "Hope Boxes are a free faith based resource for those experiencing pregnancy or infant loss. The Brampton Community helps by packing the boxes and writing encouragement notes for the families receiving the boxes.",
-    "website": "https://hopeboxcanada.ca/",
-    "image": "/static/photos/compassion/Hope Box Canada.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
+
   {
     "id": 4,
     "sites": ["brantford"],
     "name": "Brantford Blessing Centre",
-    "description": "The Brantford Blessing Centre provides access to food for marginalized communities. We make and serve meals twice a month and assist with additional projects as they come up.",
-    "image": "/static/images/compassion/none.jpg",
+    "description": "The Blessing Centre provides access to food to marginalized communities in Brantford. The Brantford parish makes and serves meals twice monthly as well as assists with additional projects as they arise.",
     "website": "https://www.brantfordblessingcentre.org/",
-    "imagealt": "Placeholder image for Compassion Partner"
+    "image": "/static/photos/compassion/none.jpg",
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"7 Burnley Ave, Brantford, ON N3R 1T5",
+    "Phone":"",
+    "email":"",
+    "Social":"",
+    "location": {
+      "longitude": -80.26642630150707,
+      "latitude": 43.13836066135619,
+      "address":"7 Burnley Ave"
+    }
   },
   {
     "id": 5,
@@ -50,44 +78,127 @@
     "name": "Friendship House",
     "description": "Friendship House is a drop-in centre that works to support the physical, emotional, and spiritual needs of guests. We support them primarily by donating to their food bank.",
     "website": "https://www.friendship-house-of-brant.org/",
-    "image": "/static/images/compassion/none.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
+    "image": "/static/photos/compassion/none.jpg",
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"452 Grey St, Brantford, ON N3S 4X8",
+    "Phone":"(519) 753-8511",
+    "email":"",
+    "Social":"@friendshiphouseofbrant",
+    "location": {
+      "longitude": -80.232462901705,
+      "latitude": 43.14769893305515,
+      "address":"452 Grey St"
+    }
   },
+
   {
-    "id": 7,
-    "sites": ["burlington"],
-    "name": "Next Door Social Space",
-    "description": "Next Door is a community resource centre in the Aldershot area. We offer support through fundraisers, volunteering for events, and helping to run outreach programs like their Monday night ball hockey league.",
-    "website": "https://www.nextdoorsocialspace.com/",
-    "image": "/static/photos/compassion/nextdoor.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 8,
+    "id": 6,
     "sites": ["burlington"],
     "name": "Bethany Residence",
     "description": "Bethany Residence provides accommodation and care for individuals in need or at risk. We visit and develop relationships with residents and provide Christmas gifts.",
     "website": "https://www.bethanyresidence.ca/",
     "image": "/static/photos/compassion/Bethany Residence.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"2387 Industrial St, Burlington, ON L7P 3A1",
+    "Phone":"(905) 335-3463",
+    "email":"",
+    "Social":"",
+    "location": {
+      "longitude": -79.81117895937167,
+      "latitude": 43.351834821372805,
+      "address":"2387 Industrial St"
+    }
+  },
+  {
+    "id": 7,
+    "sites": ["burlington"],
+    "name": "Eagle's Nest Association of Waterdown",
+    "description": "Eagles Nest offers counselling, support groups, and educational programs within the community. We promote their programs and services, regularly volunteer at fundraising events, and volunteer throughout the year.",
+    "website": "https://eaglesnestwaterdown.ca/",
+    "image": "/static/photos/compassion/eagles nest.jpg",
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"606 Dundas St E, Waterdown, ON L0R 2H1",
+    "Phone":"(905) 689-8721",
+    "email":"",
+    "Social":"@eaglesnestwaterdown",
+    "location": {
+      "longitude": -79.86858490169908,
+      "latitude": 43.35197741635141,
+      "address":"606 Dundas St E"
+    }
+  },
+  {
+    "id": 8,
+    "sites": ["burlington"],
+    "name": "Next Door Social Space",
+    "description": "Next Door is a community resource centre in the Aldershot area. We offer support through fundraisers, volunteering for events, and helping to run outreach programs like their Monday night ball hockey league.",
+    "website": "https://nextdoorsocialspace.com/",
+    "image": "/static/photos/compassion/nextdoor.jpg",
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"650 Plains Rd E, Unit 2 & 3, Burlington, Ontario, L7T 2E9",
+    "Phone":"(905) 825-2992",
+    "email":"",
+    "Social":"@nextdoorsocialspace",
+    "location": {
+      "longitude": -79.83043104402735,
+      "latitude": 43.322644389517166,
+      "address":"650 Plains Rd E"
+    }
+  },
+
+  {
+    "id": 9,
+    "sites": ["ancaster", "hamilton-downtown"],
+    "name": "541 Eatery & Exchange",
+    "description": "541 is a community café that offers nutritious and affordable food. We have teams volunteering in the kitchen and supporting their pay-it-forward button program.",
+    "website": "https://www.fivefortyone.ca/",
+    "image": "/static/photos/compassion/541.jpg",
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"541 Barton St E, Hamilton, ON L8L 2Z2",
+    "Phone":"(289) 389-0541",
+    "email":"cynthia.eden@themeetinghouse.com",
+    "Social":"@541barton",
+    "location": {
+      "longitude": -79.84226758821069,
+      "latitude": 43.25852097045591,
+      "address":"541 Barton St E"
+    }
   },
   {
     "id": 10,
-    "sites": ["ancaster"],
-    "name": "541 Eatery & Exchange",
-    "description": "541 is a community café that offers nutritious and affordable food. We have teams volunteering in the kitchen and supporting their pay-it-forward button program.",
-    "website": "https://fivefortyone.ca/",
-    "image": "/static/photos/compassion/541.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
+    "sites": ["hamilton-mountain"],
+    "name": "Helping Hands Street Mission",
+    "description": "Helping Hands Street Mission works to aid people living in the Barton Street Community. We come along side HHSM by providing support for programs to guarantee their continuation and success through volunteering and donations.",
+    "website": "https://www.hhsmhamilton.com/",
+    "image": "/static/photos/compassion/HelpingHands.jpg",
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"349 Barton St E, Hamilton, ON L8L 2X8",
+    "Phone":"(905) 522-4263",
+    "email":"cynthia.eden@themeetinghouse.com",
+    "Social":"@hhsm_hamilton",
+    "location": {
+      "longitude": -79.85049964402909,
+      "latitude": 43.260679449192175,
+      "address":"349 Barton St E"
+    }
   },
   {
     "id": 11,
     "sites": ["ancaster"],
     "name": "Indwell",
-    "description": "Indwell creates affordable housing communities that support health, wellness, and belonging. We offer prayer support for residents and staff, and we build relationships through participating in Tea Time with residents.",
+    "description": "Indwell creates affordable housing communities that support health, wellness, and belonging. We support them by running recreational and social events for tenants at various buildings — this has included board-game afternoons, cookie-decorating events, and spring gardening days to help care for the grounds.",
     "website": "https://indwell.ca/",
     "image": "/static/photos/compassion/indwell.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"1430 Main St E, Hamilton, ON L8K 1C3",
+    "Phone":"(905) 529-0454",
+    "email":"cynthia.eden@themeetinghouse.com",
+    "Social":"@indwell.ca",
+    "location": {
+      "longitude": -79.80929284402971,
+      "latitude": 43.2402440433589,
+      "address":"1430 Main St E"
+    }
   },
   {
     "id": 12,
@@ -96,421 +207,512 @@
     "description": "Mission Services is a social services agency. We partner with them by running weekly food collections, volunteering once a month at their food bank, and providing additional support during the holidays by distributing Holiday Hampers.",
     "website": "https://mission-services.com/",
     "image": "/static/photos/compassion/mission services.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"196 Wentworth St N, Hamilton, ON L8L 5V7",
+    "Phone":"(905) 528-5100",
+    "email":"cynthia.eden@themeetinghouse.com",
+    "Social":"@missionhamilton",
+    "location": {
+      "longitude": -79.84515670968364,
+      "latitude": 43.25846010463374,
+      "address":"196 Wentworth St N"
+    }
   },
   {
-    "id": 14,
-    "sites": ["hamilton-downtown"],
-    "name": "Indwell",
-    "description": "Indwell creates affordable housing communities that support health, wellness, and belonging. We support them by running recreational and social events for tenants at various buildings — this has included board-game afternoons, cookie-decorating events, and spring gardening days to help care for the grounds.",
-    "website": "https://indwell.ca/",
-    "image": "/static/photos/compassion/indwell.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 15,
-    "sites": ["hamilton-downtown"],
-    "name": "541 Eatery & Exchange",
-    "description": "541 is a community café that makes nutritious and affordable food accessible to patrons in need through a button donation system. We volunteer there regularly and support the space by hosting creative workshops and events.",
-    "website": "https://fivefortyone.ca/",
-    "image": "/static/photos/compassion/541.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 16,
+    "id": 13,
     "sites": ["hamilton-mountain"],
     "name": "The Baby Depot",
     "description": "The Baby Depot helps families in need with children 0–2 years old. We donate clothes and other essential items, fold and organize clothes at their facility, and help wash and pack bins for delivery.",
     "website": "https://www.thebabydepot.org/",
     "image": "/static/photos/compassion/baby depot.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"669 Barton St E, Hamilton, ON L8L 3A3",
+    "Phone":"(289) 639-2497",
+    "email":"cynthia.eden@themeetinghouse.com",
+    "Social":"@thebabydepotcharity",
+    "location": {
+      "longitude": -79.83636397101137,
+      "latitude": 43.256834353250476,
+      "address":"669 Barton St E"
+    }
   },
+
   {
-    "id": 17,
-    "sites": ["hamilton-mountain"],
-    "name": "Helping Hands Street Mission",
-    "description": "Helping Hands Street Mission works to aid people living in the Barton Street Community. We come along side HHSM by providing support for programs to guarantee their continuation and success through volunteering and donations.",
-    "website": "https://www.hhsmhamilton.com/",
-    "image": "/static/photos/compassion/HelpingHands.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 18,
-    "sites": ["kitchener"],
-    "name": "Ray of Hope",
-    "description": "Ray of Hope supports the disadvantaged, marginalized, and troubled through youth employment and addiction services and other community support programs. We support them financially and through collecting food items to distribute through their Community Centre.",
-    "website": "https://www.rayofhope.net/",
-    "image": "/static/photos/compassion/Ray of Hope.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 19,
-    "sites": ["kitchener"],
-    "name": "Life Centre Guelph",
-    "description": "The Life Centre is a downtown mission in Guelph, Ontario that provides a safe and loving environment for anyone who is in need. Each week they provide up to 600 meals, and a variety of programs at no charge. ",
-    "website": "https://www.thelifecentre.ca/",
-    "image": "/static/images/compassion/none.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 21,
-    "sites": ["london"],
-    "name": "New Life Prison Ministries",
-    "description": "New Life Prison Ministries offers hope and direction to those impacted through the criminal justice system by presenting the good news of Jesus Christ through Bible correspondence studies, prison chapel services, visitation, video showings and aftercare support so that God's name may be honoured and glorified.",
-    "website": "https://nlpm.ca/",
-    "image": "/static/photos/compassion/new life.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 22,
+    "id": 14,
     "sites": ["london"],
     "name": "Youth For Christ",
     "description": "Following Jesus' mission, YFC engages with youth in London by building relationships, developing potential and exploring faith - in partnership with the community and local churches.",
     "website": "https://yfclondon.com",
     "image": "/static/photos/compassion/YFC-London.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"254 Adelaide St S, London, ON N5Z 3L1",
+    "Phone":"(519) 686-0093",
+    "email":"kate.thompson@themeetinghouse.com",
+    "Social":"@yfclondon_",
+    "location": {
+      "longitude": -81.2192621305466,
+      "latitude": 42.96234165277861,
+      "address":"254 Adelaide St S"
+    }
   },
   {
-    "id": 23,
+    "id": 15,
+    "sites": ["london"],
+    "name": "St. John's the Evangelist",
+    "description": "The London site partners with St. John's the Evanglist in serving hospitality meals on saturday nights.",
+    "website": "https://www.stjohnslondon.ca/",
+    "image": "/static/photos/compassion/none.jpg",
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"280 St James St, London, ON N6A 1X3",
+    "Phone":"(519) 432-3743",
+    "email":"kate.thompson@themeetinghouse.com",
+    "Social":"@stjohnslondon",
+    "location": {
+      "longitude": -81.2518081152003,
+      "latitude": 42.998738614047554,
+      "address":"280 St. James Street"
+    }
+  },
+  {
+    "id": 16,
     "sites": ["newmarket"],
     "name": "Rose of Sharon",
     "description": "Rose of Sharon is dedicated to providing counselling, education and parenting resources to prenatal and parenting young mothers and their families throughout York Region supporting their social, emotional and spiritual wellbeing.",
     "website": "https://roseofsharon.com/",
     "image": "/static/images/compassion/none.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"361 Eagle St, Newmarket, ON L3Y 1K5",
+    "Phone":"(905) 853-5514",
+    "email":"lisana.walks@themeetinghouse.com",
+    "Social":"@roseofsharonyoungmothers",
+    "location": {
+      "longitude": -79.46187932866094,
+      "latitude": 44.04941539163942,
+      "address":"361 Eagle Street"
+    }
   },
+  
   {
-    "id": 24,
-    "sites": ["newmarket"],
-    "name": "MCC Circles of Support & Accountability ",
-    "description": "Through Circles of Support and Accountability, teams of volunteers and staff, supported by professionals, meet with men and women with histories of sexual offending to hold them accountable for their actions and support them as they reintegrate into the community after release from prison.",
-    "website": "https://mcccanada.ca/learn/more/circles-support-accountability-cosa",
-    "image": "/static/images/compassion/none.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 25,
-    "sites": ["newmarket"],
-    "name": "Community Spaghetti Dinner",
-    "description": "The Newmarket site organizes community spaghetti dinners open to the public",
-    "image": "/static/images/compassion/none.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 26,
-    "sites": ["oakville"],
-    "name": "Frontline Outreach",
-    "description": "The vision of Frontline Outreach is that every person who lives in poverty will be shown the love and mercy of God by the local church and all benefactors who provide housing, food, programs and opportunities that are gateways out of poverty. Their hope is that residents of every low income, subsidized housing community will be adopted by a caring and generous church, that results in breaking the cycle of poverty that affects the lives of so many children",
-    "website": "https://frontlineoutreach.ca/",
-    "image": "/static/photos/compassion/Front-LineOutreach.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 27,
+    "id": 17,
     "sites": ["oakville"],
     "name": "Food for Life",
     "description": "Food for Life is an outreach program that provides neighbours in need with direct access to fresh food within their neighbourhood. The food is delivered by the refrigerated Food for Life truck.",
     "website": "https://www.foodforlife.ca/",
     "image": "/static/photos/compassion/FoodForLife.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"2258 Mountainside Dr, Burlington, ON L7P 1B7",
+    "Phone":"(905) 635-1106",
+    "email":"carolynn.bucek@themeetinghouse.com",
+    "Social":"@foodforlifecan",
+    "location": {
+      "longitude": -79.81573275727317,
+      "latitude": 43.35001335416619,
+      "address":"2258 Mountainside Dr"
+    }
   },
   {
-    "id": 28,
+    "id": 18,
     "sites": ["oakville"],
-    "name": "Salvation Army Halton Lighthouse Shelter",
-    "description": "The Salvation Army Halton Lighthouse provides emergency shelter, basic needs and intensive case management for men, and women who are homeless. The Lighthouse Shelter provides accommodation for 30 men and women who are experiencing homelessness and partners with the Canadian Mental Health SafePlace program for persons who have mental health crisis needs.",
-    "website": "https://search.hipinfo.info/record/OAK3707",
-    "image": "/static/photos/compassion/SalvationArmy.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
+    "name": "Frontline Outreach",
+    "description": "The vision of Frontline Outreach is that every person who lives in poverty will be shown the love and mercy of God by the local church and all benefactors who provide housing, food, programs and opportunities that are gateways out of poverty. Their hope is that residents of every low income, subsidized housing community will be adopted by a caring and generous church, that results in breaking the cycle of poverty that affects the lives of so many children",
+    "website": "https://frontlineoutreach.ca/",
+    "image": "/static/photos/compassion/Front-LineOutreach.jpg",
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"111 Prince Charles Dr #105, Oakville, ON L6K 3X3",
+    "Phone":"(905) 467-7483",
+    "email":"carolynn.bucek@themeetinghouse.com",
+    "Social":"@frontlineoutreach.ca",
+    "location": {
+      "longitude": -79.6863391016964,
+      "latitude": 43.445855588457725,
+      "address":"111 Prince Charles Drive, Suite 105"
+    }
   },
   {
-    "id": 29,
+    "id": 19,
     "sites": ["oakville"],
     "name": "Kerr Street Mission",
     "description": "We partner with KSM's Neighbour Care Network which is committed to helping people in difficulty and distress with one-on-one support and encouragement.",
     "website": "https://www.kerrstreet.com/",
     "image": "/static/photos/compassion/KerrStreet.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"485 Kerr St, Oakville, ON L6K 3C6",
+    "Phone":"(905) 845-7485",
+    "email":"carolynn.bucek@themeetinghouse.com",
+    "Social":"@kerrstreetmission",
+    "location": {
+      "longitude": -79.68587289984224,
+      "latitude": 43.44664180118696,
+      "address":"485 Kerr St"
+    }
   },
   {
-    "id": 31,
+    "id": 20,
+    "sites": ["oakville"],
+    "name": "RE:Soul",
+    "description": "ReSoul is Milton's only youth dedicated drop-in centre, serving youth from grades 6-12. ",
+    "website": "https://yfcmilton.com/resoul-youth-centre/",
+    "image": "/static/photos/compassion/re soul.jpg",
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"900 Nipissing Rd, Milton, ON L9T 4Z9",
+    "Phone":"(905) 876-0368",
+    "email":"carolynn.bucek@themeetinghouse.com",
+    "Social":"@resolveyouth",
+    "location": {
+      "longitude": -79.86229985751255,
+      "latitude": 43.5239737279105,
+      "address":"900 Nipissing Rd"
+    }
+  },
+  {
+    "id": 21,
+    "sites": ["oakville"],
+    "name": "Salvation Army Halton Lighthouse Shelter",
+    "description": "The Salvation Army Halton Lighthouse provides emergency shelter, basic needs and intensive case management for men, and women who are homeless. The Lighthouse Shelter provides accommodation for 30 men and women who are experiencing homelessness and partners with the Canadian Mental Health SafePlace program for persons who have mental health crisis needs.",
+    "website": "https://www.hipinfo.ca/record/OAK3707",
+    "image": "/static/photos/compassion/SalvationArmy.jpg",
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"750 Redwood Square, Oakville, ON L6L 6X7",
+    "Phone":"(905) 339-2918",
+    "email":"carolynn.bucek@themeetinghouse.com",
+    "Social":"",
+    "location": {
+      "longitude": -79.7084579440241,
+      "latitude": 43.43480436827835,
+      "address":"750 Redwood Square"
+    }
+  },
+  {
+    "id": 22,
     "sites": ["oakville"],
     "name": "The Dam",
     "description": "The Dam partners with youth to create an inclusive community where all are welcomed, valued and respected.",
     "website": "https://www.thedam.org/",
     "image": "/static/photos/compassion/the dam.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"",
+    "Phone":"(905) 826-6558",
+    "email":"carolynn.bucek@themeetinghouse.com",
+    "Social":"",
+    "location": {
+      "longitude": 0.1,
+      "latitude": 0.1,
+      "address":""
+    }
   },
   {
-    "id": 32,
+    "id": 23,
     "sites": ["oakville"],
     "name": "Women's Habitat",
     "description": "Women's Habitat is a shelter and outreach centre that provides services and temporary housing for women in need to make a new life for themselves and their children.",
     "website": "https://womenshabitat.ca/",
     "image": "/static/photos/compassion/womens habitat.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"140 Islington Ave, Etobicoke, ON M8V 3B6",
+    "Phone":"(416) 252-7949",
+    "email":"carolynn.bucek@themeetinghouse.com",
+    "Social":"@womenshabitat",
+    "location": {
+      "longitude": -79.50574704587343,
+      "latitude": 43.60131864382997,
+      "address":"140 Islington Ave"
+    }
   },
+
   {
-    "id": 33,
-    "sites": ["oakville"],
-    "name": "RE:Soul",
-    "description": "ReSoul is Milton's only youth dedicated drop-in centre, serving youth from grades 6-12. ",
-    "website": "https://yfcmilton.com",
-    "image": "/static/photos/compassion/re soul.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 34,
-    "sites": ["ottawa"],
-    "name": "Camp Connections                          ",
-    "description": "Camp Connections is a Christian summer camp that operates every July at Providence Point Retreat Center in Lanark, Ontario. We participate in two fundraising events annually: a bike trip from Ottawa to Montreal and the Pie Auction. And now about half of the staff at camp are Meeting Housers!",
-    "website": "https://camp-connections.org/",
-    "image": "/static/images/compassion/none.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 35,
-    "sites": ["ottawa"],
-    "name": "Restoring Hope Ministries",
-    "description": "Restoring Hope provides spiritual, physical, and emotional support for youth experiencing homelessness. We make meals and lunches, volunteer on the frontline, offer financial support, and work as board and staff members.",
-    "website": "https://restoringhope.ca/main/",
-    "image": "/static/photos/compassion/restoring hope.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 36,
-    "sites": ["ottawa"],
-    "name": "Matthew House Ottawa",
-    "description": "Since 2010, Matthew House Ottawa has welcomed hundreds of refugee claimants and provided quality used furniture to more than 5,000 families in need. We’re active and passionate supporters of this important ministry through prayer, volunteering, and donations of food and finances.",
-    "website": "https://www.matthewhouseottawa.org/",
-    "image": "/static/photos/compassion/matthew house ottawa.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 37,
-    "sites": ["ottawa"],
-    "name": "Safe Families Ottawa",
-    "description": "Safe Families is a movement to keep children safe and families intact. We proudly serve as host families, family friends, family coaches, and resource friends. Together we volunteer to temporarily host children and provide a circle of support to families in crisis while they get back on their feet.",
-    "website": "https://safefamiliescanada.com/",
-    "image": "/static/photos/compassion/safe families.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 38,
+    "id": 24,
     "sites": ["ottawa"],
     "name": "Jericho Road Christian Ministries",
     "description": "We have a history of working together at the Jericho Road Coffeehouse, where we serve marginalized, street-involved, and homeless individuals. Together we share in song, munchies, and a message. Volunteers have also helped organize office files and documents and supported Jericho Road though fundraising efforts like Coldest Night of the Year.",
     "website": "https://www.jerichoroad.ca/",
     "image": "/static/photos/compassion/jericho road.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"2089 Walkley Rd, Ottawa, ON K1G 3G7",
+    "Phone":"(613) 567-5134",
+    "email":"april.yorke@themeetinghouse.com",
+    "Social":"@jerichoroadottawa",
+    "location": {
+      "longitude": -75.62654477280296,
+      "latitude": 45.38580259405588,
+      "address":"2089 Walkley Rd"
+    }
   },
   {
-    "id": 39,
+    "id": 25,
+    "sites": ["ottawa"],
+    "name": "Matthew House Ottawa",
+    "description": "Since 2010, Matthew House Ottawa has welcomed hundreds of refugee claimants and provided quality used furniture to more than 5,000 families in need. We’re active and passionate supporters of this important ministry through prayer, volunteering, and donations of food and finances.",
+    "website": "https://www.matthewhouseottawa.org/",
+    "image": "/static/photos/compassion/matthew house ottawa.jpg",
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"380 Centrepointe Dr, Nepean, ON K2G 6A1",
+    "Phone":"(613) 567-5134",
+    "email":"april.yorke@themeetinghouse.com",
+    "Social":"",
+    "location": {
+      "longitude": -75.77386015745905,
+      "latitude": 45.3462750738427,
+      "address":"380 Centrepointe Dr"
+    }
+  },
+  {
+    "id": 26,
+    "sites": ["ottawa"],
+    "name": "Restoring Hope Ministries",
+    "description": "Restoring Hope provides spiritual, physical, and emotional support for youth experiencing homelessness. We make meals and lunches, volunteer on the frontline, offer financial support, and work as board and staff members.",
+    "website": "https://restoringhope.ca/main/",
+    "image": "/static/photos/compassion/restoring hope.jpg",
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"140 Laurier Ave W, Ottawa, ON K2P 1L4",
+    "Phone":"(613) 808-3321",
+    "email":"april.yorke@themeetinghouse.com",
+    "Social":"",
+    "location": {
+      "longitude": -75.69318931512936,
+      "latitude": 45.42091736389078,
+      "address":"140 Laurier Ave W"
+    }
+  },
+
+  {
+    "id": 27,
     "sites": ["parry-sound"],
     "name": "The Sound HUB",
-    "description": "The Sound Hub is a collaborative partnership of community agencies, including the Parry Sound Non Profit Housing Corporation.  As a partner, The Meeting House Parry Sound is intentional in building relationships with the community members by organizing monthly meals, offering breakfast snacks on Sunday mornings, and partnering with neighbourhood initiatives",
+    "description": "The Sound Hub is a collaborative partnership of community agencies, including the Parry Sound Non Profit Housing Corporation.  As a partner, The Meeting House Parry Sound is intentional in building relationships with the community members by organizing monthly meals, offering breakfast snacks on Sunday mornings, and partnering with neighbourhood initiatives.",
+   "website":"http://gbnnph.ca/the-sound-community-hub-housing",
     "image": "/static/photos/compassion/The Sound Hub.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"86 Gibson St, Parry Sound, ON P2A 1X5",
+    "Phone":"",
+    "email":"amanda.shaw@themeetinghouse.com",
+    "Social":"",
+    "location": {
+      "longitude": -80.03535898560416,
+      "latitude": 45.34906701345431,
+      "address":"86 Gibson St"
+    }
   },
+
   {
-    "id": 40,
-    "sites": ["richmond-hill"],
-    "name": "Spaghetti Dinners",
-    "description": "Our site provides food, service, and a place to eat an affordable meal with members of our local community. We prepare and serve the food and set up the space to provide a welcoming environment for our diners.",
-    "image": "/static/images/compassion/none.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 41,
-    "sites": ["richmond-hill"],
-    "name": "Compassion 365",
-    "description": "Compassion 365 provides food, toys, and clothing to those in need, as well as social justice awareness through documentaries and presentations. We've been able to support sorting of donation items as well as volunteering at social justice awareness events.",
-    "website": "https://www.compassion365.ca",
-    "image": "/static/photos/compassion/Compassion365.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 43,
-    "sites": ["toronto-east"],
-    "name": "Nourish East End Free Food Market",
-    "description": "Nourish East End Free Food Market serves 200-300 households each week. We partner through our giving, food drives, and in serving community dinners.",
-    "website": "https://www.eastendunited.ca/nourish-east-end.html#aboutnee",
-    "image": "/static/photos/compassion/Nourish East End.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 43,
-    "sites": ["toronto-east"],
-    "name": "East End United “Out of the Cold”",
-    "description": "Out of the Cold provides meals and basic needs (clothing and toiletries) to anyone hungry or in need of basics through the winter months. We partner through our giving, clothing drives, and in serving within our Home Churches.",
-    "website": "https://eastendunited.ca/out-of-the-cold/",
-    "image": "/static/photos/compassion/Out of the Cold.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 46,
-    "sites": ["toronto-downtown"],
-    "name": "Yonge Street Mission",
-    "description": "The Yonge Street Mission exists so that all the poor and vulnerable in Toronto that we encounter will experience God's love, peace, and justice at a level that represents the highest stewardship of the resources invested.",
-    "website": "https://www.ysm.ca/",
-    "image": "/static/photos/compassion/ysm.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 47,
-    "sites": ["toronto-downtown"],
-    "name": "The Dale ",
-    "description": "The Dale creates a safe welcoming space in which all people, particularly the vulnerable and broken, are encouraged to participate fully, to the best of their abilities and journey together toward a deeper experience of the life God has given us.",
-    "website": "https://www.thedale.org/",
-    "image": "/static/images/compassion/none.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 48,
+    "id": 28,
     "sites": ["toronto-downtown"],
     "name": "Adam House",
     "description": "Adam House is a home and caring community for newly arrived refugee claimants in Toronto. They are a provider of immigration and settlement services and a non-profit Christian refugee reception centre that has to date supported over 2000 refugees, regardless of race, ethnicity or creed.",
     "website": "https://www.adamhouse.org/home",
     "image": "/static/photos/compassion/adam house.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"430 Gladstone Ave, Toronto, ON M6H 3H9",
+    "Phone":"(416) 538-2836",
+    "email":"sheila.wong@themeetinghouse.com",
+    "Social":"@adamhousetoronto",
+    "location": {
+      "longitude": -79.43305158417867,
+      "latitude": 43.65793633942255,
+      "address":"430 Gladstone Ave"
+    }
   },
   {
-    "id": 49,
-    "sites": ["toronto-downtown"],
-    "name": "The Causeway ",
-    "description": "Causeway is a Christ-focused initiative of The Salvation Army. It is committed to living out the presence of Jesus Christ by intentionally connecting members of the local church with people who were recently homeless but are beginning a new life in a neighborhood. The purpose is to build unlikely yet mutually beneficial friendships.",
-    "website": "https://www.thecauseway.ca/",
-    "image": "/static/photos/compassion/causeway.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 50,
-    "sites": ["toronto-high-park"],
-    "name": "The Sharing Place",
-    "description": "The Sharing Place is a non-profit compassion organization that servers West Toronto with love and compassion.",
-    "website": "https://www.thesharingplace.ca/",
-    "image": "/static/images/compassion/none.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 51,
-    "sites": ["toronto-high-park"],
-    "name": "Wesley Mimico United Church",
-    "description": "Provides a community lunch every Saturday at 12PM and a food bank every Saturday (except the last in a month) between 11-1PM.",
-    "website": "https://www.wmuc.ca/",
-    "image": "/static/photos/compassion/wesley.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 52,
+    "id": 29,
     "sites": ["toronto-uptown"],
     "name": "Inner City Outreach ",
     "description": "Inner City Outreach provides wholistic programs for youth in the Jane and Finch community. Some programs they offer are homework clubs, a basketball league, Scouts, and camps.",
     "website": "https://innercityoutreach.ca/",
     "image": "/static/photos/compassion/inner city outreach.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"4545 Jane St, North York, ON M3N 1S5",
+    "Phone":"(416) 650-0991",
+    "email":"sheila.wong@themeetinghouse.com",
+    "Social":"@innercityoutreach",
+    "location": {
+      "longitude": -79.51983211517816,
+      "latitude": 43.76802562199375,
+      "address":"4545 Jane St"
+    }
   },
   {
-    "id": 53,
-    "sites": ["toronto-uptown"],
-    "name": "Pregnancy Care Centre",
-    "description": "The Pregnancy Care Centre provides personalized support and resources for women who are pregnant. ",
-    "website": "https://iamnotalone.ca",
-    "image": "/static/photos/compassion/pregnancy care.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 54,
+    "id": 30,
     "sites": ["toronto-uptown"],
     "name": "Matthew House",
     "description": "Matthew House's primary goal is to help restore refugees' dignity by providing shelter and support in a welcoming, home-like setting. Many refugees arrive with little more than a small bag and need practical support. We ensure that their individual needs are met and empower refugees to restart their lives in Canada. ",
     "website": "https://www.matthewhouse.ca/",
     "image": "/static/photos/compassion/Matthew House.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"981 Dundas St W, Toronto, ON M6J 1W4",
+    "Phone":"(416) 580-9510",
+    "email":"sheila.wong@themeetinghouse.com",
+    "Social":"@mhouseto",
+    "location": {
+      "longitude": -79.41525187285416,
+      "latitude": 43.65037590261143,
+      "address":"981 Dundas St W"
+    }
   },
   {
-    "id": 55,
-    "sites": ["waterloo"],
-    "name": "Compass",
-    "description": "Compass assists, accompanies, and advocates for refugee claimants in our community. We support their Welcome Home program by helping newly arrived individuals and families get settled — this includes helping them prepare for job interviews, supplying necessities, and being a source of connection to the wider community.",
-    "image": "/static/photos/compassion/Compass.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
+    "id": 31,
+    "sites": ["toronto-east"],
+    "name": "Nourish East End",
+    "description": "Nourish East End Free Food Market serves 200-300 households each week. We partner through our giving, food drives, and in serving community dinners.",
+    "website": "https://nourisheastend.ca/",
+    "image": "/static/photos/compassion/Nourish East End.jpg",
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"Glen Rhodes United Church, 1470 Gerrard St E, Toronto, ON M4L 2A3",
+    "Phone":"(416) 465-3755",
+    "email":"sheila.wong@themeetinghouse.com",
+    "Social":"@nourisheastend",
+    "location": {
+      "longitude": -79.32068151494443,
+      "latitude": 43.67331076652939,
+      "address":"Glen Rhodes United Church, 1470 Gerrard St E"
+    }
   },
   {
-    "id": 55,
+    "id": 32,
+    "sites": ["toronto-east"],
+    "name": "Oasis Dufferin Community Center",
+    "description": "",
+    "website": "https://oasisdufferin.org/",
+    "image": "/static/photos/compassion/none.jpg",
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"1219 Dufferin St, Toronto, ON M6H 4C2",
+    "Phone":"(416) 536-4431",
+    "email":"sheila.wong@themeetinghouse.com",
+    "Social":"@DufferinOasis",
+    "location": {
+      "longitude": -79.43762354401746,
+      "latitude": 43.66629436428993,
+      "address":"1219 Dufferin St"
+    }
+  },
+  {
+    "id": 33,
+    "sites": ["toronto-uptown"],
+    "name": "Pregnancy Care Centre",
+    "description": "The Pregnancy Care Centre provides personalized support and resources for women who are pregnant. ",
+    "website": "https://iamnotalone.ca",
+    "image": "/static/photos/compassion/pregnancy care.jpg",
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"15 Hove Street, Suite 100, North York, ON M3H 4Y8",
+    "Phone":"(416) 229-2607",
+    "email":"sheila.wong@themeetinghouse.com",
+    "Social":"",
+    "location": {
+      "longitude": -79.44145900168738,
+      "latitude": 43.75595271576317,
+      "address":"15 Hove Street, Suite 100"
+    }
+  },
+  {
+    "id": 34,
+    "sites": ["toronto-downtown"],
+    "name": "The Dale ",
+    "description": "The Dale creates a safe welcoming space in which all people, particularly the vulnerable and broken, are encouraged to participate fully, to the best of their abilities and journey together toward a deeper experience of the life God has given us.",
+    "website": "https://www.thedale.org/",
+    "image": "/static/images/compassion/none.jpg",
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"",
+    "Phone":"(647) 926-6352",
+    "email":"sheila.wong@themeetinghouse.com",
+    "Social":"",
+    "location": {
+      "longitude": 0.1,
+      "latitude": 0.1,
+      "address":""
+    }
+  },
+  {
+    "id": 35,
+    "sites": ["toronto-high-park"],
+    "name": "The Sharing Place",
+    "description": "The Sharing Place is a non-profit compassion organization that servers West Toronto with love and compassion.",
+    "website": "https://www.thesharingplace.ca/",
+    "image": "/static/images/compassion/none.jpg",
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"624 Annette St, Toronto, ON M6S 2C4",
+    "Phone":"(416) 948-6428",
+    "email":"sheila.wong@themeetinghouse.com",
+    "Social":"",
+    "location": {
+      "longitude": -79.48216310169015,
+      "latitude": 43.66001727643918,
+      "address":"624 Annette St"
+    }
+  },
+  {
+    "id": 36,
+    "sites": ["toronto-high-park"],
+    "name": "Wesley Mimico United Church",
+    "description": "Provides a community lunch every Saturday at 12PM and a food bank every Saturday (except the last in a month) between 11-1PM.",
+    "website": "https://www.wmuc.ca/",
+    "image": "/static/photos/compassion/wesley.jpg",
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"2379 Lake Shore Blvd W, Etobicoke, ON M8V 1B7",
+    "Phone":"(416) 546-5737",
+    "email":"sheila.wong@themeetinghouse.com",
+    "Social":"",
+    "location": {
+      "longitude": -79.48793955936407,
+      "latitude": 43.61546273243972, 
+      "address":"2379 Lake Shore Blvd W"
+    }
+  },
+  {
+    "id": 37,
+    "sites": ["toronto-downtown"],
+    "name": "Yonge Street Mission",
+    "description": "The Yonge Street Mission exists so that all the poor and vulnerable in Toronto that we encounter will experience God's love, peace, and justice at a level that represents the highest stewardship of the resources invested.",
+    "website": "https://www.ysm.ca/",
+    "image": "/static/photos/compassion/ysm.jpg",
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"306 Gerrard St E, Toronto, ON M5A 2G7",
+    "Phone":"(416) 929-9614",
+    "email":"sheila.wong@themeetinghouse.com",
+    "Social":"",
+    "location": {
+      "longitude": -79.48793955936407,
+      "latitude": 43.61546273243972, 
+      "address":"306 Gerrard St E"
+    }
+  },
+
+  {
+    "id": 38,
     "sites": ["waterloo"],
     "name": "Adventure 4 Change",
     "description": "Adventure4Change addresses issues related to poverty and inequity for children, families, and youth by bringing together people committed to transformational change. As partners, we develop and foster meaningful relationships with the community to change and impact their lives and ours.",
+    "website":"https://adventure4change.org/",
     "image": "/static/photos/compassion/Adventure4Change.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"465 Phillip St # 13, Waterloo, ON N2L 6C7",
+    "Phone":"(519) 884-1839",
+    "email":"",
+    "Social":"",
+    "location": {
+      "longitude": -80.54080425936782,
+      "latitude": 43.48470838927392,
+      "address": "465 Phillip St, Unit 13"
+    }
   },
   {
-    "id": 56,
-    "sites": ["crossregional"],
-    "name": "Peacebuilding",
-    "description": "We are committed to non-violence, peacemaking, and being agents of reconciliation. We invest in peacebuilding because peace is the foundation for all other levels of development to be built on. We do this through pursuing Indigenous reconciliation, refugee sponsorship, restorative justice, relief, and peace literacy.",
-    "image": "/static/photos/compassion/peacebuilding.jpg",
-    "imagealt": "A student sharing with his friends at a Peace Club in Zambia."
+    "id": 39,
+    "sites": ["waterloo"],
+    "name": "Compass",
+    "description": "Compass assists, accompanies, and advocates for refugee claimants in our community. We support their Welcome Home program by helping newly arrived individuals and families get settled — this includes helping them prepare for job interviews, supplying necessities, and being a source of connection to the wider community.",
+    "website":"https://compassrefugee.ca/",
+    "image": "/static/photos/compassion/Compass.jpg",
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address":"675 Queen St S #230, Kitchener, ON N2M 1A1",
+    "Phone":"(519) 571-1912",
+    "email":"",
+    "Social":"",
+    "location": {
+      "longitude": -80.49607955751497,
+      "latitude": 43.442332045986575, 
+      "address": "675 Queen St S #230"
+    }
   },
+  
   {
-    "id": 57,
-    "sites": ["crossregional"],
-    "name": "Poverty Alleviation",
-    "description": "We aim to play a part in working against global poverty by partnering with two communities in Malawi: Mposa & Chamba. We’ve been walking with both communities since 2011 investing in education, childhood well-being, healthcare, economic development, and water and sanitation health.",
-    "image": "/static/photos/compassion/povertyalleviation.jpg",
-    "imagealt": "Young children in Jordan drawing and playing together inside a safe kids club that was created for them."
-  },
-  {
-    "id": 59,
-    "sites": ["crossregional"],
-    "name": "Global Church Partnerships",
-    "description": "As a church, we recognize that we are one small part of the larger body of Christ. We partner with like-minded and under-resourced local churches in low to middle income countries in the areas of leadership development, theological development, evangelism, and the persecuted church.",
-    "image": "/static/photos/compassion/globalchurchpartnerships.jpg",
-    "imagealt": "Group photo of BIC church leaders in Kenya, alongside Meeting House and BIC Canada team members."
-  },
-  {
-    "id": 60,
-    "sites": ["crossregional"],
-    "name": "Local Engagement",
-    "description": "Regions embed themselves into their communities to learn and listen to the unique opportunities that are present and then respond relationally and with humility. The result is a grassroots network of Jesus followers working for justice and building relationships with marginalized members of their community.",
-    "image": "/static/photos/compassion/localengagement.jpg",
-    "imagealt": "A meeting house volunteer sorting and organizing donations as part of a local compassion initative."
-  },
-  {
-    "id": 61,
-    "sites": ["london"],
-    "name": "St. John's the Evangelist",
-    "description": "The London site partners with St. John's the Evanglist in serving hospitality meals on Saturday nights.",
-    "image": "/static/images/compassion/none.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 63,
-    "sites": ["kitchener"],
-    "name": "The Bridges",
-    "description": "Cambridge Shelter Corporation expanded an “Out of the Cold” program that ran in local churches during winters and turned it into The Bridges, a facility that now includes a year round emergency shelter, a drop-in centre, and 20 affordable, transitional, bachelor apartments.  It is designed to offer a continuum of housing services, and to offer a wide variety of supporting programs to help clients address the issues facing them to move forward.",
-    "image": "/static/photos/compassion/Cambridge Shelter.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 64,
-    "sites": ["kitchener"],
-    "name": "Cambridge Self Help Foodbank",
-    "description": "The Cambridge Self-Help Food Bank offers food and support to people and community groups in need within Cambridge and North Dumfries. They encourage self-reliance through programs and services.",
-    "image": "/static/images/compassion/none.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 65,
-    "sites": ["burlington"],
-    "name": "Eagles Nest Ministries",
-    "description": "Eagles Nest offers counselling, support groups, and educational programs within the community. We promote their programs and services, regularly volunteer at fundraising events, and volunteer throughout the year.",
-    "website": "https://www.eaglesnestofwaterdown.ca/",
-    "image": "/static/photos/compassion/eagles nest.jpg",
-    "imagealt": "Placeholder image for Compassion Partner"
-  },
-  {
-    "id": 66,
+    "id": 40,
     "sites": ["sandbanks"],
     "name": "Youth Unlimited PEC",
     "description": "Life for teens is different than 20 years ago, with technology and social media that bombard us with societal pressures day and night. PEC Youth Unlimited is there to help teens learn to live with a twinkle in their eye in this ever changing world. Our vision for PEC is to see Prince Edward County filled with vibrant youth who are being transformed by the Spirit of Jesus and who are committed to serving the community.",
@@ -519,7 +721,7 @@
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
-    "id": 67,
+    "id": 41,
     "sites": ["sandbanks"],
     "name": "New Life Girls Home",
     "description": "To provide a safe place for young women with life-controlling problems to experience healing and transformation through a long-term Christian-based residential program.",
@@ -528,7 +730,7 @@
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
-    "id": 68,
+    "id": 42,
     "sites": ["sandbanks"],
     "name": "Gilead Fellowship Church",
     "description": "Gilead Fellowship Church has provided a full Christmas Dinner for the past 20 years at noon on the 25th. This is open to anyone in the community who may not have anyone to spend Christmas with and the complete dinner and fellowship is provided at no cost.",
@@ -536,7 +738,7 @@
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
-    "id": 69,
+    "id": 43,
     "sites": ["sandbanks"],
     "name": "West Lake Terrace Long Term Care Facility",
     "description": "To experience Hope, Purpose and Belonging in health care is the foundation of everything we strive for. It is reflected in our work, goals and motivation. In Hope, we find the promise of a brighter tomorrow. In Purpose, we give each day meaning by touching and changing the lives of others. And in Belonging, we share a sense of oneness, of community with our residents, staff and families.",
@@ -545,7 +747,40 @@
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
-    "id": 72,
+    "id": 44,
+    "sites": ["crossregional"],
+    "name": "Peacebuilding",
+    "description": "We are committed to non-violence, peacemaking, and being agents of reconciliation. We invest in peacebuilding because peace is the foundation for all other levels of development to be built on. We do this through pursuing Indigenous reconciliation, refugee sponsorship, restorative justice, relief, and peace literacy.",
+    "image": "/static/photos/compassion/peacebuilding.jpg",
+    "imagealt": "A student sharing with his friends at a Peace Club in Zambia."
+  },
+  {
+    "id": 45,
+    "sites": ["crossregional"],
+    "name": "Poverty Alleviation",
+    "description": "We aim to play a part in working against global poverty by partnering with two communities in Malawi: Mposa & Chamba. We’ve been walking with both communities since 2011 investing in education, childhood well-being, healthcare, economic development, and water and sanitation health.",
+    "image": "/static/photos/compassion/povertyalleviation.jpg",
+    "imagealt": "Young children in Jordan drawing and playing together inside a safe kids club that was created for them."
+  },
+  {
+    "id": 46,
+    "sites": ["crossregional"],
+    "name": "Global Church Partnerships",
+    "description": "As a church, we recognize that we are one small part of the larger body of Christ. We partner with like-minded and under-resourced local churches in low to middle income countries in the areas of leadership development, theological development, evangelism, and the persecuted church.",
+    "image": "/static/photos/compassion/globalchurchpartnerships.jpg",
+    "imagealt": "Group photo of BIC church leaders in Kenya, alongside Meeting House and BIC Canada team members."
+  },
+  {
+    "id": 47,
+    "sites": ["crossregional"],
+    "name": "Local Engagement",
+    "description": "Regions embed themselves into their communities to learn and listen to the unique opportunities that are present and then respond relationally and with humility. The result is a grassroots network of Jesus followers working for justice and building relationships with marginalized members of their community.",
+    "image": "/static/photos/compassion/localengagement.jpg",
+    "imagealt": "A meeting house volunteer sorting and organizing donations as part of a local compassion initative."
+  },
+  
+  {
+    "id": 48,
     "sites": ["peacemakers"],
     "name": "Indigenous & Settler Reconciliation:",
     "description": "We support Indigenous led and directed initiatives in the areas of clean water, food security, artisanship, and settler education.",
@@ -553,7 +788,7 @@
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
-    "id": 73,
+    "id": 49,
     "sites": ["peacemakers"],
     "name": "Restorative Justice",
     "description": "An approach that comes alongside criminal offenders, victims, and communities, focusing on rehabilitation and reconciliation.",
@@ -561,7 +796,7 @@
     "imagealt": "A person closing a coffee cup in a cafe window"
   },
   {
-    "id": 74,
+    "id": 50,
     "sites": ["peacemakers"],
     "name": "Peacebuilding in Sub-Saharan Africa",
     "description": "Developing peacebuilding skills and training for individuals and communities so they can navigate conflicts nonviolently.",
@@ -569,7 +804,7 @@
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
-    "id": 75,
+    "id": 51,
     "sites": ["chosen"],
     "name": "Literacy & Education",
     "description": "We invest in inclusive and equitable quality education to ensure children have access to lifelong opportunities to impact their future.",
@@ -577,7 +812,7 @@
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
-    "id": 76,
+    "id": 52,
     "sites": ["chosen"],
     "name": "Nutrition & Health",
     "description": "We invest in healthcare workers and institutions to improve the health of the communities and promote their well-being.",
@@ -585,7 +820,7 @@
     "imagealt": "A person closing a coffee cup in a cafe window"
   },
   {
-    "id": 77,
+    "id": 53,
     "sites": ["chosen"],
     "name": "Water & Sanitation",
     "description": "We invest in the availability and sustainable management of water and property sanitation.",
@@ -593,7 +828,7 @@
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
-    "id": 78,
+    "id": 54,
     "sites": ["chosen"],
     "name": "Livelihood: SDG 1",
     "description": "We invest in economic development and opportunities for communities to flourish.",
@@ -601,7 +836,7 @@
     "imagealt": "A person closing a coffee cup in a cafe window"
   },
   {
-    "id": 79,
+    "id": 55,
     "sites": ["chosen"],
     "name": "Child Protection & Preventing early child marriage",
     "description": "We invest in gender equality and the empowerment of women and girls.",
@@ -609,7 +844,7 @@
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
-    "id": 80,
+    "id": 56,
     "sites": ["connect"],
     "name": "Tech/WSP/Setup - Ian Jongema",
     "description": "From the literal nuts and bolts of set-up cases to the digital ones of simulcasting a livestream, this is where WSPs, set-up, and tech volunteers can talk about what’s working, what’s not, and explore solutions together. ",
@@ -617,7 +852,7 @@
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
-    "id": 81,
+    "id": 57,
     "sites": ["connect"],
     "name": "Music - Anna Lakatos",
     "description": "With masks, no singing, and provincial limitations, creating worshipful experiences might seem daunting. Let’s explore how to make our musical and overall worship elements participatory and engaging in our post-pandemic realities.",
@@ -625,7 +860,7 @@
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
-    "id": 82,
+    "id": 58,
     "sites": ["connect"],
     "name": "Prayer - Rob Schellenberg",
     "description": "In these uncertain times, we need to focus on prayer more than ever. Join us for a convo around how to start a prayer team in your region and how to navigate the challenges that prayer ministries often face.",
@@ -633,7 +868,7 @@
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
-    "id": 83,
+    "id": 59,
     "sites": ["connect"],
     "name": "Compassion - Matt Thompson & Megan Enns",
     "description": "​​We’ll look at what it means to be parish-minded within Compassion by taking a step back to analyze our regions and the neighbourhoods we live in.",
@@ -641,7 +876,7 @@
     "imagealt": "Placeholder image for Compassion Partner"
   },
   {
-    "id": 84,
+    "id": 60,
     "sites": ["connect"],
     "name": "Kids - Christie Penner Worden",
     "description": "Kidmax: What have we learned this past year? What are we taking with us into the future, and what are we leaving behind?",
@@ -649,7 +884,7 @@
     "imagealt": "A picture of a woman smiling."
   },
   {
-    "id": 85,
+    "id": 61,
     "sites": ["connect"],
     "name": "Youth - Chris Murphy & Emma Field",
     "description": "Youth Leaders! Join us for a time of encouragement through story-sharing as we highlight some of the things we’ve learned through the pandemic season that boost our confidence moving into the rest of this semester.",
