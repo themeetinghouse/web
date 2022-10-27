@@ -184,7 +184,7 @@
   },
   {
     "id": 11,
-    "sites": ["ancaster"],
+    "sites": ["ancaster", "hamilton-downtown"],
     "name": "Indwell",
     "description": "Indwell creates affordable housing communities that support health, wellness, and belonging. We support them by running recreational and social events for tenants at various buildings — this has included board-game afternoons, cookie-decorating events, and spring gardening days to help care for the grounds.",
     "website": "https://indwell.ca/",
@@ -393,7 +393,7 @@
     "address":"",
     "Phone":"(905) 826-6558",
     "email":"carolynn.bucek@themeetinghouse.com",
-    "Social":"",
+    "Social":["@theDamdropin", "https://www.facebook.com/theDamdropin/"],
     "location": {
       "longitude": 0.1,
       "latitude": 0.1,
@@ -411,7 +411,7 @@
     "address":"140 Islington Ave, Etobicoke, ON M8V 3B6",
     "Phone":"(416) 252-7949",
     "email":"carolynn.bucek@themeetinghouse.com",
-    "Social":"@womenshabitat",
+    "Social":["@womenshabitat", "https://www.facebook.com/WomensHabitat"],
     "location": {
       "longitude": -79.50574704587343,
       "latitude": 43.60131864382997,
@@ -430,7 +430,7 @@
     "address":"2089 Walkley Rd, Ottawa, ON K1G 3G7",
     "Phone":"(613) 567-5134",
     "email":"april.yorke@themeetinghouse.com",
-    "Social":"@jerichoroadottawa",
+    "Social":["@jerichoroadottawa", "https://www.facebook.com/jerichoroadottawa"],
     "location": {
       "longitude": -75.62654477280296,
       "latitude": 45.38580259405588,
@@ -448,7 +448,7 @@
     "address":"380 Centrepointe Dr, Nepean, ON K2G 6A1",
     "Phone":"(613) 567-5134",
     "email":"april.yorke@themeetinghouse.com",
-    "Social":"",
+    "Social":["@MHOttawa","https://www.facebook.com/MHOttawa/"],
     "location": {
       "longitude": -75.77386015745905,
       "latitude": 45.3462750738427,
@@ -466,7 +466,7 @@
     "address":"140 Laurier Ave W, Ottawa, ON K2P 1L4",
     "Phone":"(613) 808-3321",
     "email":"april.yorke@themeetinghouse.com",
-    "Social":"",
+    "Social":["@RHMOttawa","https://www.facebook.com/restoringhopeministries/"],
     "location": {
       "longitude": -75.69318931512936,
       "latitude": 45.42091736389078,
@@ -504,7 +504,7 @@
     "address":"430 Gladstone Ave, Toronto, ON M6H 3H9",
     "Phone":"(416) 538-2836",
     "email":"sheila.wong@themeetinghouse.com",
-    "Social":"@adamhousetoronto",
+    "Social":["@adamhouse430","@adamhousetoronto","https://www.facebook.com/adamhouseforrefugees/"],
     "location": {
       "longitude": -79.43305158417867,
       "latitude": 43.65793633942255,
@@ -522,7 +522,7 @@
     "address":"4545 Jane St, North York, ON M3N 1S5",
     "Phone":"(416) 650-0991",
     "email":"sheila.wong@themeetinghouse.com",
-    "Social":"@innercityoutreach",
+    "Social":["@innercityoutreach","https://www.facebook.com/ICOJaneandFinch/"],
     "location": {
       "longitude": -79.51983211517816,
       "latitude": 43.76802562199375,
@@ -540,7 +540,7 @@
     "address":"981 Dundas St W, Toronto, ON M6J 1W4",
     "Phone":"(416) 580-9510",
     "email":"sheila.wong@themeetinghouse.com",
-    "Social":"@mhouseto",
+    "Social":["@mhouseto","https://www.facebook.com/mhouseto/"],
     "location": {
       "longitude": -79.41525187285416,
       "latitude": 43.65037590261143,
@@ -558,7 +558,7 @@
     "address":"Glen Rhodes United Church, 1470 Gerrard St E, Toronto, ON M4L 2A3",
     "Phone":"(416) 465-3755",
     "email":"sheila.wong@themeetinghouse.com",
-    "Social":"@nourisheastend",
+    "Social":["@nourisheastend","https://www.facebook.com/nourisheastendtoronto"],
     "location": {
       "longitude": -79.32068151494443,
       "latitude": 43.67331076652939,
@@ -567,7 +567,7 @@
   },
   {
     "id": 32,
-    "sites": ["toronto-east"],
+    "sites": ["toronto-high-park"],
     "name": "Oasis Dufferin Community Center",
     "description": "",
     "website": "https://oasisdufferin.org/",
@@ -576,7 +576,7 @@
     "address":"1219 Dufferin St, Toronto, ON M6H 4C2",
     "Phone":"(416) 536-4431",
     "email":"sheila.wong@themeetinghouse.com",
-    "Social":"@DufferinOasis",
+    "Social":["@DufferinOasis","@OasisDufferin","https://www.facebook.com/profile.php?id=100064414194871"],
     "location": {
       "longitude": -79.43762354401746,
       "latitude": 43.66629436428993,
@@ -607,7 +607,7 @@
     "name": "The Dale ",
     "description": "The Dale creates a safe welcoming space in which all people, particularly the vulnerable and broken, are encouraged to participate fully, to the best of their abilities and journey together toward a deeper experience of the life God has given us.",
     "website": "https://www.thedale.org/",
-    "image": "/static/images/compassion/The Dale.jpg",
+    "image": "/static/photos/compassion/The Dale.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
     "address":"",
     "Phone":"(647) 926-6352",
@@ -703,7 +703,7 @@
     "address":"659 King St E, #230, Kitchener, ON N2G 2M4",
     "Phone":"(519) 578-8018",
     "email":"",
-    "Social":"",
+    "Social":["@ROH_1967","@rayofhopekw","https://www.facebook.com/RayofHopeInc/"],
     "location": {
       "longitude": -80.4785757151875,
       "latitude": 43.444676380759454, 
@@ -721,7 +721,7 @@
     "address":"50 Quebec St, Guelph, ON N1H 2T4",
     "Phone":"(519) 837-3777",
     "email":"",
-    "Social":"",
+    "Social":["@rcmguelph","https://www.facebook.com/rcmguelph"],
     "location": {
       "longitude": -80.25030008678212,
       "latitude": 43.548392731800796, 
