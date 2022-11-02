@@ -7,14 +7,14 @@
     "website": "https://dismasfellowshipnetwork.com/brampton/",
     "image": "/static/photos/compassion/Dismas.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"St. Andrews Presbyterian Church, 44 Church St E, Brampton, ON L6V 1G3",
-    "Phone":"(877) 554-1076",
-    "email":"kareema.bartley@themeetinghouse.com",
-    "Social":"",
+    "address": "St. Andrews Presbyterian Church, 44 Church St E, Brampton, ON L6V 1G3",
+    "Phone": "(877) 554-1076",
+    "email": "kareema.bartley@themeetinghouse.com",
+    "social": {},
     "location": {
       "longitude": -79.7613123016893,
       "latitude": 43.68983832719201,
-      "address":"St. Andrews Presbyterian Church, 44 Church St E"
+      "address": "St. Andrews Presbyterian Church, 44 Church St E"
     }
   },
   {
@@ -25,14 +25,14 @@
     "website": "https://regenbrampton.com/",
     "image": "/static/photos/compassion/Regen Outreach.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"156 Main St N, Brampton, ON L6V 1N9",
-    "Phone":"(905) 796-5888",
-    "email":"kareema.bartley@themeetinghouse.com",
-    "Social":"@regenbrampton",
+    "address": "156 Main St N, Brampton, ON L6V 1N9",
+    "Phone": "(905) 796-5888",
+    "email": "kareema.bartley@themeetinghouse.com",
+    "social": { "twitter": "https://twitter.com/@regenbrampton" },
     "location": {
       "longitude": -79.76303864216263,
       "latitude": 43.68903595567338,
-      "address":"156 Main St N"
+      "address": "156 Main St N"
     }
   },
   {
@@ -43,14 +43,14 @@
     "website": "https://www.risingangels.net",
     "image": "/static/photos/compassion/rising angels.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"",
-    "Phone":"(416) 254-1581",
-    "email":"kareema.bartley@themeetinghouse.com",
-    "Social":"@risingangelsrestorative",
+    "address": "",
+    "Phone": "(416) 254-1581",
+    "email": "kareema.bartley@themeetinghouse.com",
+    "social": { "twitter": "https://twitter.com/@risingangelsrestorative" },
     "location": {
       "longitude": 0.1,
       "latitude": 0.1,
-      "address":""
+      "address": ""
     }
   },
 
@@ -62,14 +62,14 @@
     "website": "https://www.brantfordblessingcentre.org/",
     "image": "/static/photos/compassion/Blessing Centre.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"7 Burnley Ave, Brantford, ON N3R 1T5",
-    "Phone":"",
-    "email":"",
-    "Social":"",
+    "address": "7 Burnley Ave, Brantford, ON N3R 1T5",
+    "Phone": "",
+    "email": "",
+    "social": {},
     "location": {
       "longitude": -80.26642630150707,
       "latitude": 43.13836066135619,
-      "address":"7 Burnley Ave"
+      "address": "7 Burnley Ave"
     }
   },
   {
@@ -80,14 +80,14 @@
     "website": "https://www.friendship-house-of-brant.org/",
     "image": "/static/photos/compassion/none.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"452 Grey St, Brantford, ON N3S 4X8",
-    "Phone":"(519) 753-8511",
-    "email":"",
-    "Social":"@friendshiphouseofbrant",
+    "address": "452 Grey St, Brantford, ON N3S 4X8",
+    "Phone": "(519) 753-8511",
+    "email": "",
+    "social": { "twitter": "https://twitter.com/@friendshiphouseofbrant" },
     "location": {
       "longitude": -80.232462901705,
       "latitude": 43.14769893305515,
-      "address":"452 Grey St"
+      "address": "452 Grey St"
     }
   },
 
@@ -99,14 +99,14 @@
     "website": "https://www.bethanyresidence.ca/",
     "image": "/static/photos/compassion/Bethany Residence.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"2387 Industrial St, Burlington, ON L7P 3A1",
-    "Phone":"(905) 335-3463",
-    "email":"",
-    "Social":"",
+    "address": "2387 Industrial St, Burlington, ON L7P 3A1",
+    "Phone": "(905) 335-3463",
+    "email": "",
+    "social": {},
     "location": {
       "longitude": -79.81117895937167,
       "latitude": 43.351834821372805,
-      "address":"2387 Industrial St"
+      "address": "2387 Industrial St"
     }
   },
   {
@@ -117,14 +117,14 @@
     "website": "https://eaglesnestwaterdown.ca/",
     "image": "/static/photos/compassion/eagles nest.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"606 Dundas St E, Waterdown, ON L0R 2H1",
-    "Phone":"(905) 689-8721",
-    "email":"",
-    "Social":"@eaglesnestwaterdown",
+    "address": "606 Dundas St E, Waterdown, ON L0R 2H1",
+    "Phone": "(905) 689-8721",
+    "email": "",
+    "social": { "twitter": "https://twitter.com/@eaglesnestwaterdown" },
     "location": {
       "longitude": -79.86858490169908,
       "latitude": 43.35197741635141,
-      "address":"606 Dundas St E"
+      "address": "606 Dundas St E"
     }
   },
   {
@@ -135,14 +135,14 @@
     "website": "https://nextdoorsocialspace.com/",
     "image": "/static/photos/compassion/nextdoor.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"650 Plains Rd E, Unit 2 & 3, Burlington, Ontario, L7T 2E9",
-    "Phone":"(905) 825-2992",
-    "email":"",
-    "Social":"@nextdoorsocialspace",
+    "address": "650 Plains Rd E, Unit 2 & 3, Burlington, Ontario, L7T 2E9",
+    "Phone": "(905) 825-2992",
+    "email": "",
+    "social": { "twitter": "https://twitter.com/@nextdoorsocialspace" },
     "location": {
       "longitude": -79.83043104402735,
       "latitude": 43.322644389517166,
-      "address":"650 Plains Rd E"
+      "address": "650 Plains Rd E"
     }
   },
 
@@ -154,14 +154,14 @@
     "website": "https://www.fivefortyone.ca/",
     "image": "/static/photos/compassion/541.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"541 Barton St E, Hamilton, ON L8L 2Z2",
-    "Phone":"(289) 389-0541",
-    "email":"cynthia.eden@themeetinghouse.com",
-    "Social":"@541barton",
+    "address": "541 Barton St E, Hamilton, ON L8L 2Z2",
+    "Phone": "(289) 389-0541",
+    "email": "cynthia.eden@themeetinghouse.com",
+    "social": { "twitter": "https://twitter.com/@541barton" },
     "location": {
       "longitude": -79.84226758821069,
       "latitude": 43.25852097045591,
-      "address":"541 Barton St E"
+      "address": "541 Barton St E"
     }
   },
   {
@@ -172,14 +172,14 @@
     "website": "https://www.hhsmhamilton.com/",
     "image": "/static/photos/compassion/HelpingHands.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"349 Barton St E, Hamilton, ON L8L 2X8",
-    "Phone":"(905) 522-4263",
-    "email":"cynthia.eden@themeetinghouse.com",
-    "Social":"@hhsm_hamilton",
+    "address": "349 Barton St E, Hamilton, ON L8L 2X8",
+    "Phone": "(905) 522-4263",
+    "email": "cynthia.eden@themeetinghouse.com",
+    "social": { "twitter": "https://twitter.com/@hhsm_hamilton" },
     "location": {
       "longitude": -79.85049964402909,
       "latitude": 43.260679449192175,
-      "address":"349 Barton St E"
+      "address": "349 Barton St E"
     }
   },
   {
@@ -190,14 +190,14 @@
     "website": "https://indwell.ca/",
     "image": "/static/photos/compassion/indwell.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"1430 Main St E, Hamilton, ON L8K 1C3",
-    "Phone":"(905) 529-0454",
-    "email":"cynthia.eden@themeetinghouse.com",
-    "Social":"@indwell.ca",
+    "address": "1430 Main St E, Hamilton, ON L8K 1C3",
+    "Phone": "(905) 529-0454",
+    "email": "cynthia.eden@themeetinghouse.com",
+    "social": { "twitter": "https://twitter.com/@indwell.ca" },
     "location": {
       "longitude": -79.80929284402971,
       "latitude": 43.2402440433589,
-      "address":"1430 Main St E"
+      "address": "1430 Main St E"
     }
   },
   {
@@ -208,14 +208,14 @@
     "website": "https://mission-services.com/",
     "image": "/static/photos/compassion/mission services.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"196 Wentworth St N, Hamilton, ON L8L 5V7",
-    "Phone":"(905) 528-5100",
-    "email":"cynthia.eden@themeetinghouse.com",
-    "Social":"@missionhamilton",
+    "address": "196 Wentworth St N, Hamilton, ON L8L 5V7",
+    "Phone": "(905) 528-5100",
+    "email": "cynthia.eden@themeetinghouse.com",
+    "social": { "twitter": "https://twitter.com/@missionhamilton" },
     "location": {
       "longitude": -79.84515670968364,
       "latitude": 43.25846010463374,
-      "address":"196 Wentworth St N"
+      "address": "196 Wentworth St N"
     }
   },
   {
@@ -226,14 +226,14 @@
     "website": "https://www.thebabydepot.org/",
     "image": "/static/photos/compassion/baby depot.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"669 Barton St E, Hamilton, ON L8L 3A3",
-    "Phone":"(289) 639-2497",
-    "email":"cynthia.eden@themeetinghouse.com",
-    "Social":"@thebabydepotcharity",
+    "address": "669 Barton St E, Hamilton, ON L8L 3A3",
+    "Phone": "(289) 639-2497",
+    "email": "cynthia.eden@themeetinghouse.com",
+    "social": { "twitter": "https://twitter.com/@thebabydepotcharity" },
     "location": {
       "longitude": -79.83636397101137,
       "latitude": 43.256834353250476,
-      "address":"669 Barton St E"
+      "address": "669 Barton St E"
     }
   },
 
@@ -245,14 +245,14 @@
     "website": "https://yfclondon.com",
     "image": "/static/photos/compassion/YFC-London.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"254 Adelaide St S, London, ON N5Z 3L1",
-    "Phone":"(519) 686-0093",
-    "email":"kate.thompson@themeetinghouse.com",
-    "Social":"@yfclondon_",
+    "address": "254 Adelaide St S, London, ON N5Z 3L1",
+    "Phone": "(519) 686-0093",
+    "email": "kate.thompson@themeetinghouse.com",
+    "social": { "twitter": "https://twitter.com/@yfclondon_" },
     "location": {
       "longitude": -81.2192621305466,
       "latitude": 42.96234165277861,
-      "address":"254 Adelaide St S"
+      "address": "254 Adelaide St S"
     }
   },
   {
@@ -263,14 +263,14 @@
     "website": "https://www.stjohnslondon.ca/",
     "image": "/static/photos/compassion/none.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"280 St James St, London, ON N6A 1X3",
-    "Phone":"(519) 432-3743",
-    "email":"kate.thompson@themeetinghouse.com",
-    "Social":"@stjohnslondon",
+    "address": "280 St James St, London, ON N6A 1X3",
+    "Phone": "(519) 432-3743",
+    "email": "kate.thompson@themeetinghouse.com",
+    "social": { "twitter": "https://twitter.com/@stjohnslondon" },
     "location": {
       "longitude": -81.2518081152003,
       "latitude": 42.998738614047554,
-      "address":"280 St. James Street"
+      "address": "280 St. James Street"
     }
   },
   {
@@ -281,17 +281,17 @@
     "website": "https://roseofsharon.com/",
     "image": "/static/images/compassion/Rose of Sharon.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"361 Eagle St, Newmarket, ON L3Y 1K5",
-    "Phone":"(905) 853-5514",
-    "email":"lisana.walks@themeetinghouse.com",
-    "Social":"@roseofsharonyoungmothers",
+    "address": "361 Eagle St, Newmarket, ON L3Y 1K5",
+    "Phone": "(905) 853-5514",
+    "email": "lisana.walks@themeetinghouse.com",
+    "social": { "twitter": "https://twitter.com/@roseofsharonyoungmothers" },
     "location": {
       "longitude": -79.46187932866094,
       "latitude": 44.04941539163942,
-      "address":"361 Eagle Street"
+      "address": "361 Eagle Street"
     }
   },
-  
+
   {
     "id": 17,
     "sites": ["oakville"],
@@ -300,14 +300,14 @@
     "website": "https://www.foodforlife.ca/",
     "image": "/static/photos/compassion/FoodForLife.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"2258 Mountainside Dr, Burlington, ON L7P 1B7",
-    "Phone":"(905) 635-1106",
-    "email":"carolynn.bucek@themeetinghouse.com",
-    "Social":"@foodforlifecan",
+    "address": "2258 Mountainside Dr, Burlington, ON L7P 1B7",
+    "Phone": "(905) 635-1106",
+    "email": "carolynn.bucek@themeetinghouse.com",
+    "social": { "twitter": "https://twitter.com/@foodforlifecan" },
     "location": {
       "longitude": -79.81573275727317,
       "latitude": 43.35001335416619,
-      "address":"2258 Mountainside Dr"
+      "address": "2258 Mountainside Dr"
     }
   },
   {
@@ -318,14 +318,14 @@
     "website": "https://frontlineoutreach.ca/",
     "image": "/static/photos/compassion/Front-LineOutreach.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"111 Prince Charles Dr #105, Oakville, ON L6K 3X3",
-    "Phone":"(905) 467-7483",
-    "email":"carolynn.bucek@themeetinghouse.com",
-    "Social":"@frontlineoutreach.ca",
+    "address": "111 Prince Charles Dr #105, Oakville, ON L6K 3X3",
+    "Phone": "(905) 467-7483",
+    "email": "carolynn.bucek@themeetinghouse.com",
+    "social": { "twitter": "https://twitter.com/@frontlineoutreach.ca" },
     "location": {
       "longitude": -79.6863391016964,
       "latitude": 43.445855588457725,
-      "address":"111 Prince Charles Drive, Suite 105"
+      "address": "111 Prince Charles Drive, Suite 105"
     }
   },
   {
@@ -336,14 +336,14 @@
     "website": "https://www.kerrstreet.com/",
     "image": "/static/photos/compassion/KerrStreet.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"485 Kerr St, Oakville, ON L6K 3C6",
-    "Phone":"(905) 845-7485",
-    "email":"carolynn.bucek@themeetinghouse.com",
-    "Social":"@kerrstreetmission",
+    "address": "485 Kerr St, Oakville, ON L6K 3C6",
+    "Phone": "(905) 845-7485",
+    "email": "carolynn.bucek@themeetinghouse.com",
+    "social": { "twitter": "https://twitter.com/@kerrstreetmission" },
     "location": {
       "longitude": -79.68587289984224,
       "latitude": 43.44664180118696,
-      "address":"485 Kerr St"
+      "address": "485 Kerr St"
     }
   },
   {
@@ -354,14 +354,14 @@
     "website": "https://yfcmilton.com/resoul-youth-centre/",
     "image": "/static/photos/compassion/re soul.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"900 Nipissing Rd, Milton, ON L9T 4Z9",
-    "Phone":"(905) 876-0368",
-    "email":"carolynn.bucek@themeetinghouse.com",
-    "Social":"@resolveyouth",
+    "address": "900 Nipissing Rd, Milton, ON L9T 4Z9",
+    "Phone": "(905) 876-0368",
+    "email": "carolynn.bucek@themeetinghouse.com",
+    "social": { "twitter": "https://twitter.com/@resolveyouth" },
     "location": {
       "longitude": -79.86229985751255,
       "latitude": 43.5239737279105,
-      "address":"900 Nipissing Rd"
+      "address": "900 Nipissing Rd"
     }
   },
   {
@@ -372,14 +372,14 @@
     "website": "https://www.hipinfo.ca/record/OAK3707",
     "image": "/static/photos/compassion/SalvationArmy.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"750 Redwood Square, Oakville, ON L6L 6X7",
-    "Phone":"(905) 339-2918",
-    "email":"carolynn.bucek@themeetinghouse.com",
-    "Social":"",
+    "address": "750 Redwood Square, Oakville, ON L6L 6X7",
+    "Phone": "(905) 339-2918",
+    "email": "carolynn.bucek@themeetinghouse.com",
+    "social": {},
     "location": {
       "longitude": -79.7084579440241,
       "latitude": 43.43480436827835,
-      "address":"750 Redwood Square"
+      "address": "750 Redwood Square"
     }
   },
   {
@@ -390,14 +390,17 @@
     "website": "https://www.thedam.org/",
     "image": "/static/photos/compassion/the dam.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"",
-    "Phone":"(905) 826-6558",
-    "email":"carolynn.bucek@themeetinghouse.com",
-    "Social":["@theDamdropin", "https://www.facebook.com/theDamdropin/"],
+    "address": "",
+    "Phone": "(905) 826-6558",
+    "email": "carolynn.bucek@themeetinghouse.com",
+    "social": {
+      "twitter": "https://twitter.com/@theDamdropin",
+      "facebook": "https://www.facebook.com/theDamdropin/"
+    },
     "location": {
       "longitude": 0.1,
       "latitude": 0.1,
-      "address":""
+      "address": ""
     }
   },
   {
@@ -408,14 +411,17 @@
     "website": "https://womenshabitat.ca/",
     "image": "/static/photos/compassion/womens habitat.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"140 Islington Ave, Etobicoke, ON M8V 3B6",
-    "Phone":"(416) 252-7949",
-    "email":"carolynn.bucek@themeetinghouse.com",
-    "Social":["@womenshabitat", "https://www.facebook.com/WomensHabitat"],
+    "address": "140 Islington Ave, Etobicoke, ON M8V 3B6",
+    "Phone": "(416) 252-7949",
+    "email": "carolynn.bucek@themeetinghouse.com",
+    "social": {
+      "twitter": "https://twitter.com/@womenshabitat",
+      "facebook": "https://www.facebook.com/WomensHabitat"
+    },
     "location": {
       "longitude": -79.50574704587343,
       "latitude": 43.60131864382997,
-      "address":"140 Islington Ave"
+      "address": "140 Islington Ave"
     }
   },
 
@@ -427,14 +433,18 @@
     "website": "https://www.jerichoroad.ca/",
     "image": "/static/photos/compassion/jericho road.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"2089 Walkley Rd, Ottawa, ON K1G 3G7",
-    "Phone":"(613) 567-5134",
-    "email":"april.yorke@themeetinghouse.com",
-    "Social":["@jerichoroadottawa", "https://www.facebook.com/jerichoroadottawa"],
+    "address": "2089 Walkley Rd, Ottawa, ON K1G 3G7",
+    "Phone": "(613) 567-5134",
+    "email": "april.yorke@themeetinghouse.com",
+    "social": {
+      "twitter": "https://twitter.com/@jerichoroadottawa",
+      "facebook": "https://www.facebook.com/jerichoroadottawa"
+    },
+
     "location": {
       "longitude": -75.62654477280296,
       "latitude": 45.38580259405588,
-      "address":"2089 Walkley Rd"
+      "address": "2089 Walkley Rd"
     }
   },
   {
@@ -445,14 +455,17 @@
     "website": "https://www.matthewhouseottawa.org/",
     "image": "/static/photos/compassion/matthew house ottawa.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"380 Centrepointe Dr, Nepean, ON K2G 6A1",
-    "Phone":"(613) 567-5134",
-    "email":"april.yorke@themeetinghouse.com",
-    "Social":["@MHOttawa","https://www.facebook.com/MHOttawa/"],
+    "address": "380 Centrepointe Dr, Nepean, ON K2G 6A1",
+    "Phone": "(613) 567-5134",
+    "email": "april.yorke@themeetinghouse.com",
+    "social": {
+      "twitter": "https://twitter.com/@MHOttawa",
+      "facebook": "https://www.facebook.com/MHOttawa/"
+    },
     "location": {
       "longitude": -75.77386015745905,
       "latitude": 45.3462750738427,
-      "address":"380 Centrepointe Dr"
+      "address": "380 Centrepointe Dr"
     }
   },
   {
@@ -463,14 +476,17 @@
     "website": "https://restoringhope.ca/main/",
     "image": "/static/photos/compassion/restoring hope.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"140 Laurier Ave W, Ottawa, ON K2P 1L4",
-    "Phone":"(613) 808-3321",
-    "email":"april.yorke@themeetinghouse.com",
-    "Social":["@RHMOttawa","https://www.facebook.com/restoringhopeministries/"],
+    "address": "140 Laurier Ave W, Ottawa, ON K2P 1L4",
+    "Phone": "(613) 808-3321",
+    "email": "april.yorke@themeetinghouse.com",
+    "social": {
+      "twitter": "https://twitter.com/@RHMOttawa",
+      "facebook": "https://www.facebook.com/restoringhopeministries/"
+    },
     "location": {
       "longitude": -75.69318931512936,
       "latitude": 45.42091736389078,
-      "address":"140 Laurier Ave W"
+      "address": "140 Laurier Ave W"
     }
   },
 
@@ -479,17 +495,17 @@
     "sites": ["parry-sound"],
     "name": "The Sound HUB",
     "description": "The Sound Hub is a collaborative partnership of community agencies, including the Parry Sound Non Profit Housing Corporation.  As a partner, The Meeting House Parry Sound is intentional in building relationships with the community members by organizing monthly meals, offering breakfast snacks on Sunday mornings, and partnering with neighbourhood initiatives.",
-   "website":"http://gbnnph.ca/the-sound-community-hub-housing",
+    "website": "http://gbnnph.ca/the-sound-community-hub-housing",
     "image": "/static/photos/compassion/The Sound Hub.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"86 Gibson St, Parry Sound, ON P2A 1X5",
-    "Phone":"",
-    "email":"amanda.shaw@themeetinghouse.com",
-    "Social":"",
+    "address": "86 Gibson St, Parry Sound, ON P2A 1X5",
+    "Phone": "",
+    "email": "amanda.shaw@themeetinghouse.com",
+    "social": {},
     "location": {
       "longitude": -80.03535898560416,
       "latitude": 45.34906701345431,
-      "address":"86 Gibson St"
+      "address": "86 Gibson St"
     }
   },
 
@@ -501,14 +517,18 @@
     "website": "https://www.adamhouse.org/home",
     "image": "/static/photos/compassion/adam house.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"430 Gladstone Ave, Toronto, ON M6H 3H9",
-    "Phone":"(416) 538-2836",
-    "email":"sheila.wong@themeetinghouse.com",
-    "Social":["@adamhouse430","@adamhousetoronto","https://www.facebook.com/adamhouseforrefugees/"],
+    "address": "430 Gladstone Ave, Toronto, ON M6H 3H9",
+    "Phone": "(416) 538-2836",
+    "email": "sheila.wong@themeetinghouse.com",
+    "social": {
+      "twitter": "https://twitter.com/@adamhouse430",
+      "instagram": "https://instagram.com/adamhousetoronto",
+      "facebook": "https://www.facebook.com/adamhouseforrefugees/"
+    },
     "location": {
       "longitude": -79.43305158417867,
       "latitude": 43.65793633942255,
-      "address":"430 Gladstone Ave"
+      "address": "430 Gladstone Ave"
     }
   },
   {
@@ -519,14 +539,17 @@
     "website": "https://innercityoutreach.ca/",
     "image": "/static/photos/compassion/inner city outreach.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"4545 Jane St, North York, ON M3N 1S5",
-    "Phone":"(416) 650-0991",
-    "email":"sheila.wong@themeetinghouse.com",
-    "Social":["@innercityoutreach","https://www.facebook.com/ICOJaneandFinch/"],
+    "address": "4545 Jane St, North York, ON M3N 1S5",
+    "Phone": "(416) 650-0991",
+    "email": "sheila.wong@themeetinghouse.com",
+    "social": {
+      "twitter": "https://twitter.com/@innercityoutreach",
+      "facebook": "https://www.facebook.com/ICOJaneandFinch/"
+    },
     "location": {
       "longitude": -79.51983211517816,
       "latitude": 43.76802562199375,
-      "address":"4545 Jane St"
+      "address": "4545 Jane St"
     }
   },
   {
@@ -537,14 +560,17 @@
     "website": "https://www.matthewhouse.ca/",
     "image": "/static/photos/compassion/Matthew House.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"981 Dundas St W, Toronto, ON M6J 1W4",
-    "Phone":"(416) 580-9510",
-    "email":"sheila.wong@themeetinghouse.com",
-    "Social":["@mhouseto","https://www.facebook.com/mhouseto/"],
+    "address": "981 Dundas St W, Toronto, ON M6J 1W4",
+    "Phone": "(416) 580-9510",
+    "email": "sheila.wong@themeetinghouse.com",
+    "social": {
+      "twitter": "https://twitter.com/@mhouseto",
+      "facebook": "https://www.facebook.com/mhouseto/"
+    },
     "location": {
       "longitude": -79.41525187285416,
       "latitude": 43.65037590261143,
-      "address":"981 Dundas St W"
+      "address": "981 Dundas St W"
     }
   },
   {
@@ -555,14 +581,17 @@
     "website": "https://nourisheastend.ca/",
     "image": "/static/photos/compassion/Nourish East End.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"Glen Rhodes United Church, 1470 Gerrard St E, Toronto, ON M4L 2A3",
-    "Phone":"(416) 465-3755",
-    "email":"sheila.wong@themeetinghouse.com",
-    "Social":["@nourisheastend","https://www.facebook.com/nourisheastendtoronto"],
+    "address": "Glen Rhodes United Church, 1470 Gerrard St E, Toronto, ON M4L 2A3",
+    "Phone": "(416) 465-3755",
+    "email": "sheila.wong@themeetinghouse.com",
+    "social": {
+      "twitter": "https://twitter.com/@nourisheastend",
+      "facebook": "https://www.facebook.com/nourisheastendtoronto"
+    },
     "location": {
       "longitude": -79.32068151494443,
       "latitude": 43.67331076652939,
-      "address":"Glen Rhodes United Church, 1470 Gerrard St E"
+      "address": "Glen Rhodes United Church, 1470 Gerrard St E"
     }
   },
   {
@@ -573,14 +602,18 @@
     "website": "https://oasisdufferin.org/",
     "image": "/static/photos/compassion/Oasis.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"1219 Dufferin St, Toronto, ON M6H 4C2",
-    "Phone":"(416) 536-4431",
-    "email":"sheila.wong@themeetinghouse.com",
-    "Social":["@DufferinOasis","@OasisDufferin","https://www.facebook.com/profile.php?id=100064414194871"],
+    "address": "1219 Dufferin St, Toronto, ON M6H 4C2",
+    "Phone": "(416) 536-4431",
+    "email": "sheila.wong@themeetinghouse.com",
+    "social": {
+      "twitter": "https://twitter.com/@DufferinOasis",
+      "instagram": "https://instagram.com/OasisDufferin",
+      "facebook": "https://www.facebook.com/profile.php?id=100064414194871"
+    },
     "location": {
       "longitude": -79.43762354401746,
       "latitude": 43.66629436428993,
-      "address":"1219 Dufferin St"
+      "address": "1219 Dufferin St"
     }
   },
   {
@@ -591,14 +624,14 @@
     "website": "https://iamnotalone.ca",
     "image": "/static/photos/compassion/pregnancy care.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"15 Hove Street, Suite 100, North York, ON M3H 4Y8",
-    "Phone":"(416) 229-2607",
-    "email":"sheila.wong@themeetinghouse.com",
-    "Social":"",
+    "address": "15 Hove Street, Suite 100, North York, ON M3H 4Y8",
+    "Phone": "(416) 229-2607",
+    "email": "sheila.wong@themeetinghouse.com",
+    "social": {},
     "location": {
       "longitude": -79.44145900168738,
       "latitude": 43.75595271576317,
-      "address":"15 Hove Street, Suite 100"
+      "address": "15 Hove Street, Suite 100"
     }
   },
   {
@@ -609,14 +642,14 @@
     "website": "https://www.thedale.org/",
     "image": "/static/photos/compassion/The Dale.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"",
-    "Phone":"(647) 926-6352",
-    "email":"sheila.wong@themeetinghouse.com",
-    "Social":"",
+    "address": "",
+    "Phone": "(647) 926-6352",
+    "email": "sheila.wong@themeetinghouse.com",
+    "social": {},
     "location": {
       "longitude": 0.1,
       "latitude": 0.1,
-      "address":""
+      "address": ""
     }
   },
   {
@@ -627,14 +660,14 @@
     "website": "https://www.sharingplace.ca/",
     "image": "/static/images/compassion/none.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"624 Annette St, Toronto, ON M6S 2C4",
-    "Phone":"(416) 948-6428",
-    "email":"sheila.wong@themeetinghouse.com",
-    "Social":"",
+    "address": "624 Annette St, Toronto, ON M6S 2C4",
+    "Phone": "(416) 948-6428",
+    "email": "sheila.wong@themeetinghouse.com",
+    "social": {},
     "location": {
       "longitude": -79.48216310169015,
       "latitude": 43.66001727643918,
-      "address":"624 Annette St"
+      "address": "624 Annette St"
     }
   },
   {
@@ -645,14 +678,14 @@
     "website": "https://www.wmuc.ca/",
     "image": "/static/photos/compassion/wesley.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"2379 Lake Shore Blvd W, Etobicoke, ON M8V 1B7",
-    "Phone":"(416) 546-5737",
-    "email":"sheila.wong@themeetinghouse.com",
-    "Social":"",
+    "address": "2379 Lake Shore Blvd W, Etobicoke, ON M8V 1B7",
+    "Phone": "(416) 546-5737",
+    "email": "sheila.wong@themeetinghouse.com",
+    "social": {},
     "location": {
       "longitude": -79.48793955936407,
-      "latitude": 43.61546273243972, 
-      "address":"2379 Lake Shore Blvd W"
+      "latitude": 43.61546273243972,
+      "address": "2379 Lake Shore Blvd W"
     }
   },
   {
@@ -663,14 +696,14 @@
     "website": "https://www.ysm.ca/",
     "image": "/static/photos/compassion/ysm.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"306 Gerrard St E, Toronto, ON M5A 2G7",
-    "Phone":"(416) 929-9614",
-    "email":"sheila.wong@themeetinghouse.com",
-    "Social":"",
+    "address": "306 Gerrard St E, Toronto, ON M5A 2G7",
+    "Phone": "(416) 929-9614",
+    "email": "sheila.wong@themeetinghouse.com",
+    "social": {},
     "location": {
       "longitude": -79.48793955936407,
-      "latitude": 43.61546273243972, 
-      "address":"306 Gerrard St E"
+      "latitude": 43.61546273243972,
+      "address": "306 Gerrard St E"
     }
   },
 
@@ -679,13 +712,13 @@
     "sites": ["waterloo"],
     "name": "Adventure 4 Change",
     "description": "Adventure4Change addresses issues related to poverty and inequity for children, families, and youth by bringing together people committed to transformational change. As partners, we develop and foster meaningful relationships with the community to change and impact their lives and ours.",
-    "website":"https://adventure4change.org/",
+    "website": "https://adventure4change.org/",
     "image": "/static/photos/compassion/Adventure4Change.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"465 Phillip St # 13, Waterloo, ON N2L 6C7",
-    "Phone":"(519) 884-1839",
-    "email":"",
-    "Social":"",
+    "address": "465 Phillip St # 13, Waterloo, ON N2L 6C7",
+    "Phone": "(519) 884-1839",
+    "email": "",
+    "social": {},
     "location": {
       "longitude": -80.54080425936782,
       "latitude": 43.48470838927392,
@@ -700,13 +733,17 @@
     "website": "https://www.rayofhope.net/",
     "image": "/static/photos/compassion/Ray of Hope.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"659 King St E, #230, Kitchener, ON N2G 2M4",
-    "Phone":"(519) 578-8018",
-    "email":"",
-    "Social":["@ROH_1967","@rayofhopekw","https://www.facebook.com/RayofHopeInc/"],
+    "address": "659 King St E, #230, Kitchener, ON N2G 2M4",
+    "Phone": "(519) 578-8018",
+    "email": "",
+    "social": {
+      "twitter": "https://twitter.com/@ROH_1967",
+      "instagram": "https://instagram.com/rayofhopekw",
+      "facebook": "https://www.facebook.com/RayofHopeInc/"
+    },
     "location": {
       "longitude": -80.4785757151875,
-      "latitude": 43.444676380759454, 
+      "latitude": 43.444676380759454,
       "address": "659 King St E, Suite 230"
     }
   },
@@ -718,13 +755,16 @@
     "website": "https://www.royalcitymission.ca/",
     "image": "/static/images/compassion/none.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"50 Quebec St, Guelph, ON N1H 2T4",
-    "Phone":"(519) 837-3777",
-    "email":"",
-    "Social":["@rcmguelph","https://www.facebook.com/rcmguelph"],
+    "address": "50 Quebec St, Guelph, ON N1H 2T4",
+    "Phone": "(519) 837-3777",
+    "email": "",
+    "social": {
+      "twitter": "https://twitter.com/@rcmguelph",
+      "facebook": "https://www.facebook.com/rcmguelph"
+    },
     "location": {
       "longitude": -80.25030008678212,
-      "latitude": 43.548392731800796, 
+      "latitude": 43.548392731800796,
       "address": "50 Quebec St"
     }
   },
@@ -733,16 +773,16 @@
     "sites": ["kitchener"],
     "name": "The Bridges",
     "description": "Cambridge Shelter Corporation expanded an “Out of the Cold” program that ran in local churches during winters and turned it into The Bridges, a facility that now includes a year round emergency shelter, a drop-in centre, and 20 affordable, transitional, bachelor apartments.  It is designed to offer a continuum of housing services, and to offer a wide variety of supporting programs to help clients address the issues facing them to move forward.",
-   "website":"https://cambridgesheltercorp.ca/",
+    "website": "https://cambridgesheltercorp.ca/",
     "image": "/static/photos/compassion/Cambridge Shelter.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"26 Simcoe St, Cambridge, ON N1R 8P2",
-    "Phone":"(519) 624-9305",
-    "email":"",
-    "Social":"",
+    "address": "26 Simcoe St, Cambridge, ON N1R 8P2",
+    "Phone": "(519) 624-9305",
+    "email": "",
+    "social": {},
     "location": {
       "longitude": -80.31386810169869,
-      "latitude": 43.36513247464429,  
+      "latitude": 43.36513247464429,
       "address": "26 Simcoe St"
     }
   },
@@ -751,40 +791,39 @@
     "sites": ["kitchener"],
     "name": "Cambridge Self Help Foodbank",
     "description": "The Cambridge Self-Help Food Bank offers food and support to people and community groups in need within Cambridge and North Dumfries. They encourage self-reliance through programs and services.",
-    "website":"https://cambridgefoodbank.org/",
+    "website": "https://cambridgefoodbank.org/",
     "image": "/static/images/compassion/none.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"54 Ainslie St S, Cambridge, ON Canada N1R 3K3",
-    "Phone":"(519) 622-6550",
-    "email":"",
-    "Social":"",
+    "address": "54 Ainslie St S, Cambridge, ON Canada N1R 3K3",
+    "Phone": "(519) 622-6550",
+    "email": "",
+    "social": {},
     "location": {
       "longitude": -80.31405190169896,
-      "latitude": 43.35672689487665, 
+      "latitude": 43.35672689487665,
       "address": "54 Ainslie St S"
     }
   },
-
 
   {
     "id": 43,
     "sites": ["waterloo"],
     "name": "Compass",
     "description": "Compass assists, accompanies, and advocates for refugee claimants in our community. We support their Welcome Home program by helping newly arrived individuals and families get settled — this includes helping them prepare for job interviews, supplying necessities, and being a source of connection to the wider community.",
-    "website":"https://compassrefugee.ca/",
+    "website": "https://compassrefugee.ca/",
     "image": "/static/photos/compassion/Compass.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
-    "address":"675 Queen St S #230, Kitchener, ON N2M 1A1",
-    "Phone":"(519) 571-1912",
-    "email":"",
-    "Social":"",
+    "address": "675 Queen St S #230, Kitchener, ON N2M 1A1",
+    "Phone": "(519) 571-1912",
+    "email": "",
+    "social": {},
     "location": {
       "longitude": -80.49607955751497,
-      "latitude": 43.442332045986575, 
+      "latitude": 43.442332045986575,
       "address": "675 Queen St S #230"
     }
   },
-  
+
   {
     "id": 44,
     "sites": ["sandbanks"],
@@ -852,7 +891,7 @@
     "image": "/static/photos/compassion/localengagement.jpg",
     "imagealt": "A meeting house volunteer sorting and organizing donations as part of a local compassion initative."
   },
-  
+
   {
     "id": 48,
     "sites": ["peacemakers"],

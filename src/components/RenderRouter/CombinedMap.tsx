@@ -12,7 +12,11 @@ import {
 } from 'google-maps-react';
 import { useEffect, useState } from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
-import DataLoader, { LocationData } from './DataLoader';
+import DataLoader, {
+  CompassionData,
+  LocationData,
+  RegionData,
+} from './DataLoader';
 import './CombinedMap.scss';
 const SITE_PIN_URL = '/static/svg/SiteLocationPin.svg';
 const SITE_PIN_SELECTED_URL = '/static/svg/SiteLocationPin-selected.svg';
@@ -35,6 +39,9 @@ export function ContentItem(props: Props) {
   const [, setAllLocationsLoaded] = useState(false);
   const [mapBounds] = useState(null);
   const [locations, setLocations] = useState<LocationData[]>([]);
+  const [regions, setRegions] = useState<RegionData[]>([]);
+  const [compassion, setCompassion] = useState<CompassionData[]>([]);
+
   const [groups, setGroups] = useState<(F1ListGroup2 | null)[]>([]);
   const [groupsExtra, setGroupsExtra] = useState<any[]>([]);
 
@@ -52,6 +59,12 @@ export function ContentItem(props: Props) {
         locationsRet
       );
       setLocations(locationsRet);
+    });
+    DataLoader.loadCompassion().then((compassion) => {
+      setCompassion(compassion);
+    });
+    DataLoader.getRegions().then((locationsRet) => {
+      setRegions(locationsRet);
     });
 
     const loadHomeChurchInfo = async () => {
@@ -159,34 +172,82 @@ export function ContentItem(props: Props) {
 
   const inititalCenter = { lat: 43.5, lng: -79.5 };
   const initalZoom = 10;
-
+  const onGoogleReady = (mapProps: any, map: any) => {
+    map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(
+      document.getElementById('legend')
+    );
+  };
   return (
     <div className="CombinedMapItem">
       <div className="CombinedMapItemDiv1">
         <h1 className="CombinedMapH1">{props.content.header1}</h1>
 
         <div className="CombinedMapItemMap">
+          <div
+            id="legend"
+            style={{
+              borderWidth: 1,
+              borderStyle: 'solid',
+              borderColor: '#000000',
+              backgroundColor: '#ffffff',
+              margin: 10,
+              padding: 5,
+            }}
+          >
+            <div>
+              <img src={SITE_PIN_URL} width={16} height={16} /> Sunday Location
+            </div>
+            <div>
+              <img src={HOME_CHURCH_PIN_URL} width={16} height={16} /> Home
+              Church
+            </div>
+            <div>
+              <img src={HOME_CHURCH_PIN_URL} width={16} height={16} />{' '}
+              Compassion Partner
+            </div>
+          </div>
           <Map
             google={props.google}
             zoom={initalZoom}
+            streetViewControl={false}
+            zoomControl={false}
+            fullscreenControl={false}
             initialCenter={inititalCenter}
             bounds={mapBounds ?? undefined}
             mapTypeControl={false}
-            onReady={(_props, map) => (map = map)}
+            onReady={(mapProps, map2) => {
+              //map = map2;
+              onGoogleReady(mapProps, map2);
+            }}
           >
-            <Polygon
-              paths={[
-                { lat: 43.75, lng: -79.2 },
-                { lat: 43.61, lng: -79.2 },
-                { lat: 43.58, lng: -79.55 },
-                { lat: 43.75, lng: -79.65 },
-                { lat: 43.85, lng: -79.2 },
-              ]}
-            />
+            {regions.map((z, index) => {
+              return (
+                <Polygon
+                  key={index}
+                  fillColor={z.color}
+                  strokeColor={z.color}
+                  paths={z.outline}
+                />
+              );
+            })}
+
             <Marker
               icon={CURRENT_LOCATION_URL}
               position={{ ...currentLatLng }}
             />
+            {compassion.map((compassion) => {
+              return (
+                <Marker
+                  key={compassion.id}
+                  anchorPoint={new google.maps.Point(0, 0)}
+                  icon={selectedPlace ? SITE_PIN_SELECTED_URL : SITE_PIN_URL}
+                  position={{
+                    lat: compassion?.location?.latitude,
+                    lng: compassion?.location?.longitude,
+                  }}
+                />
+              );
+            })}
             {locations.map((location) => {
               return (
                 <Marker

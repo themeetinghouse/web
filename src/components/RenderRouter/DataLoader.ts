@@ -154,6 +154,8 @@ export interface CompassionData {
   website: string;
   image: string;
   imagealt: string;
+  social: { twitter: string; facebook: string; instagram: string };
+  location: { address: string; longitude: number; latitude: number };
 }
 
 export interface LocationQuery extends DataLoaderQuery {
@@ -162,7 +164,11 @@ export interface LocationQuery extends DataLoaderQuery {
   filterField?: string;
   filterValue?: string;
 }
-
+export interface RegionData {
+  id: string;
+  outline: { lat: number; lng: number }[];
+  color: string;
+}
 export interface LocationData {
   id: string;
   name: string;
@@ -987,7 +993,11 @@ export default class DataLoader {
     const response = await fetch('/static/data/compassion.json');
     return response.json();
   }
-
+  static async getRegions(): Promise<RegionData[]> {
+    const response = await fetch('/static/data/regions.json');
+    const data: RegionData[] = await response.json();
+    return data;
+  }
   static async getLocations(query: LocationQuery): Promise<LocationData[]> {
     let response;
     if (query.alternate === 'christmas')

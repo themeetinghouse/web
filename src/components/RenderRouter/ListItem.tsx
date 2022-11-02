@@ -863,9 +863,26 @@ class ListItem extends React.Component<Props, State> {
 
         {item.website != null ? (
           <div className="ListItemWebsiteContainer">
-            <a className="ListItemWebsite" href={item.website}>
-              Website
-            </a>
+            {item.website && (
+              <a className="ListItemWebsite" href={item.website}>
+                <img src="/static/svg/Link.svg" />
+              </a>
+            )}
+            {item.social?.twitter && (
+              <a className="ListItemWebsite" href={item.social?.twitter}>
+                <img src="/static/svg/Twitter.svg" />
+              </a>
+            )}
+            {item.social?.facebook && (
+              <a className="ListItemWebsite" href={item.social?.facebook}>
+                <img src="/static/svg/Facebook.svg" />
+              </a>
+            )}
+            {item.social?.instagram && (
+              <a className="ListItemWebsite" href={item.social?.instagram}>
+                <img src="/static/svg/Instagram.svg" />
+              </a>
+            )}
           </div>
         ) : null}
       </div>

@@ -129,7 +129,7 @@
           "userPoolWebClientId": "3pf37ngd57hsk9ld12aha9bm2f",
           "identityPoolId": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
-          "s3Key": "amplify-builds/tmhF1HomeChurch-736f64494c315566374f-build.zip"
+          "s3Key": "amplify-builds/tmhF1HomeChurch-3367375531376c2b4768-build.zip"
         },
         "S3Triggerd90d52fa": {
           "deploymentBucketName": "themeetinghouse-tmhprod-20191031042029-deployment",
