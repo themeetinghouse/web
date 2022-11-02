@@ -45,12 +45,9 @@
             "alt": "A large group of people hanging out together in an open concept living room for Home Church."
           }
         ],
-        "header1": "Burlington",
-        "text1": "Sundays at 9:30am & 11:00am",
-        "text2": "Our two services differ slightly, details below.",
-        "text3": "",
+        "hideHr": true,
+        "autoSite": true,
         "customLiveLink": "themeetinghouse.com/live",
-        "register": false,
         "addToCalendar": true,
         "contactPastor": true,
         "class": "locations",

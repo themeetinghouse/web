@@ -33,12 +33,9 @@
             "alt": "Aerial view of Parry Sound"
           }
         ],
-        "header1": "Parry Sound",
-        "text1": "Sundays at 10:00am",
-        "text2": "",
-        "text3": "",
+        "hideHr": true,
+        "autoSite": true,
         "customLiveLink": "themeetinghouse.com/live",
-        "register": false,
         "addToCalendar": true,
         "contactPastor": true,
         "class": "locations",

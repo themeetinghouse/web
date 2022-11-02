@@ -294,6 +294,9 @@ class HeroItem extends React.Component<Props, State> {
     window.onscroll = () => {
       this.downArrowScroll();
     };
+    const activeLocation = this.state.locationData.filter(
+      (loc) => loc.id == this.state.content.filterValue
+    )[0];
     if (this.state.content.style === 'full') {
       return (
         <div className="headerItem heroItem">
@@ -306,39 +309,40 @@ class HeroItem extends React.Component<Props, State> {
           {this.renderHeroImage('heroImage')}
           <div className="heroBlackBox">
             <h1 className="heroH1">{this.state.content.header1}</h1>
-
-            {this.state.locationData.length === 1 ? (
-              <h2 className="heroH2">
-                {this.state.locationData[0].location.address}
-              </h2>
-            ) : (
-              this.state.content.header2 && (
-                <h2 className="heroH2">{this.state.content.header2}</h2>
-              )
+            {this.state.content.header2 && (
+              <h2 className="heroH2">{this.state.content.header2}</h2>
             )}
-
             {this.state.content.hideHr ? null : <hr className="heroHr"></hr>}
+            {this.state.content.autoSite ? (
+              <>
+                <h1 className="heroH1">{activeLocation?.name}</h1>
+                <h2 className="heroH2">{activeLocation?.location?.address}</h2>
+                <div className="heroText1">
+                  {activeLocation?.serviceTimeDescription}
+                </div>
+              </>
+            ) : null}
             {this.state.content.class == 'region' ? (
               <div style={{ width: '32vw' }}>
                 {this.state.locationData.map((z: LocationData) => {
                   return (
-                    <>
+                    <div key={z.id} className="heroHover">
                       <div
-                        key={z.id}
                         style={{
                           width: '32vw',
-
                           borderBottomWidth: 1,
                           borderBottomStyle: 'solid',
                           borderColor: '#ffffff',
                         }}
                       >
-                        <span
-                          className="heroText1"
-                          style={{ display: 'inline-block', width: '27vw' }}
-                        >
-                          {z.regionShortName}
-                        </span>
+                        <a href={'/' + z.id}>
+                          <span
+                            className="heroText1"
+                            style={{ display: 'inline-block', width: '27vw' }}
+                          >
+                            {z.regionShortName}
+                          </span>
+                        </a>
                         <span
                           className="heroText1"
                           style={{
@@ -372,22 +376,23 @@ class HeroItem extends React.Component<Props, State> {
                         </span>
                       </div>
                       <div className="heroText1">
-                        <span
-                          className="heroText1"
-                          style={{
-                            display: 'inline-block',
-                            width: '32vw',
-                          }}
-                        >
-                          {z.serviceTimeDescription}
-                        </span>
+                        <a href={'/' + z.id}>
+                          <span
+                            className="heroText1"
+                            style={{
+                              display: 'inline-block',
+                              width: '32vw',
+                            }}
+                          >
+                            {z.serviceTimeDescription}
+                          </span>
+                        </a>
                       </div>
-                    </>
+                    </div>
                   );
                 })}
               </div>
             ) : null}
-
             <div className="heroText1">{this.state.content.text1}</div>
             <div className="heroText2">{this.state.content.text2}</div>
             <div className="heroText2">{this.state.content.text3}</div>
@@ -441,18 +446,6 @@ class HeroItem extends React.Component<Props, State> {
                 ) : null
               ) : this.state.content.secondaryCTA ? (
                 this.renderSecondaryCTA(this.state.content.secondaryCTA)
-              ) : this.state.content.register ? (
-                <a href="/registration">
-                  <button className="calendarButton contactPastor">
-                    <img
-                      className="calendarImage"
-                      src="/static/svg/Register-white.svg"
-                      alt="Register Icon"
-                    />
-                    Register
-                  </button>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                </a>
               ) : null}
               {this.state.content.contactPastor ? (
                 this.state.locationData.length === 1 ? (

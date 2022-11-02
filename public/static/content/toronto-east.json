@@ -45,11 +45,9 @@
             "alt": "A large group of people hanging out together in an open concept living room for Home Church."
           }
         ],
-        "header1": "East Toronto",
-        "text1": "Sundays at 10:00am",
-        "text2": "",
+        "hideHr": true,
+        "autoSite": true,
         "customLiveLink": "themeetinghouse.com/live",
-        "register": false,
         "addToCalendar": true,
         "contactPastor": true,
         "class": "locations",

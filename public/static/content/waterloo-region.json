@@ -47,7 +47,6 @@
         ],
         "header1": "Waterloo Region",
         "customLiveLink": "themeetinghouse.com/live",
-        "register": false,
         "hideHr": true,
         "addToCalendar": false,
         "contactPastor": false,

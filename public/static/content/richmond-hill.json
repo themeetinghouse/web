@@ -45,12 +45,9 @@
             "alt": "A large group of people hanging out together in an open concept living room for Home Church."
           }
         ],
-        "header1": "Richmond Hill",
-        "text1": "Every 2nd Sunday at 2pm: In-person Worship & Kidmax",
-        "text2": "Every 4th Sunday at 2pm: Family Home Church & Kidmax",
-        "text3": "",
+        "hideHr": true,
+        "autoSite": true,
         "customLiveLink": "themeetinghouse.com/live",
-        "register": false,
         "addToCalendar": true,
         "contactPastor": true,
         "class": "locations",

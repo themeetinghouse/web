@@ -45,12 +45,9 @@
             "alt": "A large group of people hanging out together in an open concept living room for Home Church."
           }
         ],
-        "header1": "Oakville",
-        "text1": "Sundays at 9:30am",
-        "text2": "Kids and Youth program available for ages 2 to Grade 12",
-        "text3": "",
+        "hideHr": true,
+        "autoSite": true,
         "customLiveLink": "themeetinghouse.com/live",
-        "register": false,
         "addToCalendar": true,
         "contactPastor": true,
         "class": "locations",

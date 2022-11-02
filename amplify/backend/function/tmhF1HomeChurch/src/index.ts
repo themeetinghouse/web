@@ -25,7 +25,10 @@ async function Execute(event) {
           5
         );
       var openGroupsForLocation;
-      if (listGroupsResponse.data.F1ListGroups.groups.group)
+      if (
+        listGroupsResponse.data.F1ListGroups.groups &&
+        listGroupsResponse.data.F1ListGroups.groups.group
+      )
         openGroupsForLocation =
           listGroupsResponse.data.F1ListGroups.groups.group.filter(
             (item) => item.isOpen == 'true' && item.isSearchable == 'true'

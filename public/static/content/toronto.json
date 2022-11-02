@@ -47,7 +47,6 @@
         ],
         "header1": "Toronto Region",
         "customLiveLink": "themeetinghouse.com/live",
-        "register": false,
         "hideHr": true,
         "addToCalendar": false,
         "contactPastor": false,
