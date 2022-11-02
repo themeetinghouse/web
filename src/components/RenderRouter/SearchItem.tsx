@@ -11,12 +11,13 @@ import {
   SearchF1ListGroup2sQuery,
   SearchNotesQuery,
   SearchSeriesQuery,
+  TMHPerson,
 } from 'API';
 import { BlogImage, ScaledImage } from 'components/ScaledImage';
 import Highlighter from 'react-highlight-words';
 import { Button } from 'reactstrap';
 import * as queries from '../../graphql/queries';
-import DataLoader, { CompassionData, StaffData } from './DataLoader';
+import DataLoader, { CompassionData } from './DataLoader';
 import RenderRouter from './RenderRouter';
 
 interface Props extends RouteComponentProps {
@@ -40,7 +41,7 @@ interface State {
   searchBlogResults: any;
   searchString: string;
   dataSpeakers: any;
-  dataStaff: StaffData[];
+  dataStaff: TMHPerson[];
   dataOverseers: any;
   dataCompassion: CompassionData[];
   currentSearchType: SearchType;
@@ -441,18 +442,18 @@ class ContentItem extends React.Component<Props, State> {
         this.state.searchString.length > 4
     );
   };
-  staffItems = (): StaffData[] => {
+  staffItems = (): TMHPerson[] => {
     return this.state.dataStaff.filter(
-      (staff: StaffData) =>
-        staff.FirstName.toLowerCase().includes(
-          this.state.searchString.toLowerCase()
-        ) ||
-        staff.LastName.toLowerCase().includes(
-          this.state.searchString.toLowerCase()
-        ) ||
-        (staff.Position.toLowerCase().includes(
-          this.state.searchString.toLowerCase()
-        ) &&
+      (staff) =>
+        staff?.firstName
+          ?.toLowerCase()
+          .includes(this.state.searchString.toLowerCase()) ||
+        staff?.lastName
+          ?.toLowerCase()
+          .includes(this.state.searchString.toLowerCase()) ||
+        (staff?.position
+          ?.toLowerCase()
+          .includes(this.state.searchString.toLowerCase()) &&
           this.state.searchString.length > 5)
     );
   };
@@ -497,15 +498,15 @@ class ContentItem extends React.Component<Props, State> {
       </Button>
     );
   }
-  renderStaff(staff: StaffData): React.ReactNode {
+  renderStaff(staff: TMHPerson): React.ReactNode {
     const image = {
-      src: `/static/photos/staff/${staff.FirstName}_${staff.LastName}_app.jpg`,
-      alt: `${staff.FirstName} ${staff.LastName}`,
+      src: `/static/photos/staff/${staff.firstName}_${staff.lastName}_app.jpg`,
+      alt: `${staff.firstName} ${staff.lastName}`,
     };
     return (
       <a
-        href={'mailto:' + staff.Email}
-        key={staff.Email}
+        href={'mailto:' + staff.email}
+        key={staff.email}
         className="SearchResultItem"
       >
         <ScaledImage
@@ -527,7 +528,7 @@ class ContentItem extends React.Component<Props, State> {
               highlightClassName="Highlight"
               searchWords={this.state.searchString.split(' ')}
               autoEscape={true}
-              textToHighlight={staff.FirstName + ' ' + staff.LastName}
+              textToHighlight={staff.firstName + ' ' + staff.lastName}
             />
           </div>
           <div className="Description">
@@ -535,7 +536,7 @@ class ContentItem extends React.Component<Props, State> {
               highlightClassName="Highlight"
               searchWords={this.state.searchString.split(' ')}
               autoEscape={true}
-              textToHighlight={staff.Position ?? ''}
+              textToHighlight={staff.position ?? ''}
             />
           </div>
         </div>
@@ -1026,7 +1027,7 @@ class ContentItem extends React.Component<Props, State> {
             this.state.searchString != '' &&
             this.state.customData?.page?.pageConfig?.searchResult?.hideStaff !==
               true &&
-            this.staffItems().map((staff: StaffData) =>
+            this.staffItems().map((staff: TMHPerson) =>
               this.renderStaff(staff)
             )}
           {(this.state.currentSearchType == SearchType.All ||

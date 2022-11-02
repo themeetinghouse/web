@@ -61,13 +61,13 @@
           {
             "type": "link",
             "title": "Download Weekend Lesson",
-            "navigateTo": "/static/pdfs/youth-files/Wk 4 - Wilderness - Jr High Weekend.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 5 - Wilderness - Jr High Weekend.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Weekend Activity",
-            "navigateTo": "/static/pdfs/youth-files/Wk 4 - Activity.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 5 - Activity.pdf",
             "openNewBrowser": true
           }
       
@@ -98,13 +98,13 @@
           {
             "type": "link",
             "title": "Download Midweek Lesson",
-            "navigateTo": "/static/pdfs/youth-files/Wilderness - JH Midweek - Wk 4.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wilderness - JH Midweek - Wk 5.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Midweek Small Group Leader Notes",
-            "navigateTo": "/static/pdfs/youth-files/Wilderness - JH Midweek SGL Notes - Wk 4.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wilderness - JH Midweek SGL Notes - Wk 5.pdf",
             "openNewBrowser": true
           }
         ]

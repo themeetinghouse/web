@@ -1551,8 +1551,8 @@ type TMHPerson @model @searchable @auth(rules: [{allow: public, operations: [rea
   position: String
   isTeacher: String @default(value: "false") @index(name: "byIsTeacher", queryField: "TMHPersonByIsTeacher")
   isStaff: String @default(value: "false") @index(name: "byIsStaff", queryField: "TMHPersonByIsStaff")
-  isCoordinator: String @default(value: "false") @index(name: "byIsCoordinator", queryField: "TMHPersonByIsOverseer")
-  isOverseer: String @default(value: "false") @index(name: "byIsOverseer", queryField: "TMHPersonByIsCoordinator")
+  isCoordinator: String @default(value: "false") @index(name: "byIsCoordinator", queryField: "TMHPersonByIsCoordinator")
+  isOverseer: String @default(value: "false") @index(name: "byIsOverseer", queryField: "TMHPersonByIsOverseer")
 }
 
 type PrivateImage {

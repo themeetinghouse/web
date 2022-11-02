@@ -25741,15 +25741,15 @@ export const tMHPersonByIsStaff = /* GraphQL */ `
     }
   }
 `;
-export const tMHPersonByIsOverseer = /* GraphQL */ `
-  query TMHPersonByIsOverseer(
+export const tMHPersonByIsCoordinator = /* GraphQL */ `
+  query TMHPersonByIsCoordinator(
     $isCoordinator: String!
     $sortDirection: ModelSortDirection
     $filter: ModelTMHPersonFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    TMHPersonByIsOverseer(
+    TMHPersonByIsCoordinator(
       isCoordinator: $isCoordinator
       sortDirection: $sortDirection
       filter: $filter
@@ -25777,15 +25777,15 @@ export const tMHPersonByIsOverseer = /* GraphQL */ `
     }
   }
 `;
-export const tMHPersonByIsCoordinator = /* GraphQL */ `
-  query TMHPersonByIsCoordinator(
+export const tMHPersonByIsOverseer = /* GraphQL */ `
+  query TMHPersonByIsOverseer(
     $isOverseer: String!
     $sortDirection: ModelSortDirection
     $filter: ModelTMHPersonFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    TMHPersonByIsCoordinator(
+    TMHPersonByIsOverseer(
       isOverseer: $isOverseer
       sortDirection: $sortDirection
       filter: $filter

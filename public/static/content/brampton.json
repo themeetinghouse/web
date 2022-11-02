@@ -55,6 +55,12 @@
         "filterValue": "brampton"
       },
       {
+        "type": "content",
+        "style": "greyTwoText",
+        "header1": "Brampton Livestream Watch Party",
+        "text1": "This Sunday, Oct 30 we will have a Livestream Watch Party together at 14605 Creditview Rd, Cheltenham (Langlois Family). For more info call: 647-808-1660."
+      },
+      {
         "type": "list",
         "style": "staff",
         "class": "staff",
