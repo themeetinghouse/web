@@ -1,17 +1,24 @@
 [
   {
-    "FirstName": "Steve",
-    "LastName": "Kerr",
-    "sites": ["SAND", "Distance_Region"],
-    "Email": "steve.kerr@themeetinghouse.com",
-    "Position": "Sandbanks Lead Pastor"
-  },
-  {
     "FirstName": "Ruth",
     "LastName": "Wright",
     "sites": ["ALLI", "Distance_Region"],
     "Email": "ruth.wright@themeetinghouse.com",
-    "Position": "Parish Ministries Director"
+    "Position": "Ministries Director"
+  },
+  {
+    "FirstName": "Janette",
+    "LastName": "Cridland",
+    "sites": ["ALLI", "Distance_Region"],
+    "Email": "alliston.connect@themeetinghouse.com",
+    "Position": "Connect Coordinator"
+  },
+  {
+    "FirstName": "Colleen",
+    "LastName": "Johnson",
+    "sites": ["ALLI", "Distance_Region"],
+    "Email": "alliston.kidmax@themeetinghouse.com",
+    "Position": "Kidmax Coordinator"
   },
   {
     "FirstName": "Brenda",
@@ -20,6 +27,579 @@
     "Email": "alliston.compassion@themeetinghouse.com",
     "Position": "Compassion Coordinator"
   },
+  {
+    "FirstName": "Brian",
+    "LastName": "Ramoutar",
+    "sites": ["BRAM", "Peel_Region"],
+    "Email": "hello.brampton@themeetinghouse.com",
+    "Position": "Communications Coordinator"
+  },
+  {
+    "FirstName": "Sarah",
+    "LastName": "Ramoutar",
+    "sites": ["BRAM", "Peel_Region"],
+    "Email":"sarah.ramoutar@themeetinghouse.com",
+    "Position": "Kidmax Coordinator"
+  },
+  {
+    "FirstName": "Kareema",
+    "LastName": "Giscombe-Bartley",
+    "sites": ["BRAM", "Peel_Region"],
+    "Email":"kareema.bartley@themeetinghouse.com",
+    "Position": "Compassion Coordinator"
+  },
+  {
+    "FirstName": "Judy",
+    "LastName": "Brown",
+    "sites": ["BRAM", "Peel_Region"],
+    "Email": "judy.brown@themeetinghouse.com",
+    "Position": "Setup Coordinator"
+  },
+  {
+    "FirstName": "Joshua",
+    "LastName": "Woodward",
+    "sites": ["BRFD", "Hamilton_Region"],
+    "Email": "josh.woodward@themeetinghouse.com",
+    "Position": "Ministry Associate & Youth Coordinator"
+  },
+  {
+    "FirstName": "Park",
+    "LastName": "Visser",
+    "sites": ["BURL", "Peel_Region"],
+    "Position": "Communications Assistant"
+  },
+  {
+    "FirstName": "Cathy",
+    "LastName": "Ralph",
+    "sites": ["BURL", "Peel_Region"],
+    "Email": "cathysue15@gmail.com",
+    "Position": "Connect Coordinator"
+  },
+  {
+    "FirstName": "Sarah",
+    "LastName": "Hildebrandt",
+    "sites": ["BURL", "Peel_Region"],
+    "Email":"mskghildebrandt@yahoo.com",
+    "Position": "Prayer Coordinator"
+  },
+  {
+    "FirstName": "Ted",
+    "LastName": "Hildebrandt",
+    "sites": ["BURL", "Peel_Region"],
+    "Email":"ted.hildebrandt@gmail.com",
+    "Position": "Tech Coordinator"
+  },
+  {
+    "FirstName": "Rachel",
+    "LastName": "Cuthill",
+    "sites": ["HMDT", "Hamilton_Region"],
+    "Email": "rachel.cuthill@themeetinghouse.com",
+    "Position": "Ministry Associate"
+  },
+  {
+    "FirstName": "Cynthia",
+    "LastName": "Eden-Munoz",
+    "sites": ["HMDT", "Hamilton_Region"],
+    "Email":"tuliosnina@yahoo.ca",
+    "Position": "Compassion Coordinator"
+  },
+  {
+    "FirstName": "Heidi",
+    "LastName": "Rushton",
+    "sites": ["HMDT", "Hamilton_Region"],
+    "Email": "heidi.rushton@themeetinghouse.com",
+    "Position": "Kidmax Coordinator"
+  },
+  {
+    "FirstName": "Nathan",
+    "LastName": "Scott",
+    "sites": ["HMDT", "Hamilton_Region"],
+    "Email": "Nathan.scott@themeetinghouse.com",
+    "Position": "Music Coordinator"
+  },
+  {
+    "FirstName": "Nathan",
+    "LastName": "Harris",
+    "sites": ["HMDT", "Hamilton_Region"],
+    "Email": "nathan.harris@themeetinghouse.com",
+    "Position": "Tech Coordinator"
+  },
+  {
+    "FirstName": "Jared",
+    "LastName": "Van Huizen",
+    "sites": ["HMDT", "Hamilton_Region"],
+    "Email": "jared.vanhuizen@themeetinghouse.com",
+    "Position": "Weekend Service Producer"
+  },
+  {
+    "FirstName": "Amanda",
+    "LastName": "Le Blanc",
+    "sites": ["HMDT", "Hamilton_Region"],
+    "Email": "amanda.leblanc@themeetinghouse.com",
+    "Position": "Ministry Associate"
+  },
+  {
+    "FirstName": "Andi",
+    "LastName": "Ovenden",
+    "sites": ["HMDT", "Hamilton_Region"],
+    "Email": "andi.ovenden@themeetinghouse.com",
+    "Position": "Youth Coordinator"
+  },
+  {
+    "FirstName": "Steve",
+    "LastName": "Robinson",
+    "sites": ["HMMT", "Hamilton_Region"],
+    "Email": "strob@rogers.com",
+    "Position": "Welcome Coordinator"
+  },
+  {
+    "FirstName": "Amie",
+    "LastName": "Latta",
+    "sites": ["LOND", "Distance_Region"],
+    "Email": "amie.latta@themeetinghouse.com",
+    "Position": "London Ministry Associate"
+  },
+  {
+    "FirstName": "Matt",
+    "LastName": "Thompson",
+    "sites": ["LOND", "Distance_Region"],
+    "Email":"mgthomps73@gmail.com",
+    "Position": "Compassion Coordinator"
+  },
+  {
+    "FirstName": "Rachel",
+    "LastName": "Bakker",
+    "sites": ["LOND", "Distance_Region"],
+    "Email": "rachelannebakker@gmail.com",
+    "Position": "Kidmax Coordinator"
+  },
+  {
+    "FirstName": "Stephanie",
+    "LastName": "Prendergast",
+    "sites": ["LOND", "Distance_Region"],
+    "Email": "stephanie.prendergast@themeetinghouse.com",
+    "Position": "Music Coordinator"
+  },
+  {
+    "FirstName": "Andrey",
+    "LastName": "Andriets",
+    "sites": ["LOND", "Distance_Region"],
+    "Email": "a.andriets@gmail.com",
+    "Position": "Tech Coordinator"
+  },
+  {
+    "FirstName": "Darlene",
+    "LastName": "Holmes",
+    "sites": ["NMKT", "Distance_Region"],
+    "Email": "darlene.holmes@themeetinghouse.com",
+    "Position": "Compassion Coordinator"
+  },
+  {
+    "FirstName": "Ilona",
+    "LastName": "Kiss",
+    "sites": ["NMKT", "Distance_Region"],
+    "Email":"ilona.kiss@themeetinghouse.com",
+    "Position": "Compassion Coordinator"
+  },
+  {
+    "FirstName": "Lisana",
+    "LastName": "Walks",
+    "sites": ["NMKT", "Distance_Region"],
+    "Email":"lisana.walks@themeetinghouse.com",
+    "Position": "Compassion Coordinator"
+  },
+  {
+    "FirstName": "Tenika",
+    "LastName": "Millington",
+    "sites": ["NMKT", "Distance_Region"],
+    "Email":"tenika.millington@themeetinghouse.com",
+    "Position": "Kidmax Coordinator"
+  },
+  {
+    "FirstName": "William",
+    "LastName": "Dyer",
+    "sites": ["NMKT", "Distance_Region"],
+    "Email":"will.dyer@themeetinghouse.com",
+    "Position": "Music Coordinator"
+  },
+  {
+    "FirstName": "Mike",
+    "LastName": "Walker",
+    "sites": ["NMKT", "Distance_Region"],
+    "Email":"mike.walker@themeetinghouse.com",
+    "Position": "Music Coordinator"
+  }, 
+  {
+    "FirstName": "Debbie",
+    "LastName": "Tindale",
+    "sites": ["NMKT", "Distance_Region"],
+    "Email":"debbie.tindale@gmail.com",
+    "Position": "Welcome Coordinator"
+  },
+  {
+    "FirstName": "Megan",
+    "LastName": "Rideout",
+    "sites": ["NMKT", "Distance_Region"],
+    "Email":"megan.rideout.is@gmail.com",
+    "Position": "Tech Coordinator"
+  },
+  {
+    "FirstName": "Jenny",
+    "LastName": "Nasmith Yandt",
+    "sites": ["OTTA", "Distance_Region"],
+    "Email": "jenny.nasmithyandt@themeetinghouse.com",
+    "Position": "Ottawa Ministry Associate"
+  },
+  {
+    "FirstName": "Darcie",
+    "LastName": "Dow",
+    "sites": ["OTTA", "Distance_Region"],
+    "Email": "darcie.dow@themeetinghouse.com",
+    "Position": "Ottawa Kids Ministry Associate"
+  },
+  {
+    "FirstName": "Amy",
+    "LastName": "Knox",
+    "sites": ["OTTA", "Distance_Region"],
+    "Email": "amy.knox@themeetinghouse.com",
+    "Position": "Youth Ministry Associate"
+  },
+  {
+    "FirstName": "Jasmine",
+    "LastName": "Duckworth",
+    "sites": ["OTTA", "Distance_Region"],
+    "Email": "jasmine.duckworth@themeetinghouse.com",
+    "Position": "Accessibility Coordinator"
+  },
+  {
+    "FirstName": "April",
+    "LastName": "Yorke",
+    "sites": ["OTTA", "Distance_Region"],
+    "Email": "april.yorke@themeetinghouse.com",
+    "Position": "Compassion Coordinator"
+  },
+  {
+    "FirstName": "Mark",
+    "LastName": "Yandt",
+    "sites": ["OTTA", "Distance_Region"],
+    "Email":"mark.yandt@themeetinghouse.com",
+    "Position": "Connect Coordinator"
+  },
+  {
+    "FirstName": "Carlo",
+    "LastName": "Verdicchio Tayler",
+    "sites": ["OTTA", "Distance_Region"],
+    "Email": "ottawa.music@themeetinghouse.com",
+    "Position": "Music Coordinator"
+  },
+  {
+    "FirstName": "Allyson",
+    "LastName": "Tayler",
+    "sites": ["OTTA", "Distance_Region"],
+    "Email":"ottawa.music@themeetinghouse.com",
+    "Position": "Music Coordinator"
+  },
+  {
+    "FirstName": "Kathryn",
+    "LastName": "Cobbler",
+    "sites": ["OTTA", "Distance_Region"],
+    "Email":"kathryn.cobbler@themeetinghouse.com",
+    "Position": "Prayer Coordinator"
+  },
+  {
+    "FirstName": "Megan",
+    "LastName": "McEwen",
+    "sites": ["OTTA", "Distance_Region"],
+    "Email": "megan.mcewen@themeetinghouse.com",
+    "Position": "Tech Coordinator"
+  },
+  {
+    "FirstName": "Dave",
+    "LastName": "Beauchamp",
+    "sites": ["OTTA", "Distance_Region"],
+    "Email":"dave.beauchamp@themeetinghouse.com",
+    "Position": "Setup Coordinator"
+  },
+  {
+    "FirstName": "Rosi",
+    "LastName": "Simon",
+    "sites": ["PAR", "Distance_Region"],
+    "Email": "rosi.simon@themeetinghouse.com",
+    "Position": "Parry Sound Ministry Associate (Support)"
+  },
+  {
+    "FirstName": "Amanda",
+    "LastName": "Shaw",
+    "sites": ["PAR", "Distance_Region"],
+    "Email": "amanda.shaw@themeetinghouse.com",
+    "Position": "Ministry Associate"
+  },
+  {
+    "FirstName": "Winfer",
+    "LastName": "Foster",
+    "sites": ["PAR", "Distance_Region"],
+    "Email": "parrysound.Kidmax@themeetinghouse.com",
+    "Position": "Kidmax Coordinator"
+  },
+  {
+    "FirstName": "Johan",
+    "LastName": "Strydom",
+    "sites": ["PAR", "Distance_Region"],
+    "Email": "johker4@gmail.com",
+    "Position": "Prayer Coordinator"
+  },
+  {
+    "FirstName": "Gerry",
+    "LastName": "Shipman",
+    "sites": ["PAR", "Distance_Region"],
+    "Email": "gwshipman@vianet.ca",
+    "Position": "Setup Coordinator"
+  },
+  {
+    "FirstName": "Tracy",
+    "LastName": "Konoval",
+    "sites": ["PAR", "Distance_Region"],
+    "Email": "tracykonoval@gmail.com",
+    "Position": "Welcome Coordinator"
+  },
+  {
+    "FirstName": "Chris",
+    "LastName": "Pullenayegem",
+    "sites": ["RHLL", "Distance_Region"],
+    "Email": "chris.pullenayegem@themeetinghouse.com",
+    "Position": "Interim Pastor"
+  },
+  {
+    "FirstName": "Sandra",
+    "LastName": "Albione",
+    "sites": ["RHLL", "Distance_Region"],
+    "Email": "sandra.albione@themeetinghouse.com",
+    "Position": "Compassion Coordinator"
+  },
+  {
+    "FirstName": "Anthony",
+    "LastName": "Mak",
+    "sites": ["RHLL", "Distance_Region"],
+    "Email": "anthony.mak@themeetinghouse.com",
+    "Position": "Youth Coordinator"
+  },
+  {
+    "FirstName": "Kelly",
+    "LastName": "Mak",
+    "sites": ["RHLL", "Distance_Region"],
+    "Email": "Kelly.Mak@themeetinghouse.com",
+    "Position": "Prayer Coordinator & Admin Support"
+  },
+  {
+    "FirstName": "Bernie",
+    "LastName": "Chan",
+    "sites": ["RHLL", "Distance_Region"],
+    "Email": "bernard.chan@themeetinghouse.com",
+    "Position": "Music & Kidmax Coordinator"
+  },
+  {
+    "FirstName": "Samson",
+    "LastName": "Chiu",
+    "sites": ["RHLL", "Distance_Region"],
+    "Email":"samson.chiu@themeetinghouse.com",
+    "Position": "Tech Coordinator"
+  },
+  {
+    "FirstName": "Shelley",
+    "LastName": "McNab",
+    "sites": ["TOBC", "Toronto_Region"],
+    "Email": "Shelley.McNab@themeetinghouse.com",
+    "Position": "East Youth Ministry Associate"
+  },
+  {
+    "FirstName": "Julie",
+    "LastName": "Cornelius",
+    "sites": ["TOBC", "Toronto_Region"],
+    "Email":"julieriley@rogers.com",
+    "Position": "Connect Coordinator"
+  },
+  {
+    "FirstName": "Janis",
+    "LastName": "Hiscock",
+    "sites": ["TOBC", "Toronto_Region"],
+    "Email": "janis.hiscock@themeetinghouse.com",
+    "Position": "Kidmax Coordinator"
+  },
+  {
+    "FirstName": "Marty",
+    "LastName": "Barons",
+    "sites": ["TOBC", "Toronto_Region"],
+    "Email": "martybarons@gmail.com",
+    "Position": "Music Coordinator"
+  },
+  {
+    "FirstName": "Stephanie",
+    "LastName": "Guillen",
+    "sites": ["TOBC", "Toronto_Region"],
+    "Email": "scarrier2@yahoo.com",
+    "Position": "Sunday Morning Prayer"
+  },
+  {
+    "FirstName": "Juliane",
+    "LastName": "Kennedy",
+    "sites": ["TOBC", "Toronto_Region"],
+    "Email": "juliane.kennedy@gmail.com",
+    "Position": "Prayer Coordinator"
+  },
+  {
+    "FirstName": "Brian",
+    "LastName": "Wong",
+    "sites": ["TOBC", "Toronto_Region"],
+    "Email": "bwong075@gmail.com",
+    "Position": "Tech Coordinator"
+  },
+  {
+    "FirstName": "Nathan",
+    "LastName": "Buckwalter",
+    "sites": ["TOBC", "Toronto_Region"],
+    "Email": "natelid@gmail.com",
+    "Position": "Setup Coordinator"
+  },
+  {
+    "FirstName": "Sheila",
+    "LastName": "Wong",
+    "sites": ["TODT", "Toronto_Region"],
+    "Email": "sheila.wong@themeetinghouse.com",
+    "Position": "Compassion Coordinator"
+  },
+  {
+    "FirstName": "Melanie",
+    "LastName": "Monds",
+    "sites": ["TOHP", "Toronto_Region"],
+    "Email": "melanie.monds@themeetinghouse.com",
+    "Position": "Ministry Associate & Kidmax Coordinator"
+  },
+  {
+    "FirstName": "Gerald",
+    "LastName": "Dykstra",
+    "sites": ["TOHP", "Toronto_Region"],
+    "Email": "gerald.dykstra@gmail.com",
+    "Position": "Welcome Coordinator"
+  },
+  {
+    "FirstName": "Alex",
+    "LastName": "Lippa",
+    "sites": ["TOUP", "Toronto_Region"],
+    "Email": "Alex.Lippa@themeetinghouse.com",
+    "Position": "West Youth Ministry Associate"
+  },
+  {
+    "FirstName": "Maddy",
+    "LastName": "Neufeld",
+    "sites": ["WAT", "KIT", "Waterloo_Region"],
+    "Email": "madeleine.neufeld@themeetinghouse.com",
+    "Position": "Ministry Associate (Interim Lead Pastor)"
+  },
+  {
+    "FirstName": "Barb",
+    "LastName": "Zupko",
+    "sites": ["WAT", "KIT", "Waterloo_Region"],
+    "Email": "barbara.zupko@themeetinghouse.com",
+    "Position": "Ministry Associate (Support)"
+  },
+  {
+    "FirstName": "Lil",
+    "LastName": "Horne",
+    "sites": ["WAT", "KIT", "Waterloo_Region"],
+    "Email": "liliana.horne@themeetinghouse.com",
+    "Position": "Cambridge Hub"
+  },
+  {
+    "FirstName": "Savannah",
+    "LastName": "Edwards",
+    "sites": ["WAT", "KIT", "Waterloo_Region"],
+    "Email": "savannah.edwards@themeetinghouse.com",
+    "Position": "Parish Communications & Media Coordinator"
+  },
+  {
+    "FirstName": "Max",
+    "LastName": "Chute",
+    "sites": ["WAT", "KIT", "Waterloo_Region"],
+    "Email": "kidmax.waterloo@themeetinghouse.com",
+    "Position": "Kidmax Coordinator"
+  },
+  {
+    "FirstName": "Penny",
+    "LastName": "Forget",
+    "sites": ["WAT", "KIT", "Waterloo_Region"],
+    "Email": "kidmax.waterloo@themeetinghouse.com",
+    "Position": "Kidmax Coordinator"
+  },
+  {
+    "FirstName": "Adam",
+    "LastName": "Neufeld",
+    "sites": ["WAT", "KIT", "Waterloo_Region"],
+    "Email": "abneuf8@gmail.com",
+    "Position": "Tech Coordinator"
+  },
+  {
+    "FirstName": "Fraser & Maria",
+    "LastName": "Haig",
+    "sites": ["WAT", "KIT", "Waterloo_Region"],
+    "Email": "waterloo.music@themeetinghouse.com",
+    "Position": "Music Coordinators"
+  },
+  {
+    "FirstName": "Mary Kate",
+    "LastName": "MacPherson",
+    "sites": ["WAT", "KIT", "Waterloo_Region"],
+    "Email": "kichimk@live.com",
+    "Position": "Discord Coordinator"
+  },
+  {
+    "FirstName": "Steve",
+    "LastName": "Kerr",
+    "sites": ["SAND", "Distance_Region"],
+    "Email": "steve.kerr@themeetinghouse.com",
+    "Position": "Sandbanks Lead Pastor"
+  },
+  {
+    "FirstName": "Nancy",
+    "LastName": "Sergeant",
+    "sites": ["SAND", "Distance_Region"],
+    "Email": "sandbanks.connect@themeetinghouse.com",
+    "Position": "Connect Coordinator"
+  },
+  {
+    "FirstName": "Carol",
+    "LastName": "Babcock",
+    "sites": ["SAND", "Distance_Region"],
+    "Position": "Tech Coordinator"
+  },
+  {
+    "FirstName": "Casey",
+    "LastName": "Heintzman",
+    "sites": ["SAND", "Distance_Region"],
+    "Email": "sandbanks.music@themeetinghouse.com",
+    "Position": "Music Coordinator & Indigenous Settler-Relations"
+  },
+  {
+    "FirstName": "Leslie",
+    "LastName": "Walcott",
+    "sites": ["SAND", "Distance_Region"],
+    "Position": "Prayer Coordinator"
+  },
+  {
+    "FirstName": "Paul",
+    "LastName": "Pryce",
+    "sites": ["SAND", "Distance_Region"],
+    "Email": "sandbanks.youth@themeetinghouse.com",
+    "Position": "Youth Coordinator"
+  },
+  {
+    "FirstName": "Jenny",
+    "LastName": "Shepherd",
+    "sites": ["SAND", "Distance_Region"],
+    "Email": "sandbanks.kidmax@themeetinghouse.com",
+    "Position": "Kidmax Coordinator"
+  },
+  
+
   {
     "FirstName": "Leslie",
     "LastName": "Pashuk",
@@ -59,498 +639,6 @@
     "sites": ["Counsellors"],
     "Email": "aresmith77@gmail.com",
     "Position": "Counsellor"
-  },
-  {
-    "FirstName": "Lisana",
-    "LastName": "Walks",
-    "sites": ["NMKT", "Distance_Region"],
-    "Position": "Compassion Coordinator"
-  },
-  {
-    "FirstName": "Jenny",
-    "LastName": "Nasmith Yandt",
-    "sites": ["OTTA", "Distance_Region"],
-    "Email": "jenny.nasmithyandt@themeetinghouse.com",
-    "Position": "Ottawa Ministry Associate"
-  },
-  {
-    "FirstName": "April",
-    "LastName": "Yorke",
-    "sites": ["OTTA", "Distance_Region"],
-    "Email": "april.yorke@themeetinghouse.com",
-    "Position": "Compassion Coordinator"
-  },
-  {
-    "FirstName": "Jasmine",
-    "LastName": "Duckworth",
-    "sites": ["OTTA", "Distance_Region"],
-    "Email": "jasmine.duckworth@themeetinghouse.com",
-    "Position": "Accessibility Coordinator"
-  },
-  {
-    "FirstName": "Amy",
-    "LastName": "Knox",
-    "sites": ["OTTA", "Distance_Region"],
-    "Email": "amy.knox@themeetinghouse.com",
-    "Position": "Youth Ministry Associate"
-  },
-  {
-    "FirstName": "Megan",
-    "LastName": "McEwen",
-    "sites": ["OTTA", "Distance_Region"],
-    "Email": "megan.mcewen@themeetinghouse.com",
-    "Position": "Tech Coordinator"
-  },
-  {
-    "FirstName": "Rosi",
-    "LastName": "Simon",
-    "sites": ["PAR", "Distance_Region"],
-    "Email": "rosi.simon@themeetinghouse.com",
-    "Position": "Parry Sound Ministry Associate (Support)"
-  },
-  {
-    "FirstName": "Amanda",
-    "LastName": "Shaw",
-    "sites": ["PAR", "Distance_Region"],
-    "Email": "amanda.shaw@themeetinghouse.com",
-    "Position": "Ministry Associate"
-  },
-  {
-    "FirstName": "Kareema",
-    "LastName": "Giscombe-Bartley",
-    "sites": ["BRAM", "Peel_Region"],
-    "Position": "Compassion Coordinator"
-  },
-  {
-    "FirstName": "Maddy",
-    "LastName": "Neufeld",
-    "sites": ["WAT", "KIT", "Waterloo_Region"],
-    "Email": "madeleine.neufeld@themeetinghouse.com",
-    "Position": "Ministry Associate (Interim Lead Pastor)"
-  },
-  {
-    "FirstName": "Barb",
-    "LastName": "Zupko",
-    "sites": ["WAT", "KIT", "Waterloo_Region"],
-    "Email": "barbara.zupko@themeetinghouse.com",
-    "Position": "Ministry Associate (Support)"
-  },
-  {
-    "FirstName": "Lil",
-    "LastName": "Horne",
-    "sites": ["WAT", "KIT", "Waterloo_Region"],
-    "Email": "liliana.horne@themeetinghouse.com",
-    "Position": "Cambridge Hub"
-  },
-  {
-    "FirstName": "Amie",
-    "LastName": "Latta",
-    "sites": ["LOND", "Distance_Region"],
-    "Email": "amie.latta@themeetinghouse.com",
-    "Position": "London Ministry Associate"
-  },
-  {
-    "FirstName": "Matt",
-    "LastName": "Thompson",
-    "sites": ["LOND", "Distance_Region"],
-    "Position": "Compassion Coordinator"
-  },
-  {
-    "FirstName": "Chris",
-    "LastName": "Pullenayegem",
-    "sites": ["RHLL", "Distance_Region"],
-    "Email": "chris.pullenayegem@themeetinghouse.com",
-    "Position": "Interim Pastor"
-  },
-  {
-    "FirstName": "Shelley",
-    "LastName": "McNab",
-    "sites": ["TOBC", "Toronto_Region"],
-    "Email": "Shelley.McNab@themeetinghouse.com",
-    "Position": "East Youth Ministry Associate"
-  },
-  {
-    "FirstName": "Sheila",
-    "LastName": "Wong",
-    "sites": ["TODT", "Toronto_Region"],
-    "Email": "sheila.wong@themeetinghouse.com",
-    "Position": "Compassion Coordinator"
-  },
-  {
-    "FirstName": "Janette",
-    "LastName": "Cridland",
-    "sites": ["ALLI", "Distance_Region"],
-    "Email": "alliston.connect@themeetinghouse.com",
-    "Position": "Connect Coordinator"
-  },
-  {
-    "FirstName": "Cathy",
-    "LastName": "Ralph",
-    "sites": ["BURL", "Peel_Region"],
-    "Email": "cathysue15@gmail.com",
-    "Position": "Connect Coordinator"
-  },
-  {
-    "FirstName": "Park",
-    "LastName": "Visser",
-    "sites": ["BURL", "Peel_Region"],
-    "Position": "Communications Assistant"
-  },
-  {
-    "FirstName": "Anne",
-    "LastName": "Innis",
-    "sites": ["BURL", "Peel_Region"],
-    "Email": "innis.anne58@gmail.com",
-    "Position": "Prayer Coordinator"
-  },
-  {
-    "FirstName": "Sarah",
-    "LastName": "Hildebrandt",
-    "sites": ["BURL", "Peel_Region"],
-    "Email":"mskghildebrandt@yahoo.com",
-    "Position": "Prayer Coordinator"
-  },
-  {
-    "FirstName": "Cynthia",
-    "LastName": "Eden",
-    "sites": ["HMDT", "Hamilton_Region"],
-    "Position": "Compassion Coordinator"
-  },
-  {
-    "FirstName": "Steve",
-    "LastName": "Robinson",
-    "sites": ["HMMT", "Hamilton_Region"],
-    "Position": "Connect Coordinator"
-  },
-  {
-    "FirstName": "Nancy",
-    "LastName": "Sergeant",
-    "sites": ["SAND", "Distance_Region"],
-    "Email": "sandbanks.connect@themeetinghouse.com",
-    "Position": "Connect Coordinator"
-  },
-  {
-    "FirstName": "Julie",
-    "LastName": "Cornelius",
-    "sites": ["TOBC", "Toronto_Region"],
-    "Position": "Connect Coordinator"
-  },
-  {
-    "FirstName": "Stephanie",
-    "LastName": "Guillen",
-    "sites": ["TOBC", "Toronto_Region"],
-    "Position": "Sunday Morning Prayer"
-  },
-  {
-    "FirstName": "Juliane",
-    "LastName": "Kennedy",
-    "sites": ["TOBC", "Toronto_Region"],
-    "Position": "Sunday Morning Prayer"
-  },
-  {
-    "FirstName": "Colleen",
-    "LastName": "Johnson",
-    "sites": ["ALLI", "Distance_Region"],
-    "Email": "alliston.kidmax@themeetinghouse.com",
-    "Position": "Kidmax Coordinator"
-  },
-  {
-    "FirstName": "Tenika",
-    "LastName": "Millington",
-    "sites": ["NMKT", "Distance_Region"],
-    "Position": "Kidmax Coordinator"
-  },
-  {
-    "FirstName": "Darcie",
-    "LastName": "Dow",
-    "sites": ["OTTA", "Distance_Region"],
-    "Email": "darcie.dow@themeetinghouse.com",
-    "Position": "Ottawa Kids Ministry Associate"
-  },
-  {
-    "FirstName": "Dave",
-    "LastName": "Beauchamp",
-    "sites": ["OTTA", "Distance_Region"],
-    "Position": "Setup Coordinator"
-  },
-  {
-    "FirstName": "Mark",
-    "LastName": "Yandt",
-    "sites": ["OTTA", "Distance_Region"],
-    "Position": "Connect Coordinator"
-  },
-
-  {
-    "FirstName": "Winfer",
-    "LastName": "Foster",
-    "sites": ["PAR", "Distance_Region"],
-    "Email": "parrysound.Kidmax@themeetinghouse.com",
-    "Position": "Kidmax Coordinator"
-  },
-  {
-    "FirstName": "Jenny",
-    "LastName": "Shepherd",
-    "sites": ["SAND", "Distance_Region"],
-    "Email": "sandbanks.kidmax@themeetinghouse.com",
-    "Position": "Kidmax Coordinator"
-  },
-  {
-    "FirstName": "Janis",
-    "LastName": "Hiscock",
-    "sites": ["TOBC", "Toronto_Region"],
-    "Email": "janis.hiscock@themeetinghouse.com",
-    "Position": "Kidmax Coordinator"
-  },
-  {
-    "FirstName": "Melanie",
-    "LastName": "Monds",
-    "sites": ["TOHP", "Toronto_Region"],
-    "Position": "Ministry Associate"
-  },
-  {
-    "FirstName": "Max",
-    "LastName": "Chute",
-    "sites": ["WAT", "KIT", "Waterloo_Region"],
-    "Email": "kidmax.waterloo@themeetinghouse.com",
-    "Position": "Kidmax Coordinator"
-  },
-  {
-    "FirstName": "Joshua",
-    "LastName": "Woodward",
-    "sites": ["BRFD", "Hamilton_Region"],
-    "Email": "josh.woodward@themeetinghouse.com",
-    "Position": "Ministry Associate & Youth Coordinator"
-  },
-  {
-    "FirstName": "Bryan",
-    "LastName": "McKee",
-    "sites": ["BRFD", "Hamilton_Region"],
-    "Email": "bryanrmckee@gmail.com",
-    "Position": "Prayer Coordinator"
-  },
-  {
-    "FirstName": "Nathan J.",
-    "LastName": "Scott",
-    "sites": ["HMDT", "Hamilton_Region"],
-    "Email": "Nathan.scott@themeetinghouse.com",
-    "Position": "Music Coordinator"
-  },
-  {
-    "FirstName": "Stephanie",
-    "LastName": "Prendergast",
-    "sites": ["LOND", "Distance_Region"],
-    "Email": "stephanie.prendergast@themeetinghouse.com",
-    "Position": "Music Coordinator"
-  },
-  {
-    "FirstName": "William",
-    "LastName": "Dyer",
-    "sites": ["NMKT", "Distance_Region"],
-    "Position": "Music Coordinator"
-  },
-  {
-    "FirstName": "Mike",
-    "LastName": "Walker",
-    "sites": ["NMKT", "Distance_Region"],
-    "Position": "Music Coordinator"
-  },
-  {
-    "FirstName": "Carlo A.",
-    "LastName": "Verdicchio Tayler",
-    "sites": ["OTTA", "Distance_Region"],
-    "Email": "carlo.verdicchio@themeetinghouse.com",
-    "Position": "Music Coordinator"
-  },
-  {
-    "FirstName": "Allyson",
-    "LastName": "Tayler",
-    "sites": ["OTTA", "Distance_Region"],
-    "Position": "Music Coordinator"
-  },
-  {
-    "FirstName": "Bernie",
-    "LastName": "Chan",
-    "sites": ["RHLL", "Distance_Region"],
-    "Email": "bernard.chan@themeetinghouse.com",
-    "Position": "Music & Kidmax Coordinator"
-  },
-  {
-    "FirstName": "Casey",
-    "LastName": "Heintzman",
-    "sites": ["SAND", "Distance_Region"],
-    "Email": "sandbanks.music@themeetinghouse.com",
-    "Position": "Music Coordinator and Indigenous Settler-Relations"
-  },
-  {
-    "FirstName": "Brian",
-    "LastName": "Ramoutar",
-    "sites": ["BRAM", "Peel_Region"],
-    "Email": "hello.brampton@themeetinghouse.com",
-    "Position": "Communications Coordinator"
-  },
-  {
-    "FirstName": "Sarah",
-    "LastName": "Ramoutar",
-    "sites": ["BRAM", "Peel_Region"],
-    "Position": "Kidmax Coordinator"
-  },
-  {
-    "FirstName": "Savannah",
-    "LastName": "Edwards",
-    "sites": ["WAT", "KIT", "Waterloo_Region"],
-    "Email": "savannah.edwards@themeetinghouse.com",
-    "Position": "Parish Communications and Media Coordinator"
-  },
-  {
-    "FirstName": "Rachel",
-    "LastName": "Cuthill",
-    "sites": ["HMDT", "Hamilton_Region"],
-    "Email": "rachel.cuthill@themeetinghouse.com",
-    "Position": "Ministry Associate"
-  },
-  {
-    "FirstName": "Jared",
-    "LastName": "Van Huizen",
-    "sites": ["HMDT", "Hamilton_Region"],
-    "Email": "jared.vanhuizen@themeetinghouse.com",
-    "Position": "Weekend Service Producer"
-  },
-  {
-    "FirstName": "Anthony",
-    "LastName": "Mak",
-    "sites": ["RHLL", "Distance_Region"],
-    "Email": "kelly.mak@themeetinghouse.com",
-    "Position": "Youth Coordinator"
-  },
-  {
-    "FirstName": "Kelly",
-    "LastName": "Mak",
-    "sites": ["RHLL", "Distance_Region"],
-    "Email": "Kelly.Mak@themeetinghouse.com",
-    "Position": "Prayer Coordinator & Admin Support"
-  },
-  {
-    "FirstName": "Marty",
-    "LastName": "Barons",
-    "sites": ["TOBC", "Toronto_Region"],
-    "Email": "martybarons@gmail.com",
-    "Position": "Music Coordinator"
-  },
-  {
-    "FirstName": "Alex",
-    "LastName": "Lippa",
-    "sites": ["TOUP", "Toronto_Region"],
-    "Email": "Alex.Lippa@themeetinghouse.com",
-    "Position": "West Youth Ministry Associate"
-  },
-  {
-    "FirstName": "Jason",
-    "LastName": "Lise",
-    "sites": ["HMDT", "Hamilton_Region"],
-    "Position": "Welcome Coordinator"
-  },
-  {
-    "FirstName": "Debbie",
-    "LastName": "Tindale",
-    "sites": ["NMKT", "Distance_Region"],
-    "Position": "Welcome Coordinator"
-  },
-  {
-    "FirstName": "Ilona",
-    "LastName": "Kiss",
-    "sites": ["NMKT", "Distance_Region"],
-    "Position": "Compassion Coordinator"
-  },
-  {
-    "FirstName": "Darlene",
-    "LastName": "Holmes",
-    "sites": ["NMKT", "Distance_Region"],
-    "Position": "Compassion Coordinator"
-  },
-  {
-    "FirstName": "Tracy",
-    "LastName": "Konoval",
-    "sites": ["PAR", "Distance_Region"],
-    "Position": "Welcome Coordinator"
-  },
-  {
-    "FirstName": "Samson",
-    "LastName": "Chiu",
-    "sites": ["RHLL", "Distance_Region"],
-    "Position": "Tech Coordinator"
-  },
-  {
-    "FirstName": "Sandra",
-    "LastName": "Albione",
-    "sites": ["RHLL", "Distance_Region"],
-    "Position": "Compassion Coordinator"
-  },
-  {
-    "FirstName": "Fraser & Maria",
-    "LastName": "Haig",
-    "sites": ["WAT", "KIT", "Waterloo_Region"],
-    "Email": "waterloo.music@themeetinghouse.com",
-    "Position": "Music Coordinators"
-  },
-  {
-    "FirstName": "Adam",
-    "LastName": "Neufeld",
-    "sites": ["WAT", "KIT", "Waterloo_Region"],
-    "Email": "abneuf8@gmail.com",
-    "Position": "Tech Coordinator"
-  },
-  {
-    "FirstName": "Rachel",
-    "LastName": "Bakker",
-    "sites": ["LOND", "Distance_Region"],
-    "Email": "rachel.bakker@themeetinghouse.com",
-    "Position": "Kidmax Coordinator"
-  },
-  {
-    "FirstName": "Carol",
-    "LastName": "Babcock",
-    "sites": ["SAND", "Distance_Region"],
-    "Position": "Tech Coordinator"
-  },
-  {
-    "FirstName": "Heidi",
-    "LastName": "Rushton",
-    "sites": ["HMDT", "Hamilton_Region"],
-    "Email": "heidi.rushton@themeetinghouse.com",
-    "Position": "Kidmax Coordinator"
-  },
-  {
-    "FirstName": "Nathan",
-    "LastName": "Harris",
-    "sites": ["HMDT", "Hamilton_Region"],
-    "Email": "nathan.harris@themeetinghouse.com",
-    "Position": "Tech Coordinator"
-  },
-  {
-    "FirstName": "Andi",
-    "LastName": "Ovenden",
-    "sites": ["HMDT", "Hamilton_Region"],
-    "Email": "andi.ovenden@themeetinghouse.com",
-    "Position": "Youth Coordinator"
-  },
-  {
-    "FirstName": "Amanda",
-    "LastName": "Le Blanc",
-    "sites": ["PRSN", "Distance_Region"],
-    "Email": "amanda.leblanc@themeetinghouse.com",
-    "Position": "Parry Sound Ministry Associate"
-  },
-  {
-    "FirstName": "Leslie",
-    "LastName": "Walcott",
-    "sites": ["SAND", "Distance_Region"],
-    "Position": "Prayer Coordinator"
-  },
-  {
-    "FirstName": "Paul",
-    "LastName": "Pryce",
-    "sites": ["SAND", "Distance_Region"],
-    "Email": "sandbanks.youth@themeetinghouse.com",
-    "Position": "Youth Coordinator"
   }
+
 ]
