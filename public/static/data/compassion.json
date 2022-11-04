@@ -149,6 +149,7 @@
   {
     "id": 9,
     "sites": ["ancaster", "hamilton-downtown"],
+    "region": "hamilton",
     "name": "541 Eatery & Exchange",
     "description": "541 is a community café that offers nutritious and affordable food. We have teams volunteering in the kitchen and supporting their pay-it-forward button program.",
     "website": "https://www.fivefortyone.ca/",
