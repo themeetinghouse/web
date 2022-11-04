@@ -63,6 +63,12 @@
           },
           {
             "type": "link",
+            "title": "Download Early Years Flip Book",
+            "navigateTo": "/static/pdfs/kidmax-files/EY Flip book.pdf",
+            "openNewBrowser": true
+          },
+          {
+            "type": "link",
             "title": "Download Early Years Key Verse Colouring Page",
             "navigateTo": "/static/pdfs/kidmax-files/Key Verse Colouring Page - Know.pdf",
             "openNewBrowser": true
