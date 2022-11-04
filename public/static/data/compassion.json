@@ -2,6 +2,7 @@
   {
     "id": 1,
     "sites": ["brampton"],
+    "region": "peel",
     "name": "Dismas Fellowship Brampton",
     "description": "Dismas Fellowship provides a safe community to worship for persons with a history of offence.",
     "website": "https://dismasfellowshipnetwork.com/brampton/",
@@ -20,6 +21,7 @@
   {
     "id": 2,
     "sites": ["brampton"],
+    "region": "peel",
     "name": "Regeneration Outreach",
     "description": "Regeneration is a caring community that continually strives to provide dignity for those in need, as an expression of Christian love in action. They serve those living in extreme poverty and homelessness by meeting their physical and spiritual needs.",
     "website": "https://regenbrampton.com/",
@@ -38,6 +40,7 @@
   {
     "id": 3,
     "sites": ["brampton"],
+    "region": "peel",
     "name": "Rising Angels Awareness & Restorative Care",
     "description": "Rising Angel's mission is to bring sex trade education to professionals and the public, and to provide supportive services and safe environments to women exploited by the sex trade, allowing them to experience physical, mental, social and spiritual restoration in their lives.",
     "website": "https://www.risingangels.net",
@@ -57,6 +60,7 @@
   {
     "id": 4,
     "sites": ["brantford"],
+    "region": "hamilton",
     "name": "Brantford Blessing Centre",
     "description": "The Blessing Centre provides access to food to marginalized communities in Brantford. The Brantford parish makes and serves meals twice monthly as well as assists with additional projects as they arise.",
     "website": "https://www.brantfordblessingcentre.org/",
@@ -75,6 +79,7 @@
   {
     "id": 5,
     "sites": ["brantford"],
+    "region": "hamilton",
     "name": "Friendship House",
     "description": "Friendship House is a drop-in centre that works to support the physical, emotional, and spiritual needs of guests. We support them primarily by donating to their food bank.",
     "website": "https://www.friendship-house-of-brant.org/",
@@ -94,6 +99,7 @@
   {
     "id": 6,
     "sites": ["burlington"],
+    "region": "peel",
     "name": "Bethany Residence",
     "description": "Bethany Residence provides accommodation and care for individuals in need or at risk. We visit and develop relationships with residents and provide Christmas gifts.",
     "website": "https://www.bethanyresidence.ca/",
@@ -112,6 +118,7 @@
   {
     "id": 7,
     "sites": ["burlington"],
+    "region": "peel",
     "name": "Eagle's Nest Association of Waterdown",
     "description": "Eagles Nest offers counselling, support groups, and educational programs within the community. We promote their programs and services, regularly volunteer at fundraising events, and volunteer throughout the year.",
     "website": "https://eaglesnestwaterdown.ca/",
@@ -130,6 +137,7 @@
   {
     "id": 8,
     "sites": ["burlington"],
+    "region": "peel",
     "name": "Next Door Social Space",
     "description": "Next Door is a community resource centre in the Aldershot area. We offer support through fundraisers, volunteering for events, and helping to run outreach programs like their Monday night ball hockey league.",
     "website": "https://nextdoorsocialspace.com/",
@@ -168,6 +176,7 @@
   {
     "id": 10,
     "sites": ["hamilton-mountain"],
+    "region": "hamilton",
     "name": "Helping Hands Street Mission",
     "description": "Helping Hands Street Mission works to aid people living in the Barton Street Community. We come along side HHSM by providing support for programs to guarantee their continuation and success through volunteering and donations.",
     "website": "https://www.hhsmhamilton.com/",
@@ -186,6 +195,7 @@
   {
     "id": 11,
     "sites": ["ancaster", "hamilton-downtown"],
+    "region": "hamilton",
     "name": "Indwell",
     "description": "Indwell creates affordable housing communities that support health, wellness, and belonging. We support them by running recreational and social events for tenants at various buildings — this has included board-game afternoons, cookie-decorating events, and spring gardening days to help care for the grounds.",
     "website": "https://indwell.ca/",
@@ -205,6 +215,7 @@
     "id": 12,
     "sites": ["ancaster"],
     "name": "Mission Services",
+    "region": "hamilton",
     "description": "Mission Services is a social services agency. We partner with them by running weekly food collections, volunteering once a month at their food bank, and providing additional support during the holidays by distributing Holiday Hampers.",
     "website": "https://mission-services.com/",
     "image": "/static/photos/compassion/mission services.jpg",
@@ -222,6 +233,7 @@
   {
     "id": 13,
     "sites": ["hamilton-mountain"],
+    "region": "hamilton",
     "name": "The Baby Depot",
     "description": "The Baby Depot helps families in need with children 0–2 years old. We donate clothes and other essential items, fold and organize clothes at their facility, and help wash and pack bins for delivery.",
     "website": "https://www.thebabydepot.org/",
@@ -296,6 +308,7 @@
   {
     "id": 17,
     "sites": ["oakville"],
+    "region": "peel",
     "name": "Food for Life",
     "description": "Food for Life is an outreach program that provides neighbours in need with direct access to fresh food within their neighbourhood. The food is delivered by the refrigerated Food for Life truck.",
     "website": "https://www.foodforlife.ca/",
@@ -314,6 +327,7 @@
   {
     "id": 18,
     "sites": ["oakville"],
+    "region": "peel",
     "name": "Frontline Outreach",
     "description": "The vision of Frontline Outreach is that every person who lives in poverty will be shown the love and mercy of God by the local church and all benefactors who provide housing, food, programs and opportunities that are gateways out of poverty. Their hope is that residents of every low income, subsidized housing community will be adopted by a caring and generous church, that results in breaking the cycle of poverty that affects the lives of so many children",
     "website": "https://frontlineoutreach.ca/",
@@ -332,6 +346,7 @@
   {
     "id": 19,
     "sites": ["oakville"],
+    "region": "peel",
     "name": "Kerr Street Mission",
     "description": "We partner with KSM's Neighbour Care Network which is committed to helping people in difficulty and distress with one-on-one support and encouragement.",
     "website": "https://www.kerrstreet.com/",
@@ -350,6 +365,7 @@
   {
     "id": 20,
     "sites": ["oakville"],
+    "region": "peel",
     "name": "RE:Soul",
     "description": "ReSoul is Milton's only youth dedicated drop-in centre, serving youth from grades 6-12. ",
     "website": "https://yfcmilton.com/resoul-youth-centre/",
@@ -368,6 +384,7 @@
   {
     "id": 21,
     "sites": ["oakville"],
+    "region": "peel",
     "name": "Salvation Army Halton Lighthouse Shelter",
     "description": "The Salvation Army Halton Lighthouse provides emergency shelter, basic needs and intensive case management for men, and women who are homeless. The Lighthouse Shelter provides accommodation for 30 men and women who are experiencing homelessness and partners with the Canadian Mental Health SafePlace program for persons who have mental health crisis needs.",
     "website": "https://www.hipinfo.ca/record/OAK3707",
@@ -386,6 +403,7 @@
   {
     "id": 22,
     "sites": ["oakville"],
+    "region": "peel",
     "name": "The Dam",
     "description": "The Dam partners with youth to create an inclusive community where all are welcomed, valued and respected.",
     "website": "https://www.thedam.org/",
@@ -407,6 +425,7 @@
   {
     "id": 23,
     "sites": ["oakville"],
+    "region": "peel",
     "name": "Women's Habitat",
     "description": "Women's Habitat is a shelter and outreach centre that provides services and temporary housing for women in need to make a new life for themselves and their children.",
     "website": "https://womenshabitat.ca/",
@@ -513,6 +532,7 @@
   {
     "id": 28,
     "sites": ["toronto-downtown"],
+    "region": "toronto",
     "name": "Adam House",
     "description": "Adam House is a home and caring community for newly arrived refugee claimants in Toronto. They are a provider of immigration and settlement services and a non-profit Christian refugee reception centre that has to date supported over 2000 refugees, regardless of race, ethnicity or creed.",
     "website": "https://www.adamhouse.org/home",
@@ -535,6 +555,7 @@
   {
     "id": 29,
     "sites": ["toronto-uptown"],
+    "region": "toronto",
     "name": "Inner City Outreach ",
     "description": "Inner City Outreach provides wholistic programs for youth in the Jane and Finch community. Some programs they offer are homework clubs, a basketball league, Scouts, and camps.",
     "website": "https://innercityoutreach.ca/",
@@ -556,6 +577,7 @@
   {
     "id": 30,
     "sites": ["toronto-uptown"],
+    "region": "toronto",
     "name": "Matthew House",
     "description": "Matthew House's primary goal is to help restore refugees' dignity by providing shelter and support in a welcoming, home-like setting. Many refugees arrive with little more than a small bag and need practical support. We ensure that their individual needs are met and empower refugees to restart their lives in Canada. ",
     "website": "https://www.matthewhouse.ca/",
@@ -577,6 +599,7 @@
   {
     "id": 31,
     "sites": ["toronto-east"],
+    "region": "toronto",
     "name": "Nourish East End",
     "description": "Nourish East End Free Food Market serves 200-300 households each week. We partner through our giving, food drives, and in serving community dinners.",
     "website": "https://nourisheastend.ca/",
@@ -598,6 +621,7 @@
   {
     "id": 32,
     "sites": ["toronto-high-park"],
+    "region": "toronto",
     "name": "Oasis Dufferin Community Center",
     "description": "",
     "website": "https://oasisdufferin.org/",
@@ -620,6 +644,7 @@
   {
     "id": 33,
     "sites": ["toronto-uptown"],
+    "region": "toronto",
     "name": "Pregnancy Care Centre",
     "description": "The Pregnancy Care Centre provides personalized support and resources for women who are pregnant. ",
     "website": "https://iamnotalone.ca",
@@ -638,6 +663,7 @@
   {
     "id": 34,
     "sites": ["toronto-downtown"],
+    "region": "toronto",
     "name": "The Dale ",
     "description": "The Dale creates a safe welcoming space in which all people, particularly the vulnerable and broken, are encouraged to participate fully, to the best of their abilities and journey together toward a deeper experience of the life God has given us.",
     "website": "https://www.thedale.org/",
@@ -656,6 +682,7 @@
   {
     "id": 35,
     "sites": ["toronto-high-park"],
+    "region": "toronto",
     "name": "The Sharing Place",
     "description": "The Sharing Place is a non-profit compassion organization that servers West Toronto with love and compassion.",
     "website": "https://www.sharingplace.ca/",
@@ -674,6 +701,7 @@
   {
     "id": 36,
     "sites": ["toronto-high-park"],
+    "region": "toronto",
     "name": "Wesley Mimico United Church",
     "description": "Provides a community lunch every Saturday at 12PM and a food bank every Saturday (except the last in a month) between 11-1PM.",
     "website": "https://www.wmuc.ca/",
@@ -692,6 +720,7 @@
   {
     "id": 37,
     "sites": ["toronto-downtown"],
+    "region": "toronto",
     "name": "Yonge Street Mission",
     "description": "The Yonge Street Mission exists so that all the poor and vulnerable in Toronto that we encounter will experience God's love, peace, and justice at a level that represents the highest stewardship of the resources invested.",
     "website": "https://www.ysm.ca/",
@@ -711,6 +740,7 @@
   {
     "id": 38,
     "sites": ["waterloo"],
+    "region": "waterloo",
     "name": "Adventure 4 Change",
     "description": "Adventure4Change addresses issues related to poverty and inequity for children, families, and youth by bringing together people committed to transformational change. As partners, we develop and foster meaningful relationships with the community to change and impact their lives and ours.",
     "website": "https://adventure4change.org/",
@@ -729,6 +759,7 @@
   {
     "id": 39,
     "sites": ["kitchener"],
+    "region": "waterloo",
     "name": "Ray of Hope",
     "description": "Ray of Hope supports the disadvantaged, marginalized, and troubled through youth employment and addiction services and other community support programs. We support them financially and through collecting food items to distribute through their Community Centre.",
     "website": "https://www.rayofhope.net/",
@@ -751,6 +782,7 @@
   {
     "id": 40,
     "sites": ["kitchener"],
+    "region": "waterloo",
     "name": "Royal City Mission",
     "description": "Royal City Mission is a downtown mission in Guelph, Ontario that provides a safe and loving environment for anyone who is in need. Each week they provide up to 600 meals, and a variety of programs at no charge.",
     "website": "https://www.royalcitymission.ca/",
@@ -772,6 +804,7 @@
   {
     "id": 41,
     "sites": ["kitchener"],
+    "region": "waterloo",
     "name": "The Bridges",
     "description": "Cambridge Shelter Corporation expanded an “Out of the Cold” program that ran in local churches during winters and turned it into The Bridges, a facility that now includes a year round emergency shelter, a drop-in centre, and 20 affordable, transitional, bachelor apartments.  It is designed to offer a continuum of housing services, and to offer a wide variety of supporting programs to help clients address the issues facing them to move forward.",
     "website": "https://cambridgesheltercorp.ca/",
@@ -790,6 +823,7 @@
   {
     "id": 42,
     "sites": ["kitchener"],
+    "region": "waterloo",
     "name": "Cambridge Self Help Foodbank",
     "description": "The Cambridge Self-Help Food Bank offers food and support to people and community groups in need within Cambridge and North Dumfries. They encourage self-reliance through programs and services.",
     "website": "https://cambridgefoodbank.org/",
@@ -809,6 +843,7 @@
   {
     "id": 43,
     "sites": ["waterloo"],
+    "region": "waterloo",
     "name": "Compass",
     "description": "Compass assists, accompanies, and advocates for refugee claimants in our community. We support their Welcome Home program by helping newly arrived individuals and families get settled — this includes helping them prepare for job interviews, supplying necessities, and being a source of connection to the wider community.",
     "website": "https://compassrefugee.ca/",
