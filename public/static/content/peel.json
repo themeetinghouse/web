@@ -1,6 +1,6 @@
 {
   "page": {
-    "name": "toronto-downtown",
+    "name": "halton-peel",
     "title": "The Meeting House - Halton-Peel Region",
     "keywords": "",
     "description": "",
@@ -16,7 +16,7 @@
     "content": [
       {
         "type": "og-tags",
-        "image": "/static/images/og-images/toronto-downtown.jpg",
+        "image": "/static/images/og-images/locations.jpg",
         "url": "https://www.themeetinghouse.com/peel",
         "title": "The Meeting House - Halton-Peel Region",
         "description": "A loving community of irreligious Jesus-followers in Halton-Peel."

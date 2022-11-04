@@ -16,7 +16,7 @@
     "content": [
       {
         "type": "og-tags",
-        "image": "/static/images/og-images/toronto-downtown.jpg",
+        "image": "/static/images/og-images/locations.jpg",
         "url": "https://www.themeetinghouse.com/waterloo",
         "title": "The Meeting House - Waterloo Region",
         "description": "A loving community of irreligious Jesus-followers in Waterloo."
@@ -140,7 +140,7 @@
         "header1": "Home Church",
         "header2": "",
         "text1": "Something really good happens when we gather in our neighbourhoods to share life, grow deeper spiritual friendships, and talk about how we can live Jesus-centred lives, all while we invite others to join us.",
-        "link1Text": "Browse Home Churches in Downtown Toronto",
+        "link1Text": "Browse Home Churches in the Waterloo Region",
         "link1Action": "/find-homechurch"
       },
 
@@ -151,7 +151,7 @@
         "header1": "Make a Difference",
         "text1": "We want to use our money, time, and resources to love and serve people on the margins.",
         "filterField": "sites",
-        "filterValue": "toronto-downtown"
+        "filterValue": "Waterloo_Region"
       },
 
       {
