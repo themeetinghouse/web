@@ -136,7 +136,7 @@
         "header1": "Make a Difference",
         "text1": "We want to use our money, time, and resources to love and serve people on the margins.",
         "filterField": "region",
-        "filterValue": "waterloo_Region"
+        "filterValue": "waterloo_region"
       },
       {
         "type": "hero",
