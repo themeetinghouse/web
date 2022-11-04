@@ -53,21 +53,21 @@
         "text1": "Here's what we're learning in Jr High Weekend this week:",
         "image1": [
           {
-            "src": "/static/photos/series/ky-jrhigh-Exodus Wilderness.jpg",
-            "alt": "Exodus Wilderness"
+            "src": "/static/photos/series/ky-jrhigh-Daniel The Faithful.jpg",
+            "alt": "Daniel The Faithful"
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Weekend Lesson",
-            "navigateTo": "/static/pdfs/youth-files/Wk 5 - Wilderness - Jr High Weekend.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 1 - Faithful - Jr High Weekend.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
-            "title": "Download Weekend Activity",
-            "navigateTo": "/static/pdfs/youth-files/Wk 5 - Activity.pdf",
+            "title": "Download Weekend Activities",
+            "navigateTo": "/static/pdfs/youth-files/Wk 1 - Activities.pdf",
             "openNewBrowser": true
           }
       
@@ -90,21 +90,21 @@
         "text1": "Here's what our Jr High Midweek students are learning this week:",
         "image1": [
           {
-            "src": "/static/photos/series/ky-youth-Exodus Wilderness.jpg",
-            "alt": "Exodus Wilderness"
+            "src": "/static/photos/series/ky-youth-Daniel The Faithful.jpg",
+            "alt": "Daniel The Faithful"
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Midweek Lesson",
-            "navigateTo": "/static/pdfs/youth-files/Wilderness - JH Midweek - Wk 5.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 1 - Faithful - JH Midweek.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Midweek Small Group Leader Notes",
-            "navigateTo": "/static/pdfs/youth-files/Wilderness - JH Midweek SGL Notes - Wk 5.pdf",
+            "navigateTo": "/static/pdfs/youth-files/Wk 1 - Faithful - JH Midweek SGL Notes.pdf",
             "openNewBrowser": true
           }
         ]
