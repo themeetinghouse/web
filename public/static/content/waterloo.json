@@ -136,7 +136,7 @@
         "header1": "Make a Difference",
         "text1": "We want to use our money, time, and resources to love and serve people on the margins.",
         "filterField": "sites",
-        "filterValue": "waterloo"
+        "filterValue": ["waterloo", "kitchener"]
       },
       {
         "type": "hero",
