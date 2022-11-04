@@ -2,7 +2,7 @@
   {
     "id": 1,
     "sites": ["brampton"],
-    "region": "peel",
+    "region": "Peel",
     "name": "Dismas Fellowship Brampton",
     "description": "Dismas Fellowship provides a safe community to worship for persons with a history of offence.",
     "website": "https://dismasfellowshipnetwork.com/brampton/",
@@ -49,7 +49,7 @@
     "address": "",
     "Phone": "(416) 254-1581",
     "email": "kareema.bartley@themeetinghouse.com",
-    "social": { "twitter": "https://twitter.com/@risingangelsrestorative" },
+    "social": { "instagram": "https://instagram.com/@risingangelsrestorative" },
     "location": {
       "longitude": 0.1,
       "latitude": 0.1,
@@ -88,7 +88,7 @@
     "address": "452 Grey St, Brantford, ON N3S 4X8",
     "Phone": "(519) 753-8511",
     "email": "",
-    "social": { "twitter": "https://twitter.com/@friendshiphouseofbrant" },
+    "social": { "instagram": "https://instagram.com/@friendshiphouseofbrant" },
     "location": {
       "longitude": -80.232462901705,
       "latitude": 43.14769893305515,
@@ -127,7 +127,7 @@
     "address": "606 Dundas St E, Waterdown, ON L0R 2H1",
     "Phone": "(905) 689-8721",
     "email": "",
-    "social": { "twitter": "https://twitter.com/@eaglesnestwaterdown" },
+    "social": { "instagram": "https://instagram.com/@eaglesnestwaterdown" },
     "location": {
       "longitude": -79.86858490169908,
       "latitude": 43.35197741635141,
@@ -146,7 +146,7 @@
     "address": "650 Plains Rd E, Unit 2 & 3, Burlington, Ontario, L7T 2E9",
     "Phone": "(905) 825-2992",
     "email": "",
-    "social": { "twitter": "https://twitter.com/@nextdoorsocialspace" },
+    "social": { "instagram": "https://instagram.com/@nextdoorsocialspace" },
     "location": {
       "longitude": -79.83043104402735,
       "latitude": 43.322644389517166,
@@ -166,7 +166,7 @@
     "address": "541 Barton St E, Hamilton, ON L8L 2Z2",
     "Phone": "(289) 389-0541",
     "email": "cynthia.eden@themeetinghouse.com",
-    "social": { "twitter": "https://twitter.com/@541barton" },
+    "social": { "instagram": "https://instagram.com/@541barton" },
     "location": {
       "longitude": -79.84226758821069,
       "latitude": 43.25852097045591,
@@ -185,7 +185,7 @@
     "address": "349 Barton St E, Hamilton, ON L8L 2X8",
     "Phone": "(905) 522-4263",
     "email": "cynthia.eden@themeetinghouse.com",
-    "social": { "twitter": "https://twitter.com/@hhsm_hamilton" },
+    "social": { "instagram": "https://instagram.com/@hhsm_hamilton" },
     "location": {
       "longitude": -79.85049964402909,
       "latitude": 43.260679449192175,
@@ -204,7 +204,7 @@
     "address": "1430 Main St E, Hamilton, ON L8K 1C3",
     "Phone": "(905) 529-0454",
     "email": "cynthia.eden@themeetinghouse.com",
-    "social": { "twitter": "https://twitter.com/@indwell.ca" },
+    "social": { "instagram": "https://instagram.com/@indwell.ca" },
     "location": {
       "longitude": -79.80929284402971,
       "latitude": 43.2402440433589,
@@ -223,7 +223,7 @@
     "address": "196 Wentworth St N, Hamilton, ON L8L 5V7",
     "Phone": "(905) 528-5100",
     "email": "cynthia.eden@themeetinghouse.com",
-    "social": { "twitter": "https://twitter.com/@missionhamilton" },
+    "social": { "instagram": "https://instagram.com/@missionhamilton" },
     "location": {
       "longitude": -79.84515670968364,
       "latitude": 43.25846010463374,
@@ -242,7 +242,7 @@
     "address": "669 Barton St E, Hamilton, ON L8L 3A3",
     "Phone": "(289) 639-2497",
     "email": "cynthia.eden@themeetinghouse.com",
-    "social": { "twitter": "https://twitter.com/@thebabydepotcharity" },
+    "social": { "instagram": "https://instagram.com/@thebabydepotcharity" },
     "location": {
       "longitude": -79.83636397101137,
       "latitude": 43.256834353250476,
@@ -261,7 +261,7 @@
     "address": "254 Adelaide St S, London, ON N5Z 3L1",
     "Phone": "(519) 686-0093",
     "email": "kate.thompson@themeetinghouse.com",
-    "social": { "twitter": "https://twitter.com/@yfclondon_" },
+    "social": { "instagram": "https://instagram.com/@yfclondon_" },
     "location": {
       "longitude": -81.2192621305466,
       "latitude": 42.96234165277861,
@@ -279,7 +279,7 @@
     "address": "280 St James St, London, ON N6A 1X3",
     "Phone": "(519) 432-3743",
     "email": "kate.thompson@themeetinghouse.com",
-    "social": { "twitter": "https://twitter.com/@stjohnslondon" },
+    "social": { "instagram": "https://instagram.com/@stjohnslondon" },
     "location": {
       "longitude": -81.2518081152003,
       "latitude": 42.998738614047554,
@@ -297,7 +297,7 @@
     "address": "361 Eagle St, Newmarket, ON L3Y 1K5",
     "Phone": "(905) 853-5514",
     "email": "lisana.walks@themeetinghouse.com",
-    "social": { "twitter": "https://twitter.com/@roseofsharonyoungmothers" },
+    "social": { "instagram": "https://instagram.com/@roseofsharonyoungmothers" },
     "location": {
       "longitude": -79.46187932866094,
       "latitude": 44.04941539163942,
@@ -317,7 +317,7 @@
     "address": "2258 Mountainside Dr, Burlington, ON L7P 1B7",
     "Phone": "(905) 635-1106",
     "email": "carolynn.bucek@themeetinghouse.com",
-    "social": { "twitter": "https://twitter.com/@foodforlifecan" },
+    "social": { "instagram": "https://instagram.com/@foodforlifecan" },
     "location": {
       "longitude": -79.81573275727317,
       "latitude": 43.35001335416619,
@@ -336,7 +336,7 @@
     "address": "111 Prince Charles Dr #105, Oakville, ON L6K 3X3",
     "Phone": "(905) 467-7483",
     "email": "carolynn.bucek@themeetinghouse.com",
-    "social": { "twitter": "https://twitter.com/@frontlineoutreach.ca" },
+    "social": { "instagram": "https://instagram.com/@frontlineoutreach.ca" },
     "location": {
       "longitude": -79.6863391016964,
       "latitude": 43.445855588457725,
@@ -355,7 +355,7 @@
     "address": "485 Kerr St, Oakville, ON L6K 3C6",
     "Phone": "(905) 845-7485",
     "email": "carolynn.bucek@themeetinghouse.com",
-    "social": { "twitter": "https://twitter.com/@kerrstreetmission" },
+    "social": { "instagram": "https://instagram.com/@kerrstreetmission" },
     "location": {
       "longitude": -79.68587289984224,
       "latitude": 43.44664180118696,
@@ -374,7 +374,7 @@
     "address": "900 Nipissing Rd, Milton, ON L9T 4Z9",
     "Phone": "(905) 876-0368",
     "email": "carolynn.bucek@themeetinghouse.com",
-    "social": { "twitter": "https://twitter.com/@resolveyouth" },
+    "social": { "instagram": "https://instagram.com/@resolveyouth" },
     "location": {
       "longitude": -79.86229985751255,
       "latitude": 43.5239737279105,
@@ -435,7 +435,7 @@
     "Phone": "(416) 252-7949",
     "email": "carolynn.bucek@themeetinghouse.com",
     "social": {
-      "twitter": "https://twitter.com/@womenshabitat",
+      "instagram": "https://instagram.com/@womenshabitat",
       "facebook": "https://www.facebook.com/WomensHabitat"
     },
     "location": {
@@ -457,7 +457,7 @@
     "Phone": "(613) 567-5134",
     "email": "april.yorke@themeetinghouse.com",
     "social": {
-      "twitter": "https://twitter.com/@jerichoroadottawa",
+      "instagram": "https://instagram.com/@jerichoroadottawa",
       "facebook": "https://www.facebook.com/jerichoroadottawa"
     },
 
@@ -501,6 +501,7 @@
     "email": "april.yorke@themeetinghouse.com",
     "social": {
       "twitter": "https://twitter.com/@RHMOttawa",
+      "instagram":"https://instagram.com/@rhmOttawa",
       "facebook": "https://www.facebook.com/restoringhopeministries/"
     },
     "location": {
@@ -565,7 +566,7 @@
     "Phone": "(416) 650-0991",
     "email": "sheila.wong@themeetinghouse.com",
     "social": {
-      "twitter": "https://twitter.com/@innercityoutreach",
+      "instagram": "https://instagram.com/@innercityoutreach",
       "facebook": "https://www.facebook.com/ICOJaneandFinch/"
     },
     "location": {
@@ -588,6 +589,7 @@
     "email": "sheila.wong@themeetinghouse.com",
     "social": {
       "twitter": "https://twitter.com/@mhouseto",
+      "instagram":"https://instagram.com/@mhouseto",
       "facebook": "https://www.facebook.com/mhouseto/"
     },
     "location": {
@@ -610,6 +612,7 @@
     "email": "sheila.wong@themeetinghouse.com",
     "social": {
       "twitter": "https://twitter.com/@nourisheastend",
+      "instagram": "https://instagram.com/@nourisheastend",
       "facebook": "https://www.facebook.com/nourisheastendtoronto"
     },
     "location": {
@@ -793,6 +796,7 @@
     "email": "",
     "social": {
       "twitter": "https://twitter.com/@rcmguelph",
+      "instagram":"https://instagram.com/@rcmguelph",
       "facebook": "https://www.facebook.com/rcmguelph"
     },
     "location": {
