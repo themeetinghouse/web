@@ -44,27 +44,27 @@
         "text1": "Here's what we're learning in early years this week:",
         "image1": [
           {
-            "src": "/static/images/EY_Social Media - Big Idea - Promises.jpg",
-            "alt": "This month's big idea: God keeps his promises."
+            "src": "/static/images/EY_Social Media - Big Idea - Know.jpg",
+            "alt": "This month's big idea: God wants us to know him."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Early Years Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 1-5 - Promises - 1.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 1-4 - Know - 1.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Activities",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 5 - EY Activities.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 1 - EY Activities.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Early Years Key Verse Colouring Page",
-            "navigateTo": "/static/pdfs/kidmax-files/Key Verse Colouring Page - Promises.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Key Verse Colouring Page - Know.pdf",
             "openNewBrowser": true
           }
         ]
@@ -86,27 +86,27 @@
         "text1": "Here's what our Grade 1-5 students are learning this week:",
         "image1": [
           {
-            "src": "/static/images/Social Media - BigIdea - Wilderness - Wk5.jpg",
-            "alt": "God equips us for great work."
+            "src": "/static/images/Social Media - BigIdea - Daniel The Faithful - Wk1.jpg",
+            "alt": "God loves our faith in action."
           }
         ],
         "list": [
           {
             "type": "link",
             "title": "Download Kids Lesson",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 5 - Wilderness  - Gr 1-2.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 1 - Faithful - Gr 1-2.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Activites",
-            "navigateTo": "/static/pdfs/kidmax-files/Wk 5 - Activities.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Wk 1 - Activities.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Download Kids Key Verse Colouring Page",
-            "navigateTo": "/static/pdfs/kidmax-files/Key Verse Colouring Page - Wilderness.pdf",
+            "navigateTo": "/static/pdfs/kidmax-files/Key Verse Colouring Page - The Faithful.pdf",
             "openNewBrowser": true
           }
         ]
