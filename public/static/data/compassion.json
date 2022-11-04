@@ -847,7 +847,7 @@
   {
     "id": 43,
     "sites": ["waterloo"],
-    "region": "waterloo",
+    "region": "waterloo_region",
     "name": "Compass",
     "description": "Compass assists, accompanies, and advocates for refugee claimants in our community. We support their Welcome Home program by helping newly arrived individuals and families get settled — this includes helping them prepare for job interviews, supplying necessities, and being a source of connection to the wider community.",
     "website": "https://compassrefugee.ca/",

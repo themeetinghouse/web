@@ -61,7 +61,7 @@
         "header1": "Our Region",
         "text1": "These are the folks that help make community, discipleship, and Sunday mornings happen.",
         "filterField": "sites",
-        "filterValue": "Hamilton_Region"
+        "filterValue": "hamilton"
       },
       {
         "type": "list",
