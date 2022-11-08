@@ -5,6 +5,7 @@ import * as queries from '../../graphql/queries';
 import { HomeChurchItemContent } from 'components/types';
 import {
   GoogleApiWrapper,
+  InfoWindow,
   IProvidedProps,
   Map,
   Marker,
@@ -32,6 +33,9 @@ interface Props extends RouteComponentProps, IProvidedProps {
 
 export function ContentItem(props: Props) {
   // let map: google.maps.Map | undefined;
+  const [showingInfoWindow, setShowingInfoWindow] = useState<boolean>(false);
+  const [activeMarker, setActiveMarker] = useState<any>({});
+  const [selectedPlace2, setSelectedPlace2] = useState<any>({});
 
   const [selectedPlace] = useState(null);
   //const [locationFilter, setLocationFilter] = useState(null);
@@ -164,7 +168,19 @@ export function ContentItem(props: Props) {
           });
     });
   };
+  const onMarkerClick = (props: any, marker: any, e: any) => {
+    setSelectedPlace2(e);
+    setActiveMarker(marker);
+    setShowingInfoWindow(true);
+    console.log(props, marker, e);
+  };
 
+  const onMapClicked = (props: any) => {
+    if (showingInfoWindow) {
+      //  setShowingInfoWindow(false);
+      //    setActiveMarker(null);
+    }
+  };
   const updateGeoLocation = async (isUserAction: boolean): Promise<void> => {
     const newLatLng = await getCurrentPosition(isUserAction);
     setCurrentLatLng(newLatLng);
@@ -177,6 +193,7 @@ export function ContentItem(props: Props) {
       document.getElementById('legend')
     );
   };
+  let map;
   return (
     <div className="CombinedMapItem">
       <div className="CombinedMapItemDiv1">
@@ -206,7 +223,9 @@ export function ContentItem(props: Props) {
               Compassion Partner
             </div>
           </div>
+
           <Map
+            onClick={onMapClicked}
             google={props.google}
             zoom={initalZoom}
             streetViewControl={false}
@@ -216,14 +235,26 @@ export function ContentItem(props: Props) {
             bounds={mapBounds ?? undefined}
             mapTypeControl={false}
             onReady={(mapProps, map2) => {
-              //map = map2;
+              // map = map2;
+
               onGoogleReady(mapProps, map2);
             }}
           >
+            {map ? (
+              <InfoWindow
+                key="info"
+                map={map}
+                google={props.google}
+                marker={activeMarker}
+                visible={showingInfoWindow}
+              >
+                <div>TESTTEST{selectedPlace2.name}</div>
+              </InfoWindow>
+            ) : null}
             {regions.map((z, index) => {
               return (
                 <Polygon
-                  key={index}
+                  key={'poly' + index}
                   fillColor={z.color}
                   strokeColor={z.color}
                   paths={z.outline}
@@ -232,26 +263,33 @@ export function ContentItem(props: Props) {
             })}
 
             <Marker
+              key="current"
               icon={CURRENT_LOCATION_URL}
               position={{ ...currentLatLng }}
-            />
-            {compassion.map((compassion) => {
+            ></Marker>
+            {compassion.map((compassion, index) => {
               return (
                 <Marker
-                  key={compassion.id}
+                  onClick={(a, b, c) => {
+                    onMarkerClick(a, b, compassion);
+                  }}
+                  key={'comp' + compassion.id + index}
                   anchorPoint={new google.maps.Point(0, 0)}
                   icon={selectedPlace ? SITE_PIN_SELECTED_URL : SITE_PIN_URL}
                   position={{
                     lat: compassion?.location?.latitude,
                     lng: compassion?.location?.longitude,
                   }}
-                />
+                ></Marker>
               );
             })}
-            {locations.map((location) => {
+            {locations.map((location, index) => {
               return (
                 <Marker
-                  key={location.id}
+                  onClick={(a, b, c) => {
+                    onMarkerClick(a, b, location);
+                  }}
+                  key={'loc' + location.id + index}
                   anchorPoint={new google.maps.Point(0, 0)}
                   icon={selectedPlace ? SITE_PIN_SELECTED_URL : SITE_PIN_URL}
                   position={{
@@ -261,10 +299,13 @@ export function ContentItem(props: Props) {
                 />
               );
             })}
-            {groups.map((location) => {
+            {groups.map((location, index) => {
               return (
                 <Marker
-                  key={location?.id}
+                  onClick={(a, b, c) => {
+                    onMarkerClick(a, b, location);
+                  }}
+                  key={'group' + location?.id ?? 'a' + index}
                   anchorPoint={new google.maps.Point(0, 0)}
                   icon={
                     selectedPlace
@@ -278,20 +319,6 @@ export function ContentItem(props: Props) {
                 />
               );
             })}
-            {/*}  <InfoWindow
-              pixelOffset={new google.maps.Size(0, -32)}
-              google={props.google}
-              // These types are wrong, they should be optional. So just cast to fix the issues.
-              map={map as google.maps.Map}
-              // marker={selectedPlaceMarker as google.maps.Marker}
-              position={{
-                lat: 20,
-                lng: 20,
-              }}
-              visible={!!selectedPlace}
-            >
-              <div></div>
-            </InfoWindow>*/}
           </Map>
         </div>
       </div>

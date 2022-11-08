@@ -1,6 +1,5 @@
 import Analytics from '@aws-amplify/analytics';
 import { API, graphqlOperation } from '@aws-amplify/api';
-import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
 import Auth from '@aws-amplify/auth';
 //import * as Linking from 'expo-linking';
 import moment from 'moment';
@@ -190,7 +189,7 @@ export default class Authenticator extends React.Component<
               variables: {
                 input: inputData,
               },
-              authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+              authMode: 'AMAZON_COGNITO_USER_POOLS',
             })) as GraphQLResult<CreateTMHUserMutation>;
             userDB = createUser?.data?.createTMHUser;
             userExists = true;
@@ -208,7 +207,7 @@ export default class Authenticator extends React.Component<
       const z = API.graphql({
         query: queries.getTMHUser,
         variables: { id: this.user['username'] },
-        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+        authMode: 'AMAZON_COGNITO_USER_POOLS',
       }) as Promise<GraphQLResult<GetTMHUserQuery>>;
       await z.then(handleUser).catch(handleUser);
 
@@ -223,7 +222,7 @@ export default class Authenticator extends React.Component<
     try {
       const tmhF1SyncGroupPermissions = (await API.graphql({
         query: queries.tmhF1SyncGroupPermissions,
-        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+        authMode: 'AMAZON_COGNITO_USER_POOLS',
       })) as GraphQLResult<TmhF1SyncGroupPermissionsQuery>;
       console.log(tmhF1SyncGroupPermissions);
       return true;
@@ -239,7 +238,7 @@ export default class Authenticator extends React.Component<
         const tmhStripeLinkUser = (await API.graphql({
           query: queries.tmhStripeAddCustomer,
           variables: { idempotency: uuidv4() },
-          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+          authMode: 'AMAZON_COGNITO_USER_POOLS',
         })) as GraphQLResult<TmhStripeAddCustomerQuery>;
         console.log(tmhStripeLinkUser);
         return true;
@@ -259,7 +258,7 @@ export default class Authenticator extends React.Component<
       try {
         const tmhF1LinkUser = (await API.graphql({
           query: queries.tmhF1LinkUser,
-          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+          authMode: 'AMAZON_COGNITO_USER_POOLS',
         })) as GraphQLResult<TmhF1LinkUserQuery>;
         console.log(tmhF1LinkUser);
         return true;

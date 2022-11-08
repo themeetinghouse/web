@@ -595,7 +595,6 @@ class HeroItem extends React.Component<Props, State> {
                 {this.state.locationData && (
                   <Select
                     menuPortalTarget={document.querySelector('body')}
-                    X
                     styles={{
                       placeholder: (styles) => {
                         return { ...styles, color: '#484848' };

@@ -22,7 +22,7 @@ import React, { CSSProperties } from 'react';
 import AddToCalendar, { Event } from '../AddToCalendar/AddToCalendar';
 import { isMobile } from 'react-device-detect';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
-import Select, { Styles } from 'react-select';
+import Select from 'react-select';
 import { Spinner } from 'reactstrap';
 import DataLoader, { LocationData } from './DataLoader';
 import './HomeChurchItem.scss';
@@ -114,8 +114,8 @@ function latLngOfGroup(g: F1Group): google.maps.LatLngLiteral {
 }
 
 export class ContentItem extends React.Component<Props, State> {
-  selectControlDay: Select<{ label: string; value: string }> | null = null;
-  selectControlLocation: Select<{ label: string; value: string }> | null = null;
+  selectControlDay: any | null = null;
+  selectControlLocation: any | null = null;
   homeChurchListScrollContainer: HTMLDivElement | null = null;
   map: google.maps.Map | undefined;
 
@@ -461,9 +461,7 @@ export class ContentItem extends React.Component<Props, State> {
     this.setState({ showContactModal: !this.state.showContactModal });
   }
 
-  private styleSelect: Partial<
-    Styles<{ label: string; value: string }, boolean>
-  > = {
+  private styleSelect: any = {
     container: (provided: CSSProperties) => ({
       ...provided,
       height: '43px',
