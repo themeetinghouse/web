@@ -694,7 +694,7 @@ export default class DataLoader {
   ): Promise<void> {
     const variables: ListF1ListGroup2sQueryVariables = {
       nextToken: nextToken,
-      limit: 20,
+      limit: 100,
     };
     const listCustomPlaylists = API.graphql({
       query: queries.listF1ListGroup2s,
