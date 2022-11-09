@@ -38,14 +38,14 @@
     "FirstName": "Sarah",
     "LastName": "Ramoutar",
     "sites": ["BRAM", "Peel_Region"],
-    "Email":"sarah.ramoutar@themeetinghouse.com",
+    "Email": "sarah.ramoutar@themeetinghouse.com",
     "Position": "Kidmax Coordinator"
   },
   {
     "FirstName": "Kareema",
     "LastName": "Giscombe-Bartley",
     "sites": ["BRAM", "Peel_Region"],
-    "Email":"kareema.bartley@themeetinghouse.com",
+    "Email": "kareema.bartley@themeetinghouse.com",
     "Position": "Compassion Coordinator"
   },
   {
