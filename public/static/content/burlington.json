@@ -58,7 +58,7 @@
         "type": "content",
         "style": "greyTwoText",
         "header1": "Burlington Service Details",
-        "text1": "We have two services on Sunday, click the link below to see how these services are structured.",
+        "text1": "We have two services on Sunday, click the link below to see how these services are structured. Starting Nov 27, we will have only one service at 10am.",
         "list": [
           {
             "type": "link",
