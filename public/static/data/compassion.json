@@ -645,25 +645,6 @@
     }
   },
   {
-    "id": 33,
-    "sites": ["toronto-uptown"],
-    "region": "toronto",
-    "name": "Pregnancy Care Centre",
-    "description": "The Pregnancy Care Centre provides personalized support and resources for women who are pregnant. ",
-    "website": "https://iamnotalone.ca",
-    "image": "/static/photos/compassion/pregnancy care.jpg",
-    "imagealt": "Placeholder image for Compassion Partner",
-    "address": "15 Hove Street, Suite 100, North York, ON M3H 4Y8",
-    "Phone": "(416) 229-2607",
-    "email": "sheila.wong@themeetinghouse.com",
-    "social": {},
-    "location": {
-      "longitude": -79.44145900168738,
-      "latitude": 43.75595271576317,
-      "address": "15 Hove Street, Suite 100"
-    }
-  },
-  {
     "id": 34,
     "sites": ["toronto-downtown"],
     "region": "toronto",
