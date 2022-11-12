@@ -162,6 +162,12 @@
         "list": [
           {
             "type": "link",
+            "title": "Info about our Protection Plan",
+            "navigateTo": "/static/pdfs/Policies-and-Statements/FINAL TMHPP Guidelines and Principles for Website.pdf",
+            "openNewBrowser": true
+          },
+          {
+            "type": "link",
             "title": "AODA Employment Standards Policy",
             "navigateTo": "/static/pdfs/Policies-and-Statements/AODA Employment Standards Policy.pdf",
             "openNewBrowser": true
