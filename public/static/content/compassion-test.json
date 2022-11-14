@@ -41,6 +41,39 @@
       },
       {
         "type": "content",
+        "style": "oneImageBlackLeft",
+        "header1": "World Vision",
+        "header2": "",
+        "text1": "One of our core values at The Meeting House is peace. It is because we value peace so much that we will be partnering with projects in Honduras in the next season of our partnership with World Vision. Poverty, violence, political instability, and natural disasters are part of the fabric of life in Honduras. And yet in the middle of these challenges are resilience and joy. In addition to child sponsorship, World Vision partners with churches and communities in Honduras to offer peace clubs, programs for kids and youth, and respond to emergencies.", 
+        "list": [
+          {
+            "type": "link",
+            "title": "Watch Video",
+            "navigateTo": "/videos/spiritually-curious-Spiritually%20Curious/h5QnbV5y_nc"
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/WorldVision.jpg",
+            "alt": "World Vision logo."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "style": "greyTwoText",
+        "header1": "Consider making a gift",
+        "text1": "As a church, we want to support these valuable programs and we invite you to join us. Consider making a special gift towards this beautiful, resilient country that is so filled with hope. To give, simply go to themeetinghouse.com/give or use the link below, and mark your donation towards World Vision.",
+        "list": [
+          {
+            "type": "link",
+            "title": "Give to World Vision",
+            "navigateTo": "/give"
+          }
+        ]
+      },
+      {
+        "type": "content",
         "style": "oneImage",
         "header1": "Why Compassion?",
         "text1": "Poverty was never in God's design for humanity. Through our Compassion ministry we work toward justice and peace to address poverty in our world by developing disciples who model compassionate, Jesus-centred love.",
@@ -55,40 +88,6 @@
           {
             "src": "/static/images/peacemakers-2.jpg",
             "alt": "An MCC volunteer is distributing to relief kits to refugee families in Jordan."
-          }
-        ]
-      },
-      {
-        "type": "content",
-        "style": "oneImageBlackRight",
-        "header1": "World Vision",
-        "header2": "",
-        "text1": "One of our core values at The Meeting House is peace. It is because we value peace so much that we will be partnering with projects in Honduras in the next season of our partnership with World Vision.",
-        "text2":"Poverty, violence, political instability, and natural disasters are part of the fabric of life in Honduras. And yet in the middle of these challenges are resilience and joy. In addition to child sponsorship, World Vision partners with churches and communities in Honduras to offer peace clubs, programs for kids and youth, and respond to emergencies.", 
-        "list": [
-          {
-            "type": "link",
-            "title": "Watch Video",
-            "navigateTo": "/videos/spiritually-curious-Spiritually%20Curious/h5QnbV5y_nc"
-          }
-        ],
-        "image1": [
-          {
-            "src": "/static/images/community-2.jpg",
-            "alt": "Woman standing in front of a building on a bright sunny day."
-          }
-        ]
-      },
-      {
-        "type": "content",
-        "style": "greyTwoText",
-        "header1": "Consider making a gift",
-        "text1": "As a church, we want to support these valuable programs and we invite you to join us. Consider making a special gift towards this beautiful, resilient country that is so filled with hope. To give, simply use the link below and mark your donation towards World Vision.",
-        "list": [
-          {
-            "type": "link",
-            "title": "Give to World Vision",
-            "navigateTo": "/give"
           }
         ]
       },
