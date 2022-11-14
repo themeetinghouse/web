@@ -42,9 +42,9 @@
       {
         "type": "content",
         "style": "oneImageBlackRight",
-        "header1": "World Vision",
+        "header1": "World Vision Partnership",
         "header2": "",
-        "text1": "One of our core values at The Meeting House is peace. It is because we value peace so much that we will be partnering with projects in Honduras in the next season of our partnership with World Vision. Poverty, violence, political instability, and natural disasters are part of the fabric of life in Honduras. And yet in the middle of these challenges are resilience and joy. In addition to child sponsorship, World Vision partners with churches and communities in Honduras to offer peace clubs, programs for kids and youth, and respond to emergencies.", 
+        "text1": "One of our core values at The Meeting House is peace. It is because we value peace so much that we will be partnering with projects in Honduras in the next season of our partnership with World Vision.", 
         "list": [
           {
             "type": "link",
@@ -54,7 +54,7 @@
         ],
         "image1": [
           {
-            "src": "/static/images/WorldVision.jpg",
+            "src": "/static/images/WorldVisionLogo.jpg",
             "alt": "World Vision logo."
           }
         ]
@@ -62,6 +62,12 @@
       {
         "type": "content",
         "style": "greyTwoText",
+        "header1": "Life in Honduras",
+        "text1": "Poverty, violence, political instability, and natural disasters are part of the fabric of life in Honduras. And yet in the middle of these challenges are resilience and joy. In addition to child sponsorship, World Vision partners with churches and communities in Honduras to offer peace clubs, programs for kids and youth, and respond to emergencies."
+      },
+      {
+        "type": "content",
+        "style": "oneImage",
         "header1": "Consider making a gift",
         "text1": "As a church, we want to support these valuable programs and we invite you to join us. Consider making a special gift towards this beautiful, resilient country that is so filled with hope. To give, simply go to themeetinghouse.com/give or use the link below, and mark your donation towards World Vision.",
         "list": [
