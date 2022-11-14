@@ -1,0 +1,168 @@
+{
+  "page": {
+    "name": "compassion",
+    "title": "Compassion",
+    "keywords": "",
+    "description": "",
+
+    "pageConfig": {
+      "showLive": true,
+      "movingMenu": false,
+      "showLogoText": true,
+      "logoColor": "black",
+      "showSearch": true,
+      "showFooter": true,
+      "showMenu": true
+    },
+    "content": [
+      {
+        "type": "og-tags",
+        "image": "/static/images/og-images/compassion.jpg",
+        "url": "https://www.themeetinghouse.com/compassion",
+        "title": "Compassion",
+        "description": "We work for justice in our neighbourhoods and around the world. Learn more about how we walk with vulnerable people, prioritize education before action, and invest in peacebuilding, poverty alleviation, and discipleship development."
+      },
+      {
+        "type": "hero",
+        "style": "full",
+        "image1": [
+          {
+            "src": "/static/images/compassion-1-new.jpg",
+            "alt": "Two people crossing a street"
+          }
+        ],
+        "header1": "Compassion",
+        "text1": "All people are created in the image of God and have infinite worth. Therefore we love, serve, and partner with vulnerable people as we journey toward relationship, justice, and peace.",
+        "button1": {
+          "text": "Connect with Us",
+          "action": "/compassion-connect",
+          "description": "Connect with Compassion"
+        }
+      },
+      {
+        "type": "content",
+        "style": "oneImage",
+        "header1": "Why Compassion?",
+        "text1": "Poverty was never in God's design for humanity. Through our Compassion ministry we work toward justice and peace to address poverty in our world by developing disciples who model compassionate, Jesus-centred love.",
+        "list": [
+          {
+            "type": "",
+            "title": "",
+            "navigateTo": ""
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/peacemakers-2.jpg",
+            "alt": "An MCC volunteer is distributing to relief kits to refugee families in Jordan."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "style": "oneImageBlackRight",
+        "header1": "World Vision",
+        "header2": "",
+        "text1": "One of our core values at The Meeting House is peace. It is because we value peace so much that we will be partnering with projects in Honduras in the next season of our partnership with World Vision.",
+        "button1": {
+          "text": "Watch Video",
+          "action": "/videos/Christmas-2021-Infinitum Christmas Challenge/33xWG8KWO_M",
+          "description": "Button to watch World Vision video."
+        }
+      },
+      {
+        "type": "content",
+        "style": "greyTwoText",
+        "header1": "Giving",
+        "text1": "Poverty, violence, political instability, and natural disasters are part of the fabric of life in Honduras. And yet in the middle of these challenges are resilience and joy. In addition to child sponsorship, World Vision partners with churches and communities in Honduras to offer peace clubs, programs for kids and youth, and respond to emergencies. As a church, we want to support these valuable programs and we invite you to join us. Consider making a special gift towards this beautiful, resilient country that is so filled with hope. To give, simply use the link below and mark your donation towards World Vision.",
+        "list": [
+          {
+            "type": "link",
+            "title": "Give to World Vision",
+            "navigateTo": "/give"
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/peacemakers-2.jpg",
+            "alt": "An MCC volunteer is distributing to relief kits to refugee families in Jordan."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "style": "oneImage",
+        "header1": "Local Compassion Fund",
+        "text1": "This fund provides us with an opportunity to further invest financially in local organizations we partner with across southern Ontario who are having a positive impact in our community.",
+        "list": [
+          {
+            
+            "type": "link",
+            "title": "Final Report 2021-22",
+            "navigateTo": "https://meeting.formstack.com/forms/tmh_local_compassion_fund_final_report_2021_22"
+          },
+          {
+            "type": "link",
+            "title": "Final Report 2020-21",
+            "navigateTo": "https://meeting.formstack.com/forms/tmh_local_compassion_fund_final_report_copy"
+          },
+          {
+            "type": "link",
+            "title": "Final Report 2019-20",
+            "navigateTo": "https://meeting.formstack.com/forms/tmh_local_compassion_fund_final_report"
+          }
+        ],
+
+        "image1": [
+          {
+            "src": "/static/images/compassion-2-new.jpg",
+            "alt": "Group of volunteers gathering in a circle and listening to a compassion leader give instructions."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "style": "oneImageBlackRight",
+        "header1": "Local Compassion Fund Application",
+        "text1": "The grant window for the Fall 2021 is closed.",
+        "list": [
+          {
+            "type": "link",
+            "title": "Grant Application Guidelines",
+            "navigateTo": "/static/pdfs/compassion/2021-22 Grant Application Guidelines.pdf",
+            "openNewBrowser": true
+          },
+          {
+            "type": "link",
+            "title": "Assessment Criteria",
+            "navigateTo": "/static/pdfs/compassion/2021-22 Assessment Criteria.pdf",
+            "openNewBrowser": true
+          },
+          {
+            "type": "link",
+            "title": "Local Compassion Funds FAQ",
+            "navigateTo": "/static/pdfs/compassion/Local Compassion Fund FAQ.pdf",
+            "openNewBrowser": true
+          },
+          {
+            "type": "link",
+            "title": "Application Process Tutorial Video",
+            "navigateTo": "https://www.youtube.com/watch?v=VpqnMVWoxJI"
+          },
+          {
+            "type": "link",
+            "title": "Local Compassion Budget Template 2021-22",
+            "navigateTo": "https://drive.google.com/file/d/1TVomtt6kZ2cnr02kZdOdoMAZQX2-9wQ0/view"
+          }
+        ],
+
+        "image1": [
+          {
+            "src": "/static/images/compassion-3.jpg",
+            "alt": "Young woman sitting and learning from two friends around a table."
+          }
+        ]
+      }
+    ]
+  }
+}
