@@ -16,7 +16,7 @@
     "content": [
       {
         "type": "og-tags",
-        "image": "/static/images/TheGiftWebHero.jpg",
+        "image": "/static/images/TheGift_WebHero.jpg",
         "url": "https://www.themeetinghouse.com/christmas",
         "title": "Christmas",
         "description": ""
@@ -26,7 +26,7 @@
         "style": "full",
         "image1": [
           {
-            "src": "/static/images/TheGiftWebHero.jpg",
+            "src": "/static/images/TheGift_WebHero.jpg",
             "alt": "Green background with line drawings of the Christmas story."
           }
         ],
