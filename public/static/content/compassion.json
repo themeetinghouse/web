@@ -45,6 +45,14 @@
         "header1": "World Vision Partnership",
         "header2": "",
         "text1": "One of our core values at The Meeting House is peace. It is because we value peace so much that we will be partnering with projects in Honduras in the next season of our partnership with World Vision.", 
+        "list": [
+          {
+            "type": "link",
+            "title": "Watch Video",
+            "navigateTo": "/videos/compassion/P_wnLkW6zVo"
+          }
+        ],
+
         "image1": [
           {
             "src": "/static/images/WorldVisionLogo.jpg",
