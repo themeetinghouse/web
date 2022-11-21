@@ -19,7 +19,7 @@
         "image": "/static/images/TheGift_WebHero.jpg",
         "url": "https://www.themeetinghouse.com/christmas",
         "title": "Christmas",
-        "description": ""
+        "description": "We invite you to join us this Christmas as we focus on the gift of Jesus, both in its enormity and yet the beauty of its simplicity."
       },
       {
         "type": "hero",
@@ -30,9 +30,9 @@
             "alt": "Green background with line drawings of the Christmas story."
           }
         ],
-        "header1": "Christmas",
+        "header1": "The Christmas Gift",
         "header2": "",
-        "text1": "In one of the busiest months, how do we set aside time to centre on Jesus and what his presence and life mean to us? How do we focus on what matters most?"
+        "text1": "We invite you to join us this Christmas as we focus on the gift of Jesus, both in its enormity and yet the beauty of its simplicity."
       },
       {
         "type": "hero",
@@ -56,31 +56,32 @@
         "style": "oneImage",
         "header1": "Christmas 2022",
         "header2": "Christmas Eve Livestream",
-        "text1": "Join us online at 5:00pm or 8:00pm. Or both!",
+        "text1": "Join us online on December 24th at 4:00pm.",
         "image1": [
           {
             "src": "/static/images/adult-sunday-TheGift-babyhero.jpg",
             "alt": "Green background with words The Gift and line drawings of the Christmas story."
           }
         ],
+        "calendar": {
+          "start": "2022-12-24T4:00",
+          "end": "2022-12-24T6:00",
+          "summary": "Christmas Eve Livestream",
+          "description": "Join us this Christmas as we focus on the gift of Jesus, both in its enormity and yet the beauty of its simplicity.",
+          "location": "Online"
+        },
         "list": [
+          {
+            "type": "link",
+            "title": "Set a reminder for 4pm",
+            "navigateTo": "https://youtu.be/DD0Wdk7rHB8",
+            "description": "Link to Christmas Eve YouTube livestream."
+          },
           {
             "type": "link",
             "title": "Invite a friend",
             "navigateTo": "https://www.instagram.com/themeetinghouse/",
             "description": "Link to The Meeting House Instagram page."
-          },
-          {
-            "type": "link",
-            "title": "Set a reminder for 5pm",
-            "navigateTo": "https://youtu.be/DD0Wdk7rHB8",
-            "description": "Link to Christmas Eve 5pm YouTube livestream."
-          },
-          {
-            "type": "link",
-            "title": "Set a reminder for 8pm",
-            "navigateTo": "https://youtu.be/MB6E4wE6QOQ",
-            "description": "Link to Christmas Eve 8pm YouTube livestream."
           }
       ]
       }
