@@ -63,26 +63,8 @@
         "filterField": "sites",
         "filterValue": "HMAN"
       },
-      {
-        "type": "content",
-        "style": "oneImage",
-        "header1": "Hamilton Regional Gathering",
-        "header2": "October 12, 7:00pm ET",
-        "text1": "Let's come together to hear more about what the Regional Rollout means for our communities and share with each other our hopes and dreams for the future of our church.",
-        "image1": [
-          {
-            "src": "/static/images/GF_website_square_image_2.jpg",
-            "alt": "The word, Testify on a yellow, orange, and pink abstract design"
-          }
-        ],
-        "calendar": {
-          "start": "2022-10-12T10:00:00-04:00",
-          "end": "2022-04-15T11:30:00-04:00",
-          "summary": "Hamilton Regional Gathering",
-          "description": "Let's come together to hear more about what the Regional Rollout means for our communities and share with each other our hopes and dreams for the future of our church.",
-          "location": "141 Park Street North, Hamilton, "
-        }
-      },
+
+
       {
         "type": "list",
         "style": "ladder",
