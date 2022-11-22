@@ -87,7 +87,7 @@
     "id": "burlington",
     "name": "Burlington",
     "regionShortName": "Burlington",
-    "serviceTimeDescription":"Every Sunday at 10am.",
+    "serviceTimeDescription":"Every Sunday at 10am",
     "region": "Peel",
     "pastorEmail": "Jordan.Taylor@themeetinghouse.com",
     "location": {
