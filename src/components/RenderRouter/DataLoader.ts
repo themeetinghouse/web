@@ -35,6 +35,8 @@ import {
   ModelSortDirection,
   SearchBlogsQuery,
   SearchBlogsQueryVariables,
+  SearchTMHPeopleQuery,
+  SearchVideosQuery,
   TMHPerson,
   TMHPersonByIsCoordinatorQuery,
   TMHPersonByIsOverseerQuery,
@@ -548,7 +550,51 @@ export default class DataLoader {
       console.error(e);
     }
   }
+  static async searchTMHPeople(searchTerm: string) {
+    const names = searchTerm.split(' ');
+    const or = [
+      { firstName: { wildcard: names[0].toLowerCase() + '*' } },
+      ...names.map((name) => {
+        return [{ lastName: { wildcard: name.toLowerCase() + '*' } }];
+      }),
+    ].flat();
+    const searchTMHPeople = API.graphql({
+      query: queries.searchTMHPeople,
+      variables: {
+        filter: { or: or },
+      },
+      authMode: GRAPHQL_AUTH_MODE.API_KEY,
+    }) as Promise<GraphQLResult<SearchTMHPeopleQuery>>;
+    try {
+      const json = await searchTMHPeople;
+      console.debug('Success customQueries.searchTMHPeople: ' + json);
+      console.debug(json);
 
+      return json?.data?.searchTMHPeople?.items ?? [];
+    } catch (e) {
+      console.error(e);
+    }
+  }
+  static async searchVideos(searchTerm: string) {
+    const searchVideos = API.graphql({
+      query: queries.searchVideos,
+      variables: {
+        filter: {
+          or: { episodeTitle: { matchPhrasePrefix: searchTerm.toLowerCase() } },
+        },
+      },
+      authMode: GRAPHQL_AUTH_MODE.API_KEY,
+    }) as Promise<GraphQLResult<SearchVideosQuery>>;
+    try {
+      const json = await searchVideos;
+      console.debug('Success customQueries.searchTMHPeople: ' + json);
+      console.debug(json);
+
+      return json?.data?.searchVideos?.items ?? [];
+    } catch (e) {
+      console.error(e);
+    }
+  }
   static async getBlogs(
     query: BlogQuery,
     dataLoaded: OnDataListener<BlogData[]>,
