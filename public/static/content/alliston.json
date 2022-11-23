@@ -53,6 +53,26 @@
         "text1": "In partnership with Be In Christ Church of Canada, we're excited to pilot the concept of The Meeting House Extended Family churches as part of our vision to grow loving communities of Jesus followers beyond our existing communities. Extended Family churches are locally-operated Meeting House expressions that share the Jesus-centered theology, core values, vision, and ministry approach of The Meeting House."
       },
       {
+        "type": "content",
+        "style": "oneImage",
+        "header1": "Christmas Eve 2022",
+        "header2": "December 24th at 6:30pm (Gibson Centre)",
+        "text1": "We will not meet on Sunday, December 25th.",
+        "image1": [
+          {
+            "src": "/static/images/TMH_TheGiftXmas_BabyHero.jpg",
+            "alt": "The Gift Christmas with red background and line drawing of angels, star, manger."
+          }
+        ],
+        "calendar": {
+          "start": "2022-12-24T19:30:00-04:00",
+          "end": "2022-12-24T20:30:00-04:00",
+          "summary": "Alliston Christmas Eve",
+          "description": "Join us this Christmas as we focus on the gift of Jesus, both in its enormity and yet the beauty of its simplicity.",
+          "location": "Gibson Centre, 63 Tupper St W, Alliston"
+        }
+      },
+      {
         "type": "list",
         "style": "staff",
         "class": "staff",
