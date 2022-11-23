@@ -62,6 +62,19 @@
         "text1": "In partnership with the Be In Christ denomination of Canada, we're excited to be piloting the concept of The Meeting House Extended Family churches as part of our vision to grow loving communities of Jesus followers beyond our current regional sites. Extended Family Meeting House churches are locally-operated Meeting House expressions that share the Jesus-centered theology, core values, vision, and ministry approach of The Meeting House family of churches."
       },
       {
+        "type": "content",
+        "style": "oneImage",
+        "header1": "Christmas Eve 2022",
+        "header2": "Details to come.",
+        "text1": "",
+        "image1": [
+          {
+            "src": "/static/images/TMH_TheGiftXmas_1080x1080.jpg",
+            "alt": "The Gift Christmas with red background and line drawing of angels, star, manger."
+          }
+        ]
+      },
+      {
         "type": "list",
         "style": "staff",
         "class": "staff",

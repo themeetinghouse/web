@@ -55,6 +55,26 @@
         "filterValue": "kitchener"
       },
       {
+        "type": "content",
+        "style": "oneImage",
+        "header1": "Christmas Eve 2022",
+        "header2": "December 24th at 3pm (Victoria Park, 32 Dill St)",
+        "text1": "",
+        "image1": [
+          {
+            "src": "/static/images/TMH_TheGiftXmas_1080x1080.jpg",
+            "alt": "The Gift Christmas with red background and line drawing of angels, star, manger."
+          }
+        ],
+        "calendar": {
+          "start": "2022-12-24T13:00:00-04:00",
+          "end": "2022-12-24T17:00:00-04:00",
+          "summary": "Waterloo Christmas Eve",
+          "description": "Join us this Christmas as we focus on the gift of Jesus, both in its enormity and yet the beauty of its simplicity.",
+          "location": "Victoria Park, 32 Dill St, Kitchener"
+        }
+      },
+      {
         "type": "list",
         "style": "staff",
         "class": "staff",
