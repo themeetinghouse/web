@@ -66,7 +66,36 @@ interface State {
   randomPlaylistId: string;
   blogNextToken: string | null | undefined;
 }
-
+const communities = [
+  { name: 'Oakville', value: 'OAKV' },
+  { name: 'Newmarket', value: 'NMKT' },
+  { name: 'Brampton', value: 'BRAM' },
+  { name: 'Ottawa', value: 'OTTA' },
+  { name: 'Toronto East', value: 'TOBC' },
+  { name: 'Parry Sound', value: 'PAR' },
+  { name: 'Hamilton Downtown', value: 'HMDT' },
+  { name: 'Burlington', value: 'BURL' },
+  { name: 'Toronto Downtown', value: 'TODT' },
+  { name: 'Hamilton Mountain', value: 'HMAN' },
+  { name: 'London', value: 'LOND' },
+  { name: 'Toronto High Park', value: 'TOHP' },
+  { name: 'Toronto Uptown', value: 'TOUP' },
+  { name: 'London', value: 'LOND' },
+];
+const regions = [
+  { name: 'Distance Region', value: 'Distance_Region' },
+  { name: 'Peel Region', value: 'Peel_Region' },
+  { name: 'Toronto Region', value: 'Toronto_Region' },
+  { name: 'Hamilton Region', value: 'Hamilton_Region' },
+];
+const roles = [
+  { name: 'Communications', value: 'Communications' },
+  { name: 'Pastoral', value: 'Pastoral' },
+  { name: 'Site Leadership', value: 'Site Leadership' },
+  { name: 'Youth', value: 'Youth' },
+  { name: 'Children', value: 'Children' },
+  { name: 'Operations', value: 'Operations' },
+];
 type VideoData = SeriesData | VideoByVideoTypeData | CustomPlaylistVideoData;
 
 type SeriesData2 = SeriesData | string | null;
@@ -803,32 +832,37 @@ class ListItem extends React.Component<Props, State> {
                 fallbackUrl={'/static/Individual.png'}
               />
               <div className="StaffInfo">
-                <div className="ListItemName">
+                <div className="ListItemName" style={{ textAlign: 'center' }}>
                   {item.firstName} {item.lastName}
                 </div>
-                <div className="ListItemPosition">{item.position}</div>
-                <div className="StaffContact">
-                  {item.email ? (
-                    <div className="ListItemEmail">
-                      <a
-                        className="ListItemEmailText"
-                        href={'mailto:' + item.email}
-                      >
-                        {item.email.toLowerCase()}
+                <div
+                  className="ListItemPosition"
+                  style={{ textAlign: 'center' }}
+                >
+                  {item.position}
+                </div>
+                <div className="StaffContact" style={{ textAlign: 'center' }}>
+                  <div className="ListItemEmail">
+                    {item.email ? (
+                      <a href={'mailto:' + item.email}>
+                        <img
+                          className="calendarImageRegion"
+                          style={{ marginRight: '10px' }}
+                          src="/static/svg/Contact.svg"
+                          alt="Contact Icon"
+                        />
                       </a>
-                    </div>
-                  ) : null}
-                  {item.phone ? (
-                    <div className="ListItemPhone">
-                      <a
-                        className="ListItemEmailText"
-                        href={'tel:' + item.phone}
-                      >
-                        {item.phone}
-                      </a>{' '}
-                      ext. {item.extension}
-                    </div>
-                  ) : null}
+                    ) : null}
+                    {item.phone ? (
+                      <a href={'tel:' + item.phone + ',,,' + item.extension}>
+                        <img
+                          className="calendarImageRegion"
+                          src="/static/svg/Phone.svg"
+                          alt="Phone Icon"
+                        />
+                      </a>
+                    ) : null}
+                  </div>
                 </div>
               </div>
             </div>
@@ -1476,7 +1510,7 @@ class ListItem extends React.Component<Props, State> {
           let temp: PeopleData[] = [];
           peopleData.forEach((item, index) => {
             temp.push(item);
-            if ((index + 1) % 6 === 0 || index + 1 === data.length) {
+            if ((index + 1) % 8 === 0 || index + 1 === data.length) {
               binnedData.push(temp);
               temp = [];
             }
@@ -1490,6 +1524,39 @@ class ListItem extends React.Component<Props, State> {
                     {this.state.content.text1}
                   </div>
                 ) : null}
+                <div>
+                  Filter By:{' '}
+                  <select>
+                    <option title="Site">Region</option>
+                    {regions.map((z) => {
+                      return (
+                        <option key={z.name} title={z.name}>
+                          {z.name}
+                        </option>
+                      );
+                    })}
+                  </select>
+                  <select>
+                    <option title="Site">Community</option>
+                    {communities.map((z) => {
+                      return (
+                        <option key={z.name} title={z.name}>
+                          {z.name}
+                        </option>
+                      );
+                    })}
+                  </select>
+                  <select>
+                    <option title="Site">Role</option>
+                    {roles.map((z) => {
+                      return (
+                        <option key={z.name} title={z.name}>
+                          {z.name}
+                        </option>
+                      );
+                    })}
+                  </select>
+                </div>
                 <div className="ListItemSpeakersDiv">
                   <HorizontalScrollList>
                     {isMobile

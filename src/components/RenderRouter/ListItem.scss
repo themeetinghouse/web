@@ -836,20 +836,20 @@
     width: 64vw;
   }
 
-  $staffwidth: 38vw;
+  $staffwidth: 19vw;
 
   .StaffFlexArea {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: $staffwidth * 2;
+    // width: $staffwidth * 2;
     margin-right: 3vw;
   }
 
   .StaffImage {
     width: 7.5vw;
     height: 7.5vw;
-    margin-right: 1.67vw;
+    align-self: center;
   }
 
   .StaffContact {
@@ -858,8 +858,9 @@
 
   .StaffItem {
     display: flex;
-    flex-direction: row;
-    width: $staffwidth;
+    align-items: center;
+    flex-direction: column;
+    // width: $staffwidth;
     margin-bottom: 3vw;
   }
 }
@@ -1500,10 +1501,11 @@
     font-size: 2vw;
   }
 
-  $staffwidth: 36vw;
+  $staffwidth: 18vw;
 
   .StaffFlexArea {
-    width: $staffwidth * 2;
+    flex-direction: row;
+    // width: $staffwidth * 2;
     margin-right: 6.5vw;
     display: flex;
     flex-wrap: wrap;
@@ -1512,10 +1514,13 @@
   .StaffImage {
     width: 14vw;
     height: 14vw;
+    align-self: center;
   }
 
   .StaffItem {
-    display: block;
+    // display: block;
+    align-items: center;
+    flex-direction: column;
     width: $staffwidth;
     margin-bottom: 3vw;
   }
