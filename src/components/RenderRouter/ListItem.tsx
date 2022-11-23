@@ -53,12 +53,13 @@ interface State {
     showEpisodeNumbers: boolean;
     hovertag: string;
     skipFirstPost?: boolean;
-
+    filterOptions?: Array<{ id: string; label: string }>;
     selector?: string;
     sortOrder?: ModelSortDirection;
     margin?: Margin;
     calendar?: Event;
   };
+  selectedFilter: string;
   listData: ListData[];
   overlayData: any;
   showMoreVideos: boolean;
@@ -156,6 +157,7 @@ class ListItem extends React.Component<Props, State> {
       windowWidth: window.innerWidth,
       randomPlaylistId: this.props?.match?.params?.playlist ?? '',
       blogNextToken: null,
+      selectedFilter: 'All',
     };
     this.videoHandler = this.videoHandler.bind(this);
     this.setData = this.setData.bind(this);
@@ -1363,7 +1365,6 @@ class ListItem extends React.Component<Props, State> {
             </div>
           );
         }
-
         return (
           <div className="ListItem horizontal-video-player">
             <div className="ListItemDiv1 horizontal-video-player">
@@ -1469,18 +1470,24 @@ class ListItem extends React.Component<Props, State> {
           return null;
         }
       } else if (this.state.content.style === 'staff') {
-        const peopleData = data as PeopleData[];
+        const tempData = data as PeopleData[];
+        const filteredPeopleData = tempData.filter((person) => {
+          if (this.state.selectedFilter === 'All') return true;
+          return person?.sites?.includes(this.state.selectedFilter);
+        });
         const isMobile = this.state.windowWidth < 768;
         const binnedData: PeopleData[][] = [];
         if (data.length > 0) {
           let temp: PeopleData[] = [];
-          peopleData.forEach((item, index) => {
+          filteredPeopleData.forEach((item, index) => {
             temp.push(item);
-            if ((index + 1) % 6 === 0 || index + 1 === data.length) {
+            if ((index + 1) % 6 === 0) {
               binnedData.push(temp);
               temp = [];
             }
           });
+          binnedData.push(temp);
+          console.log({ binnedData });
           return (
             <div className="ListItem horizontal">
               <div className="ListItemDiv1">
@@ -1490,10 +1497,53 @@ class ListItem extends React.Component<Props, State> {
                     {this.state.content.text1}
                   </div>
                 ) : null}
+                <div>
+                  {this.state.content?.filterOptions ? (
+                    <div>
+                      {this.state.content?.filterOptions ? (
+                        <button
+                          style={{
+                            backgroundColor: 'white',
+                            padding: 4,
+                            border: 'none',
+                            color: 'black',
+                            textDecoration: 'underline',
+                          }}
+                          onClick={() =>
+                            this.setState({ selectedFilter: 'All' })
+                          }
+                        >
+                          All
+                        </button>
+                      ) : null}
+                      {this.state.content?.filterOptions?.map(
+                        (item: any, index: any) => {
+                          return (
+                            <button
+                              style={{
+                                backgroundColor: 'white',
+                                padding: 4,
+                                border: 'none',
+                                color: 'black',
+                                textDecoration: 'underline',
+                              }}
+                              onClick={() =>
+                                this.setState({ selectedFilter: item.id })
+                              }
+                              key={item?.id}
+                            >
+                              {item.label}
+                            </button>
+                          );
+                        }
+                      )}
+                    </div>
+                  ) : null}
+                </div>
                 <div className="ListItemSpeakersDiv">
                   <HorizontalScrollList>
                     {isMobile
-                      ? peopleData.map((item, index) => {
+                      ? filteredPeopleData.map((item, index) => {
                           return this.renderItemRouter(item, index);
                         })
                       : binnedData.map((item, index) => {
