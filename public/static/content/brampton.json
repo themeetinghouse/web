@@ -55,6 +55,19 @@
         "filterValue": "brampton"
       },
       {
+        "type": "content",
+        "style": "oneImage",
+        "header1": "Christmas Eve 2022",
+        "header2": "December 23rd (Alderlea House)",
+        "text1": "",
+        "image1": [
+          {
+            "src": "/static/images/TMH_TheGiftXmas_1080x1080.jpg",
+            "alt": "The Gift Christmas with red background and line drawing of angels, star, manger."
+          }
+        ]
+      },
+      {
         "type": "list",
         "style": "staff",
         "class": "staff",
