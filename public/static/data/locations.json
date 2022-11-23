@@ -3,7 +3,7 @@
     "id": "alliston",
     "name": "Alliston",
     "regionShortName": "Alliston",
-    "serviceTimeDescription":"Every Sunday at 10:30am",
+    "serviceTimeDescription":"Every Sunday at 10:30am. We will not meet on Dec 25.",
     "region": "Distance",
     "pastorEmail": "ruth.wright@themeetinghouse.com",
     "location": {
@@ -101,7 +101,7 @@
     "id": "hamilton-downtown",
     "name": "Hamilton - Downtown",
     "regionShortName": "Downtown",
-    "serviceTimeDescription":"Every Sunday at 10am",
+    "serviceTimeDescription":"Every Sunday at 10am. We will not meet on Dec 25.",
     "region": "Hamilton",
     "pastorEmail": "Jimmy.Rushton@themeetinghouse.com",
     "location": {
@@ -145,7 +145,7 @@
     "regionShortName": "East",
     "region": "Toronto",
     "pastorEmail": "Jennifer.McWilliams@themeetinghouse.com",
-    "serviceTimeDescription": "Every Sunday at 10am",
+    "serviceTimeDescription": "Every Sunday at 10am. We will not meet on Dec 25.",
     "location": {
       "longitude": -79.3166538,
       "latitude": 43.6664844,
@@ -242,7 +242,7 @@
     "id": "ottawa",
     "name": "Ottawa",
     "regionShortName": "Ottawa",
-    "serviceTimeDescription":"Every Sunday at 3pm",
+    "serviceTimeDescription":"Every Sunday at 3pm. Not meeting Dec 25 or Jan 1.",
     "region": "Distance",
     "pastorEmail": "Eric.Versluis@themeetinghouse.com",
     "location": {
@@ -257,7 +257,7 @@
     "id": "parry-sound",
     "name": "Parry Sound",
     "regionShortName": "Parry Sound",
-    "serviceTimeDescription":"Every Sunday at 10am",
+    "serviceTimeDescription":"Every Sunday at 10am. We will not meet on Dec 25.",
     "region": "Distance",
     "pastorEmail": "parrysound@themeetinghouse.com",
     "location": {
