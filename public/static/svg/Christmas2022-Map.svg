@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.3.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1440 768" style="enable-background:new 0 0 1440 768;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill:#00552C;}
+	.st2{fill:#FFF6DB;}
+	.st3{fill:#276D47;}
+	.st4{fill:#FFC711;}
+	.st5{fill:#FFFFFF;}
+</style>
+<g id="Layer_1_00000106132447728285720480000016209940752065533616_">
+	<rect class="st0" width="1440" height="768"/>
+	<rect class="st1" width="1440" height="768"/>
+	<g>
+		<polygon class="st2" points="202.9,983.6 195.1,974.4 577.2,647 553.2,563.7 564.8,560.3 590.8,651 587.9,653.6 		"/>
+		<polygon class="st2" points="1324.8,904.9 1246,565 788.7,458.3 -37.4,850.4 -42.6,839.6 787.3,445.7 789.4,446.2 1256,555 
+			1256.8,558.6 1336.4,902.1 		"/>
+		
+			<rect x="924.9" y="413.5" transform="matrix(0.3761 -0.9266 0.9266 0.3761 238.4388 1193.2)" class="st2" width="160.6" height="12"/>
+		
+			<rect x="1085.4" y="597.1" transform="matrix(0.3976 -0.9175 0.9175 0.3976 139.8959 1419.2352)" class="st2" width="130.8" height="12"/>
+		<polygon class="st2" points="642.3,907.1 631.5,901.7 1037.3,93.9 1290.6,-80.9 1297.4,-71.1 1046.7,102.1 		"/>
+		<polygon class="st2" points="961,786 949,786 949,707.5 779.1,612.2 784.9,601.8 961,700.5 		"/>
+		<polygon class="st2" points="1392.7,804 1381.3,800 1510.3,427.1 1263,111.9 391.3,67.9 266.7,-61.8 275.3,-70.2 396.7,56.1 
+			1269,100.1 1523.7,424.9 		"/>
+		<polygon class="st2" points="1246.7,286.3 1146.7,264.9 1149.3,253.1 1245.3,273.7 1356.5,222.5 1361.5,233.5 		"/>
+	</g>
+	<g>
+		<circle class="st3" cx="937" cy="192" r="24"/>
+		<circle class="st3" cx="1441" cy="567" r="24"/>
+		<circle class="st3" cx="1223" cy="226" r="24"/>
+		<circle class="st3" cx="1052" cy="458" r="24"/>
+		<circle class="st3" cx="240" cy="770" r="24"/>
+		<circle class="st3" cx="1183" cy="639" r="24"/>
+	</g>
+	<g>
+		<path class="st4" d="M929,190.2v10.5h16v-10.5l-8-8.2L929,190.2z"/>
+		<path class="st4" d="M1433,565.2v10.5h16v-10.5l-8-8.2L1433,565.2z"/>
+		<path class="st4" d="M1215,224.2v10.5h16v-10.5l-8-8.2L1215,224.2z"/>
+		<path class="st4" d="M1044,456.2v10.5h16v-10.5l-8-8.2L1044,456.2z"/>
+		<path class="st4" d="M232,768.2v10.5h16v-10.5l-8-8.2L232,768.2z"/>
+		<path class="st4" d="M1175,637.2v10.5h16v-10.5l-8-8.2L1175,637.2z"/>
+	</g>
+</g>
+<g id="Layer_2_00000099648148656609259350000002474296114538590394_">
+	<path class="st5" d="M-723.8-548.9V1183H2098V-548.9H-723.8z M1440,768H-0.3V0H1440V768z"/>
+</g>
+</svg>

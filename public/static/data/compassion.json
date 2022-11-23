@@ -62,7 +62,7 @@
     "sites": ["brantford"],
     "region": "hamilton",
     "name": "Brantford Blessing Centre",
-    "description": "The Blessing Centre provides access to food to marginalized communities in Brantford. The Brantford parish makes and serves meals twice monthly as well as assists with additional projects as they arise.",
+    "description": "The Blessing Centre provides access to food to marginalized communities in Brantford. The Brantford community makes and serves meals twice monthly as well as assists with additional projects as they arise.",
     "website": "https://www.brantfordblessingcentre.org/",
     "image": "/static/photos/compassion/Blessing Centre.jpg",
     "imagealt": "Placeholder image for Compassion Partner",
@@ -645,25 +645,6 @@
     }
   },
   {
-    "id": 33,
-    "sites": ["toronto-uptown"],
-    "region": "toronto",
-    "name": "Pregnancy Care Centre",
-    "description": "The Pregnancy Care Centre provides personalized support and resources for women who are pregnant. ",
-    "website": "https://iamnotalone.ca",
-    "image": "/static/photos/compassion/pregnancy care.jpg",
-    "imagealt": "Placeholder image for Compassion Partner",
-    "address": "15 Hove Street, Suite 100, North York, ON M3H 4Y8",
-    "Phone": "(416) 229-2607",
-    "email": "sheila.wong@themeetinghouse.com",
-    "social": {},
-    "location": {
-      "longitude": -79.44145900168738,
-      "latitude": 43.75595271576317,
-      "address": "15 Hove Street, Suite 100"
-    }
-  },
-  {
     "id": 34,
     "sites": ["toronto-downtown"],
     "region": "toronto",
@@ -743,7 +724,7 @@
   {
     "id": 38,
     "sites": ["waterloo"],
-    "region": "waterloo",
+    "region": "waterloo_region",
     "name": "Adventure 4 Change",
     "description": "Adventure4Change addresses issues related to poverty and inequity for children, families, and youth by bringing together people committed to transformational change. As partners, we develop and foster meaningful relationships with the community to change and impact their lives and ours.",
     "website": "https://adventure4change.org/",
@@ -762,7 +743,7 @@
   {
     "id": 39,
     "sites": ["kitchener"],
-    "region": "waterloo",
+    "region": "waterloo_region",
     "name": "Ray of Hope",
     "description": "Ray of Hope supports the disadvantaged, marginalized, and troubled through youth employment and addiction services and other community support programs. We support them financially and through collecting food items to distribute through their Community Centre.",
     "website": "https://www.rayofhope.net/",
@@ -785,7 +766,7 @@
   {
     "id": 40,
     "sites": ["kitchener"],
-    "region": "waterloo",
+    "region": "waterloo_region",
     "name": "Royal City Mission",
     "description": "Royal City Mission is a downtown mission in Guelph, Ontario that provides a safe and loving environment for anyone who is in need. Each week they provide up to 600 meals, and a variety of programs at no charge.",
     "website": "https://www.royalcitymission.ca/",
@@ -808,7 +789,7 @@
   {
     "id": 41,
     "sites": ["kitchener"],
-    "region": "waterloo",
+    "region": "waterloo_region",
     "name": "The Bridges",
     "description": "Cambridge Shelter Corporation expanded an “Out of the Cold” program that ran in local churches during winters and turned it into The Bridges, a facility that now includes a year round emergency shelter, a drop-in centre, and 20 affordable, transitional, bachelor apartments.  It is designed to offer a continuum of housing services, and to offer a wide variety of supporting programs to help clients address the issues facing them to move forward.",
     "website": "https://cambridgesheltercorp.ca/",
@@ -827,7 +808,7 @@
   {
     "id": 42,
     "sites": ["kitchener"],
-    "region": "waterloo",
+    "region": "waterloo_region",
     "name": "Cambridge Self Help Foodbank",
     "description": "The Cambridge Self-Help Food Bank offers food and support to people and community groups in need within Cambridge and North Dumfries. They encourage self-reliance through programs and services.",
     "website": "https://cambridgefoodbank.org/",

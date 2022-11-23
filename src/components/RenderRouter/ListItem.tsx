@@ -44,6 +44,9 @@ interface Props extends RouteComponentProps<RouteParams> {
   pageConfig: any;
 }
 interface State {
+  filterRole: string;
+  filterCommunity: string;
+  filterRegion: string;
   content: DataQuery & {
     style: string;
     header1: string;
@@ -53,12 +56,13 @@ interface State {
     showEpisodeNumbers: boolean;
     hovertag: string;
     skipFirstPost?: boolean;
-
+    filterOptions?: Array<{ id: string; label: string }>;
     selector?: string;
     sortOrder?: ModelSortDirection;
     margin?: Margin;
     calendar?: Event;
   };
+  selectedFilter: string;
   listData: ListData[];
   overlayData: any;
   showMoreVideos: boolean;
@@ -178,6 +182,9 @@ class ListItem extends React.Component<Props, State> {
     super(props);
 
     this.state = {
+      filterRegion: '',
+      filterCommunity: '',
+      filterRole: '',
       content: props.content,
       listData: props.content.list ?? [],
       overlayData: null,
@@ -185,6 +192,7 @@ class ListItem extends React.Component<Props, State> {
       windowWidth: window.innerWidth,
       randomPlaylistId: this.props?.match?.params?.playlist ?? '',
       blogNextToken: null,
+      selectedFilter: 'All',
     };
     this.videoHandler = this.videoHandler.bind(this);
     this.setData = this.setData.bind(this);
@@ -783,6 +791,18 @@ class ListItem extends React.Component<Props, State> {
       </Link>
     );
   }
+  filterPeople = (e: TMHPerson) => {
+    if (
+      this.state.filterCommunity == '' &&
+      this.state.filterRegion == '' &&
+      this.state.filterRole == ''
+    )
+      return true;
+    if (e.sites?.includes(this.state.filterCommunity)) return true;
+    else if (e.sites?.includes(this.state.filterRegion)) return true;
+    else if (e.sites?.includes(this.state.filterRole)) return true;
+    else return false;
+  };
   renderStaff(items: TMHPerson | TMHPerson[], index: number) {
     const isMobile = this.state.windowWidth < 768;
     if (isMobile) {
@@ -1397,7 +1417,6 @@ class ListItem extends React.Component<Props, State> {
             </div>
           );
         }
-
         return (
           <div className="ListItem horizontal-video-player">
             <div className="ListItemDiv1 horizontal-video-player">
@@ -1503,18 +1522,26 @@ class ListItem extends React.Component<Props, State> {
           return null;
         }
       } else if (this.state.content.style === 'staff') {
-        const peopleData = data as PeopleData[];
+        const tempData = data as PeopleData[];
+        const filteredPeopleData = tempData
+          .filter((person) => {
+            if (this.state.selectedFilter === 'All') return true;
+            return person?.sites?.includes(this.state.selectedFilter);
+          })
+          .filter(this.filterPeople);
         const isMobile = this.state.windowWidth < 768;
         const binnedData: PeopleData[][] = [];
         if (data.length > 0) {
           let temp: PeopleData[] = [];
-          peopleData.forEach((item, index) => {
+          filteredPeopleData.forEach((item, index) => {
             temp.push(item);
             if ((index + 1) % 8 === 0 || index + 1 === data.length) {
               binnedData.push(temp);
               temp = [];
             }
           });
+          binnedData.push(temp);
+          console.log({ binnedData });
           return (
             <div className="ListItem horizontal">
               <div className="ListItemDiv1">
@@ -1526,31 +1553,61 @@ class ListItem extends React.Component<Props, State> {
                 ) : null}
                 <div>
                   Filter By:{' '}
-                  <select>
-                    <option title="Site">Region</option>
+                  <select
+                    onChange={(e) =>
+                      this.setState({ filterRegion: e.target.value })
+                    }
+                    disabled={
+                      this.state.filterCommunity != '' ||
+                      this.state.filterRole != ''
+                    }
+                  >
+                    <option value="" title="Site">
+                      Region
+                    </option>
                     {regions.map((z) => {
                       return (
-                        <option key={z.name} title={z.name}>
+                        <option key={z.name} value={z.value} title={z.name}>
                           {z.name}
                         </option>
                       );
                     })}
                   </select>
-                  <select>
-                    <option title="Site">Community</option>
+                  <select
+                    disabled={
+                      this.state.filterRegion != '' ||
+                      this.state.filterRole != ''
+                    }
+                    onChange={(e) =>
+                      this.setState({ filterCommunity: e.target.value })
+                    }
+                  >
+                    <option value="" title="Site">
+                      Community
+                    </option>
                     {communities.map((z) => {
                       return (
-                        <option key={z.name} title={z.name}>
+                        <option key={z.name} value={z.value} title={z.name}>
                           {z.name}
                         </option>
                       );
                     })}
                   </select>
-                  <select>
-                    <option title="Site">Role</option>
+                  <select
+                    disabled={
+                      this.state.filterCommunity != '' ||
+                      this.state.filterRegion != ''
+                    }
+                    onChange={(e) =>
+                      this.setState({ filterRole: e.target.value })
+                    }
+                  >
+                    <option value="" title="Site">
+                      Role
+                    </option>
                     {roles.map((z) => {
                       return (
-                        <option key={z.name} title={z.name}>
+                        <option key={z.name} value={z.value} title={z.name}>
                           {z.name}
                         </option>
                       );
@@ -1560,7 +1617,7 @@ class ListItem extends React.Component<Props, State> {
                 <div className="ListItemSpeakersDiv">
                   <HorizontalScrollList>
                     {isMobile
-                      ? peopleData.map((item, index) => {
+                      ? filteredPeopleData.map((item, index) => {
                           return this.renderItemRouter(item, index);
                         })
                       : binnedData.map((item, index) => {

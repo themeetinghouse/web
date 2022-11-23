@@ -37,20 +37,13 @@
       {
         "type": "content",
         "style": "oneImage",
-        "header1": "Kidmax",
-        "header2": "Our children's program for Infants to Grade 5",
+        "header1": "Kids",
+        "header2": "Children's program for Infants to Grade 5",
         "text1": "We exist to help kids understand and live Jesus' message, develop relationships through group experiences, equip our community to invest in our kids, and partner with parents as they raise disciples.",
-        "list": [
-          {
-            "type": "link",
-            "title": "View & Download Kidmax Content",
-            "navigateTo": "/kidmax"
-          }
-        ],
         "image1": [
           {
             "src": "/static/images/kidsyouth-2-1.jpg",
-            "alt": "Kids laughing and playing together in our kidmax program."
+            "alt": "Kids laughing and playing together in our kids program."
           }
         ]
       },
@@ -60,17 +53,10 @@
         "header1": "Youth",
         "header2": "",
         "text1": "We walk alongside our youth as they learn to love and follow Jesus, sharing his message with others. Our program includes Jr. Highs (grades 6-8) and Sr. Highs (grades 9-12) with a mix of online and in-person events. We connect midweek to have fun, engage in small groups, and talk about Jesus.",
-        "list": [
-          {
-            "type": "link",
-            "title": "Visit our Youth Website",
-            "navigateTo": "/youth"
-          }
-        ],
         "image1": [
           {
             "src": "/static/images/kidsyouth-2-2.jpg",
-            "alt": "Kids laughing and playing together in our kidmax program."
+            "alt": "Two teenage girls laying on the floor and laughing."
           }
         ]
       },

@@ -3,7 +3,7 @@
     "name": "christmas",
     "title": "Christmas",
     "keywords": "christmas",
-    "description": "The page for The Meeting House 2021 Christmas Eve and Christmas Challenge.",
+    "description": "Details for Christmas 2022 at The Meeting House.",
     "pageConfig": {
       "showLive": true,
       "movingMenu": false,
@@ -16,35 +16,30 @@
     "content": [
       {
         "type": "og-tags",
-        "image": "/static/images/ChristmasWebHero.jpg",
+        "image": "/static/images/TheGift_WebHero.jpg",
         "url": "https://www.themeetinghouse.com/christmas",
         "title": "Christmas",
-        "description": ""
+        "description": "We invite you to join us this Christmas as we focus on the gift of Jesus, both in its enormity and yet the beauty of its simplicity."
       },
       {
         "type": "hero",
         "style": "full",
         "image1": [
           {
-            "src": "/static/images/ChristmasWebHero.jpg",
-            "alt": "Blue and green background with the word, Jesus."
+            "src": "/static/images/TheGift_WebHero.jpg",
+            "alt": "Green background with line drawings of the Christmas story."
           }
         ],
-        "header1": "Christmas",
+        "header1": "The Christmas Gift",
         "header2": "",
-        "text1": "In one of the busiest months, how do we set aside time to centre on Jesus and what his presence and life mean to us? How do we focus on what matters most?",
-        "button1": {
-          "text": "Watch Video",
-          "action": "/videos/Christmas-2021-Infinitum Christmas Challenge/33xWG8KWO_M",
-          "description": "Introduction to the Christmas Challenge and video watch button."
-        }
+        "text1": "We invite you to join us this Christmas as we focus on the gift of Jesus, both in its enormity and yet the beauty of its simplicity."
       },
       {
         "type": "hero",
         "style": "partial",
         "image1": [
           {
-            "src": "/static/svg/Christmas2021-Map.svg",
+            "src": "/static/svg/Christmas2022-Map.svg",
             "alt": "A map representing locations of The Meeting House churches."
           }
         ],
@@ -59,60 +54,35 @@
       {
         "type": "content",
         "style": "oneImage",
-        "header1": "What Matters Most.",
+        "header1": "Christmas 2022",
         "header2": "Christmas Eve Livestream",
-        "text1": "Join us online at 5:00pm or 8:00pm. Or both!",
+        "text1": "Join us online on December 24th at 4:00pm.",
         "image1": [
           {
-            "src": "/static/images/Christmas Gathering Website.jpg",
-            "alt": "What Matters Most on a computer surrounded by Christmas decor."
+            "src": "/static/images/adult-sunday-TheGift-babyhero.jpg",
+            "alt": "Green background with words The Gift and line drawings of the Christmas story."
           }
         ],
+        "calendar": {
+          "start": "2022-12-24T17:00:00-04:00",
+          "end": "2022-12-24T18:00:00-04:00",
+          "summary": "Christmas Eve Livestream",
+          "description": "Join us this Christmas as we focus on the gift of Jesus, both in its enormity and yet the beauty of its simplicity.",
+          "location": "Online",
+          "url": "https://www.themeetinghouse.com/live"
+        },
         "list": [
+          {
+            "type": "link",
+            "title": "Set a reminder for 4pm",
+            "navigateTo": "https://youtu.be/DD0Wdk7rHB8",
+            "description": "Link to Christmas Eve YouTube livestream."
+          },
           {
             "type": "link",
             "title": "Invite a friend",
             "navigateTo": "https://www.instagram.com/themeetinghouse/",
             "description": "Link to The Meeting House Instagram page."
-          },
-          {
-            "type": "link",
-            "title": "Set a reminder for 5pm",
-            "navigateTo": "https://youtu.be/DD0Wdk7rHB8",
-            "description": "Link to Christmas Eve 5pm YouTube livestream."
-          },
-          {
-            "type": "link",
-            "title": "Set a reminder for 8pm",
-            "navigateTo": "https://youtu.be/MB6E4wE6QOQ",
-            "description": "Link to Christmas Eve 8pm YouTube livestream."
-          }
-        ]
-      },
-      {
-        "type": "content",
-        "style": "oneImage",
-        "header1": "The Christmas challenge is about JESUS.",
-        "header2": "",
-        "text1": "Living out our faith can be simple, but it's not always easy. The 30 Day Christmas Challenge is designed to help us recentre on the person of Jesus and live out his teachings in community. Are you in?",
-        "image1": [
-          {
-            "src": "/static/images/ChristmasChallenge_Graphic.jpg",
-            "alt": "Infinitum Christmas Challenge in white on a red background."
-          }
-        ],
-        "list": [
-          {
-            "type": "link",
-            "title": "Sign up for the Christmas Challenge",
-            "navigateTo": "https://mailchi.mp/166e365df5dd/tmhchristmaschallengesignup",
-            "description": "Link to sign up for the Christmas Challenge."
-          },
-          {
-            "type": "email",
-            "title": "Share Your Experience",
-            "navigateTo": "ask@themeetinghouse.com",
-            "description": "Link to share experience via email."
           }
       ]
       }
