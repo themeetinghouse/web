@@ -40,6 +40,7 @@
         "type": "list",
         "style": "staff",
         "class": "staff",
+        "filterVisible": true,
         "header1": "Staff"
       },
       {
@@ -47,6 +48,7 @@
         "style": "staff",
         "class": "overseers",
         "header1": "Overseers",
+        "filterVisible": false,
         "text1": "Overseers are a group of Elders selected to represent and oversee our entire ministry. Our senior staff report to this team. The Overseers focus on our vision and values while also ensuring we are financially responsible according to charitable law and are healthy and growing as a community. You can reach them at overseers@themeetinghouse.com."
       },
       {

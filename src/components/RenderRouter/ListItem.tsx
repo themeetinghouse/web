@@ -52,7 +52,7 @@ interface State {
     header1: string;
     header2: string;
     text1: string;
-
+    filterVisible: boolean;
     showEpisodeNumbers: boolean;
     hovertag: string;
     skipFirstPost?: boolean;
@@ -686,10 +686,15 @@ class ListItem extends React.Component<Props, State> {
                 fallbackUrl={'/static/Individual.png'}
               />
               <div className="StaffInfo">
-                <div className="ListItemName">
+                <div className="ListItemName" style={{ textAlign: 'center' }}>
                   {item.firstName} {item.lastName}
                 </div>
-                <div className="ListItemPosition">{item.position}</div>
+                <div
+                  className="ListItemPosition"
+                  style={{ textAlign: 'center' }}
+                >
+                  {item.position}
+                </div>
               </div>
             </div>
           );
@@ -1551,69 +1556,71 @@ class ListItem extends React.Component<Props, State> {
                     {this.state.content.text1}
                   </div>
                 ) : null}
-                <div>
-                  Filter By:{' '}
-                  <select
-                    onChange={(e) =>
-                      this.setState({ filterRegion: e.target.value })
-                    }
-                    disabled={
-                      this.state.filterCommunity != '' ||
-                      this.state.filterRole != ''
-                    }
-                  >
-                    <option value="" title="Site">
-                      Region
-                    </option>
-                    {regions.map((z) => {
-                      return (
-                        <option key={z.name} value={z.value} title={z.name}>
-                          {z.name}
-                        </option>
-                      );
-                    })}
-                  </select>
-                  <select
-                    disabled={
-                      this.state.filterRegion != '' ||
-                      this.state.filterRole != ''
-                    }
-                    onChange={(e) =>
-                      this.setState({ filterCommunity: e.target.value })
-                    }
-                  >
-                    <option value="" title="Site">
-                      Community
-                    </option>
-                    {communities.map((z) => {
-                      return (
-                        <option key={z.name} value={z.value} title={z.name}>
-                          {z.name}
-                        </option>
-                      );
-                    })}
-                  </select>
-                  <select
-                    disabled={
-                      this.state.filterCommunity != '' ||
-                      this.state.filterRegion != ''
-                    }
-                    onChange={(e) =>
-                      this.setState({ filterRole: e.target.value })
-                    }
-                  >
-                    <option value="" title="Site">
-                      Role
-                    </option>
-                    {roles.map((z) => {
-                      return (
-                        <option key={z.name} value={z.value} title={z.name}>
-                          {z.name}
-                        </option>
-                      );
-                    })}
-                  </select>
-                </div>
+                {this.state.content.filterVisible ? (
+                  <div>
+                    Filter By:{' '}
+                    <select
+                      onChange={(e) =>
+                        this.setState({ filterRegion: e.target.value })
+                      }
+                      disabled={
+                        this.state.filterCommunity != '' ||
+                        this.state.filterRole != ''
+                      }
+                    >
+                      <option value="" title="Site">
+                        Region
+                      </option>
+                      {regions.map((z) => {
+                        return (
+                          <option key={z.name} value={z.value} title={z.name}>
+                            {z.name}
+                          </option>
+                        );
+                      })}
+                    </select>
+                    <select
+                      disabled={
+                        this.state.filterRegion != '' ||
+                        this.state.filterRole != ''
+                      }
+                      onChange={(e) =>
+                        this.setState({ filterCommunity: e.target.value })
+                      }
+                    >
+                      <option value="" title="Site">
+                        Community
+                      </option>
+                      {communities.map((z) => {
+                        return (
+                          <option key={z.name} value={z.value} title={z.name}>
+                            {z.name}
+                          </option>
+                        );
+                      })}
+                    </select>
+                    <select
+                      disabled={
+                        this.state.filterCommunity != '' ||
+                        this.state.filterRegion != ''
+                      }
+                      onChange={(e) =>
+                        this.setState({ filterRole: e.target.value })
+                      }
+                    >
+                      <option value="" title="Site">
+                        Role
+                      </option>
+                      {roles.map((z) => {
+                        return (
+                          <option key={z.name} value={z.value} title={z.name}>
+                            {z.name}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </div>
+                ) : null}
                 <div className="ListItemSpeakersDiv">
                   <HorizontalScrollList>
                     {isMobile

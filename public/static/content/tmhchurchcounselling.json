@@ -42,6 +42,7 @@
         "style": "staff",
         "class": "staff",
         "header1": "Counsellors",
+        "filterVisible": false,
         "filterField": "sites",
         "filterValue": "Counsellors"
       }

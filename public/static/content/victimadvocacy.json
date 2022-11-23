@@ -44,6 +44,7 @@
         "style": "staff",
         "class": "staff",
         "header1": "Victim Advocate",
+        "filterVisible": false,
         "filterField": "sites",
         "filterValue": "Advocate"
       },
