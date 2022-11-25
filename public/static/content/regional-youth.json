@@ -1,7 +1,7 @@
 {
   "page": {
-    "name": "kids-and-youth",
-    "title": "Kids and Youth",
+    "name": "regional-youth",
+    "title": "Youth",
     "keywords": "",
     "description": "",
     "pageConfig": {
@@ -17,7 +17,7 @@
       {
         "type": "og-tags",
         "image": "/static/images/kidsyouth-1-1.jpg",
-        "url": "https://www.themeetinghouse.com/kids-and-youth",
+        "url": "https://www.themeetinghouse.com/regional-youth",
         "title": "Kids and Youth",
         "description": ""
       },
@@ -30,9 +30,9 @@
             "alt": "Large group of youth having fun throwing powder paint in the air at a youth retreat."
           }
         ],
-        "header1": "Kids and Youth",
+        "header1": "Youth",
         "header2": "",
-        "text1": "We love families! Our kids and youth teams walk alongside the next generation in learning to love and follow Jesus, while equipping parents to disciple their kids at home. We’d love to connect with you through our Sunday and midweek experiences."
+        "text1": "We walk alongside our youth as they learn to love and follow Jesus, sharing his message with others. Our program includes Jr High (grades 6-8) and Sr High (grades 9-12) with a mix of online and in-person events. We connect midweek to have fun, engage in small groups, and talk about Jesus."
       },
       {
         "type": "hero",
@@ -43,20 +43,27 @@
             "alt": "A map of meeting house midweek locations."
           }
         ],
-        "header1": "Find Your Community",
+        "header1": "Find Youth Programs",
         "text1": "It's pretty simple: choose a city, connect with the local Meeting House community, discover how you can participate online or in person.",
         "link1Text": "Show Map",
         "link1AriaLabel" : "View a map of all midweek locations",
-        "link1Action": "/find-sunday-morning",
+        "link1Action": "/find-midweek-youth",
         "class": "locations",
         "showLocationSearch": true
       },
       {
         "type": "content",
-        "style": "oneImageBlackRight",
-        "header1": "Youth",
+        "style": "oneImage",
+        "header1": "Local Youth",
         "header2": "",
-        "text1": "We walk alongside our youth as they learn to love and follow Jesus, sharing his message with others. Our program includes Jr. Highs (grades 6-8) and Sr. Highs (grades 9-12) with a mix of online and in-person events. We connect midweek to have fun, engage in small groups, and talk about Jesus.",
+        "text1": "We connect midweek to have fun, engage in small groups, and talk about Jesus.",
+        "list": [
+          {
+            "type": "link",
+            "title": "Find Midweek Youth",
+            "navigateTo": "/find-midweek-youth"
+          }
+        ],
         "image1": [
           {
             "src": "/static/images/kidsyouth-2-2.jpg",
