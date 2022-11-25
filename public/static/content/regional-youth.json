@@ -1,0 +1,86 @@
+{
+  "page": {
+    "name": "kids-and-youth",
+    "title": "Kids and Youth",
+    "keywords": "",
+    "description": "",
+    "pageConfig": {
+      "showLive": true,
+      "movingMenu": false,
+      "showLogoText": true,
+      "logoColor": "black",
+      "showSearch": true,
+      "showFooter": true,
+      "showMenu": true
+    },
+    "content": [
+      {
+        "type": "og-tags",
+        "image": "/static/images/kidsyouth-1-1.jpg",
+        "url": "https://www.themeetinghouse.com/kids-and-youth",
+        "title": "Kids and Youth",
+        "description": ""
+      },
+      {
+        "type": "hero",
+        "style": "full",
+        "image1": [
+          {
+            "src": "/static/images/kidsyouth-1-1.jpg",
+            "alt": "Large group of youth having fun throwing powder paint in the air at a youth retreat."
+          }
+        ],
+        "header1": "Kids and Youth",
+        "header2": "",
+        "text1": "We love families! Our kids and youth teams walk alongside the next generation in learning to love and follow Jesus, while equipping parents to disciple their kids at home. We’d love to connect with you through our Sunday and midweek experiences."
+      },
+      {
+        "type": "hero",
+        "style": "partial",
+        "image1": [
+          {
+            "src": "/static/svg/Map.svg",
+            "alt": "A map of meeting house midweek locations."
+          }
+        ],
+        "header1": "Find Your Community",
+        "text1": "It's pretty simple: choose a city, connect with the local Meeting House community, discover how you can participate online or in person.",
+        "link1Text": "Show Map",
+        "link1AriaLabel" : "View a map of all midweek locations",
+        "link1Action": "/find-sunday-morning",
+        "class": "locations",
+        "showLocationSearch": true
+      },
+      {
+        "type": "content",
+        "style": "oneImageBlackRight",
+        "header1": "Youth",
+        "header2": "",
+        "text1": "We walk alongside our youth as they learn to love and follow Jesus, sharing his message with others. Our program includes Jr. Highs (grades 6-8) and Sr. Highs (grades 9-12) with a mix of online and in-person events. We connect midweek to have fun, engage in small groups, and talk about Jesus.",
+        "image1": [
+          {
+            "src": "/static/images/kidsyouth-2-2.jpg",
+            "alt": "Two teenage girls laying on the floor and laughing."
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "style": "imageList",
+        "header1": "",
+        "text1": "",
+        "list": [
+          
+          {
+            "title": "Parents and Guardians",
+            "text": "We are passionate about helping with spiritual parenting. Click here to see what your kids learned last Sunday and access helpful resources.",
+            "imageSrc": "/static/images/kidsyouth-2-3.jpg",
+            "imageAlt": "Two parents walking with their young child.",
+            "navigateTo": "http://parents.themeetinghouse.com",
+            "openNewBrowser": true
+          }
+        ]
+      }
+    ]
+  }
+}
