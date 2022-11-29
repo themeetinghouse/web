@@ -378,6 +378,36 @@ export const getSeriesBySeriesType = `query GetSeriesBySeriesType(
 }
 `;
 
+export const searchSeries = /* GraphQL */ `
+  query SearchSeries(
+    $filter: SearchableSeriesFilterInput
+    $sort: [SearchableSeriesSortInput]
+    $limit: Int
+    $nextToken: String
+    $from: Int
+    $aggregates: [SearchableSeriesAggregationInput]
+  ) {
+    searchSeries(
+      filter: $filter
+      sort: $sort
+      limit: $limit
+      nextToken: $nextToken
+      from: $from
+      aggregates: $aggregates
+    ) {
+      items {
+        id
+        seriesType
+        title
+        description
+        image
+      }
+      nextToken
+      total
+    }
+  }
+`;
+
 export const getBlogForSearch = /* GraphQL */ `
   query GetBlog($id: ID!) {
     getBlog(id: $id) {

@@ -553,9 +553,9 @@ export default class DataLoader {
   static async searchTMHPeople(searchTerm: string) {
     const names = searchTerm.split(' ');
     const or = [
-      { firstName: { wildcard: names[0].toLowerCase() + '*' } },
+      { firstName: { matchPhrase: names[0].toLowerCase() } },
       ...names.map((name) => {
-        return [{ lastName: { wildcard: name.toLowerCase() + '*' } }];
+        return [{ lastName: { matchPhrase: name.toLowerCase() } }];
       }),
     ].flat();
     const searchTMHPeople = API.graphql({
@@ -569,7 +569,6 @@ export default class DataLoader {
       const json = await searchTMHPeople;
       console.debug('Success customQueries.searchTMHPeople: ' + json);
       console.debug(json);
-
       return json?.data?.searchTMHPeople?.items ?? [];
     } catch (e) {
       console.error(e);
@@ -580,7 +579,7 @@ export default class DataLoader {
       query: queries.searchVideos,
       variables: {
         filter: {
-          or: { episodeTitle: { matchPhrasePrefix: searchTerm.toLowerCase() } },
+          or: { episodeTitle: { matchPhrase: searchTerm } },
         },
       },
       authMode: GRAPHQL_AUTH_MODE.API_KEY,
