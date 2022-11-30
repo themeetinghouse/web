@@ -160,6 +160,26 @@
         "filterValue": "ottawa"
       },
       {
+        "type": "content",
+        "style": "mad",
+        "header1": "Local Teaching",
+        "header2": "",
+        "text1": "All our recent teachings in one place.",
+        "list": [
+          {
+            "type": "arrow",
+            "title": "Ottawa Teaching",
+            "navigateTo": "https://open.spotify.com/show/4iif0nUqXzEMucmgv3NC2U?si=8de2d3bb61404338"
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/spirituality-2-2.jpg",
+            "alt": "Two men talking"
+          }
+        ]
+      },
+      {
         "type": "hero",
         "style": "connect",
         "image1": [
