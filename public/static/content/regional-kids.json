@@ -1,9 +1,9 @@
 {
   "page": {
-    "name": "regional-youth",
-    "title": "Youth",
+    "name": "regional-kids",
+    "title": "Kids",
     "keywords": "",
-    "description": "Find out about youth ministry at The Meeting House.",
+    "description": "Find out about kids ministry at The Meeting House.",
     "pageConfig": {
       "showLive": true,
       "movingMenu": false,
@@ -16,35 +16,35 @@
     "content": [
       {
         "type": "og-tags",
-        "image": "/static/images/kidsyouth-1-1.jpg",
-        "url": "https://www.themeetinghouse.com/regional-youth",
-        "title": "Youth",
-        "description": "Find out about youth ministry at The Meeting House."
+        "image": "/static/images/kidsyouth-2-3.jpg",
+        "url": "https://www.themeetinghouse.com/regional-kids",
+        "title": "Kids",
+        "description": "Find out about kids ministry at The Meeting House."
       },
       {
         "type": "hero",
         "style": "full",
         "image1": [
           {
-            "src": "/static/images/kidsyouth-1-1.jpg",
-            "alt": "Large group of youth having fun throwing powder paint in the air at a youth retreat."
+            "src": "/static/images/kidsyouth-2-3.jpg",
+            "alt": "Two parents walking with their young child."
           }
         ],
-        "header1": "Youth",
+        "header1": "Kids",
         "header2": "",
-        "text1": "Our youth teams walk alongside the next generation in learning to love and follow Jesus, while equipping parents to disciple their youth at home.",
+        "text1": "Our kids teams walk alongside the next generation in learning to love and follow Jesus, while equipping parents to disciple their kids at home.",
         "button1": {
           "text": "Watch Video",
           "action": "/find-homechurch",
-          "description": "Watch video"
+          "description": "Watch Video"
         }
       },
       {
         "type": "content",
         "style": "oneImage",
-        "header1": "Local Youth Ministry",
-        "header2": "Scroll down to find a group near you",
-        "text1": "Our program includes Jr High (grades 6-8) and Sr High (grades 9-12) with a mix of online and in-person events. We connect midweek to have fun, engage in small groups, and talk about Jesus.",
+        "header1": "Local Kids Ministry",
+        "header2": "Scroll down to find a program near you",
+        "text1": "We offer Sunday morning kids programs for Infants to Preschool (ages 0-5), and Grades 1-5. We exist to help kids understand and live Jesus' message, develop relationships through group experiences, equip our community to invest in our kids, and partner with parents as they raise disciples.",
         "image1": [
           {
             "src": "/static/images/kidsyouth-2-2.jpg",
@@ -61,8 +61,8 @@
             "alt": "A map of meeting house midweek locations."
           }
         ],
-        "header1": "Find a Youth Program",
-        "text1": "Choose a midweek location and contact the pastor or coordinator to learn more about your local youth ministry.",
+        "header1": "Find Kids Programs",
+        "text1": "Choose a location and contact the pastor or coordinator to learn more about your local kids ministry.",
         "link1Text": "Show Map",
         "link1AriaLabel" : "View a map of all midweek locations",
         "link1Action": "/find-midweek-youth",
@@ -74,7 +74,7 @@
         "style": "oneImage",
         "header1": "Our Curriculum",
         "header2": "Find out more about One Story",
-        "text1": "Our mission is to develop lifelong followers of Jesus. We believe that youth can have a significant kingdom impact if they are discipled well. We teach stories within the context of the overarching biblical narrative, so that students can learn each story and how it connects to God’s story.",
+        "text1": "Our mission is to develop lifelong followers of Jesus. We believe that kids can have a significant kingdom impact if they are discipled well. We teach stories within the context of the overarching biblical narrative, so that they can learn each story and how it connects to God’s story.",
         "list": [
           {
             "type": "link",
@@ -93,9 +93,9 @@
         "type": "list",
         "style": "staff",
         "class": "overseers",
-        "header1": "Youth Staff Team",
+        "header1": "Kids Staff Team",
         "filterVisible": false,
-        "text1": "These are the folks that help build our youth community, discipleship, and make events happen. Connect with your local youth coordinator below."
+        "text1": "These are the folks that help build our kids community, discipleship, and make events happen. Connect with your local kids coordinator below."
       }
     ]
   }
