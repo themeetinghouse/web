@@ -32,7 +32,25 @@
         ],
         "header1": "Youth",
         "header2": "",
-        "text1": "We walk alongside our youth as they learn to love and follow Jesus, sharing his message with others. Our program includes Jr High (grades 6-8) and Sr High (grades 9-12) with a mix of online and in-person events. We connect midweek to have fun, engage in small groups, and talk about Jesus."
+        "text1": "We walk alongside our youth as they learn to love and follow Jesus, sharing his message with others. Interested in getting involved? Sign up to volunteer with youth ministry below.",
+        "button1": {
+          "text": "Volunteer with youth",
+          "action": "/volunteer",
+          "description": "Volunteer with youth"
+        }
+      },
+      {
+        "type": "content",
+        "style": "oneImage",
+        "header1": "Local Youth Ministry",
+        "header2": "Scroll down to find a group near you",
+        "text1": "Our program includes Jr High (grades 6-8) and Sr High (grades 9-12) with a mix of online and in-person events. We connect midweek to have fun, engage in small groups, and talk about Jesus.",
+        "image1": [
+          {
+            "src": "/static/images/kidsyouth-2-2.jpg",
+            "alt": "Two teenage girls laying on the floor and laughing."
+          }
+        ]
       },
       {
         "type": "hero",
@@ -44,7 +62,7 @@
           }
         ],
         "header1": "Find Youth Programs",
-        "text1": "It's pretty simple: choose a city, connect with the local Meeting House community, discover how you can participate online or in person.",
+        "text1": "Connect with your local youth ministry: choose a midweek location & contact the pastor or youth coordinator to get involved.",
         "link1Text": "Show Map",
         "link1AriaLabel" : "View a map of all midweek locations",
         "link1Action": "/find-midweek-youth",
@@ -54,39 +72,30 @@
       {
         "type": "content",
         "style": "oneImage",
-        "header1": "Local Youth",
-        "header2": "",
-        "text1": "We connect midweek to have fun, engage in small groups, and talk about Jesus.",
+        "header1": "Our Curriculum",
+        "header2": "Find out more about One Story below",
+        "text1": "Our mission is to develop lifelong followers of Jesus. We believe that youth can have a significant kingdom impact if they are discipled well. We teach stories within the context of the overarching biblical narrative, so that students can learn each story and how it connects to God’s story.",
         "list": [
           {
             "type": "link",
-            "title": "Find Midweek Youth",
-            "navigateTo": "/find-midweek-youth"
+            "title": "One Story Curriculum",
+            "navigateTo": "https://www.raiseupfaith.com/curriculums/one-story-junior-high/"
           }
         ],
         "image1": [
           {
-            "src": "/static/images/kidsyouth-2-2.jpg",
-            "alt": "Two teenage girls laying on the floor and laughing."
+            "src": "/static/images/kidsyouth-4.jpg",
+            "alt": "Two parents and their daughter sitting together outside."
           }
         ]
       },
       {
         "type": "list",
-        "style": "imageList",
-        "header1": "",
-        "text1": "",
-        "list": [
-          
-          {
-            "title": "Parents and Guardians",
-            "text": "We are passionate about helping with spiritual parenting. Click here to see what your kids learned last Sunday and access helpful resources.",
-            "imageSrc": "/static/images/kidsyouth-2-3.jpg",
-            "imageAlt": "Two parents walking with their young child.",
-            "navigateTo": "http://parents.themeetinghouse.com",
-            "openNewBrowser": true
-          }
-        ]
+        "style": "staff",
+        "class": "overseers",
+        "header1": "Youth Staff Team",
+        "filterVisible": false,
+        "text1": "These are the folks that help build our youth community, discipleship, and make events happen. Connect with your local youth coordinator below."
       }
     ]
   }
