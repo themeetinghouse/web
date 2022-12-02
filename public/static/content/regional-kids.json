@@ -16,7 +16,7 @@
     "content": [
       {
         "type": "og-tags",
-        "image": "/static/images/Kidsyouth-2-1.jpg",
+        "image": "/static/images/kidsyouth-4.jpg",
         "url": "https://www.themeetinghouse.com/regional-kids",
         "title": "Kids",
         "description": "Find out about kids ministry at The Meeting House."
@@ -26,8 +26,8 @@
         "style": "full",
         "image1": [
           {
-            "src": "/static/images/kidsyouth-2-1.jpg",
-            "alt": "Kids laughing and playing together in our kids program."
+            "src": "/static/images/kidsyouth-4.jpg",
+            "alt": "Two parents and their daughter sitting together outside."
           }
         ],
         "header1": "Kids",
@@ -47,8 +47,8 @@
         "text1": "We offer Sunday morning kids programs for Infants to Preschool (ages 0-5), and Grades 1-5. We exist to help kids understand and live Jesus' message, develop relationships through group experiences, equip our community to invest in our kids, and partner with parents as they raise disciples.",
         "image1": [
           {
-            "src": "/static/images/kidsyouth-4.jpg",
-            "alt": "Two parents and their daughter sitting together outside."
+            "src": "/static/images/kidsyouth-3-1.jpg",
+            "alt": "Child sitting outside on a table colouring."
           }
         ]
       },
@@ -70,22 +70,24 @@
         "showLocationSearch": true
       },
       {
-        "type": "content",
-        "style": "oneImage",
-        "header1": "Our Curriculum",
-        "header2": "Find out more about One Story",
+        "type": "list",
+        "style": "imageList",
+        "header1": "One Story Curriculum",
         "text1": "Our mission is to develop lifelong followers of Jesus. We believe that kids can have a significant kingdom impact if they are discipled well. We teach stories within the context of the overarching biblical narrative, so that they can learn each story and how it connects to God’s story.",
         "list": [
           {
-            "type": "link",
-            "title": "One Story Curriculum",
-            "navigateTo": "https://www.raiseupfaith.com/curriculums/one-story-junior-high/"
-          }
-        ],
-        "image1": [
+            "title": "Early Years",
+            "text": "Ages 0-5",
+            "imageSrc": "/static/images/teach-ky-1.jpg",
+            "imageAlt": "Boy playing with blocks.",
+            "navigateTo": "https://www.raiseupfaith.com/curriculums/one-story-early-years/"
+          },
           {
-            "src": "/static/images/teach-ky-1.jpg",
-            "alt": "Boy playing with blocks."
+            "title": "Kids",
+            "text": "Grades 1-5",
+            "imageSrc": "/static/images/Kidsyouth-2-1.jpg",
+            "imageAlt": "Kids laughing and playing together in our kids program.",
+            "navigateTo": "https://www.raiseupfaith.com/curriculums/one-story-kids/"
           }
         ]
       },
