@@ -16,7 +16,7 @@
     "content": [
       {
         "type": "og-tags",
-        "image": "/static/images/kidsyouth-2-3.jpg",
+        "image": "/static/images/Kidsyouth-2-1.jpg",
         "url": "https://www.themeetinghouse.com/regional-kids",
         "title": "Kids",
         "description": "Find out about kids ministry at The Meeting House."
@@ -26,8 +26,8 @@
         "style": "full",
         "image1": [
           {
-            "src": "/static/images/kidsyouth-2-3.jpg",
-            "alt": "Two parents walking with their young child."
+            "src": "/static/images/kidsyouth-2-1.jpg",
+            "alt": "Kids laughing and playing together in our kids program."
           }
         ],
         "header1": "Kids",
@@ -47,8 +47,8 @@
         "text1": "We offer Sunday morning kids programs for Infants to Preschool (ages 0-5), and Grades 1-5. We exist to help kids understand and live Jesus' message, develop relationships through group experiences, equip our community to invest in our kids, and partner with parents as they raise disciples.",
         "image1": [
           {
-            "src": "/static/images/kidsyouth-2-2.jpg",
-            "alt": "Two teenage girls laying on the floor and laughing."
+            "src": "/static/images/kidsyouth-4.jpg",
+            "alt": "Two parents and their daughter sitting together outside."
           }
         ]
       },
@@ -84,8 +84,8 @@
         ],
         "image1": [
           {
-            "src": "/static/images/kidsyouth-4.jpg",
-            "alt": "Two parents and their daughter sitting together outside."
+            "src": "/static/images/teach-ky-1.jpg",
+            "alt": "Boy playing with blocks."
           }
         ]
       },
