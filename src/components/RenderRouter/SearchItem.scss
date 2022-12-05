@@ -4,6 +4,16 @@
   top: 1.5vw;
   left: 15vw;
 }
+.SearchItemPill {
+  background-color: #54565a;
+  color: #fff;
+  font-family: Graphik Web;
+  font-weight: 700;
+  padding: 7px 16px;
+  border-radius: 50px;
+  display: inline-block;
+  font-size: 12px;
+}
 .TrendingSearches {
   margin-top: 24px;
   margin-bottom: 40px;
@@ -151,6 +161,13 @@
   width: 20%;
   vertical-align: top;
 }
+.SearchResultItem .SearchThumbNotes {
+  width: 40vw;
+  object-fit: contain;
+  display: inline-block;
+  object-fit: contain;
+  vertical-align: top;
+}
 
 .SearchResultItem .Content {
   display: inline-block;
@@ -271,6 +288,13 @@
 
 // Mobile
 @media (max-width: 767px) {
+  .StaffImage {
+    height: 30vw;
+    width: 30vw;
+  }
+  .SearchItemPill {
+    margin-top: 16px;
+  }
   .SearchResultItem {
     display: inline-block;
     text-align: left;
@@ -291,6 +315,14 @@
       border: 0;
       color: #1a1a1a;
     }
+  }
+
+  .SearchResultItem .SearchThumbNotes {
+    width: 85vw;
+    object-fit: contain;
+    display: inline-block;
+    object-fit: contain;
+    vertical-align: top;
   }
   .VideoOverlayClose {
     $size: 32px;
@@ -343,7 +375,7 @@
   }
 
   .SearchResultItem .Content {
-    width: 60%;
+    width: 100%;
     display: inline-block;
     vertical-align: top;
     height: 100%;

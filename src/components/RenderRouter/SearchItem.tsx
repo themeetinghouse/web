@@ -1,463 +1,302 @@
 import { GraphQLResult } from '@aws-amplify/api';
-import React from 'react';
-import { RouteComponentProps, withRouter } from 'react-router-dom';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import './SearchItem.scss';
 
-import { API, graphqlOperation } from '@aws-amplify/api';
+import API from '@aws-amplify/api';
 import {
-  SearchBlogSeriesQuery,
+  Blog,
+  CustomPlaylist,
+  F1ListGroup2,
+  Notes,
   SearchBlogsQuery,
   SearchCustomPlaylistsQuery,
   SearchF1ListGroup2sQuery,
   SearchNotesQuery,
   SearchSeriesQuery,
+  Series,
   TMHPerson,
+  Video,
 } from 'API';
-import { BlogImage, ScaledImage } from 'components/ScaledImage';
+import { BlogImage, ScaledImage } from '../../components/ScaledImage';
 import Highlighter from 'react-highlight-words';
-import { Button } from 'reactstrap';
+import { Button, Spinner } from 'reactstrap';
 import * as queries from '../../graphql/queries';
+import * as customQueries from '../../graphql-custom/customQueries';
 import DataLoader, { CompassionData } from './DataLoader';
 import RenderRouter from './RenderRouter';
+import FadeImage from 'components/ScaledImage/FadeImage';
+import { useDebounce } from 'hooks/useDebounce';
+import moment from 'moment';
 
-interface Props extends RouteComponentProps {
-  content: any;
-}
 enum SearchType {
   All = 'All' as any,
   Videos = 'Videos' as any,
   Blogs = 'Blogs' as any,
   Staff = 'Staff' as any,
-  Compassion = 'Compassion' as any,
   'Home Church' = 'Home Church' as any,
-  Series = 'Series' as any,
-  'Custom Playlist' = 'Custom Playlist' as any,
-  'Blog Series' = 'Blog Series' as any,
   Notes = 'Notes' as any,
 }
-interface State {
+type VideoTypeParserType = { [name: string]: string } | null;
+type SearchItemProps = {
   content: any;
-  searchResults: any;
-  searchBlogResults: any;
-  searchString: string;
-  dataSpeakers: any;
-  dataStaff: TMHPerson[];
-  dataOverseers: any;
-  dataCompassion: CompassionData[];
-  currentSearchType: SearchType;
-  customData: any;
-  customBegin: any;
-  searchHomechurch: any;
-  searchSeries: any;
-  searchCustomPlaylist: any;
-  searchBlogSeries: any;
-  searchNotes: any;
-  videoTypeParser: { [name: string]: string } | null;
-}
+};
+export default function SearchItem(props: SearchItemProps) {
+  const [searchString, setSearchString] = useState('');
 
-class ContentItem extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      customData: null,
-      customBegin: null,
-      content: props.content,
-      searchResults: null,
-      searchBlogResults: null,
-      searchHomechurch: null,
-      searchSeries: null,
-      searchCustomPlaylist: null,
-      searchBlogSeries: null,
-      searchNotes: null,
-      searchString: '',
-      dataSpeakers: [],
-      dataStaff: [],
-      dataOverseers: [],
-      dataCompassion: [],
-      currentSearchType: SearchType.All,
-      videoTypeParser: null,
-    };
-  }
-  convertMapToObject(
-    metricArguments: { name: string; value: string }[]
-  ): Record<string, string> {
-    const newObject: Record<string, string> = {};
-    for (const { name, value } of metricArguments) {
-      newObject[name] = value;
+  const [isLoading, setIsLoading] = useState(false);
+
+  const inputFieldRef = useRef<HTMLInputElement>(null);
+  const [videoData, setVideoData] = useState<Video[]>([]);
+
+  const [customData, setCustomData] = useState<any>(null);
+  const [customBegin, setCustomBegin] = useState<any>(null);
+
+  const [currentSearchType, setCurrentSearchType] = useState<SearchType>(
+    SearchType.All
+  );
+  // Data =================
+  const [compassionData, setCompassionData] = useState<CompassionData[]>([]);
+  const [staffData, setStaffData] = useState<TMHPerson[]>([]);
+  const [overseersData, setOverseersData] = useState<TMHPerson[]>([]);
+  const [homeChurchData, setHomeChurchData] = useState<F1ListGroup2[]>([]);
+  const [seriesData, setSeriesData] = useState<Series[]>([]);
+  const [customPlaylistData, setCustomPlaylistData] = useState<
+    CustomPlaylist[]
+  >([]);
+  const [notesData, setNotesData] = useState<Notes[]>([]);
+  const [blogData, setBlogData] = useState<Blog[]>([]);
+
+  // =====================
+  const [videoTypeParser, setVideoTypeParser] =
+    useState<VideoTypeParserType>(null);
+  useState<any>(null);
+  const doSearch = (newSearchTerm: string) => {
+    search(newSearchTerm);
+  };
+  useEffect(() => {
+    if (searchString === '') {
+      clearData();
+      setIsLoading(false);
     }
-    return newObject;
-  }
-  async componentDidMount(): Promise<void> {
-    this.setState({
-      dataStaff: await DataLoader.loadStaff({
-        class: 'staff',
-
-        filterField: '',
-      }),
-      dataOverseers: await DataLoader.loadOverseers(),
-      //dataE = await DataLoader.loadEvents(query);
-      dataCompassion: await DataLoader.loadCompassion(),
-    });
-
-    fetch('/static/data/import-video.json')
-      .then(async (e: Response) => {
-        try {
-          const json = await e.json();
-          const videoTypeParser = json.map((item: any) => {
-            console.log(item.id);
-            console.log(item.name);
-
-            return { name: item.id, value: item.name };
-          });
-
-          this.setState({
-            videoTypeParser: this.convertMapToObject(videoTypeParser),
-          });
-        } catch (err) {
-          console.log(err);
-        }
-      })
-      .catch((e: any) => console.log(e));
-    fetch('/static/content/search/beginSearch.json')
-      .then(async (e: Response) => {
-        try {
-          console.log(e);
-          console.log(e.body);
-          this.setState({ customBegin: await e.json() });
-        } catch (e: any) {
-          console.log(e);
-          this.setState({ customBegin: null });
-        }
-      })
-      .catch((e: Error) => {
-        this.setState({ customBegin: null });
-        console.log(e);
-      });
-    //dataSpeakers: await DataLoader.getSpeakers(query, dataLoaded);
-  }
-  imgUrl(size: any) {
-    if (window.location.hostname === 'localhost')
-      return 'https://localhost:3006';
-    else if (window.location.hostname.includes('beta'))
-      return 'https://beta.themeetinghouse.com/cache/' + size;
-    else return 'https://www.themeetinghouse.com/cache/' + size;
-  }
-  doSearch(str: string) {
-    this.search(str);
-  }
-
-  getBlogImageURI(
-    title: string | undefined | null,
-    style: 'baby-hero' | 'banner' | 'square'
-  ): string {
-    if (!title) return '';
-    return (
-      `/static/photos/blogs/${style}/` + title.replace(/\?|[']/g, '') + '.jpg'
-    );
-  }
-  searchCustom(e: any) {
-    fetch('/static/content/search/' + e + '.json')
-      .then(async (e: Response) => {
-        try {
-          console.log(e);
-          console.log(e.body);
-          this.setState({ customData: await e.json() });
-        } catch (e: any) {
-          console.log(e);
-          this.setState({ customData: null });
-        }
-      })
-      .catch((e: Error) => {
-        this.setState({ customData: null });
-        console.log(e);
-      });
-  }
-  searchBlogs(e: any, nextId: any) {
-    const searchBlogs: any = API.graphql(
-      graphqlOperation(queries.searchBlogs, {
-        filter: {
-          or: [
-            { blogTitle: { match: e } },
-            { author: { match: e } },
-            { tags: { match: e } },
-            { description: { match: e } },
-          ],
-        },
-        limit: 10,
-        nextToken: nextId,
-      })
-    ) as Promise<GraphQLResult<SearchBlogsQuery>>;
-    searchBlogs
-      .then((json: GraphQLResult<SearchBlogsQuery>) => {
-        console.log(json);
-        if (nextId == null)
-          this.setState({ searchBlogResults: json.data?.searchBlogs?.items });
-        else
-          this.setState({
-            searchBlogResults: this.state.searchBlogResults.concat(
-              json.data?.searchBlogs?.items
-            ),
-          });
-
-        //   this.search(e, json.data.searchVideos.nextToken)
-      })
-      .catch((e: any) => {
-        console.log(e);
-      });
-  }
-  searchVideos(e: any, nextId: any) {
-    const fuzzySearchVideos: any = API.graphql(
-      graphqlOperation(queries.fuzzySearchVideos, {
-        filter: e,
-        limit: 10,
-        nextToken: nextId,
-      })
-    );
-    fuzzySearchVideos
-      .then((json: any) => {
-        console.log(json);
-        if (nextId == null)
-          this.setState({
-            searchResults: json.data.fuzzySearchVideos.items.filter(
-              (z: any) => !z.series.seriesType.includes('hidden')
-            ),
-          });
-        else
-          this.setState({
-            searchResults: this.state.searchResults.concat(
-              json.data.fuzzySearchVideos.items.filter(
-                (z: any) => !z.series.seriesType.includes('hidden')
-              )
-            ),
-          });
-
-        //   this.search(e, json.data.searchVideos.nextToken)
-      })
-      .catch((e: any) => {
-        console.log(e);
-      });
-  }
-  searchHomechurch(e: any, nextId: any) {
-    const searchHomechurch: any = API.graphql(
-      graphqlOperation(queries.searchF1ListGroup2s, {
-        filter: {
-          or: [{ name: { match: e } }, { description: { match: e } }],
-        },
-        limit: 10,
-        nextToken: nextId,
-      })
-    ) as Promise<GraphQLResult<SearchF1ListGroup2sQuery>>;
-    searchHomechurch
-      .then((json: GraphQLResult<SearchF1ListGroup2sQuery>) => {
-        console.log(json);
-        if (nextId == null)
-          this.setState({
-            searchHomechurch: json.data?.searchF1ListGroup2s?.items,
-          });
-        else
-          this.setState({
-            searchHomechurch: this.state.searchHomechurch.concat(
-              json.data?.searchF1ListGroup2s?.items
-            ),
-          });
-
-        //   this.search(e, json.data.searchVideos.nextToken)
-      })
-      .catch((e: any) => {
-        console.log(e);
-      });
-  }
-  searchSeries(e: any, nextId: any) {
-    const searchSeries: any = API.graphql(
-      graphqlOperation(queries.searchSeries, {
-        filter: {
-          or: [{ title: { match: e } }, { description: { match: e } }],
-        },
-        limit: 10,
-        nextToken: nextId,
-      })
-    ) as Promise<GraphQLResult<SearchSeriesQuery>>;
-    searchSeries
-      .then((json: GraphQLResult<SearchSeriesQuery>) => {
-        console.log(json);
-        if (nextId == null)
-          this.setState({
-            searchSeries: json.data?.searchSeries?.items.filter(
-              (z: any) => !z?.seriesType?.includes('hidden')
-            ),
-          });
-        else
-          this.setState({
-            searchSeries: this.state.searchSeries.concat(
-              json.data?.searchSeries?.items.filter(
-                (z: any) => !z?.seriesType?.includes('hidden')
-              )
-            ),
-          });
-
-        //   this.search(e, json.data.searchVideos.nextToken)
-      })
-      .catch((e: any) => {
-        console.log(e);
-      });
-  }
-  searchCustomPlaylist(e: any, nextId: any) {
-    const searchCustomPlaylist: any = API.graphql(
-      graphqlOperation(queries.searchCustomPlaylists, {
-        filter: {
-          or: [{ title: { match: e } }, { description: { match: e } }],
-        },
-        limit: 10,
-        nextToken: nextId,
-      })
-    ) as Promise<GraphQLResult<SearchCustomPlaylistsQuery>>;
-    searchCustomPlaylist
-      .then((json: GraphQLResult<SearchCustomPlaylistsQuery>) => {
-        console.log(json);
-        if (nextId == null)
-          this.setState({
-            searchCustomPlaylist: json.data?.searchCustomPlaylists?.items,
-          });
-        else
-          this.setState({
-            searchCustomPlaylist: this.state.searchCustomPlaylist.concat(
-              json.data?.searchCustomPlaylists?.items
-            ),
-          });
-
-        //   this.search(e, json.data.searchVideos.nextToken)
-      })
-      .catch((e: any) => {
-        console.log(e);
-      });
-  }
-  searchBlogSeries(e: any, nextId: any) {
-    const searchBlogSeries: any = API.graphql(
-      graphqlOperation(queries.searchBlogSeries, {
-        filter: {
-          or: [{ title: { match: e } }, { description: { match: e } }],
-        },
-        limit: 10,
-        nextToken: nextId,
-      })
-    ) as Promise<GraphQLResult<SearchBlogSeriesQuery>>;
-    searchBlogSeries
-      .then((json: GraphQLResult<SearchBlogSeriesQuery>) => {
-        console.log(json);
-        if (nextId == null)
-          this.setState({
-            searchBlogSeries: json.data?.searchBlogSeries?.items,
-          });
-        else
-          this.setState({
-            searchBlogSeries: this.state.searchBlogSeries.concat(
-              json.data?.searchBlogSeries?.items
-            ),
-          });
-
-        //   this.search(e, json.data.searchVideos.nextToken)
-      })
-      .catch((e: any) => {
-        console.log(e);
-      });
-  }
-
-  searchNotes(e: any, nextId: any) {
-    const searchNotes: any = API.graphql(
-      graphqlOperation(queries.searchNotes, {
-        filter: {
-          or: [
-            { title: { match: e } },
-            { content: { match: e } },
-            { tags: { match: e } },
-            { questions: { match: e } },
-          ],
-        },
-        limit: 10,
-        nextToken: nextId,
-      })
-    ) as Promise<GraphQLResult<SearchNotesQuery>>;
-    searchNotes
-      .then((json: GraphQLResult<SearchNotesQuery>) => {
-        console.log(json);
-        if (nextId == null)
-          this.setState({
-            searchNotes: json.data?.searchNotes?.items,
-          });
-        else
-          this.setState({
-            searchNotes: this.state.searchNotes.concat(
-              json.data?.searchNotes?.items
-            ),
-          });
-
-        //   this.search(e, json.data.searchVideos.nextToken)
-      })
-      .catch((e: any) => {
-        console.log(e);
-      });
-  }
-  async search(e: any) {
-    console.log(e);
-    this.searchCustom(e);
-    this.searchBlogs(e, null);
-    this.searchVideos(e, null);
-    this.searchHomechurch(e, null);
-    this.searchSeries(e, null);
-    this.searchCustomPlaylist(e, null);
-    this.searchBlogSeries(e, null);
-    this.searchNotes(e, null);
-  }
-  openBlog(item: any) {
-    console.log(item);
-    this.props.history.push('/posts/' + item.id);
-  }
-  openSeries(item: any) {
-    console.log(item);
-    this.props.history.push('/videos/' + item.id);
-  }
-  openVideo(item: any) {
-    console.log(item);
-    console.log('/videos/' + item.series.id + '/' + item.id);
-    this.navigateTo('/videos/' + item.series.id + '/' + item.id);
-    //    this.navigateTo("/videos/"+item.series+"/"+item.episodeId)
-  }
-
-  navigateTo(location: any) {
-    this.props.history.push(location, 'as');
-    const unblock = this.props.history.block(
-      'Are you sure you want to leave this page?'
-    );
-    unblock();
-  }
-  compassionItems = (): CompassionData[] => {
-    return this.state.dataCompassion.filter(
+  }, [searchString]);
+  const debouncedSearchterm = useDebounce(searchString, 800);
+  const clearData = () => {
+    setVideoData([]);
+    setBlogData([]);
+    setHomeChurchData([]);
+    setStaffData([]);
+    setOverseersData([]);
+    setSeriesData([]);
+    setCustomPlaylistData([]);
+    setCompassionData([]);
+    setNotesData([]);
+    setCurrentSearchType(SearchType.All);
+  };
+  useEffect(() => {
+    if (debouncedSearchterm) {
+      if (debouncedSearchterm.length > 2) doSearch(debouncedSearchterm);
+    }
+  }, [debouncedSearchterm]);
+  const searchPeople = async (searchTerm: string) => {
+    try {
+      const people = (await DataLoader.searchTMHPeople(
+        searchTerm
+      )) as TMHPerson[];
+      const staff = people.filter((person) => person.isStaff === 'true');
+      const overseers = people.filter((staff) => staff?.isOverseer === 'true');
+      setStaffData(staff);
+      setOverseersData(overseers);
+    } catch (error) {
+      console.error({ error });
+    }
+  };
+  const searchCompassion = async (searchTerm: string) => {
+    const response = await DataLoader.loadCompassion();
+    const compassionData = response.filter(
       (compassion: CompassionData) =>
-        (compassion.name
-          .toLowerCase()
-          .includes(this.state.searchString.toLowerCase()) ||
+        (compassion.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
           compassion.description
             .toLowerCase()
-            .includes(this.state.searchString.toLowerCase())) &&
-        this.state.searchString.length > 4
+            .includes(searchTerm.toLowerCase())) &&
+        searchString.length > 3
     );
+    setCompassionData(compassionData);
   };
-  staffItems = (): TMHPerson[] => {
-    return this.state.dataStaff.filter(
-      (staff) =>
-        staff?.firstName
-          ?.toLowerCase()
-          .includes(this.state.searchString.toLowerCase()) ||
-        staff?.lastName
-          ?.toLowerCase()
-          .includes(this.state.searchString.toLowerCase()) ||
-        (staff?.position
-          ?.toLowerCase()
-          .includes(this.state.searchString.toLowerCase()) &&
-          this.state.searchString.length > 5)
-    );
+
+  const searchCustom = async (searchTerm: string) => {
+    try {
+      const response = await fetch(
+        '/static/content/search/' + searchTerm + '.json'
+      );
+      const json = await response.json();
+      console.log({ searchCustom: json });
+      setCustomData(json);
+    } catch (error) {
+      setCustomData(null);
+    }
   };
-  renderCompassion(compassion: CompassionData): React.ReactNode {
+  const searchBlogs = async (searchTerm: string) => {
+    try {
+      const response = (await API.graphql({
+        query: queries.searchBlogs,
+        variables: {
+          filter: {
+            and: [
+              {
+                or: [
+                  { blogTitle: { matchPhrase: searchTerm } },
+                  { author: { matchPhrase: searchTerm } },
+                  { tags: { matchPhrase: searchTerm } },
+                  { description: { matchPhrase: searchTerm } },
+                ],
+              },
+              { hiddenMainIndex: { ne: true } },
+            ],
+          },
+          sort: { field: 'blogTitle', direction: 'desc' },
+          limit: 15,
+        },
+      })) as GraphQLResult<SearchBlogsQuery>;
+
+      console.log({ searchBlogs: response });
+      setBlogData(response.data?.searchBlogs?.items as Blog[]);
+    } catch (error: any) {
+      setBlogData(error.data?.searchBlogs?.items as Blog[]);
+      console.error({ error });
+    }
+  };
+  const searchVideos = async (searchTerm: string) => {
+    try {
+      const vids = (await DataLoader.searchVideos(searchTerm)) as Video[];
+      setVideoData(vids);
+      console.log({ searchVideos: vids });
+    } catch (error) {
+      console.error({ error });
+    }
+  };
+  const searchHomechurch = async (searchTerm: string) => {
+    try {
+      const response = (await API.graphql({
+        query: queries.searchF1ListGroup2s,
+        variables: {
+          filter: {
+            or: [
+              { name: { matchPhrase: searchTerm } },
+              { description: { matchPhrase: searchTerm } },
+            ],
+          },
+          limit: 15,
+        },
+      })) as GraphQLResult<SearchF1ListGroup2sQuery>;
+
+      console.log({ searchHomechurch: response });
+      setHomeChurchData(
+        response.data?.searchF1ListGroup2s?.items as F1ListGroup2[]
+      );
+    } catch (error: any) {
+      setHomeChurchData(
+        error.data?.searchF1ListGroup2s?.items as F1ListGroup2[]
+      );
+      console.error({ error });
+    }
+  };
+  const searchSeries = async (searchTerm: string) => {
+    try {
+      const response = (await API.graphql({
+        query: customQueries.searchSeries,
+        variables: {
+          filter: {
+            or: [
+              { title: { matchPhrase: searchTerm } },
+              { description: { matchPhrase: searchTerm } },
+            ],
+          },
+          limit: 15,
+        },
+      })) as GraphQLResult<SearchSeriesQuery>;
+      console.log({ searchSeries: response });
+      setSeriesData(
+        response.data?.searchSeries?.items.filter(
+          (z: any) => !z?.seriesType?.includes('hidden')
+        ) as Series[]
+      );
+    } catch (error: any) {
+      setSeriesData(
+        error.data?.searchSeries?.items.filter(
+          (z: any) => !z?.seriesType?.includes('hidden')
+        ) as Series[]
+      );
+      console.error({ error });
+    }
+  };
+  const searchCustomPlaylist = async (searchTerm: string) => {
+    try {
+      const response = (await API.graphql({
+        query: queries.searchCustomPlaylists,
+        variables: {
+          filter: {
+            or: [
+              { title: { matchPhrase: searchTerm } },
+              { description: { matchPhrase: searchTerm } },
+            ],
+          },
+          limit: 15,
+        },
+      })) as GraphQLResult<SearchCustomPlaylistsQuery>;
+      setCustomPlaylistData(
+        response.data?.searchCustomPlaylists?.items as CustomPlaylist[]
+      );
+    } catch (error: any) {
+      setCustomPlaylistData(
+        error.data?.searchCustomPlaylists?.items as CustomPlaylist[]
+      );
+      console.error({ error });
+    }
+  };
+  const searchNotes = async (searchTerm: string) => {
+    try {
+      const response = (await API.graphql({
+        query: queries.searchNotes,
+        variables: {
+          filter: {
+            or: [
+              { title: { eq: searchTerm } },
+              { seriesId: { eq: searchTerm } },
+            ],
+          },
+          limit: 15,
+        },
+      })) as GraphQLResult<SearchNotesQuery>;
+      console.log({ searchNotes: response.data?.searchNotes?.items });
+      setNotesData(response.data?.searchNotes?.items as Notes[]);
+    } catch (error: any) {
+      setNotesData(error.data?.listNotes?.items as Notes[]);
+      console.error({ error });
+    }
+  };
+  const search = async (searchTerm: string) => {
+    console.log(searchTerm);
+    try {
+      const allPromises = [
+        searchHomechurch(searchTerm),
+        searchSeries(searchTerm),
+        searchVideos(searchTerm),
+        searchBlogs(searchTerm),
+        searchCompassion(searchTerm),
+        searchPeople(searchTerm),
+        searchCustom(searchTerm),
+        searchCustomPlaylist(searchTerm),
+        searchNotes(searchTerm),
+      ];
+      await Promise.all(allPromises);
+    } catch (error) {
+      console.error({ error });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  const renderCompassion = (compassion: CompassionData) => {
     const image = {
       src: compassion.image,
       alt: compassion.imagealt,
@@ -478,10 +317,13 @@ class ContentItem extends React.Component<Props, State> {
           }}
         />
         <div className="Content">
+          <div style={{ marginBottom: 16 }}>
+            <Pill title="Compassion" />
+          </div>
           <div className="Title">
             <Highlighter
               highlightClassName="Highlight"
-              searchWords={this.state.searchString.split(' ')}
+              searchWords={searchString.split(' ')}
               autoEscape={true}
               textToHighlight={compassion.name ?? ''}
             />
@@ -489,7 +331,7 @@ class ContentItem extends React.Component<Props, State> {
           <div className="Description">
             <Highlighter
               highlightClassName="Highlight"
-              searchWords={this.state.searchString.split(' ')}
+              searchWords={searchString.split(' ')}
               autoEscape={true}
               textToHighlight={compassion.description ?? ''}
             />
@@ -497,427 +339,11 @@ class ContentItem extends React.Component<Props, State> {
         </div>
       </Button>
     );
-  }
-  renderStaff(staff: TMHPerson): React.ReactNode {
-    const image = {
-      src: `/static/photos/staff/${staff.firstName}_${staff.lastName}_app.jpg`,
-      alt: `${staff.firstName} ${staff.lastName}`,
-    };
+  };
+  const renderSearchTypes = () => {
     return (
-      <a
-        href={'mailto:' + staff.email}
-        key={staff.email}
-        className="SearchResultItem"
-      >
-        <ScaledImage
-          image={image}
-          className="SearchThumb"
-          fallbackUrl="/static/Individual.png"
-          breakpointSizes={{
-            320: 80,
-            480: 120,
-            640: 180,
-            1280: 320,
-            1920: 480,
-            2560: 640,
-          }}
-        />
-        <div className="Content">
-          <div className="Title">
-            <Highlighter
-              highlightClassName="Highlight"
-              searchWords={this.state.searchString.split(' ')}
-              autoEscape={true}
-              textToHighlight={staff.firstName + ' ' + staff.lastName}
-            />
-          </div>
-          <div className="Description">
-            <Highlighter
-              highlightClassName="Highlight"
-              searchWords={this.state.searchString.split(' ')}
-              autoEscape={true}
-              textToHighlight={staff.position ?? ''}
-            />
-          </div>
-        </div>
-        <div className="Link">
-          <img alt="Send email icon" src="/static/svg/Contact.svg" />
-        </div>
-      </a>
-    );
-  }
-  renderBlog(item: any): React.ReactNode {
-    if (item.episodeTitle !== null)
-      return (
-        <Button
-          key={item.id}
-          onClick={() => {
-            this.openBlog(item);
-          }}
-          className="SearchResultItem"
-        >
-          <BlogImage
-            image={item.squareImage}
-            blogTitle={item.blogTitle}
-            imageType="square"
-            className="SearchThumb"
-            fallbackUrl="/static/photos/blogs/square/fallback.jpg"
-            breakpointSizes={{
-              320: 80,
-              480: 120,
-              640: 180,
-              1280: 320,
-              1920: 480,
-              2560: 640,
-            }}
-          />
-          <div className="Content">
-            <div className="Title">
-              <Highlighter
-                highlightClassName="Highlight"
-                searchWords={this.state.searchString.split(' ')}
-                autoEscape={true}
-                textToHighlight={item.blogTitle ?? ''}
-              />
-            </div>
-
-            <div className="Description">
-              <Highlighter
-                highlightClassName="Highlight"
-                searchWords={this.state.searchString.split(' ')}
-                autoEscape={true}
-                textToHighlight={item.description ?? ''}
-              />
-            </div>
-          </div>
-          <div className="Link">
-            <img alt="GO" src="\static\svg\ArrowRight black.svg" />
-          </div>
-        </Button>
-      );
-    else return null;
-  }
-  renderNotes(item: any): React.ReactNode {
-    const image = {
-      src: this.getBlogImageURI(item.blogTitle, 'square'),
-      alt: item.blogTitle + ' series image',
-    };
-    if (item.episodeTitle !== null)
-      return (
-        <Button
-          key={item.id}
-          onClick={() => {
-            this.openVideo(item);
-          }}
-          className="SearchResultItem"
-        >
-          <ScaledImage
-            image={image}
-            className="SearchThumb"
-            fallbackUrl="/static/photos/blogs/square/fallback.jpg"
-            breakpointSizes={{
-              320: 80,
-              480: 120,
-              640: 180,
-              1280: 320,
-              1920: 480,
-              2560: 640,
-            }}
-          />
-          <div className="Content">
-            <div className="Title">
-              <Highlighter
-                highlightClassName="Highlight"
-                searchWords={this.state.searchString.split(' ')}
-                autoEscape={true}
-                textToHighlight={item.blogTitle ?? ''}
-              />
-            </div>
-
-            <div className="Description">
-              <Highlighter
-                highlightClassName="Highlight"
-                searchWords={this.state.searchString.split(' ')}
-                autoEscape={true}
-                textToHighlight={item.description ?? ''}
-              />
-            </div>
-          </div>
-          <div className="Link">
-            <img alt="GO" src="\static\svg\ArrowRight black.svg" />
-          </div>
-        </Button>
-      );
-    else return null;
-  }
-  renderBlogSeries(item: any): React.ReactNode {
-    if (item.episodeTitle !== null)
-      return (
-        <Button
-          key={item.id}
-          onClick={() => {
-            this.openVideo(item);
-          }}
-          className="SearchResultItem"
-        >
-          <BlogImage
-            image={item.squareImage}
-            blogTitle={item.blogTitle}
-            imageType="square"
-            className="SearchThumb"
-            fallbackUrl="/static/photos/blogs/square/fallback.jpg"
-            breakpointSizes={{
-              320: 80,
-              480: 120,
-              640: 180,
-              1280: 320,
-              1920: 480,
-              2560: 640,
-            }}
-          />
-          <div className="Content">
-            <div className="Title">
-              <Highlighter
-                highlightClassName="Highlight"
-                searchWords={this.state.searchString.split(' ')}
-                autoEscape={true}
-                textToHighlight={item.blogTitle ?? ''}
-              />
-            </div>
-
-            <div className="Description">
-              <Highlighter
-                highlightClassName="Highlight"
-                searchWords={this.state.searchString.split(' ')}
-                autoEscape={true}
-                textToHighlight={item.description ?? ''}
-              />
-            </div>
-          </div>
-          <div className="Link">
-            <img alt="GO" src="\static\svg\ArrowRight black.svg" />
-          </div>
-        </Button>
-      );
-    else return null;
-  }
-  renderCustomPlaylist(item: any): React.ReactNode {
-    const image = {
-      src: this.getBlogImageURI(item.blogTitle, 'square'),
-      alt: item.blogTitle + ' series image',
-    };
-    if (item.episodeTitle !== null)
-      return (
-        <Button
-          key={item.id}
-          onClick={() => {
-            this.openVideo(item);
-          }}
-          className="SearchResultItem"
-        >
-          <ScaledImage
-            image={image}
-            className="SearchThumb"
-            fallbackUrl="/static/photos/blogs/square/fallback.jpg"
-            breakpointSizes={{
-              320: 80,
-              480: 120,
-              640: 180,
-              1280: 320,
-              1920: 480,
-              2560: 640,
-            }}
-          />
-          <div className="Content">
-            <div className="Title">
-              <Highlighter
-                highlightClassName="Highlight"
-                searchWords={this.state.searchString.split(' ')}
-                autoEscape={true}
-                textToHighlight={item.blogTitle ?? ''}
-              />
-            </div>
-
-            <div className="Description">
-              <Highlighter
-                highlightClassName="Highlight"
-                searchWords={this.state.searchString.split(' ')}
-                autoEscape={true}
-                textToHighlight={item.description ?? ''}
-              />
-            </div>
-          </div>
-          <div className="Link">
-            <img alt="GO" src="\static\svg\ArrowRight black.svg" />
-          </div>
-        </Button>
-      );
-    else return null;
-  }
-  renderSeries(item: any): React.ReactNode {
-    const image = {
-      src:
-        '/static/photos/series/' +
-        item.seriesType +
-        '-' +
-        (item.title ?? '').replace('?', '') +
-        '.jpg',
-      alt: `${item.title} series image`,
-    };
-
-    if (item.episodeTitle !== null)
-      return (
-        <Button
-          key={item.id}
-          onClick={() => {
-            this.openSeries(item);
-          }}
-          className="SearchResultItem"
-        >
-          <ScaledImage
-            image={image}
-            className="SearchThumb"
-            fallbackUrl="/static/photos/blogs/square/fallback.jpg"
-            breakpointSizes={{
-              320: 80,
-              480: 120,
-              640: 180,
-              1280: 320,
-              1920: 480,
-              2560: 640,
-            }}
-          />
-          <div className="Content">
-            <div className="Title">
-              <Highlighter
-                highlightClassName="Highlight"
-                searchWords={this.state.searchString.split(' ')}
-                autoEscape={true}
-                textToHighlight={item.title ?? ''}
-              />
-            </div>
-            <div className="VideoType">
-              {this.state.videoTypeParser &&
-                this.state.videoTypeParser[item.seriesType]}
-            </div>
-            <div className="Description">
-              <Highlighter
-                highlightClassName="Highlight"
-                searchWords={this.state.searchString.split(' ')}
-                autoEscape={true}
-                textToHighlight={item.description ?? ''}
-              />
-            </div>
-          </div>
-          <div className="Link">
-            <img alt="GO" src="\static\svg\ArrowRight black.svg" />
-          </div>
-        </Button>
-      );
-    else return null;
-  }
-  renderHomechurch(item: any): React.ReactNode {
-    const image = {
-      src: this.getBlogImageURI(item.blogTitle, 'square'),
-      alt: item.blogTitle + ' series image',
-    };
-    if (item.episodeTitle !== null)
-      return (
-        <Button
-          key={item.id}
-          onClick={() => {
-            this.openVideo(item);
-          }}
-          className="SearchResultItem"
-        >
-          <ScaledImage
-            image={image}
-            className="SearchThumb"
-            fallbackUrl="/static/photos/blogs/square/fallback.jpg"
-            breakpointSizes={{
-              320: 80,
-              480: 120,
-              640: 180,
-              1280: 320,
-              1920: 480,
-              2560: 640,
-            }}
-          />
-          <div className="Content">
-            <div className="Title">
-              <Highlighter
-                highlightClassName="Highlight"
-                searchWords={this.state.searchString.split(' ')}
-                autoEscape={true}
-                textToHighlight={item.name ?? ''}
-              />
-            </div>
-
-            <div className="Description">
-              <Highlighter
-                highlightClassName="Highlight"
-                searchWords={this.state.searchString.split(' ')}
-                autoEscape={true}
-                textToHighlight={item.description ?? ''}
-              />
-            </div>
-          </div>
-          <div className="Link">
-            <img alt="GO" src="\static\svg\ArrowRight black.svg" />
-          </div>
-        </Button>
-      );
-    else return null;
-  }
-  renderVideo(item: any): React.ReactNode {
-    if (item.episodeTitle !== null)
-      return (
-        <Button
-          key={item.id}
-          onClick={() => {
-            this.openVideo(item);
-          }}
-          className="SearchResultItem"
-        >
-          <img
-            alt={item.thumbnailDescription || 'Video Thumbnail'}
-            className="SearchThumb"
-            src={item.Youtube.snippet.thumbnails.high.url}
-          />
-          <div className="Content">
-            <div className="Title">
-              <Highlighter
-                highlightClassName="Highlight"
-                searchWords={this.state.searchString.split(' ')}
-                autoEscape={true}
-                textToHighlight={item.episodeTitle + ' - ' + item.seriesTitle}
-              />
-            </div>
-            <div className="VideoType">
-              {this.state.videoTypeParser &&
-                this.state.videoTypeParser[item.videoTypes]}
-            </div>
-            <div className="Description">
-              <Highlighter
-                highlightClassName="Highlight"
-                searchWords={this.state.searchString.split(' ')}
-                autoEscape={true}
-                textToHighlight={item.description ?? ''}
-              />
-            </div>
-          </div>
-          <div className="Link">
-            <img alt="GO" src="\static\svg\ArrowRight black.svg" />
-          </div>
-        </Button>
-      );
-    else return null;
-  }
-  renderSearchTypes(): React.ReactNode {
-    return (
-      this.state.customData?.page?.pageConfig?.searchResult?.hideShowMenu !==
-        true &&
-      this.state.searchString != '' && (
+      customData?.page?.pageConfig?.searchResult?.hideShowMenu !== true &&
+      searchString != '' && (
         <div className="TrendingSearches">
           Show:
           {Object.keys(SearchType).map((item: string) => {
@@ -927,18 +353,14 @@ class ContentItem extends React.Component<Props, State> {
                 <Button
                   style={{
                     fontWeight:
-                      this.state.currentSearchType ==
-                      (item as unknown as SearchType)
+                      currentSearchType == (item as unknown as SearchType)
                         ? 'bold'
                         : 'normal',
                   }}
                   onClick={() => {
-                    this.setState({
-                      currentSearchType: SearchType[
-                        item as any
-                      ] as unknown as SearchType,
-                    });
-                    //  this.doSearch(item);
+                    setCurrentSearchType(
+                      SearchType[item as any] as unknown as SearchType
+                    );
                   }}
                   className="TrendingItem"
                   key={item}
@@ -951,23 +373,89 @@ class ContentItem extends React.Component<Props, State> {
         </div>
       )
     );
-  }
-  renderTrending(): React.ReactNode {
+  };
+  const renderNotes = (item: any) => {
+    const startingAtImg = item.content.slice(item.content.indexOf('<img'), -1);
+    const imgTag = startingAtImg.slice(0, startingAtImg.indexOf('/>') + 2);
+    const imgSrc = imgTag.slice(
+      imgTag.indexOf('src="') + 5,
+      imgTag.indexOf('alt') - 2
+    );
+    const openNote = (item: any) => {
+      navigateTo(`/notes/${item.id}`);
+    };
+    if (item.episodeTitle !== null)
+      return (
+        <Button
+          key={item.id}
+          onClick={() => {
+            openNote(item);
+          }}
+          className="SearchResultItem"
+        >
+          <div className="Content">
+            <div style={{ marginBottom: 16 }}>
+              <Pill title="Notes" />
+            </div>
+            <FadeImage
+              imageSrc={imgSrc}
+              className="SearchThumbNotes"
+              style={{
+                objectFit: 'scale-down',
+              }}
+              fallbackUrl="/static/photos/blogs/square/fallback.jpg"
+              breakpointSizes={{
+                320: 80,
+                480: 120,
+                640: 180,
+                1280: 320,
+                1920: 480,
+                2560: 640,
+              }}
+            />
+            <div className="Title">
+              <Highlighter
+                highlightClassName="Highlight"
+                searchWords={searchString.split(' ')}
+                autoEscape={true}
+                textToHighlight={item.title ?? ''}
+              />
+            </div>
+
+            <div style={{ marginBottom: 4 }} className="Description">
+              {moment(item.id).format('LL')}
+            </div>
+
+            {item.pdf ? (
+              <a
+                style={{ alignSelf: 'center', flex: 1 }}
+                href={item.pdf}
+                download={`${item.id} - Notes`}
+              >
+                <img src="/static/svg/Download.svg" width={25} height={25} />
+              </a>
+            ) : null}
+          </div>
+          <div className="Link">
+            <img alt="GO" src="\static\svg\ArrowRight black.svg" />
+          </div>
+        </Button>
+      );
+    else return null;
+  };
+  const renderTrending = () => {
     return (
-      this.state.searchString == '' && (
+      searchString == '' && (
         <div className="TrendingSearches">
           <strong>Trending:</strong>
-          {this.state.content.trending.map((item: string) => {
+          {props?.content?.trending?.map((item: string) => {
             return (
               <>
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <Button
                   onClick={() => {
-                    this.setState({
-                      searchResults: null,
-                      searchString: item,
-                    });
-                    this.doSearch(item);
+                    setVideoData([]);
+                    setSearchString(item);
                   }}
                   className="TrendingItem"
                   key={item}
@@ -980,120 +468,576 @@ class ContentItem extends React.Component<Props, State> {
         </div>
       )
     );
-  }
-  renderCustom(): React.ReactNode {
-    return <RenderRouter data={null} content={this.state.customData} />;
-  }
-  renderBegin(): React.ReactNode {
-    return <RenderRouter data={null} content={this.state.customBegin} />;
-  }
-  render(): React.ReactNode {
-    const focusInputField = (input: any) => {
-      if (input) {
-        setTimeout(() => {
-          input.focus();
-        }, 100);
-      }
-    };
+  };
+  const getBlogImageURI = (
+    title: string | undefined | null,
+    style: 'baby-hero' | 'banner' | 'square'
+  ): string => {
+    if (!title) return '';
     return (
-      <>
-        <form id="search" role="search" className="SearchItem">
+      `/static/photos/blogs/${style}/` + title.replace(/\?|[']/g, '') + '.jpg'
+    );
+  };
+  const history = useHistory();
+  const navigateTo = (location: any) => {
+    history.push(location, 'as');
+    const unblock = history.block('Are you sure you want to leave this page?');
+    unblock();
+  };
+  const openVideo = (item: any) => {
+    // console.log("opening", item);
+    if (item?.series?.id) {
+      console.log('/videos/' + item.series.id + '/' + item.id);
+      navigateTo('/videos/' + item.series.id + '/' + item.id);
+      //    this.navigateTo("/videos/"+item.series+"/"+item.episodeId)
+    } else {
+      navigateTo(
+        `/videos/${item.episodeTitle}-${item.episodeTitle}/${item.id}`
+      );
+    }
+  };
+  const openSeries = (item: any) => {
+    // console.log("opening", item);
+    history.push('/videos/' + item.id);
+  };
+  const openBlog = (item: any) => {
+    // console.log("opening", item);
+    history.push('/posts/' + item.id);
+  };
+  const renderBlog = (item: any) => {
+    if (item.episodeTitle !== null)
+      return (
+        <Button
+          key={item.id}
+          onClick={() => {
+            openBlog(item);
+          }}
+          className="SearchResultItem"
+        >
+          <BlogImage
+            image={item.squareImage}
+            blogTitle={item.blogTitle}
+            imageType="square"
+            className="SearchThumb"
+            fallbackUrl="/static/photos/blogs/square/fallback.jpg"
+            breakpointSizes={{
+              320: 80,
+              480: 120,
+              640: 180,
+              1280: 320,
+              1920: 480,
+              2560: 640,
+            }}
+          />
+          <div className="Content">
+            <div style={{ marginBottom: 16 }}>
+              <Pill title="Blog Post" />
+            </div>
+            <div className="Title">
+              <Highlighter
+                highlightClassName="Highlight"
+                searchWords={searchString.split(' ')}
+                autoEscape={true}
+                textToHighlight={item.blogTitle ?? ''}
+              />
+            </div>
+
+            <div className="Description">
+              <Highlighter
+                highlightClassName="Highlight"
+                searchWords={searchString.split(' ')}
+                autoEscape={true}
+                textToHighlight={item.description ?? ''}
+              />
+            </div>
+          </div>
+          <div className="Link">
+            <img alt="GO" src="\static\svg\ArrowRight black.svg" />
+          </div>
+        </Button>
+      );
+    else return null;
+  };
+
+  const renderCustomPlaylist = (item: any) => {
+    const image = {
+      src: getBlogImageURI(item.blogTitle, 'square'),
+      alt: item.blogTitle + ' series image',
+    };
+    if (item.episodeTitle !== null)
+      return (
+        <Button
+          key={item.id}
+          onClick={() => {
+            openVideo(item);
+          }}
+          className="SearchResultItem"
+        >
+          <ScaledImage
+            image={image}
+            className="SearchThumb"
+            fallbackUrl="/static/photos/blogs/square/fallback.jpg"
+            breakpointSizes={{
+              320: 80,
+              480: 120,
+              640: 180,
+              1280: 320,
+              1920: 480,
+              2560: 640,
+            }}
+          />
+          <div className="Content">
+            <div style={{ marginBottom: 16 }}>
+              <Pill title="Custom Playlist" />
+            </div>
+            <div className="Title">
+              <Highlighter
+                highlightClassName="Highlight"
+                searchWords={searchString.split(' ')}
+                autoEscape={true}
+                textToHighlight={item.blogTitle ?? ''}
+              />
+            </div>
+
+            <div className="Description">
+              <Highlighter
+                highlightClassName="Highlight"
+                searchWords={searchString.split(' ')}
+                autoEscape={true}
+                textToHighlight={item.description ?? ''}
+              />
+            </div>
+          </div>
+          <div className="Link">
+            <img alt="GO" src="\static\svg\ArrowRight black.svg" />
+          </div>
+        </Button>
+      );
+    else return null;
+  };
+  const renderSeries = (item: any) => {
+    const image = {
+      src:
+        '/static/photos/series/' +
+        item.seriesType +
+        '-' +
+        (item.title ?? '').replace('?', '') +
+        '.jpg',
+      alt: `${item.title} series image`,
+    };
+    if (item.episodeTitle !== null)
+      return (
+        <Button
+          key={item.id}
+          onClick={() => {
+            openSeries(item);
+          }}
+          className="SearchResultItem"
+        >
+          <ScaledImage
+            image={image}
+            className="SearchThumb"
+            fallbackUrl="/static/photos/blogs/square/fallback.jpg"
+            breakpointSizes={{
+              320: 80,
+              480: 120,
+              640: 180,
+              1280: 320,
+              1920: 480,
+              2560: 640,
+            }}
+          />
+          <div className="Content">
+            <div style={{ marginBottom: 16 }}>
+              <Pill title="Series" />
+            </div>
+            <div className="Title">
+              <Highlighter
+                highlightClassName="Highlight"
+                searchWords={searchString.split(' ')}
+                autoEscape={true}
+                textToHighlight={item.title ?? ''}
+              />
+            </div>
+            <div className="VideoType">
+              {videoTypeParser && videoTypeParser[item.seriesType]}
+            </div>
+            <div className="Description">
+              <Highlighter
+                highlightClassName="Highlight"
+                searchWords={searchString.split(' ')}
+                autoEscape={true}
+                textToHighlight={item.description ?? ''}
+              />
+            </div>
+          </div>
+          <div className="Link">
+            <img alt="GO" src="\static\svg\ArrowRight black.svg" />
+          </div>
+        </Button>
+      );
+    else return null;
+  };
+  const renderHomechurch = (item: any) => {
+    const image = {
+      src: getBlogImageURI(item.blogTitle, 'square'),
+      alt: item.blogTitle + ' series image',
+    };
+    if (item.episodeTitle !== null)
+      return (
+        <Button
+          key={item.id}
+          onClick={() => {
+            window.location.href = `mailto:roger.massie@themeetinghouse.com?subject=Inquiry%20About%20${item.name}&body=Home%20Church%20ID:${item.id}`;
+          }}
+          className="SearchResultItem"
+        >
+          <ScaledImage
+            image={image}
+            className="SearchThumb"
+            fallbackUrl="/static/photos/blogs/square/fallback.jpg"
+            breakpointSizes={{
+              320: 80,
+              480: 120,
+              640: 180,
+              1280: 320,
+              1920: 480,
+              2560: 640,
+            }}
+          />
+          <div className="Content">
+            <div style={{ marginBottom: 16 }}>
+              <Pill title="Home Church" />
+            </div>
+            <div className="Title">
+              <Highlighter
+                highlightClassName="Highlight"
+                searchWords={searchString.split(' ')}
+                autoEscape={true}
+                textToHighlight={item.name ?? ''}
+              />
+            </div>
+
+            <div className="Description">
+              <Highlighter
+                highlightClassName="Highlight"
+                searchWords={searchString.split(' ')}
+                autoEscape={true}
+                textToHighlight={item.description ?? ''}
+              />
+            </div>
+          </div>
+          <div className="Link">
+            <img alt="GO" src="\static\svg\ArrowRight black.svg" />
+          </div>
+        </Button>
+      );
+    else return null;
+  };
+  const convertMapToObject = (
+    metricArguments: { name: string; value: string }[]
+  ): Record<string, string> => {
+    const newObject: Record<string, string> = {};
+    for (const { name, value } of metricArguments) {
+      newObject[name] = value;
+    }
+    return newObject;
+  };
+  useEffect(() => {
+    const loadInitialData = async () => {
+      fetch('/static/data/import-video.json')
+        .then(async (e: Response) => {
+          try {
+            const json = await e.json();
+            const videoTypeParser = json.map((item: any) => {
+              // console.log(item.id);
+              // console.log(item.name);
+              return { name: item.id, value: item.name };
+            });
+            setVideoTypeParser(convertMapToObject(videoTypeParser));
+          } catch (err) {
+            console.log(err);
+          }
+        })
+        .catch((e: any) => console.log(e));
+      fetch('/static/content/search/beginSearch.json')
+        .then(async (e: Response) => {
+          try {
+            // console.log(e);
+            // console.log(e.body);
+            setCustomBegin(await e.json());
+          } catch (e: any) {
+            // console.log(e);
+            setCustomBegin(null);
+          }
+        })
+        .catch((e: Error) => {
+          setCustomBegin(null);
+          console.error(e);
+        });
+      //dataSpeakers: await DataLoader.getSpeakers(query, dataLoaded);
+    };
+    loadInitialData();
+  }, []);
+  const renderVideo = (item: any) => {
+    if (item.episodeTitle !== null)
+      return (
+        <Button
+          key={item.id}
+          onClick={() => {
+            openVideo(item);
+          }}
+          className="SearchResultItem"
+        >
+          <img
+            alt={item.thumbnailDescription || 'Video Thumbnail'}
+            className="SearchThumb"
+            src={item.Youtube.snippet.thumbnails.high.url}
+          />
+          <div className="Content">
+            <div style={{ marginBottom: 16 }}>
+              <Pill title="Video" />
+            </div>
+            <div className="Title">
+              <Highlighter
+                highlightClassName="Highlight"
+                searchWords={searchString.split(' ')}
+                autoEscape={true}
+                textToHighlight={
+                  item?.episodeTitle + ' - ' + item?.seriesTitle ?? ''
+                }
+              />
+            </div>
+            <div className="VideoType">
+              {videoTypeParser && videoTypeParser[item.videoTypes]}
+              {' • '}
+              {moment(item.publishedDate).format('LL')}
+            </div>
+            <div className="Description">
+              <Highlighter
+                highlightClassName="Highlight"
+                searchWords={searchString.split(' ')}
+                autoEscape={true}
+                textToHighlight={item.description ?? ''}
+              />
+            </div>
+          </div>
+          <div className="Link">
+            <img alt="GO" src="\static\svg\ArrowRight black.svg" />
+          </div>
+        </Button>
+      );
+    else return null;
+  };
+  const renderBegin = () => {
+    return <RenderRouter data={null} content={customBegin} />;
+  };
+  const renderCustom = () => {
+    return <RenderRouter data={null} content={customData} />;
+  };
+  const shouldShowNoResults = useMemo(() => {
+    // console.log('blogData?.length', blogData?.length);
+    // console.log('homeChurchData?.length', homeChurchData?.length);
+    // console.log('seriesData?.length', seriesData?.length);
+    // console.log('customPlaylistData?.length', customPlaylistData?.length);
+    // console.log('videoData?.length', videoData?.length);
+    // console.log('customData?.length', customData?.length);
+    // console.log('customBegin?.length', customBegin?.length);
+    // console.log('notesData?.length', notesData?.length);
+    // console.log('staffData?.length', staffData?.length);
+    // console.log('overseersData?.length', overseersData?.length);
+    if (
+      blogData?.length === 0 &&
+      homeChurchData?.length === 0 &&
+      seriesData?.length === 0 &&
+      notesData?.length === 0 &&
+      staffData?.length === 0 &&
+      overseersData?.length === 0 &&
+      customPlaylistData?.length === 0 &&
+      compassionData?.length === 0 &&
+      videoData?.length == 0 &&
+      !isLoading
+    ) {
+      return true;
+    }
+    return false;
+  }, [
+    blogData?.length,
+    homeChurchData?.length,
+    seriesData?.length,
+    customPlaylistData?.length,
+    notesData?.length,
+    staffData?.length,
+    overseersData?.length,
+    videoData?.length,
+    isLoading,
+  ]);
+  return (
+    <>
+      <form id="search" role="search" className="SearchItem">
+        <div style={{ position: 'relative' }}>
           <input
-            value={this.state.searchString}
+            value={searchString}
             className="SearchItemInput"
             autoFocus={true}
-            ref={focusInputField}
-            onChange={(e: any) => {
-              this.setState({ searchString: e.target.value });
-              this.doSearch(e.target.value);
+            ref={inputFieldRef}
+            onChange={(e) => {
+              if (e.target.value && e.target.value.length > 2) {
+                setIsLoading(true);
+                clearData();
+              }
+              setSearchString(e.target.value);
             }}
             placeholder="Search..."
           ></input>
 
-          <div className="SearchItemDiv">
-            {this.renderTrending()}
-            {this.renderSearchTypes()}
-          </div>
-        </form>
-        {this.state.customBegin != null &&
-          this.state.searchString == '' &&
-          this.renderBegin()}
-        {this.state.customData != null &&
-          this.state.searchString != '' &&
-          this.renderCustom()}
-        <div className="SearchItem">
-          {(this.state.currentSearchType == SearchType.All ||
-            this.state.currentSearchType == SearchType.Staff) &&
-            this.state.searchString != '' &&
-            this.state.customData?.page?.pageConfig?.searchResult?.hideStaff !==
-              true &&
-            this.staffItems().map((staff: TMHPerson) =>
-              this.renderStaff(staff)
-            )}
-          {(this.state.currentSearchType == SearchType.All ||
-            this.state.currentSearchType == SearchType['Home Church']) &&
-            this.state.searchString != '' &&
-            this.state.customData?.page?.pageConfig?.searchResult
-              ?.hideHomechurch !== true &&
-            this.state.searchHomechurch?.map((homechurch: any) =>
-              this.renderHomechurch(homechurch)
-            )}
-          {(this.state.currentSearchType == SearchType.All ||
-            this.state.currentSearchType == SearchType.Series) &&
-            this.state.searchString != '' &&
-            this.state.customData?.page?.pageConfig?.searchResult
-              ?.hideSeries !== true &&
-            this.state.searchSeries?.map((series: any) =>
-              this.renderSeries(series)
-            )}
-          {(this.state.currentSearchType == SearchType.All ||
-            this.state.currentSearchType == SearchType['Custom Playlist']) &&
-            this.state.searchString != '' &&
-            this.state.customData?.page?.pageConfig?.searchResult
-              ?.hideCustomPlaylist !== true &&
-            this.state.searchCustomPlaylist?.map((customPlaylist: any) =>
-              this.renderCustomPlaylist(customPlaylist)
-            )}
-
-          {(this.state.currentSearchType == SearchType.All ||
-            this.state.currentSearchType == SearchType['Blog Series']) &&
-            this.state.searchString != '' &&
-            this.state.customData?.page?.pageConfig?.searchResult
-              ?.hideBlogSeries !== true &&
-            this.state.searchBlogSeries?.map((blogSeries: any) =>
-              this.renderBlogSeries(blogSeries)
-            )}
-          {(this.state.currentSearchType == SearchType.All ||
-            this.state.currentSearchType == SearchType.Notes) &&
-            this.state.searchString != '' &&
-            this.state.customData?.page?.pageConfig?.searchResult?.hideNotes !==
-              true &&
-            this.state.searchNotes?.map((note: any) => this.renderNotes(note))}
-          {(this.state.currentSearchType == SearchType.All ||
-            this.state.currentSearchType == SearchType.Compassion) &&
-            this.state.searchString != '' &&
-            this.state.customData?.page?.pageConfig?.searchResult
-              ?.hideCompassion !== true &&
-            this.compassionItems().map((compassion: CompassionData) =>
-              this.renderCompassion(compassion)
-            )}
-          {(this.state.currentSearchType == SearchType.All ||
-            this.state.currentSearchType == SearchType.Blogs) &&
-            this.state.searchBlogResults !== null &&
-            this.state.customData?.page?.pageConfig?.searchResult?.hideBlogs !==
-              true &&
-            this.state.searchBlogResults.map((item: any) =>
-              this.renderBlog(item)
-            )}
-          {(this.state.currentSearchType == SearchType.All ||
-            this.state.currentSearchType == SearchType.Videos) &&
-            this.state.searchResults !== null &&
-            this.state.customData?.page?.pageConfig?.searchResult
-              ?.hideVideos !== true &&
-            this.state.searchResults.map((item: any) => this.renderVideo(item))}
+          {isLoading ? (
+            <Spinner
+              style={{ position: 'absolute', marginLeft: -45, top: 15 }}
+            />
+          ) : null}
         </div>
-      </>
-    );
-  }
+
+        <div className="SearchItemDiv">
+          {renderTrending()}
+          {renderSearchTypes()}
+        </div>
+      </form>
+      {customBegin != null && searchString == '' && renderBegin()}
+      {customData != null && searchString != '' && renderCustom()}
+      <div className="SearchItem">
+        {shouldShowNoResults && searchString !== '' ? (
+          <NoResults />
+        ) : (
+          <>
+            {(currentSearchType == SearchType.All ||
+              currentSearchType == SearchType.Videos) &&
+              videoData !== null &&
+              customData?.page?.pageConfig?.searchResult?.hideVideos !== true &&
+              videoData.map((item: any) => renderVideo(item))}
+            {(currentSearchType == SearchType.All ||
+              currentSearchType == SearchType.Staff) &&
+              searchString != '' &&
+              customData?.page?.pageConfig?.searchResult?.hideStaff !== true &&
+              staffData.map((staff: TMHPerson) => (
+                <RenderStaff
+                  key={staff.id}
+                  staff={staff}
+                  searchString={searchString}
+                />
+              ))}
+            {(currentSearchType == SearchType.All ||
+              currentSearchType == SearchType['Home Church']) &&
+              searchString != '' &&
+              customData?.page?.pageConfig?.searchResult?.hideHomechurch !==
+                true &&
+              homeChurchData?.map((homechurch: any) =>
+                renderHomechurch(homechurch)
+              )}
+            {currentSearchType == SearchType.All &&
+              customData?.page?.pageConfig?.searchResult?.hideSeries !== true &&
+              seriesData?.map((series: any) => renderSeries(series))}
+            {currentSearchType == SearchType.All &&
+              customData?.page?.pageConfig?.searchResult?.hideCustomPlaylist !==
+                true &&
+              customPlaylistData?.map((customPlaylist: any) =>
+                renderCustomPlaylist(customPlaylist)
+              )}
+
+            {customData?.page?.pageConfig?.searchResult?.hideNotes !== true ? (
+              <>
+                {currentSearchType == SearchType.All ||
+                currentSearchType == SearchType.Notes
+                  ? notesData?.map((note: any) => renderNotes(note))
+                  : null}
+              </>
+            ) : null}
+
+            {currentSearchType == SearchType.All &&
+              customData?.page?.pageConfig?.searchResult?.hideCompassion !==
+                true &&
+              compassionData?.map((compassion: CompassionData) =>
+                renderCompassion(compassion)
+              )}
+            {(currentSearchType == SearchType.All ||
+              currentSearchType == SearchType.Blogs) &&
+              blogData !== null &&
+              customData?.page?.pageConfig?.searchResult?.hideBlogs !== true &&
+              blogData.map((item: any) => renderBlog(item))}
+          </>
+        )}
+      </div>
+    </>
+  );
 }
-export default withRouter(ContentItem);
+
+const NoResults = () => {
+  return (
+    <div className="SearchResultItem">
+      <div className="Content">
+        <div className="Title">No results found</div>
+      </div>
+    </div>
+  );
+};
+
+const RenderStaff = ({
+  staff,
+  searchString,
+}: {
+  staff: TMHPerson;
+  searchString: string;
+}) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  return (
+    <a
+      style={
+        isLoaded ? { paddingRight: 12, paddingLeft: 12 } : { display: 'none' }
+      }
+      href={'mailto:' + staff.email}
+      key={staff.email}
+      className="SearchResultItem"
+    >
+      <FadeImage
+        alt={`Head shot of ${staff.firstName} ${staff.lastName}`}
+        className="StaffImage"
+        imageSrc={staff?.image ?? ''}
+        fallbackUrl={'/static/Individual.png'}
+        onLoad={(e) => {
+          e.currentTarget.style.opacity = '1';
+          setIsLoaded(true);
+        }}
+      />
+
+      <div className="Content">
+        <div style={{ marginBottom: 16 }}>
+          <Pill title="Staff" />
+        </div>
+
+        <div className="Title">
+          <Highlighter
+            highlightClassName="Highlight"
+            searchWords={searchString.split(' ')}
+            autoEscape={true}
+            textToHighlight={staff.firstName + ' ' + staff.lastName}
+          />
+        </div>
+        <div className="Description">
+          <Highlighter
+            highlightClassName="Highlight"
+            searchWords={searchString.split(' ')}
+            autoEscape={true}
+            textToHighlight={staff.position ?? ''}
+          />
+        </div>
+      </div>
+      <div className="Link">
+        <img alt="Send email icon" src="/static/svg/Contact.svg" />
+      </div>
+    </a>
+  );
+};
+
+const Pill = ({ title }: { title: string }) => {
+  return <span className="SearchItemPill">{title}</span>;
+};
