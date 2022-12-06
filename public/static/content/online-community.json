@@ -1,7 +1,7 @@
 {
   "page": {
-    "name": "toronto-downtown",
-    "title": "The Meeting House - Global",
+    "name": "online-community",
+    "title": "The Meeting House - Online Community",
     "keywords": "",
     "description": "",
     "pageConfig": {
@@ -17,8 +17,8 @@
       {
         "type": "og-tags",
         "image": "/static/images/og-images/toronto-downtown.jpg",
-        "url": "https://www.themeetinghouse.com/toronto-downtown",
-        "title": "The Meeting House - Global",
+        "url": "https://www.themeetinghouse.com/online-community",
+        "title": "The Meeting House - Online Community",
         "description": "A loving community of irreligious Jesus-followers - basically everywhere."
       },
       {
@@ -45,7 +45,7 @@
             "alt": "A large group of people hanging out together in an open concept living room for Home Church."
           }
         ],
-        "header1": "Global",
+        "header1": "Online Community",
         "text1": "Church Online Sundays @ 10:00am",
         "text3a": "Includes full program for Infants to Grade 8",
         "text4a": "Free underground parking available at the theatre. Pick up a parking voucher at the Info Table.",
@@ -59,7 +59,7 @@
         "type": "content",
         "style": "oneImage",
         "header1": "Christmas Eve 2022",
-        "header2": "December 24th livestream at 5:00pm",
+        "header2": "December 24th livestream at 4:30pm",
         "text1": "Join us this Christmas as we focus on the gift of Jesus, both in its enormity and yet the beauty of its simplicity.",
         "image1": [
           {
@@ -68,8 +68,8 @@
           }
         ],
         "calendar": {
-          "start": "2022-12-24T18:00:00-04:00",
-          "end": "2022-12-24T19:00:00-04:00",
+          "start": "2022-12-24T17:30:00-04:00",
+          "end": "2022-12-24T18:30:00-04:00",
           "summary": "Christmas Eve Livestream",
           "description": "Join us this Christmas as we focus on the gift of Jesus, both in its enormity and yet the beauty of its simplicity.",
           "location": "Online",
