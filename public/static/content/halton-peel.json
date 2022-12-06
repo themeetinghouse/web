@@ -80,12 +80,7 @@
         "class": "events",
         "header1": "Upcoming Events",
         "header2": "",
-        "facebookEvents": [
-          "725999090807589",
-          "1770683463163459",
-          "188440474508616",
-          "220608684658029"
-        ]
+        "facebookEvents": ["192337637474940", "204669579590265"]
       },
       {
         "type": "list",
