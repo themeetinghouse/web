@@ -47,13 +47,13 @@
         ],
         "header1": "Online Community",
         "text1": "Church Online Sundays @ 10:00am",
-        "text3a": "Includes full program for Infants to Grade 8",
-        "text4a": "Free underground parking available at the theatre. Pick up a parking voucher at the Info Table.",
+        "text3a": "",
+        "text4a": "",
         "addToCalendar": true,
         "contactPastor": true,
         "class": "locations",
         "filterField": "id",
-        "filterValue": "global"
+        "filterValue": "online-community"
       },
       {
         "type": "content",
