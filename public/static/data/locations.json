@@ -70,6 +70,20 @@
     "serviceTimes": ["11:00am"]
   },
   {
+    "id": "hamilton",
+    "name": "Hamilton",
+    "regionShortName": "Hamilton",
+    "serviceTimeDescription":"Every Sunday at 10am.",
+    "region": "Hamilton",
+    "pastorEmail": "Jimmy.Rushton@themeetinghouse.com",
+    "location": {
+      "longitude": -79.8703275,
+      "latitude": 43.2621493,
+      "address": "The Gasworks, 141 Park St N."
+    },
+    "serviceTimes": ["10:00am"]
+  },
+  {
     "id": "toronto-downtown",
     "name": "Toronto - Downtown",
     "regionShortName": "Downtown",
