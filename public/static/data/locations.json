@@ -268,11 +268,11 @@
     "serviceTimes": ["10:00am"]
   },
   {
-    "id": "global",
+    "id": "online-community",
     "name": "Online Community",
     "abbreviation" : "GLBL",
     "homeChurchGroupID": 65432,
-    "pastorEmail": "Mike.Slack@themeetinghouse.com",
+    "pastorEmail": "chris.chase@themeetinghouse.com",
     "location": {
       "longitude": 0.1,
       "latitude": 0.1,
