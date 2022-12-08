@@ -59,17 +59,11 @@
         "style": "greyTwoText",
         "header1": "Extended Family Church",
         "header2": "",
-        "text1": "In partnership with the Be In Christ denomination of Canada, we're excited to be piloting the concept of The Meeting House Extended Family churches as part of our vision to grow loving communities of Jesus followers beyond our current regional sites. Extended Family Meeting House churches are locally-operated Meeting House expressions that share the Jesus-centered theology, core values, vision, and ministry approach of The Meeting House family of churches."
-      },
-      {
-        "type": "content",
-        "style": "greyTwoText",
-        "header1": "Want to stay up to date with Sandbanks? Signup for our local email updates.",
-        "text1": "",
+        "text1": "In partnership with the Be In Christ denomination of Canada, we're excited to be piloting the concept of The Meeting House Extended Family churches as part of our vision to grow loving communities of Jesus followers beyond our current regional sites. Extended Family Meeting House churches are locally-operated Meeting House expressions that share the Jesus-centered theology, core values, vision, and ministry approach of The Meeting House family of churches.",
         "list": [
           {
             "type": "link",
-            "title": "Sign up for emails",
+            "title": "Sign up for email updates",
             "navigateTo": "http://eepurl.com/hD2zl5",
             "description": "Link to Sandbanks email updates signup."
           }
