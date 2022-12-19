@@ -6,7 +6,8 @@ import { ListLivestreamsQuery } from '../../API';
 import { API } from 'aws-amplify';
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import moment from 'moment-timezone';
-import './AnnouncementBar.scss';
+import YellowAnnouncement from './YellowAnnouncement';
+
 type Props = {
   showLive: boolean;
   setShowBar: (val: boolean) => void;
@@ -80,26 +81,10 @@ const AnnouncementBar = ({ showLive, setShowBar }: Props) => {
   return (
     <>
       {showLiveBanner ? (
-        <button
-          aria-label="Events List"
-          style={{
-            position: 'fixed',
-            zIndex: 10000,
-            top: 0,
-            left: 0,
-            padding: 0,
-            margin: 0,
-            border: 'none',
-            outline: 'none !important',
-            outlineOffset: 'none !important',
-          }}
-          className="ignore-onClickOutside"
+        <YellowAnnouncement
+          title={liveTitle}
           onClick={() => setShowDropdown((prev) => !prev)}
-        >
-          <div className="AnnouncementBarContainer">
-            <p className="bannerMessage">{liveTitle}</p>
-          </div>
-        </button>
+        />
       ) : null}
       {showDropdown ? (
         <Dropdown

@@ -81,6 +81,9 @@
     &:focus {
       background-color: #efeff0;
     }
+    &.offset {
+      top: 56px;
+    }
   }
 
   .navbar-toggler {
@@ -280,6 +283,9 @@
     }
     &:focus {
       background-color: #efeff0;
+    }
+    &.offset {
+      top: 56px;
     }
   }
   .liveEvent {
