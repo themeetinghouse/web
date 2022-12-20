@@ -7,6 +7,7 @@
     "homeChurchGroupID": "62948",
     "serviceTimeDescription": "Every Sunday at 10:30am. We will not meet on Dec 25.",
     "region": "Distance",
+    "facebookEvents": ["207406035979104"],
     "pastorEmail": "ruth.wright@themeetinghouse.com",
     "location": {
       "longitude": -79.870798,
@@ -37,6 +38,7 @@
     "homeChurchGroupID": "62947",
     "serviceTimeDescription": "Every Sunday at 10am",
     "region": "Distance",
+    "facebookEvents": ["392241614911544"],
     "pastorEmail": "steve.kerr@themeetinghouse.com",
     "location": {
       "longitude": -77.2674762,
@@ -53,6 +55,7 @@
     "homeChurchGroupID": "58224",
     "serviceTimeDescription": "Dec 23 at Alderlea. All other Sundays at 2700 Bristol Circle, Oakville.",
     "region": "Peel",
+    "facebookEvents": ["336457083044176", "441433702554990"],
     "pastorEmail": "Christine.Gerber@themeetinghouse.com",
     "location": {
       "longitude": -79.7607954,
@@ -69,6 +72,7 @@
     "homeChurchGroupID": "58248",
     "serviceTimeDescription": "Every Sunday at 10am",
     "region": "Peel",
+    "facebookEvents": ["197565076925859", "432197160135510"],
     "pastorEmail": "Jordan.Taylor@themeetinghouse.com",
     "location": {
       "longitude": -79.8302872,
@@ -83,6 +87,7 @@
     "regionShortName": "Hamilton",
     "serviceTimeDescription": "Every Sunday at 10am.",
     "region": "Hamilton",
+    "facebookEvents": ["1038050089551916", "126960067401497"],
     "pastorEmail": "Jimmy.Rushton@themeetinghouse.com",
     "location": {
       "longitude": -79.8703275,
@@ -98,6 +103,7 @@
     "abbreviation": "TODT",
     "homeChurchGroupID": "58083",
     "region": "Toronto",
+    "facebookEvents": ["188440474508616", "220608684658029"],
     "serviceTimeDescription": "Every Sunday at 10am",
     "pastorEmail": "Lisa.Goetze@themeetinghouse.com",
     "location": {
@@ -114,6 +120,7 @@
     "abbreviation": "TOBC",
     "homeChurchGroupID": "58258",
     "region": "Toronto",
+    "facebookEvents": ["1770683463163459", "220608684658029"],
     "pastorEmail": "Jennifer.McWilliams@themeetinghouse.com",
     "serviceTimeDescription": "Every Sunday at 10am. We will not meet on Dec 25.",
     "location": {
@@ -130,6 +137,7 @@
     "abbreviation": "TOHP",
     "homeChurchGroupID": "58257",
     "region": "Toronto",
+    "facebookEvents": ["725999090807589", "220608684658029"],
     "serviceTimeDescription": "Every Sunday at 10am",
     "pastorEmail": "Rob.Schellenberg@themeetinghouse.com",
     "location": {
@@ -147,6 +155,7 @@
     "homeChurchGroupID": "58254",
     "serviceTimeDescription": "Every Sunday at 9:30am",
     "region": "Distance",
+    "facebookEvents": ["285545728251709", "434599660039010"],
     "pastorEmail": "amie.latta@themeetinghouse.com",
     "location": {
       "longitude": -81.29423741528805,
@@ -163,6 +172,7 @@
     "homeChurchGroupID": "58069",
     "serviceTimeDescription": "Every Sunday at 10am",
     "region": "Distance",
+    "facebookEvents": ["367938486566408", "365702263516025"],
     "pastorEmail": "chris.chase@themeetinghouse.com",
     "location": {
       "longitude": -79.555998,
@@ -179,6 +189,7 @@
     "abbreviation": "OAKV",
     "serviceTimeDescription": "Every Sunday at 9:30am",
     "region": "Peel",
+    "facebookEvents": ["192337637474940", "204669579590265"],
     "pastorEmail": "oakville.pastor@themeetinghouse.com",
     "location": {
       "longitude": -79.685926,
@@ -210,6 +221,7 @@
     "homeChurchGroupID": "58255",
     "serviceTimeDescription": "Every Sunday at 3pm. Not meeting Dec 25 or Jan 1.",
     "region": "Distance",
+    "facebookEvents": ["179115895518447", "345735435521842"],
     "pastorEmail": "Eric.Versluis@themeetinghouse.com",
     "location": {
       "longitude": -75.6901723,
@@ -227,6 +239,7 @@
     "homeChurchGroupID": "58256",
     "serviceTimeDescription": "Every Sunday at 10am. We will not meet on Dec 25.",
     "region": "Distance",
+    "facebookEvents": ["308436542541692", "294618463975660"],
     "pastorEmail": "parrysound@themeetinghouse.com",
     "location": {
       "longitude": -80.036396,
@@ -243,6 +256,7 @@
     "homeChurchGroupID": "58081",
     "serviceTimeDescription": "Every Sunday at 2pm",
     "region": "Distance",
+    "facebookEvents": ["384127868269271", "365702263516025"],
     "pastorEmail": "chris.pullenayegem@themeetinghouse.com",
     "location": {
       "longitude": -79.43721571533477,
@@ -259,6 +273,7 @@
     "homeChurchGroupID": "57909",
     "serviceTimeDescription": "Every Sunday at 10am",
     "region": "Waterloo",
+    "facebookEvents": ["184501998239227", "418730018179338"],
     "pastorEmail": "madeleine.neufeld@themeetinghouse.com",
     "location": {
       "longitude": -80.4641284593693,
@@ -272,6 +287,7 @@
     "name": "Online Community",
     "abbreviation": "GLBL",
     "homeChurchGroupID": "65432",
+    "facebookEvents": [],
     "pastorEmail": "chris.chase@themeetinghouse.com",
     "location": {
       "longitude": 0.1,
