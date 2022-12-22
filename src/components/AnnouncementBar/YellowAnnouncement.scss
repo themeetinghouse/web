@@ -1,6 +1,6 @@
 @use '../../theme';
 
-.AnnouncementBarContainer {
+.AnnouncementContainer {
   display: flex;
   justify-content: center;
   align-content: center;
@@ -13,7 +13,7 @@
   margin: auto;
   cursor: pointer;
 }
-.bannerMessage {
+.AnnouncementMessage {
   text-align: center;
   margin-top: auto;
   margin-bottom: auto;
@@ -24,12 +24,12 @@
 }
 
 @media (max-width: 767px) {
-  .AnnouncementBarContainer {
+  .AnnouncementContainer {
     top: 19.2vw;
     height: calc(52px + 1vh);
     position: absolute;
   }
-  .bannerMessage {
+  .AnnouncementMessage {
     padding-right: 4px;
     padding-left: 4px;
     font-size: 0.9em;
