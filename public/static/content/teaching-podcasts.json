@@ -25,7 +25,7 @@
         "type": "list",
         "style": "imageListHeader",
         "header1": "Podcasts",
-        "text1": "Podcast time is the best time. Tune in to our Sunday morning teaching, catch a discussion from our leadership team, or learn from the experts - we've got you covered.",
+        "text1": "Podcast time is the best time. Tune in to our Sunday morning teaching from anywhere - we've got you covered.",
         "list": [
           {
             "title": "The Meeting House Podcast",
@@ -33,20 +33,6 @@
             "imageSrc": "/static/photos/podcasts/audio.jpg",
             "imageAlt": "Team of pastors from The Meeting House sitting around a table and recording a podcast.",
             "url": "/podcast/102719807"
-          },
-          {
-            "title": "The After Party",
-            "text": "Because the fun doesn't stop after Sunday morning. Dig deeper into theology, culture, and hot topics with experts in the field. ",
-            "imageSrc": "/static/photos/podcasts/afterparty.jpg",
-            "imageAlt": "Young woman sitting at a table and looking at her notes from Sunday teaching at The Meeting House.",
-            "url": "/podcast/215990014"
-          },
-          {
-            "title": "The Meeting House Roundtable",
-            "text": "Join our leaders and staff team as we chat about church life, outreach, and who we are as The Meeting House.",
-            "imageSrc": "/static/photos/podcasts/roundtable.jpg",
-            "imageAlt": "Team of pastors from The Meeting House sitting around a table and recording a podcast.",
-            "url": "/podcast/1453716988"
           },
           {
             "title": "The Meeting House Video Podcast",
