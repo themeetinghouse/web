@@ -104,17 +104,17 @@
         "list": [
           {
             "title": "Sunday Teaching",
-            "text": "All of our teaching videos and series, including notes, questions, audio, and additional content. Check out what we're learning, or find what you're looking for in our video playlists.",
+            "text": "Looking for our past teaching? Here you can find playlists for past series, with discussion notes, questions, and any additional content. Take a look at what we've been learning or dive into a topic you're interested in with our series playlists!",
             "imageSrc": "/static/images/homepage-4-1-new.jpg",
             "imageAlt": "Young woman sitting at a table and looking at her notes from Sunday teaching at The Meeting House.",
             "navigateTo": "/teaching"
           },
           {
-            "title": "Livestream",
-            "text": "We're live every Sunday at 10:00am EDT. A one hour livestream experience with stories, music, and teaching. If you're looking for a good first step, this is it. See you this Sunday!",
+            "title": "Church Online",
+            "text": "Want to join in or check us out from the comfort of your home? Every Sunday we go live at 10:00am ET with our one-hour Livestream experience! Here we share stories, music, and our latest teaching. Whether you're looking for a good first step or coming back for some more community, join us this Sunday!",
             "imageSrc": "/static/images/corona-2-3.jpg",
             "imageAlt": "Screen shot of Jimmy teaching during Sunday morning livestream at The Meeting House.",
-            "navigateTo": "/live"
+            "navigateTo": "/online-community"
           },
           {
             "title": "Podcasts",
