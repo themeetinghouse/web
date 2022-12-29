@@ -12,7 +12,11 @@
       "showSearch": true,
       "showFooter": true,
       "showMenu": true,
-      "weatherAlert": false
+      "weatherAlert": false,
+      "showYellowBar": {
+        "text": "Give Today",
+        "action": "/give"
+      }
     },
     "content": [
       {
