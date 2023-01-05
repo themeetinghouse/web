@@ -53,7 +53,7 @@
     "regionShortName": "Brampton",
     "abbreviation": "BRAM",
     "homeChurchGroupID": "58224",
-    "serviceTimeDescription": "Sundays at 2700 Bristol Circle, Oakville.",
+    "serviceTimeDescription": "Meeting at Alderlea: Jan 22, Feb 26, Mar 26, Apr 23, May 28, Jun 25, Jul 23. All other Sundays at 2700 Bristol Cir, Oakville.",
     "region": "Peel",
     "facebookEvents": ["336457083044176", "441433702554990"],
     "pastorEmail": "Christine.Gerber@themeetinghouse.com",
@@ -79,13 +79,13 @@
       "latitude": 43.3439882,
       "address": "1240 Advance Rd"
     },
-    "serviceTimes": ["11:00am"]
+    "serviceTimes": ["10:00am"]
   },
   {
     "id": "hamilton",
     "name": "Hamilton",
     "regionShortName": "Hamilton",
-    "serviceTimeDescription": "Every Sunday at 10am.",
+    "serviceTimeDescription": "Every Sunday at 10am",
     "region": "Hamilton",
     "facebookEvents": ["1038050089551916", "126960067401497"],
     "pastorEmail": "Jimmy.Rushton@themeetinghouse.com",
@@ -122,7 +122,7 @@
     "region": "Toronto",
     "facebookEvents": ["1770683463163459", "220608684658029"],
     "pastorEmail": "Jennifer.McWilliams@themeetinghouse.com",
-    "serviceTimeDescription": "Every Sunday at 10am. We will not meet on Dec 25.",
+    "serviceTimeDescription": "Every Sunday at 10am",
     "location": {
       "longitude": -79.3166538,
       "latitude": 43.6664844,
@@ -219,7 +219,7 @@
     "regionShortName": "Ottawa",
     "abbreviation": "OTTA",
     "homeChurchGroupID": "58255",
-    "serviceTimeDescription": "Every Sunday at 3pm. Not meeting Dec 25 or Jan 1.",
+    "serviceTimeDescription": "Every Sunday at 3pm",
     "region": "Distance",
     "facebookEvents": ["179115895518447", "345735435521842"],
     "pastorEmail": "Eric.Versluis@themeetinghouse.com",
@@ -237,7 +237,7 @@
     "regionShortName": "Parry Sound",
     "abbreviation": "PRSN",
     "homeChurchGroupID": "58256",
-    "serviceTimeDescription": "Every Sunday at 10am. We will not meet on Dec 25.",
+    "serviceTimeDescription": "Every Sunday at 10am",
     "region": "Distance",
     "facebookEvents": ["308436542541692", "294618463975660"],
     "pastorEmail": "parrysound@themeetinghouse.com",
