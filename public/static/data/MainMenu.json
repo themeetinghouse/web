@@ -8,10 +8,6 @@
     "location": "/community"
   },
   {
-    "name": "Christmas",
-    "location": "/christmas"
-  },
-  {
     "name": "Teaching",
     "location": "/teaching",
     "children": [
