@@ -266,7 +266,7 @@
     "serviceTimes": ["2:00pm"]
   },
   {
-    "id": "waterloo",
+    "id": "waterloo-region",
     "name": "Waterloo",
     "regionShortName": "Waterloo",
     "abbreviation": "WAT",
