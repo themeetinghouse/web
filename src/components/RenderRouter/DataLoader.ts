@@ -521,6 +521,7 @@ export default class DataLoader {
         id: { ne: postId },
         blogStatus: { eq: query.status },
         or: [{ author: { matchPhrase: blogAuthor } }],
+        hiddenMainIndex: { eq: false },
       },
     };
     blogTags?.forEach((tag) => {
