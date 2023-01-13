@@ -514,31 +514,19 @@ export default class DataLoader {
       (tag) => !['The Meeting House', 'church'].includes(tag ?? '')
     );
 
-    let blogTag1;
-    let blogTag2;
-    let blogTag3;
-    if (blogTags?.length && blogTags.length > 0) {
-      blogTag1 = blogTags[0] ?? '';
-      blogTag2 = blogTags[1] ?? '';
-      blogTag3 = blogTags[2] ?? '';
-    }
-
     const blogAuthor = getBlog.data?.getBlog?.author;
-
     const vars: SearchBlogsQueryVariables = {
-      limit: 3,
+      limit: 2,
       filter: {
         id: { ne: postId },
         blogStatus: { eq: query.status },
-        or: [
-          { author: { matchPhrase: blogAuthor } },
-          { tags: { matchPhrase: blogTag1 } },
-          { tags: { matchPhrase: blogTag2 } },
-          { tags: { matchPhrase: blogTag3 } },
-          { description: { matchPhrase: blogTag1 } },
-        ],
+        or: [{ author: { matchPhrase: blogAuthor } }],
       },
     };
+    blogTags?.forEach((tag) => {
+      vars.filter?.or?.push({ tags: { match: tag } });
+    });
+    console.log({ searchingOptions: vars });
     const searchBlogs = API.graphql(
       graphqlOperation(customQueries.searchBlogs, vars)
     ) as Promise<GraphQLResult<SearchBlogsQuery>>;
@@ -546,8 +534,8 @@ export default class DataLoader {
       const json = await searchBlogs;
       console.debug('Success customQueries.searchBlogs: ' + json);
       console.debug(json);
-
-      dataLoaded(json?.data?.searchBlogs?.items ?? []);
+      const items = json?.data?.searchBlogs?.items ?? [];
+      dataLoaded(items);
     } catch (e) {
       console.error(e);
     }
