@@ -510,35 +510,52 @@ export default class DataLoader {
       graphqlOperation(customQueries.getBlogForSearch, { id: postId })
     )) as GraphQLResult<GetBlogQuery>;
 
-    const blogTags = getBlog.data?.getBlog?.tags?.filter(
-      (tag) => !['The Meeting House', 'church'].includes(tag ?? '')
-    );
+    console.log({ getBlog });
+    const blogData = getBlog.data?.getBlog;
+    if (
+      blogData?.blogSeriesId === 'NullValueString' ||
+      blogData?.blogSeriesId === 'nonEmptyVoidStringValue' ||
+      blogData?.blogSeriesId === ''
+    ) {
+      const blogTags = getBlog.data?.getBlog?.tags?.filter(
+        (tag) => !['The Meeting House', 'church'].includes(tag ?? '')
+      );
 
-    const blogAuthor = getBlog.data?.getBlog?.author;
-    const vars: SearchBlogsQueryVariables = {
-      limit: 2,
-      filter: {
-        id: { ne: postId },
-        blogStatus: { eq: query.status },
-        or: [{ author: { matchPhrase: blogAuthor } }],
-        hiddenMainIndex: { eq: false },
-      },
-    };
-    blogTags?.forEach((tag) => {
-      vars.filter?.or?.push({ tags: { match: tag } });
-    });
-    console.log({ searchingOptions: vars });
-    const searchBlogs = API.graphql(
-      graphqlOperation(customQueries.searchBlogs, vars)
-    ) as Promise<GraphQLResult<SearchBlogsQuery>>;
-    try {
-      const json = await searchBlogs;
-      console.debug('Success customQueries.searchBlogs: ' + json);
-      console.debug(json);
-      const items = json?.data?.searchBlogs?.items ?? [];
-      dataLoaded(items);
-    } catch (e) {
-      console.error(e);
+      const blogAuthor = getBlog.data?.getBlog?.author;
+      const vars: SearchBlogsQueryVariables = {
+        limit: 2,
+        filter: {
+          id: { ne: postId },
+          blogStatus: { eq: query.status },
+          or: [{ author: { matchPhrase: blogAuthor } }],
+          hiddenMainIndex: { eq: false },
+        },
+      };
+      blogTags?.forEach((tag) => {
+        vars.filter?.or?.push({ tags: { match: tag } });
+      });
+      console.log({ searchingOptions: vars });
+      const searchBlogs = API.graphql(
+        graphqlOperation(customQueries.searchBlogs, vars)
+      ) as Promise<GraphQLResult<SearchBlogsQuery>>;
+      try {
+        const json = await searchBlogs;
+        console.debug('Success customQueries.searchBlogs: ' + json);
+        console.debug(json);
+        const items = json?.data?.searchBlogs?.items ?? [];
+        dataLoaded(items);
+      } catch (e) {
+        console.error(e);
+      }
+    } else {
+      console.log('get blogs in series', blogData?.blogSeriesId);
+      // need getBlogsBySeriesID query in schema
+      // try {
+
+      //   dataLoaded(items);
+      // }catch(e) {
+      //   console.error(e);
+      // }
     }
   }
   static async searchTMHPeople(searchTerm: string) {

@@ -418,6 +418,7 @@ export const getBlogForSearch = /* GraphQL */ `
         src
         alt
       }
+      blogSeriesId
       bannerImage {
         src
         alt
