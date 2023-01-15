@@ -55,26 +55,6 @@
         "filterValue": "oakville"
       },
       {
-        "type": "content",
-        "style": "oneImage",
-        "header1": "Christmas Eve 2022",
-        "header2": "December 24th, 3:30 Live Music, Kids Crafts & Refreshments, 4:00 All Ages Christmas Gathering",
-        "text1": "Join us this Christmas as we focus on the gift of Jesus, both in its enormity and yet the beauty of its simplicity.",
-        "image1": [
-          {
-            "src": "/static/images/TMH_TheGiftXmas_1080x1080.jpg",
-            "alt": "The Gift Christmas with red background and line drawing of angels, star, manger."
-          }
-        ],
-        "calendar": {
-          "start": "2022-12-24T16:30:00-04:00",
-          "end": "2022-12-24T18:00:00-04:00",
-          "summary": "Oakville Christmas Eve",
-          "description": "3:30 Live Music, Kids Crafts & Refreshments. 4:00 All Ages Christmas Gathering.",
-          "location": "2700 Bristol Circle, Oakville"
-        }
-      },
-      {
         "type": "list",
         "style": "staff",
         "class": "staff",

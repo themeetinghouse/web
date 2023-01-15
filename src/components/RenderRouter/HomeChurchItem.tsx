@@ -34,31 +34,6 @@ const HOME_CHURCH_PIN_URL = '/static/svg/HomeChurchPin.svg';
 const HOME_CHURCH_PIN_SELECTED_URL = '/static/svg/HomeChurchPin-selected.svg';
 const CURRENT_LOCATION_URL = '/static/svg/CurrentLocation.svg';
 const DEFAULT_LAT_LNG = { lng: -79.685926, lat: 43.511459 };
-
-const Location_ID_to_F1_Group_Type_Map: Record<string, string> = {
-  alliston: '62948',
-  ancaster: '58251',
-  brampton: '58224',
-  brantford: '58225',
-  burlington: '58248',
-  'hamilton-downtown': '58249',
-  'hamilton-mountain': '58250',
-  kitchener: '58253',
-  london: '58254',
-  newmarket: '58069',
-  oakville: '58082',
-  ottawa: '58255',
-  'parry-sound': '58256',
-  'richmond-hill': '58081',
-  sandbanks: '62947',
-  'toronto-downtown': '58083',
-  'toronto-east': '58258',
-  'toronto-high-park': '58257',
-  'toronto-uptown': '58259',
-  waterloo: '57909',
-  global: '65432',
-};
-
 interface Props extends RouteComponentProps, IProvidedProps {
   content: HomeChurchItemContent;
 }
@@ -349,7 +324,10 @@ export class ContentItem extends React.Component<Props, State> {
     const filteredGroups = this.state.groups.filter(
       (g) =>
         locationFilter === null ||
-        g.groupType?.id === Location_ID_to_F1_Group_Type_Map[locationFilter]
+        g.groupType?.id ===
+          this.state.locations.find(
+            (location) => location.id === locationFilter
+          )?.homeChurchGroupID
     );
     const bounds = new this.props.google.maps.LatLngBounds();
     if (showCurrent) {
@@ -524,9 +502,10 @@ export class ContentItem extends React.Component<Props, State> {
         item.isPublic &&
         (this.state.locationFilter === null ||
           item.groupType?.id ===
-            Location_ID_to_F1_Group_Type_Map[this.state.locationFilter])
+            this.state.locations.find(
+              (location) => location.id === this.state.locationFilter
+            )?.homeChurchGroupID)
     );
-
     filteredGroups.sort(this.distanceSorter);
     const badgeHelper = (keyName: string) => {
       switch (keyName) {

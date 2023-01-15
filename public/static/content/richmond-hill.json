@@ -61,19 +61,6 @@
         "text1": "We will be meeting in-person every 2nd Sunday of the month for in-person worship. Every 4th Sunday of the month we will have Family Home Church. For both Sundays, Kidmax programs will be available for Walkers-Sr. Kindergarten, & Grades 1-5. For activities on the 1st and 3rd Sundays of the month, we will notify via email. Sign up for email updates at the bottom of this page!"
       },
       {
-        "type": "content",
-        "style": "oneImage",
-        "header1": "Christmas Eve 2022",
-        "header2": "Details to come.",
-        "text1": "Join us this Christmas as we focus on the gift of Jesus, both in its enormity and yet the beauty of its simplicity.",
-        "image1": [
-          {
-            "src": "/static/images/TMH_TheGiftXmas_1080x1080.jpg",
-            "alt": "The Gift Christmas with red background and line drawing of angels, star, manger."
-          }
-        ]
-      },
-      {
         "type": "list",
         "style": "staff",
         "class": "staff",

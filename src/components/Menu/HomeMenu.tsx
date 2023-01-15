@@ -20,6 +20,7 @@ import { EditorContext } from '../../pages/admin/Editor/EditorContext';
 import RSNavLinkWrapper from './RSNavLinkWrapper';
 import TMHLogo from './TMHLogo';
 import ExpandButton from './ExpandButton';
+import YellowAnnouncement from 'components/AnnouncementBar/YellowAnnouncement';
 const VideoOverlay = React.lazy(() => import('../VideoOverlay/VideoOverlay'));
 const AnnouncementBar = React.lazy(
   () => import('../../components/AnnouncementBar/AnnouncementBar')
@@ -170,6 +171,24 @@ class HomeMenu extends React.Component<Props, State> {
           setShowBar={(val) => this.setState({ logoOffset: val })}
           showLive={this.state.showLive}
         />
+        {this.props.pageConfig.showYellowBar && !this.state.logoOffset ? (
+          <YellowAnnouncement
+            title={this.props.pageConfig.showYellowBar.text}
+            onClick={() => {
+              if (this.props.pageConfig.showYellowBar.action.includes('http')) {
+                window.open(
+                  this.props.pageConfig.showYellowBar.action,
+                  '_blank'
+                );
+                return;
+              } else
+                this.props.history.push(
+                  this.props.pageConfig.showYellowBar.action
+                );
+            }}
+          />
+        ) : null}
+
         <div>
           <div
             className={
@@ -182,7 +201,9 @@ class HomeMenu extends React.Component<Props, State> {
           >
             <NavbarBrand tag={Link} className="brand" to="/">
               <TMHLogo
-                offset={this.state.logoOffset}
+                offset={
+                  this.state.logoOffset || this.props.pageConfig.showYellowBar
+                }
                 logoColor={this.state.logoColor}
                 showLogoText={this.state.showLogoText}
               />
@@ -192,7 +213,11 @@ class HomeMenu extends React.Component<Props, State> {
               <div>
                 <Button
                   aria-label="Search the meeting house website"
-                  className="search"
+                  className={`search ${
+                    this.props.pageConfig.showYellowBar || this.state.logoOffset
+                      ? 'offset'
+                      : ''
+                  }`}
                   onClick={() => this.setState({ overlayType: 'search' })}
                 >
                   <img src="/static/svg/Search.svg" alt="Search" />

@@ -360,7 +360,7 @@ export default function Announcements(): JSX.Element {
   ) => {
     switch (conditional) {
       case true:
-        return `https://themeetinghouse.com/cached/640/static/photos/announcements/${
+        return `https://themeetinghouse.com/static/photos/announcements/${
           announcement?.publishedDate
         }_${announcement?.title.replaceAll(' ', '_')}.jpg`;
       default:

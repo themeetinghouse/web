@@ -175,6 +175,8 @@ export interface LocationData {
   id: string;
   name: string;
   region: string;
+  homeChurchGroupID: string;
+  abbreviation: string;
   regionShortName: string;
   pastorEmail: string;
   serviceTimeDescription: string;
