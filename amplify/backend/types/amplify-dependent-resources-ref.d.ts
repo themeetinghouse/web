@@ -15,6 +15,11 @@ export type AmplifyDependentResourcesAttributes = {
     };
     userPoolGroups: {
       adminGroupRole: 'string';
+      BloggersGroupRole: 'string';
+      ElderGroupRole: 'string';
+      InstagramGroupRole: 'string';
+      NotesGroupRole: 'string';
+      PaymentServiceGroupRole: 'string';
     };
   };
   api: {

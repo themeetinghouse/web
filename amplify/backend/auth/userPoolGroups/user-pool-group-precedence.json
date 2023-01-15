@@ -2,5 +2,25 @@
   {
     "groupName": "admin",
     "precedence": 1
+  },
+  {
+    "groupName": "Bloggers",
+    "precedence": 2
+  },
+  {
+    "groupName": "Elder",
+    "precedence": 3
+  },
+  {
+    "groupName": "Instagram",
+    "precedence": 4
+  },
+  {
+    "groupName": "Notes",
+    "precedence": 5
+  },
+  {
+    "groupName": "PaymentService",
+    "precedence": 6
   }
 ]

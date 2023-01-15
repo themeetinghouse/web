@@ -33,6 +33,6 @@ jobs:
       run: python ./scripts/json-lint.py
 
     - name: Copy files to the production website with the AWS CLI
-      run: aws s3 sync ./public/static s3://heeetingouse-20190312104205-hostingbucket-tmhprod/static
+      run: aws s3 sync ./public/static s3://heeetingouse-20190312104205-hostingbucket-prodnew/static
     - name: Cache invalidation
-      run: aws cloudfront create-invalidation --distribution-id EYO80SQB3QGL --paths '/static/*'
+      run: aws cloudfront create-invalidation --distribution-id E55HT4OV1QU2G --paths '/static/*'
