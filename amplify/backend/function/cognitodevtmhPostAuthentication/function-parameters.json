@@ -8,7 +8,7 @@
   "resourceName": "cognitodevtmhPostAuthentication",
   "parentStack": "auth",
   "triggerEnvs": "[]",
-  "triggerDir": "/usr/local/lib/node_modules/@aws-amplify/cli/node_modules/amplify-category-auth/provider-utils/awscloudformation/triggers/PostAuthentication",
+  "triggerDir": "/snapshot/repo/build/node_modules/@aws-amplify/amplify-category-auth/provider-utils/awscloudformation/triggers/PostAuthentication",
   "triggerTemplate": "PostAuthentication.json.ejs",
   "triggerEventPath": "PostAuthentication.event.json",
   "roleName": "cognitodevtmhPostAuthentication",

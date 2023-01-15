@@ -498,5 +498,173 @@
         }
       }
     }
+  },
+  "prodnew": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-themeetinghouse-prodnew-221608-authRole",
+      "UnauthRoleArn": "arn:aws:iam::536749583917:role/amplify-themeetinghouse-prodnew-221608-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::536749583917:role/amplify-themeetinghouse-prodnew-221608-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+      "UnauthRoleName": "amplify-themeetinghouse-prodnew-221608-unauthRole",
+      "StackName": "amplify-themeetinghouse-prodnew-221608",
+      "StackId": "arn:aws:cloudformation:us-east-1:536749583917:stack/amplify-themeetinghouse-prodnew-221608/4ead6de0-791b-11ed-bc6e-0ac1fe92c4b3",
+      "AmplifyAppId": "d2l14xf9dprn6k",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-themeetinghouse-prodnew-221608-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "auth": {
+        "cognitodevtmh": {
+          "facebookAppId": "abc",
+          "googleClientId": "def",
+          "amazonAppId": "fgh"
+        },
+        "userPoolGroups": {}
+      },
+      "function": {
+        "cognitodevtmhPostAuthentication": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/cognitodevtmhPostAuthentication-4f35616b2f6b7441686e-build.zip"
+        },
+        "cognitodevtmhPreSignup": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/cognitodevtmhPreSignup-654b7a67474f4575796e-build.zip"
+        },
+        "cognitodevtmhPreTokenGeneration": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/cognitodevtmhPreTokenGeneration-7658786d78656b6a4f31-build.zip"
+        },
+        "themeetinghousea5cd4619": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/themeetinghousea5cd4619-2f656466394f554c7a55-build.zip"
+        },
+        "emailHomeChurch": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/emailHomeChurch-6a5a3369754b30304565-build.zip"
+        },
+        "socialBotHandler": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/socialBotHandler-7253376d664f4d775466-build.zip"
+        },
+        "S3Triggerd90d52fa": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/S3Triggerd90d52fa-55585256336f73466775-build.zip"
+        },
+        "tmhMetadataFacebook": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/tmhMetadataFacebook-396f6d48536143516274-build.zip"
+        },
+        "QandEh": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/QandEh-646c58694a6f50475546-build.zip"
+        },
+        "getBiblePassage": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/getBiblePassage-536c5971493352786546-build.zip"
+        },
+        "tmhF1HomeChurch": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/tmhF1HomeChurch-66576355396963543551-build.zip"
+        },
+        "tmhnotespdf": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/tmhnotespdf-6d3070755a5732386e65-build.zip"
+        },
+        "tmhF1SyncGroupPermissions": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/tmhF1SyncGroupPermissions-5472734c5869666f6c61-build.zip"
+        },
+        "themeetinghousetmhShared": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/themeetinghousetmhShared-LambdaLayerVersion238eb89a-build.zip"
+        },
+        "tmhStripeListPaymentMethods": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/tmhStripeListPaymentMethods-61362b72364353436f58-build.zip"
+        },
+        "tmhStripeAddCustomer": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/tmhStripeAddCustomer-70636941642b335a6137-build.zip"
+        },
+        "tmhStripeAddPaymentMethod": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/tmhStripeAddPaymentMethod-504f6b2f39304b654233-build.zip"
+        },
+        "tmhStripeListSubscriptions": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/tmhStripeListSubscriptions-51364454336a4c4c506f-build.zip"
+        },
+        "tmhStripeAddSubscription": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/tmhStripeAddSubscription-4e52455868656f4a6d46-build.zip"
+        },
+        "tmhStripeDeleteSubscription": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/tmhStripeDeleteSubscription-346d6f62714a44617843-build.zip"
+        },
+        "AdminQueriesb1fe1491": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/AdminQueriesb1fe1491-61584b386e6e34646b6c-build.zip"
+        },
+        "tmhF1AssignmentSync": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/tmhF1AssignmentSync-51597837765458647446-build.zip"
+        },
+        "AdminQueriesa1b7e2e8": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/AdminQueriesa1b7e2e8-316a696d69555a315367-build.zip"
+        },
+        "tmhF1LinkUser": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/tmhF1LinkUser-5a43706973764c4d7475-build.zip"
+        },
+        "tmhPinpointCreateCampaign": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/tmhPinpointCreateCampaign-36524c77722b614e3664-build.zip"
+        },
+        "tmhPinpointListSegments": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/tmhPinpointListSegments-71576c7a7371775a4b44-build.zip"
+        },
+        "tmhPinpointCleanupEndpoints": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/tmhPinpointCleanupEndpoints-36697941656d64687545-build.zip"
+        },
+        "tmhF1SearchContributionReceipts": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/tmhF1SearchContributionReceipts-39323772596762417955-build.zip"
+        },
+        "tmhStripeAddPayment": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/tmhStripeAddPayment-79633471336977544178-build.zip"
+        },
+        "tmhStripeDeletePaymentMethod": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/tmhStripeDeletePaymentMethod-473663476b3967514746-build.zip"
+        },
+        "sitemapgenerator": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/sitemapgenerator-50686c7054616f71525a-build.zip"
+        },
+        "tmhClearCache": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/tmhClearCache-6d386c4d443069586d78-build.zip"
+        }
+      },
+      "api": {
+        "themeetinghouse": {},
+        "image": {},
+        "AdminQueries": {}
+      },
+      "hosting": {
+        "S3AndCloudFront": {}
+      },
+      "analytics": {
+        "themeetinghouse": {}
+      },
+      "storage": {
+        "tmhusercontent": {}
+      }
+    }
   }
 }

@@ -3,10 +3,10 @@
 
 const awsmobile = {
     "aws_project_region": "us-east-1",
-    "aws_cognito_identity_pool_id": "us-east-1:d3da58ee-46b8-4b00-aa3a-a14c37b64aa7",
+    "aws_cognito_identity_pool_id": "us-east-1:3ff56cd7-e4b2-4543-aed6-94f258a95dd8",
     "aws_cognito_region": "us-east-1",
-    "aws_user_pools_id": "us-east-1_KiJzP2dH5",
-    "aws_user_pools_web_client_id": "3pf37ngd57hsk9ld12aha9bm2f",
+    "aws_user_pools_id": "us-east-1_SuPgaibT1",
+    "aws_user_pools_web_client_id": "4r6fjaifitufbsl1qcju0f9jbt",
     "oauth": {},
     "federationTarget": "COGNITO_IDENTITY_POOLS",
     "aws_cognito_username_attributes": [],
@@ -30,28 +30,28 @@ const awsmobile = {
     "aws_cognito_verification_mechanisms": [
         "EMAIL"
     ],
-    "aws_appsync_graphqlEndpoint": "https://qt6manqtzbhkvd6tcxvchusmyq.appsync-api.us-east-1.amazonaws.com/graphql",
+    "aws_appsync_graphqlEndpoint": "https://ivmnti3f45d2phjrvkx62mxgyi.appsync-api.us-east-1.amazonaws.com/graphql",
     "aws_appsync_region": "us-east-1",
     "aws_appsync_authenticationType": "API_KEY",
-    "aws_appsync_apiKey": "da2-z4ilyrquhnagtbiosodc6qq4kq",
+    "aws_appsync_apiKey": "da2-e4tke5ydc5hffgrwy5e36qdrmu",
     "aws_cloud_logic_custom": [
         {
             "name": "image",
-            "endpoint": "https://95i5crqja0.execute-api.us-east-1.amazonaws.com/tmhprod",
+            "endpoint": "https://iq31kud6zk.execute-api.us-east-1.amazonaws.com/prodnew",
             "region": "us-east-1"
         },
         {
             "name": "AdminQueries",
-            "endpoint": "https://tchlhrimna.execute-api.us-east-1.amazonaws.com/tmhprod",
+            "endpoint": "https://903cegfkk8.execute-api.us-east-1.amazonaws.com/prodnew",
             "region": "us-east-1"
         }
     ],
-    "aws_content_delivery_bucket": "heeetingouse-20190312104205-hostingbucket-tmhprod",
+    "aws_content_delivery_bucket": "heeetingouse-20190312104205-hostingbucket-prodnew",
     "aws_content_delivery_bucket_region": "us-east-1",
-    "aws_content_delivery_url": "https://d3ovx9jsa9o5gy.cloudfront.net",
-    "aws_mobile_analytics_app_id": "20b026ebefc445dd82e5a853dff62770",
+    "aws_content_delivery_url": "https://dx0d3ykzhvif.cloudfront.net",
+    "aws_mobile_analytics_app_id": "0a2b4c0b6e7448249fac4bf70c54b478",
     "aws_mobile_analytics_app_region": "us-east-1",
-    "aws_user_files_s3_bucket": "themeetinghouse-usercontentstoragetmhusercontent-tmhprod",
+    "aws_user_files_s3_bucket": "themeetinghouse-usercontent221608-prodnew",
     "aws_user_files_s3_bucket_region": "us-east-1"
 };
 

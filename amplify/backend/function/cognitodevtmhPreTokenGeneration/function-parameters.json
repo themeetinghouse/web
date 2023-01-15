@@ -8,7 +8,7 @@
   "resourceName": "cognitodevtmhPreTokenGeneration",
   "parentStack": "auth",
   "triggerEnvs": "[]",
-  "triggerDir": "/usr/local/lib/node_modules/@aws-amplify/cli/node_modules/amplify-category-auth/provider-utils/awscloudformation/triggers/PreTokenGeneration",
+  "triggerDir": "/snapshot/repo/build/node_modules/@aws-amplify/amplify-category-auth/provider-utils/awscloudformation/triggers/PreTokenGeneration",
   "triggerTemplate": "PreTokenGeneration.json.ejs",
   "triggerEventPath": "PreTokenGeneration.event.json",
   "roleName": "cognitodevtmhPreTokenGeneration",
