@@ -622,6 +622,25 @@
     }
   },
   {
+    "id": 31,
+    "sites": ["toronto-east"],
+    "region": "toronto",
+    "name": "Out of the Cold",
+    "description": "A volunteer-run program providing a hot meal, shelter from the cold, clothing, basic needs, warmth, dignity, and kindness to those in need on Friday evenings from November to March.",
+    "website": "https://www.eastendunited.ca/out-of-the-cold.html",
+    "image": "/static/photos/compassion/Out of the Cold.jpg",
+    "imagealt": "Placeholder image for Compassion Partner",
+    "address": "East End United Church, 310 Danforth Avenue, Toronto, ON, M4K 1N63",
+    "Phone": "(416) 465-3755",
+    "email": "sheila.wong@themeetinghouse.com",
+    "social": {},
+    "location": {
+      "longitude": -79.32068151494443,
+      "latitude": 43.67331076652939,
+      "address": "310 Danforth Avenue, Toronto, ON, M4K 1N6"
+    }
+  },
+  {
     "id": 32,
     "sites": ["toronto-high-park"],
     "region": "toronto",
