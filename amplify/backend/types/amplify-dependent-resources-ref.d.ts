@@ -1,261 +1,292 @@
 export type AmplifyDependentResourcesAttributes = {
-  auth: {
-    cognitodevtmh: {
-      IdentityPoolId: 'string';
-      IdentityPoolName: 'string';
-      UserPoolId: 'string';
-      UserPoolArn: 'string';
-      UserPoolName: 'string';
-      AppClientIDWeb: 'string';
-      AppClientID: 'string';
-      CreatedSNSRole: 'string';
-      GoogleWebClient: 'string';
-      FacebookWebClient: 'string';
-      AmazonWebClient: 'string';
-    };
-    userPoolGroups: {
-      adminGroupRole: 'string';
-      BloggersGroupRole: 'string';
-      ElderGroupRole: 'string';
-      InstagramGroupRole: 'string';
-      NotesGroupRole: 'string';
-      PaymentServiceGroupRole: 'string';
-    };
-  };
-  api: {
-    themeetinghouse: {
-      GraphQLAPIKeyOutput: 'string';
-      GraphQLAPIIdOutput: 'string';
-      GraphQLAPIEndpointOutput: 'string';
-    };
-    image: {
-      RootUrl: 'string';
-      ApiName: 'string';
-      ApiId: 'string';
-    };
-    AdminQueries: {
-      RootUrl: 'string';
-      ApiName: 'string';
-      ApiId: 'string';
-    };
-  };
-  hosting: {
-    S3AndCloudFront: {
-      Region: 'string';
-      HostingBucketName: 'string';
-      WebsiteURL: 'string';
-      S3BucketSecureURL: 'string';
-      CloudFrontDistributionID: 'string';
-      CloudFrontDomainName: 'string';
-      CloudFrontSecureURL: 'string';
-    };
-  };
-  function: {
-    themeetinghousea5cd4619: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-    };
-    emailHomeChurch: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-    };
-    socialBotHandler: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-    };
-    S3Triggerd90d52fa: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-    };
-    tmhMetadataFacebook: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-    };
-    QandEh: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-    };
-    getBiblePassage: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-    };
-    tmhF1HomeChurch: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-      CloudWatchEventRule: 'string';
-    };
-    tmhnotespdf: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-    };
-    tmhF1SyncGroupPermissions: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-    };
-    themeetinghousetmhShared: {
-      Arn: 'string';
-    };
-    tmhStripeListPaymentMethods: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-    };
-    tmhStripeAddCustomer: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-    };
-    tmhStripeAddPaymentMethod: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-    };
-    tmhStripeListSubscriptions: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-    };
-    tmhStripeAddSubscription: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-    };
-    tmhStripeDeleteSubscription: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-    };
-    AdminQueriesb1fe1491: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-    };
-    cognitodevtmhPreSignup: {
-      Name: 'string';
-      Arn: 'string';
-      LambdaExecutionRole: 'string';
-      Region: 'string';
-    };
-    tmhF1AssignmentSync: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-      CloudWatchEventRule: 'string';
-    };
-    cognitodevtmhPreTokenGeneration: {
-      Name: 'string';
-      Arn: 'string';
-      LambdaExecutionRole: 'string';
-      Region: 'string';
-    };
-    AdminQueriesa1b7e2e8: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-    };
-    tmhF1LinkUser: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-    };
-    cognitodevtmhPostAuthentication: {
-      Name: 'string';
-      Arn: 'string';
-      LambdaExecutionRole: 'string';
-      Region: 'string';
-    };
-    tmhPinpointCreateCampaign: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-    };
-    tmhPinpointListSegments: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-    };
-    tmhPinpointCleanupEndpoints: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-      CloudWatchEventRule: 'string';
-    };
-    tmhF1SearchContributionReceipts: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-    };
-    tmhStripeAddPayment: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-    };
-    tmhStripeDeletePaymentMethod: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-    };
-    sitemapgenerator: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-      CloudWatchEventRule: 'string';
-    };
-    tmhClearCache: {
-      Name: 'string';
-      Arn: 'string';
-      Region: 'string';
-      LambdaExecutionRole: 'string';
-    };
-  };
-  analytics: {
-    themeetinghouse: {
-      Region: 'string';
-      Id: 'string';
-      appName: 'string';
-    };
-  };
-  storage: {
-    tmhusercontent: {
-      BucketName: 'string';
-      Region: 'string';
-    };
-  };
-};
+  "analytics": {
+    "themeetinghouse": {
+      "Id": "string",
+      "Region": "string",
+      "appName": "string"
+    }
+  },
+  "api": {
+    "AdminQueries": {
+      "ApiId": "string",
+      "ApiName": "string",
+      "RootUrl": "string"
+    },
+    "image": {
+      "ApiId": "string",
+      "ApiName": "string",
+      "RootUrl": "string"
+    },
+    "themeetinghouse": {
+      "GraphQLAPIEndpointOutput": "string",
+      "GraphQLAPIIdOutput": "string",
+      "GraphQLAPIKeyOutput": "string"
+    }
+  },
+  "auth": {
+    "cognitodevtmh": {
+      "AmazonWebClient": "string",
+      "AppClientID": "string",
+      "AppClientIDWeb": "string",
+      "CreatedSNSRole": "string",
+      "FacebookWebClient": "string",
+      "GoogleWebClient": "string",
+      "IdentityPoolId": "string",
+      "IdentityPoolName": "string",
+      "UserPoolArn": "string",
+      "UserPoolId": "string",
+      "UserPoolName": "string"
+    },
+    "userPoolGroups": {
+      "BloggersGroupRole": "string",
+      "ElderGroupRole": "string",
+      "InstagramGroupRole": "string",
+      "NotesGroupRole": "string",
+      "PaymentServiceGroupRole": "string",
+      "adminGroupRole": "string"
+    }
+  },
+  "function": {
+    "AdminQueriesa1b7e2e8": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "AdminQueriesb1fe1491": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "QandEh": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "S3Triggerd90d52fa": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "cognitodevtmhPostAuthentication": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "cognitodevtmhPreSignup": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "cognitodevtmhPreTokenGeneration": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "emailHomeChurch": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "getBiblePassage": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "sitemapgenerator": {
+      "Arn": "string",
+      "CloudWatchEventRule": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "socialBotHandler": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "themeetinghousea5cd4619": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "themeetinghousetmhShared": {
+      "Arn": "string"
+    },
+    "tmhClearCache": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "tmhF1AssignmentSync": {
+      "Arn": "string",
+      "CloudWatchEventRule": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "tmhF1HomeChurch": {
+      "Arn": "string",
+      "CloudWatchEventRule": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "tmhF1LinkUser": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "tmhF1SearchContributionReceipts": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "tmhF1SyncGroupPermissions": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "tmhMetadataFacebook": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "tmhPinpointCleanupEndpoints": {
+      "Arn": "string",
+      "CloudWatchEventRule": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "tmhPinpointCreateCampaign": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "tmhPinpointListSegments": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "tmhStripeAddCustomer": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "tmhStripeAddPayment": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "tmhStripeAddPaymentMethod": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "tmhStripeAddSubscription": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "tmhStripeDeletePaymentMethod": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "tmhStripeDeleteSubscription": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "tmhStripeListPaymentMethods": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "tmhStripeListSubscriptions": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "tmhnotespdf": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    }
+  },
+  "hosting": {
+    "S3AndCloudFront": {
+      "CloudFrontDistributionID": "string",
+      "CloudFrontDomainName": "string",
+      "CloudFrontSecureURL": "string",
+      "HostingBucketName": "string",
+      "Region": "string",
+      "S3BucketSecureURL": "string",
+      "WebsiteURL": "string"
+    }
+  },
+  "storage": {
+    "tmhusercontent": {
+      "BucketName": "string",
+      "Region": "string"
+    }
+  }
+}

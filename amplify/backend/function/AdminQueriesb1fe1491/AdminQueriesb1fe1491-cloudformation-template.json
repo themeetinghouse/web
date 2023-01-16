@@ -223,6 +223,14 @@
       "Value": {
         "Ref": "LambdaExecutionRole"
       }
+    },
+    "LambdaExecutionRoleArn": {
+      "Value": {
+        "Fn::GetAtt": [
+          "LambdaExecutionRole",
+          "Arn"
+        ]
+      }
     }
   }
 }

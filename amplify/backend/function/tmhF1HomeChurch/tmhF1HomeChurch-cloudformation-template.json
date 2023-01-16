@@ -442,6 +442,14 @@
       "Value": {
         "Ref": "CloudWatchEvent"
       }
+    },
+    "LambdaExecutionRoleArn": {
+      "Value": {
+        "Fn::GetAtt": [
+          "LambdaExecutionRole",
+          "Arn"
+        ]
+      }
     }
   }
 }
