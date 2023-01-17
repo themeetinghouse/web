@@ -19,26 +19,24 @@ exports.handler = function (event, context) { //eslint-disable-line
 
   context.done(null, 'Hello World'); // SUCCESS with message
 };*/
-const  resizeHandler = require("./resizeHandler.js");
+const resizeHandler = require('./resizeHandler.js');
 
-exports.handler = async event => {
+exports.handler = async (event) => {
   try {
     const imagePath = await resizeHandler.process(event);
-    var URLBase
-    if (process.env.ENV==="dev")
-      URLBase= "https://beta.themeetinghouse.com"
-    else if (process.env.ENV==="tmhprod")
-      URLBase= "https://www.themeetinghouse.com"
-    else
-      URLBase= "https://www.themeetinghouse.com"
-    const URL = `http://${process.env.HOSTING_S3ANDCLOUDFRONT_HOSTINGBUCKETNAME}.s3-website.${
-      process.env.REGION
-    }.amazonaws.com`;
+    var URLBase;
+    if (process.env.ENV === 'dev') URLBase = 'https://beta.themeetinghouse.com';
+    else if (process.env.ENV === 'tmhprod')
+      URLBase = 'https://www.themeetinghouse.com';
+    else if (process.env.ENV === 'prodnew')
+      URLBase = 'https://www.themeetinghouse.com';
+    else URLBase = 'https://www.themeetinghouse.com';
+    const URL = `http://${process.env.HOSTING_S3ANDCLOUDFRONT_HOSTINGBUCKETNAME}.s3-website.${process.env.REGION}.amazonaws.com`;
 
     return {
       headers: { location: `${URLBase}/${imagePath}` },
       statusCode: 301,
-      body: ""
+      body: '',
     };
   } catch (error) {
     console.log(error);

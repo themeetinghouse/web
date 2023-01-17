@@ -189,8 +189,7 @@
               "Effect": "Allow",
               "Action": [
                 "s3:GetObject",
-                "s3:PutObject",
-                "s3:ListBucket"
+                "s3:PutObject"
               ],
               "Resource": [
                 {
@@ -202,6 +201,42 @@
                         "Ref": "hostingS3AndCloudFrontHostingBucketName"
                       },
                       "/*"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "s3:ListBucket"
+              ],
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:s3:::",
+                      {
+                        "Ref": "hostingS3AndCloudFrontHostingBucketName"
+                      }
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "s3:*"
+              ],
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:s3:::*"
+                      
                     ]
                   ]
                 }
