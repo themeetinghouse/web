@@ -542,7 +542,7 @@
         },
         "themeetinghousea5cd4619": {
           "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
-          "s3Key": "amplify-builds/themeetinghousea5cd4619-584a2b6e5a772b456b72-build.zip"
+          "s3Key": "amplify-builds/themeetinghousea5cd4619-437765666c374a323535-build.zip"
         },
         "emailHomeChurch": {
           "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
