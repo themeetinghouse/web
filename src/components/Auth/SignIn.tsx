@@ -226,6 +226,12 @@ export default function SignIn(props: SignInProps) {
           <div role="alert">
             {state.fromVerified ? 'User Verified. Please Login.' : null}
           </div>
+
+          <div style={{ marginTop: 10, fontSize: 10 }}>
+            On January 16 we migrated to a signin system and passwords were
+            reset. To login please follow the Forgot Password prompts to receive
+            a new password.
+          </div>
         </form>
       </div>
     </div>
