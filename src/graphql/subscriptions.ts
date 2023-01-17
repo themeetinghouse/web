@@ -3,8 +3,10 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreateF1Assignments = /* GraphQL */ `
-  subscription OnCreateF1Assignments {
-    onCreateF1Assignments {
+  subscription OnCreateF1Assignments(
+    $filter: ModelSubscriptionF1AssignmentsFilterInput
+  ) {
+    onCreateF1Assignments(filter: $filter) {
       id
       personId
       uri
@@ -40,8 +42,10 @@ export const onCreateF1Assignments = /* GraphQL */ `
   }
 `;
 export const onUpdateF1Assignments = /* GraphQL */ `
-  subscription OnUpdateF1Assignments {
-    onUpdateF1Assignments {
+  subscription OnUpdateF1Assignments(
+    $filter: ModelSubscriptionF1AssignmentsFilterInput
+  ) {
+    onUpdateF1Assignments(filter: $filter) {
       id
       personId
       uri
@@ -77,8 +81,10 @@ export const onUpdateF1Assignments = /* GraphQL */ `
   }
 `;
 export const onDeleteF1Assignments = /* GraphQL */ `
-  subscription OnDeleteF1Assignments {
-    onDeleteF1Assignments {
+  subscription OnDeleteF1Assignments(
+    $filter: ModelSubscriptionF1AssignmentsFilterInput
+  ) {
+    onDeleteF1Assignments(filter: $filter) {
       id
       personId
       uri
@@ -114,8 +120,11 @@ export const onDeleteF1Assignments = /* GraphQL */ `
   }
 `;
 export const onCreateHomeChurchInfo = /* GraphQL */ `
-  subscription OnCreateHomeChurchInfo($owner: String) {
-    onCreateHomeChurchInfo(owner: $owner) {
+  subscription OnCreateHomeChurchInfo(
+    $filter: ModelSubscriptionHomeChurchInfoFilterInput
+    $owner: String
+  ) {
+    onCreateHomeChurchInfo(filter: $filter, owner: $owner) {
       id
       elders
       customPills
@@ -141,8 +150,11 @@ export const onCreateHomeChurchInfo = /* GraphQL */ `
   }
 `;
 export const onUpdateHomeChurchInfo = /* GraphQL */ `
-  subscription OnUpdateHomeChurchInfo($owner: String) {
-    onUpdateHomeChurchInfo(owner: $owner) {
+  subscription OnUpdateHomeChurchInfo(
+    $filter: ModelSubscriptionHomeChurchInfoFilterInput
+    $owner: String
+  ) {
+    onUpdateHomeChurchInfo(filter: $filter, owner: $owner) {
       id
       elders
       customPills
@@ -168,8 +180,11 @@ export const onUpdateHomeChurchInfo = /* GraphQL */ `
   }
 `;
 export const onDeleteHomeChurchInfo = /* GraphQL */ `
-  subscription OnDeleteHomeChurchInfo($owner: String) {
-    onDeleteHomeChurchInfo(owner: $owner) {
+  subscription OnDeleteHomeChurchInfo(
+    $filter: ModelSubscriptionHomeChurchInfoFilterInput
+    $owner: String
+  ) {
+    onDeleteHomeChurchInfo(filter: $filter, owner: $owner) {
       id
       elders
       customPills
@@ -195,8 +210,10 @@ export const onDeleteHomeChurchInfo = /* GraphQL */ `
   }
 `;
 export const onCreateF1ListGroup2 = /* GraphQL */ `
-  subscription OnCreateF1ListGroup2 {
-    onCreateF1ListGroup2 {
+  subscription OnCreateF1ListGroup2(
+    $filter: ModelSubscriptionF1ListGroup2FilterInput
+  ) {
+    onCreateF1ListGroup2(filter: $filter) {
       id
       name
       description
@@ -309,8 +326,10 @@ export const onCreateF1ListGroup2 = /* GraphQL */ `
   }
 `;
 export const onUpdateF1ListGroup2 = /* GraphQL */ `
-  subscription OnUpdateF1ListGroup2 {
-    onUpdateF1ListGroup2 {
+  subscription OnUpdateF1ListGroup2(
+    $filter: ModelSubscriptionF1ListGroup2FilterInput
+  ) {
+    onUpdateF1ListGroup2(filter: $filter) {
       id
       name
       description
@@ -423,8 +442,10 @@ export const onUpdateF1ListGroup2 = /* GraphQL */ `
   }
 `;
 export const onDeleteF1ListGroup2 = /* GraphQL */ `
-  subscription OnDeleteF1ListGroup2 {
-    onDeleteF1ListGroup2 {
+  subscription OnDeleteF1ListGroup2(
+    $filter: ModelSubscriptionF1ListGroup2FilterInput
+  ) {
+    onDeleteF1ListGroup2(filter: $filter) {
       id
       name
       description
@@ -537,8 +558,8 @@ export const onDeleteF1ListGroup2 = /* GraphQL */ `
   }
 `;
 export const onCreateTNSeries = /* GraphQL */ `
-  subscription OnCreateTNSeries {
-    onCreateTNSeries {
+  subscription OnCreateTNSeries($filter: ModelSubscriptionTNSeriesFilterInput) {
+    onCreateTNSeries(filter: $filter) {
       id
       TNident
       title
@@ -673,8 +694,8 @@ export const onCreateTNSeries = /* GraphQL */ `
   }
 `;
 export const onUpdateTNSeries = /* GraphQL */ `
-  subscription OnUpdateTNSeries {
-    onUpdateTNSeries {
+  subscription OnUpdateTNSeries($filter: ModelSubscriptionTNSeriesFilterInput) {
+    onUpdateTNSeries(filter: $filter) {
       id
       TNident
       title
@@ -809,8 +830,8 @@ export const onUpdateTNSeries = /* GraphQL */ `
   }
 `;
 export const onDeleteTNSeries = /* GraphQL */ `
-  subscription OnDeleteTNSeries {
-    onDeleteTNSeries {
+  subscription OnDeleteTNSeries($filter: ModelSubscriptionTNSeriesFilterInput) {
+    onDeleteTNSeries(filter: $filter) {
       id
       TNident
       title
@@ -945,8 +966,8 @@ export const onDeleteTNSeries = /* GraphQL */ `
   }
 `;
 export const onCreateTNSermon = /* GraphQL */ `
-  subscription OnCreateTNSermon {
-    onCreateTNSermon {
+  subscription OnCreateTNSermon($filter: ModelSubscriptionTNSermonFilterInput) {
+    onCreateTNSermon(filter: $filter) {
       id
       TNident
       title
@@ -1083,8 +1104,8 @@ export const onCreateTNSermon = /* GraphQL */ `
   }
 `;
 export const onUpdateTNSermon = /* GraphQL */ `
-  subscription OnUpdateTNSermon {
-    onUpdateTNSermon {
+  subscription OnUpdateTNSermon($filter: ModelSubscriptionTNSermonFilterInput) {
+    onUpdateTNSermon(filter: $filter) {
       id
       TNident
       title
@@ -1221,8 +1242,8 @@ export const onUpdateTNSermon = /* GraphQL */ `
   }
 `;
 export const onDeleteTNSermon = /* GraphQL */ `
-  subscription OnDeleteTNSermon {
-    onDeleteTNSermon {
+  subscription OnDeleteTNSermon($filter: ModelSubscriptionTNSermonFilterInput) {
+    onDeleteTNSermon(filter: $filter) {
       id
       TNident
       title
@@ -1359,8 +1380,10 @@ export const onDeleteTNSermon = /* GraphQL */ `
   }
 `;
 export const onCreateLivestream = /* GraphQL */ `
-  subscription OnCreateLivestream {
-    onCreateLivestream {
+  subscription OnCreateLivestream(
+    $filter: ModelSubscriptionLivestreamFilterInput
+  ) {
+    onCreateLivestream(filter: $filter) {
       id
       date
       startTime
@@ -1397,8 +1420,10 @@ export const onCreateLivestream = /* GraphQL */ `
   }
 `;
 export const onUpdateLivestream = /* GraphQL */ `
-  subscription OnUpdateLivestream {
-    onUpdateLivestream {
+  subscription OnUpdateLivestream(
+    $filter: ModelSubscriptionLivestreamFilterInput
+  ) {
+    onUpdateLivestream(filter: $filter) {
       id
       date
       startTime
@@ -1435,8 +1460,10 @@ export const onUpdateLivestream = /* GraphQL */ `
   }
 `;
 export const onDeleteLivestream = /* GraphQL */ `
-  subscription OnDeleteLivestream {
-    onDeleteLivestream {
+  subscription OnDeleteLivestream(
+    $filter: ModelSubscriptionLivestreamFilterInput
+  ) {
+    onDeleteLivestream(filter: $filter) {
       id
       date
       startTime
@@ -1473,8 +1500,8 @@ export const onDeleteLivestream = /* GraphQL */ `
   }
 `;
 export const onCreateRedirect = /* GraphQL */ `
-  subscription OnCreateRedirect {
-    onCreateRedirect {
+  subscription OnCreateRedirect($filter: ModelSubscriptionRedirectFilterInput) {
+    onCreateRedirect(filter: $filter) {
       id
       to
       createdAt
@@ -1483,8 +1510,8 @@ export const onCreateRedirect = /* GraphQL */ `
   }
 `;
 export const onUpdateRedirect = /* GraphQL */ `
-  subscription OnUpdateRedirect {
-    onUpdateRedirect {
+  subscription OnUpdateRedirect($filter: ModelSubscriptionRedirectFilterInput) {
+    onUpdateRedirect(filter: $filter) {
       id
       to
       createdAt
@@ -1493,8 +1520,8 @@ export const onUpdateRedirect = /* GraphQL */ `
   }
 `;
 export const onDeleteRedirect = /* GraphQL */ `
-  subscription OnDeleteRedirect {
-    onDeleteRedirect {
+  subscription OnDeleteRedirect($filter: ModelSubscriptionRedirectFilterInput) {
+    onDeleteRedirect(filter: $filter) {
       id
       to
       createdAt
@@ -1503,8 +1530,10 @@ export const onDeleteRedirect = /* GraphQL */ `
   }
 `;
 export const onCreateAnnouncement = /* GraphQL */ `
-  subscription OnCreateAnnouncement {
-    onCreateAnnouncement {
+  subscription OnCreateAnnouncement(
+    $filter: ModelSubscriptionAnnouncementFilterInput
+  ) {
+    onCreateAnnouncement(filter: $filter) {
       id
       publishedDate
       expirationDate
@@ -1521,8 +1550,10 @@ export const onCreateAnnouncement = /* GraphQL */ `
   }
 `;
 export const onUpdateAnnouncement = /* GraphQL */ `
-  subscription OnUpdateAnnouncement {
-    onUpdateAnnouncement {
+  subscription OnUpdateAnnouncement(
+    $filter: ModelSubscriptionAnnouncementFilterInput
+  ) {
+    onUpdateAnnouncement(filter: $filter) {
       id
       publishedDate
       expirationDate
@@ -1539,8 +1570,10 @@ export const onUpdateAnnouncement = /* GraphQL */ `
   }
 `;
 export const onDeleteAnnouncement = /* GraphQL */ `
-  subscription OnDeleteAnnouncement {
-    onDeleteAnnouncement {
+  subscription OnDeleteAnnouncement(
+    $filter: ModelSubscriptionAnnouncementFilterInput
+  ) {
+    onDeleteAnnouncement(filter: $filter) {
       id
       publishedDate
       expirationDate
@@ -1557,8 +1590,8 @@ export const onDeleteAnnouncement = /* GraphQL */ `
   }
 `;
 export const onCreateSpeaker = /* GraphQL */ `
-  subscription OnCreateSpeaker {
-    onCreateSpeaker {
+  subscription OnCreateSpeaker($filter: ModelSubscriptionSpeakerFilterInput) {
+    onCreateSpeaker(filter: $filter) {
       id
       name
       image
@@ -1975,8 +2008,8 @@ export const onCreateSpeaker = /* GraphQL */ `
   }
 `;
 export const onUpdateSpeaker = /* GraphQL */ `
-  subscription OnUpdateSpeaker {
-    onUpdateSpeaker {
+  subscription OnUpdateSpeaker($filter: ModelSubscriptionSpeakerFilterInput) {
+    onUpdateSpeaker(filter: $filter) {
       id
       name
       image
@@ -2393,8 +2426,8 @@ export const onUpdateSpeaker = /* GraphQL */ `
   }
 `;
 export const onDeleteSpeaker = /* GraphQL */ `
-  subscription OnDeleteSpeaker {
-    onDeleteSpeaker {
+  subscription OnDeleteSpeaker($filter: ModelSubscriptionSpeakerFilterInput) {
+    onDeleteSpeaker(filter: $filter) {
       id
       name
       image
@@ -2811,8 +2844,10 @@ export const onDeleteSpeaker = /* GraphQL */ `
   }
 `;
 export const onCreateSpeakerVideos = /* GraphQL */ `
-  subscription OnCreateSpeakerVideos {
-    onCreateSpeakerVideos {
+  subscription OnCreateSpeakerVideos(
+    $filter: ModelSubscriptionSpeakerVideosFilterInput
+  ) {
+    onCreateSpeakerVideos(filter: $filter) {
       id
       speakerVideosSpeakerId
       video {
@@ -3745,8 +3780,10 @@ export const onCreateSpeakerVideos = /* GraphQL */ `
   }
 `;
 export const onUpdateSpeakerVideos = /* GraphQL */ `
-  subscription OnUpdateSpeakerVideos {
-    onUpdateSpeakerVideos {
+  subscription OnUpdateSpeakerVideos(
+    $filter: ModelSubscriptionSpeakerVideosFilterInput
+  ) {
+    onUpdateSpeakerVideos(filter: $filter) {
       id
       speakerVideosSpeakerId
       video {
@@ -4679,8 +4716,10 @@ export const onUpdateSpeakerVideos = /* GraphQL */ `
   }
 `;
 export const onDeleteSpeakerVideos = /* GraphQL */ `
-  subscription OnDeleteSpeakerVideos {
-    onDeleteSpeakerVideos {
+  subscription OnDeleteSpeakerVideos(
+    $filter: ModelSubscriptionSpeakerVideosFilterInput
+  ) {
+    onDeleteSpeakerVideos(filter: $filter) {
       id
       speakerVideosSpeakerId
       video {
@@ -5613,8 +5652,8 @@ export const onDeleteSpeakerVideos = /* GraphQL */ `
   }
 `;
 export const onCreateSeries = /* GraphQL */ `
-  subscription OnCreateSeries {
-    onCreateSeries {
+  subscription OnCreateSeries($filter: ModelSubscriptionSeriesFilterInput) {
+    onCreateSeries(filter: $filter) {
       id
       videos {
         items {
@@ -7211,8 +7250,8 @@ export const onCreateSeries = /* GraphQL */ `
   }
 `;
 export const onUpdateSeries = /* GraphQL */ `
-  subscription OnUpdateSeries {
-    onUpdateSeries {
+  subscription OnUpdateSeries($filter: ModelSubscriptionSeriesFilterInput) {
+    onUpdateSeries(filter: $filter) {
       id
       videos {
         items {
@@ -8809,8 +8848,8 @@ export const onUpdateSeries = /* GraphQL */ `
   }
 `;
 export const onDeleteSeries = /* GraphQL */ `
-  subscription OnDeleteSeries {
-    onDeleteSeries {
+  subscription OnDeleteSeries($filter: ModelSubscriptionSeriesFilterInput) {
+    onDeleteSeries(filter: $filter) {
       id
       videos {
         items {
@@ -10407,8 +10446,10 @@ export const onDeleteSeries = /* GraphQL */ `
   }
 `;
 export const onCreateCustomPlaylist = /* GraphQL */ `
-  subscription OnCreateCustomPlaylist {
-    onCreateCustomPlaylist {
+  subscription OnCreateCustomPlaylist(
+    $filter: ModelSubscriptionCustomPlaylistFilterInput
+  ) {
+    onCreateCustomPlaylist(filter: $filter) {
       id
       videos {
         items {
@@ -10826,8 +10867,10 @@ export const onCreateCustomPlaylist = /* GraphQL */ `
   }
 `;
 export const onUpdateCustomPlaylist = /* GraphQL */ `
-  subscription OnUpdateCustomPlaylist {
-    onUpdateCustomPlaylist {
+  subscription OnUpdateCustomPlaylist(
+    $filter: ModelSubscriptionCustomPlaylistFilterInput
+  ) {
+    onUpdateCustomPlaylist(filter: $filter) {
       id
       videos {
         items {
@@ -11245,8 +11288,10 @@ export const onUpdateCustomPlaylist = /* GraphQL */ `
   }
 `;
 export const onDeleteCustomPlaylist = /* GraphQL */ `
-  subscription OnDeleteCustomPlaylist {
-    onDeleteCustomPlaylist {
+  subscription OnDeleteCustomPlaylist(
+    $filter: ModelSubscriptionCustomPlaylistFilterInput
+  ) {
+    onDeleteCustomPlaylist(filter: $filter) {
       id
       videos {
         items {
@@ -11664,8 +11709,10 @@ export const onDeleteCustomPlaylist = /* GraphQL */ `
   }
 `;
 export const onCreateCustomPlaylistVideo = /* GraphQL */ `
-  subscription OnCreateCustomPlaylistVideo {
-    onCreateCustomPlaylistVideo {
+  subscription OnCreateCustomPlaylistVideo(
+    $filter: ModelSubscriptionCustomPlaylistVideoFilterInput
+  ) {
+    onCreateCustomPlaylistVideo(filter: $filter) {
       id
       videoID
       customPlaylistID
@@ -12597,8 +12644,10 @@ export const onCreateCustomPlaylistVideo = /* GraphQL */ `
   }
 `;
 export const onUpdateCustomPlaylistVideo = /* GraphQL */ `
-  subscription OnUpdateCustomPlaylistVideo {
-    onUpdateCustomPlaylistVideo {
+  subscription OnUpdateCustomPlaylistVideo(
+    $filter: ModelSubscriptionCustomPlaylistVideoFilterInput
+  ) {
+    onUpdateCustomPlaylistVideo(filter: $filter) {
       id
       videoID
       customPlaylistID
@@ -13530,8 +13579,10 @@ export const onUpdateCustomPlaylistVideo = /* GraphQL */ `
   }
 `;
 export const onDeleteCustomPlaylistVideo = /* GraphQL */ `
-  subscription OnDeleteCustomPlaylistVideo {
-    onDeleteCustomPlaylistVideo {
+  subscription OnDeleteCustomPlaylistVideo(
+    $filter: ModelSubscriptionCustomPlaylistVideoFilterInput
+  ) {
+    onDeleteCustomPlaylistVideo(filter: $filter) {
       id
       videoID
       customPlaylistID
@@ -14463,8 +14514,8 @@ export const onDeleteCustomPlaylistVideo = /* GraphQL */ `
   }
 `;
 export const onCreateVideo = /* GraphQL */ `
-  subscription OnCreateVideo {
-    onCreateVideo {
+  subscription OnCreateVideo($filter: ModelSubscriptionVideoFilterInput) {
+    onCreateVideo(filter: $filter) {
       id
       createdBy
       createdDate
@@ -16340,8 +16391,8 @@ export const onCreateVideo = /* GraphQL */ `
   }
 `;
 export const onUpdateVideo = /* GraphQL */ `
-  subscription OnUpdateVideo {
-    onUpdateVideo {
+  subscription OnUpdateVideo($filter: ModelSubscriptionVideoFilterInput) {
+    onUpdateVideo(filter: $filter) {
       id
       createdBy
       createdDate
@@ -18217,8 +18268,8 @@ export const onUpdateVideo = /* GraphQL */ `
   }
 `;
 export const onDeleteVideo = /* GraphQL */ `
-  subscription OnDeleteVideo {
-    onDeleteVideo {
+  subscription OnDeleteVideo($filter: ModelSubscriptionVideoFilterInput) {
+    onDeleteVideo(filter: $filter) {
       id
       createdBy
       createdDate
@@ -20094,8 +20145,10 @@ export const onDeleteVideo = /* GraphQL */ `
   }
 `;
 export const onCreateBlogSeries = /* GraphQL */ `
-  subscription OnCreateBlogSeries {
-    onCreateBlogSeries {
+  subscription OnCreateBlogSeries(
+    $filter: ModelSubscriptionBlogSeriesFilterInput
+  ) {
+    onCreateBlogSeries(filter: $filter) {
       id
       blogs {
         items {
@@ -20383,8 +20436,10 @@ export const onCreateBlogSeries = /* GraphQL */ `
   }
 `;
 export const onUpdateBlogSeries = /* GraphQL */ `
-  subscription OnUpdateBlogSeries {
-    onUpdateBlogSeries {
+  subscription OnUpdateBlogSeries(
+    $filter: ModelSubscriptionBlogSeriesFilterInput
+  ) {
+    onUpdateBlogSeries(filter: $filter) {
       id
       blogs {
         items {
@@ -20672,8 +20727,10 @@ export const onUpdateBlogSeries = /* GraphQL */ `
   }
 `;
 export const onDeleteBlogSeries = /* GraphQL */ `
-  subscription OnDeleteBlogSeries {
-    onDeleteBlogSeries {
+  subscription OnDeleteBlogSeries(
+    $filter: ModelSubscriptionBlogSeriesFilterInput
+  ) {
+    onDeleteBlogSeries(filter: $filter) {
       id
       blogs {
         items {
@@ -20961,8 +21018,10 @@ export const onDeleteBlogSeries = /* GraphQL */ `
   }
 `;
 export const onCreateBlogSeriesBridge = /* GraphQL */ `
-  subscription OnCreateBlogSeriesBridge {
-    onCreateBlogSeriesBridge {
+  subscription OnCreateBlogSeriesBridge(
+    $filter: ModelSubscriptionBlogSeriesBridgeFilterInput
+  ) {
+    onCreateBlogSeriesBridge(filter: $filter) {
       id
       blogSeriesID
       blogPostID
@@ -21751,8 +21810,10 @@ export const onCreateBlogSeriesBridge = /* GraphQL */ `
   }
 `;
 export const onUpdateBlogSeriesBridge = /* GraphQL */ `
-  subscription OnUpdateBlogSeriesBridge {
-    onUpdateBlogSeriesBridge {
+  subscription OnUpdateBlogSeriesBridge(
+    $filter: ModelSubscriptionBlogSeriesBridgeFilterInput
+  ) {
+    onUpdateBlogSeriesBridge(filter: $filter) {
       id
       blogSeriesID
       blogPostID
@@ -22541,8 +22602,10 @@ export const onUpdateBlogSeriesBridge = /* GraphQL */ `
   }
 `;
 export const onDeleteBlogSeriesBridge = /* GraphQL */ `
-  subscription OnDeleteBlogSeriesBridge {
-    onDeleteBlogSeriesBridge {
+  subscription OnDeleteBlogSeriesBridge(
+    $filter: ModelSubscriptionBlogSeriesBridgeFilterInput
+  ) {
+    onDeleteBlogSeriesBridge(filter: $filter) {
       id
       blogSeriesID
       blogPostID
@@ -23331,8 +23394,10 @@ export const onDeleteBlogSeriesBridge = /* GraphQL */ `
   }
 `;
 export const onCreateBlogToVideoSeries = /* GraphQL */ `
-  subscription OnCreateBlogToVideoSeries {
-    onCreateBlogToVideoSeries {
+  subscription OnCreateBlogToVideoSeries(
+    $filter: ModelSubscriptionBlogToVideoSeriesFilterInput
+  ) {
+    onCreateBlogToVideoSeries(filter: $filter) {
       id
       videoSeriesId
       blogId
@@ -24896,8 +24961,10 @@ export const onCreateBlogToVideoSeries = /* GraphQL */ `
   }
 `;
 export const onUpdateBlogToVideoSeries = /* GraphQL */ `
-  subscription OnUpdateBlogToVideoSeries {
-    onUpdateBlogToVideoSeries {
+  subscription OnUpdateBlogToVideoSeries(
+    $filter: ModelSubscriptionBlogToVideoSeriesFilterInput
+  ) {
+    onUpdateBlogToVideoSeries(filter: $filter) {
       id
       videoSeriesId
       blogId
@@ -26461,8 +26528,10 @@ export const onUpdateBlogToVideoSeries = /* GraphQL */ `
   }
 `;
 export const onDeleteBlogToVideoSeries = /* GraphQL */ `
-  subscription OnDeleteBlogToVideoSeries {
-    onDeleteBlogToVideoSeries {
+  subscription OnDeleteBlogToVideoSeries(
+    $filter: ModelSubscriptionBlogToVideoSeriesFilterInput
+  ) {
+    onDeleteBlogToVideoSeries(filter: $filter) {
       id
       videoSeriesId
       blogId
@@ -28026,8 +28095,8 @@ export const onDeleteBlogToVideoSeries = /* GraphQL */ `
   }
 `;
 export const onCreateBlog = /* GraphQL */ `
-  subscription OnCreateBlog {
-    onCreateBlog {
+  subscription OnCreateBlog($filter: ModelSubscriptionBlogFilterInput) {
+    onCreateBlog(filter: $filter) {
       id
       author
       createdBy
@@ -29644,8 +29713,8 @@ export const onCreateBlog = /* GraphQL */ `
   }
 `;
 export const onUpdateBlog = /* GraphQL */ `
-  subscription OnUpdateBlog {
-    onUpdateBlog {
+  subscription OnUpdateBlog($filter: ModelSubscriptionBlogFilterInput) {
+    onUpdateBlog(filter: $filter) {
       id
       author
       createdBy
@@ -31262,8 +31331,8 @@ export const onUpdateBlog = /* GraphQL */ `
   }
 `;
 export const onDeleteBlog = /* GraphQL */ `
-  subscription OnDeleteBlog {
-    onDeleteBlog {
+  subscription OnDeleteBlog($filter: ModelSubscriptionBlogFilterInput) {
+    onDeleteBlog(filter: $filter) {
       id
       author
       createdBy
@@ -32880,8 +32949,10 @@ export const onDeleteBlog = /* GraphQL */ `
   }
 `;
 export const onCreateInstagram = /* GraphQL */ `
-  subscription OnCreateInstagram {
-    onCreateInstagram {
+  subscription OnCreateInstagram(
+    $filter: ModelSubscriptionInstagramFilterInput
+  ) {
+    onCreateInstagram(filter: $filter) {
       id
       locationId
       thumbnails {
@@ -32897,8 +32968,10 @@ export const onCreateInstagram = /* GraphQL */ `
   }
 `;
 export const onUpdateInstagram = /* GraphQL */ `
-  subscription OnUpdateInstagram {
-    onUpdateInstagram {
+  subscription OnUpdateInstagram(
+    $filter: ModelSubscriptionInstagramFilterInput
+  ) {
+    onUpdateInstagram(filter: $filter) {
       id
       locationId
       thumbnails {
@@ -32914,8 +32987,10 @@ export const onUpdateInstagram = /* GraphQL */ `
   }
 `;
 export const onDeleteInstagram = /* GraphQL */ `
-  subscription OnDeleteInstagram {
-    onDeleteInstagram {
+  subscription OnDeleteInstagram(
+    $filter: ModelSubscriptionInstagramFilterInput
+  ) {
+    onDeleteInstagram(filter: $filter) {
       id
       locationId
       thumbnails {
@@ -32931,8 +33006,8 @@ export const onDeleteInstagram = /* GraphQL */ `
   }
 `;
 export const onCreateVerse = /* GraphQL */ `
-  subscription OnCreateVerse {
-    onCreateVerse {
+  subscription OnCreateVerse($filter: ModelSubscriptionVerseFilterInput) {
+    onCreateVerse(filter: $filter) {
       id
       key
       offset
@@ -33373,8 +33448,8 @@ export const onCreateVerse = /* GraphQL */ `
   }
 `;
 export const onUpdateVerse = /* GraphQL */ `
-  subscription OnUpdateVerse {
-    onUpdateVerse {
+  subscription OnUpdateVerse($filter: ModelSubscriptionVerseFilterInput) {
+    onUpdateVerse(filter: $filter) {
       id
       key
       offset
@@ -33815,8 +33890,8 @@ export const onUpdateVerse = /* GraphQL */ `
   }
 `;
 export const onDeleteVerse = /* GraphQL */ `
-  subscription OnDeleteVerse {
-    onDeleteVerse {
+  subscription OnDeleteVerse($filter: ModelSubscriptionVerseFilterInput) {
+    onDeleteVerse(filter: $filter) {
       id
       key
       offset
@@ -34257,8 +34332,8 @@ export const onDeleteVerse = /* GraphQL */ `
   }
 `;
 export const onCreateNotes = /* GraphQL */ `
-  subscription OnCreateNotes {
-    onCreateNotes {
+  subscription OnCreateNotes($filter: ModelSubscriptionNotesFilterInput) {
+    onCreateNotes(filter: $filter) {
       id
       title
       content
@@ -35330,8 +35405,8 @@ export const onCreateNotes = /* GraphQL */ `
   }
 `;
 export const onUpdateNotes = /* GraphQL */ `
-  subscription OnUpdateNotes {
-    onUpdateNotes {
+  subscription OnUpdateNotes($filter: ModelSubscriptionNotesFilterInput) {
+    onUpdateNotes(filter: $filter) {
       id
       title
       content
@@ -36403,8 +36478,8 @@ export const onUpdateNotes = /* GraphQL */ `
   }
 `;
 export const onDeleteNotes = /* GraphQL */ `
-  subscription OnDeleteNotes {
-    onDeleteNotes {
+  subscription OnDeleteNotes($filter: ModelSubscriptionNotesFilterInput) {
+    onDeleteNotes(filter: $filter) {
       id
       title
       content
@@ -37476,8 +37551,11 @@ export const onDeleteNotes = /* GraphQL */ `
   }
 `;
 export const onCreateComment = /* GraphQL */ `
-  subscription OnCreateComment($owner: String) {
-    onCreateComment(owner: $owner) {
+  subscription OnCreateComment(
+    $filter: ModelSubscriptionCommentFilterInput
+    $owner: String
+  ) {
+    onCreateComment(filter: $filter, owner: $owner) {
       id
       comment
       tags
@@ -37496,8 +37574,11 @@ export const onCreateComment = /* GraphQL */ `
   }
 `;
 export const onUpdateComment = /* GraphQL */ `
-  subscription OnUpdateComment($owner: String) {
-    onUpdateComment(owner: $owner) {
+  subscription OnUpdateComment(
+    $filter: ModelSubscriptionCommentFilterInput
+    $owner: String
+  ) {
+    onUpdateComment(filter: $filter, owner: $owner) {
       id
       comment
       tags
@@ -37516,8 +37597,11 @@ export const onUpdateComment = /* GraphQL */ `
   }
 `;
 export const onDeleteComment = /* GraphQL */ `
-  subscription OnDeleteComment($owner: String) {
-    onDeleteComment(owner: $owner) {
+  subscription OnDeleteComment(
+    $filter: ModelSubscriptionCommentFilterInput
+    $owner: String
+  ) {
+    onDeleteComment(filter: $filter, owner: $owner) {
       id
       comment
       tags
@@ -37536,8 +37620,8 @@ export const onDeleteComment = /* GraphQL */ `
   }
 `;
 export const onCreateWebPage = /* GraphQL */ `
-  subscription OnCreateWebPage {
-    onCreateWebPage {
+  subscription OnCreateWebPage($filter: ModelSubscriptionWebPageFilterInput) {
+    onCreateWebPage(filter: $filter) {
       id
       page {
         name
@@ -37587,8 +37671,8 @@ export const onCreateWebPage = /* GraphQL */ `
   }
 `;
 export const onUpdateWebPage = /* GraphQL */ `
-  subscription OnUpdateWebPage {
-    onUpdateWebPage {
+  subscription OnUpdateWebPage($filter: ModelSubscriptionWebPageFilterInput) {
+    onUpdateWebPage(filter: $filter) {
       id
       page {
         name
@@ -37638,8 +37722,8 @@ export const onUpdateWebPage = /* GraphQL */ `
   }
 `;
 export const onDeleteWebPage = /* GraphQL */ `
-  subscription OnDeleteWebPage {
-    onDeleteWebPage {
+  subscription OnDeleteWebPage($filter: ModelSubscriptionWebPageFilterInput) {
+    onDeleteWebPage(filter: $filter) {
       id
       page {
         name
@@ -37689,8 +37773,11 @@ export const onDeleteWebPage = /* GraphQL */ `
   }
 `;
 export const onCreateTMHUser = /* GraphQL */ `
-  subscription OnCreateTMHUser($owner: String) {
-    onCreateTMHUser(owner: $owner) {
+  subscription OnCreateTMHUser(
+    $filter: ModelSubscriptionTMHUserFilterInput
+    $owner: String
+  ) {
+    onCreateTMHUser(filter: $filter, owner: $owner) {
       id
       given_name
       family_name
@@ -37723,8 +37810,11 @@ export const onCreateTMHUser = /* GraphQL */ `
   }
 `;
 export const onUpdateTMHUser = /* GraphQL */ `
-  subscription OnUpdateTMHUser($owner: String) {
-    onUpdateTMHUser(owner: $owner) {
+  subscription OnUpdateTMHUser(
+    $filter: ModelSubscriptionTMHUserFilterInput
+    $owner: String
+  ) {
+    onUpdateTMHUser(filter: $filter, owner: $owner) {
       id
       given_name
       family_name
@@ -37757,8 +37847,11 @@ export const onUpdateTMHUser = /* GraphQL */ `
   }
 `;
 export const onDeleteTMHUser = /* GraphQL */ `
-  subscription OnDeleteTMHUser($owner: String) {
-    onDeleteTMHUser(owner: $owner) {
+  subscription OnDeleteTMHUser(
+    $filter: ModelSubscriptionTMHUserFilterInput
+    $owner: String
+  ) {
+    onDeleteTMHUser(filter: $filter, owner: $owner) {
       id
       given_name
       family_name
@@ -37791,8 +37884,10 @@ export const onDeleteTMHUser = /* GraphQL */ `
   }
 `;
 export const onCreateTMHPerson = /* GraphQL */ `
-  subscription OnCreateTMHPerson {
-    onCreateTMHPerson {
+  subscription OnCreateTMHPerson(
+    $filter: ModelSubscriptionTMHPersonFilterInput
+  ) {
+    onCreateTMHPerson(filter: $filter) {
       id
       email
       firstName
@@ -37812,8 +37907,10 @@ export const onCreateTMHPerson = /* GraphQL */ `
   }
 `;
 export const onUpdateTMHPerson = /* GraphQL */ `
-  subscription OnUpdateTMHPerson {
-    onUpdateTMHPerson {
+  subscription OnUpdateTMHPerson(
+    $filter: ModelSubscriptionTMHPersonFilterInput
+  ) {
+    onUpdateTMHPerson(filter: $filter) {
       id
       email
       firstName
@@ -37833,8 +37930,10 @@ export const onUpdateTMHPerson = /* GraphQL */ `
   }
 `;
 export const onDeleteTMHPerson = /* GraphQL */ `
-  subscription OnDeleteTMHPerson {
-    onDeleteTMHPerson {
+  subscription OnDeleteTMHPerson(
+    $filter: ModelSubscriptionTMHPersonFilterInput
+  ) {
+    onDeleteTMHPerson(filter: $filter) {
       id
       email
       firstName
