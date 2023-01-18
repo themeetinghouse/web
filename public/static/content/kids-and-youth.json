@@ -68,10 +68,10 @@
         "list": [
           {
             "title": "Parents and Guardians",
-            "text": "We are passionate about helping with spiritual parenting. Click here to see what your kids learned last Sunday and access helpful resources.",
+            "text": "We are passionate about helping with spiritual parenting. To see what your kids learned last Sunday and to access resources, select your community and contact your local kids coordinator.",
             "imageSrc": "/static/images/kidsyouth-2-3.jpg",
             "imageAlt": "Two parents walking with their young child.",
-            "navigateTo": "http://parents.themeetinghouse.com",
+            "navigateTo": "/locations",
             "openNewBrowser": true
           },
           {
