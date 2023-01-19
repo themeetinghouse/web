@@ -151,24 +151,24 @@
         "type": "content",
         "style": "oneImageBlackRight",
         "header1": "Local Compassion Fund Application",
-        "text1": "The grant window for the Fall 2021 is closed.",
+        "text1": "Grant window open Jan 23-Feb 28, 2023.",
         "list": [
           {
             "type": "link",
             "title": "Grant Application Guidelines",
-            "navigateTo": "/static/pdfs/compassion/2021-22 Grant Application Guidelines.pdf",
+            "navigateTo": "/static/pdfs/compassion/2022-23 Grant Application Guidelines - Local Compassion Fund.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Assessment Criteria",
-            "navigateTo": "/static/pdfs/compassion/2021-22 Assessment Criteria.pdf",
+            "navigateTo": "/static/pdfs/compassion/2022-23 Assessment Criteria - Local Compassion Fund.pdf",
             "openNewBrowser": true
           },
           {
             "type": "link",
             "title": "Local Compassion Funds FAQ",
-            "navigateTo": "/static/pdfs/compassion/Local Compassion Fund FAQ.pdf",
+            "navigateTo": "/static/pdfs/compassion/2022-23 Local Compassion Fund FAQ.pdf",
             "openNewBrowser": true
           },
           {
@@ -178,8 +178,8 @@
           },
           {
             "type": "link",
-            "title": "Local Compassion Budget Template 2021-22",
-            "navigateTo": "https://drive.google.com/file/d/1TVomtt6kZ2cnr02kZdOdoMAZQX2-9wQ0/view"
+            "title": "Local Compassion Budget Template 2022-23",
+            "navigateTo": "https://docs.google.com/spreadsheets/d/1b5Ll1xso1EbCH2Bg0nyMZ8-UjBsIf8vqmZC-9QZIBS8/edit?usp=sharing"
           }
         ],
 
