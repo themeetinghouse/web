@@ -11,7 +11,7 @@
     "@babel/plugin-transform-typescript": "^7.20.13",
     "@babel/preset-flow": "^7.18.6",
     "babel-plugin-add-module-exports": "^1.0.4",
-    "node-fetch": "^3.2.3"
+    "node-fetch": "^3.2.10"
   },
   "scripts": {
     "compile": "tsc",
