@@ -5,7 +5,7 @@
   "main": "index.js",
   "license": "Apache-2.0",
   "dependencies": {
-    "aws-sdk": "^2.839.0",
-    "node-fetch": "^3.2.3"
+    "aws-sdk": "^2.1300.0",
+    "node-fetch": "^3.3.0"
   }
 }
