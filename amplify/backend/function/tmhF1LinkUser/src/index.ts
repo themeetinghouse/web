@@ -7,7 +7,7 @@
 	REGION
 Amplify Params - DO NOT EDIT */
 var AWS = require('aws-sdk');
-import API, { GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
+import { API, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import Amplify from '@aws-amplify/core';
 import * as queries from './queries';
 import * as mutations from './mutations';
