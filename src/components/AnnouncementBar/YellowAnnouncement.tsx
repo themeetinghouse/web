@@ -11,7 +11,7 @@ export default function YellowAnnouncement(props: YellowAnnouncementProps) {
       aria-label={title}
       style={{
         position: 'fixed',
-        zIndex: 10000,
+        zIndex: 1000,
         top: 0,
         left: 0,
         padding: 0,
