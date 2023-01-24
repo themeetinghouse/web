@@ -5,11 +5,11 @@
   "main": "index.js",
   "license": "Apache-2.0",
   "dependencies": {
-    "aws-sdk": "^2.839.0",
+    "aws-sdk": "^2.1300.0",
     "sharp": "^0.27.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.0",
-    "@babel/preset-env": "^7.6.0"
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2"
   }
 }
