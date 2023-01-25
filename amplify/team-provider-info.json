@@ -715,7 +715,12 @@
         "S3AndCloudFront": {}
       },
       "analytics": {
-        "themeetinghouse": {}
+        "themeetinghouse": {},
+        "Pinpoint": {
+          "Name": "themeetinghouse-prodnew",
+          "Id": "0a2b4c0b6e7448249fac4bf70c54b478",
+          "Region": "us-east-1"
+        }
       },
       "storage": {
         "tmhusercontent": {}

@@ -700,6 +700,30 @@
     }
   },
   "parameters": {
+    "AMPLIFY_analytics_Pinpoint_Id": {
+      "usedBy": [
+        {
+          "category": "analytics",
+          "resourceName": "Pinpoint"
+        }
+      ]
+    },
+    "AMPLIFY_analytics_Pinpoint_Name": {
+      "usedBy": [
+        {
+          "category": "analytics",
+          "resourceName": "Pinpoint"
+        }
+      ]
+    },
+    "AMPLIFY_analytics_Pinpoint_Region": {
+      "usedBy": [
+        {
+          "category": "analytics",
+          "resourceName": "Pinpoint"
+        }
+      ]
+    },
     "AMPLIFY_auth_cognitodevtmh_amazonAppId": {
       "usedBy": [
         {
@@ -1646,14 +1670,6 @@
     }
   },
   "storage": {
-    "notifications": {
-      "themeetinghouse": {
-        "channels": [
-          "APNS"
-        ],
-        "service": "Pinpoint"
-      }
-    },
     "tmhusercontent": {
       "dependsOn": [
         {
