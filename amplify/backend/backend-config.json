@@ -1619,6 +1619,30 @@
           "resourceName": "tmhnotespdf"
         }
       ]
+    },
+    "AMPLIFY_notifications_Pinpoint_Id": {
+      "usedBy": [
+        {
+          "category": "notifications",
+          "resourceName": "Pinpoint"
+        }
+      ]
+    },
+    "AMPLIFY_notifications_Pinpoint_Name": {
+      "usedBy": [
+        {
+          "category": "notifications",
+          "resourceName": "Pinpoint"
+        }
+      ]
+    },
+    "AMPLIFY_notifications_Pinpoint_Region": {
+      "usedBy": [
+        {
+          "category": "notifications",
+          "resourceName": "Pinpoint"
+        }
+      ]
     }
   },
   "storage": {

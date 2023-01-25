@@ -542,7 +542,7 @@
         },
         "themeetinghousea5cd4619": {
           "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
-          "s3Key": "amplify-builds/themeetinghousea5cd4619-6a367741357262476e6a-build.zip"
+          "s3Key": "amplify-builds/themeetinghousea5cd4619-33353947425578532f77-build.zip"
         },
         "emailHomeChurch": {
           "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
@@ -697,6 +697,13 @@
         "tmhClearCache": {
           "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
           "s3Key": "amplify-builds/tmhClearCache-6d386c4d443069586d78-build.zip"
+        }
+      },
+      "notifications": {
+        "Pinpoint": {
+          "Name": "themeetinghouse-prodnew",
+          "Id": "0a2b4c0b6e7448249fac4bf70c54b478",
+          "Region": "us-east-1"
         }
       },
       "api": {
