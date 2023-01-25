@@ -98,6 +98,11 @@
         "list": [
           {
             "type": "link",
+            "title": "NextGen Project Coordinator & Administrator",
+            "navigateTo": "/static/pdfs/careers/NextGen Project Coordinator & Administrator (Sept2022).pdf"
+          },
+          {
+            "type": "link",
             "title": "Hamilton Region Kids Ministry Associate",
             "navigateTo": "/static/pdfs/careers/Hamilton Region - Ministry Associate - Kids.pdf"
           },
