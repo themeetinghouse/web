@@ -1745,6 +1745,7 @@ export const createSpeaker = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -2166,6 +2167,7 @@ export const updateSpeaker = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -2587,6 +2589,7 @@ export const deleteSpeaker = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -3198,6 +3201,7 @@ export const createSpeakerVideos = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -3261,6 +3265,7 @@ export const createSpeakerVideos = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -4135,6 +4140,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -4198,6 +4204,7 @@ export const updateSpeakerVideos = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -5072,6 +5079,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -5135,6 +5143,7 @@ export const deleteSpeakerVideos = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -5878,6 +5887,7 @@ export const createSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -5919,6 +5929,7 @@ export const createSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -6263,6 +6274,7 @@ export const createSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -6401,6 +6413,7 @@ export const createSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -6442,6 +6455,7 @@ export const createSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -6515,6 +6529,7 @@ export const createSeries = /* GraphQL */ `
             updatedAt
           }
           blogSeriesId
+          blogSeriesIndex
           blogSeries {
             items {
               id
@@ -6558,6 +6573,7 @@ export const createSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -6639,6 +6655,7 @@ export const createSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -6712,6 +6729,7 @@ export const createSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -6765,6 +6783,7 @@ export const createSeries = /* GraphQL */ `
               updatedAt
             }
             blogSeriesId
+            blogSeriesIndex
             blogSeries {
               items {
                 id
@@ -6790,6 +6809,7 @@ export const createSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -6912,6 +6932,7 @@ export const createSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -6953,6 +6974,7 @@ export const createSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -7131,6 +7153,7 @@ export const createSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -7172,6 +7195,7 @@ export const createSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -7479,6 +7503,7 @@ export const updateSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -7520,6 +7545,7 @@ export const updateSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -7864,6 +7890,7 @@ export const updateSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -8002,6 +8029,7 @@ export const updateSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -8043,6 +8071,7 @@ export const updateSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -8116,6 +8145,7 @@ export const updateSeries = /* GraphQL */ `
             updatedAt
           }
           blogSeriesId
+          blogSeriesIndex
           blogSeries {
             items {
               id
@@ -8159,6 +8189,7 @@ export const updateSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -8240,6 +8271,7 @@ export const updateSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -8313,6 +8345,7 @@ export const updateSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -8366,6 +8399,7 @@ export const updateSeries = /* GraphQL */ `
               updatedAt
             }
             blogSeriesId
+            blogSeriesIndex
             blogSeries {
               items {
                 id
@@ -8391,6 +8425,7 @@ export const updateSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -8513,6 +8548,7 @@ export const updateSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -8554,6 +8590,7 @@ export const updateSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -8732,6 +8769,7 @@ export const updateSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -8773,6 +8811,7 @@ export const updateSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -9080,6 +9119,7 @@ export const deleteSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -9121,6 +9161,7 @@ export const deleteSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -9465,6 +9506,7 @@ export const deleteSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -9603,6 +9645,7 @@ export const deleteSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -9644,6 +9687,7 @@ export const deleteSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -9717,6 +9761,7 @@ export const deleteSeries = /* GraphQL */ `
             updatedAt
           }
           blogSeriesId
+          blogSeriesIndex
           blogSeries {
             items {
               id
@@ -9760,6 +9805,7 @@ export const deleteSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -9841,6 +9887,7 @@ export const deleteSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -9914,6 +9961,7 @@ export const deleteSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -9967,6 +10015,7 @@ export const deleteSeries = /* GraphQL */ `
               updatedAt
             }
             blogSeriesId
+            blogSeriesIndex
             blogSeries {
               items {
                 id
@@ -9992,6 +10041,7 @@ export const deleteSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -10114,6 +10164,7 @@ export const deleteSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -10155,6 +10206,7 @@ export const deleteSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -10333,6 +10385,7 @@ export const deleteSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -10374,6 +10427,7 @@ export const deleteSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -10680,6 +10734,7 @@ export const createCustomPlaylist = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -11102,6 +11157,7 @@ export const updateCustomPlaylist = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -11524,6 +11580,7 @@ export const deleteCustomPlaylist = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -12223,6 +12280,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -12286,6 +12344,7 @@ export const createCustomPlaylistVideo = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -13159,6 +13218,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -13222,6 +13282,7 @@ export const updateCustomPlaylistVideo = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -14095,6 +14156,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -14158,6 +14220,7 @@ export const deleteCustomPlaylistVideo = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -14696,6 +14759,7 @@ export const createVideo = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -15106,6 +15170,7 @@ export const createVideo = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -15362,6 +15427,7 @@ export const createVideo = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -15435,6 +15501,7 @@ export const createVideo = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -15488,6 +15555,7 @@ export const createVideo = /* GraphQL */ `
               updatedAt
             }
             blogSeriesId
+            blogSeriesIndex
             blogSeries {
               items {
                 id
@@ -15513,6 +15581,7 @@ export const createVideo = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -15601,6 +15670,7 @@ export const createVideo = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -15679,6 +15749,7 @@ export const createVideo = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -15799,6 +15870,7 @@ export const createVideo = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -16062,6 +16134,7 @@ export const createVideo = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -16576,6 +16649,7 @@ export const updateVideo = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -16986,6 +17060,7 @@ export const updateVideo = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -17242,6 +17317,7 @@ export const updateVideo = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -17315,6 +17391,7 @@ export const updateVideo = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -17368,6 +17445,7 @@ export const updateVideo = /* GraphQL */ `
               updatedAt
             }
             blogSeriesId
+            blogSeriesIndex
             blogSeries {
               items {
                 id
@@ -17393,6 +17471,7 @@ export const updateVideo = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -17481,6 +17560,7 @@ export const updateVideo = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -17559,6 +17639,7 @@ export const updateVideo = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -17679,6 +17760,7 @@ export const updateVideo = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -17942,6 +18024,7 @@ export const updateVideo = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -18456,6 +18539,7 @@ export const deleteVideo = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -18866,6 +18950,7 @@ export const deleteVideo = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -19122,6 +19207,7 @@ export const deleteVideo = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -19195,6 +19281,7 @@ export const deleteVideo = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -19248,6 +19335,7 @@ export const deleteVideo = /* GraphQL */ `
               updatedAt
             }
             blogSeriesId
+            blogSeriesIndex
             blogSeries {
               items {
                 id
@@ -19273,6 +19361,7 @@ export const deleteVideo = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -19361,6 +19450,7 @@ export const deleteVideo = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -19439,6 +19529,7 @@ export const deleteVideo = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -19559,6 +19650,7 @@ export const deleteVideo = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -19822,6 +19914,7 @@ export const deleteVideo = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -20258,6 +20351,7 @@ export const createBlogSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -20304,6 +20398,7 @@ export const createBlogSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -20377,6 +20472,7 @@ export const createBlogSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -20430,6 +20526,7 @@ export const createBlogSeries = /* GraphQL */ `
               updatedAt
             }
             blogSeriesId
+            blogSeriesIndex
             blogSeries {
               items {
                 id
@@ -20455,6 +20552,7 @@ export const createBlogSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -20550,6 +20648,7 @@ export const updateBlogSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -20596,6 +20695,7 @@ export const updateBlogSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -20669,6 +20769,7 @@ export const updateBlogSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -20722,6 +20823,7 @@ export const updateBlogSeries = /* GraphQL */ `
               updatedAt
             }
             blogSeriesId
+            blogSeriesIndex
             blogSeries {
               items {
                 id
@@ -20747,6 +20849,7 @@ export const updateBlogSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -20842,6 +20945,7 @@ export const deleteBlogSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -20888,6 +20992,7 @@ export const deleteBlogSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -20961,6 +21066,7 @@ export const deleteBlogSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -21014,6 +21120,7 @@ export const deleteBlogSeries = /* GraphQL */ `
               updatedAt
             }
             blogSeriesId
+            blogSeriesIndex
             blogSeries {
               items {
                 id
@@ -21039,6 +21146,7 @@ export const deleteBlogSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -21175,6 +21283,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -21277,6 +21386,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -21355,6 +21465,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -21566,6 +21677,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -21629,6 +21741,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -21753,6 +21866,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
           updatedAt
         }
         blogSeriesId
+        blogSeriesIndex
         blogSeries {
           items {
             id
@@ -21822,6 +21936,7 @@ export const createBlogSeriesBridge = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -21968,6 +22083,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -22070,6 +22186,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -22148,6 +22265,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -22359,6 +22477,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -22422,6 +22541,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -22546,6 +22666,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
           updatedAt
         }
         blogSeriesId
+        blogSeriesIndex
         blogSeries {
           items {
             id
@@ -22615,6 +22736,7 @@ export const updateBlogSeriesBridge = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -22761,6 +22883,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -22863,6 +22986,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -22941,6 +23065,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -23152,6 +23277,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -23215,6 +23341,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -23339,6 +23466,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
           updatedAt
         }
         blogSeriesId
+        blogSeriesIndex
         blogSeries {
           items {
             id
@@ -23408,6 +23536,7 @@ export const deleteBlogSeriesBridge = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -23537,6 +23666,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -23615,6 +23745,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -23826,6 +23957,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -23889,6 +24021,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -24013,6 +24146,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
           updatedAt
         }
         blogSeriesId
+        blogSeriesIndex
         blogSeries {
           items {
             id
@@ -24082,6 +24216,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -24250,6 +24385,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -24506,6 +24642,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -24579,6 +24716,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -24632,6 +24770,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
               updatedAt
             }
             blogSeriesId
+            blogSeriesIndex
             blogSeries {
               items {
                 id
@@ -24657,6 +24796,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -24745,6 +24885,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -24823,6 +24964,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -24943,6 +25085,7 @@ export const createBlogToVideoSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -25105,6 +25248,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -25183,6 +25327,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -25394,6 +25539,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -25457,6 +25603,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -25581,6 +25728,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
           updatedAt
         }
         blogSeriesId
+        blogSeriesIndex
         blogSeries {
           items {
             id
@@ -25650,6 +25798,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -25818,6 +25967,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -26074,6 +26224,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -26147,6 +26298,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -26200,6 +26352,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
               updatedAt
             }
             blogSeriesId
+            blogSeriesIndex
             blogSeries {
               items {
                 id
@@ -26225,6 +26378,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -26313,6 +26467,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -26391,6 +26546,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -26511,6 +26667,7 @@ export const updateBlogToVideoSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -26673,6 +26830,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -26751,6 +26909,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -26962,6 +27121,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -27025,6 +27185,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -27149,6 +27310,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
           updatedAt
         }
         blogSeriesId
+        blogSeriesIndex
         blogSeries {
           items {
             id
@@ -27218,6 +27380,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -27386,6 +27549,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -27642,6 +27806,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -27715,6 +27880,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -27768,6 +27934,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
               updatedAt
             }
             blogSeriesId
+            blogSeriesIndex
             blogSeries {
               items {
                 id
@@ -27793,6 +27960,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -27881,6 +28049,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -27959,6 +28128,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -28079,6 +28249,7 @@ export const deleteBlogToVideoSeries = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -28215,6 +28386,7 @@ export const createBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -28288,6 +28460,7 @@ export const createBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -28341,6 +28514,7 @@ export const createBlog = /* GraphQL */ `
               updatedAt
             }
             blogSeriesId
+            blogSeriesIndex
             blogSeries {
               items {
                 id
@@ -28366,6 +28540,7 @@ export const createBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -28488,6 +28663,7 @@ export const createBlog = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -28529,6 +28705,7 @@ export const createBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -28713,6 +28890,7 @@ export const createBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -28969,6 +29147,7 @@ export const createBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -29042,6 +29221,7 @@ export const createBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -29095,6 +29275,7 @@ export const createBlog = /* GraphQL */ `
               updatedAt
             }
             blogSeriesId
+            blogSeriesIndex
             blogSeries {
               items {
                 id
@@ -29120,6 +29301,7 @@ export const createBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -29208,6 +29390,7 @@ export const createBlog = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -29286,6 +29469,7 @@ export const createBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -29406,6 +29590,7 @@ export const createBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -29501,6 +29686,7 @@ export const createBlog = /* GraphQL */ `
         updatedAt
       }
       blogSeriesId
+      blogSeriesIndex
       blogSeries {
         items {
           id
@@ -29533,6 +29719,7 @@ export const createBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -29579,6 +29766,7 @@ export const createBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -29652,6 +29840,7 @@ export const createBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -29705,6 +29894,7 @@ export const createBlog = /* GraphQL */ `
               updatedAt
             }
             blogSeriesId
+            blogSeriesIndex
             blogSeries {
               items {
                 id
@@ -29730,6 +29920,7 @@ export const createBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -29836,6 +30027,7 @@ export const updateBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -29909,6 +30101,7 @@ export const updateBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -29962,6 +30155,7 @@ export const updateBlog = /* GraphQL */ `
               updatedAt
             }
             blogSeriesId
+            blogSeriesIndex
             blogSeries {
               items {
                 id
@@ -29987,6 +30181,7 @@ export const updateBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -30109,6 +30304,7 @@ export const updateBlog = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -30150,6 +30346,7 @@ export const updateBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -30334,6 +30531,7 @@ export const updateBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -30590,6 +30788,7 @@ export const updateBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -30663,6 +30862,7 @@ export const updateBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -30716,6 +30916,7 @@ export const updateBlog = /* GraphQL */ `
               updatedAt
             }
             blogSeriesId
+            blogSeriesIndex
             blogSeries {
               items {
                 id
@@ -30741,6 +30942,7 @@ export const updateBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -30829,6 +31031,7 @@ export const updateBlog = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -30907,6 +31110,7 @@ export const updateBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -31027,6 +31231,7 @@ export const updateBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -31122,6 +31327,7 @@ export const updateBlog = /* GraphQL */ `
         updatedAt
       }
       blogSeriesId
+      blogSeriesIndex
       blogSeries {
         items {
           id
@@ -31154,6 +31360,7 @@ export const updateBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -31200,6 +31407,7 @@ export const updateBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -31273,6 +31481,7 @@ export const updateBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -31326,6 +31535,7 @@ export const updateBlog = /* GraphQL */ `
               updatedAt
             }
             blogSeriesId
+            blogSeriesIndex
             blogSeries {
               items {
                 id
@@ -31351,6 +31561,7 @@ export const updateBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -31457,6 +31668,7 @@ export const deleteBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -31530,6 +31742,7 @@ export const deleteBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -31583,6 +31796,7 @@ export const deleteBlog = /* GraphQL */ `
               updatedAt
             }
             blogSeriesId
+            blogSeriesIndex
             blogSeries {
               items {
                 id
@@ -31608,6 +31822,7 @@ export const deleteBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -31730,6 +31945,7 @@ export const deleteBlog = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -31771,6 +31987,7 @@ export const deleteBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -31955,6 +32172,7 @@ export const deleteBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -32211,6 +32429,7 @@ export const deleteBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -32284,6 +32503,7 @@ export const deleteBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -32337,6 +32557,7 @@ export const deleteBlog = /* GraphQL */ `
               updatedAt
             }
             blogSeriesId
+            blogSeriesIndex
             blogSeries {
               items {
                 id
@@ -32362,6 +32583,7 @@ export const deleteBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -32450,6 +32672,7 @@ export const deleteBlog = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -32528,6 +32751,7 @@ export const deleteBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -32648,6 +32872,7 @@ export const deleteBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -32743,6 +32968,7 @@ export const deleteBlog = /* GraphQL */ `
         updatedAt
       }
       blogSeriesId
+      blogSeriesIndex
       blogSeries {
         items {
           id
@@ -32775,6 +33001,7 @@ export const deleteBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -32821,6 +33048,7 @@ export const deleteBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -32894,6 +33122,7 @@ export const deleteBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -32947,6 +33176,7 @@ export const deleteBlog = /* GraphQL */ `
               updatedAt
             }
             blogSeriesId
+            blogSeriesIndex
             blogSeries {
               items {
                 id
@@ -32972,6 +33202,7 @@ export const deleteBlog = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -33279,6 +33510,7 @@ export const createVerse = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -33342,6 +33574,7 @@ export const createVerse = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -33724,6 +33957,7 @@ export const updateVerse = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -33787,6 +34021,7 @@ export const updateVerse = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -34169,6 +34404,7 @@ export const deleteVerse = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -34232,6 +34468,7 @@ export const deleteVerse = /* GraphQL */ `
                   updatedAt
                 }
                 blogSeriesId
+                blogSeriesIndex
                 blogSeries {
                   nextToken
                 }
@@ -34558,6 +34795,7 @@ export const createNotes = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -34814,6 +35052,7 @@ export const createNotes = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -34887,6 +35126,7 @@ export const createNotes = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -34940,6 +35180,7 @@ export const createNotes = /* GraphQL */ `
               updatedAt
             }
             blogSeriesId
+            blogSeriesIndex
             blogSeries {
               items {
                 id
@@ -34965,6 +35206,7 @@ export const createNotes = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -35053,6 +35295,7 @@ export const createNotes = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -35131,6 +35374,7 @@ export const createNotes = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -35251,6 +35495,7 @@ export const createNotes = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -35413,6 +35658,7 @@ export const createNotes = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -35634,6 +35880,7 @@ export const updateNotes = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -35890,6 +36137,7 @@ export const updateNotes = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -35963,6 +36211,7 @@ export const updateNotes = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -36016,6 +36265,7 @@ export const updateNotes = /* GraphQL */ `
               updatedAt
             }
             blogSeriesId
+            blogSeriesIndex
             blogSeries {
               items {
                 id
@@ -36041,6 +36291,7 @@ export const updateNotes = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -36129,6 +36380,7 @@ export const updateNotes = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -36207,6 +36459,7 @@ export const updateNotes = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -36327,6 +36580,7 @@ export const updateNotes = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -36489,6 +36743,7 @@ export const updateNotes = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -36710,6 +36965,7 @@ export const deleteNotes = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -36966,6 +37222,7 @@ export const deleteNotes = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -37039,6 +37296,7 @@ export const deleteNotes = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -37092,6 +37350,7 @@ export const deleteNotes = /* GraphQL */ `
               updatedAt
             }
             blogSeriesId
+            blogSeriesIndex
             blogSeries {
               items {
                 id
@@ -37117,6 +37376,7 @@ export const deleteNotes = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -37205,6 +37465,7 @@ export const deleteNotes = /* GraphQL */ `
                 updatedAt
               }
               blogSeriesId
+              blogSeriesIndex
               blogSeries {
                 items {
                   id
@@ -37283,6 +37544,7 @@ export const deleteNotes = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -37403,6 +37665,7 @@ export const deleteNotes = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
@@ -37565,6 +37828,7 @@ export const deleteNotes = /* GraphQL */ `
                   publishedDate
                   expirationDate
                   blogSeriesId
+                  blogSeriesIndex
                   blogStatus
                   description
                   thumbnailDescription
