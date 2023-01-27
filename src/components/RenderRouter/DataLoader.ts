@@ -9,6 +9,8 @@ import * as customQueries from '../../graphql-custom/customQueries';
 import * as queries from '../../graphql/queries';
 
 import {
+  Blog,
+  BlogBridgeBySeriesQuery,
   FBEvent,
   GetBlogByBlogStatusQuery,
   GetBlogByBlogStatusQueryVariables,
@@ -103,7 +105,7 @@ export interface SpeakerQuery extends DataLoaderQuery {
 export interface BlogQuery extends DataLoaderQuery {
   class: 'blogs';
   status: 'Live' | 'Unlisted';
-  selector: 'all' | 'similar';
+  selector: 'all' | 'similar' | 'series';
   sortOrder: ModelSortDirection;
   loadPer?: number;
 }
@@ -498,6 +500,42 @@ export default class DataLoader {
       }
     } catch (e) {
       console.error(e);
+    }
+  }
+
+  static async getBlogsInSeries(
+    query: BlogQuery,
+    postId: string,
+    dataLoaded: OnDataListener<BlogData[]>
+  ): Promise<void> {
+    const getBlog = (await API.graphql(
+      graphqlOperation(customQueries.getBlogForSearch, { id: postId })
+    )) as GraphQLResult<GetBlogQuery>;
+
+    console.log({ getBlogInSeries: getBlog });
+    const blogData = getBlog.data?.getBlog;
+    if (
+      blogData?.blogSeriesId === 'NullValueString' ||
+      blogData?.blogSeriesId === 'nonEmptyVoidStringValue' ||
+      blogData?.blogSeriesId === ''
+    ) {
+      dataLoaded([]);
+    } else {
+      try {
+        const blogBridgeSeries = (await API.graphql({
+          query: queries.blogBridgeBySeries,
+          variables: { blogSeriesID: blogData?.blogSeriesId },
+          authMode: GRAPHQL_AUTH_MODE.API_KEY,
+        })) as GraphQLResult<BlogBridgeBySeriesQuery>;
+        console.log({ blogBridgeSeries });
+        const blogsInSeries =
+          blogBridgeSeries.data?.blogBridgeBySeries?.items
+            ?.filter((bridge) => bridge?.blogPostID !== postId)
+            ?.map((bridge) => bridge?.blogPost) ?? [];
+        dataLoaded(blogsInSeries as Blog[]);
+      } catch (e) {
+        console.error(e);
+      }
     }
   }
 

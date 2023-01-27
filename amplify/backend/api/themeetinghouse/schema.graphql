@@ -1384,6 +1384,7 @@ type Blog @model @searchable @auth(rules: [{allow: public, operations: [read]}, 
   videoSeries: [BlogToVideoSeries] @hasMany(indexName: "byBlogForBlogToVideoSeries", fields: ["id"])
   series: Series @belongsTo(fields: ["blogSeriesId"])
   blogSeriesId: ID @index(name: "byBlogInVideoSeries", sortKeyFields: ["publishedDate"])
+  blogSeriesIndex:  Int
   blogSeries: [BlogSeriesBridge] @hasMany(indexName: "byBlogPost", fields: ["id"])
   blogStatus: String @index(name: "ByBlogStatus", queryField: "getBlogByBlogStatus", sortKeyFields: ["publishedDate"])
   description: String
