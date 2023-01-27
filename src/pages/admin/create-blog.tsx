@@ -123,6 +123,7 @@ class Index extends React.Component<EmptyProps, State> {
         id: '',
         author: '',
         blogTitle: '',
+        blogSeriesIndex: 0,
         expirationDate: 'none',
         publishedDate: format(new Date(), 'yyyy-MM-dd'),
         description: '',
@@ -615,7 +616,6 @@ class Index extends React.Component<EmptyProps, State> {
     ) {
       this.setState({ customId: this.state.blogToEditObject.id });
     }
-
     try {
       const json = (await API.graphql({
         query: queries.blogBridgeByPost,
@@ -681,86 +681,51 @@ class Index extends React.Component<EmptyProps, State> {
   }
 
   async writeBridges(toAdd: string[], toDelete: string[]) {
-    const currentPostID = this.state.blogObject.id;
-    console.log({ toAdd });
-    console.log({ toDelete });
-    const deletePromises = toDelete.map((series: string) => {
-      const bridgeID = currentPostID + '-' + series;
-      const deleteBlogSeriesBridge = API.graphql({
-        query: mutations.deleteBlogSeriesBridge,
-        variables: { input: { id: bridgeID } },
-        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-      }) as Promise<GraphQLResult<DeleteBlogSeriesBridgeMutation>>;
-      return deleteBlogSeriesBridge;
-    });
-    const deleted = await Promise.all(deletePromises);
-    console.log({ deleted });
-    // toDelete.forEach((series: string) => {
-    //   const bridgeID = currentPostID + '-' + series;
+    try {
+      const currentPostID = this.state.blogObject.id;
+      const deletePromises = toDelete.map((series: string) => {
+        const bridgeID = currentPostID + '-' + series;
+        const deleteBlogSeriesBridge = API.graphql({
+          query: mutations.deleteBlogSeriesBridge,
+          variables: { input: { id: bridgeID } },
+          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+        }) as Promise<GraphQLResult<DeleteBlogSeriesBridgeMutation>>;
+        return deleteBlogSeriesBridge;
+      });
+      const deleted = await Promise.all(deletePromises);
+      console.log({ deleted });
+      const createPromises = toAdd.map((series: string) => {
+        const bridgeID = currentPostID + '-' + series;
 
-    //   const deleteBlogSeriesBridge = API.graphql({
-    //     query: mutations.deleteBlogSeriesBridge,
-    //     variables: { input: { id: bridgeID } },
-    //     authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-    //   }) as Promise<GraphQLResult<DeleteBlogSeriesBridgeMutation>>;
-
-    //   deleteBlogSeriesBridge
-    //     .then((json) => {
-    //       console.log({ 'Success mutations.deleteBlogSeriesBridge: ': json });
-    //     })
-    //     .catch((e: any) => {
-    //       console.error(e);
-    //     });
-    // });
-    const createPromises = toAdd.map((series: string) => {
-      const bridgeID = currentPostID + '-' + series;
-
-      const createBlogSeriesBridge = API.graphql({
-        query: mutations.createBlogSeriesBridge,
-        variables: {
-          input: {
-            id: bridgeID,
-            blogSeriesID: series,
-            blogPostID: currentPostID,
+        const createBlogSeriesBridge = API.graphql({
+          query: mutations.createBlogSeriesBridge,
+          variables: {
+            input: {
+              id: bridgeID,
+              blogSeriesID: series,
+              blogPostID: currentPostID,
+            },
           },
-        },
-        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-      }) as Promise<GraphQLResult<CreateBlogSeriesBridgeMutation>>;
-      return createBlogSeriesBridge;
-    });
-    const added = await Promise.all(createPromises);
-    return {
-      added: added.map(
-        (item) => item.data?.createBlogSeriesBridge?.blogSeriesID
-      ),
-      deleted: deleted.map(
-        (item) => item.data?.deleteBlogSeriesBridge?.blogSeriesID
-      ),
-    };
-
-    // toAdd.forEach((series: string) => {
-    //   const bridgeID = currentPostID + '-' + series;
-
-    //   const createBlogSeriesBridge = API.graphql({
-    //     query: mutations.createBlogSeriesBridge,
-    //     variables: {
-    //       input: {
-    //         id: bridgeID,
-    //         blogSeriesID: series,
-    //         blogPostID: currentPostID,
-    //       },
-    //     },
-    //     authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-    //   }) as Promise<GraphQLResult<CreateBlogSeriesBridgeMutation>>;
-
-    //   createBlogSeriesBridge
-    //     .then((json) => {
-    //       console.log({ 'Success mutations.createBlogSeriesBridge: ': json });
-    //     })
-    //     .catch((e: any) => {
-    //       console.error(e);
-    //     });
-    // });
+          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+        }) as Promise<GraphQLResult<CreateBlogSeriesBridgeMutation>>;
+        return createBlogSeriesBridge;
+      });
+      const added = await Promise.all(createPromises);
+      return {
+        added: added.map(
+          (item) => item.data?.createBlogSeriesBridge?.blogSeriesID
+        ),
+        deleted: deleted.map(
+          (item) => item.data?.deleteBlogSeriesBridge?.blogSeriesID
+        ),
+      };
+    } catch (error) {
+      console.error({ error });
+      return {
+        added: [],
+        deleted: [],
+      };
+    }
   }
 
   handleDeleteBridge() {
@@ -998,6 +963,26 @@ class Index extends React.Component<EmptyProps, State> {
             </div>
           ))}
         </div>
+        <b>Blog Number in Series</b>
+        <label>
+          <input
+            type="text"
+            pattern="[0-9]{1,5}"
+            value={this.state.blogObject.blogSeriesIndex ?? 0}
+            onChange={(event) => {
+              let newValue = event.target.value;
+              if (newValue === '') newValue = '0';
+              const value = parseInt(newValue);
+              if ((!isNaN(value) && value < 1000) || newValue === '')
+                this.setState({
+                  blogObject: {
+                    ...this.state.blogObject,
+                    blogSeriesIndex: value,
+                  },
+                });
+            }}
+          />
+        </label>
         <br />
 
         <div>
