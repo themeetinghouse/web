@@ -1319,7 +1319,6 @@ class ListItem extends React.Component<Props, State> {
         const startIndex = this.state.content.skipFirstPost ? 1 : 0;
 
         const blogData = data as BlogData[];
-
         blogData.sort((a, b) =>
           this.sortByDate(
             a?.publishedDate ?? '',
@@ -1368,15 +1367,21 @@ class ListItem extends React.Component<Props, State> {
             </div>
           );
         }
-        console.log();
         return (
           <div className="ListItemDiv1">
             <h1 className="BlogItemH1">{this.state.content.header1}</h1>
             <div className="BlogItem">
               <div className="BlogItemContainer">
-                {dateChecked.slice(startIndex).map((item, index: number) => {
-                  return this.renderItemRouter(item, index);
-                })}
+                {dateChecked
+                  .sort((a, b) => {
+                    if (b?.blogSeriesIndex && a?.blogSeriesIndex)
+                      return a?.blogSeriesIndex - b?.blogSeriesIndex;
+                    return 0;
+                  })
+                  .slice(startIndex)
+                  .map((item, index: number) => {
+                    return this.renderItemRouter(item, index);
+                  })}
               </div>
             </div>
           </div>

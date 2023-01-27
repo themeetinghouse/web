@@ -585,15 +585,6 @@ export default class DataLoader {
       } catch (e) {
         console.error(e);
       }
-    } else {
-      console.log('get blogs in series', blogData?.blogSeriesId);
-      // need getBlogsBySeriesID query in schema
-      // try {
-
-      //   dataLoaded(items);
-      // }catch(e) {
-      //   console.error(e);
-      // }
     }
   }
   static async searchTMHPeople(searchTerm: string) {
