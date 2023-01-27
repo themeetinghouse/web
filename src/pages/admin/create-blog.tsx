@@ -390,7 +390,13 @@ class Index extends React.Component<EmptyProps, State> {
       this.state;
     const { babyHeroImage, bannerImage, squareImage } = blogObject;
     const images = [babyHeroImage, bannerImage, squareImage];
-
+    const numberOfTags = blogObject?.tags?.length ?? 0;
+    if (numberOfTags <= 0) {
+      this.setState({
+        showAlert: '⚠️ Blog Posts must contain tags...',
+      });
+      return false;
+    }
     if (
       !blogObject.blogTitle ||
       !blogObject.author ||
