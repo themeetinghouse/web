@@ -300,6 +300,10 @@ class ListItem extends React.Component<Props, State> {
             const postId = this.props?.match?.params?.blog ?? '';
             await DataLoader.getSimilarBlogs(query, postId, dataLoaded);
             return;
+          case 'series':
+            const blogPostId = this.props?.match?.params?.blog ?? '';
+            await DataLoader.getBlogsInSeries(query, blogPostId, dataLoaded);
+            return;
         }
       case 'user-defined':
         return;
@@ -1364,7 +1368,7 @@ class ListItem extends React.Component<Props, State> {
             </div>
           );
         }
-
+        console.log();
         return (
           <div className="ListItemDiv1">
             <h1 className="BlogItemH1">{this.state.content.header1}</h1>

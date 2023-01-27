@@ -450,15 +450,22 @@ class Index extends React.Component<EmptyProps, State> {
 
     await this.writeVideoSeriesConnections();
 
-    this.writeBridges(
+    const { added, deleted } = await this.writeBridges(
       this.state.selectedBlogSeries,
       this.state.deselectedBlogSeries
     );
-
     this.setState({ editMode: true });
 
     const { blogObject: input } = this.state;
+    if (added.length > 0) {
+      console.log(`setting blogSeriesId to ${added[0]}`);
+      input.blogSeriesId = added[0];
+    } else if (deleted.length > 0) {
+      console.log(`setting blogSeriesId to empty`);
+      input.blogSeriesId = '';
+    }
 
+    console.log({ updatingBlog: input });
     try {
       const updateBlog = (await API.graphql({
         query: mutations.updateBlog,
@@ -673,28 +680,39 @@ class Index extends React.Component<EmptyProps, State> {
     }));
   }
 
-  writeBridges(toAdd: string[], toDelete: string[]) {
+  async writeBridges(toAdd: string[], toDelete: string[]) {
     const currentPostID = this.state.blogObject.id;
-
-    toDelete.forEach((series: string) => {
+    console.log({ toAdd });
+    console.log({ toDelete });
+    const deletePromises = toDelete.map((series: string) => {
       const bridgeID = currentPostID + '-' + series;
-
       const deleteBlogSeriesBridge = API.graphql({
         query: mutations.deleteBlogSeriesBridge,
         variables: { input: { id: bridgeID } },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       }) as Promise<GraphQLResult<DeleteBlogSeriesBridgeMutation>>;
-
-      deleteBlogSeriesBridge
-        .then((json) => {
-          console.log({ 'Success mutations.deleteBlogSeriesBridge: ': json });
-        })
-        .catch((e: any) => {
-          console.error(e);
-        });
+      return deleteBlogSeriesBridge;
     });
+    const deleted = await Promise.all(deletePromises);
+    console.log({ deleted });
+    // toDelete.forEach((series: string) => {
+    //   const bridgeID = currentPostID + '-' + series;
 
-    toAdd.forEach((series: string) => {
+    //   const deleteBlogSeriesBridge = API.graphql({
+    //     query: mutations.deleteBlogSeriesBridge,
+    //     variables: { input: { id: bridgeID } },
+    //     authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+    //   }) as Promise<GraphQLResult<DeleteBlogSeriesBridgeMutation>>;
+
+    //   deleteBlogSeriesBridge
+    //     .then((json) => {
+    //       console.log({ 'Success mutations.deleteBlogSeriesBridge: ': json });
+    //     })
+    //     .catch((e: any) => {
+    //       console.error(e);
+    //     });
+    // });
+    const createPromises = toAdd.map((series: string) => {
       const bridgeID = currentPostID + '-' + series;
 
       const createBlogSeriesBridge = API.graphql({
@@ -708,15 +726,41 @@ class Index extends React.Component<EmptyProps, State> {
         },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       }) as Promise<GraphQLResult<CreateBlogSeriesBridgeMutation>>;
-
-      createBlogSeriesBridge
-        .then((json) => {
-          console.log({ 'Success mutations.createBlogSeriesBridge: ': json });
-        })
-        .catch((e: any) => {
-          console.error(e);
-        });
+      return createBlogSeriesBridge;
     });
+    const added = await Promise.all(createPromises);
+    return {
+      added: added.map(
+        (item) => item.data?.createBlogSeriesBridge?.blogSeriesID
+      ),
+      deleted: deleted.map(
+        (item) => item.data?.deleteBlogSeriesBridge?.blogSeriesID
+      ),
+    };
+
+    // toAdd.forEach((series: string) => {
+    //   const bridgeID = currentPostID + '-' + series;
+
+    //   const createBlogSeriesBridge = API.graphql({
+    //     query: mutations.createBlogSeriesBridge,
+    //     variables: {
+    //       input: {
+    //         id: bridgeID,
+    //         blogSeriesID: series,
+    //         blogPostID: currentPostID,
+    //       },
+    //     },
+    //     authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+    //   }) as Promise<GraphQLResult<CreateBlogSeriesBridgeMutation>>;
+
+    //   createBlogSeriesBridge
+    //     .then((json) => {
+    //       console.log({ 'Success mutations.createBlogSeriesBridge: ': json });
+    //     })
+    //     .catch((e: any) => {
+    //       console.error(e);
+    //     });
+    // });
   }
 
   handleDeleteBridge() {

@@ -27,6 +27,15 @@
         "selector": "similar",
         "status": "Live",
         "sortOrder": "DESC"
+      },
+      {
+        "type": "list",
+        "header1": "More From This Series",
+        "class": "blogs",
+        "style": "blogs",
+        "selector": "series",
+        "status": "Live",
+        "sortOrder": "DESC"
       }
     ]
   }
