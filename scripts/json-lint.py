@@ -206,7 +206,7 @@ if __name__ == '__main__':
                                 elif i == 'hovertag':
                                     assert(isinstance(item[i], str))
                                 elif i == 'selector':
-                                    assert(item[i] in ['all', 'popular', 'similar', 'sameSeries', 'highlights', 'same-playlist'])
+                                    assert(item[i] in ['all', 'popular', 'series', 'similar', 'sameSeries', 'highlights', 'same-playlist'])
                                 elif i == 'facebookEvents':
                                     assert(isinstance(item[i], list))
                                     for fb_id in item[i]:
