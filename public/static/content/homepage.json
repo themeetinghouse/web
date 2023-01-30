@@ -18,6 +18,7 @@
         "action": "/give"
       }
     },
+
     "content": [
       {
         "type": "og-tags",
