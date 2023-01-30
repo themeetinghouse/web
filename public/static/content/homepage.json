@@ -58,6 +58,26 @@
       {
         "type": "content",
         "style": "oneImage",
+        "header1": "Solemn Assembly Guide",
+        "header2": "",
+        "text1": "This guide is intended as a tool to help give shape to a week of intentional listening and responding to the Spirit.",
+        "image1": [
+          {
+            "src": "/static/photos/series/baby-hero/adult-sunday-Resolution.jpg",
+            "alt": "Graphic of teaching series Resolution."
+          }
+        ],
+        "list": [
+          {
+            "type": "link",
+            "title": "Prayer Guide",
+            "navigateTo": "/solemnassemblyguide"
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "style": "oneImage",
         "header1": "Investigation Updates",
         "header2": "",
         "text1": "Click below to read the investigation updates from The Meeting House.",
