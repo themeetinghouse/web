@@ -55,12 +55,6 @@
         "filterValue": "richmond-hill"
       },
       {
-        "type": "content",
-        "style": "greyTwoText",
-        "header1": "In-person Gatherings",
-        "text1": "We will be meeting in-person every 2nd Sunday of the month for in-person worship. Every 4th Sunday of the month we will have Family Home Church. For both Sundays, Kidmax programs will be available for Walkers-Sr. Kindergarten, & Grades 1-5. For activities on the 1st and 3rd Sundays of the month, we will notify via email. Sign up for email updates at the bottom of this page!"
-      },
-      {
         "type": "list",
         "style": "staff",
         "class": "staff",
