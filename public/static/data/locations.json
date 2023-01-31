@@ -254,7 +254,7 @@
     "regionShortName": "Richmond Hill",
     "abbreviation": "RHLL",
     "homeChurchGroupID": "58081",
-    "serviceTimeDescription": "Every Sunday at 2pm. Starting in February we'll gather at 10am.",
+    "serviceTimeDescription": "Every Sunday at 10am",
     "region": "Distance",
     "facebookEvents": ["384127868269271", "365702263516025"],
     "pastorEmail": "chris.pullenayegem@themeetinghouse.com",
@@ -263,7 +263,7 @@
       "latitude": 43.88108937451291,
       "address": "Community Church of Richmond Hill, 45 Crosby Ave"
     },
-    "serviceTimes": ["2:00pm"]
+    "serviceTimes": ["10:00am"]
   },
   {
     "id": "waterloo-region",
