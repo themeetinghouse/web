@@ -193,7 +193,7 @@ export default function EventPage(): JSX.Element {
                   {event.place?.location?.zip ?? 'L6H 6E1'}
                 </>
               ) : (
-                event.place.name
+                event.place?.name
               )}
             </div>
             <DirectionsButton
