@@ -1,4 +1,7 @@
 #set( $pageId = $ctx.args.pageId )
+#set( $secrets = $util.parseJson($ctx.prev.result).SecretString ) 
+#set( $secretFB = $util.parseJson($secrets).facebookToken ) 
+
 {
 "version": "2018-05-29",
 "method": "GET",
@@ -8,6 +11,6 @@
     },
         "body":""
 }, 
-"resourcePath": "/v9.0/$pageId/media?fields=shortcode%2Cpermalink%2Ctimestamp%2cthumbnail_url%2Cmedia_type%2Clike_count%2Ccomments_count%2Ccaption%2Cmedia_url&access_token="
+"resourcePath": "/v9.0/$pageId/media?fields=shortcode%2Cpermalink%2Ctimestamp%2cthumbnail_url%2Cmedia_type%2Clike_count%2Ccomments_count%2Ccaption%2Cmedia_url&access_token=$secretFB"
 }
 

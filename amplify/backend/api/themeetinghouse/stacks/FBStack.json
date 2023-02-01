@@ -84,200 +84,315 @@
         }
     },
     "Resources": {
-        "GraphQLAPI": {
-            "Type": "AWS::AppSync::GraphQLApi",
+        "AppSyncServiceRole": {
+            "Type": "AWS::IAM::Role",
             "Properties": {
-                "Name": {
-                    "Fn::If": [
-                        "HasEnvironmentParameter",
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
                         {
-                            "Fn::Join": [
-                                "-",
-                                [
-                                    {
-                                        "Ref": "AppSyncApiName"
-                                    },
-                                    {
-                                        "Ref": "env"
-                                    }
-                                ]
-                            ]
-                        },
-                        {
-                            "Ref": "AppSyncApiName"
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "appsync.amazonaws.com"
+                            },
+                            "Action": "sts:AssumeRole"
                         }
                     ]
                 },
-                "AuthenticationType": "API_KEY",
-                "AdditionalAuthenticationProviders": [
+                "Policies": [
                     {
-                        "AuthenticationType": "AWS_IAM"
+                        "PolicyName": "AppSyncSecretsManagerTestPolicy",
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "secretsmanager:GetSecretValue"
+                                    ],
+                                    "Resource": "*"
+                                }
+                            ]
+                        }
                     }
                 ]
             }
         },
-      
-        "YoutubePlaylistDataSource": {
+        "SecretsManagerDataSource": {
             "Type": "AWS::AppSync::DataSource",
             "Properties": {
                 "ApiId": {
                     "Ref": "AppSyncApiId"
                 },
-                "Name": "YoutubeHTTP",
+                "Name": "SecretsManagerDataSourceHTTP",
                 "Type": "HTTP",
+                "ServiceRoleArn": {
+                    "Fn::GetAtt": "AppSyncServiceRole.Arn"
+                },
                 "HttpConfig": {
-                    "Endpoint": "https://www.googleapis.com/"
+                    "Endpoint": {
+                        "Fn::Sub": [
+                            "https://secretsmanager.${region}.amazonaws.com",
+                            {
+                                "region": "us-east-1"
+                            }
+                        ]
+                    },
+                    "AuthorizationConfig": {
+                        "AuthorizationType": "AWS_IAM",
+                        "AwsIamConfig": {
+                            "SigningRegion": "us-east-1",
+                            "SigningServiceName": "secretsmanager"
+                        }
+                    }
                 }
             }
         },
-       
-        "YoutubeCaptionDataSource": {
+        "GetSecretsValue": {
+            "Type": "AWS::AppSync::FunctionConfiguration",
+            "Properties": {
+                "ApiId": {
+                    "Ref": "AppSyncApiId"
+                },
+                "Name": "GetSecretValueFunction",
+                "Description": "HTTP resolver to get a secret",
+                "DataSourceName": {
+                    "Fn::GetAtt": [
+                        "SecretsManagerDataSource",
+                        "Name"
+                    ]
+                },
+                "FunctionVersion": "2018-05-29",
+                "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": [
+                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+                        {
+                            "S3DeploymentBucket": {
+                                "Ref": "S3DeploymentBucket"
+                            },
+                            "S3DeploymentRootKey": {
+                                "Ref": "S3DeploymentRootKey"
+                            },
+                            "ResolverFileName": "SecretsManager.req.vtl"
+                        }
+                    ]
+                },
+                "ResponseMappingTemplateS3Location": {
+                    "Fn::Sub": [
+                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+                        {
+                            "S3DeploymentBucket": {
+                                "Ref": "S3DeploymentBucket"
+                            },
+                            "S3DeploymentRootKey": {
+                                "Ref": "S3DeploymentRootKey"
+                            },
+                            "ResolverFileName": "SecretsManager.res.vtl"
+                        }
+                    ]
+                }
+            }
+        },
+
+
+        "getFBEventsPipelineResolver": {
+            "Type": "AWS::AppSync::Resolver",
+            "Properties": {
+                "ApiId": {
+                    "Ref": "AppSyncApiId"
+                },
+                "TypeName": "Query",
+                "Kind": "PIPELINE",
+                "FieldName": "getFBEvents",
+                "PipelineConfig": {
+                    "Functions": [
+                        {
+                            "Fn::GetAtt": [
+                                "GetSecretsValue",
+                                "FunctionId"
+                            ]
+                        },
+                        {
+                            "Fn::GetAtt": [
+                                "GetFBEventsResolver",
+                                "FunctionId"
+                            ]
+                        }
+                    ]
+                },
+                "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": [
+                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+                        {
+                            "S3DeploymentBucket": {
+                                "Ref": "S3DeploymentBucket"
+                            },
+                            "S3DeploymentRootKey": {
+                                "Ref": "S3DeploymentRootKey"
+                            },
+                            "ResolverFileName": "Pipeline.getFBEvents.req.vtl"
+                        }
+                    ]
+                },
+                "ResponseMappingTemplateS3Location": {
+                    "Fn::Sub": [
+                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+                        {
+                            "S3DeploymentBucket": {
+                                "Ref": "S3DeploymentBucket"
+                            },
+                            "S3DeploymentRootKey": {
+                                "Ref": "S3DeploymentRootKey"
+                            },
+                            "ResolverFileName": "Pipeline.getFBEvents.res.vtl"
+                        }
+                    ]
+                }
+            }
+        },
+
+
+        "getFBEventPipelineResolver": {
+            "Type": "AWS::AppSync::Resolver",
+            "Properties": {
+                "ApiId": {
+                    "Ref": "AppSyncApiId"
+                },
+                "TypeName": "Query",
+                "Kind": "PIPELINE",
+                "FieldName": "getFBEvent",
+                "PipelineConfig": {
+                    "Functions": [
+                        {
+                            "Fn::GetAtt": [
+                                "GetSecretsValue",
+                                "FunctionId"
+                            ]
+                        },
+                        {
+                            "Fn::GetAtt": [
+                                "GetFBEventResolver",
+                                "FunctionId"
+                            ]
+                        }
+                    ]
+                },
+                "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": [
+                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+                        {
+                            "S3DeploymentBucket": {
+                                "Ref": "S3DeploymentBucket"
+                            },
+                            "S3DeploymentRootKey": {
+                                "Ref": "S3DeploymentRootKey"
+                            },
+                            "ResolverFileName": "Pipeline.getFBEvent.req.vtl"
+                        }
+                    ]
+                },
+                "ResponseMappingTemplateS3Location": {
+                    "Fn::Sub": [
+                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+                        {
+                            "S3DeploymentBucket": {
+                                "Ref": "S3DeploymentBucket"
+                            },
+                            "S3DeploymentRootKey": {
+                                "Ref": "S3DeploymentRootKey"
+                            },
+                            "ResolverFileName": "Pipeline.getFBEvent.res.vtl"
+                        }
+                    ]
+                }
+            }
+        },
+
+        "GetInstaPhotosPipelineResolver": {
+            "Type": "AWS::AppSync::Resolver",
+            "Properties": {
+                "ApiId": {
+                    "Ref": "AppSyncApiId"
+                },
+                "TypeName": "Query",
+                "Kind": "PIPELINE",
+                "FieldName": "getInstaPhotos",
+                "PipelineConfig": {
+                    "Functions": [
+                        {
+                            "Fn::GetAtt": [
+                                "GetSecretsValue",
+                                "FunctionId"
+                            ]
+                        },
+                        {
+                            "Fn::GetAtt": [
+                                "GetInstaPhotosResolver",
+                                "FunctionId"
+                            ]
+                        }
+                    ]
+                },
+                "RequestMappingTemplateS3Location": {
+                    "Fn::Sub": [
+                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+                        {
+                            "S3DeploymentBucket": {
+                                "Ref": "S3DeploymentBucket"
+                            },
+                            "S3DeploymentRootKey": {
+                                "Ref": "S3DeploymentRootKey"
+                            },
+                            "ResolverFileName": "Pipeline.GetInstaPhotos.req.vtl"
+                        }
+                    ]
+                },
+                "ResponseMappingTemplateS3Location": {
+                    "Fn::Sub": [
+                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
+                        {
+                            "S3DeploymentBucket": {
+                                "Ref": "S3DeploymentBucket"
+                            },
+                            "S3DeploymentRootKey": {
+                                "Ref": "S3DeploymentRootKey"
+                            },
+                            "ResolverFileName": "Pipeline.GetInstaPhotos.res.vtl"
+                        }
+                    ]
+                }
+            }
+        },
+
+
+        "FBDataSource": {
             "Type": "AWS::AppSync::DataSource",
             "Properties": {
                 "ApiId": {
                     "Ref": "AppSyncApiId"
                 },
-                "Name": "YoutubeCaptionHTTP",
+                "Name": "FacebookHTTP",
                 "Type": "HTTP",
                 "HttpConfig": {
-                    "Endpoint": "https://video.google.com/"
+                    "Endpoint": "https://graph.facebook.com/"
                 }
             }
         },
-       
-        "fuzzySearchVideosResolver": {
-            "Type": "AWS::AppSync::Resolver",
-            "Properties": {
-                "ApiId": {
-                    "Ref": "AppSyncApiId"
-                },
-                "DataSourceName": "OpenSearchDataSource",
-                "FieldName": "fuzzySearchVideos",
-                "TypeName": "Query",
-                "RequestMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "fuzzySearchVideos",
-                                        "req",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "ResponseMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "fuzzySearchVideos",
-                                        "res",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        "fuzzySearchVideosByTypeResolver": {
-            "Type": "AWS::AppSync::Resolver",
-            "Properties": {
-                "ApiId": {
-                    "Ref": "AppSyncApiId"
-                },
-                "DataSourceName": "OpenSearchDataSource",
-                "FieldName": "fuzzySearchVideosByType",
-                "TypeName": "Query",
-                "RequestMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "fuzzySearchVideosByType",
-                                        "req",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "ResponseMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "fuzzySearchVideosByType",
-                                        "res",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-       
-        "DownloadYoutubeCaptionResolver": {
-            "Type": "AWS::AppSync::Resolver",
+
+        "GetFBEventResolver": {
+            "Type": "AWS::AppSync::FunctionConfiguration",
             "Properties": {
                 "ApiId": {
                     "Ref": "AppSyncApiId"
                 },
                 "DataSourceName": {
                     "Fn::GetAtt": [
-                        "YoutubeCaptionDataSource",
+                        "FBDataSource",
                         "Name"
                     ]
                 },
-                "FieldName": "downloadYoutubeCaption",
-                "TypeName": "Query",
+                "Name": "getFBEventOriginal",
+                "FunctionVersion": "2018-05-29",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Sub": [
                         "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
@@ -293,7 +408,7 @@
                                     ".",
                                     [
                                         "Query",
-                                        "downloadYoutubeCaption",
+                                        "getFBEvent",
                                         "req",
                                         "vtl"
                                     ]
@@ -317,7 +432,7 @@
                                     ".",
                                     [
                                         "Query",
-                                        "downloadYoutubeCaption",
+                                        "getFBEvent",
                                         "res",
                                         "vtl"
                                     ]
@@ -328,20 +443,22 @@
                 }
             }
         },
-        "GetYoutubeVideoContentDetailsResolver": {
-            "Type": "AWS::AppSync::Resolver",
+
+
+        "GetFBEventsResolver": {
+            "Type": "AWS::AppSync::FunctionConfiguration",
             "Properties": {
                 "ApiId": {
                     "Ref": "AppSyncApiId"
                 },
                 "DataSourceName": {
                     "Fn::GetAtt": [
-                        "YoutubePlaylistDataSource",
+                        "FBDataSource",
                         "Name"
                     ]
                 },
-                "FieldName": "getYoutubeVideoContentDetails",
-                "TypeName": "Query",
+                "Name": "getFBEventsOriginal",
+                "FunctionVersion": "2018-05-29",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Sub": [
                         "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
@@ -357,7 +474,7 @@
                                     ".",
                                     [
                                         "Query",
-                                        "getYoutubeVideoContentDetails",
+                                        "getFBEvents",
                                         "req",
                                         "vtl"
                                     ]
@@ -381,7 +498,7 @@
                                     ".",
                                     [
                                         "Query",
-                                        "getYoutubeVideoContentDetails",
+                                        "getFBEvents",
                                         "res",
                                         "vtl"
                                     ]
@@ -392,20 +509,20 @@
                 }
             }
         },
-        "GetYoutubeVideoStatisticsResolver": {
-            "Type": "AWS::AppSync::Resolver",
+        "GetInstaPhotosResolver": {
+            "Type": "AWS::AppSync::FunctionConfiguration",
             "Properties": {
                 "ApiId": {
                     "Ref": "AppSyncApiId"
                 },
                 "DataSourceName": {
                     "Fn::GetAtt": [
-                        "YoutubePlaylistDataSource",
+                        "FBDataSource",
                         "Name"
                     ]
                 },
-                "FieldName": "getYoutubeVideoStatistics",
-                "TypeName": "Query",
+                "Name": "getInstaPhotosOriginal",
+                "FunctionVersion": "2018-05-29",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Sub": [
                         "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
@@ -421,7 +538,7 @@
                                     ".",
                                     [
                                         "Query",
-                                        "getYoutubeVideoStatistics",
+                                        "getInstaPhotos",
                                         "req",
                                         "vtl"
                                     ]
@@ -445,265 +562,7 @@
                                     ".",
                                     [
                                         "Query",
-                                        "getYoutubeVideoStatistics",
-                                        "res",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        "GetYoutubeCaptionlistResolver": {
-            "Type": "AWS::AppSync::Resolver",
-            "Properties": {
-                "ApiId": {
-                    "Ref": "AppSyncApiId"
-                },
-                "DataSourceName": {
-                    "Fn::GetAtt": [
-                        "YoutubePlaylistDataSource",
-                        "Name"
-                    ]
-                },
-                "FieldName": "getYoutubeCaptionlist",
-                "TypeName": "Query",
-                "RequestMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "getYoutubeCaptionlist",
-                                        "req",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "ResponseMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "getYoutubeCaptionlist",
-                                        "res",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        "GetYoutubePlaylistResolver": {
-            "Type": "AWS::AppSync::Resolver",
-            "Properties": {
-                "ApiId": {
-                    "Ref": "AppSyncApiId"
-                },
-                "DataSourceName": {
-                    "Fn::GetAtt": [
-                        "YoutubePlaylistDataSource",
-                        "Name"
-                    ]
-                },
-                "FieldName": "getYoutubePlaylist",
-                "TypeName": "Query",
-                "RequestMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "getYoutubePlaylist",
-                                        "req",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "ResponseMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "getYoutubePlaylist",
-                                        "res",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        "GetYoutubePlaylistItemsResolver": {
-            "Type": "AWS::AppSync::Resolver",
-            "Properties": {
-                "ApiId": {
-                    "Ref": "AppSyncApiId"
-                },
-                "DataSourceName": {
-                    "Fn::GetAtt": [
-                        "YoutubePlaylistDataSource",
-                        "Name"
-                    ]
-                },
-                "FieldName": "getYoutubePlaylistItems",
-                "TypeName": "Query",
-                "RequestMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "getYoutubePlaylistItems",
-                                        "req",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "ResponseMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "getYoutubePlaylistItems",
-                                        "res",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-       
-      
-        "GetYoutubeVideoSearchResolver": {
-            "Type": "AWS::AppSync::Resolver",
-            "Properties": {
-                "ApiId": {
-                    "Ref": "AppSyncApiId"
-                },
-                "DataSourceName": {
-                    "Fn::GetAtt": [
-                        "YoutubePlaylistDataSource",
-                        "Name"
-                    ]
-                },
-                "FieldName": "getYoutubeVideoSearch",
-                "TypeName": "Query",
-                "RequestMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "getYoutubeVideoSearch",
-                                        "req",
-                                        "vtl"
-                                    ]
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "ResponseMappingTemplateS3Location": {
-                    "Fn::Sub": [
-                        "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/${ResolverFileName}",
-                        {
-                            "S3DeploymentBucket": {
-                                "Ref": "S3DeploymentBucket"
-                            },
-                            "S3DeploymentRootKey": {
-                                "Ref": "S3DeploymentRootKey"
-                            },
-                            "ResolverFileName": {
-                                "Fn::Join": [
-                                    ".",
-                                    [
-                                        "Query",
-                                        "getYoutubeVideoSearch",
+                                        "getInstaPhotos",
                                         "res",
                                         "vtl"
                                     ]
@@ -714,6 +573,10 @@
                 }
             }
         }
+
+
+
+
     },
     "Conditions": {
         "HasEnvironmentParameter": {

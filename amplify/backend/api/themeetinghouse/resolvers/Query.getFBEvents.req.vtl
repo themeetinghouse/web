@@ -1,4 +1,6 @@
 #set( $pageId = $ctx.args.pageId )
+#set( $secrets = $util.parseJson($ctx.prev.result).SecretString ) 
+#set( $secretFB = $util.parseJson($secrets).facebookToken ) 
 {
 "version": "2018-05-29",
 "method": "GET",
@@ -8,6 +10,6 @@
     },
         "body":""
 }, 
-"resourcePath": "/v9.0/$pageId/events?fields=event_times%2Cdescription%2Cend_time%2Cname%2Cplace%2Cstart_time%2Cid%2Ccover%2Cticket_uri%2Conline_event_third_party_url%2Conline_event_format&access_token=&event_state_filter=[%27published%27]&time_filter=upcoming"
+"resourcePath": "/v9.0/$pageId/events?fields=event_times%2Cdescription%2Cend_time%2Cname%2Cplace%2Cstart_time%2Cid%2Ccover%2Cticket_uri%2Conline_event_third_party_url%2Conline_event_format&access_token=$secretFB&event_state_filter=[%27published%27]&time_filter=upcoming"
 }
 
