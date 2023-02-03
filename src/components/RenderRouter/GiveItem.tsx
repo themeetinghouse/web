@@ -343,7 +343,7 @@ export default class ContentItem extends React.Component<Props, State> {
             )}
           </div>
           <div className="GiveItemNeedHelpGroup">
-            <div className="GiveItemOtherWays">2021 Tax Receipt</div>
+            <div className="GiveItemOtherWays">Tax Receipt</div>
             <div className="GiveItemOtherWay">
               <Link
                 className="inverted"
