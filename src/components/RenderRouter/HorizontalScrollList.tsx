@@ -200,7 +200,16 @@ class HorizontalScrollList extends React.Component<Props, State> {
                 ) : null
               )}
           </div>
-          <div ref={this.refCallbackScrollNav} className="ListItemScrollNav">
+          <div
+            ref={this.refCallbackScrollNav}
+            className="ListItemScrollNav"
+            style={
+              this.state.currentPage >= this.state.numPages - 1 &&
+              this.state.currentPage === 0
+                ? { display: 'none' }
+                : {}
+            }
+          >
             <div className="ScrollLineContainer">
               {/* One of these per page, computed once sizing is done */}
               {this.state.numPages > 0 && this.state.numPages < 50
