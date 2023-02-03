@@ -1367,6 +1367,55 @@ class ListItem extends React.Component<Props, State> {
             </div>
           );
         }
+        if (this.state.content.selector === 'series') {
+          const indexOfCurrentBlog =
+            dateChecked.find(
+              (blog) => blog?.id === this.props?.match?.params?.blog
+            )?.blogSeriesIndex ?? 0;
+          const indexInArray = indexOfCurrentBlog - 1;
+
+          const blogsInSeries = dateChecked.sort((a, b) => {
+            if (b?.blogSeriesIndex && a?.blogSeriesIndex)
+              return a?.blogSeriesIndex - b?.blogSeriesIndex;
+            return 0;
+          });
+          const tempBlogs: any = [];
+          const previousBlogIndex = indexInArray - 1;
+          const nextBlogIndex = indexInArray + 1;
+          const previousPreviousBlogIndex = indexInArray - 2;
+          const nextNextBlogIndex = indexInArray + 2;
+          const isFirstItem = indexInArray === 0;
+          const isLastItem = indexInArray === blogsInSeries.length - 1;
+          if (isFirstItem) {
+            tempBlogs.push(
+              blogsInSeries[nextBlogIndex],
+              blogsInSeries[nextNextBlogIndex]
+            );
+          } else if (isLastItem) {
+            tempBlogs.push(
+              blogsInSeries[previousBlogIndex],
+              blogsInSeries[previousPreviousBlogIndex]
+            );
+          }
+          if (!isFirstItem && !isLastItem) {
+            tempBlogs.push(
+              blogsInSeries[nextBlogIndex],
+              blogsInSeries[previousBlogIndex]
+            );
+          }
+          return (
+            <div className="ListItemDiv1">
+              <h1 className="BlogItemH1">{this.state.content.header1}</h1>
+              <div className="BlogItem">
+                <div className="BlogItemContainer">
+                  {tempBlogs.map((item: any, index: number) => {
+                    return this.renderItemRouter(item, index);
+                  })}
+                </div>
+              </div>
+            </div>
+          );
+        }
         return (
           <div className="ListItemDiv1">
             <h1 className="BlogItemH1">{this.state.content.header1}</h1>
@@ -1378,7 +1427,7 @@ class ListItem extends React.Component<Props, State> {
                       return a?.blogSeriesIndex - b?.blogSeriesIndex;
                     return 0;
                   })
-                  .slice(startIndex)
+                  .slice(startIndex, startIndex + 2)
                   .map((item, index: number) => {
                     return this.renderItemRouter(item, index);
                   })}

@@ -524,14 +524,17 @@ export default class DataLoader {
       try {
         const blogBridgeSeries = (await API.graphql({
           query: queries.blogBridgeBySeries,
-          variables: { blogSeriesID: blogData?.blogSeriesId },
+          variables: {
+            blogSeriesID: blogData?.blogSeriesId,
+          },
           authMode: GRAPHQL_AUTH_MODE.API_KEY,
         })) as GraphQLResult<BlogBridgeBySeriesQuery>;
         console.log({ blogBridgeSeries });
         const blogsInSeries =
           blogBridgeSeries.data?.blogBridgeBySeries?.items
-            ?.filter((bridge) => bridge?.blogPostID !== postId)
-            ?.map((bridge) => bridge?.blogPost) ?? [];
+            ?.map((bridge) => bridge?.blogPost)
+            .filter((blogPost) => blogPost?.blogStatus === 'Live') ?? [];
+
         dataLoaded(blogsInSeries as Blog[]);
       } catch (e) {
         console.error(e);
