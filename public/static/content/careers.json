@@ -106,6 +106,7 @@
             "label": "Online"
           }
         ],
+        "sortByName": true,
         "showSearch": true,
         "header1": "Staff"
       },

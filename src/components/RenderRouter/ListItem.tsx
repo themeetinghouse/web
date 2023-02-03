@@ -54,6 +54,7 @@ interface State {
     hovertag: string;
     skipFirstPost?: boolean;
     filterOptions?: Array<{ id: string; label: string }>;
+    sortByName?: boolean;
     showSearch?: boolean;
     selector?: string;
     sortOrder?: ModelSortDirection;
@@ -1443,10 +1444,12 @@ class ListItem extends React.Component<Props, State> {
         const tempData = data as PeopleData[];
         const filteredPeopleData = tempData
           .sort((tmhPersonA, tmhPersonB) =>
-            tmhPersonA?.firstName && tmhPersonB?.firstName
-              ? tmhPersonA?.firstName?.localeCompare(
-                  tmhPersonB?.firstName ?? ''
-                )
+            this.state.content.sortByName
+              ? tmhPersonA?.firstName && tmhPersonB?.firstName
+                ? tmhPersonA?.firstName?.localeCompare(
+                    tmhPersonB?.firstName ?? ''
+                  )
+                : 0
               : 0
           )
           .filter((person) => {
