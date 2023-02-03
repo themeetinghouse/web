@@ -5,7 +5,7 @@ import GenericModalPage from '../RenderRouter/GenericModalPage';
 const RenderRouter = React.lazy(() => import('../RenderRouter/RenderRouter'));
 const VideoOverlay = React.lazy(() => import('../VideoOverlay/VideoOverlay'));
 const S3_BUCKET =
-  'https://themeetinghouse-usercontentstoragetmhusercontent-tmhprod.s3.amazonaws.com/public/';
+  'https://themeetinghouse-usercontent221608-prodnew.s3.amazonaws.com/public/';
 
 const notFoundPageContent = fetch('/static/content/404.json')
   .then((response) => response.json())

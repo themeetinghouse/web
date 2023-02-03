@@ -255,7 +255,7 @@ export default function PeopleManagerModal({
   };
   const uploadToS3 = async (fullName: string) => {
     const S3_BUCKET =
-      'https://themeetinghouse-usercontentstoragetmhusercontent-tmhprod.s3.amazonaws.com/public/';
+      'https://themeetinghouse-usercontent221608-prodnew.s3.amazonaws.com/public/';
     if (!file || !fullName) return;
     try {
       if (selectedUser?.image) {

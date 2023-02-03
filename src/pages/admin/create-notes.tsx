@@ -619,7 +619,7 @@ class Index extends React.Component<EmptyProps, State> {
         if (json.data?.generatePdf?.objectKey) {
           this.setState({
             pdfLink:
-              'https://themeetinghouse-usercontentstoragetmhusercontent-tmhprod.s3.amazonaws.com/' +
+              'https://themeetinghouse-usercontent221608-prodnew.s3.amazonaws.com/' +
               json.data.generatePdf.objectKey,
           });
         }
@@ -815,7 +815,7 @@ class Index extends React.Component<EmptyProps, State> {
             acl: 'public-read',
           });
           const download =
-            'https://themeetinghouse-usercontentstoragetmhusercontent-tmhprod.s3.amazonaws.com/public/' +
+            'https://themeetinghouse-usercontent221608-prodnew.s3.amazonaws.com/public/' +
             filepath;
           return { data: { link: download } };
         },
