@@ -62,43 +62,43 @@
             "label": "Teaching"
           },
           {
-            "id": "Hamilton",
+            "id": "Hamilton_Region",
             "label": "Hamilton"
           },
           {
-            "id": "Waterloo",
+            "id": "Waterloo_Region",
             "label": "Waterloo"
           },
           {
-            "id": "Toronto",
+            "id": "Toronto_Region",
             "label": "Toronto"
           },
           {
-            "id": "Halton-Peel",
+            "id": "Peel_Region",
             "label": "Halton-peel"
           },
           {
-            "id": "Ottawa",
+            "id": "OTTA",
             "label": "Ottawa"
           },
           {
-            "id": "London",
+            "id": "LOND",
             "label": "London"
           },
           {
-            "id": "Newmarket",
+            "id": "NMKT",
             "label": "Newmarket"
           },
           {
-            "id": "Parry Sound",
+            "id": "PAR",
             "label": "Parry Sound"
           },
           {
-            "id": "Alliston",
+            "id": "ALLI",
             "label": "Alliston"
           },
           {
-            "id": "Sandbanks",
+            "id": "SAND",
             "label": "Sandbanks"
           },
           {
