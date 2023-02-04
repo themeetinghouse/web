@@ -1308,6 +1308,9 @@ class ListItem extends React.Component<Props, State> {
               blogsInSeries[previousBlogIndex]
             );
           }
+          if (tempBlogs.length === 0) {
+            return null;
+          }
           return (
             <div className="ListItemDiv1">
               <h1 className="BlogItemH1">{this.state.content.header1}</h1>
