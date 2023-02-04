@@ -160,8 +160,56 @@
     padding: 12px 0;
   }
 }
-
+.SelectOption {
+  flex-direction: row;
+  display: flex;
+}
+.SelectOptionText {
+  flex: 1;
+}
 @media (min-width: 768px) {
+  .SearchIcon1 {
+    z-index: -1;
+    position: absolute;
+    margin-top: 16px;
+    margin-left: 16px;
+  }
+  .StaffInfo {
+    display: flex;
+    flex-direction: column;
+    height: 7.5vw;
+    flex: 1;
+  }
+  .FilterContainer {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    height: 56px;
+    width: 70vw;
+  }
+  .TeamsSearch {
+    background-color: transparent;
+    padding: 16px;
+    padding-left: 48px;
+    flex: 1;
+    border: 2px solid #c8c8c8;
+    font-family: Graphik Web;
+    &.single {
+      flex: unset;
+      width: 50%;
+    }
+    &:focus {
+      outline: none;
+      border: 2px solid black;
+    }
+  }
+  .TeamsDropdown {
+    flex: 1;
+    &.single {
+      flex: unset;
+      width: 50%;
+    }
+  }
   .InstagramGridRectangle {
     background-color: #efeff0;
     width: 88vw;
@@ -297,6 +345,9 @@
     font-size: 3vw;
     font-family: Graphik Web;
     color: theme.$onyxblacktext;
+    &.staff {
+      margin-top: 12px;
+    }
   }
 
   .ListItemH1.whiteText {
@@ -363,6 +414,7 @@
   }
 
   .ListItemSpeakersDiv {
+    margin-top: 40px;
     position: relative;
     left: 0vw;
     width: 80vw;
@@ -521,6 +573,7 @@
     width: 18vw;
     white-space: normal;
     font-size: 1.1vw;
+    flex: 1;
     font-family: Graphik Web;
     color: theme.$coolgray11;
   }
@@ -850,6 +903,7 @@
     width: 7.5vw;
     height: 7.5vw;
     align-self: center;
+    margin-right: 24px;
   }
 
   .StaffContact {
@@ -857,9 +911,10 @@
   }
 
   .StaffItem {
+    flex: 1;
     display: flex;
-    align-items: center;
-    flex-direction: column;
+    align-items: flex-start;
+    flex-direction: row;
     // width: $staffwidth;
     margin-bottom: 3vw;
   }
@@ -1516,17 +1571,18 @@
     height: 14vw;
     align-self: center;
   }
-
+  .StaffInfo {
+    height: 14vw;
+  }
   .StaffItem {
     // display: block;
-    align-items: center;
-    flex-direction: column;
-    width: $staffwidth;
-    margin-bottom: 3vw;
+    align-items: flex-start;
+    flex-direction: row;
+    width: 30vw;
+    margin-bottom: 6vw;
   }
 
   .ListItemName {
-    width: 30vw;
     font-weight: bold;
     font-size: 1.5vw;
     white-space: normal;
@@ -1535,13 +1591,10 @@
   }
 
   .StaffContact {
-    margin-top: 0.5vw;
-    margin-bottom: 2vw;
   }
 
   .ListItemEmail,
   .ListItemPhone {
-    width: 30vw;
     white-space: normal;
     font-size: 1.5vw;
     font-family: Graphik Web;
@@ -1549,7 +1602,6 @@
   }
 
   .ListItemPosition {
-    width: 30vw;
     white-space: normal;
     font-size: 1.5vw;
     font-family: Graphik Web;
@@ -1567,6 +1619,37 @@
 }
 
 @media (max-width: 767px) {
+  .FilterContainer {
+    margin-top: 40px;
+    margin-bottom: 110px;
+    display: flex;
+    flex-direction: column;
+    height: 56px;
+    width: 90vw;
+  }
+  .SearchIcon1 {
+    z-index: -1;
+    position: absolute;
+    margin-top: 18px;
+    margin-left: 16px;
+  }
+  .TeamsSearch {
+    background-color: transparent;
+    padding: 16px;
+    padding-left: 48px;
+    margin-bottom: 8px;
+
+    flex: 1;
+    border: 2px solid #c8c8c8;
+    font-family: Graphik Web;
+    &:focus {
+      outline: none;
+      border: 2px solid black;
+    }
+  }
+  .TeamsDropdown {
+    flex: 1;
+  }
   .InstagramGridRectangle {
     background-color: #efeff0;
     width: 72vw;

@@ -24,6 +24,7 @@ import DataLoader, {
   InstagramData,
   InstaQuery,
 } from './DataLoader';
+import Select, { components } from 'react-select';
 import HorizontalScrollList from './HorizontalScrollList';
 import LadderList from './LadderList';
 import InfiniteScroll from 'react-infinite-scroll-component';
@@ -44,25 +45,24 @@ interface Props extends RouteComponentProps<RouteParams> {
   pageConfig: any;
 }
 interface State {
-  filterRole: string;
-  filterCommunity: string;
-  filterRegion: string;
   content: DataQuery & {
     style: string;
     header1: string;
     header2: string;
     text1: string;
-    filterVisible: boolean;
     showEpisodeNumbers: boolean;
     hovertag: string;
     skipFirstPost?: boolean;
     filterOptions?: Array<{ id: string; label: string }>;
+    sortByName?: boolean;
+    showSearch?: boolean;
     selector?: string;
     sortOrder?: ModelSortDirection;
     margin?: Margin;
     calendar?: Event;
   };
   selectedFilter: string;
+  searchFilter: string;
   listData: ListData[];
   overlayData: any;
   showMoreVideos: boolean;
@@ -70,36 +70,6 @@ interface State {
   randomPlaylistId: string;
   blogNextToken: string | null | undefined;
 }
-const communities = [
-  { name: 'Oakville', value: 'OAKV' },
-  { name: 'Newmarket', value: 'NMKT' },
-  { name: 'Brampton', value: 'BRAM' },
-  { name: 'Ottawa', value: 'OTTA' },
-  { name: 'Toronto East', value: 'TOBC' },
-  { name: 'Parry Sound', value: 'PAR' },
-  { name: 'Hamilton Downtown', value: 'HMDT' },
-  { name: 'Burlington', value: 'BURL' },
-  { name: 'Toronto Downtown', value: 'TODT' },
-  { name: 'Hamilton Mountain', value: 'HMAN' },
-  { name: 'London', value: 'LOND' },
-  { name: 'Toronto High Park', value: 'TOHP' },
-  { name: 'Toronto Uptown', value: 'TOUP' },
-  { name: 'London', value: 'LOND' },
-];
-const regions = [
-  { name: 'Distance Region', value: 'Distance_Region' },
-  { name: 'Peel Region', value: 'Peel_Region' },
-  { name: 'Toronto Region', value: 'Toronto_Region' },
-  { name: 'Hamilton Region', value: 'Hamilton_Region' },
-];
-const roles = [
-  { name: 'Communications', value: 'Communications' },
-  { name: 'Pastoral', value: 'Pastoral' },
-  { name: 'Site Leadership', value: 'Site Leadership' },
-  { name: 'Youth', value: 'Youth' },
-  { name: 'Children', value: 'Children' },
-  { name: 'Operations', value: 'Operations' },
-];
 type VideoData = SeriesData | VideoByVideoTypeData | CustomPlaylistVideoData;
 
 type SeriesData2 = SeriesData | string | null;
@@ -182,9 +152,7 @@ class ListItem extends React.Component<Props, State> {
     super(props);
 
     this.state = {
-      filterRegion: '',
-      filterCommunity: '',
-      filterRole: '',
+      searchFilter: '',
       content: props.content,
       listData: props.content.list ?? [],
       overlayData: null,
@@ -659,54 +627,6 @@ class ListItem extends React.Component<Props, State> {
     );
   }
 
-  renderOverseer(items: TMHPerson[] | TMHPerson, index: number): JSX.Element {
-    const isMobile = this.state.windowWidth < 768;
-    if (isMobile) {
-      const item = items as TMHPerson;
-      return (
-        <div key={index} className="ListItemDiv3">
-          <FadeImage
-            alt={`Head shot of ${item.firstName} ${item.lastName}`}
-            className="StaffImage"
-            imageSrc={item?.image ?? ''}
-            fallbackUrl={'/static/Individual.png'}
-          />
-          <div className="ListItemName">
-            {item.firstName} {item.lastName}
-          </div>
-          <div className="ListItemPosition">{item.position}</div>
-        </div>
-      );
-    }
-    return (
-      <div className="StaffFlexArea" key={index}>
-        {(items as TMHPerson[])?.map((item, index: number) => {
-          return (
-            <div key={index} className="StaffItem">
-              <FadeImage
-                alt={`Head shot of ${item.firstName} ${item.lastName}`}
-                className="StaffImage"
-                imageSrc={item?.image ?? ''}
-                fallbackUrl={'/static/Individual.png'}
-              />
-              <div className="StaffInfo">
-                <div className="ListItemName" style={{ textAlign: 'center' }}>
-                  {item.firstName} {item.lastName}
-                </div>
-                <div
-                  className="ListItemPosition"
-                  style={{ textAlign: 'center' }}
-                >
-                  {item.position}
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    );
-  }
-
   renderEvent(item: EventData): JSX.Element | null {
     if (!item) {
       return null;
@@ -800,19 +720,7 @@ class ListItem extends React.Component<Props, State> {
       </Link>
     );
   }
-  filterPeople = (e: TMHPerson) => {
-    if (
-      this.state.filterCommunity == '' &&
-      this.state.filterRegion == '' &&
-      this.state.filterRole == ''
-    )
-      return true;
-    if (e.sites?.includes(this.state.filterCommunity)) return true;
-    else if (e.sites?.includes(this.state.filterRegion)) return true;
-    else if (e.sites?.includes(this.state.filterRole)) return true;
-    else return false;
-  };
-  renderStaff(items: TMHPerson | TMHPerson[], index: number) {
+  renderTMHPersons(items: TMHPerson | TMHPerson[], index: number) {
     const isMobile = this.state.windowWidth < 768;
     if (isMobile) {
       const data = items as TMHPerson;
@@ -852,6 +760,9 @@ class ListItem extends React.Component<Props, State> {
     return (
       <div className="StaffFlexArea" key={index}>
         {(items as TMHPerson[]).map((item, index: number) => {
+          const telephone = `tel:${item.phone}${
+            item.extension ? ',,,' + item.extension : ''
+          }`;
           return (
             <div key={index} className="StaffItem">
               <FadeImage
@@ -861,37 +772,31 @@ class ListItem extends React.Component<Props, State> {
                 fallbackUrl={'/static/Individual.png'}
               />
               <div className="StaffInfo">
-                <div className="ListItemName" style={{ textAlign: 'center' }}>
+                <div className="ListItemName">
                   {item.firstName} {item.lastName}
                 </div>
-                <div
-                  className="ListItemPosition"
-                  style={{ textAlign: 'center' }}
-                >
-                  {item.position}
-                </div>
-                <div className="StaffContact" style={{ textAlign: 'center' }}>
-                  <div className="ListItemEmail">
-                    {item.email ? (
-                      <a href={'mailto:' + item.email}>
-                        <img
-                          className="calendarImageRegion"
-                          style={{ marginRight: '10px' }}
-                          src="/static/svg/Contact.svg"
-                          alt="Contact Icon"
-                        />
-                      </a>
-                    ) : null}
-                    {item.phone ? (
-                      <a href={'tel:' + item.phone + ',,,' + item.extension}>
-                        <img
-                          className="calendarImageRegion"
-                          src="/static/svg/Phone.svg"
-                          alt="Phone Icon"
-                        />
-                      </a>
-                    ) : null}
-                  </div>
+                <div className="ListItemPosition">{item.position}</div>
+                <div className="StaffContact">
+                  {item.email ? (
+                    <a href={'mailto:' + item.email}>
+                      <img
+                        className="calendarImageRegion"
+                        style={{ marginRight: '16px', height: 18, width: 18 }}
+                        src="/static/svg/Contact.svg"
+                        alt="Contact Icon"
+                      />
+                    </a>
+                  ) : null}
+                  {item.phone ? (
+                    <a href={telephone}>
+                      <img
+                        style={{ height: 18, width: 18 }}
+                        className="calendarImageRegion"
+                        src="/static/svg/Phone.svg"
+                        alt="Phone Icon"
+                      />
+                    </a>
+                  ) : null}
                 </div>
               </div>
             </div>
@@ -1146,9 +1051,9 @@ class ListItem extends React.Component<Props, State> {
       case 'custom-playlist':
         return this.renderVideo(item as VideoData);
       case 'staff':
-        return this.renderStaff(item as TMHPerson | TMHPerson[], index);
+        return this.renderTMHPersons(item as TMHPerson | TMHPerson[], index);
       case 'overseers':
-        return this.renderOverseer(item as TMHPerson | TMHPerson, index);
+        return this.renderTMHPersons(item as TMHPerson | TMHPerson[], index);
       case 'events':
         return this.renderEvent(item as EventData);
       case 'instagram':
@@ -1538,99 +1443,223 @@ class ListItem extends React.Component<Props, State> {
       } else if (this.state.content.style === 'staff') {
         const tempData = data as PeopleData[];
         const filteredPeopleData = tempData
+          .sort((tmhPersonA, tmhPersonB) =>
+            this.state.content.sortByName
+              ? tmhPersonA?.firstName && tmhPersonB?.firstName
+                ? tmhPersonA?.firstName?.localeCompare(
+                    tmhPersonB?.firstName ?? ''
+                  )
+                : 0
+              : 0
+          )
           .filter((person) => {
-            if (this.state.selectedFilter === 'All') return true;
-            return person?.sites?.includes(this.state.selectedFilter);
-          })
-          .filter(this.filterPeople);
+            if (this.state.searchFilter === '') {
+              if (this.state.selectedFilter === 'All') return true;
+              return person?.sites?.includes(this.state.selectedFilter);
+            } else {
+              const personNameMatches =
+                person?.lastName
+                  ?.toLowerCase()
+                  ?.includes(this.state.searchFilter?.toLowerCase()) ||
+                person?.firstName
+                  ?.toLowerCase()
+                  .includes(this.state.searchFilter.toLowerCase());
+              const personSiteMatches =
+                person?.sites?.includes(this.state.selectedFilter) ||
+                this.state.selectedFilter === 'All';
+              console.log({ personNameMatches }, { personSiteMatches });
+              return personNameMatches && personSiteMatches;
+            }
+          });
         const isMobile = this.state.windowWidth < 768;
         const binnedData: PeopleData[][] = [];
         if (data.length > 0) {
           let temp: PeopleData[] = [];
           filteredPeopleData.forEach((item, index) => {
             temp.push(item);
-            if ((index + 1) % 8 === 0 || index + 1 === data.length) {
+            if ((index + 1) % 6 === 0) {
               binnedData.push(temp);
               temp = [];
             }
           });
           binnedData.push(temp);
           console.log({ binnedData });
+          console.log({ filteredPeopleData });
           return (
             <div className="ListItem horizontal">
               <div className="ListItemDiv1">
-                <h1 className="ListItemH1">{this.state.content.header1}</h1>
+                <h1 className="ListItemH1 staff">
+                  {this.state.content.header1}
+                </h1>
                 {this.state.content.text1 != null ? (
                   <div className="ListItemText1">
                     {this.state.content.text1}
                   </div>
                 ) : null}
-                {this.state.content.filterVisible ? (
-                  <div>
-                    Filter By:{' '}
-                    <select
-                      onChange={(e) =>
-                        this.setState({ filterRegion: e.target.value })
-                      }
-                      disabled={
-                        this.state.filterCommunity != '' ||
-                        this.state.filterRole != ''
-                      }
-                    >
-                      <option value="" title="Site">
-                        Region
-                      </option>
-                      {regions.map((z) => {
-                        return (
-                          <option key={z.name} value={z.value} title={z.name}>
-                            {z.name}
-                          </option>
-                        );
-                      })}
-                    </select>
-                    <select
-                      disabled={
-                        this.state.filterRegion != '' ||
-                        this.state.filterRole != ''
-                      }
-                      onChange={(e) =>
-                        this.setState({ filterCommunity: e.target.value })
-                      }
-                    >
-                      <option value="" title="Site">
-                        Community
-                      </option>
-                      {communities.map((z) => {
-                        return (
-                          <option key={z.name} value={z.value} title={z.name}>
-                            {z.name}
-                          </option>
-                        );
-                      })}
-                    </select>
-                    <select
-                      disabled={
-                        this.state.filterCommunity != '' ||
-                        this.state.filterRegion != ''
-                      }
-                      onChange={(e) =>
-                        this.setState({ filterRole: e.target.value })
-                      }
-                    >
-                      <option value="" title="Site">
-                        Role
-                      </option>
-                      {roles.map((z) => {
-                        return (
-                          <option key={z.name} value={z.value} title={z.name}>
-                            {z.name}
-                          </option>
-                        );
-                      })}
-                    </select>
+
+                {this.state.content?.showSearch ||
+                this.state.content?.filterOptions ? (
+                  <div className="FilterContainer">
+                    {this.state.content?.showSearch ? (
+                      <>
+                        <img
+                          width={20}
+                          height={20}
+                          className="SearchIcon1"
+                          src="/static/svg/Search.svg"
+                          alt="Search"
+                        />
+                        <input
+                          value={this.state.searchFilter}
+                          className={`TeamsSearch ${
+                            !this.state.content?.filterOptions ? 'single' : ''
+                          }`}
+                          type="text"
+                          placeholder="Search by name"
+                          onChange={(e) => {
+                            this.setState({ searchFilter: e.target.value });
+                          }}
+                        />
+                      </>
+                    ) : null}
+                    {this.state.content?.filterOptions ? (
+                      <Select
+                        onChange={(item) => {
+                          if (item)
+                            this.setState({
+                              selectedFilter: item.value,
+                            });
+                        }}
+                        components={{
+                          Option: ({ children, ...props }) => {
+                            return (
+                              <components.Option {...props}>
+                                <div className="SelectOption">
+                                  <div className="SelectOptionText">
+                                    {children}
+                                  </div>
+                                  {props.isSelected ? (
+                                    <div className="SelectOptionIcon">
+                                      <img
+                                        width={20}
+                                        height={18}
+                                        src="/static/svg/Check.svg"
+                                        alt="Search"
+                                      />
+                                    </div>
+                                  ) : null}
+                                </div>
+                              </components.Option>
+                            );
+                          },
+
+                          Control: ({ children, ...props }) => (
+                            <components.Control {...props}>
+                              <img
+                                width={20}
+                                height={20}
+                                src="/static/svg/Location.svg"
+                                alt="Search"
+                              />
+                              {children}
+                            </components.Control>
+                          ),
+                        }}
+                        styles={{
+                          control: (styles) => {
+                            return {
+                              ...styles,
+                              height: 56,
+                              paddingLeft: 16,
+                              border: '2px solid #C8C8C8',
+                              borderRadius: 0,
+                              ':active': {
+                                borderColor: 'black',
+                                borderWidth: 2,
+                              },
+                              ':hover': {
+                                borderColor: 'black',
+                                borderWidth: 2,
+                              },
+                              ':focus': {
+                                borderColor: 'black',
+                                borderWidth: 2,
+                              },
+                            };
+                          },
+
+                          indicatorSeparator: (styles) => {
+                            return {
+                              ...styles,
+                              display: 'none',
+                            };
+                          },
+                          placeholder: (styles) => {
+                            return {
+                              ...styles,
+                              color: '#646469',
+                              fontFamily: 'Graphik Web',
+                            };
+                          },
+                          option: (styles) => {
+                            return {
+                              ...styles,
+                              color: '#1a1a1a',
+                              borderBottom: '1px solid #C8C8C8',
+                              fontWeight: 700,
+                            };
+                          },
+                          menu: (styles) => ({
+                            ...styles,
+                            marginTop: 0,
+                            border: '2px solid black',
+                            zIndex: 999,
+                          }),
+
+                          menuPortal: (styles) => ({
+                            ...styles,
+                            zIndex: 999,
+                            backgroundColor: 'red',
+                          }),
+                        }}
+                        theme={(theme) => ({
+                          ...theme,
+                          borderRadius: 0,
+                          colors: {
+                            ...theme.colors,
+                            primary: '#EFEFF0',
+                            primary25: '#EFEFF0',
+                            primary50: 'lightgrey',
+                          },
+                        })}
+                        aria-label="Staff Search By Team"
+                        placeholder="Teams"
+                        className={`TeamsDropdown ${
+                          !this.state.content?.showSearch ? 'single' : ''
+                        }`}
+                        classNamePrefix="react-select-custom"
+                        options={[
+                          { label: 'All', value: 'All' },
+                          ...this.state.content.filterOptions?.map((item) => {
+                            return { label: item.label, value: item.id };
+                          }),
+                        ]}
+                      />
+                    ) : null}
                   </div>
                 ) : null}
+
                 <div className="ListItemSpeakersDiv">
+                  {filteredPeopleData?.length === 0 ? (
+                    <h2
+                      style={{
+                        fontFamily: 'Graphik Web',
+                        marginBottom: '20vh',
+                      }}
+                    >
+                      No results found
+                    </h2>
+                  ) : null}
                   <HorizontalScrollList>
                     {isMobile
                       ? filteredPeopleData.map((item, index) => {
