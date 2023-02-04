@@ -2,7 +2,7 @@
   "page": {
     "name": "video-player",
     "title": "Video Player",
-    "keywords": "",
+    "keywords": "Live, online church, online service",
     "description": "",
     "pageConfig": {
       "showLive": false,
@@ -20,11 +20,11 @@
         "type": "og-tags",
         "image": "/static/images/og-images/live.jpg",
         "url": "https://www.themeetinghouse.com/live",
-        "title": "The Meeting House - Livestream",
-        "description": ""
+        "title": "The Meeting House - Live",
+        "description": "Join us online!"
       },
       {
-        "title": "Livestream",
+        "title": "Telling Our Story: Past, Present, and Future",
         "type": "liveVideoPlayer",
         "liveYoutubeId": "THIS IS NOW SET FROM THE ADMIN INTERFACE",
         "preRollYoutubeId": "THIS IS NOW SET FROM THE ADMIN INTERFACE",
@@ -32,10 +32,10 @@
         "showAlternateLiveVideos": false,
         "showNotes": false,
         "notLiveSettings": {
-            "title": "Livestream",
+            "title": "Telling Our Story: Past, Present, and Future",
             "showAddToCalendar": true,
             "showConnectButton": true,
-            "notLiveMessage": "Welcome to our live page. You are in the right place but we don't have any live streams happening right now. Please check out one of our past live streams or click on the connect button so we can get to know you a little bit better. We are excited that you are here and are looking forward to seeing you again soon."
+            "notLiveMessage": "Welcome to our live page. The event hasn't started yet, but we'll be live soon."
         },
         "showKidsVideos": true,
         "menu": [
@@ -60,15 +60,6 @@
             "linkto": "http://www.themeetinghouse.com/give"
           }
         ]
-      },
-      {
-        "type": "list",
-        "style": "horizontal",
-        "class": "videos",
-        "subclass": "livestream-services",
-        "limit": 25,
-        "sortOrder": "DESC",
-        "header1": "Sunday Livestream"
       }
     ]
   }
