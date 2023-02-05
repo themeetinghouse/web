@@ -24,7 +24,7 @@
         "description": "Join us online!"
       },
       {
-        "title": "Telling Our Story: Past, Present, and Future",
+        "title": "Livestream",
         "type": "liveVideoPlayer",
         "liveYoutubeId": "THIS IS NOW SET FROM THE ADMIN INTERFACE",
         "preRollYoutubeId": "THIS IS NOW SET FROM THE ADMIN INTERFACE",
@@ -32,10 +32,10 @@
         "showAlternateLiveVideos": false,
         "showNotes": false,
         "notLiveSettings": {
-            "title": "Telling Our Story: Past, Present, and Future",
+            "title": "Livestream Pre-show",
             "showAddToCalendar": true,
             "showConnectButton": true,
-            "notLiveMessage": "Welcome to our live page. The event hasn't started yet, but we'll be live soon."
+            "notLiveMessage": "Welcome to our live page. You are in the right place but we don't have any live streams happening right now. Please check out one of our past live streams or click on the connect button so we can get to know you a little bit better. We are excited that you are here and are looking forward to seeing you again soon."
         },
         "showKidsVideos": true,
         "menu": [
@@ -60,6 +60,15 @@
             "linkto": "http://www.themeetinghouse.com/give"
           }
         ]
+      },
+      {
+        "type": "list",
+        "style": "horizontal",
+        "class": "videos",
+        "subclass": "livestream-services",
+        "limit": 25,
+        "sortOrder": "DESC",
+        "header1": "Sunday Livestream"
       }
     ]
   }
