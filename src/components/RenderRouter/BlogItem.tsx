@@ -22,6 +22,7 @@ import { BlogItemContent } from 'components/types';
 import moment from 'moment';
 import './BlogItem.scss';
 import HorizontalScrollList from './HorizontalScrollList';
+import { BlogData } from './DataLoader';
 
 // Helper components
 interface BlogPreviewTextProps {
@@ -136,11 +137,30 @@ const BlogItem = ({ content }: Props) => {
   const sortAndSetBlogs = (
     blogs: BlogSeriesPost[] | Blog[] | VideoSeriesBlog[]
   ) => {
-    setBlogs(
-      blogs.sort((a, b) =>
-        (b?.publishedDate ?? '').localeCompare(a?.publishedDate ?? '')
-      )
-    );
+    const sortByDate = (
+      a: string,
+      b: string,
+      sortOrder?: ModelSortDirection
+    ) => {
+      return sortOrder === 'DESC' ? b.localeCompare(a) : a.localeCompare(b);
+    };
+    const sortBlogs = (blogDataA: BlogData, blogDataB: BlogData) => {
+      if (!blogDataA?.publishedDate || !blogDataB?.publishedDate) return 0;
+      if (
+        blogDataA.publishedDate === blogDataB.publishedDate &&
+        blogDataA.blogSeriesIndex &&
+        blogDataB.blogSeriesIndex
+      ) {
+        return blogDataB.blogSeriesIndex - blogDataA.blogSeriesIndex;
+      }
+      return sortByDate(
+        blogDataA.publishedDate,
+        blogDataB.publishedDate,
+        ModelSortDirection['DESC']
+      );
+    };
+    const tempBlogs = blogs as Blog[];
+    setBlogs(tempBlogs.sort(sortBlogs));
   };
 
   const fetchBlogsByVideo = async (): Promise<void> => {
@@ -280,7 +300,6 @@ const BlogItem = ({ content }: Props) => {
 
   if (style === 'hero') {
     const blog = blogs.length > 0 && blogs[0];
-
     return blog ? (
       <div className="blog-item">
         <div className="blog">

@@ -1222,22 +1222,33 @@ class ListItem extends React.Component<Props, State> {
         }
       } else if (this.state.content.style === 'blogs') {
         const startIndex = this.state.content.skipFirstPost ? 1 : 0;
+        const sortBlogs = (a: BlogData, b: BlogData) => {
+          if (a?.publishedDate && b?.publishedDate) {
+            if (a.publishedDate === b.publishedDate) {
+              if (a.blogSeriesIndex && b.blogSeriesIndex) {
+                console.log('there is index');
+                return b.blogSeriesIndex - a.blogSeriesIndex;
+              }
+            }
+            return this.sortByDate(
+              a.publishedDate,
+              b.publishedDate,
+              ModelSortDirection['DESC']
+            );
+          }
+          return 0;
+        };
 
         const blogData = data as BlogData[];
-        blogData.sort((a, b) =>
-          this.sortByDate(
-            a?.publishedDate ?? '',
-            b?.publishedDate ?? '',
-            ModelSortDirection['DESC']
-          )
-        );
-
         const today = moment();
-        const dateChecked: BlogData[] = blogData.filter(
-          (post) =>
-            post?.expirationDate === 'none' ||
-            moment(post?.expirationDate, 'YYYY-MM-DD').isAfter(today)
-        );
+        const dateChecked: BlogData[] = blogData
+
+          .sort(sortBlogs)
+          .filter(
+            (post) =>
+              post?.expirationDate === 'none' ||
+              moment(post?.expirationDate, 'YYYY-MM-DD').isAfter(today)
+          );
 
         if (dateChecked.length === 0) {
           return null;
