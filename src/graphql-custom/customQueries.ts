@@ -168,6 +168,8 @@ export const getBlogByBlogStatus = /* GraphQL */ `
         createdDate
         publishedDate
         expirationDate
+        blogSeriesId
+        blogSeriesIndex
         blogStatus
         description
         blogTitle
