@@ -8,9 +8,9 @@ import {
   UpdateLivestreamMutation,
 } from 'API';
 import moment from 'moment';
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { isSafari } from 'react-device-detect';
-import { Modal } from 'reactstrap';
+import { Modal, ModalHeader, Spinner } from 'reactstrap';
 import { v4 as uuidv4 } from 'uuid';
 import * as mutations from '../../graphql/mutations';
 import * as queries from '../../graphql/queries';
@@ -18,34 +18,6 @@ import { EmptyProps } from '../../utils';
 import './livestream.scss';
 
 const menuInit = [
-  {
-    title: 'Give',
-    link: '/give',
-    linkType: 'link',
-  },
-  {
-    title: 'Music',
-    link: 'https://media.themeetinghouse.com/podcast/handouts/Music.pdf',
-    linkType: 'link',
-  },
-  {
-    title: 'Connect',
-    link: '/connect',
-    linkType: 'link',
-  },
-  {
-    title: 'Notes',
-    link: '/notes',
-    linkType: 'link',
-  },
-  {
-    title: 'Kidmax',
-    link: '/kidmax',
-    linkType: 'link',
-  },
-];
-
-const afterPartyMenu = [
   {
     title: 'Give',
     link: '/give',
@@ -96,7 +68,12 @@ type NewLivestream = NonNullable<CreateLivestreamMutationVariables['input']>;
 interface State {
   toDelete: string;
   editMode: boolean;
+  shouldDeleteModal: boolean;
+  loadAll: boolean;
+  showModal: boolean;
+  isLoading: boolean;
   alert: string;
+  nextToken: string | null | undefined;
   livestreamList: Livestreams;
   liveObject: NewLivestream;
   customEvent: boolean;
@@ -105,12 +82,291 @@ interface State {
   sectionModal: boolean;
   modalErrorText: string;
 }
+const LivestreamModal = ({
+  editMode,
+  toggleModal,
+  open,
+  children,
+  liveObject,
+}: {
+  editMode: boolean;
+  toggleModal: () => void;
+  open: boolean;
+  children: ReactNode;
+  liveObject: NewLivestream;
+}) => {
+  console.log({ liveObject });
+  const modalTitle = `${
+    editMode
+      ? liveObject?.eventTitle
+      : liveObject?.eventTitle !== ''
+      ? liveObject?.eventTitle
+      : 'Create Livestream'
+  }`;
+  return (
+    <Modal
+      style={{ display: 'flex', flexDirection: 'column' }}
+      size="lg"
+      isOpen={open}
+    >
+      <ModalHeader toggle={toggleModal}>{modalTitle}</ModalHeader>
+      {children}
+    </Modal>
+  );
+};
+const RenderLivestreams = ({
+  delete: deleteLivestream,
+  livestreams,
+  handleSelection,
+}: {
+  delete: (id: string) => void;
+  livestreams: Livestreams;
+  handleSelection: (id: string) => void;
+}) => {
+  return (
+    <div style={{ marginTop: 16, display: 'flex', flexDirection: 'column' }}>
+      {livestreams.map((livestream) => {
+        const isCustom = livestream?.id.includes('CustomEvent');
+        return (
+          <div
+            key={livestream?.id}
+            style={{
+              flex: 1,
+              border: '1px solid lightgrey',
+              borderRadius: 4,
+              fontSize: 12,
+              fontFamily: 'Graphik Web',
+              marginBottom: 16,
+            }}
+          >
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+              }}
+            >
+              {isCustom ? (
+                <div
+                  style={{
+                    transform: 'rotate(180deg)',
+                    writingMode: 'vertical-rl',
+                    textOrientation: 'sideways',
+                    backgroundColor: '#ffc60b',
+                    color: '#000',
+                    fontFamily: 'Graphik Web',
+                    justifyContent: 'center',
+                    display: 'flex',
+                    fontSize: 10,
+                    padding: 6,
+                    fontWeight: 700,
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  Custom
+                </div>
+              ) : (
+                <div
+                  style={{
+                    transform: 'rotate(180deg)',
+                    writingMode: 'vertical-rl',
+                    textOrientation: 'sideways',
+                    backgroundColor: '#00ae42',
+                    justifyContent: 'center',
+                    display: 'flex',
+                    color: '#000',
+                    fontFamily: 'Graphik Web',
+                    fontSize: 10,
+                    padding: 6,
+                    fontWeight: 700,
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  Stream
+                </div>
+              )}
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  flex: 1,
+                  padding: 8,
+                }}
+              >
+                <div
+                  style={{
+                    flexDirection: 'column',
+                    flex: 1,
+                    width: 0,
+                    display: 'flex',
+                  }}
+                >
+                  <div style={{ fontSize: 12, fontWeight: 700 }}>
+                    {livestream?.eventTitle}
+                  </div>
+                  <div>
+                    {moment(livestream?.date).format('ddd, MMM Do YYYY')}
+                  </div>
+                  <div
+                    style={{
+                      fontSize: 9,
+                      display: 'flex',
+                      flex: 1,
+                      alignItems: 'flex-end',
+                    }}
+                  >
+                    {isCustom
+                      ? livestream?.externalEventUrl
+                      : livestream?.liveYoutubeId}
+                  </div>
+                </div>
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                  }}
+                >
+                  <div
+                    style={{
+                      fontFamily: 'Graphik Web',
+                      fontWeight: 400,
+                      fontSize: 12,
+                    }}
+                  >
+                    <img
+                      width={15}
+                      height={15}
+                      style={{ marginRight: 4 }}
+                      alt="Clock Icon"
+                      src={'/static/svg/Clock-Time.svg'}
+                    ></img>
+                    Start Time: {livestream?.startTime}
+                  </div>
+                  <div
+                    style={{
+                      fontFamily: 'Graphik Web',
+                      fontWeight: 400,
+                      fontSize: 12,
+                    }}
+                  >
+                    <img
+                      width={15}
+                      height={15}
+                      style={{ marginRight: 4 }}
+                      alt="Clock Icon"
+                      src={'/static/svg/Clock-Time.svg'}
+                    ></img>
+                    Video Start Time: {livestream?.videoStartTime}
+                  </div>
+                  <div
+                    style={{
+                      fontFamily: 'Graphik Web',
+                      fontWeight: 400,
+                      fontSize: 12,
+                    }}
+                  >
+                    <img
+                      width={15}
+                      height={15}
+                      style={{ marginRight: 4 }}
+                      alt="Clock Icon"
+                      src={'/static/svg/Clock-Time.svg'}
+                    ></img>
+                    End Time: {livestream?.endTime}
+                  </div>
+                </div>
 
+                <div style={{ flex: 1, paddingLeft: 16 }}>
+                  <img
+                    width={15}
+                    height={15}
+                    style={{ marginRight: 4 }}
+                    alt="Clock Icon"
+                    src={'/static/svg/Announcement.svg'}
+                  ></img>
+                  Banner Message:
+                  <span
+                    style={{
+                      display: 'block',
+                      marginLeft: 19,
+                    }}
+                  >
+                    {livestream?.homepageLink}
+                  </span>
+                </div>
+              </div>
+              <div
+                style={{
+                  display: 'flex',
+
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  borderLeft: '1px solid lightgrey',
+                }}
+              >
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    deleteLivestream(livestream?.id ?? '');
+                  }}
+                  style={{
+                    padding: 4,
+                    backgroundColor: '#FFF',
+                    border: 'none',
+                    display: 'flex',
+                    alignItems: 'center',
+                    flex: 1,
+                    borderBottom: '1px solid lightgrey',
+                  }}
+                >
+                  <img
+                    width={20}
+                    height={20}
+                    alt="Delete Icon"
+                    src={'/static/svg/Delete.svg'}
+                  ></img>
+                </button>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleSelection(livestream?.id ?? '');
+                  }}
+                  style={{
+                    padding: 4,
+                    flex: 1,
+                    backgroundColor: '#FFF',
+                    border: 'none',
+                    display: 'flex',
+                    alignItems: 'center',
+                  }}
+                >
+                  <img
+                    width={20}
+                    height={20}
+                    alt="Edit Icon"
+                    src="/static/svg/More.svg"
+                  ></img>
+                </button>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 class Index extends React.Component<EmptyProps, State> {
   constructor(props: EmptyProps) {
     super(props);
     this.state = {
       toDelete: '',
+      loadAll: false,
+      showModal: false,
+      isLoading: true,
+      shouldDeleteModal: false,
       editMode: false,
       alert: '',
       livestreamList: [],
@@ -119,6 +375,7 @@ class Index extends React.Component<EmptyProps, State> {
       lastZoomData: null,
       disableAsyncButtons: false,
       sectionModal: false,
+      nextToken: null,
       modalErrorText: '',
     };
   }
@@ -143,26 +400,47 @@ class Index extends React.Component<EmptyProps, State> {
     this.setState({ lastZoomData: lastLocalTeaching?.zoom ?? null });
   }
   async listLivestreams(): Promise<void> {
-    const variables: ListLivestreamsQueryVariables = {
-      filter: {
-        date: { gt: moment().subtract(1, 'years').format('YYYY-MM-DD') },
-      },
-    };
-
-    try {
+    const liveStreams: Livestream[] = [];
+    let next;
+    const loadNext = async (nextToken: string | null | undefined) => {
+      const filter = this.state.loadAll
+        ? {}
+        : {
+            date: { gt: moment().subtract(6, 'months').format('YYYY-MM-DD') },
+          };
+      const variables: ListLivestreamsQueryVariables = {
+        filter,
+        limit: 200,
+        nextToken,
+      };
       const listLivestreams = (await API.graphql({
         query: queries.listLivestreams,
         variables,
         authMode: GRAPHQL_AUTH_MODE.API_KEY,
       })) as GraphQLResult<ListLivestreamsQuery>;
-      console.log({ 'Success queries.listLivestreams': listLivestreams });
+      console.log(
+        { 'Success queries.listLivestreams': listLivestreams },
+        liveStreams.length
+      );
+      liveStreams.push(
+        ...(listLivestreams.data?.listLivestreams?.items as Livestream[])
+      );
+      next = listLivestreams.data?.listLivestreams?.nextToken;
+      if (next && this.state.loadAll) {
+        await loadNext(next);
+      }
+    };
+    try {
+      await loadNext(next);
+    } catch (error) {
+      console.error(error);
+    } finally {
       this.setState({
-        livestreamList: (
-          listLivestreams.data?.listLivestreams?.items ?? []
-        ).sort((a, b) => (b?.date as string)?.localeCompare(a?.date as string)),
+        livestreamList: liveStreams.sort((a, b) =>
+          (b?.date as string)?.localeCompare(a?.date as string)
+        ),
+        isLoading: false,
       });
-    } catch (e) {
-      console.error(e);
     }
   }
 
@@ -176,109 +454,9 @@ class Index extends React.Component<EmptyProps, State> {
         customEvent: !!liveObject.externalEventUrl,
         liveObject,
         editMode: true,
+        showModal: true,
       });
     }
-  }
-
-  renderLivestreams() {
-    return (
-      <table className="divTable">
-        <thead>
-          <tr className="headRow">
-            <td className="divCell" key={'id'}>
-              ID
-            </td>
-            <td className="divCell" key={'date'}>
-              Date
-            </td>
-            <td className="divCell" key={'startTime'}>
-              Start Time
-            </td>
-            <td className="divCell" key={'videoStartTime'}>
-              Video Start Time
-            </td>
-            <td className="divCell" key={'endTime'}>
-              End Time
-            </td>
-            <td className="divCell" key={'prerollYoutubeId'}>
-              Preroll Youtube Id
-            </td>
-            <td className="divCell" key={'liveYoutubeId'}>
-              Live Youtube Id
-            </td>
-            <td className="divCell" key={'liveVimeoId'}>
-              Live Vimeo Id
-            </td>
-            <td className="divCell" key={'homepageLink'}>
-              Banner Message
-            </td>
-            <td className="divCell" key={'showChat'}>
-              showChat
-            </td>
-            <td className="divCell" key={'showKids'}>
-              showKids
-            </td>
-            <td className="divCell" key={'externalEventUrl'}>
-              externalEventUrl
-            </td>
-            <td className="divCell" key={'eventTitle'}>
-              title
-            </td>
-          </tr>
-        </thead>
-        <tbody>
-          {this.state.livestreamList?.map((livestream) => {
-            return (
-              <tr
-                key={livestream?.id}
-                className="divRow"
-                onClick={() => this.handleSelection(livestream?.id)}
-              >
-                <td className="divCell" key={'id'}>
-                  {livestream?.id}
-                </td>
-                <td className="divCell" key={'date'}>
-                  {livestream?.date}
-                </td>
-                <td className="divCell" key={'startTime'}>
-                  {livestream?.startTime}
-                </td>
-                <td className="divCell" key={'videoStartTime'}>
-                  {livestream?.videoStartTime}
-                </td>
-                <td className="divCell" key={'endTime'}>
-                  {livestream?.endTime}
-                </td>
-                <td className="divCell" key={'prerollYoutubeId'}>
-                  {livestream?.prerollYoutubeId}
-                </td>
-                <td className="divCell" key={'liveYoutubeId'}>
-                  {livestream?.liveYoutubeId}
-                </td>
-                <td className="divCell" key={'liveVimeoId'}>
-                  {livestream?.liveVimeoId}
-                </td>
-                <td className="divCell" key={'homepageLink'}>
-                  {livestream?.homepageLink}
-                </td>
-                <td className="divCell" key={'showChat'}>
-                  {livestream?.showChat?.toString()}
-                </td>
-                <td className="divCell" key={'showKids'}>
-                  {livestream?.showKids?.toString()}
-                </td>
-                <td className="divCell" key={'externalEventUrl'}>
-                  {livestream?.externalEventUrl}
-                </td>
-                <td className="divCell" key={'eventTitle'}>
-                  {livestream?.eventTitle}
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    );
   }
 
   validate(): boolean {
@@ -291,6 +469,7 @@ class Index extends React.Component<EmptyProps, State> {
         zoom,
         menu,
         endTime,
+        eventTitle,
         videoStartTime,
         startTime,
         date,
@@ -366,6 +545,13 @@ class Index extends React.Component<EmptyProps, State> {
             }
           }
         });
+      } else {
+        if (!this.state.liveObject?.externalEventUrl) {
+          this.setState({
+            alert: `error: custom live event must have an externalEventUrl`,
+          });
+          test = false;
+        }
       }
 
       if (prerollYoutubeId === '' && startTime !== videoStartTime) {
@@ -375,12 +561,41 @@ class Index extends React.Component<EmptyProps, State> {
         });
         test = false;
       }
+      if (eventTitle === '') {
+        this.setState({
+          alert: 'error: event must have at title',
+        });
+        test = false;
+      }
+      if (startTime === '') {
+        this.setState({
+          alert: 'error: startTime must set',
+        });
+        test = false;
+      }
+      if (videoStartTime === '') {
+        this.setState({
+          alert: 'error: videoStartTime must set',
+        });
+        test = false;
+      }
+      if (endTime === '') {
+        this.setState({
+          alert: 'error: endTime must set',
+        });
+        test = false;
+      }
+      if (date === '') {
+        this.setState({
+          alert: 'error: date must set',
+        });
+        test = false;
+      }
     }
     return test;
   }
 
-  submit(e: React.FormEvent<HTMLFormElement>): void {
-    e.preventDefault();
+  submit(): void {
     if (this.validate()) {
       this.save();
     }
@@ -422,6 +637,7 @@ class Index extends React.Component<EmptyProps, State> {
                 (item) => item?.id !== json.data?.updateLivestream?.id
               ) ?? []),
             ],
+            showModal: false,
           });
         }
       } catch (e) {
@@ -459,6 +675,7 @@ class Index extends React.Component<EmptyProps, State> {
               json.data?.createLivestream,
               ...(this.state.livestreamList ?? []),
             ],
+            showModal: false,
           });
         }
       } catch (e) {
@@ -555,7 +772,7 @@ class Index extends React.Component<EmptyProps, State> {
               this.state.livestreamList?.filter(
                 (item) => item?.id !== json.data?.deleteLivestream?.id
               ) ?? [],
-            alert: 'deleted: ' + json.data.deleteLivestream.id,
+            alert: 'deleted: ' + json?.data?.deleteLivestream?.id,
             toDelete: '',
             liveObject: { ...liveInit },
             customEvent: false,
@@ -572,34 +789,24 @@ class Index extends React.Component<EmptyProps, State> {
     }
   }
 
-  renderDelete() {
-    return (
-      <div>
-        <input
-          placeholder="enter id..."
-          type="text"
-          style={{ width: 300 }}
-          value={this.state.toDelete}
-          onChange={(e) => this.setState({ toDelete: e.target.value })}
-        />
-        <button
-          disabled={this.state.disableAsyncButtons}
-          style={{ border: 0, background: 'orange' }}
-          onClick={() => this.delete()}
-        >
-          DELETE
-        </button>
-      </div>
-    );
-  }
-
   renderMenuEditor(menuItem: MenuItem, index: number) {
     return (
-      <div key={index} style={{ display: 'flex', flexDirection: 'column' }}>
+      <div
+        key={index}
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          flex: 1,
+          marginBottom: 8,
+        }}
+      >
         <label>Menu item {index + 1}</label>
+        <span style={{ fontSize: 9, fontWeight: 400 }}>
+          linkType: link, zoom, or custom
+        </span>
         <input
           placeholder="title"
-          className="menu-input"
+          className="livestream-input"
           type="text"
           value={menuItem?.title ?? ''}
           onChange={(e) =>
@@ -608,7 +815,7 @@ class Index extends React.Component<EmptyProps, State> {
         />
         <input
           placeholder="url"
-          className="menu-input"
+          className="livestream-input"
           type="text"
           value={menuItem?.link ?? ''}
           onChange={(e) =>
@@ -617,7 +824,7 @@ class Index extends React.Component<EmptyProps, State> {
         />
         <input
           placeholder="type"
-          className="menu-input"
+          className="livestream-input"
           type="text"
           value={menuItem?.linkType ?? ''}
           onChange={(e) =>
@@ -697,7 +904,10 @@ class Index extends React.Component<EmptyProps, State> {
   }
   renderZoomEditor(zoomItem: ZoomItem, index: number) {
     return (
-      <div key={index} style={{ display: 'flex', flexDirection: 'column' }}>
+      <div
+        key={index}
+        style={{ display: 'flex', flexDirection: 'column', flex: 1 }}
+      >
         <label>
           Zoom item {index + 1} [
           <span style={{ color: 'red' }}>{zoomItem?.title.length}/30</span>]
@@ -705,7 +915,7 @@ class Index extends React.Component<EmptyProps, State> {
         <input
           placeholder="title"
           maxLength={30}
-          className="menu-input"
+          className="livestream-input"
           type="text"
           value={zoomItem?.title ?? ''}
           onChange={(e) =>
@@ -714,7 +924,7 @@ class Index extends React.Component<EmptyProps, State> {
         />
         <input
           placeholder="url"
-          className="menu-input"
+          className="livestream-input"
           type="text"
           value={zoomItem?.link ?? ''}
           onChange={(e) =>
@@ -724,11 +934,106 @@ class Index extends React.Component<EmptyProps, State> {
       </div>
     );
   }
-  renderEditor() {
+  renderMenu() {
     return (
-      <>
+      <div
+        style={{
+          display: 'flex',
+          height: '100vh',
+          flexDirection: 'column',
+          position: 'fixed',
+          right: 0,
+        }}
+      >
+        {!this.state.customEvent ? (
+          <>
+            <button
+              style={{
+                padding: 8,
+                backgroundColor: 'white',
+                fontWeight: 700,
+                border: '3px solid black',
+              }}
+              onClick={() => this.addMenuItem()}
+            >
+              + menu item
+            </button>
+            <button
+              style={{
+                padding: 8,
+                backgroundColor: 'white',
+                fontWeight: 700,
+                border: '3px solid black',
+              }}
+              onClick={() => this.deleteMenuItem()}
+            >
+              - menu item
+            </button>
+            {this.state.lastZoomData ? (
+              <button
+                style={{
+                  padding: 8,
+                  backgroundColor: 'white',
+                  fontWeight: 700,
+                  border: '3px solid black',
+                }}
+                onClick={() =>
+                  this.handleChange('zoom', [
+                    ...(this.state.lastZoomData as ZoomItem[]),
+                  ])
+                }
+              >
+                Local Teaching
+              </button>
+            ) : null}
+            {this.state.liveObject ? (
+              <button
+                style={{
+                  padding: 8,
+                  backgroundColor: 'white',
+                  fontWeight: 700,
+                  border: '3px solid black',
+                }}
+                onClick={() => this.setState({ sectionModal: true })}
+              >
+                Headings + Links
+              </button>
+            ) : null}
+            {this.state.liveObject?.zoom ? (
+              <button
+                style={{
+                  padding: 8,
+                  backgroundColor: 'white',
+                  fontWeight: 700,
+                  border: '3px solid black',
+                }}
+                onClick={() => this.addZoomItem()}
+              >
+                + zoom item
+              </button>
+            ) : null}
+            {this.state.liveObject?.zoom ? (
+              <button
+                style={{
+                  padding: 8,
+                  backgroundColor: 'white',
+                  fontWeight: 700,
+                  border: '3px solid black',
+                }}
+                onClick={() => this.deleteZoomItem()}
+              >
+                - zoom item
+              </button>
+            ) : null}
+          </>
+        ) : null}
         <button
-          style={{ marginTop: '16px', marginBottom: '16px' }}
+          style={{
+            padding: 8,
+            backgroundColor: 'white',
+            fontWeight: 700,
+            border: '3px solid black',
+          }}
           onClick={() => {
             this.setState({ liveObject: { ...liveInit } });
             this.setState({
@@ -737,304 +1042,337 @@ class Index extends React.Component<EmptyProps, State> {
             });
           }}
         >
-          {!this.state.customEvent ? 'Add Custom Event' : 'Add Live Event'}
+          {this.state.customEvent ? 'Regular Event' : 'Custom Event'}
         </button>
-        {this.state.customEvent ? (
-          <form
-            style={{ display: 'flex', flexDirection: 'row', width: '100vw' }}
-            onSubmit={(e) => this.submit(e)}
-          >
-            <div style={{ width: '220px' }}>
-              <label>
-                Date
-                <input
-                  className="livestream-input"
-                  type="date"
-                  required
-                  value={this.state.liveObject?.date ?? ''}
-                  onChange={(e) => this.handleChange('date', e.target.value)}
-                />
-              </label>
-              <label>
-                startTime{' '}
-                <span
-                  style={{ cursor: 'pointer' }}
-                  onClick={() =>
-                    this.setState({
-                      alert: 'When the link appears on the homepage',
-                    })
-                  }
-                >
-                  ⓘ
-                </span>
-                <input
-                  className="livestream-input"
-                  type="time"
-                  required
-                  value={this.state.liveObject?.startTime ?? ''}
-                  onChange={(e) =>
-                    this.handleChange('startTime', e.target.value)
-                  }
-                />
-              </label>
-              <label>
-                videoStartTime{' '}
-                <span
-                  style={{ cursor: 'pointer' }}
-                  onClick={() =>
-                    this.setState({
-                      alert: 'When the video is scheduled to start',
-                    })
-                  }
-                >
-                  ⓘ
-                </span>
-                <input
-                  className="livestream-input"
-                  type="time"
-                  required
-                  value={this.state.liveObject?.videoStartTime ?? ''}
-                  onChange={(e) =>
-                    this.handleChange('videoStartTime', e.target.value)
-                  }
-                />
-              </label>
-              <label>
-                endTime{' '}
-                <span
-                  style={{ cursor: 'pointer' }}
-                  onClick={() =>
-                    this.setState({
-                      alert: 'When the link disappears from the homepage',
-                    })
-                  }
-                >
-                  ⓘ
-                </span>
-                <input
-                  className="livestream-input"
-                  type="time"
-                  required
-                  value={this.state.liveObject?.endTime ?? ''}
-                  onChange={(e) => this.handleChange('endTime', e.target.value)}
-                />
-              </label>
-              <button type="submit" disabled={this.state.disableAsyncButtons}>
-                Save Livestream
-              </button>
+        <button
+          style={{
+            padding: 8,
+            backgroundColor: 'darkgrey',
+            color: 'black',
+            fontWeight: 700,
+            border: '3px solid black',
+          }}
+          disabled={this.state.disableAsyncButtons}
+          type="button"
+          onClick={(e) => this.submit()}
+        >
+          Save Livestream
+        </button>
+        <button
+          style={{
+            padding: 8,
+            backgroundColor: 'darkgrey',
+            color: 'black',
+            fontWeight: 700,
+            border: '3px solid black',
+          }}
+          disabled={this.state.disableAsyncButtons}
+          type="button"
+          onClick={(e) => this.setState({ showModal: false })}
+        >
+          Dismiss
+        </button>
+      </div>
+    );
+  }
+  renderEditor() {
+    return (
+      <form
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          flex: 1,
+          flexWrap: 'wrap',
+          columnGap: 16,
+          padding: '10px 32px 16px',
+        }}
+      >
+        <div
+          style={{
+            flex: 1,
+            rowGap: 16,
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+        >
+          <label style={{ display: 'flex', flexDirection: 'column' }}>
+            Event Title
+            <span style={{ fontSize: 9, fontWeight: 400 }}>
+              ({this.state.liveObject?.eventTitle?.length}/100 characters)
+            </span>
+            <input
+              style={{ flex: 1 }}
+              maxLength={100}
+              className="livestream-input"
+              type="text"
+              required
+              value={this.state.liveObject?.eventTitle ?? ''}
+              onChange={(e) => this.handleChange('eventTitle', e.target.value)}
+            />
+          </label>
+          <label style={{ display: 'flex', flexDirection: 'column' }}>
+            <div style={{ display: 'flex', flexDirection: 'row' }}>
+              Banner Message
+              <span
+                style={{ cursor: 'pointer', marginLeft: 4 }}
+                onClick={() =>
+                  this.setState({
+                    alert:
+                      'The message to display on the banner when event is live. dynamo field: homepageLink',
+                  })
+                }
+              >
+                ⓘ
+              </span>
             </div>
-            <div style={{ width: '230px' }}>
-              <label>
-                bannerMessage{' '}
-                <span style={{ fontSize: 10 }}>
-                  ({this.state.liveObject?.homepageLink?.length}/45 characters)
+            <span style={{ fontSize: 9, fontWeight: 400 }}>
+              ({this.state.liveObject?.homepageLink?.length}/45 characters)
+            </span>
+
+            <input
+              style={{ flex: 1 }}
+              maxLength={45}
+              className="livestream-input"
+              type="text"
+              required
+              value={this.state.liveObject?.homepageLink ?? ''}
+              onChange={(e) =>
+                this.handleChange('homepageLink', e.target.value)
+              }
+            />
+          </label>
+          {!this.state.customEvent ? (
+            <>
+              <label style={{ display: 'flex', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', flexDirection: 'row' }}>
+                  Preroll Youtube ID
+                  <span
+                    style={{ cursor: 'pointer', marginLeft: 4 }}
+                    onClick={() =>
+                      this.setState({
+                        alert: 'dynamoField: prerollYoutubeID',
+                      })
+                    }
+                  >
+                    ⓘ
+                  </span>
+                </div>
+                <small style={{ fontSize: 9, fontWeight: 400 }}>
+                  Video to display before Video Start Time
+                </small>
+                <input
+                  style={{ flex: 1 }}
+                  className="livestream-input"
+                  type="text"
+                  value={this.state.liveObject?.prerollYoutubeId ?? ''}
+                  onChange={(e) =>
+                    this.handleChange('prerollYoutubeId', e.target.value.trim())
+                  }
+                />
+              </label>
+              <label style={{ display: 'flex', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', flexDirection: 'row' }}>
+                  Live Youtube ID
+                  <span
+                    style={{ cursor: 'pointer', marginLeft: 4 }}
+                    onClick={() =>
+                      this.setState({
+                        alert:
+                          'The youtube video to display when live. dynamo field: liveYoutubeId',
+                      })
+                    }
+                  >
+                    ⓘ
+                  </span>
+                </div>
+                <small style={{ fontSize: 9, fontWeight: 400 }}>
+                  The youtube video to display when live
+                </small>
+                <input
+                  style={{ flex: 1 }}
+                  className="livestream-input"
+                  type="text"
+                  required
+                  value={this.state.liveObject?.liveYoutubeId ?? ''}
+                  onChange={(e) =>
+                    this.handleChange('liveYoutubeId', e.target.value.trim())
+                  }
+                />
+              </label>
+              <label style={{ display: 'flex', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', flexDirection: 'row' }}>
+                  Live Vimeo ID
+                  <span
+                    style={{ cursor: 'pointer', marginLeft: 4 }}
+                    onClick={() =>
+                      this.setState({
+                        alert:
+                          'The vimeo video to display when live. dynamo field: liveVimeoId',
+                      })
+                    }
+                  >
+                    ⓘ
+                  </span>
+                </div>
+
+                <small style={{ fontSize: 9, fontWeight: 400 }}>
+                  The vimeo video to display when live
+                </small>
+                <input
+                  style={{ flex: 1 }}
+                  className="livestream-input"
+                  type="text"
+                  value={this.state.liveObject?.liveVimeoId ?? ''}
+                  onChange={(e) =>
+                    this.handleChange('liveVimeoId', e.target.value.trim())
+                  }
+                />
+              </label>
+            </>
+          ) : (
+            <label style={{ display: 'flex', flexDirection: 'column' }}>
+              <div style={{ display: 'flex', flexDirection: 'row' }}>
+                Event URL
+                <span
+                  style={{ cursor: 'pointer', marginLeft: 4 }}
+                  onClick={() =>
+                    this.setState({
+                      alert:
+                        'An external link to the event. i.e. zoom link, google meet link etc.... dynamo field: externalEventUrl',
+                    })
+                  }
+                >
+                  ⓘ
                 </span>
-                <br />
-                <input
-                  maxLength={45}
-                  className="livestream-input"
-                  type="text"
-                  required
-                  value={this.state.liveObject?.homepageLink ?? ''}
-                  onChange={(e) =>
-                    this.handleChange('homepageLink', e.target.value)
-                  }
-                />
-              </label>
-              <label>
-                externalEventUrl <br />
-                <input
-                  maxLength={300}
-                  className="livestream-input"
-                  type="text"
-                  required
-                  value={this.state.liveObject?.externalEventUrl ?? ''}
-                  onChange={(e) =>
-                    this.handleChange('externalEventUrl', e.target.value.trim())
-                  }
-                />
-              </label>
-              <label style={{ width: '230px' }}>
-                eventTitle <br />
-                <input
-                  maxLength={100}
-                  className="livestream-input"
-                  type="text"
-                  required
-                  value={this.state.liveObject?.eventTitle ?? ''}
-                  onChange={(e) =>
-                    this.handleChange('eventTitle', e.target.value)
-                  }
-                />
-              </label>
-            </div>
-          </form>
-        ) : (
-          <div style={{ display: 'flex', flexDirection: 'row' }}>
-            <form
-              style={{ display: 'flex', flexDirection: 'row', width: '100vw' }}
-              onSubmit={(e) => this.submit(e)}
-            >
-              <div style={{ flex: 1 }}>
-                <label>
-                  Date
-                  <br />
-                  <input
-                    className="livestream-input"
-                    type="date"
-                    required
-                    value={this.state.liveObject?.date ?? ''}
-                    onChange={(e) => this.handleChange('date', e.target.value)}
-                  />
-                </label>
-                <label>
-                  startTime{' '}
-                  <span
-                    style={{ cursor: 'pointer' }}
-                    onClick={() =>
-                      this.setState({
-                        alert: 'When the link appears on the homepage',
-                      })
-                    }
-                  >
-                    ⓘ
-                  </span>
-                  <br />
-                  <input
-                    className="livestream-input"
-                    type="time"
-                    required
-                    value={this.state.liveObject?.startTime ?? ''}
-                    onChange={(e) =>
-                      this.handleChange('startTime', e.target.value)
-                    }
-                  />
-                </label>
-                <label>
-                  videoStartTime{' '}
-                  <span
-                    style={{ cursor: 'pointer' }}
-                    onClick={() =>
-                      this.setState({
-                        alert: 'When the video is scheduled to start',
-                      })
-                    }
-                  >
-                    ⓘ
-                  </span>
-                  <br />
-                  <input
-                    className="livestream-input"
-                    type="time"
-                    required
-                    value={this.state.liveObject?.videoStartTime ?? ''}
-                    onChange={(e) =>
-                      this.handleChange('videoStartTime', e.target.value)
-                    }
-                  />
-                </label>
-                <label>
-                  endTime{' '}
-                  <span
-                    style={{ cursor: 'pointer' }}
-                    onClick={() =>
-                      this.setState({
-                        alert: 'When the link disappears from the homepage',
-                      })
-                    }
-                  >
-                    ⓘ
-                  </span>
-                  <br />
-                  <input
-                    className="livestream-input"
-                    type="time"
-                    required
-                    value={this.state.liveObject?.endTime ?? ''}
-                    onChange={(e) =>
-                      this.handleChange('endTime', e.target.value)
-                    }
-                  />
-                </label>
-                <button disabled={this.state.disableAsyncButtons} type="submit">
-                  Save Livestream
-                </button>
               </div>
-              <div style={{ flex: 1 }}>
-                <label>
-                  prerollYoutubeID
-                  <br />
-                  <input
-                    className="livestream-input"
-                    type="text"
-                    value={this.state.liveObject?.prerollYoutubeId ?? ''}
-                    onChange={(e) =>
-                      this.handleChange(
-                        'prerollYoutubeId',
-                        e.target.value.trim()
-                      )
-                    }
-                  />
-                </label>
-                <label>
-                  liveYoutubeId
-                  <br />
-                  <input
-                    className="livestream-input"
-                    type="text"
-                    required
-                    value={this.state.liveObject?.liveYoutubeId ?? ''}
-                    onChange={(e) =>
-                      this.handleChange('liveYoutubeId', e.target.value.trim())
-                    }
-                  />
-                </label>
-                <label>
-                  liveVimeoId
-                  <br />
-                  <input
-                    className="livestream-input"
-                    type="text"
-                    value={this.state.liveObject?.liveVimeoId ?? ''}
-                    onChange={(e) =>
-                      this.handleChange('liveVimeoId', e.target.value.trim())
-                    }
-                  />
-                </label>
-                <label>
-                  bannerMessage{' '}
-                  <span style={{ fontSize: 10 }}>
-                    ({this.state.liveObject?.homepageLink?.length}/45
-                    characters)
-                  </span>
-                  <br />
-                  <input
-                    maxLength={45}
-                    className="livestream-input"
-                    type="text"
-                    required
-                    value={this.state.liveObject?.homepageLink ?? ''}
-                    onChange={(e) =>
-                      this.handleChange('homepageLink', e.target.value)
-                    }
-                  />
-                </label>
-                <br />
-                <label style={{ width: '230px' }}>
-                  eventTitle <br />
-                  <input
-                    maxLength={100}
-                    className="livestream-input"
-                    type="text"
-                    required
-                    value={this.state.liveObject?.eventTitle ?? ''}
-                    onChange={(e) =>
-                      this.handleChange('eventTitle', e.target.value)
-                    }
-                  />
-                </label>
-                <br />
+              <small style={{ fontSize: 9, fontWeight: 400 }}>
+                External link to the event
+              </small>
+              <input
+                maxLength={300}
+                className="livestream-input"
+                type="text"
+                required
+                value={this.state.liveObject?.externalEventUrl ?? ''}
+                onChange={(e) =>
+                  this.handleChange('externalEventUrl', e.target.value.trim())
+                }
+              />
+            </label>
+          )}
+        </div>
+        <div
+          style={{
+            flex: 1,
+            rowGap: 16,
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+        >
+          <label style={{ display: 'flex', flexDirection: 'column' }}>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <span>Date</span>
+              <small style={{ fontSize: 9, fontWeight: 400 }}>
+                When the event occurs
+              </small>
+              <input
+                className="livestream-input"
+                type="date"
+                required
+                style={{ flex: 1 }}
+                value={this.state.liveObject?.date ?? ''}
+                onChange={(e) => this.handleChange('date', e.target.value)}
+              />
+            </div>
+          </label>
+          <label style={{ display: 'flex', flexDirection: 'column' }}>
+            <div style={{ display: 'flex', flexDirection: 'row' }}>
+              <span>Start Time</span>
+
+              <span
+                style={{ cursor: 'pointer', marginLeft: 4 }}
+                onClick={() =>
+                  this.setState({
+                    alert: 'dynamo field: startTime',
+                  })
+                }
+              >
+                ⓘ
+              </span>
+            </div>
+            <small style={{ fontSize: 9, fontWeight: 400 }}>
+              When the event should display on the website
+            </small>
+            <input
+              style={{ flex: 1 }}
+              className="livestream-input"
+              type="time"
+              required
+              value={this.state.liveObject?.startTime ?? ''}
+              onChange={(e) => this.handleChange('startTime', e.target.value)}
+            />
+          </label>
+          <label style={{ display: 'flex', flexDirection: 'column' }}>
+            <div style={{ display: 'flex', flexDirection: 'row' }}>
+              Video Start Time
+              <span
+                style={{ cursor: 'pointer', marginLeft: 4 }}
+                onClick={() =>
+                  this.setState({
+                    alert: 'dynamo field: videoStartTime',
+                  })
+                }
+              >
+                ⓘ
+              </span>
+            </div>
+            <small style={{ fontSize: 9, fontWeight: 400 }}>
+              When the video is scheduled to start
+            </small>
+            <input
+              style={{ flex: 1 }}
+              className="livestream-input"
+              type="time"
+              required
+              value={this.state.liveObject?.videoStartTime ?? ''}
+              onChange={(e) =>
+                this.handleChange('videoStartTime', e.target.value)
+              }
+            />
+          </label>
+          <label style={{ display: 'flex', flexDirection: 'column' }}>
+            <div style={{ display: 'flex', flexDirection: 'row' }}>
+              End Time{' '}
+              <span
+                style={{ cursor: 'pointer', marginLeft: 4 }}
+                onClick={() =>
+                  this.setState({
+                    alert:
+                      'If there are no more upcoming events the yellow live bar will not display on homepage. \ndynamo field: endTime',
+                  })
+                }
+              >
+                ⓘ
+              </span>
+            </div>
+            <small style={{ fontSize: 9, fontWeight: 400 }}>
+              The end time for the event
+            </small>
+            <input
+              style={{ flex: 1 }}
+              className="livestream-input"
+              type="time"
+              required
+              value={this.state.liveObject?.endTime ?? ''}
+              onChange={(e) => this.handleChange('endTime', e.target.value)}
+            />
+          </label>
+          {!this.state.customEvent ? (
+            <>
+              <label>
+                Show Chat
                 <input
+                  style={{ marginLeft: 4 }}
                   type="checkbox"
                   checked={this.state.liveObject?.showChat ?? false}
                   onChange={() =>
@@ -1044,8 +1382,12 @@ class Index extends React.Component<EmptyProps, State> {
                     )
                   }
                 />
-                <label> show Chat</label>
+              </label>
+
+              <label>
+                Show Kids
                 <input
+                  style={{ marginLeft: 4 }}
                   type="checkbox"
                   checked={this.state.liveObject?.showKids ?? false}
                   onChange={() =>
@@ -1055,133 +1397,66 @@ class Index extends React.Component<EmptyProps, State> {
                     )
                   }
                 />
-                <label> show Kids</label>
-              </div>
-              <div style={{ flex: 2 }}>
-                {this.state.liveObject?.menu?.map((item, index) =>
-                  this.renderMenuEditor(item as MenuItem, index)
-                )}
-              </div>
-              <div style={{ flex: 2 }}>
-                {this.state.liveObject?.zoom
-                  ? this.state.liveObject.zoom.map((item, index) =>
-                      this.renderZoomEditor(item as ZoomItem, index)
-                    )
-                  : null}
-              </div>
-            </form>
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <button
-                style={{
-                  background: 'green',
-                  border: 0,
-                  height: 50,
-                  fontSize: 12,
-                  padding: 5,
-                }}
-                onClick={() => this.addMenuItem()}
-              >
-                + menu item
-              </button>
-              <button
-                style={{
-                  background: 'red',
-                  border: 0,
-                  height: 50,
-                  fontSize: 12,
-                  padding: 5,
-                }}
-                onClick={() => this.deleteMenuItem()}
-              >
-                - menu item
-              </button>
-              <button
-                style={{ border: 0, height: 50, fontSize: 12, padding: 5 }}
-                onClick={() =>
-                  this.handleChange('menu', [...menuInit] as MenuItem[])
-                }
-              >
-                Default Menu
-              </button>
-              <button
-                style={{
-                  background: 'grey',
-                  border: 0,
-                  height: 50,
-                  fontSize: 12,
-                  padding: 5,
-                }}
-                onClick={() =>
-                  this.handleChange('menu', [...afterPartyMenu] as MenuItem[])
-                }
-              >
-                After Party Menu
-              </button>
-              {this.state.lastZoomData ? (
-                <button
-                  style={{
-                    background: 'black',
-                    color: 'white',
-                    border: 0,
-                    height: 50,
-                    fontSize: 12,
-                    padding: 5,
-                  }}
-                  onClick={() =>
-                    this.handleChange('zoom', [
-                      ...(this.state.lastZoomData as ZoomItem[]),
-                    ])
-                  }
-                >
-                  Local Teaching
-                </button>
-              ) : null}
-              {this.state.liveObject ? (
-                <button
-                  style={{
-                    background: 'green',
-                    border: 0,
-                    height: 50,
-                    fontSize: 12,
-                    padding: 5,
-                  }}
-                  onClick={() => this.setState({ sectionModal: true })}
-                >
-                  Headings + zoom links
-                </button>
-              ) : null}
-              {this.state.liveObject?.zoom ? (
-                <button
-                  style={{
-                    background: 'lightgreen',
-                    border: 0,
-                    height: 50,
-                    fontSize: 12,
-                    padding: 5,
-                  }}
-                  onClick={() => this.addZoomItem()}
-                >
-                  + zoom item
-                </button>
-              ) : null}
-              {this.state.liveObject?.zoom ? (
-                <button
-                  style={{
-                    background: 'mediumvioletred',
-                    border: 0,
-                    height: 50,
-                    fontSize: 12,
-                    padding: 5,
-                  }}
-                  onClick={() => this.deleteZoomItem()}
-                >
-                  - zoom item
-                </button>
-              ) : null}
+              </label>
+            </>
+          ) : null}
+        </div>
+        {!this.state.customEvent && this.state.liveObject?.menu?.length ? (
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              width: '100%',
+              marginTop: 16,
+            }}
+          >
+            <h5 style={{ paddingBottom: 16 }}>Menu Links</h5>
+            <div
+              style={{
+                flex: 1,
+                flexDirection: 'row',
+                display: 'flex',
+                flexWrap: 'wrap',
+                rowGap: 16,
+                columnGap: 16,
+              }}
+            >
+              {this.state.liveObject?.menu?.map((item, index) =>
+                this.renderMenuEditor(item as MenuItem, index)
+              )}
             </div>
           </div>
-        )}
-      </>
+        ) : null}
+
+        {!this.state.customEvent &&
+        this.state.liveObject?.zoom &&
+        this.state.liveObject?.zoom?.length ? (
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              width: '100%',
+              marginTop: 16,
+            }}
+          >
+            <h5 style={{ paddingBottom: 16 }}>Zoom Links</h5>
+            <div
+              style={{
+                flex: 1,
+                flexDirection: 'row',
+                display: 'flex',
+                flexWrap: 'wrap',
+                rowGap: 16,
+                columnGap: 16,
+              }}
+            >
+              {this.state.liveObject.zoom.map((item, index) =>
+                this.renderZoomEditor(item as ZoomItem, index)
+              )}
+            </div>
+          </div>
+        ) : null}
+      </form>
     );
   }
   validateModal() {
@@ -1303,11 +1578,45 @@ class Index extends React.Component<EmptyProps, State> {
       </Modal>
     );
   }
+  renderShouldDelete() {
+    const liveToDelete = this.state.livestreamList.find(
+      (live) => live?.id === this.state.toDelete
+    );
+    const liveToDeleteTitle = liveToDelete?.eventTitle;
+    const liveToDeleteId = liveToDelete?.id;
+
+    return (
+      <Modal isOpen={this.state.shouldDeleteModal}>
+        <div>
+          <p>
+            Are you sure you want to delete <strong>{liveToDeleteTitle}</strong>
+          </p>
+          <p>
+            dynamo id <strong>{liveToDeleteId}</strong>
+          </p>
+        </div>
+        <button
+          style={{ backgroundColor: 'red' }}
+          onClick={async () => {
+            await this.delete();
+            if (!this.state.alert.includes('error'))
+              this.setState({ shouldDeleteModal: false });
+          }}
+        >
+          DELETE
+        </button>
+        <button onClick={() => this.setState({ shouldDeleteModal: false })}>
+          Cancel
+        </button>
+      </Modal>
+    );
+  }
   renderAlert() {
     return (
       <Modal isOpen={Boolean(this.state.alert)}>
         <div
           style={{
+            padding: 16,
             color: this.state.alert.includes('error') ? 'red' : 'black',
           }}
         >
@@ -1319,16 +1628,124 @@ class Index extends React.Component<EmptyProps, State> {
   }
   render() {
     return (
-      <div>
+      <div className="LivestreamAdminContainer">
         {isSafari ? (
           <div>This page does not support Safari :(</div>
         ) : (
           <div style={{ overflowX: 'hidden' }}>
             <div className="videoSelectBox">
-              {this.renderLivestreams()}
-              {this.renderDelete()}
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                }}
+              >
+                <span
+                  style={{
+                    fontSize: 20,
+                    fontWeight: 'bold',
+                    fontFamily: 'Graphik Web',
+                    flexDirection: 'row',
+                    display: 'flex',
+                    flex: 1,
+                  }}
+                >
+                  Livestreams
+                  {!this.state.loadAll ? (
+                    <span
+                      style={{
+                        marginLeft: 16,
+                        fontWeight: 400,
+                        display: 'flex',
+                        fontSize: 12,
+                        alignItems: 'center',
+                      }}
+                    >
+                      In the last 6 months
+                    </span>
+                  ) : null}
+                  {this.state.isLoading ? (
+                    <div
+                      style={{
+                        flex: 1,
+                        display: 'flex',
+                        flexDirection: 'row',
+                        justifyContent: 'flex-end',
+                        alignItems: 'center',
+                        marginRight: 16,
+                      }}
+                    >
+                      <Spinner size="sm" />
+                    </div>
+                  ) : null}
+                </span>
+                <label
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}
+                >
+                  Load All
+                  <input
+                    onChange={() => {
+                      this.setState(
+                        { loadAll: !this.state.loadAll, isLoading: true },
+                        this.listLivestreams
+                      );
+                    }}
+                    style={{ marginLeft: 4, marginRight: 8 }}
+                    checked={this.state.loadAll}
+                    type="checkbox"
+                  />
+                </label>
+
+                <button
+                  type="button"
+                  onClick={() =>
+                    this.setState({
+                      showModal: true,
+                      editMode: false,
+                      liveObject: liveInit,
+                    })
+                  }
+                  style={{
+                    backgroundColor: '#FFF',
+                    border: '3px solid black',
+                    fontSize: 12,
+                    fontFamily: 'Graphik Web',
+                    fontWeight: 700,
+                    padding: 6,
+                  }}
+                >
+                  <img
+                    src="/static/svg/Plus-Expand.svg"
+                    style={{ width: 15, height: 15, marginRight: 8 }}
+                  />
+                  Create
+                </button>
+              </div>
+              <RenderLivestreams
+                delete={(id) =>
+                  this.setState({ shouldDeleteModal: true, toDelete: id })
+                }
+                livestreams={this.state.livestreamList}
+                handleSelection={(id) => this.handleSelection(id)}
+              ></RenderLivestreams>
             </div>
-            {this.renderEditor()}
+            <LivestreamModal
+              editMode={this.state.editMode}
+              liveObject={this.state.liveObject}
+              toggleModal={() =>
+                this.setState({ showModal: !this.state.showModal })
+              }
+              open={this.state.showModal}
+            >
+              {this.renderEditor()}
+              {this.renderMenu()}
+            </LivestreamModal>
+            {this.renderShouldDelete()}
             {this.renderSectionModal()}
             {this.renderAlert()}
           </div>

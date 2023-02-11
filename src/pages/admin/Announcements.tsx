@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { GraphQLResult, GRAPHQL_AUTH_MODE, API } from '@aws-amplify/api';
 
 import {
+  Announcement as AnnouncementType,
   CreateAnnouncementMutationVariables,
   ListAnnouncementsQuery,
   TmhPinpointCreateCampaignQuery,
@@ -23,6 +24,7 @@ import {
   UpdateAnnouncementMutation,
 } from 'API';
 import DataLoader, { LocationData } from 'components/RenderRouter/DataLoader';
+import Announcement from 'pages/admin/Announcements/Announcement';
 
 type AnnouncementData = CreateAnnouncementMutationVariables['input'];
 
@@ -31,10 +33,6 @@ type NonNullAnnouncements = NonNullable<
     NonNullable<ListAnnouncementsQuery['listAnnouncements']>['items']
   >[0]
 >[];
-
-interface AnnouncementProps {
-  announcement: AnnouncementData;
-}
 
 const announcementInit = {
   publishedDate: moment()
@@ -263,95 +261,6 @@ export default function Announcements(): JSX.Element {
     } catch (e) {
       Sentry.captureException(e);
     }
-  };
-
-  /* ==================================================================================== */
-
-  /* ============================= Single Announcement Item ============================= */
-  const RenderAnnouncementItem = ({
-    announcement,
-  }: AnnouncementProps): JSX.Element => {
-    return (
-      <div
-        className="announcementBox"
-        onClick={(e) => {
-          e.stopPropagation();
-          setCurrentAnnouncement(announcement);
-          setOpenEditModal(true);
-        }}
-      >
-        <h5>{announcement?.title}</h5>
-        <div className="announcementIcons">
-          <img
-            className="addAnnouncementButton"
-            onClick={(e) => {
-              e.stopPropagation();
-              if (
-                confirm(
-                  'Are you sure you want to delete all instances of this announcement?'
-                )
-              ) {
-                deleteAnnouncement(announcement);
-              }
-            }}
-            width={33}
-            height={33}
-            alt="DeleteAnnouncementIcon"
-            src="/static/svg/Minus_Icon.svg"
-          ></img>
-        </div>
-        <div>
-          <div className="announcementSummary">
-            <p>
-              <b>Announcement Date:</b>
-              {announcement?.publishedDate}
-              <br></br>
-              <b>Expiration Date:</b>
-              {announcement?.expirationDate}
-              <br></br>
-              <b>Region/Community:</b>
-              {announcement?.parish}
-            </p>
-          </div>
-        </div>
-      </div>
-    );
-  };
-  /* ============================= List of announcements ============================= */
-  const RenderAnnouncementList = (): JSX.Element => {
-    const announcementsLength = announcements?.filter(
-      (a) => a && a.parish === locationFilter
-    )?.length;
-    return (
-      <>
-        {announcements
-          .filter((a) => a && a.parish === locationFilter)
-          .map((announcement, index) => {
-            if (index < count)
-              return (
-                <RenderAnnouncementItem
-                  key={announcement?.id}
-                  announcement={announcement}
-                ></RenderAnnouncementItem>
-              );
-            return null;
-          })}
-        {announcementsLength === 0 ? (
-          <h2 style={{ textAlign: 'center' }}>No active announcements</h2>
-        ) : null}
-        {announcementsLength > count ? (
-          <div
-            style={{
-              textAlign: 'center',
-              marginLeft: 'auto',
-              marginRight: 'auto',
-            }}
-          >
-            <button onClick={() => setCount(count + 5)}>Load More</button>
-          </div>
-        ) : null}
-      </>
-    );
   };
 
   const imageHelper = (
@@ -1167,13 +1076,20 @@ export default function Announcements(): JSX.Element {
   useEffect(() => {
     fetchAnnouncements();
   }, [showExpired]);
+  const announcementsLength = announcements?.filter(
+    (a) => a && a.parish === locationFilter
+  )?.length;
   return (
     <>
-      <div className="announcementHeader">
-        <p className="announcementHeaderText">Announcements</p>
+      <div className="AnnouncementHeader">
+        <span style={{ flex: 1, fontWeight: 700, fontSize: 20 }}>
+          {locationFilter} Announcements
+        </span>
 
-        <label style={{ marginLeft: 60 }}>
-          Filter By Region/Community
+        <label
+          style={{ display: 'flex', flexDirection: 'column', marginRight: 32 }}
+        >
+          Filter By Region
           <select
             className="regionalFilter"
             value={locationFilter}
@@ -1194,16 +1110,19 @@ export default function Announcements(): JSX.Element {
               : null}
           </select>
         </label>
-
-        <img
-          className="addAnnouncementButton"
+        <button
+          type="button"
+          className="CreateAnnouncementButton"
           onClick={() => setOpenCreateModal(!openCreateModal)}
-          style={{ marginLeft: 16 }}
-          width={33}
-          height={33}
-          alt="AddAnnouncementIcon"
-          src="/static/svg/Plus_Icon.svg"
-        ></img>
+        >
+          <img
+            width={24}
+            height={24}
+            alt="AddAnnouncementIcon"
+            src="/static/svg/New-Announcement.svg"
+          ></img>
+          <span className="CreateAnnouncementButtonLabel">Create</span>
+        </button>
 
         <input
           style={{
@@ -1217,10 +1136,47 @@ export default function Announcements(): JSX.Element {
             setShowExpired(!showExpired);
           }}
         ></input>
-        <label>Show Expired Announcements</label>
+        <label>Show Expired</label>
       </div>
-      <div className="announcementContainer">
-        <RenderAnnouncementList></RenderAnnouncementList>
+      <div className="AnnouncementContainer">
+        <>
+          {announcements
+            .filter((a) => a && a.parish === locationFilter)
+            .map((announcement, index) => {
+              if (index < count)
+                return (
+                  <Announcement
+                    announcement={announcement as AnnouncementType}
+                    deleteAnnouncement={deleteAnnouncement}
+                    setCurrentAnnouncement={setCurrentAnnouncement}
+                    setOpenEditModal={setOpenEditModal}
+                  />
+                );
+              return null;
+            })}
+          {announcementsLength === 0 ? (
+            <span>No active announcements</span>
+          ) : null}
+          {announcementsLength > count ? (
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'flex-end',
+              }}
+            >
+              <button
+                style={{
+                  backgroundColor: '#FFF',
+                  border: 'none',
+                  color: '#000',
+                }}
+                onClick={() => setCount(count + 5)}
+              >
+                Load More...
+              </button>
+            </div>
+          ) : null}
+        </>
         {openCreateModal ? (
           <CreateAnnouncementModal></CreateAnnouncementModal>
         ) : null}

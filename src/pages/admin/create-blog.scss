@@ -8,7 +8,11 @@
     background-color: lightgreen;
   }
 }
-
+.blog-container {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 15vw;
+}
 .video-series-button {
   margin-right: 6px;
   margin-left: 6px;
@@ -24,38 +28,53 @@
   color: black;
   background: white;
   margin-right: 10px;
-  border-width: 4px;
-  border-radius: 8px;
+  padding: 4px;
+  font-weight: bold;
+  border: 3px solid black;
   font-size: 14px;
-  width: 110px;
+  &.black {
+    background-color: black;
+
+    color: white;
+  }
 }
 
 .toolbar-button-container {
-  position: fixed;
-  z-index: 9999;
+  z-index: 10;
+  display: flex;
+  flex-direction: row;
+  row-gap: 20px;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #fff;
 }
 
 .DraftEditor-editorContainer {
   margin-top: 20px;
-  width: 80vw;
-  border: black solid !important;
+  border: 1px solid lightgrey !important;
   padding-bottom: 20px;
   padding-left: 5px;
   padding-right: 5px;
 }
 
 .editor-container {
-  margin-left: 15vw;
-  width: 80vw;
+  display: flex;
+  flex-direction: column;
   padding-bottom: 15vw;
+  label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+  }
 }
-
-.small-input {
-  width: 30vw;
-}
-
-.big-input {
-  width: 80vw;
+.blogInput {
+  flex: 1;
+  border: 1px solid lightgrey;
+  margin-top: 4px;
+  padding: 8px;
 }
 
 .desc-button {

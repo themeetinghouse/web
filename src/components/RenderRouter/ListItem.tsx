@@ -725,7 +725,7 @@ class ListItem extends React.Component<Props, State> {
     if (isMobile) {
       const data = items as TMHPerson;
       return (
-        <div key={index} className="ListItemDiv3">
+        <div key={data.id} className="ListItemDiv3">
           <FadeImage
             alt={`Head shot of ${data.firstName} ${data.lastName}`}
             className="StaffImage"
@@ -764,7 +764,7 @@ class ListItem extends React.Component<Props, State> {
             item.extension ? ',,,' + item.extension : ''
           }`;
           return (
-            <div key={index} className="StaffItem">
+            <div key={item.id} className="StaffItem">
               <FadeImage
                 alt={`Head shot of ${item.firstName} ${item.lastName}`}
                 className="StaffImage"
@@ -1534,7 +1534,7 @@ class ListItem extends React.Component<Props, State> {
               temp = [];
             }
           });
-          binnedData.push(temp);
+          if (temp.length) binnedData.push(temp);
           console.log({ binnedData });
           console.log({ filteredPeopleData });
           return (

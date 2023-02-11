@@ -100,6 +100,8 @@ export default function PeopleManager() {
           marginTop: 8,
           display: 'flex',
           flexDirection: 'row',
+          flexWrap: 'wrap',
+          rowGap: 20,
         }}
       >
         <span
@@ -132,7 +134,7 @@ export default function PeopleManager() {
         <select
           onChange={(e) => setFilterType(e.target.value)}
           value={filterType}
-          style={{ flex: 0.5, marginTop: 4, marginBottom: 4 }}
+          style={{ flex: 0.5, marginTop: 4, marginBottom: 4, marginRight: 16 }}
         >
           <option value="All">All</option>
           <option value="Coordinators">Coordinators</option>

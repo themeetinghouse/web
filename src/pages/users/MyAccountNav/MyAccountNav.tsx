@@ -3,6 +3,12 @@ import { Link, useHistory, useLocation, useRouteMatch } from 'react-router-dom';
 import HamburgerMenu from 'react-hamburger-menu';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import {
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
+  UncontrolledDropdown,
+} from 'reactstrap';
 
 type NavItem = {
   label: string;
@@ -70,6 +76,69 @@ export default function MyAccountNav({
             <a href={link} className="navItem">
               {label}
             </a>
+          ) : label === 'Admin' ? (
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle className="navItem" nav>
+                {label}
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem
+                  onClick={() => history.push('/account/admin/livestream')}
+                >
+                  Livestream
+                </DropdownItem>
+                <DropdownItem
+                  onClick={() => history.push('/account/admin/create-notes')}
+                >
+                  Notes
+                </DropdownItem>
+                <DropdownItem
+                  onClick={() => history.push('/account/admin/create-blog')}
+                >
+                  Blog
+                </DropdownItem>
+                <DropdownItem
+                  onClick={() => history.push('/account/admin/import-video')}
+                >
+                  Import Video
+                </DropdownItem>
+                <DropdownItem
+                  onClick={() => history.push('/account/admin/move-video')}
+                >
+                  George Temp
+                </DropdownItem>
+                <DropdownItem
+                  onClick={() => history.push('/account/admin/announcements')}
+                >
+                  Announcements
+                </DropdownItem>
+                <DropdownItem
+                  onClick={() => history.push('/account/admin/homechurches')}
+                >
+                  Homechurches
+                </DropdownItem>
+                <DropdownItem
+                  onClick={() => history.push('/account/admin/redirects')}
+                >
+                  Redirects
+                </DropdownItem>
+                <DropdownItem
+                  onClick={() => history.push('/account/admin/people')}
+                >
+                  People
+                </DropdownItem>
+                <DropdownItem
+                  onClick={() => history.push('/account/admin/editor')}
+                >
+                  Editor
+                </DropdownItem>{' '}
+                <DropdownItem
+                  onClick={() => history.push('/account/admin/clearCache')}
+                >
+                  Clear Cache
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
           ) : (
             <Link
               key={label}

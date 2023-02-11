@@ -2,7 +2,7 @@ import { Storage } from 'aws-amplify';
 import RenderRouter from 'components/RenderRouter/RenderRouter';
 import React from 'react';
 import { EmptyProps } from 'utils';
-import './Editor.scss';
+// import './Editor.scss';
 import { EditorContext } from './EditorContext';
 import { PageConfigEditor } from './PageConfigEditor';
 const recurseEdit = (
@@ -98,7 +98,7 @@ class Editor extends React.Component<Props, State> {
 
   render() {
     return (
-      <>
+      <div style={{ position: 'absolute', left: 0 }}>
         <EditorContext.Provider value={this.state}>
           <PageConfigEditor></PageConfigEditor>
           {this.state.content ? (
@@ -110,7 +110,7 @@ class Editor extends React.Component<Props, State> {
             'Loading'
           )}
         </EditorContext.Provider>
-      </>
+      </div>
     );
   }
 }

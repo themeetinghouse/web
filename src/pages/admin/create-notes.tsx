@@ -16,7 +16,7 @@ import * as mutations from '../../graphql/mutations';
 import * as adminQueries from './queries';
 import { API, graphqlOperation } from 'aws-amplify';
 import { Storage } from 'aws-amplify';
-import { Modal } from 'reactstrap';
+import { Modal, Spinner } from 'reactstrap';
 import { v1 as uuidv1 } from 'uuid';
 import draftToHtml from 'draftjs-to-html';
 import htmlToDraft from 'html-to-draftjs';
@@ -39,6 +39,7 @@ import {
   GetSeriesBySeriesTypeQuery,
   ListNotesQuery,
   NoteDataType,
+  Notes,
   UpdateNotesMutation,
 } from '../../API';
 
@@ -54,7 +55,9 @@ interface BibleVerseJSON {
 interface State {
   notesEditorState: EditorState;
   questionsEditorState: EditorState;
+  showConfirmDeleteModal: boolean;
   showPreview: boolean;
+  isLoading: boolean;
   notesList: any[];
   selectedTags: (string | null)[];
   noteObject: any;
@@ -86,6 +89,7 @@ class Index extends React.Component<EmptyProps, State> {
     super(props);
     this.state = {
       // input
+      showConfirmDeleteModal: false,
       notesEditorState: EditorState.createEmpty(),
       questionsEditorState: EditorState.createEmpty(),
       date: null,
@@ -101,6 +105,7 @@ class Index extends React.Component<EmptyProps, State> {
 
       // display state
       showPreview: false,
+      isLoading: false,
       moreOptions: false,
       showEditModal: false,
       showAlert: '',
@@ -124,10 +129,14 @@ class Index extends React.Component<EmptyProps, State> {
       unsaved: true,
       pdfLink: '',
     };
-    this.listNotes();
-    this.listSeries();
   }
-
+  async componentDidMount(): Promise<void> {
+    this.setState({ isLoading: true }, async () => {
+      await this.listNotes();
+      await this.listSeries();
+      this.setState({ isLoading: false });
+    });
+  }
   async listSeries(nextToken?: string) {
     try {
       const json = (await API.graphql({
@@ -164,72 +173,58 @@ class Index extends React.Component<EmptyProps, State> {
     return 0;
   }
 
-  async listNotes(nextToken?: string) {
-    try {
-      const listNotes = (await API.graphql({
-        query: queries.listNotes,
-        variables: { nextToken: nextToken, sortDirection: 'DESC', limit: 200 },
-        authMode: GRAPHQL_AUTH_MODE.API_KEY,
-      })) as GraphQLResult<ListNotesQuery>;
-      console.log({ 'Success customQueries.listNotes: ': listNotes });
-      this.setState({
-        notesList: this.state.notesList
-          ?.concat(listNotes.data?.listNotes?.items)
-          .sort(function (a: any, b: any) {
-            const nameA = a.id.toUpperCase();
-            const nameB = b.id.toUpperCase();
-            if (nameA < nameB) {
-              return 1;
-            }
-            if (nameA > nameB) {
-              return -1;
-            }
-            return 0;
-          }),
-      });
-      if (listNotes.data?.listNotes?.nextToken)
-        this.listNotes(listNotes.data.listNotes.nextToken);
-    } catch (e: any) {
-      console.error(e);
-      this.setState({
-        notesList: this.state.notesList
-          ?.concat(e.data?.listNotes?.items)
-          .sort(function (a: any, b: any) {
-            const nameA = a.id.toUpperCase();
-            const nameB = b.id.toUpperCase();
-            if (nameA < nameB) {
-              return 1;
-            }
-            if (nameA > nameB) {
-              return -1;
-            }
-            return 0;
-          }),
-      });
-      if (e.data?.listNotes?.nextToken)
-        this.listNotes(e.data.listNotes.nextToken);
-    }
+  async listNotes() {
+    let tempNotes: Notes[] = [];
+    const loadNext = async (nextToken?: string | undefined | null) => {
+      try {
+        const listNotesResult = (await API.graphql({
+          query: adminQueries.listNotes,
+          variables: {
+            nextToken: nextToken,
+            sortDirection: 'DESC',
+            limit: 200,
+          },
+          authMode: GRAPHQL_AUTH_MODE.API_KEY,
+        })) as GraphQLResult<ListNotesQuery>;
+        console.log({ 'Success customQueries.listNotes: ': listNotesResult });
+        const newNotes = listNotesResult.data?.listNotes?.items ?? [];
+        tempNotes = [...tempNotes, ...(newNotes as Notes[])];
+        console.log('newLength', tempNotes.length);
+        if (listNotesResult.data?.listNotes?.nextToken) {
+          await loadNext(listNotesResult.data.listNotes.nextToken);
+        }
+      } catch (error: any) {
+        console.error(error);
+        const newNotes = error?.data?.listNotes?.items ?? [];
+        tempNotes = [...tempNotes, ...(newNotes as Notes[])];
+        console.log('newLength', tempNotes.length);
+        if (error.data?.listNotes?.nextToken) {
+          await loadNext(error.data.listNotes.nextToken);
+        }
+      }
+    };
+    await loadNext();
+    const sortedNotesList = tempNotes.sort((a, b) => this.sortById(b, a));
+    this.setState({ notesList: sortedNotesList });
   }
 
   async handleDeleteNote() {
-    if (this.state.understand === this.deleteConfirmation) {
-      try {
-        const deleteNotes: any = await API.graphql({
-          query: mutations.deleteNotes,
-          variables: { input: { id: this.state.delete } },
-          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-        });
-        console.log({ 'Success mutations.deleteNotes: ': deleteNotes });
-        this.setState({
-          delete: '',
-          understand: '',
-          showAlert: `⚠️ Deleted: ${deleteNotes.data.deleteNotes.id}`,
-        });
-      } catch (e) {
-        console.error(e);
-      }
-    } else {
-      this.setState({ showAlert: '⚠️ You must type the confirmation message' });
+    try {
+      const deleteNotes: any = await API.graphql({
+        query: mutations.deleteNotes,
+        variables: { input: { id: this.state.delete } },
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      });
+      console.log({ 'Success mutations.deleteNotes: ': deleteNotes });
+      this.setState({
+        delete: '',
+        understand: '',
+        showAlert: `⚠️ Deleted: ${deleteNotes.data.deleteNotes.id}`,
+      });
+      return true;
+    } catch (e) {
+      console.error(e);
+      return false;
     }
   }
 
@@ -507,7 +502,9 @@ class Index extends React.Component<EmptyProps, State> {
 
   async handleEdit() {
     this.setState({ showEditModal: true });
+    console.log('awaitng selection');
     await this.waitForSelection(() => Boolean(this.state.noteEditObject));
+    console.log('selection completed');
     if (this.state.noteEditObject && this.state.noteEditObject.jsonContent) {
       const date = parse(
         this.state.noteEditObject.id,
@@ -672,6 +669,7 @@ class Index extends React.Component<EmptyProps, State> {
       <Modal isOpen={this.state.showEditModal}>
         <div>Edit existing notes</div>
         <select
+          className="notesInput"
           onChange={(event) => this.setState({ noteEdit: event.target.value })}
         >
           <option key="null" value="null">
@@ -707,6 +705,7 @@ class Index extends React.Component<EmptyProps, State> {
         <label>
           Add tags:
           <input
+            className="notesInput"
             type="text"
             value={this.state.currentTag}
             onChange={(event) =>
@@ -715,7 +714,7 @@ class Index extends React.Component<EmptyProps, State> {
           />
         </label>
         <button
-          className="tags-button"
+          className="toolbar-button"
           onClick={() =>
             this.setState({
               selectedTags: this.state.selectedTags.concat(
@@ -728,8 +727,7 @@ class Index extends React.Component<EmptyProps, State> {
           Confirm Tag
         </button>
         <button
-          className="tags-button"
-          style={{ background: 'red' }}
+          className="toolbar-button black"
           onClick={() => {
             this.setState({ selectedTags: [] });
             this.updateField('tags', this.state.selectedTags);
@@ -737,7 +735,7 @@ class Index extends React.Component<EmptyProps, State> {
         >
           Clear All Tags
         </button>
-        <div>
+        <div style={{ marginTop: 16 }}>
           <b>Current tags (click on tag to delete):</b>
           {this.state.selectedTags.map((item, index: number) => {
             return (
@@ -753,35 +751,6 @@ class Index extends React.Component<EmptyProps, State> {
             );
           })}
         </div>
-        <br />
-
-        <label>
-          Delete existing notes (teaching date):
-          <input
-            style={{ width: 400, height: 20 }}
-            type="text"
-            value={this.state.delete}
-            onChange={(event) => this.setState({ delete: event.target.value })}
-          />
-        </label>
-        <label>
-          Type &quot;{this.deleteConfirmation}&quot;:
-          <input
-            style={{ width: 400, height: 20 }}
-            type="text"
-            value={this.state.understand}
-            onChange={(event) =>
-              this.setState({ understand: event.target.value })
-            }
-          />
-        </label>
-        <button
-          className="tags-button"
-          style={{ background: 'red' }}
-          onClick={() => this.handleDeleteNote()}
-        >
-          DELETE
-        </button>
       </div>
     );
   }
@@ -834,32 +803,36 @@ class Index extends React.Component<EmptyProps, State> {
 
     return (
       <div className="editor-container">
-        <div style={{ display: 'flex', flexDirection: 'row' }}>
-          <label>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            columnGap: 10,
+          }}
+        >
+          <label
+            style={{
+              flex: 1,
+            }}
+          >
             Title:
             <input
+              className="notesInput"
               type="text"
-              style={{ width: 400 }}
               value={this.state.title}
               onChange={(event) => this.setState({ title: event.target.value })}
             />
           </label>
-          <label>
-            Episode Number:
-            <input
-              type="number"
-              style={{ width: 150 }}
-              value={this.state.episodeNumber}
-              onChange={(event) =>
-                this.setState({
-                  episodeNumber: parseInt(event.target.value, 10),
-                })
-              }
-            />
-          </label>
-          <label>
+
+          <label
+            style={{
+              flex: 1,
+            }}
+          >
             Series:
             <select
+              className="notesInput"
               value={this.state.seriesId}
               onChange={(e) => this.setState({ seriesId: e.target.value })}
             >
@@ -873,13 +846,34 @@ class Index extends React.Component<EmptyProps, State> {
               })}
             </select>
           </label>
+          <label>
+            Episode Number:
+            <input
+              className="notesInput"
+              type="number"
+              value={this.state.episodeNumber}
+              onChange={(event) =>
+                this.setState({
+                  episodeNumber: parseInt(event.target.value, 10),
+                })
+              }
+            />
+          </label>
         </div>
-        <div>Notes will remain hidden if the title is &quot;Unlisted&quot;</div>
+        <div style={{ fontSize: 12, marginBottom: 16 }}>
+          Notes will remain hidden if the title is &quot;Unlisted&quot;
+        </div>
 
-        <label>
+        <label
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+        >
           Episode Description:
           <textarea
-            style={{ width: '80vw' }}
+            className="notesInput"
+            style={{ flex: 1 }}
             value={this.state.description}
             onChange={(event) =>
               this.setState({ description: event.target.value })
@@ -902,21 +896,22 @@ class Index extends React.Component<EmptyProps, State> {
           spellCheck={true}
           toolbar={toolBarProps}
         />
-        <div>
-          <b className="calendar-label">Teaching date</b>
+        <label style={{ marginTop: 16 }}>
+          <b className="calendar-label">Teaching date:</b>
           <DatePicker
+            className="notesInput"
             selected={this.state.date}
             onChange={this.handlePublishDate}
             dateFormat="yyyy-MM-dd"
           />
           <div style={{ color: 'red' }}>{this.state.dateWarning}</div>
-        </div>
+        </label>
         <div>
           <label>
             PDF Link:
             <input
+              className="notesInput"
               type="url"
-              style={{ width: 800 }}
               value={this.state.pdf}
               onChange={(event) => this.setState({ pdf: event.target.value })}
             />
@@ -930,11 +925,21 @@ class Index extends React.Component<EmptyProps, State> {
   renderToolbar() {
     return (
       <div className="toolbar-button-container">
-        <button className="toolbar-button" onClick={() => this.handleSave()}>
+        <button
+          disabled={this.state.isLoading}
+          className={`toolbar-button ${
+            this.state.isLoading ? 'disabled' : 'black'
+          }`}
+          onClick={() => this.handleSave()}
+        >
           SAVE
         </button>
         <br />
-        <button className="toolbar-button" onClick={() => this.handleEdit()}>
+        <button
+          disabled={this.state.isLoading}
+          className={`toolbar-button ${this.state.isLoading ? 'disabled' : ''}`}
+          onClick={() => this.handleEdit()}
+        >
           Edit existing notes
         </button>
         <br />
@@ -950,17 +955,19 @@ class Index extends React.Component<EmptyProps, State> {
         <button
           className="toolbar-button"
           onClick={() =>
-            this.setState({ showPreview: !this.state.showPreview })
+            this.setState({ showPreview: !this.state.showPreview }, () => {
+              document.getElementById('notes-preview')?.scrollIntoView({
+                behavior: 'smooth',
+              });
+            })
           }
         >
-          Preview your work
+          {this.state.showPreview ? 'Hide Preview' : 'Preview your work'}
         </button>
-        {this.state.showPreview ? (
-          <div style={{ width: 150 }}>Scroll to bottom of page for preview</div>
-        ) : null}
         <br />
         <button
-          className="toolbar-button"
+          disabled={this.state.isLoading}
+          className={`toolbar-button ${this.state.isLoading ? 'disabled' : ''}`}
           onClick={() => this.getBiblePassages()}
         >
           Bible passages
@@ -973,9 +980,24 @@ class Index extends React.Component<EmptyProps, State> {
           Help
         </button>
         <br />
-        <button className="toolbar-button" onClick={() => this.makePdf()}>
+        <button
+          disabled={this.state.isLoading}
+          className={`toolbar-button ${this.state.isLoading ? 'disabled' : ''}`}
+          onClick={() => this.makePdf()}
+        >
           Make PDF
         </button>
+        {this.state.noteEdit ? (
+          <button
+            className="toolbar-button black"
+            onClick={() => this.setState({ showConfirmDeleteModal: true })}
+          >
+            DELETE
+          </button>
+        ) : null}
+        {this.state.isLoading ? (
+          <Spinner style={{ alignSelf: 'center' }} size="sm" />
+        ) : null}
         <br />
         <span>{this.state.statusMessage}</span>
       </div>
@@ -1014,8 +1036,36 @@ class Index extends React.Component<EmptyProps, State> {
       </Modal>
     );
   }
-
+  renderConfirmDelete() {
+    return (
+      <Modal isOpen={Boolean(this.state.showConfirmDeleteModal)}>
+        <div style={{ padding: 16 }}>
+          <div style={{ paddingBottom: 40 }}>
+            Are you sure you want to delete {this.state.noteEdit}
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'row' }}>
+            <button
+              className="toolbar-button black"
+              onClick={async () => {
+                const success = await this.handleDeleteNote();
+                if (success) this.setState({ showConfirmDeleteModal: false });
+              }}
+            >
+              Confirm
+            </button>
+            <button
+              className="toolbar-button"
+              onClick={() => this.setState({ showConfirmDeleteModal: false })}
+            >
+              Dismiss
+            </button>
+          </div>
+        </div>
+      </Modal>
+    );
+  }
   render() {
+    console.log({ state: this.state });
     return (
       <div className="note-container">
         {this.renderHelp()}
@@ -1026,11 +1076,13 @@ class Index extends React.Component<EmptyProps, State> {
         {this.renderTextInput()}
         <div className="preview">
           {this.state.showPreview ? (
-            <BlogPreview
-              data={this.state}
-              content={null}
-              type={'notes'}
-            ></BlogPreview>
+            <div id="notes-preview">
+              <BlogPreview
+                data={this.state}
+                content={null}
+                type={'notes'}
+              ></BlogPreview>
+            </div>
           ) : null}
         </div>
       </div>

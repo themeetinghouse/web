@@ -1,48 +1,51 @@
-@use './admin.scss';
+.modal-content {
+  max-height: 95vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 
+  .close {
+    background-color: white;
+    border: none;
+    transform: scale(2);
+  }
+}
+
+.modal {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+@media (min-width: 992px) {
+  .modal-lg,
+  .modal-xl {
+    --bs-modal-width: 700px;
+  }
+}
+@media (min-width: 1100px) {
+  .modal-lg,
+  .modal-xl {
+    --bs-modal-width: 800px;
+  }
+}
+.modal-header {
+  padding: 16px 32px;
+  background-color: #fff;
+}
+.modal {
+  overflow-y: hidden;
+}
+.livestreamModalContainer {
+  width: 80vw;
+  height: 80vh;
+}
 .livestream-input {
-  width: 200px;
+  padding: 8px;
+  margin-top: 4px;
+  border: 1px solid lightgrey;
+  font-family: Graphik Web;
 }
 
 .videoSelectBox {
   display: flex;
-  flex-direction: row;
-  width: 100vw;
-}
-.divTable {
-  background-color: #eee;
-  border: 1px solid #666666;
-  border-spacing: 5px;
-  font-size: 10px;
-  height: 20vh;
-  overflow: auto;
-  width: 70vw;
-  margin: 0;
-}
-
-.divRow {
-  font-size: 20px;
-}
-
-.divCell {
-  font-size: 10px;
-  padding: 1px;
-}
-tr:hover {
-  background-color: #ffff99;
-  cursor: pointer;
-}
-table thead tr {
-  display: block;
-}
-
-table th,
-table td {
-  width: 100px; //fixed width
-}
-
-.divTable tbody {
-  display: block;
-  height: 200px;
-  overflow: auto; //set tbody to auto
+  flex-direction: column;
 }

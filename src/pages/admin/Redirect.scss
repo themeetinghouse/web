@@ -1,6 +1,9 @@
 .redirect-table-header,
 .redirect-table-row {
   cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem;
 }
 
 .redirect-table-header:hover {
