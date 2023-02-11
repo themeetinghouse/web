@@ -154,6 +154,10 @@
 .SearchResultItem .SearchThumb {
   width: 160px !important;
   height: 90px !important;
+  &.series {
+    width: 160px !important;
+    height: 160px !important;
+  }
   object-fit: cover !important;
   display: inline-block;
   object-fit: contain;

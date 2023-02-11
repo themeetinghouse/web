@@ -10,7 +10,7 @@ import {
   F1ListGroup2,
   Notes,
   SearchBlogsQuery,
-  SearchCustomPlaylistsQuery,
+  // SearchCustomPlaylistsQuery,
   SearchF1ListGroup2sQuery,
   SearchNotesQuery,
   SearchSeriesQuery,
@@ -152,6 +152,7 @@ export default function SearchItem(props: SearchItemProps) {
                 ],
               },
               { hiddenMainIndex: { ne: true } },
+              { blogStatus: { eq: 'Live' } },
             ],
           },
           sort: { field: 'blogTitle', direction: 'desc' },
@@ -230,30 +231,31 @@ export default function SearchItem(props: SearchItemProps) {
       console.error({ error });
     }
   };
-  const searchCustomPlaylist = async (searchTerm: string) => {
-    try {
-      const response = (await API.graphql({
-        query: queries.searchCustomPlaylists,
-        variables: {
-          filter: {
-            or: [
-              { title: { matchPhrase: searchTerm } },
-              { description: { matchPhrase: searchTerm } },
-            ],
-          },
-          limit: 15,
-        },
-      })) as GraphQLResult<SearchCustomPlaylistsQuery>;
-      setCustomPlaylistData(
-        response.data?.searchCustomPlaylists?.items as CustomPlaylist[]
-      );
-    } catch (error: any) {
-      setCustomPlaylistData(
-        error.data?.searchCustomPlaylists?.items as CustomPlaylist[]
-      );
-      console.error({ error });
-    }
-  };
+  // const searchCustomPlaylist = async (searchTerm: string) => {
+  //   try {
+  //     const response = (await API.graphql({
+  //       query: queries.searchCustomPlaylists,
+  //       variables: {
+  //         filter: {
+  //           or: [
+  //             { title: { matchPhrase: searchTerm } },
+  //             { description: { matchPhrase: searchTerm } },
+  //           ],
+  //         },
+  //         limit: 15,
+  //       },
+  //     })) as GraphQLResult<SearchCustomPlaylistsQuery>;
+  //     console.log({ searchCustomPlaylist: response });
+  //     setCustomPlaylistData(
+  //       response.data?.searchCustomPlaylists?.items as CustomPlaylist[]
+  //     );
+  //   } catch (error: any) {
+  //     setCustomPlaylistData(
+  //       error.data?.searchCustomPlaylists?.items as CustomPlaylist[]
+  //     );
+  //     console.error({ error });
+  //   }
+  // };
   const searchNotes = async (searchTerm: string) => {
     try {
       const response = (await API.graphql({
@@ -286,7 +288,7 @@ export default function SearchItem(props: SearchItemProps) {
         searchCompassion(searchTerm),
         searchPeople(searchTerm),
         searchCustom(searchTerm),
-        searchCustomPlaylist(searchTerm),
+        //searchCustomPlaylist(searchTerm),
         searchNotes(searchTerm),
       ];
       await Promise.all(allPromises);
@@ -560,6 +562,7 @@ export default function SearchItem(props: SearchItemProps) {
   };
 
   const renderCustomPlaylist = (item: any) => {
+    console.log({ customPlaylistData: item });
     const image = {
       src: getBlogImageURI(item.blogTitle, 'square'),
       alt: item.blogTitle + ' series image',
@@ -595,7 +598,7 @@ export default function SearchItem(props: SearchItemProps) {
                 highlightClassName="Highlight"
                 searchWords={searchString.split(' ')}
                 autoEscape={true}
-                textToHighlight={item.blogTitle ?? ''}
+                textToHighlight={item.title ?? ''}
               />
             </div>
 
@@ -636,7 +639,7 @@ export default function SearchItem(props: SearchItemProps) {
         >
           <ScaledImage
             image={image}
-            className="SearchThumb"
+            className="SearchThumb series"
             fallbackUrl="/static/photos/blogs/square/fallback.jpg"
             breakpointSizes={{
               320: 80,

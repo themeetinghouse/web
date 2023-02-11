@@ -619,7 +619,25 @@ export default class DataLoader {
       query: queries.searchVideos,
       variables: {
         filter: {
-          or: { episodeTitle: { matchPhrase: searchTerm } },
+          and: [
+            { episodeTitle: { matchPhrase: searchTerm } },
+            // there has to be a better way to do this
+            { videoTypes: { ne: 'hidden' } },
+            { videoTypes: { ne: 'hidden-adult-sunday' } },
+            { videoTypes: { ne: 'hidden-adult-sunday-shortcut' } },
+            { videoTypes: { ne: 'hidden-adult-sunday-teaser' } },
+            { videoTypes: { ne: 'hidden-livestream-services' } },
+            { videoTypes: { ne: 'hidden-bbq' } },
+            { videoTypes: { ne: 'hidden-after-party' } },
+            { videoTypes: { ne: 'hidden-Christmas-shorts' } },
+            { videoTypes: { ne: 'hidden-Christmas-funny' } },
+            { videoTypes: { ne: 'hidden-Home Church Hangouts' } },
+            { videoTypes: { ne: 'hidden-Christmas-funny' } },
+            { videoTypes: { ne: 'hidden-HC101' } },
+            { videoTypes: { ne: 'hidden-HC102' } },
+            { videoTypes: { ne: 'hidden-ky-srhigh' } },
+            { videoTypes: { ne: 'unlisted' } },
+          ],
         },
       },
       authMode: GRAPHQL_AUTH_MODE.API_KEY,
