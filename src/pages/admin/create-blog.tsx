@@ -1000,11 +1000,19 @@ class Index extends React.Component<EmptyProps, State> {
         </label>
         <br />
 
-        <div>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
           <h4>Video Series</h4>
-          <div style={{ display: 'flex', flexDirection: 'row' }}>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              flex: 1,
+              flexWrap: 'wrap',
+            }}
+          >
             <select
               className="blogInput"
+              style={{ width: '100%', marginTop: 0 }}
               onChange={(e) =>
                 this.setState({
                   selectedVideoSeriesId: e.target.value,
