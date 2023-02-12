@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from 'react';
-import { Table, Button, Input, Alert } from 'reactstrap';
+import { Button, Input, Alert } from 'reactstrap';
 import { API } from 'aws-amplify';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import {
@@ -177,124 +177,145 @@ const RedirectDashboard = () => {
         value={filter}
         onChange={(event) => setFilter(event.target.value.trim())}
       />
-      <Table hover size="sm">
-        <thead>
-          <tr>
-            <th>
-              <Input
-                value={id}
-                onChange={(event) => setId(event.target.value.trim())}
-                onKeyDown={(event) => {
-                  if (event.key === 'Enter') {
-                    saveRedirect();
-                  }
-                }}
-                placeholder="from"
-              />
-            </th>
-            <th>
-              <Input
-                value={to}
-                onChange={(event) => setTo(event.target.value.trim())}
-                onKeyDown={(event) => {
-                  if (event.key === 'Enter') {
-                    saveRedirect();
-                  }
-                }}
-                placeholder="to"
-              />
-            </th>
-            <th>
-              <Button
-                onClick={saveRedirect}
-                color={isEdit ? 'info' : 'success'}
-                style={{ width: 100 }}
-              >
-                {isEdit ? 'Update' : 'Save'}
-              </Button>
-            </th>
-          </tr>
-        </thead>
-        <thead>
-          <tr>
-            <th
-              className="redirect-table-header"
-              onClick={() =>
-                setSortRule(
-                  sortRule === SORT_RULE.FROM_ASC
-                    ? SORT_RULE.FROM_DESC
-                    : SORT_RULE.FROM_ASC
-                )
-              }
-            >
-              From {sortRule === SORT_RULE.FROM_ASC && '⬆️'}
-              {sortRule === SORT_RULE.FROM_DESC && '⬇️'}
-            </th>
-            <th
-              className="redirect-table-header"
-              onClick={() =>
-                setSortRule(
-                  sortRule === SORT_RULE.TO_ASC
-                    ? SORT_RULE.TO_DESC
-                    : SORT_RULE.TO_ASC
-                )
-              }
-            >
-              To {sortRule === SORT_RULE.TO_ASC && '⬆️'}
-              {sortRule === SORT_RULE.TO_DESC && '⬇️'}
-            </th>
-            <th />
-          </tr>
-        </thead>
-        <tbody>
-          {sortRedirects(redirects)
-            .filter(
-              (redirect) =>
-                !filter ||
-                redirect?.to.includes(filter) ||
-                redirect?.id.includes(filter)
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+        }}
+      >
+        <Input
+          value={id}
+          onChange={(event) => setId(event.target.value.trim())}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter') {
+              saveRedirect();
+            }
+          }}
+          placeholder="from"
+        />
+
+        <Input
+          value={to}
+          onChange={(event) => setTo(event.target.value.trim())}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter') {
+              saveRedirect();
+            }
+          }}
+          placeholder="to"
+        />
+
+        <Button
+          onClick={saveRedirect}
+          color={isEdit ? 'info' : 'success'}
+          style={{ width: 100 }}
+        >
+          {isEdit ? 'Update' : 'Save'}
+        </Button>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+        }}
+      >
+        <div
+          style={{ flex: 0.5 }}
+          onClick={() =>
+            setSortRule(
+              sortRule === SORT_RULE.FROM_ASC
+                ? SORT_RULE.FROM_DESC
+                : SORT_RULE.FROM_ASC
             )
-            .map(
-              (redirect) =>
-                redirect && (
-                  <tr
-                    key={redirect.id}
-                    onClick={() => {
-                      setTo(redirect.to);
-                      setId(redirect.id);
+          }
+        >
+          From {sortRule === SORT_RULE.FROM_ASC && '⬆️'}
+          {sortRule === SORT_RULE.FROM_DESC && '⬇️'}
+        </div>
+        <div
+          style={{ flex: 1.1 }}
+          onClick={() =>
+            setSortRule(
+              sortRule === SORT_RULE.TO_ASC
+                ? SORT_RULE.TO_DESC
+                : SORT_RULE.TO_ASC
+            )
+          }
+        >
+          To {sortRule === SORT_RULE.TO_ASC && '⬆️'}
+          {sortRule === SORT_RULE.TO_DESC && '⬇️'}
+        </div>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+      >
+        {sortRedirects(redirects)
+          .filter(
+            (redirect) =>
+              !filter ||
+              redirect?.to.includes(filter) ||
+              redirect?.id.includes(filter)
+          )
+          .map(
+            (redirect) =>
+              redirect && (
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    padding: 8,
+                    flex: 1,
+                  }}
+                  key={redirect.id}
+                  onClick={() => {
+                    setTo(redirect.to);
+                    setId(redirect.id);
+                  }}
+                >
+                  <div style={{ flex: 0.5, width: 0 }}>{redirect.id}</div>
+
+                  <a
+                    style={{
+                      flex: 1,
+                      display: 'flex',
+                      width: 0,
+                      overflow: 'clip',
                     }}
-                    className="redirect-table-row"
+                    href={
+                      (externalRedirectRegex.test(redirect.to) ? '' : '/') +
+                      redirect.to
+                    }
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    onClick={(event) => event.stopPropagation()}
                   >
-                    <td>{redirect.id}</td>
-                    <td>
-                      <a
-                        href={
-                          (externalRedirectRegex.test(redirect.to) ? '' : '/') +
-                          redirect.to
-                        }
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        onClick={(event) => event.stopPropagation()}
-                      >
-                        {redirect.to}
-                      </a>
-                    </td>
-                    <td>
-                      <Button
-                        onClick={(event) => {
-                          event.stopPropagation();
-                          deleteRedirect(redirect);
-                        }}
-                        color="danger"
-                      >
-                        x
-                      </Button>
-                    </td>
-                  </tr>
-                )
-            )}
-        </tbody>
-      </Table>
+                    {redirect.to}
+                  </a>
+
+                  <div
+                    style={{
+                      textAlign: 'right',
+                      flex: 0.1,
+                      width: 0,
+                    }}
+                  >
+                    <Button
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        deleteRedirect(redirect);
+                      }}
+                      color="danger"
+                    >
+                      x
+                    </Button>
+                  </div>
+                </div>
+              )
+          )}
+      </div>
     </Fragment>
   );
 };

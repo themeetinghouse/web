@@ -1,0 +1,23 @@
+.AdminPageContainer {
+  display: grid;
+  justify-content: center;
+}
+
+.AdminPage {
+  width: 1130px;
+  min-height: 580px;
+  background-color: white;
+  max-width: 78.194vw;
+  display: grid;
+  grid-template-columns: 100%;
+  z-index: 1;
+  padding: 39px 48px 40px 42px;
+}
+
+@media (max-width: 767px) {
+  .AdminPage {
+    width: 100vw;
+    max-width: unset;
+    padding: 39px 48px 40px 42px;
+  }
+}

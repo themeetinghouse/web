@@ -5,6 +5,23 @@
   min-height: 788px;
   background-color: white;
   padding: 48px 60px 56px;
+  th {
+    padding-bottom: 8px;
+    color: #1a1a1a;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+    letter-spacing: 0.5px;
+  }
+  td {
+    padding: 9px 0px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .TransactionTableRow {
+    border-bottom: 0.7px solid #c8c8c8;
+  }
 }
 .TransactionHeaderContainer {
   padding-bottom: 20px;
@@ -14,23 +31,7 @@
   font-size: 32px;
   line-height: 40px;
 }
-th {
-  padding-bottom: 8px;
-  color: #1a1a1a;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 18px;
-  letter-spacing: 0.5px;
-}
-td {
-  padding: 9px 0px;
-  font-size: 16px;
-  line-height: 24px;
-}
 
-.TransactionTableRow {
-  border-bottom: 0.7px solid #c8c8c8;
-}
 @media (max-width: 768px) {
   .TransactionsContainer {
     margin-left: unset;

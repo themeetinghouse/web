@@ -8,11 +8,13 @@ import './import-video.scss';
 import { v4 as uuidv4 } from 'uuid';
 import ImportYoutube from '../../components/ImportYoutube/ImportYoutube';
 import { EmptyProps } from '../../utils';
-import { Modal } from 'reactstrap';
+import { Modal, Spinner } from 'reactstrap';
 import { DeleteCustomPlaylistMutation } from 'API';
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
+import moment from 'moment';
 
 interface State {
+  nextToken: string | undefined | null;
   getVideoQueryId: any;
   videoTypes: any;
   speakers: any;
@@ -49,6 +51,7 @@ class Index extends React.Component<EmptyProps, State> {
   constructor(props: EmptyProps) {
     super(props);
     this.state = {
+      nextToken: '',
       originalSpeakers: {},
       selectedSpeaker: '',
       speakerFieldValue: '',
@@ -290,6 +293,9 @@ class Index extends React.Component<EmptyProps, State> {
             nextToken: nextToken,
             sortDirection: 'DESC',
             limit: 200,
+            filter: {
+              videoTypes: { attributeExists: false },
+            },
           },
           authMode: GRAPHQL_AUTH_MODE.API_KEY,
         });
@@ -299,14 +305,10 @@ class Index extends React.Component<EmptyProps, State> {
             if (queryId === this.state.getVideoQueryId) {
               this.setState({
                 videoList: this.state.videoList
-                  .concat(
-                    json.data.listVideos.items.filter((a: any) => {
-                      return a.videoTypes == null;
-                    })
-                  )
+                  .concat(json.data.listVideos.items)
                   .sort(this.sortByPublished),
               });
-              if (json.data.listVideos.nextToken != null)
+              if (json?.data?.listVideos?.nextToken)
                 this.getVideosQID(json.data.listVideos.nextToken, queryId);
               else this.setState({ getVideosState: 'Done' });
             }
@@ -372,81 +374,117 @@ class Index extends React.Component<EmptyProps, State> {
   }
   renderHeader() {
     return (
-      <div className="header">
-        <button className="adminButton" onClick={() => this.importYoutube()}>
-          Add All New
-        </button>
-        <button className="adminButton">Add Unlisted</button>
-        <select
-          className="dropdown"
-          onChange={(e: any) => {
-            this.setState({
-              selectedVideo: null,
-              videoList: [],
-              addToPlaylists: [],
-              removeFromPlaylists: [],
-              selectedPlaylist: '',
-              selectedVideoType: e.target.value,
-            });
+      <div
+        style={{ marginBottom: 24, display: 'flex', flexDirection: 'column' }}
+      >
+        <div
+          style={{
+            display: 'flex',
+
+            flex: 1,
+            marginBottom: 16,
           }}
         >
-          {this.state.videoTypes.map((item: any) => {
-            return (
-              <option className="dropdown-option" key={item.id} value={item.id}>
-                {item.name}
-              </option>
-            );
-          })}
-        </select>
-        <button
-          className="adminButton"
-          onClick={() => {
-            this.setState({ showAddSpeaker: true });
-          }}
-        >
-          Add Speaker
-        </button>
-        <button
-          className="adminButton"
-          onClick={() => {
-            this.setState({ showManageSpeaker: true });
-          }}
-        >
-          Manage Speaker
-        </button>
-        <button
-          className="adminButton"
-          onClick={() => {
-            this.setState({ showAddSeries: true });
-          }}
-        >
-          Add Series
-        </button>
-        <button
-          className="adminButton"
-          onClick={() => {
-            this.setState({ showDeleteVideo: true });
-          }}
-        >
-          Delete a Video
-        </button>
-        <button
-          className="adminButton"
-          onClick={() => {
-            this.setState({ showDeletePlaylist: true });
-          }}
-        >
-          Delete a Playlist
-        </button>
-        <button
-          className="adminButton"
-          onClick={() => {
-            this.setState({ showAddCustomPlaylist: true });
-          }}
-        >
-          Add Custom Playlist
-        </button>
-        <div>{this.state.getVideosState}</div>
+          <span style={{ fontWeight: 700, fontSize: 20, flex: 1 }}>
+            Import Videos{' '}
+            {this.state.videoList.length ? (
+              <span style={{ fontSize: 10 }}>
+                &#40;{this.state.videoList.length}&#41;
+              </span>
+            ) : null}
+          </span>
+          {this.state.getVideosState === 'Loading Videos' ? (
+            <Spinner
+              style={{ alignSelf: 'center', marginRight: 16 }}
+              size="sm"
+            />
+          ) : null}
+          <div style={{ display: 'flex', flexDirection: 'row' }}>
+            <select
+              className="importvideoDropdown"
+              value={this.state.selectedVideoType}
+              style={{ marginRight: 8 }}
+              onChange={(e: any) => {
+                console.log('setting to ', e.target.value);
+                this.setState({
+                  selectedVideo: null,
+                  videoList: [],
+                  addToPlaylists: [],
+                  removeFromPlaylists: [],
+                  selectedPlaylist: '',
+                  selectedVideoType: e.target.value,
+                });
+              }}
+            >
+              {this.state.videoTypes.map((item: any) => {
+                return (
+                  <option
+                    className="dropdown-option"
+                    key={item.id}
+                    value={item.id}
+                  >
+                    {item.name}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+        </div>
+        <div className="importVideoHeader">
+          <button className="adminButton" onClick={() => this.importYoutube()}>
+            Add All New
+          </button>
+          <button className="adminButton">Add Unlisted</button>
+
+          <button
+            className="adminButton"
+            onClick={() => {
+              this.setState({ showAddSpeaker: true });
+            }}
+          >
+            Add Speaker
+          </button>
+          <button
+            className="adminButton"
+            onClick={() => {
+              this.setState({ showManageSpeaker: true });
+            }}
+          >
+            Manage Speaker
+          </button>
+          <button
+            className="adminButton"
+            onClick={() => {
+              this.setState({ showAddSeries: true });
+            }}
+          >
+            Add Series
+          </button>
+          <button
+            className="adminButton"
+            onClick={() => {
+              this.setState({ showDeleteVideo: true });
+            }}
+          >
+            Delete a Video
+          </button>
+          <button
+            className="adminButton"
+            onClick={() => {
+              this.setState({ showDeletePlaylist: true });
+            }}
+          >
+            Delete a Playlist
+          </button>
+          <button
+            className="adminButton"
+            onClick={() => {
+              this.setState({ showAddCustomPlaylist: true });
+            }}
+          >
+            Add Custom Playlist
+          </button>
+        </div>
       </div>
     );
   }
@@ -454,79 +492,80 @@ class Index extends React.Component<EmptyProps, State> {
     const z = this.state.videoTypes.filter(
       (i: any) => i.id === this.state.selectedVideoType
     )[0];
+    if (this.state.getVideosState !== 'Done') return null;
+    if (this.state.videoList.length === 0) return <div>No Videos Found</div>;
     return (
-      <table className="divTable">
-        <thead>
-          <tr className="headRow">
-            {z != null
-              ? z.columns != null
-                ? z.columns
-                    .filter((i: any) => i.showInTable)
-                    .map((item: any) => {
-                      return (
-                        <td className="divCell" key={item.id}>
-                          {item.name}
-                        </td>
-                      );
-                    })
-                : null
-              : null}
-          </tr>
-        </thead>
-        <tbody>
-          {this.state.videoList.map((video: any) => {
-            return (
-              <tr
-                key={video.id}
-                className="divRow"
-                style={
-                  this.state.selectedVideo?.id === video?.id
-                    ? { backgroundColor: '#ffff99' }
-                    : {}
-                }
-                onClick={() => {
-                  this.handleVideoSelection(video);
-                  this.setState({ originalSpeakers: video.speakers });
-                }}
-              >
-                {z != null
-                  ? z.columns != null
-                    ? z.columns
-                        .filter((i: any) => i.showInTable)
-                        .map((item: any) => {
-                          const list: any = item.id.split('.');
-                          let value: any = video;
-                          for (const listItem of list) {
-                            if (listItem === 'speakers') {
-                              value = [...value.speakers.items];
-                            } else value = value[listItem];
-                          }
-                          if (list[0] !== 'speakers') {
-                            return (
-                              <td className="divCell" key={item.id}>
-                                {value}
-                              </td>
-                            );
-                          } else {
-                            return (
-                              <td className="divCell" key={item.id}>
-                                {value && value.length > 0
-                                  ? value.map((item: any) => {
-                                      if (item.speaker)
-                                        return item?.speaker?.id + ', ';
-                                    })
-                                  : null}
-                              </td>
-                            );
-                          }
-                        })
-                    : null
-                  : null}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      <div className="tableContainer">
+        <table className="divTable">
+          <thead>
+            <tr className="headRow">
+              {z != null
+                ? z.columns != null
+                  ? z.columns
+                      .filter((i: any) => i.showInTable)
+                      .map((item: any) => {
+                        return <th key={item.id}>{item.name}</th>;
+                      })
+                  : null
+                : null}
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.videoList.map((video: any, index: number) => {
+              const rowStyle =
+                this.state.selectedVideo?.id === video?.id
+                  ? { backgroundColor: 'lightgrey' }
+                  : index % 2 === 0
+                  ? { backgroundColor: '#efefef' }
+                  : {};
+              return (
+                <tr
+                  key={video.id}
+                  style={rowStyle}
+                  onClick={() => {
+                    this.handleVideoSelection(video);
+                    this.setState({ originalSpeakers: video.speakers });
+                  }}
+                >
+                  {z != null
+                    ? z.columns != null
+                      ? z.columns
+                          .filter((i: any) => i.showInTable)
+                          .map((item: any) => {
+                            const list: any = item.id.split('.');
+                            let value: any = video;
+
+                            value.Youtube.snippet.publishedAt = moment(
+                              value.Youtube.snippet.publishedAt
+                            ).format('lll');
+                            for (const listItem of list) {
+                              if (listItem === 'speakers') {
+                                value = [...value.speakers.items];
+                              } else value = value[listItem];
+                            }
+                            if (list[0] !== 'speakers') {
+                              return <td key={item.id}>{value}</td>;
+                            } else {
+                              return (
+                                <td key={item.id}>
+                                  {value && value.length > 0
+                                    ? value.map((item: any) => {
+                                        if (item.speaker)
+                                          return item?.speaker?.id + ', ';
+                                      })
+                                    : null}
+                                </td>
+                              );
+                            }
+                          })
+                      : null
+                    : null}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     );
   }
   async handleVideoSelection(video: any): Promise<void> {
@@ -874,6 +913,7 @@ class Index extends React.Component<EmptyProps, State> {
 
     return (
       <div>
+        {this.renderYoutube()}
         <table className="divTable2">
           <tbody>
             {this.state.selectedVideo
@@ -889,9 +929,9 @@ class Index extends React.Component<EmptyProps, State> {
                         }
 
                         return (
-                          <tr key={item.id} className="headRow">
-                            <td className="divCell">{item.name}</td>
-                            <td className="divCellEditor">
+                          <tr key={item.id}>
+                            <td>{item.name}</td>
+                            <td>
                               {item.readOnly ? (
                                 item.type === 'Date' ? (
                                   finalValue.split('T')[0]
@@ -900,7 +940,7 @@ class Index extends React.Component<EmptyProps, State> {
                                 )
                               ) : item.type === 'Int' ? (
                                 <input
-                                  className="textEditor"
+                                  className="importvideoInput"
                                   type="number"
                                   onChange={(e: any) =>
                                     this.writeField(item.id, e.target.value)
@@ -909,7 +949,7 @@ class Index extends React.Component<EmptyProps, State> {
                                 ></input>
                               ) : item.type === 'Date' ? (
                                 <input
-                                  className="textEditor"
+                                  className="importvideoInput"
                                   type="text"
                                   onChange={(e: any) =>
                                     this.writeField(item.id, e.target.value)
@@ -918,7 +958,7 @@ class Index extends React.Component<EmptyProps, State> {
                                 ></input>
                               ) : item.type === 'String' ? (
                                 <input
-                                  className="textEditor"
+                                  className="importvideoInput"
                                   onChange={(e: any) =>
                                     this.writeField(item.id, e.target.value)
                                   }
@@ -927,7 +967,7 @@ class Index extends React.Component<EmptyProps, State> {
                                 ></input>
                               ) : item.type === 'VideoType' ? (
                                 <select
-                                  className="dropdown2"
+                                  className="importvideoDropdown"
                                   onChange={(e: any) =>
                                     this.writeField(item.id, e.target.value)
                                   }
@@ -943,7 +983,7 @@ class Index extends React.Component<EmptyProps, State> {
                               ) : item.type === 'Speaker' ? (
                                 <>
                                   <select
-                                    className="dropdown2"
+                                    className="importvideoDropdown"
                                     style={{ width: '70%' }}
                                     onChange={(e: any) => {
                                       this.setState({
@@ -1006,6 +1046,7 @@ class Index extends React.Component<EmptyProps, State> {
                                     Add
                                   </button>
                                   <button
+                                    className="adminButton"
                                     onClick={() => {
                                       if (this.state.selectedSpeaker) {
                                         const speakerInSpeakers =
@@ -1045,7 +1086,7 @@ class Index extends React.Component<EmptyProps, State> {
                                 </>
                               ) : item.type === 'Series' ? (
                                 <select
-                                  className="dropdown2"
+                                  className="importvideoDropdown"
                                   onChange={(e: any) =>
                                     this.writeSeriesField(
                                       item.id,
@@ -1075,7 +1116,7 @@ class Index extends React.Component<EmptyProps, State> {
                               ) : item.type === 'CustomPlaylist' ? (
                                 <div>
                                   <select
-                                    className="dropdown2"
+                                    className="importvideoDropdown"
                                     onChange={(e: any) =>
                                       this.setState({
                                         selectedPlaylist: e.target.value,
@@ -1151,23 +1192,39 @@ class Index extends React.Component<EmptyProps, State> {
               : null}
           </tbody>
         </table>
-        <button onClick={() => this.save()}>Save</button>
-        {this.state.selectedVideo && (
-          <button
-            style={{ marginLeft: 20 }}
-            onClick={() => {
-              this.writeSeriesField('videoSeriesId', 'hidden-void-series');
-              this.writeField('videoTypes', 'hidden');
-              this.writeField(
-                'publishedDate',
-                this.state.selectedVideo.publishedDate
-              );
-              this.save();
-            }}
-          >
-            Move to Hidden
-          </button>
-        )}
+        <div style={{ marginTop: 20 }}>
+          {this.state.nextToken !== '' ? (
+            <button
+              className="adminButton"
+              onClick={() => this.getVideosQID(this.state.nextToken, null)}
+            >
+              Load More
+            </button>
+          ) : null}
+          {this.state.getVideosState === 'Done' &&
+          this.state.videoList?.length ? (
+            <button className="adminButton" onClick={() => this.save()}>
+              Save
+            </button>
+          ) : null}
+          {this.state.selectedVideo && (
+            <button
+              className="adminButton"
+              style={{ marginLeft: 20 }}
+              onClick={() => {
+                this.writeSeriesField('videoSeriesId', 'hidden-void-series');
+                this.writeField('videoTypes', 'hidden');
+                this.writeField(
+                  'publishedDate',
+                  this.state.selectedVideo.publishedDate
+                );
+                this.save();
+              }}
+            >
+              Move to Hidden
+            </button>
+          )}
+        </div>
       </div>
     );
   }
@@ -1264,7 +1321,7 @@ class Index extends React.Component<EmptyProps, State> {
           <div>
             Series Type:{' '}
             <select
-              className="dropdown2"
+              className="importvideoDropdown"
               value={this.state.toSaveSeries.seriesType}
               onChange={(item: any) => {
                 this.updateSeriesField('seriesType', item.target.value);
@@ -1502,7 +1559,7 @@ class Index extends React.Component<EmptyProps, State> {
           <div>
             Playlist Type:{' '}
             <select
-              className="dropdown2"
+              className="importvideoDropdown"
               value={this.state.toSavePlaylist.seriesType}
               onChange={(item: any) => {
                 this.updateCustomPlaylistField('seriesType', item.target.value);
@@ -1613,10 +1670,7 @@ class Index extends React.Component<EmptyProps, State> {
     return (
       <div>
         {this.renderHeader()}
-        <div className="videoSelectBox">
-          {this.renderVideos()}
-          {this.renderYoutube()}
-        </div>
+        {this.renderVideos()}
         {this.renderVideoEditor()}
         {this.renderAddSpeaker()}
         {this.renderManageSpeaker()}

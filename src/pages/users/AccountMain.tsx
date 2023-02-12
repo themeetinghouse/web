@@ -9,10 +9,10 @@ import TransactionsPage from './Transactions/TransactionsPage';
 import { useContext, useEffect, useState } from 'react';
 import ProfilePage from './ProfilePage/ProfilePage';
 import { UserContext } from 'components/Auth/UserContext';
-import Admin from '../admin/index';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import { Auth } from 'aws-amplify';
+import AdminWrapper from './AdminWrapper';
 let env = 'unknown';
 if (window.location === undefined) env = 'mobile';
 else if (window.location.hostname === 'localhost') env = 'dev';
@@ -116,7 +116,7 @@ export default function AccountMain(): JSX.Element {
                 component={PaymentMethodsPage}
               />
               <Route path={`/account/profile`} component={ProfilePage} />
-              <Route path={`/account/admin`} component={Admin} />
+              <Route path={`/account/admin`} component={AdminWrapper} />
             </Switch>
           </div>
 

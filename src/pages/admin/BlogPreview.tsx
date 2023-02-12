@@ -63,40 +63,44 @@ export default class VideoPlayer extends React.Component<Props, State> {
   render() {
     if (this.state.type === 'blog') {
       return (
-        <div className="blog-content">
-          <div>
+        <>
+          <div style={{ paddingBottom: 4 }}>
             Below is a preview... To refresh, please toggle &quot;Preview Your
             Work&quot;
           </div>
-          <h1 className="blog-h1">{this.state.data.title}</h1>
-          {this.state.data.author ? (
-            <div className="blog-details">
-              by <span className="blog-author">{this.state.data.author}</span>{' '}
-              on {format(this.state.data.publishDate, 'yyyy-MM-dd')}
-            </div>
-          ) : null}
-          <div className="ShareButtonDesktop">{this.shareButton()}</div>
-          <div className="body">{ReactHtmlParser(this.getMarkup())}</div>
-        </div>
+          <div className="blog-content">
+            <h1 className="blog-h1">{this.state.data.title}</h1>
+            {this.state.data.author ? (
+              <div className="blog-details">
+                by <span className="blog-author">{this.state.data.author}</span>{' '}
+                on {format(this.state.data.publishDate, 'yyyy-MM-dd')}
+              </div>
+            ) : null}
+            <div className="ShareButtonDesktop">{this.shareButton()}</div>
+            <div className="body">{ReactHtmlParser(this.getMarkup())}</div>
+          </div>
+        </>
       );
     } else if (this.state.type === 'notes') {
       return (
-        <div className="blog-content">
-          <div>
+        <>
+          <div style={{ paddingBottom: 4 }}>
             Below is a preview... To refresh, please toggle &quot;Preview Your
             Work&quot;
           </div>
-          <h1 className="blog-h1">{this.state.data.title}</h1>
-          <div className="body">
-            {ReactHtmlParser(this.getNotesMarkup('notes'))}
+          <div className="blog-content">
+            <h1 className="blog-h1">{this.state.data.title}</h1>
+            <div className="body">
+              {ReactHtmlParser(this.getNotesMarkup('notes'))}
+            </div>
+            <div
+              style={{ borderBottom: 'black 1px solid', width: '48.33vw' }}
+            ></div>
+            <div className="body">
+              {ReactHtmlParser(this.getNotesMarkup('questions'))}
+            </div>
           </div>
-          <div
-            style={{ borderBottom: 'black 1px solid', width: '48.33vw' }}
-          ></div>
-          <div className="body">
-            {ReactHtmlParser(this.getNotesMarkup('questions'))}
-          </div>
-        </div>
+        </>
       );
     } else {
       return null;

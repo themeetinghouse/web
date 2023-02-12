@@ -1,0 +1,95 @@
+.AnnouncementStatusContainer {
+  position: absolute;
+  top: 0px;
+  width: 120px;
+  height: 30px;
+  background-color: #ffc60b;
+  pointer-events: none;
+  &.upcoming {
+    background-color: #00ae42;
+  }
+  transform: rotate(-40deg);
+}
+.AnnouncementStatusLabel {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+  font-family: Graphik Web;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+.AnnouncementBoxInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+.AnnouncementBox {
+  &.expired {
+    opacity: 1;
+  }
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 4px;
+  border: solid 1px lightgrey;
+  cursor: default;
+  height: 350px;
+}
+.AnnouncementInfo {
+  &.title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #4a4a4a;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &.date {
+    font-size: 14px;
+    font-weight: 400;
+    color: #4a4a4a;
+    margin-bottom: 8px;
+  }
+  flex: 1;
+  font-family: Graphik Web;
+  font-size: 14px;
+  font-weight: 400;
+  color: #4a4a4a;
+}
+
+.AnnouncementImage {
+  object-fit: cover;
+  height: 150px;
+}
+.DeleteColor {
+  filter: invert(50%) sepia(93%) saturate(1866%) hue-rotate(331deg)
+    brightness(101%) contrast(101%);
+}
+.AnnouncementIcons {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.AnnouncementIconContainer {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  padding: 8px;
+  border-top: 1px solid lightgrey;
+  align-items: center;
+  &.rightIcon {
+    border-left: 1px solid lightgrey;
+  }
+  cursor: pointer;
+}
+.AnnouncementIconContainer:hover {
+  background-color: #f2f2f2;
+}
+.AnnouncementIcon {
+  width: 24px;
+  height: 24px;
+}

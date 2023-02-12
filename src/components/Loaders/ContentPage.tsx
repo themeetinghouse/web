@@ -48,17 +48,27 @@ export default function ContentPage(): ReactElement | null {
         }
         setContent(content);
         return;
-      } catch (e) {
-        console.error(e);
+      } catch (error1) {
+        console.error({ error1 });
         const location =
           S3_BUCKET + 'savedContent/' + jsonFile.toLowerCase() + '.json';
         console.log(location);
-        const response2 = await fetch(location);
-        content = await response2.json();
-        setPages({
-          [jsonFile]: content,
-          ...pages,
-        });
+        try {
+          const response2 = await fetch(location);
+          content = await response2.json();
+          setPages({
+            [jsonFile]: content,
+            ...pages,
+          });
+        } catch (error) {
+          console.error({ error });
+          const response3 = await fetch('/static/content/404.json');
+          content = await response3.json();
+          setPages({
+            [jsonFile]: content,
+            ...pages,
+          });
+        }
       }
 
       Analytics.record({

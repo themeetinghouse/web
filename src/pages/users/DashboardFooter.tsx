@@ -4,7 +4,7 @@ export default function DashboardFooter(): JSX.Element {
   return (
     <div className="Footer" style={hideFooter ? { display: 'none' } : {}}>
       <div style={{ flexDirection: 'column', margin: '0px 32px 0px 0px' }}>
-        <p className="footerText">2021 Tax Receipt</p>
+        <p className="footerText">Tax Receipt</p>
         <p className="subText">
           Download <a href="">here</a>
         </p>

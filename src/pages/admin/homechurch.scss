@@ -1,38 +1,20 @@
-td {
-  font-size: 12px;
-  padding: 0;
-  padding-left: 16px;
-  line-height: 28px;
-  max-width: 220px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  text-align: center;
-}
-
-th {
-  padding: 0px;
-  padding-left: 16px;
-  font-size: 12px;
-  text-align: center;
-}
-
-tfoot {
-  background-color: white;
+.HMTable {
+  background-color: #efefef;
+  width: 100%;
   & td {
-    text-align: left;
-    vertical-align: bottom;
-    padding-bottom: 16px;
+    font-size: 12px;
+    text-align: center;
   }
-}
-
-.HomeChurchCheckbox {
-  transform: scale(1.5);
+  & input {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .hmSearchInput {
   position: relative;
   text-align: left;
+
   & > img {
     position: absolute;
     top: 27px;
@@ -40,6 +22,7 @@ tfoot {
     z-index: 1000;
   }
   & > input {
+    height: unset;
     width: 50%;
     margin: 16px 0px;
     padding: 8px 8px 8px 38px;

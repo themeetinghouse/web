@@ -34,7 +34,48 @@ export const listSpeakers = /* GraphQL */ `
     }
   }
 `;
-
+export const listNotes = /* GraphQL */ `
+  query ListNotes(
+    $filter: ModelNotesFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listNotes(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        title
+        content
+        questions
+        jsonContent
+        jsonQuestions
+        episodeDescription
+        episodeNumber
+        seriesId
+        pdf
+        topics
+        tags
+        verses {
+          items {
+            id
+            key
+            offset
+            length
+            dataType
+            content
+            youVersionUri
+            noteId
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const listSpeakerVideos = `
 query ListSpeakerVideos(
   $id: ID

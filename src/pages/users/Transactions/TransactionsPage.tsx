@@ -24,7 +24,7 @@ export default function TransactionsPage(): JSX.Element {
   const isLoading = transData == null;
   return (
     <div className="TransactionsContainer">
-      {isLoading ? (
+      {false && isLoading ? (
         <div
           style={{
             display: 'flex',

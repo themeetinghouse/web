@@ -7,7 +7,7 @@ import * as queries from '../../graphql/queries';
 import * as mutations from '../../graphql/mutations';
 import API, { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import Storage from '@aws-amplify/storage';
-import { Modal } from 'reactstrap';
+import { Modal, Spinner } from 'reactstrap';
 import { v4 as uuidv4 } from 'uuid';
 import draftToHtml from 'draftjs-to-html';
 import htmlToDraft from 'html-to-draftjs';
@@ -62,6 +62,7 @@ type BlogPostList = NonNullable<
 >;
 
 interface State {
+  isLoading: boolean;
   blogObject: CreateBlogInput;
   blogToEditObject:
     | NonNullable<NonNullable<ListBlogsQuery['listBlogs']>['items']>[0]
@@ -94,7 +95,7 @@ interface State {
   showEditModal: boolean;
   newBlogSeriesModal: boolean;
   moreOptions: boolean;
-
+  showConfirmDelete: boolean;
   delete: string;
   understand: string;
   deleteBlogSeries: string;
@@ -119,6 +120,8 @@ class Index extends React.Component<EmptyProps, State> {
   constructor(props: EmptyProps) {
     super(props);
     this.state = {
+      isLoading: false,
+      showConfirmDelete: false,
       blogObject: {
         id: '',
         author: '',
@@ -189,12 +192,15 @@ class Index extends React.Component<EmptyProps, State> {
       toRemoveVideoSeriesIds: [],
       selectedVideoSeriesId: '',
     };
-
-    this.listSeries();
-    this.listBlogs();
-    this.listBlogSeries();
   }
-
+  async componentDidMount() {
+    this.setState({ isLoading: true }, async () => {
+      await this.listSeries();
+      await this.listBlogs();
+      await this.listBlogSeries();
+      this.setState({ isLoading: false });
+    });
+  }
   // QUERY FUNCTIONS
 
   async listSeries(nextToken?: string) {
@@ -319,32 +325,31 @@ class Index extends React.Component<EmptyProps, State> {
   };
 
   async handleDeleteBlogPost() {
-    if (this.state.understand === this.deleteConfirmation) {
-      try {
-        const deleteBlog = (await API.graphql({
-          query: mutations.deleteBlog,
-          variables: { input: { id: this.state.delete } },
-          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-        })) as GraphQLResult<DeleteBlogMutation>;
+    try {
+      const deleteBlog = (await API.graphql({
+        query: mutations.deleteBlog,
+        variables: { input: { id: this.state.delete } },
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      })) as GraphQLResult<DeleteBlogMutation>;
 
-        console.log({ 'Success mutations.deleteBlog: ': deleteBlog });
+      console.log({ 'Success mutations.deleteBlog: ': deleteBlog });
+      this.setState({
+        delete: '',
+        understand: '',
+        showAlert: `⚠️ Deleted: ${deleteBlog?.data?.deleteBlog?.id}`,
+      });
+      return true;
+    } catch (e: any) {
+      if (e.data?.deleteBlog) {
         this.setState({
           delete: '',
           understand: '',
-          showAlert: `⚠️ Deleted: ${deleteBlog?.data?.deleteBlog?.id}`,
+          showAlert: `⚠️ Deleted: ${e.data.deleteBlog.id}`,
         });
-      } catch (e: any) {
-        if (e.data?.deleteBlog) {
-          this.setState({
-            delete: '',
-            understand: '',
-            showAlert: `⚠️ Deleted: ${e.data.deleteBlog.id}`,
-          });
-        }
-        console.error(e);
+        return true;
       }
-    } else {
-      this.setState({ showAlert: '⚠️ You must type the confirmation message' });
+      return false;
+      console.error(e);
     }
   }
 
@@ -775,6 +780,7 @@ class Index extends React.Component<EmptyProps, State> {
         <label>
           Title:
           <input
+            className="blogInput"
             value={this.state.newBlogSeries.title ?? ''}
             onChange={(item) => {
               this.updateBlogSeries(item.target.value);
@@ -860,10 +866,11 @@ class Index extends React.Component<EmptyProps, State> {
       this.state;
 
     return (
-      <div>
+      <div style={{ flex: 1 }}>
         <b>Blog Status</b>
         <select
-          style={{ width: 200 }}
+          className="blogInput"
+          style={{ marginBottom: 16 }}
           onChange={(event) =>
             this.updateBlogField('blogStatus', event.target.value)
           }
@@ -884,6 +891,7 @@ class Index extends React.Component<EmptyProps, State> {
         <label>
           Add tags:
           <input
+            className="blogInput"
             type="text"
             value={this.state.currentTag}
             onChange={(event) =>
@@ -892,7 +900,7 @@ class Index extends React.Component<EmptyProps, State> {
           />
         </label>
         <button
-          className="tags-button"
+          className="toolbar-button"
           onClick={() => {
             this.updateBlogField(
               'tags',
@@ -904,13 +912,12 @@ class Index extends React.Component<EmptyProps, State> {
           Confirm Tag
         </button>
         <button
-          className="tags-button"
-          style={{ background: 'red' }}
+          className="toolbar-button black"
           onClick={() => this.updateBlogField('tags', [])}
         >
           Clear All Tags
         </button>
-        <div>
+        <div style={{ marginTop: 16 }}>
           <b>Current tags (click on tag to delete):</b>
           {this.state.blogObject?.tags?.map((item, index: number) => (
             <div
@@ -926,26 +933,27 @@ class Index extends React.Component<EmptyProps, State> {
         </div>
         <br />
 
-        <b>Add to Blog Series</b>
-        <button className="tags-button" onClick={() => this.handleAddBridge()}>
+        <b style={{ marginRight: 16 }}>Add to Blog Series</b>
+        <button
+          className="toolbar-button"
+          onClick={() => this.handleAddBridge()}
+        >
           Select
         </button>
         <button
-          className="tags-button"
-          style={{ background: 'red' }}
+          className="toolbar-button black"
           onClick={() => this.handleDeleteBridge()}
         >
           Clear
         </button>
         <button
-          className="tags-button"
-          style={{ background: 'green', width: 160 }}
+          className="toolbar-button"
           onClick={() => this.setState({ newBlogSeriesModal: true })}
         >
           New Blog Series
         </button>
         <select
-          style={{ width: 800 }}
+          className="blogInput"
           onChange={(event) =>
             this.setState({ currentBlogSeries: event.target.value })
           }
@@ -961,7 +969,7 @@ class Index extends React.Component<EmptyProps, State> {
             );
           })}
         </select>
-        <div>
+        <div style={{ marginTop: 16, marginBottom: 16 }}>
           <b>Current blog series: </b>{' '}
           {this.state.selectedBlogSeries.map((item: string, index: number) => (
             <div key={index} style={{ display: 'inline' }}>
@@ -972,6 +980,7 @@ class Index extends React.Component<EmptyProps, State> {
         <b>Blog Number in Series</b>
         <label>
           <input
+            className="blogInput"
             type="text"
             pattern="[0-9]{1,5}"
             value={this.state.blogObject.blogSeriesIndex ?? 0}
@@ -991,10 +1000,19 @@ class Index extends React.Component<EmptyProps, State> {
         </label>
         <br />
 
-        <div>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
           <h4>Video Series</h4>
-          <div style={{ display: 'flex', flexDirection: 'row' }}>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              flex: 1,
+              flexWrap: 'wrap',
+            }}
+          >
             <select
+              className="blogInput"
+              style={{ width: '100%', marginTop: 0 }}
               onChange={(e) =>
                 this.setState({
                   selectedVideoSeriesId: e.target.value,
@@ -1015,7 +1033,7 @@ class Index extends React.Component<EmptyProps, State> {
               })}
             </select>
             <button
-              className="add-button"
+              className="toolbar-button"
               onClick={() => {
                 if (
                   selectedVideoSeriesId &&
@@ -1034,7 +1052,7 @@ class Index extends React.Component<EmptyProps, State> {
             </button>
           </div>
         </div>
-        <div>
+        <div style={{ marginTop: 16 }}>
           Connected video series{' '}
           {toAddVideoSeriesIds.length > 0
             ? '(click a on series to remove)'
@@ -1052,95 +1070,84 @@ class Index extends React.Component<EmptyProps, State> {
             );
           })}
         </div>
-        <br />
 
-        <b className="calendar-label">Schedule publish date</b>
-        <DatePicker
-          selected={this.state.publishDate}
-          onChange={this.handlePublishDate}
-          dateFormat="yyyy-MM-dd"
-          minDate={new Date()}
-        />
-        <br />
-
-        <b className="calendar-label">
-          {this.state.disableCalendar ? 'No expiry' : 'Select expiry date'}
-        </b>
-        <button
-          className="tags-button"
-          onClick={() =>
-            this.setState({ disableCalendar: !this.state.disableCalendar })
-          }
-        >
-          {this.state.disableCalendar ? 'Add expiry' : 'No expiry'}
-        </button>
-        <DatePicker
-          selected={this.state.expireDate}
-          onChange={this.handleExpireDate}
-          dateFormat="yyyy-MM-dd"
-          disabled={this.state.disableCalendar}
-          minDate={new Date()}
-        />
-        <br />
-
-        <label>
-          Delete a blog (enter id):
-          <input
-            style={{ width: 400, height: 20 }}
-            type="text"
-            value={this.state.delete}
-            onChange={(event) => this.setState({ delete: event.target.value })}
+        <div style={{ marginTop: 16, marginBottom: 16 }}>
+          <b className="calendar-label">Schedule publish date</b>
+          <DatePicker
+            selected={this.state.publishDate}
+            onChange={this.handlePublishDate}
+            dateFormat="yyyy-MM-dd"
+            minDate={new Date()}
           />
-        </label>
-        <label>
-          Type &quot;{this.deleteConfirmation}&quot;:
-          <input
-            style={{ width: 400, height: 20 }}
-            type="text"
-            value={this.state.understand}
-            onChange={(event) =>
-              this.setState({ understand: event.target.value })
+          <br />
+
+          <b className="calendar-label">
+            {this.state.disableCalendar ? 'No expiry' : 'Select expiry date'}
+          </b>
+          <button
+            className="toolbar-button"
+            onClick={() =>
+              this.setState({ disableCalendar: !this.state.disableCalendar })
             }
+          >
+            {this.state.disableCalendar ? 'Add expiry' : 'No expiry'}
+          </button>
+          <DatePicker
+            selected={this.state.expireDate}
+            onChange={this.handleExpireDate}
+            dateFormat="yyyy-MM-dd"
+            disabled={this.state.disableCalendar}
+            minDate={new Date()}
           />
-        </label>
-        <button
-          className="tags-button"
-          style={{ background: 'red' }}
-          onClick={() => this.handleDeleteBlogPost()}
-        >
-          DELETE
-        </button>
-        <br />
+        </div>
 
-        <label>
-          Delete a blog series (enter id):
-          <input
-            style={{ width: 400, height: 20 }}
-            type="text"
-            value={this.state.deleteBlogSeries}
-            onChange={(event) =>
-              this.setState({ deleteBlogSeries: event.target.value })
-            }
-          />
-        </label>
-        <label>
-          Type &quot;{this.deleteConfirmation}&quot;:
-          <input
-            style={{ width: 400, height: 20 }}
-            type="text"
-            value={this.state.understandBlogSeries}
-            onChange={(event) =>
-              this.setState({ understandBlogSeries: event.target.value })
-            }
-          />
-        </label>
-        <button
-          className="tags-button"
-          style={{ background: 'red' }}
-          onClick={() => this.handleDeleteBlogSeries()}
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            flex: 1,
+            marginTop: 16,
+            columnGap: 16,
+          }}
         >
-          DELETE
-        </button>
+          <label style={{ flex: 1, marginBottom: 0 }}>
+            Delete a blog series (enter id):
+            <input
+              className="blogInput"
+              type="text"
+              value={this.state.deleteBlogSeries}
+              onChange={(event) =>
+                this.setState({ deleteBlogSeries: event.target.value })
+              }
+            />
+          </label>
+          <label style={{ flex: 1, marginBottom: 0 }}>
+            Type &quot;{this.deleteConfirmation}&quot;:
+            <input
+              className="blogInput"
+              type="text"
+              value={this.state.understandBlogSeries}
+              onChange={(event) =>
+                this.setState({ understandBlogSeries: event.target.value })
+              }
+            />
+          </label>
+          <label
+            style={{
+              flex: 1,
+              marginBottom: 0,
+              justifyContent: 'flex-end',
+              alignItems: 'flex-start',
+            }}
+          >
+            <button
+              className="toolbar-button"
+              onClick={() => this.handleDeleteBlogSeries()}
+            >
+              DELETE
+            </button>
+          </label>
+        </div>
       </div>
     );
   }
@@ -1151,10 +1158,23 @@ class Index extends React.Component<EmptyProps, State> {
 
     return (
       <div className="editor-container">
-        <div>
-          <label>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            rowGap: 10,
+            columnGap: 10,
+          }}
+        >
+          <label
+            style={{
+              flex: 1,
+            }}
+          >
             Select blog:
             <select
+              className="blogInput"
               onChange={(event) => {
                 this.setState({ selectedBlog: event.target.value });
                 if (event.target.value === 'none') {
@@ -1210,9 +1230,10 @@ class Index extends React.Component<EmptyProps, State> {
                 })}
             </select>
           </label>
-          <label>
+          <label style={{ flex: 1 }}>
             Filter by blog series:
             <select
+              className="blogInput"
               onChange={(event) => {
                 this.setState({
                   blogSeriesFilterList:
@@ -1238,9 +1259,10 @@ class Index extends React.Component<EmptyProps, State> {
               })}
             </select>
           </label>
-          <label style={{ marginLeft: 20 }}>
+          <label>
             Search all blogs:
             <input
+              className="blogInput"
               value={this.state.searchQuery}
               onChange={(e) => this.setState({ searchQuery: e.target.value })}
             />
@@ -1283,7 +1305,7 @@ class Index extends React.Component<EmptyProps, State> {
         <label>
           Title:
           <input
-            className="small-input"
+            className="blogInput"
             type="text"
             value={this.state.blogObject.blogTitle ?? ''}
             onChange={(event) => {
@@ -1298,7 +1320,7 @@ class Index extends React.Component<EmptyProps, State> {
         <label>
           Author:
           <input
-            className="small-input"
+            className="blogInput"
             type="text"
             value={this.state.blogObject.author ?? ''}
             onChange={(event) => {
@@ -1316,14 +1338,15 @@ class Index extends React.Component<EmptyProps, State> {
           style={
             this.state.blogObject?.description &&
             this.state.blogObject.description?.length >= 175
-              ? { color: 'red' }
-              : { color: 'black' }
+              ? { color: 'red', display: 'flex', flexDirection: 'column' }
+              : { color: 'black', display: 'flex', flexDirection: 'column' }
           }
         >
           Description (
           {this.state.blogObject.description?.length + ' of 200 characters'}):
           <textarea
-            className="big-input"
+            className="blogInput"
+            style={{ flex: 1 }}
             maxLength={200}
             value={this.state.blogObject.description ?? ''}
             onChange={(event) => {
@@ -1334,7 +1357,7 @@ class Index extends React.Component<EmptyProps, State> {
         <label>
           Custom ID:
           <input
-            className="small-input"
+            className="blogInput"
             type="text"
             value={this.state.customId}
             onChange={(event) => {
@@ -1346,15 +1369,18 @@ class Index extends React.Component<EmptyProps, State> {
             }}
           />
         </label>
-        <small style={{ marginLeft: 12 }}>
-          Lowercase letters and hyphens only (e.g. this-is-a-blog)
-        </small>
+        <small>Lowercase letters and hyphens only (e.g. this-is-a-blog)</small>
         <br />
 
-        <label>
+        <label
+          style={{
+            flexDirection: 'row',
+          }}
+        >
           Hide from main index
           <input
             type="checkbox"
+            style={{ marginLeft: 4 }}
             checked={this.state.blogObject.hiddenMainIndex ?? false}
             onChange={(e) =>
               this.updateBlogField('hiddenMainIndex', e.target.checked)
@@ -1394,6 +1420,7 @@ class Index extends React.Component<EmptyProps, State> {
         <label>
           Alt text:
           <input
+            className="blogInput"
             onChange={(e) => {
               (
                 ['babyHeroImage', 'bannerImage', 'squareImage'] as ImageSizes[]
@@ -1459,10 +1486,15 @@ class Index extends React.Component<EmptyProps, State> {
   renderToolbar() {
     return (
       <div className="toolbar-button-container">
-        <button className="toolbar-button" onClick={() => this.handleSave()}>
+        <button
+          disabled={this.state.isLoading}
+          className={`toolbar-button ${
+            this.state.isLoading ? 'disabled' : 'black'
+          }`}
+          onClick={() => this.handleSave()}
+        >
           SAVE
         </button>
-        <br />
         <button
           className="toolbar-button"
           onClick={() =>
@@ -1471,19 +1503,29 @@ class Index extends React.Component<EmptyProps, State> {
         >
           More options
         </button>
-        <br />
         <button
           className="toolbar-button"
           onClick={() =>
-            this.setState({ showPreview: !this.state.showPreview })
+            this.setState({ showPreview: !this.state.showPreview }, () => {
+              document.getElementById('blogs-preview')?.scrollIntoView({
+                behavior: 'smooth',
+              });
+            })
           }
         >
-          Preview your work
+          {this.state.showPreview ? 'Hide Preview' : 'Preview your work'}
         </button>
-        {this.state.showPreview ? (
-          <div style={{ width: 150 }}>Scroll to bottom of page for preview</div>
+        {this.state.selectedBlog !== 'none' ? (
+          <button
+            onClick={() => this.setState({ showConfirmDelete: true })}
+            className="toolbar-button"
+          >
+            Delete
+          </button>
         ) : null}
-        <br />
+        {this.state.isLoading ? (
+          <Spinner style={{ alignSelf: 'center' }} size="sm" />
+        ) : null}
       </div>
     );
   }
@@ -1496,21 +1538,54 @@ class Index extends React.Component<EmptyProps, State> {
       </Modal>
     );
   }
-
+  renderConfirmDelete() {
+    return (
+      <Modal isOpen={Boolean(this.state.showConfirmDelete)}>
+        <div style={{ padding: 16 }}>
+          <div style={{ paddingBottom: 40 }}>
+            Are you sure you want to delete {this.state.selectedBlog}
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'row' }}>
+            <button
+              className="toolbar-button black"
+              onClick={async () => {
+                const success = await this.handleDeleteBlogPost();
+                if (success) this.setState({ showConfirmDelete: false });
+              }}
+            >
+              Confirm
+            </button>
+            <button
+              className="toolbar-button"
+              onClick={() => this.setState({ showConfirmDelete: false })}
+            >
+              Dismiss
+            </button>
+          </div>
+        </div>
+      </Modal>
+    );
+  }
   render() {
     return (
       <div className="blog-container">
-        {this.renderAlert()}
-        {this.renderNewBlogSeriesModal()}
-        {this.renderToolbar()}
-        {this.renderTextInput()}
+        <div style={{ display: 'flex', flexDirection: 'column', rowGap: 16 }}>
+          {this.renderAlert()}
+          {this.renderConfirmDelete()}
+          {this.renderNewBlogSeriesModal()}
+          {this.renderToolbar()}
+          {this.renderTextInput()}
+        </div>
+
         <div className="preview">
           {this.state.showPreview ? (
-            <BlogPreview
-              data={this.state}
-              content={null}
-              type={'blog'}
-            ></BlogPreview>
+            <div id="blogs-preview">
+              <BlogPreview
+                data={this.state}
+                content={null}
+                type={'blog'}
+              ></BlogPreview>
+            </div>
           ) : null}
         </div>
       </div>

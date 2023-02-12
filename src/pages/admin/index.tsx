@@ -1,6 +1,5 @@
 import React, { lazy } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import AdminMenu from '../../components/Menu/AdminMenu';
 import { ClearCache } from './ClearCache';
 const ImportVideo = lazy(() => import('../../pages/admin/import-video'));
 const MoveVideo = lazy(() => import('../../pages/admin/move-video'));
@@ -17,8 +16,7 @@ const PeopleManager = lazy(() => import('./PeopleManager/PeopleManager'));
 class Admin extends React.Component {
   render() {
     return (
-      <div style={{ backgroundColor: '#e5e5e5', minHeight: 300 }}>
-        <AdminMenu />
+      <div>
         <Switch>
           <Route
             path="/account/admin/import-video"

@@ -27,7 +27,7 @@
         "text1": "We were unable to find your page",
         "text2": "Our vision is to introduce spiritually curious people to the Jesus-centred life, through a movement of Jesus-centred churches.",
         "link1Text": "Go to Home",
-        "link1Action": "/homepage"
+        "link1Action": "/"
       }
     ]
   }
