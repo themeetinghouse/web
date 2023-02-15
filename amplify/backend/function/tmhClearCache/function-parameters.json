@@ -8,5 +8,11 @@
       ]
     }
   },
-  "lambdaLayers": []
+  "lambdaLayers": [],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "distributionId",
+      "environmentVariableName": "DISTRIBUTION_ID"
+    }
+  ]
 }

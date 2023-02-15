@@ -19,6 +19,9 @@
     "hostingS3AndCloudFrontHostingBucketName": {
       "Type": "String",
       "Default": "hostingS3AndCloudFrontHostingBucketName"
+    },
+    "distributionId": {
+      "Type": "String"
     }
   },
   "Conditions": {
@@ -76,6 +79,9 @@
             },
             "HOSTING_S3ANDCLOUDFRONT_HOSTINGBUCKETNAME": {
               "Ref": "hostingS3AndCloudFrontHostingBucketName"
+            },
+            "DISTRIBUTION_ID": {
+              "Ref": "distributionId"
             }
           }
         },
@@ -192,16 +198,7 @@
               "Action": [
                 "cloudfront:CreateInvalidation"
               ],
-              "Resource": [
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:aws:cloudfront::119330689042:distribution/EYO80SQB3QGL"
-                    ]
-                  ]
-                }
-              ]
+              "Resource": "*"
             },
             {
               "Effect": "Allow",
