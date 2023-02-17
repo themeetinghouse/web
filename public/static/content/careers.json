@@ -140,6 +140,11 @@
           },
           {
             "type": "link",
+            "title": "Burlington Pastor",
+            "navigateTo": "/static/pdfs/careers/Burlington Lead Pastor.pdf"
+          },
+          {
+            "type": "link",
             "title": "Waterloo Regional Lead Pastor",
             "navigateTo": "/static/pdfs/careers/Waterloo Region - Regional Lead Pastor.pdf"
           },
@@ -166,6 +171,11 @@
             "type": "link",
             "title": "NextGen Project Coordinator & Administrator",
             "navigateTo": "/static/pdfs/careers/NextGen Project Coordinator & Administrator (Sept2022).pdf"
+          },
+          {
+            "type": "link",
+            "title": "Burlington Administrator",
+            "navigateTo": "/static/pdfs/careers/Administrator.pdf"
           },
           {
             "type": "link",
