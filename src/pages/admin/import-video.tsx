@@ -95,7 +95,11 @@ class Index extends React.Component<EmptyProps, State> {
       })
       .then((myJson) => {
         console.log(myJson);
-        this.setState({ videoTypes: myJson });
+        this.setState({
+          videoTypes: myJson.sort((typeA: any, typeB: any) =>
+            typeA.name.localeCompare(typeB.name)
+          ),
+        });
       })
       .catch((e: any) => {
         console.log({ 'Exception: ': e });
