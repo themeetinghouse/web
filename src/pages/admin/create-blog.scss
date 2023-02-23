@@ -11,7 +11,6 @@
 .blog-container {
   display: flex;
   flex-direction: column;
-  padding-bottom: 15vw;
 }
 .video-series-button {
   margin-right: 6px;
@@ -53,9 +52,10 @@
 }
 
 .DraftEditor-editorContainer {
-  margin-top: 20px;
   border: 1px solid lightgrey !important;
   padding-bottom: 20px;
+  margin-bottom: 60px;
+  min-height: 250px;
   padding-left: 5px;
   padding-right: 5px;
 }
@@ -63,7 +63,6 @@
 .editor-container {
   display: flex;
   flex-direction: column;
-  padding-bottom: 15vw;
   label {
     display: flex;
     flex-direction: column;
@@ -942,13 +941,14 @@
 .rdw-editor-toolbar {
   padding: 6px 5px 0;
   border-radius: 2px;
-  border: 1px solid #f1f1f1;
+  border: 1px solid lightgrey;
+  position: sticky !important;
+  top: 75px;
   display: flex;
   justify-content: flex-start;
   background: white;
   flex-wrap: wrap;
   font-size: 15px;
-  margin-bottom: 5px;
   user-select: none;
   order: 2;
 }
@@ -961,7 +961,7 @@
 .rdw-editor-wrapper {
   box-sizing: content-box;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
 }
 .rdw-editor-main blockquote {
   border-left: 5px solid #f1f1f1;
