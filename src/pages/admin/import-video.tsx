@@ -19,6 +19,7 @@ interface State {
   videoTypes: any;
   speakers: any;
   selectedSpeaker: any;
+  speakerWarning: string;
   selectedVideoType: any;
   selectedVideo: any;
   videoList: any;
@@ -55,6 +56,7 @@ class Index extends React.Component<EmptyProps, State> {
       originalSpeakers: {},
       selectedSpeaker: '',
       speakerFieldValue: '',
+      speakerWarning: '',
       hiddenSpeaker: false,
       showAddSeries: false,
       showAddSpeaker: false,
@@ -1039,6 +1041,9 @@ class Index extends React.Component<EmptyProps, State> {
                                               },
                                             ],
                                           };
+                                          this.setState({
+                                            speakerWarning: `Added ${this.state.selectedSpeaker} to video. Don't forget to save!`,
+                                          });
                                           return this.writeField(
                                             item.id,
                                             speakers
@@ -1079,6 +1084,7 @@ class Index extends React.Component<EmptyProps, State> {
                                           delete removeSpeakers.speakers;
                                           this.setState({
                                             toSaveVideo: removeSpeakers,
+                                            speakerWarning: `Deleted ${this.state.selectedSpeaker} from video!`,
                                           });
                                           this.deleteSpeakerVideo();
                                         }
@@ -1087,6 +1093,11 @@ class Index extends React.Component<EmptyProps, State> {
                                   >
                                     Delete
                                   </button>
+                                  <span
+                                    style={{ display: 'block', fontSize: 10 }}
+                                  >
+                                    {this.state.speakerWarning}
+                                  </span>
                                 </>
                               ) : item.type === 'Series' ? (
                                 <select
