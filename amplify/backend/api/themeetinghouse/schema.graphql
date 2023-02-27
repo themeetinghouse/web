@@ -1556,6 +1556,86 @@ type TMHPerson @model @searchable @auth(rules: [{allow: public, operations: [rea
   isOverseer: String @default(value: "false") @index(name: "byIsOverseer", queryField: "TMHPersonByIsOverseer")
 }
 
+enum LocationType {
+  REGION
+  COMMUNITY
+  ONLINE
+}
+
+type TMHLocation @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Admin"], provider: userPools}]) {
+  id: String!
+  name: String!
+  regionShortName: String
+  homeChurchGroupID: String
+  abbreviation: String
+  serviceTimeDescription: String
+  region: String
+  facebookPageIds: [String]
+  contact: TMHLocationContact
+  servicesTimes: [String]
+  youth: TMHLocationYouth
+  socials: [TMHLocationSocials]
+  location: TMHLocationAddress
+  pastors: [TMHPerson]
+  pastorEmail: AWSEmail
+  staff: [TMHPerson]
+  showInLocationMap: Boolean
+  showInLocationList: Boolean
+  locationType: LocationType
+}
+
+type TMHLocationAddress {
+  latitude: Float
+  longitude: Float
+  address1: String
+  address2: String
+  city: String
+  state: String
+  zip: String
+  country: String
+}
+
+type TMHLocationContact {
+  name: String
+  email: AWSEmail
+  phone: AWSPhone
+  extension: String
+}
+
+type TMHLocationSocials {
+  facebook: [TMHLocationSocialsFacebook]
+  instagram: [TMHLocationSocialsInstagram]
+  discord: String
+  twitter: String
+}
+
+type TMHLocationSocialsFacebook {
+  name: String
+  pageId: String
+  link: AWSURL
+}
+
+type TMHLocationSocialsInstagram {
+  name: String
+  username: String
+  pageId: String
+  link: AWSURL
+}
+
+type TMHLocationYouth {
+  name: String
+  googleMapLink: AWSURL
+}
+
+type TMHYouth {
+  age: String
+  location: TMHLocationYouth
+  time: String
+  facebookLink: AWSURL
+  instagramLink: AWSURL
+  contact: TMHLocationContact
+}
+
 type PrivateImage {
   userId: String
   filenameSmall: String
@@ -1573,4 +1653,4 @@ type Address {
   state: String
 }
                                           
-                                     
+                                                      

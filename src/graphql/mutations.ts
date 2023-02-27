@@ -38342,3 +38342,282 @@ export const deleteTMHPerson = /* GraphQL */ `
     }
   }
 `;
+export const createTMHLocation = /* GraphQL */ `
+  mutation CreateTMHLocation(
+    $input: CreateTMHLocationInput!
+    $condition: ModelTMHLocationConditionInput
+  ) {
+    createTMHLocation(input: $input, condition: $condition) {
+      id
+      name
+      regionShortName
+      homeChurchGroupID
+      abbreviation
+      serviceTimeDescription
+      region
+      facebookPageIds
+      contact {
+        name
+        email
+        phone
+        extension
+      }
+      servicesTimes
+      youth {
+        name
+        googleMapLink
+      }
+      socials {
+        facebook {
+          name
+          pageId
+          link
+        }
+        instagram {
+          name
+          username
+          pageId
+          link
+        }
+        discord
+        twitter
+      }
+      location {
+        latitude
+        longitude
+        address1
+        address2
+        city
+        state
+        zip
+        country
+      }
+      pastors {
+        id
+        email
+        firstName
+        lastName
+        image
+        phone
+        extension
+        sites
+        position
+        isTeacher
+        isStaff
+        isCoordinator
+        isOverseer
+        createdAt
+        updatedAt
+      }
+      pastorEmail
+      staff {
+        id
+        email
+        firstName
+        lastName
+        image
+        phone
+        extension
+        sites
+        position
+        isTeacher
+        isStaff
+        isCoordinator
+        isOverseer
+        createdAt
+        updatedAt
+      }
+      showInLocationMap
+      showInLocationList
+      locationType
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateTMHLocation = /* GraphQL */ `
+  mutation UpdateTMHLocation(
+    $input: UpdateTMHLocationInput!
+    $condition: ModelTMHLocationConditionInput
+  ) {
+    updateTMHLocation(input: $input, condition: $condition) {
+      id
+      name
+      regionShortName
+      homeChurchGroupID
+      abbreviation
+      serviceTimeDescription
+      region
+      facebookPageIds
+      contact {
+        name
+        email
+        phone
+        extension
+      }
+      servicesTimes
+      youth {
+        name
+        googleMapLink
+      }
+      socials {
+        facebook {
+          name
+          pageId
+          link
+        }
+        instagram {
+          name
+          username
+          pageId
+          link
+        }
+        discord
+        twitter
+      }
+      location {
+        latitude
+        longitude
+        address1
+        address2
+        city
+        state
+        zip
+        country
+      }
+      pastors {
+        id
+        email
+        firstName
+        lastName
+        image
+        phone
+        extension
+        sites
+        position
+        isTeacher
+        isStaff
+        isCoordinator
+        isOverseer
+        createdAt
+        updatedAt
+      }
+      pastorEmail
+      staff {
+        id
+        email
+        firstName
+        lastName
+        image
+        phone
+        extension
+        sites
+        position
+        isTeacher
+        isStaff
+        isCoordinator
+        isOverseer
+        createdAt
+        updatedAt
+      }
+      showInLocationMap
+      showInLocationList
+      locationType
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteTMHLocation = /* GraphQL */ `
+  mutation DeleteTMHLocation(
+    $input: DeleteTMHLocationInput!
+    $condition: ModelTMHLocationConditionInput
+  ) {
+    deleteTMHLocation(input: $input, condition: $condition) {
+      id
+      name
+      regionShortName
+      homeChurchGroupID
+      abbreviation
+      serviceTimeDescription
+      region
+      facebookPageIds
+      contact {
+        name
+        email
+        phone
+        extension
+      }
+      servicesTimes
+      youth {
+        name
+        googleMapLink
+      }
+      socials {
+        facebook {
+          name
+          pageId
+          link
+        }
+        instagram {
+          name
+          username
+          pageId
+          link
+        }
+        discord
+        twitter
+      }
+      location {
+        latitude
+        longitude
+        address1
+        address2
+        city
+        state
+        zip
+        country
+      }
+      pastors {
+        id
+        email
+        firstName
+        lastName
+        image
+        phone
+        extension
+        sites
+        position
+        isTeacher
+        isStaff
+        isCoordinator
+        isOverseer
+        createdAt
+        updatedAt
+      }
+      pastorEmail
+      staff {
+        id
+        email
+        firstName
+        lastName
+        image
+        phone
+        extension
+        sites
+        position
+        isTeacher
+        isStaff
+        isCoordinator
+        isOverseer
+        createdAt
+        updatedAt
+      }
+      showInLocationMap
+      showInLocationList
+      locationType
+      createdAt
+      updatedAt
+    }
+  }
+`;
