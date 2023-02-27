@@ -38364,8 +38364,20 @@ export const createTMHLocation = /* GraphQL */ `
       }
       servicesTimes
       youth {
-        name
-        googleMapLink
+        age
+        location {
+          name
+          googleMapLink
+        }
+        time
+        facebookLink
+        instagramLink
+        contact {
+          name
+          email
+          phone
+          extension
+        }
       }
       socials {
         facebook {
@@ -38457,8 +38469,20 @@ export const updateTMHLocation = /* GraphQL */ `
       }
       servicesTimes
       youth {
-        name
-        googleMapLink
+        age
+        location {
+          name
+          googleMapLink
+        }
+        time
+        facebookLink
+        instagramLink
+        contact {
+          name
+          email
+          phone
+          extension
+        }
       }
       socials {
         facebook {
@@ -38550,8 +38574,20 @@ export const deleteTMHLocation = /* GraphQL */ `
       }
       servicesTimes
       youth {
-        name
-        googleMapLink
+        age
+        location {
+          name
+          googleMapLink
+        }
+        time
+        facebookLink
+        instagramLink
+        contact {
+          name
+          email
+          phone
+          extension
+        }
       }
       socials {
         facebook {

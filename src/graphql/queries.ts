@@ -26026,8 +26026,20 @@ export const getTMHLocation = /* GraphQL */ `
       }
       servicesTimes
       youth {
-        name
-        googleMapLink
+        age
+        location {
+          name
+          googleMapLink
+        }
+        time
+        facebookLink
+        instagramLink
+        contact {
+          name
+          email
+          phone
+          extension
+        }
       }
       socials {
         facebook {
@@ -26121,8 +26133,20 @@ export const listTMHLocations = /* GraphQL */ `
         }
         servicesTimes
         youth {
-          name
-          googleMapLink
+          age
+          location {
+            name
+            googleMapLink
+          }
+          time
+          facebookLink
+          instagramLink
+          contact {
+            name
+            email
+            phone
+            extension
+          }
         }
         socials {
           facebook {

@@ -1573,7 +1573,7 @@ type TMHLocation @model @auth(rules: [{allow: public, operations: [read]}, {allo
   facebookPageIds: [String]
   contact: TMHLocationContact
   servicesTimes: [String]
-  youth: TMHLocationYouth
+  youth: TMHYouth
   socials: [TMHLocationSocials]
   location: TMHLocationAddress
   pastors: [TMHPerson]
@@ -1653,4 +1653,4 @@ type Address {
   state: String
 }
                                           
-                                                      
+                                                       
