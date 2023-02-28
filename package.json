@@ -39,7 +39,7 @@
     "amplify:tmhF1SyncGroupPermissions": "cd amplify/backend/function/tmhF1SyncGroupPermissions/src && tsc && cd -",
     "amplify:tmhF1AssignmentSync": "cd amplify/backend/function/tmhF1AssignmentSync/src && tsc && cd -",
     "amplify:themeetinghousea5cd4619": "cd amplify/backend/function/themeetinghousea5cd4619/src && rm -rf node_modules/sharp && SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm install --arch=x64 --platform=linux sharp",
-    "backup": "export z=$(date +%Y%m%d%H%M%S); mkdir backup/$z; cd backup/$z; dynamodump export-all-data --region=us-east-1 --profile default",
+    "backup": "export z=$(date +%Y%m%d%H%M%S); mkdir backup/$z; cd backup/$z; dynamodump export-all-data --region=us-east-1 --profile tmhprodnew",
     "images": "mkdir ./public/static/images-sized;batch-image-resizer -i ./public/static/images -o ./public/static/images-sized -s '[50, 500, 1000, 1500]'",
     "createTestList": "find . -exec echo -n '\"{}\" ', \\; | sed 's/.json//g' | sed 's|./||g'",
     "syncProd": "for z in $(find ./public/static -name \"*.json\"); do npx jsonlint $z -q; if [ $? -eq 1 ] ; then echo $z; exit;fi; done; aws s3 sync ./public/static s3://heeetingouse-20190312104205-hostingbucket-tmhprod/static ;  aws cloudfront create-invalidation --distribution-id EYO80SQB3QGL --paths '/static/*' --profile amplify",
