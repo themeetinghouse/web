@@ -210,3 +210,16 @@ h2 {
     margin-left: 0px !important;
   }
 }
+.editButtonModal1 {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 8px;
+  font-weight: 700;
+  padding-left: 30px;
+  padding-right: 30px;
+  &.white {
+    background-color: white;
+    border: 1.5px solid #1a1a1a;
+    color: black;
+  }
+}

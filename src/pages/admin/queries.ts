@@ -43,32 +43,6 @@ export const listNotes = /* GraphQL */ `
     listNotes(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        title
-        content
-        questions
-        jsonContent
-        jsonQuestions
-        episodeDescription
-        episodeNumber
-        seriesId
-        pdf
-        topics
-        tags
-        verses {
-          items {
-            id
-            key
-            offset
-            length
-            dataType
-            content
-            youVersionUri
-            noteId
-            createdAt
-            updatedAt
-          }
-          nextToken
-        }
         createdAt
         updatedAt
       }
