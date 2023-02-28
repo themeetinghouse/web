@@ -566,7 +566,7 @@
         },
         "getBiblePassage": {
           "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
-          "s3Key": "amplify-builds/getBiblePassage-6278574d574d547a6f4d-build.zip"
+          "s3Key": "amplify-builds/getBiblePassage-70583975747174765247-build.zip"
         },
         "tmhF1HomeChurch": {
           "userPoolId": "us-east-1_SuPgaibT1",

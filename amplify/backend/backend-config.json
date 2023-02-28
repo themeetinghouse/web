@@ -1,1689 +1,1697 @@
 {
-    "analytics": {
-        "themeetinghouse": {
-            "providerPlugin": "awscloudformation",
-            "service": "Pinpoint"
-        }
-    },
-    "api": {
-        "AdminQueries": {
-            "authorizationType": "AMAZON_COGNITO_USER_POOLS",
-            "dependsOn": [
-                {
-                    "attributes": [
-                        "UserPoolId"
-                    ],
-                    "category": "auth",
-                    "resourceName": "cognitodevtmh"
-                },
-                {
-                    "attributes": [
-                        "Arn",
-                        "Name"
-                    ],
-                    "category": "function",
-                    "resourceName": "AdminQueriesa1b7e2e8"
-                }
-            ],
-            "providerPlugin": "awscloudformation",
-            "service": "API Gateway"
-        },
-        "image": {
-            "dependsOn": [
-                {
-                    "attributes": [
-                        "Name",
-                        "Arn"
-                    ],
-                    "category": "function",
-                    "resourceName": "themeetinghousea5cd4619"
-                }
-            ],
-            "providerPlugin": "awscloudformation",
-            "service": "API Gateway"
-        },
-        "themeetinghouse": {
-            "dependsOn": [
-                {
-                    "attributes": [
-                        "UserPoolId"
-                    ],
-                    "category": "auth",
-                    "resourceName": "cognitodevtmh"
-                }
-            ],
-            "output": {
-                "authConfig": {
-                    "additionalAuthenticationProviders": [
-                        {
-                            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
-                            "userPoolConfig": {
-                                "userPoolId": "authcognitodevtmh"
-                            }
-                        },
-                        {
-                            "authenticationType": "AWS_IAM"
-                        }
-                    ],
-                    "defaultAuthentication": {
-                        "apiKeyConfig": {
-                            "apiKeyExpirationDate": "2023-01-08T02:05:04.868Z",
-                            "apiKeyExpirationDays": 180,
-                            "description": "website"
-                        },
-                        "authenticationType": "API_KEY"
-                    }
-                }
-            },
-            "providerPlugin": "awscloudformation",
-            "service": "AppSync"
-        }
-    },
-    "auth": {
-        "cognitodevtmh": {
-            "dependsOn": [
-                {
-                    "attributes": [
-                        "Arn",
-                        "Name"
-                    ],
-                    "category": "function",
-                    "resourceName": "cognitodevtmhPostAuthentication",
-                    "triggerProvider": "Cognito"
-                },
-                {
-                    "attributes": [
-                        "Arn",
-                        "Name"
-                    ],
-                    "category": "function",
-                    "resourceName": "cognitodevtmhPreSignup",
-                    "triggerProvider": "Cognito"
-                },
-                {
-                    "attributes": [
-                        "Arn",
-                        "Name"
-                    ],
-                    "category": "function",
-                    "resourceName": "cognitodevtmhPreTokenGeneration",
-                    "triggerProvider": "Cognito"
-                }
-            ],
-            "frontendAuthConfig": {
-                "mfaConfiguration": "OPTIONAL",
-                "mfaTypes": [
-                    "TOTP"
-                ],
-                "passwordProtectionSettings": {
-                    "passwordPolicyCharacters": [
-                        "REQUIRES_LOWERCASE",
-                        "REQUIRES_UPPERCASE",
-                        "REQUIRES_NUMBERS",
-                        "REQUIRES_SYMBOLS"
-                    ],
-                    "passwordPolicyMinLength": 8
-                },
-                "signupAttributes": [
-                    "EMAIL"
-                ],
-                "socialProviders": [],
-                "usernameAttributes": [],
-                "verificationMechanisms": [
-                    "EMAIL"
-                ]
-            },
-            "providerPlugin": "awscloudformation",
-            "service": "Cognito"
-        },
-        "userPoolGroups": {
-            "dependsOn": [
-                {
-                    "attributes": [
-                        "UserPoolId",
-                        "AppClientIDWeb",
-                        "AppClientID",
-                        "IdentityPoolId"
-                    ],
-                    "category": "auth",
-                    "resourceName": "cognitodevtmh"
-                }
-            ],
-            "providerPlugin": "awscloudformation",
-            "service": "Cognito-UserPool-Groups"
-        }
-    },
-    "function": {
-        "AdminQueriesa1b7e2e8": {
-            "build": true,
-            "dependsOn": [
-                {
-                    "attributes": [
-                        "UserPoolId"
-                    ],
-                    "category": "auth",
-                    "resourceName": "cognitodevtmh"
-                }
-            ],
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        },
-        "AdminQueriesb1fe1491": {
-            "build": true,
-            "dependsOn": [
-                {
-                    "attributes": [
-                        "UserPoolId"
-                    ],
-                    "category": "auth",
-                    "resourceName": "cognitodevtmh"
-                }
-            ],
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        },
-        "QandEh": {
-            "build": true,
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        },
-        "S3Triggerd90d52fa": {
-            "build": true,
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        },
-        "cognitodevtmhPostAuthentication": {
-            "build": true,
-            "dependsOn": [
-                {
-                    "attributes": [
-                        "GraphQLAPIIdOutput",
-                        "GraphQLAPIEndpointOutput",
-                        "GraphQLAPIKeyOutput"
-                    ],
-                    "category": "api",
-                    "resourceName": "themeetinghouse"
-                }
-            ],
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        },
-        "cognitodevtmhPreSignup": {
-            "build": true,
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        },
-        "cognitodevtmhPreTokenGeneration": {
-            "build": true,
-            "dependsOn": [
-                {
-                    "attributes": [
-                        "Arn"
-                    ],
-                    "category": "function",
-                    "resourceName": "themeetinghousetmhShared"
-                },
-                {
-                    "attributes": [
-                        "GraphQLAPIIdOutput",
-                        "GraphQLAPIEndpointOutput",
-                        "GraphQLAPIKeyOutput"
-                    ],
-                    "category": "api",
-                    "resourceName": "themeetinghouse"
-                }
-            ],
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        },
-        "emailHomeChurch": {
-            "build": true,
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        },
-        "getBiblePassage": {
-            "build": true,
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        },
-        "sitemapgenerator": {
-            "build": true,
-            "dependsOn": [
-                {
-                    "attributes": [
-                        "GraphQLAPIIdOutput",
-                        "GraphQLAPIEndpointOutput",
-                        "GraphQLAPIKeyOutput"
-                    ],
-                    "category": "api",
-                    "resourceName": "themeetinghouse"
-                },
-                {
-                    "attributes": [
-                        "HostingBucketName"
-                    ],
-                    "category": "hosting",
-                    "resourceName": "S3AndCloudFront"
-                }
-            ],
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        },
-        "socialBotHandler": {
-            "build": true,
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        },
-        "themeetinghousea5cd4619": {
-            "build": true,
-            "dependsOn": [
-                {
-                    "attributes": [
-                        "HostingBucketName"
-                    ],
-                    "category": "hosting",
-                    "resourceName": "S3AndCloudFront"
-                }
-            ],
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        },
-        "themeetinghousetmhShared": {
-            "build": true,
-            "providerPlugin": "awscloudformation",
-            "service": "LambdaLayer"
-        },
-        "tmhClearCache": {
-            "build": true,
-            "dependsOn": [
-                {
-                    "attributes": [
-                        "HostingBucketName"
-                    ],
-                    "category": "hosting",
-                    "resourceName": "S3AndCloudFront"
-                }
-            ],
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        },
-        "tmhF1AssignmentSync": {
-            "build": true,
-            "dependsOn": [
-                {
-                    "attributes": [
-                        "Arn"
-                    ],
-                    "category": "function",
-                    "resourceName": "themeetinghousetmhShared"
-                },
-                {
-                    "attributes": [
-                        "GraphQLAPIIdOutput",
-                        "GraphQLAPIEndpointOutput",
-                        "GraphQLAPIKeyOutput"
-                    ],
-                    "category": "api",
-                    "resourceName": "themeetinghouse"
-                }
-            ],
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        },
-        "tmhF1HomeChurch": {
-            "build": true,
-            "dependsOn": [
-                {
-                    "attributes": [
-                        "Arn"
-                    ],
-                    "category": "function",
-                    "resourceName": "themeetinghousetmhShared"
-                },
-                {
-                    "attributes": [
-                        "GraphQLAPIIdOutput",
-                        "GraphQLAPIEndpointOutput",
-                        "GraphQLAPIKeyOutput"
-                    ],
-                    "category": "api",
-                    "resourceName": "themeetinghouse"
-                },
-                {
-                    "attributes": [
-                        "Name"
-                    ],
-                    "category": "function",
-                    "resourceName": "getBiblePassage"
-                }
-            ],
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        },
-        "tmhF1LinkUser": {
-            "build": true,
-            "dependsOn": [
-                {
-                    "attributes": [
-                        "UserPoolId"
-                    ],
-                    "category": "auth",
-                    "resourceName": "cognitodevtmh"
-                },
-                {
-                    "attributes": [
-                        "GraphQLAPIIdOutput",
-                        "GraphQLAPIEndpointOutput",
-                        "GraphQLAPIKeyOutput"
-                    ],
-                    "category": "api",
-                    "resourceName": "themeetinghouse"
-                }
-            ],
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        },
-        "tmhF1SearchContributionReceipts": {
-            "build": true,
-            "dependsOn": [
-                {
-                    "attributes": [
-                        "GraphQLAPIIdOutput",
-                        "GraphQLAPIEndpointOutput",
-                        "GraphQLAPIKeyOutput"
-                    ],
-                    "category": "api",
-                    "resourceName": "themeetinghouse"
-                }
-            ],
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        },
-        "tmhF1SyncGroupPermissions": {
-            "build": true,
-            "dependsOn": [
-                {
-                    "attributes": [
-                        "UserPoolId"
-                    ],
-                    "category": "auth",
-                    "resourceName": "cognitodevtmh"
-                },
-                {
-                    "attributes": [
-                        "GraphQLAPIIdOutput",
-                        "GraphQLAPIEndpointOutput",
-                        "GraphQLAPIKeyOutput"
-                    ],
-                    "category": "api",
-                    "resourceName": "themeetinghouse"
-                }
-            ],
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        },
-        "tmhMetadataFacebook": {
-            "build": true,
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        },
-        "tmhPinpointCleanupEndpoints": {
-            "build": true,
-            "dependsOn": [
-                {
-                    "attributes": [
-                        "UserPoolId"
-                    ],
-                    "category": "auth",
-                    "resourceName": "cognitodevtmh"
-                },
-                {
-                    "attributes": [
-                        "Id",
-                        "Region"
-                    ],
-                    "category": "analytics",
-                    "resourceName": "themeetinghouse"
-                }
-            ],
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        },
-        "tmhPinpointCreateCampaign": {
-            "build": true,
-            "dependsOn": [
-                {
-                    "attributes": [
-                        "Id",
-                        "Region"
-                    ],
-                    "category": "analytics",
-                    "resourceName": "themeetinghouse"
-                }
-            ],
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        },
-        "tmhPinpointListSegments": {
-            "build": true,
-            "dependsOn": [
-                {
-                    "attributes": [
-                        "Id",
-                        "Region"
-                    ],
-                    "category": "analytics",
-                    "resourceName": "themeetinghouse"
-                }
-            ],
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        },
-        "tmhStripeAddCustomer": {
-            "build": true,
-            "dependsOn": [
-                {
-                    "attributes": [
-                        "GraphQLAPIIdOutput",
-                        "GraphQLAPIEndpointOutput",
-                        "GraphQLAPIKeyOutput"
-                    ],
-                    "category": "api",
-                    "resourceName": "themeetinghouse"
-                },
-                {
-                    "attributes": [
-                        "Arn"
-                    ],
-                    "category": "function",
-                    "resourceName": "themeetinghousetmhShared"
-                }
-            ],
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        },
-        "tmhStripeAddPayment": {
-            "build": true,
-            "dependsOn": [
-                {
-                    "attributes": [
-                        "GraphQLAPIIdOutput",
-                        "GraphQLAPIEndpointOutput",
-                        "GraphQLAPIKeyOutput"
-                    ],
-                    "category": "api",
-                    "resourceName": "themeetinghouse"
-                },
-                {
-                    "attributes": [
-                        "Arn"
-                    ],
-                    "category": "function",
-                    "resourceName": "themeetinghousetmhShared"
-                }
-            ],
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        },
-        "tmhStripeAddPaymentMethod": {
-            "build": true,
-            "dependsOn": [
-                {
-                    "attributes": [
-                        "GraphQLAPIIdOutput",
-                        "GraphQLAPIEndpointOutput",
-                        "GraphQLAPIKeyOutput"
-                    ],
-                    "category": "api",
-                    "resourceName": "themeetinghouse"
-                },
-                {
-                    "attributes": [
-                        "Arn"
-                    ],
-                    "category": "function",
-                    "resourceName": "themeetinghousetmhShared"
-                }
-            ],
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        },
-        "tmhStripeAddSubscription": {
-            "build": true,
-            "dependsOn": [
-                {
-                    "attributes": [
-                        "GraphQLAPIIdOutput",
-                        "GraphQLAPIEndpointOutput",
-                        "GraphQLAPIKeyOutput"
-                    ],
-                    "category": "api",
-                    "resourceName": "themeetinghouse"
-                },
-                {
-                    "attributes": [
-                        "Arn"
-                    ],
-                    "category": "function",
-                    "resourceName": "themeetinghousetmhShared"
-                }
-            ],
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        },
-        "tmhStripeDeletePaymentMethod": {
-            "build": true,
-            "dependsOn": [
-                {
-                    "attributes": [
-                        "GraphQLAPIIdOutput",
-                        "GraphQLAPIEndpointOutput",
-                        "GraphQLAPIKeyOutput"
-                    ],
-                    "category": "api",
-                    "resourceName": "themeetinghouse"
-                },
-                {
-                    "attributes": [
-                        "Arn"
-                    ],
-                    "category": "function",
-                    "resourceName": "themeetinghousetmhShared"
-                }
-            ],
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        },
-        "tmhStripeDeleteSubscription": {
-            "build": true,
-            "dependsOn": [
-                {
-                    "attributes": [
-                        "GraphQLAPIIdOutput",
-                        "GraphQLAPIEndpointOutput",
-                        "GraphQLAPIKeyOutput"
-                    ],
-                    "category": "api",
-                    "resourceName": "themeetinghouse"
-                },
-                {
-                    "attributes": [
-                        "Arn"
-                    ],
-                    "category": "function",
-                    "resourceName": "themeetinghousetmhShared"
-                }
-            ],
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        },
-        "tmhStripeListPaymentMethods": {
-            "build": true,
-            "dependsOn": [
-                {
-                    "attributes": [
-                        "GraphQLAPIIdOutput",
-                        "GraphQLAPIEndpointOutput",
-                        "GraphQLAPIKeyOutput"
-                    ],
-                    "category": "api",
-                    "resourceName": "themeetinghouse"
-                },
-                {
-                    "attributes": [
-                        "Arn"
-                    ],
-                    "category": "function",
-                    "resourceName": "themeetinghousetmhShared"
-                }
-            ],
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        },
-        "tmhStripeListSubscriptions": {
-            "build": true,
-            "dependsOn": [
-                {
-                    "attributes": [
-                        "GraphQLAPIIdOutput",
-                        "GraphQLAPIEndpointOutput",
-                        "GraphQLAPIKeyOutput"
-                    ],
-                    "category": "api",
-                    "resourceName": "themeetinghouse"
-                },
-                {
-                    "attributes": [
-                        "Arn"
-                    ],
-                    "category": "function",
-                    "resourceName": "themeetinghousetmhShared"
-                }
-            ],
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        },
-        "tmhnotespdf": {
-            "build": true,
-            "dependsOn": [
-                {
-                    "attributes": [
-                        "UserPoolId"
-                    ],
-                    "category": "auth",
-                    "resourceName": "cognitodevtmh"
-                },
-                {
-                    "attributes": [
-                        "BucketName"
-                    ],
-                    "category": "storage",
-                    "resourceName": "tmhusercontent"
-                }
-            ],
-            "providerPlugin": "awscloudformation",
-            "service": "Lambda"
-        }
-    },
-    "hosting": {
-        "S3AndCloudFront": {
-            "providerPlugin": "awscloudformation",
-            "service": "S3AndCloudFront"
-        }
-    },
-    "notifications": {
-        "themeetinghouse": {
-            "service": "Pinpoint",
-            "channels": [
-                "APNS"
-            ]
-        }
-    },
-    "parameters": {
-        "AMPLIFY_analytics_Pinpoint_Id": {
-            "usedBy": [
-                {
-                    "category": "analytics",
-                    "resourceName": "Pinpoint"
-                }
-            ]
-        },
-        "AMPLIFY_analytics_Pinpoint_Name": {
-            "usedBy": [
-                {
-                    "category": "analytics",
-                    "resourceName": "Pinpoint"
-                }
-            ]
-        },
-        "AMPLIFY_analytics_Pinpoint_Region": {
-            "usedBy": [
-                {
-                    "category": "analytics",
-                    "resourceName": "Pinpoint"
-                }
-            ]
-        },
-        "AMPLIFY_auth_cognitodevtmh_amazonAppId": {
-            "usedBy": [
-                {
-                    "category": "auth",
-                    "resourceName": "cognitodevtmh"
-                }
-            ]
-        },
-        "AMPLIFY_auth_cognitodevtmh_facebookAppId": {
-            "usedBy": [
-                {
-                    "category": "auth",
-                    "resourceName": "cognitodevtmh"
-                }
-            ]
-        },
-        "AMPLIFY_auth_cognitodevtmh_googleClientId": {
-            "usedBy": [
-                {
-                    "category": "auth",
-                    "resourceName": "cognitodevtmh"
-                }
-            ]
-        },
-        "AMPLIFY_function_AdminQueriesa1b7e2e8_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "AdminQueriesa1b7e2e8"
-                }
-            ]
-        },
-        "AMPLIFY_function_AdminQueriesa1b7e2e8_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "AdminQueriesa1b7e2e8"
-                }
-            ]
-        },
-        "AMPLIFY_function_AdminQueriesb1fe1491_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "AdminQueriesb1fe1491"
-                }
-            ]
-        },
-        "AMPLIFY_function_AdminQueriesb1fe1491_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "AdminQueriesb1fe1491"
-                }
-            ]
-        },
-        "AMPLIFY_function_QandEh_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "QandEh"
-                }
-            ]
-        },
-        "AMPLIFY_function_QandEh_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "QandEh"
-                }
-            ]
-        },
-        "AMPLIFY_function_S3Triggerd90d52fa_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "S3Triggerd90d52fa"
-                }
-            ]
-        },
-        "AMPLIFY_function_S3Triggerd90d52fa_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "S3Triggerd90d52fa"
-                }
-            ]
-        },
-        "AMPLIFY_function_cognitodevtmhPostAuthentication_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "cognitodevtmhPostAuthentication"
-                }
-            ]
-        },
-        "AMPLIFY_function_cognitodevtmhPostAuthentication_identityPoolId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "cognitodevtmhPostAuthentication"
-                }
-            ]
-        },
-        "AMPLIFY_function_cognitodevtmhPostAuthentication_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "cognitodevtmhPostAuthentication"
-                }
-            ]
-        },
-        "AMPLIFY_function_cognitodevtmhPostAuthentication_userPoolId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "cognitodevtmhPostAuthentication"
-                }
-            ]
-        },
-        "AMPLIFY_function_cognitodevtmhPostAuthentication_userPoolWebClientId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "cognitodevtmhPostAuthentication"
-                }
-            ]
-        },
-        "AMPLIFY_function_cognitodevtmhPreSignup_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "cognitodevtmhPreSignup"
-                }
-            ]
-        },
-        "AMPLIFY_function_cognitodevtmhPreSignup_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "cognitodevtmhPreSignup"
-                }
-            ]
-        },
-        "AMPLIFY_function_cognitodevtmhPreTokenGeneration_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "cognitodevtmhPreTokenGeneration"
-                }
-            ]
-        },
-        "AMPLIFY_function_cognitodevtmhPreTokenGeneration_identityPoolId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "cognitodevtmhPreTokenGeneration"
-                }
-            ]
-        },
-        "AMPLIFY_function_cognitodevtmhPreTokenGeneration_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "cognitodevtmhPreTokenGeneration"
-                }
-            ]
-        },
-        "AMPLIFY_function_cognitodevtmhPreTokenGeneration_userPoolId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "cognitodevtmhPreTokenGeneration"
-                }
-            ]
-        },
-        "AMPLIFY_function_cognitodevtmhPreTokenGeneration_userPoolWebClientId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "cognitodevtmhPreTokenGeneration"
-                }
-            ]
-        },
-        "AMPLIFY_function_emailHomeChurch_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "emailHomeChurch"
-                }
-            ]
-        },
-        "AMPLIFY_function_emailHomeChurch_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "emailHomeChurch"
-                }
-            ]
-        },
-        "AMPLIFY_function_getBiblePassage_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "getBiblePassage"
-                }
-            ]
-        },
-        "AMPLIFY_function_getBiblePassage_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "getBiblePassage"
-                }
-            ]
-        },
-        "AMPLIFY_function_sitemapgenerator_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "sitemapgenerator"
-                }
-            ]
-        },
-        "AMPLIFY_function_sitemapgenerator_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "sitemapgenerator"
-                }
-            ]
-        },
-        "AMPLIFY_function_socialBotHandler_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "socialBotHandler"
-                }
-            ]
-        },
-        "AMPLIFY_function_socialBotHandler_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "socialBotHandler"
-                }
-            ]
-        },
-        "AMPLIFY_function_themeetinghousea5cd4619_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "themeetinghousea5cd4619"
-                }
-            ]
-        },
-        "AMPLIFY_function_themeetinghousea5cd4619_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "themeetinghousea5cd4619"
-                }
-            ]
-        },
-        "AMPLIFY_function_themeetinghousetmhShared_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "themeetinghousetmhShared"
-                }
-            ]
-        },
-        "AMPLIFY_function_themeetinghousetmhShared_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "themeetinghousetmhShared"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhClearCache_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhClearCache"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhClearCache_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhClearCache"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhF1AssignmentSync_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhF1AssignmentSync"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhF1AssignmentSync_identityPoolId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhF1AssignmentSync"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhF1AssignmentSync_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhF1AssignmentSync"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhF1AssignmentSync_userPoolId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhF1AssignmentSync"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhF1AssignmentSync_userPoolWebClientId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhF1AssignmentSync"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhF1HomeChurch_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhF1HomeChurch"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhF1HomeChurch_identityPoolId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhF1HomeChurch"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhF1HomeChurch_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhF1HomeChurch"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhF1HomeChurch_userPoolId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhF1HomeChurch"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhF1HomeChurch_userPoolWebClientId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhF1HomeChurch"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhF1LinkUser_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhF1LinkUser"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhF1LinkUser_identityPoolId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhF1LinkUser"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhF1LinkUser_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhF1LinkUser"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhF1LinkUser_userPoolId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhF1LinkUser"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhF1LinkUser_userPoolWebClientId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhF1LinkUser"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhF1SearchContributionReceipts_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhF1SearchContributionReceipts"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhF1SearchContributionReceipts_identityPoolId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhF1SearchContributionReceipts"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhF1SearchContributionReceipts_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhF1SearchContributionReceipts"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhF1SearchContributionReceipts_userPoolId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhF1SearchContributionReceipts"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhF1SearchContributionReceipts_userPoolWebClientId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhF1SearchContributionReceipts"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhF1SyncGroupPermissions_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhF1SyncGroupPermissions"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhF1SyncGroupPermissions_identityPoolId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhF1SyncGroupPermissions"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhF1SyncGroupPermissions_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhF1SyncGroupPermissions"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhF1SyncGroupPermissions_userPoolId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhF1SyncGroupPermissions"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhF1SyncGroupPermissions_userPoolWebClientId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhF1SyncGroupPermissions"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhMetadataFacebook_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhMetadataFacebook"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhMetadataFacebook_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhMetadataFacebook"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhPinpointCleanupEndpoints_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhPinpointCleanupEndpoints"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhPinpointCleanupEndpoints_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhPinpointCleanupEndpoints"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhPinpointCreateCampaign_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhPinpointCreateCampaign"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhPinpointCreateCampaign_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhPinpointCreateCampaign"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhPinpointListSegments_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhPinpointListSegments"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhPinpointListSegments_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhPinpointListSegments"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeAddCustomer_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeAddCustomer"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeAddCustomer_identityPoolId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeAddCustomer"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeAddCustomer_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeAddCustomer"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeAddCustomer_userPoolId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeAddCustomer"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeAddCustomer_userPoolWebClientId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeAddCustomer"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeAddPaymentMethod_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeAddPaymentMethod"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeAddPaymentMethod_identityPoolId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeAddPaymentMethod"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeAddPaymentMethod_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeAddPaymentMethod"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeAddPaymentMethod_userPoolId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeAddPaymentMethod"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeAddPaymentMethod_userPoolWebClientId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeAddPaymentMethod"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeAddPayment_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeAddPayment"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeAddPayment_identityPoolId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeAddPayment"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeAddPayment_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeAddPayment"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeAddPayment_userPoolId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeAddPayment"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeAddPayment_userPoolWebClientId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeAddPayment"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeAddSubscription_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeAddSubscription"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeAddSubscription_identityPoolId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeAddSubscription"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeAddSubscription_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeAddSubscription"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeAddSubscription_userPoolId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeAddSubscription"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeAddSubscription_userPoolWebClientId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeAddSubscription"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeDeletePaymentMethod_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeDeletePaymentMethod"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeDeletePaymentMethod_identityPoolId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeDeletePaymentMethod"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeDeletePaymentMethod_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeDeletePaymentMethod"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeDeletePaymentMethod_userPoolId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeDeletePaymentMethod"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeDeletePaymentMethod_userPoolWebClientId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeDeletePaymentMethod"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeDeleteSubscription_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeDeleteSubscription"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeDeleteSubscription_identityPoolId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeDeleteSubscription"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeDeleteSubscription_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeDeleteSubscription"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeDeleteSubscription_userPoolId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeDeleteSubscription"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeDeleteSubscription_userPoolWebClientId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeDeleteSubscription"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeListPaymentMethods_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeListPaymentMethods"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeListPaymentMethods_identityPoolId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeListPaymentMethods"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeListPaymentMethods_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeListPaymentMethods"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeListPaymentMethods_userPoolId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeListPaymentMethods"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeListPaymentMethods_userPoolWebClientId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeListPaymentMethods"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeListSubscriptions_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeListSubscriptions"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeListSubscriptions_identityPoolId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeListSubscriptions"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeListSubscriptions_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeListSubscriptions"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeListSubscriptions_userPoolId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeListSubscriptions"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhStripeListSubscriptions_userPoolWebClientId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhStripeListSubscriptions"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhnotespdf_deploymentBucketName": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhnotespdf"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhnotespdf_identityPoolId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhnotespdf"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhnotespdf_s3Key": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhnotespdf"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhnotespdf_userPoolId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhnotespdf"
-                }
-            ]
-        },
-        "AMPLIFY_function_tmhnotespdf_userPoolWebClientId": {
-            "usedBy": [
-                {
-                    "category": "function",
-                    "resourceName": "tmhnotespdf"
-                }
-            ]
-        },
-        "AMPLIFY_notifications_Pinpoint_Id": {
-            "usedBy": [
-                {
-                    "category": "notifications",
-                    "resourceName": "Pinpoint"
-                }
-            ]
-        },
-        "AMPLIFY_notifications_Pinpoint_Name": {
-            "usedBy": [
-                {
-                    "category": "notifications",
-                    "resourceName": "Pinpoint"
-                }
-            ]
-        },
-        "AMPLIFY_notifications_Pinpoint_Region": {
-            "usedBy": [
-                {
-                    "category": "notifications",
-                    "resourceName": "Pinpoint"
-                }
-            ]
-        }
-    },
-    "storage": {
-        "tmhusercontent": {
-            "dependsOn": [
-                {
-                    "attributes": [
-                        "Name",
-                        "Arn",
-                        "LambdaExecutionRole"
-                    ],
-                    "category": "function",
-                    "resourceName": "S3Triggerd90d52fa"
-                }
-            ],
-            "providerPlugin": "awscloudformation",
-            "service": "S3"
-        }
+  "analytics": {
+    "themeetinghouse": {
+      "providerPlugin": "awscloudformation",
+      "service": "Pinpoint"
     }
+  },
+  "api": {
+    "AdminQueries": {
+      "authorizationType": "AMAZON_COGNITO_USER_POOLS",
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "cognitodevtmh"
+        },
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "AdminQueriesa1b7e2e8"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
+    "image": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "themeetinghousea5cd4619"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
+    "themeetinghouse": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "cognitodevtmh"
+        }
+      ],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "authcognitodevtmh"
+              }
+            },
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ],
+          "defaultAuthentication": {
+            "apiKeyConfig": {
+              "apiKeyExpirationDate": "2023-01-08T02:05:04.868Z",
+              "apiKeyExpirationDays": 180,
+              "description": "website"
+            },
+            "authenticationType": "API_KEY"
+          }
+        }
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync"
+    }
+  },
+  "auth": {
+    "cognitodevtmh": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "cognitodevtmhPostAuthentication",
+          "triggerProvider": "Cognito"
+        },
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "cognitodevtmhPreSignup",
+          "triggerProvider": "Cognito"
+        },
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "cognitodevtmhPreTokenGeneration",
+          "triggerProvider": "Cognito"
+        }
+      ],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OPTIONAL",
+        "mfaTypes": [
+          "TOTP"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [
+            "REQUIRES_LOWERCASE",
+            "REQUIRES_UPPERCASE",
+            "REQUIRES_NUMBERS",
+            "REQUIRES_SYMBOLS"
+          ],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito"
+    },
+    "userPoolGroups": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId",
+            "AppClientIDWeb",
+            "AppClientID",
+            "IdentityPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "cognitodevtmh"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito-UserPool-Groups"
+    }
+  },
+  "function": {
+    "AdminQueriesa1b7e2e8": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "cognitodevtmh"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "AdminQueriesb1fe1491": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "cognitodevtmh"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "QandEh": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "S3Triggerd90d52fa": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "cognitodevtmhPostAuthentication": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "themeetinghouse"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "cognitodevtmhPreSignup": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "cognitodevtmhPreTokenGeneration": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "themeetinghousetmhShared"
+        },
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "themeetinghouse"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "emailHomeChurch": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "getBiblePassage": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "sitemapgenerator": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "themeetinghouse"
+        },
+        {
+          "attributes": [
+            "HostingBucketName"
+          ],
+          "category": "hosting",
+          "resourceName": "S3AndCloudFront"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "socialBotHandler": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "themeetinghousea5cd4619": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "HostingBucketName"
+          ],
+          "category": "hosting",
+          "resourceName": "S3AndCloudFront"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "themeetinghousetmhShared": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "LambdaLayer"
+    },
+    "tmhClearCache": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "HostingBucketName"
+          ],
+          "category": "hosting",
+          "resourceName": "S3AndCloudFront"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "tmhF1AssignmentSync": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "themeetinghousetmhShared"
+        },
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "themeetinghouse"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "tmhF1HomeChurch": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "themeetinghousetmhShared"
+        },
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "themeetinghouse"
+        },
+        {
+          "attributes": [
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "getBiblePassage"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "tmhF1LinkUser": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "cognitodevtmh"
+        },
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "themeetinghouse"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "tmhF1SearchContributionReceipts": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "themeetinghouse"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "tmhF1SyncGroupPermissions": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "cognitodevtmh"
+        },
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "themeetinghouse"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "tmhMetadataFacebook": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "tmhPinpointCleanupEndpoints": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "cognitodevtmh"
+        },
+        {
+          "attributes": [
+            "Id",
+            "Region"
+          ],
+          "category": "analytics",
+          "resourceName": "themeetinghouse"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "tmhPinpointCreateCampaign": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Id",
+            "Region"
+          ],
+          "category": "analytics",
+          "resourceName": "themeetinghouse"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "tmhPinpointListSegments": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Id",
+            "Region"
+          ],
+          "category": "analytics",
+          "resourceName": "themeetinghouse"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "tmhStripeAddCustomer": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "themeetinghouse"
+        },
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "themeetinghousetmhShared"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "tmhStripeAddPayment": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "themeetinghouse"
+        },
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "themeetinghousetmhShared"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "tmhStripeAddPaymentMethod": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "themeetinghouse"
+        },
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "themeetinghousetmhShared"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "tmhStripeAddSubscription": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "themeetinghouse"
+        },
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "themeetinghousetmhShared"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "tmhStripeDeletePaymentMethod": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "themeetinghouse"
+        },
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "themeetinghousetmhShared"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "tmhStripeDeleteSubscription": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "themeetinghouse"
+        },
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "themeetinghousetmhShared"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "tmhStripeListPaymentMethods": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "themeetinghouse"
+        },
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "themeetinghousetmhShared"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "tmhStripeListSubscriptions": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "themeetinghouse"
+        },
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "themeetinghousetmhShared"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "tmhnotespdf": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "cognitodevtmh"
+        },
+        {
+          "attributes": [
+            "BucketName"
+          ],
+          "category": "storage",
+          "resourceName": "tmhusercontent"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "hosting": {
+    "S3AndCloudFront": {
+      "providerPlugin": "awscloudformation",
+      "service": "S3AndCloudFront"
+    }
+  },
+  "notifications": {
+    "themeetinghouse": {
+      "channels": [
+        "APNS"
+      ],
+      "service": "Pinpoint"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_analytics_Pinpoint_Id": {
+      "usedBy": [
+        {
+          "category": "analytics",
+          "resourceName": "Pinpoint"
+        }
+      ]
+    },
+    "AMPLIFY_analytics_Pinpoint_Name": {
+      "usedBy": [
+        {
+          "category": "analytics",
+          "resourceName": "Pinpoint"
+        }
+      ]
+    },
+    "AMPLIFY_analytics_Pinpoint_Region": {
+      "usedBy": [
+        {
+          "category": "analytics",
+          "resourceName": "Pinpoint"
+        }
+      ]
+    },
+    "AMPLIFY_auth_cognitodevtmh_amazonAppId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "cognitodevtmh"
+        }
+      ]
+    },
+    "AMPLIFY_auth_cognitodevtmh_facebookAppId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "cognitodevtmh"
+        }
+      ]
+    },
+    "AMPLIFY_auth_cognitodevtmh_googleClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "cognitodevtmh"
+        }
+      ]
+    },
+    "AMPLIFY_function_AdminQueriesa1b7e2e8_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "AdminQueriesa1b7e2e8"
+        }
+      ]
+    },
+    "AMPLIFY_function_AdminQueriesa1b7e2e8_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "AdminQueriesa1b7e2e8"
+        }
+      ]
+    },
+    "AMPLIFY_function_AdminQueriesb1fe1491_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "AdminQueriesb1fe1491"
+        }
+      ]
+    },
+    "AMPLIFY_function_AdminQueriesb1fe1491_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "AdminQueriesb1fe1491"
+        }
+      ]
+    },
+    "AMPLIFY_function_QandEh_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "QandEh"
+        }
+      ]
+    },
+    "AMPLIFY_function_QandEh_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "QandEh"
+        }
+      ]
+    },
+    "AMPLIFY_function_S3Triggerd90d52fa_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "S3Triggerd90d52fa"
+        }
+      ]
+    },
+    "AMPLIFY_function_S3Triggerd90d52fa_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "S3Triggerd90d52fa"
+        }
+      ]
+    },
+    "AMPLIFY_function_cognitodevtmhPostAuthentication_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "cognitodevtmhPostAuthentication"
+        }
+      ]
+    },
+    "AMPLIFY_function_cognitodevtmhPostAuthentication_identityPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "cognitodevtmhPostAuthentication"
+        }
+      ]
+    },
+    "AMPLIFY_function_cognitodevtmhPostAuthentication_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "cognitodevtmhPostAuthentication"
+        }
+      ]
+    },
+    "AMPLIFY_function_cognitodevtmhPostAuthentication_userPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "cognitodevtmhPostAuthentication"
+        }
+      ]
+    },
+    "AMPLIFY_function_cognitodevtmhPostAuthentication_userPoolWebClientId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "cognitodevtmhPostAuthentication"
+        }
+      ]
+    },
+    "AMPLIFY_function_cognitodevtmhPreSignup_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "cognitodevtmhPreSignup"
+        }
+      ]
+    },
+    "AMPLIFY_function_cognitodevtmhPreSignup_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "cognitodevtmhPreSignup"
+        }
+      ]
+    },
+    "AMPLIFY_function_cognitodevtmhPreTokenGeneration_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "cognitodevtmhPreTokenGeneration"
+        }
+      ]
+    },
+    "AMPLIFY_function_cognitodevtmhPreTokenGeneration_identityPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "cognitodevtmhPreTokenGeneration"
+        }
+      ]
+    },
+    "AMPLIFY_function_cognitodevtmhPreTokenGeneration_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "cognitodevtmhPreTokenGeneration"
+        }
+      ]
+    },
+    "AMPLIFY_function_cognitodevtmhPreTokenGeneration_userPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "cognitodevtmhPreTokenGeneration"
+        }
+      ]
+    },
+    "AMPLIFY_function_cognitodevtmhPreTokenGeneration_userPoolWebClientId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "cognitodevtmhPreTokenGeneration"
+        }
+      ]
+    },
+    "AMPLIFY_function_emailHomeChurch_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "emailHomeChurch"
+        }
+      ]
+    },
+    "AMPLIFY_function_emailHomeChurch_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "emailHomeChurch"
+        }
+      ]
+    },
+    "AMPLIFY_function_getBiblePassage_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getBiblePassage"
+        }
+      ]
+    },
+    "AMPLIFY_function_getBiblePassage_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "getBiblePassage"
+        }
+      ]
+    },
+    "AMPLIFY_function_sitemapgenerator_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "sitemapgenerator"
+        }
+      ]
+    },
+    "AMPLIFY_function_sitemapgenerator_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "sitemapgenerator"
+        }
+      ]
+    },
+    "AMPLIFY_function_socialBotHandler_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "socialBotHandler"
+        }
+      ]
+    },
+    "AMPLIFY_function_socialBotHandler_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "socialBotHandler"
+        }
+      ]
+    },
+    "AMPLIFY_function_themeetinghousea5cd4619_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "themeetinghousea5cd4619"
+        }
+      ]
+    },
+    "AMPLIFY_function_themeetinghousea5cd4619_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "themeetinghousea5cd4619"
+        }
+      ]
+    },
+    "AMPLIFY_function_themeetinghousetmhShared_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "themeetinghousetmhShared"
+        }
+      ]
+    },
+    "AMPLIFY_function_themeetinghousetmhShared_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "themeetinghousetmhShared"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhClearCache_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhClearCache"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhClearCache_distributionId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhClearCache"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhClearCache_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhClearCache"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhF1AssignmentSync_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhF1AssignmentSync"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhF1AssignmentSync_identityPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhF1AssignmentSync"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhF1AssignmentSync_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhF1AssignmentSync"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhF1AssignmentSync_userPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhF1AssignmentSync"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhF1AssignmentSync_userPoolWebClientId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhF1AssignmentSync"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhF1HomeChurch_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhF1HomeChurch"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhF1HomeChurch_identityPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhF1HomeChurch"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhF1HomeChurch_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhF1HomeChurch"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhF1HomeChurch_userPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhF1HomeChurch"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhF1HomeChurch_userPoolWebClientId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhF1HomeChurch"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhF1LinkUser_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhF1LinkUser"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhF1LinkUser_identityPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhF1LinkUser"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhF1LinkUser_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhF1LinkUser"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhF1LinkUser_userPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhF1LinkUser"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhF1LinkUser_userPoolWebClientId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhF1LinkUser"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhF1SearchContributionReceipts_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhF1SearchContributionReceipts"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhF1SearchContributionReceipts_identityPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhF1SearchContributionReceipts"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhF1SearchContributionReceipts_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhF1SearchContributionReceipts"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhF1SearchContributionReceipts_userPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhF1SearchContributionReceipts"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhF1SearchContributionReceipts_userPoolWebClientId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhF1SearchContributionReceipts"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhF1SyncGroupPermissions_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhF1SyncGroupPermissions"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhF1SyncGroupPermissions_identityPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhF1SyncGroupPermissions"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhF1SyncGroupPermissions_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhF1SyncGroupPermissions"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhF1SyncGroupPermissions_userPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhF1SyncGroupPermissions"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhF1SyncGroupPermissions_userPoolWebClientId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhF1SyncGroupPermissions"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhMetadataFacebook_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhMetadataFacebook"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhMetadataFacebook_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhMetadataFacebook"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhPinpointCleanupEndpoints_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhPinpointCleanupEndpoints"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhPinpointCleanupEndpoints_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhPinpointCleanupEndpoints"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhPinpointCreateCampaign_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhPinpointCreateCampaign"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhPinpointCreateCampaign_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhPinpointCreateCampaign"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhPinpointListSegments_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhPinpointListSegments"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhPinpointListSegments_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhPinpointListSegments"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeAddCustomer_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeAddCustomer"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeAddCustomer_identityPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeAddCustomer"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeAddCustomer_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeAddCustomer"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeAddCustomer_userPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeAddCustomer"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeAddCustomer_userPoolWebClientId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeAddCustomer"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeAddPaymentMethod_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeAddPaymentMethod"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeAddPaymentMethod_identityPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeAddPaymentMethod"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeAddPaymentMethod_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeAddPaymentMethod"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeAddPaymentMethod_userPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeAddPaymentMethod"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeAddPaymentMethod_userPoolWebClientId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeAddPaymentMethod"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeAddPayment_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeAddPayment"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeAddPayment_identityPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeAddPayment"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeAddPayment_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeAddPayment"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeAddPayment_userPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeAddPayment"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeAddPayment_userPoolWebClientId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeAddPayment"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeAddSubscription_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeAddSubscription"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeAddSubscription_identityPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeAddSubscription"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeAddSubscription_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeAddSubscription"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeAddSubscription_userPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeAddSubscription"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeAddSubscription_userPoolWebClientId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeAddSubscription"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeDeletePaymentMethod_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeDeletePaymentMethod"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeDeletePaymentMethod_identityPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeDeletePaymentMethod"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeDeletePaymentMethod_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeDeletePaymentMethod"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeDeletePaymentMethod_userPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeDeletePaymentMethod"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeDeletePaymentMethod_userPoolWebClientId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeDeletePaymentMethod"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeDeleteSubscription_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeDeleteSubscription"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeDeleteSubscription_identityPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeDeleteSubscription"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeDeleteSubscription_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeDeleteSubscription"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeDeleteSubscription_userPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeDeleteSubscription"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeDeleteSubscription_userPoolWebClientId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeDeleteSubscription"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeListPaymentMethods_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeListPaymentMethods"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeListPaymentMethods_identityPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeListPaymentMethods"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeListPaymentMethods_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeListPaymentMethods"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeListPaymentMethods_userPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeListPaymentMethods"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeListPaymentMethods_userPoolWebClientId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeListPaymentMethods"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeListSubscriptions_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeListSubscriptions"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeListSubscriptions_identityPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeListSubscriptions"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeListSubscriptions_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeListSubscriptions"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeListSubscriptions_userPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeListSubscriptions"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeListSubscriptions_userPoolWebClientId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeListSubscriptions"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhnotespdf_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhnotespdf"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhnotespdf_identityPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhnotespdf"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhnotespdf_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhnotespdf"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhnotespdf_userPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhnotespdf"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhnotespdf_userPoolWebClientId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhnotespdf"
+        }
+      ]
+    },
+    "AMPLIFY_notifications_Pinpoint_Id": {
+      "usedBy": [
+        {
+          "category": "notifications",
+          "resourceName": "Pinpoint"
+        }
+      ]
+    },
+    "AMPLIFY_notifications_Pinpoint_Name": {
+      "usedBy": [
+        {
+          "category": "notifications",
+          "resourceName": "Pinpoint"
+        }
+      ]
+    },
+    "AMPLIFY_notifications_Pinpoint_Region": {
+      "usedBy": [
+        {
+          "category": "notifications",
+          "resourceName": "Pinpoint"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "tmhusercontent": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "LambdaExecutionRole"
+          ],
+          "category": "function",
+          "resourceName": "S3Triggerd90d52fa"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "S3"
+    }
+  }
 }
