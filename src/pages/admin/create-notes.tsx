@@ -886,6 +886,7 @@ class Index extends React.Component<EmptyProps, State> {
           editorState={this.state.notesEditorState}
           onEditorStateChange={this.onNotesChange}
           spellCheck={true}
+          editorStyle={{ zIndex: 9, position: 'relative' }}
           toolbar={toolBarProps}
         />
 
@@ -894,6 +895,8 @@ class Index extends React.Component<EmptyProps, State> {
           editorState={this.state.questionsEditorState}
           onEditorStateChange={this.onQuestionsChange}
           spellCheck={true}
+          editorStyle={{ zIndex: 10, position: 'relative' }}
+          toolbarStyle={{ zIndex: 11 }}
           toolbar={toolBarProps}
         />
         <label style={{ marginTop: 16 }}>

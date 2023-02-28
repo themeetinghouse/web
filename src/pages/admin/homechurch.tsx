@@ -343,157 +343,195 @@ export default function homechurch(): JSX.Element {
           <Spinner />
         </div>
       ) : (
-        <table className="HMTable">
-          <thead>
-            <tr style={{ backgroundColor: 'white', margin: 16 }}>
-              <th colSpan={9}>
-                <div className="hmSearchInput">
-                  <img
-                    width="15"
-                    height="15"
-                    src="/static/svg/Search.svg"
-                    alt="Search"
-                  />
-                  <input
-                    className="hmSearchInput"
-                    placeholder="Search by name.."
-                    value={search}
-                    onChange={(e) => {
-                      if (page !== 0) setPage(0);
-                      setSearch(e.target.value);
-                    }}
-                  />
-                </div>
-              </th>
-              <th colSpan={2}>{isUpdating ? <Spinner /> : null}</th>
-            </tr>
-            <tr>
-              <th>id</th>
-              <th>Name</th>
-              <th>Pet Free</th>
-              <th>Transit Accessible</th>
-              <th>Family Friendly</th>
-              <th>Vaccination Required</th>
-              <th>Young Adult</th>
-              <th>Is Online</th>
-              <th>Is Hybrid</th>
-              <th>Edit</th>
-            </tr>
-          </thead>
-          <tbody>
-            {shownHomeChurches
-              .slice(page, page + 10)
-              ?.map((hm, index: number) => {
-                return (
-                  <tr
-                    key={index}
-                    style={index % 2 == 0 ? { backgroundColor: '#f7f7f7' } : {}}
-                  >
-                    <td>{hm?.id}</td>
-                    <td>{hm?.F1ItemData?.name}</td>
-                    <td>
-                      <input
-                        name={`petFree-${hm?.id}`}
-                        checked={hm?.petFree === 'Yes'}
-                        onChange={(e) => onChangeOption(e)}
-                        className={`HomeChurchCheckbox`}
-                        type="checkbox"
-                      />
-                    </td>
-                    <td>
-                      <input
-                        name={`transitAccessible-${hm?.id}`}
-                        checked={hm?.transitAccessible === 'Yes'}
-                        onChange={(e) => onChangeOption(e)}
-                        className={`HomeChurchCheckbox`}
-                        type="checkbox"
-                      />
-                    </td>
-                    <td>
-                      <input
-                        name={`isFamilyFriendly-${hm?.id}`}
-                        checked={hm?.isFamilyFriendly === 'Yes'}
-                        onChange={(e) => onChangeOption(e)}
-                        className={`HomeChurchCheckbox`}
-                        type="checkbox"
-                      />
-                    </td>
-                    <td>
-                      <input
-                        name={`vaccinationRequired-${hm?.id}`}
-                        checked={hm?.vaccinationRequired === 'Yes'}
-                        onChange={(e) => onChangeOption(e)}
-                        className={`HomeChurchCheckbox`}
-                        type="checkbox"
-                      />
-                    </td>
-                    <td>
-                      <input
-                        name={`isYoungAdult-${hm?.id}`}
-                        checked={hm?.isYoungAdult === `Yes`}
-                        onChange={(e) => onChangeOption(e)}
-                        className={`HomeChurchCheckbox`}
-                        type="checkbox"
-                      />
-                    </td>
-                    <td>
-                      <input
-                        name={`isOnline-${hm?.id}`}
-                        checked={hm?.isOnline === 'Yes'}
-                        onChange={(e) => onChangeOption(e)}
-                        className={`HomeChurchCheckbox`}
-                        type="checkbox"
-                      />
-                    </td>
-                    <td>
-                      <input
-                        name={`isHybrid-${hm?.id}`}
-                        checked={hm?.isHybrid === 'Yes'}
-                        onChange={(e) => onChangeOption(e)}
-                        className={`HomeChurchCheckbox`}
-                        type="checkbox"
-                      />
-                    </td>
-                    <td>
-                      <button
-                        onClick={() => setEdit(hm)}
+        <>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              marginBottom: 20,
+              flexWrap: 'wrap',
+            }}
+          >
+            <div
+              style={{
+                flex: 0.5,
+                flexDirection: 'row',
+                display: 'flex',
+                alignItems: 'center',
+              }}
+            >
+              <span
+                style={{
+                  fontSize: 20,
+                  fontWeight: 'bold',
+                  marginRight: 8,
+                }}
+              >
+                Home Church Manager
+              </span>
+              {isUpdating ? <Spinner size="sm" /> : null}
+            </div>
+
+            <div className="hmSearchInput1" style={{ flex: 0.5 }}>
+              <img
+                width="15"
+                height="15"
+                src="/static/svg/Search.svg"
+                alt="Search"
+              />
+              <input
+                className="hmSearchInput"
+                placeholder="Search by name.."
+                value={search}
+                onChange={(e) => {
+                  if (page !== 0) setPage(0);
+                  setSearch(e.target.value);
+                }}
+              />
+            </div>
+          </div>
+
+          <table className="HMTable">
+            <thead>
+              <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>Pet Free</th>
+                <th>Transit Accessible</th>
+                <th>Family Friendly</th>
+                <th>Vaccination Req.</th>
+                <th>Young Adult</th>
+                <th>Online</th>
+                <th>Hybrid</th>
+                <th>Edit</th>
+              </tr>
+            </thead>
+            <tbody>
+              {shownHomeChurches
+                .slice(page, page + 10)
+                ?.map((hm, index: number) => {
+                  return (
+                    <tr
+                      key={index}
+                      style={
+                        index % 2 == 0 ? { backgroundColor: '#f7f7f7' } : {}
+                      }
+                    >
+                      <td>{hm?.id}</td>
+                      <td
                         style={{
-                          backgroundColor: 'transparent',
-                          border: 'none',
+                          textOverflow: 'ellipsis',
+                          whiteSpace: 'nowrap',
+                          overflow: 'hidden',
+                          maxWidth: 150,
                         }}
                       >
-                        <img
-                          width={20}
-                          height={20}
-                          src="/static/svg/Register.svg"
+                        {hm?.F1ItemData?.name}
+                      </td>
+                      <td>
+                        <input
+                          name={`petFree-${hm?.id}`}
+                          checked={hm?.petFree === 'Yes'}
+                          onChange={(e) => onChangeOption(e)}
+                          className={`HomeChurchCheckbox`}
+                          type="checkbox"
                         />
-                      </button>
-                    </td>
-                  </tr>
-                );
-              })}
-          </tbody>
-          <tfoot>
-            <tr>
-              <td colSpan={4}>
-                {page + 1} -{' '}
-                {page + 10 > shownHomeChurches.length
-                  ? shownHomeChurches.length
-                  : page + 10}{' '}
-                out of {homeChurch.length - archivedHomeChurchCount}{' '}
-                homechurches
-              </td>
-              <td colSpan={6}>
-                <TransactionPaginate
-                  paginationIndex={page}
-                  setPaginationIndex={setPage}
-                  paginateCount={10}
-                  length={shownHomeChurches.length}
-                ></TransactionPaginate>
-              </td>
-            </tr>
-          </tfoot>
-        </table>
+                      </td>
+                      <td>
+                        <input
+                          name={`transitAccessible-${hm?.id}`}
+                          checked={hm?.transitAccessible === 'Yes'}
+                          onChange={(e) => onChangeOption(e)}
+                          className={`HomeChurchCheckbox`}
+                          type="checkbox"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          name={`isFamilyFriendly-${hm?.id}`}
+                          checked={hm?.isFamilyFriendly === 'Yes'}
+                          onChange={(e) => onChangeOption(e)}
+                          className={`HomeChurchCheckbox`}
+                          type="checkbox"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          name={`vaccinationRequired-${hm?.id}`}
+                          checked={hm?.vaccinationRequired === 'Yes'}
+                          onChange={(e) => onChangeOption(e)}
+                          className={`HomeChurchCheckbox`}
+                          type="checkbox"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          name={`isYoungAdult-${hm?.id}`}
+                          checked={hm?.isYoungAdult === `Yes`}
+                          onChange={(e) => onChangeOption(e)}
+                          className={`HomeChurchCheckbox`}
+                          type="checkbox"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          name={`isOnline-${hm?.id}`}
+                          checked={hm?.isOnline === 'Yes'}
+                          onChange={(e) => onChangeOption(e)}
+                          className={`HomeChurchCheckbox`}
+                          type="checkbox"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          name={`isHybrid-${hm?.id}`}
+                          checked={hm?.isHybrid === 'Yes'}
+                          onChange={(e) => onChangeOption(e)}
+                          className={`HomeChurchCheckbox`}
+                          type="checkbox"
+                        />
+                      </td>
+                      <td>
+                        <button
+                          onClick={() => setEdit(hm)}
+                          style={{
+                            backgroundColor: 'transparent',
+                            border: 'none',
+                          }}
+                        >
+                          <img
+                            width={20}
+                            height={20}
+                            src="/static/svg/Register.svg"
+                          />
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colSpan={4}>
+                  {page + 1} -{' '}
+                  {page + 10 > shownHomeChurches.length
+                    ? shownHomeChurches.length
+                    : page + 10}{' '}
+                  out of {homeChurch.length - archivedHomeChurchCount}{' '}
+                  homechurches
+                </td>
+                <td colSpan={6}>
+                  <TransactionPaginate
+                    paginationIndex={page}
+                    setPaginationIndex={setPage}
+                    paginateCount={10}
+                    length={shownHomeChurches.length}
+                  ></TransactionPaginate>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </>
       )}
     </div>
   );
