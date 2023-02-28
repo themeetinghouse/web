@@ -20,7 +20,7 @@ exports.handler = async (event) => {
     if ('SecretString' in data) {
       secret = JSON.parse(data.SecretString);
     } else {
-      let buff = new Buffer(data.SecretBinary, 'base64');
+      let buff = new Buffer.from(data.SecretBinary, 'base64');
       decodedBinarySecret = buff.toString('ascii');
     }
     console.log('Loading Secret Done');
@@ -36,12 +36,14 @@ exports.handler = async (event) => {
       );
       const json = await data.json();
       const temp = { ...json.data, content: JSON.stringify(json.data.content) };
-      return { meta: json.meta, data: temp };
-    } catch (e) {
-      console.log(e);
+      const res = { meta: json.meta, data: temp };
+      console.log({ res });
+      return res;
+    } catch (error) {
+      console.log(error);
     }
-  } catch (error) {
-    console.log(error);
-    return { statusCode: '402', error: { message: error.message } };
+  } catch (error2) {
+    console.log(error2);
+    return { statusCode: '402', error: { message: error2.message } };
   }
 };
