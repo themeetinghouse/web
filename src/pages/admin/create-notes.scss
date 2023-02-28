@@ -29,7 +29,6 @@ h2 {
   z-index: 10;
   display: flex;
   flex-direction: row;
-
   row-gap: 20px;
   flex-wrap: wrap;
   position: sticky;
@@ -40,9 +39,12 @@ h2 {
 }
 
 .DraftEditor-editorContainer {
-  margin-top: 20px;
+  margin-bottom: 60px;
+  min-height: 250px;
   border: lightgrey solid !important;
+  background-color: white;
   padding-bottom: 20px;
+  z-index: 9;
   padding-left: 5px;
   padding-right: 5px;
 }
@@ -113,7 +115,7 @@ h2 {
   border: 1px solid #f1f1f1;
   padding: 15px;
   border-radius: 2px;
-  z-index: 100;
+  z-index: 1000;
   background: white;
   box-shadow: 3px 3px 5px #bfbdbd;
 }
@@ -139,7 +141,7 @@ h2 {
   border: 1px solid #f1f1f1;
   padding: 15px;
   border-radius: 2px;
-  z-index: 100;
+  z-index: 1000;
   background: white;
   justify-content: space-between;
   box-shadow: 3px 3px 5px #bfbdbd;
@@ -166,7 +168,7 @@ h2 {
   border: 1px solid #f1f1f1;
   padding: 15px;
   border-radius: 2px;
-  z-index: 100;
+  z-index: 1000;
   background: white;
   box-shadow: 3px 3px 5px #bfbdbd;
 }
@@ -184,23 +186,40 @@ h2 {
 .rdw-editor-toolbar {
   padding: 6px 5px 0;
   border-radius: 2px;
-  border: 1px solid #f1f1f1;
+  border: 1px solid lightgrey;
   display: flex;
   justify-content: flex-start;
+  position: sticky !important;
+  top: 75px;
+  z-index: 10;
   background: white;
+  margin-top: 20px;
   flex-wrap: wrap;
   font-size: 15px;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
   user-select: none;
   order: 2;
 }
 .rdw-editor-wrapper {
   box-sizing: content-box;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
 }
 @media (max-width: 767px) {
   .editor-container {
     margin-left: 0px !important;
+  }
+}
+.editButtonModal1 {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 8px;
+  font-weight: 700;
+  padding-left: 30px;
+  padding-right: 30px;
+  &.white {
+    background-color: white;
+    border: 1.5px solid #1a1a1a;
+    color: black;
   }
 }

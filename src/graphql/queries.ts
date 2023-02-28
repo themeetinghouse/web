@@ -23385,908 +23385,6 @@ export const getNotes = /* GraphQL */ `
       episodeDescription
       episodeNumber
       seriesId
-      series {
-        id
-        videos {
-          items {
-            id
-            createdBy
-            createdDate
-            speakers {
-              items {
-                id
-                speakerVideosSpeakerId
-                video {
-                  id
-                  createdBy
-                  createdDate
-                  episodeTitle
-                  originalEpisodeTitle
-                  episodeNumber
-                  seriesTitle
-                  videoSeriesId
-                  customPlaylistIDs
-                  publishedDate
-                  recordedDate
-                  description
-                  viewCount
-                  closedCaptioning
-                  referencedMedia
-                  campaigns
-                  bibleVerses
-                  topics
-                  qandeh
-                  length
-                  YoutubeIdent
-                  videoTypes
-                  notesURL
-                  videoURL
-                  audioURL
-                  thumbnailDescription
-                  move
-                  createdAt
-                  updatedAt
-                }
-                speakerVideosVideoId
-                speaker {
-                  id
-                  name
-                  image
-                  hidden
-                  createdAt
-                  updatedAt
-                }
-                videoPublishedDate
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            episodeTitle
-            originalEpisodeTitle
-            episodeNumber
-            seriesTitle
-            videoSeriesId
-            series {
-              id
-              videos {
-                items {
-                  id
-                  createdBy
-                  createdDate
-                  episodeTitle
-                  originalEpisodeTitle
-                  episodeNumber
-                  seriesTitle
-                  videoSeriesId
-                  customPlaylistIDs
-                  publishedDate
-                  recordedDate
-                  description
-                  viewCount
-                  closedCaptioning
-                  referencedMedia
-                  campaigns
-                  bibleVerses
-                  topics
-                  qandeh
-                  length
-                  YoutubeIdent
-                  videoTypes
-                  notesURL
-                  videoURL
-                  audioURL
-                  thumbnailDescription
-                  move
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              blogs {
-                items {
-                  id
-                  author
-                  createdBy
-                  createdDate
-                  publishedDate
-                  expirationDate
-                  blogSeriesId
-                  blogSeriesIndex
-                  blogStatus
-                  description
-                  thumbnailDescription
-                  content
-                  blogTitle
-                  topics
-                  tags
-                  hiddenMainIndex
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              blogPosts {
-                items {
-                  id
-                  videoSeriesId
-                  blogId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              seriesType
-              title
-              description
-              thumbnailDescription
-              image
-              startDate
-              endDate
-              notes {
-                items {
-                  id
-                  title
-                  content
-                  questions
-                  jsonContent
-                  jsonQuestions
-                  episodeDescription
-                  episodeNumber
-                  seriesId
-                  pdf
-                  topics
-                  tags
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              createdAt
-              updatedAt
-            }
-            customPlaylistIDs
-            customPlaylists {
-              items {
-                id
-                videoID
-                customPlaylistID
-                customPlaylist {
-                  id
-                  seriesType
-                  title
-                  description
-                  thumbnailDescription
-                  createdAt
-                  updatedAt
-                }
-                video {
-                  id
-                  createdBy
-                  createdDate
-                  episodeTitle
-                  originalEpisodeTitle
-                  episodeNumber
-                  seriesTitle
-                  videoSeriesId
-                  customPlaylistIDs
-                  publishedDate
-                  recordedDate
-                  description
-                  viewCount
-                  closedCaptioning
-                  referencedMedia
-                  campaigns
-                  bibleVerses
-                  topics
-                  qandeh
-                  length
-                  YoutubeIdent
-                  videoTypes
-                  notesURL
-                  videoURL
-                  audioURL
-                  thumbnailDescription
-                  move
-                  createdAt
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            publishedDate
-            recordedDate
-            description
-            viewCount
-            closedCaptioning
-            referencedMedia
-            campaigns
-            bibleVerses
-            topics
-            qandeh
-            length
-            YoutubeIdent
-            Youtube {
-              id
-              kind
-              etag
-              snippet {
-                publishedAt
-                channelId
-                title
-                description
-                channelTitle
-                localized {
-                  title
-                  description
-                }
-              }
-              contentDetails {
-                videoId
-                videoPublishedAt
-                duration
-                dimension
-                definition
-                caption
-                licensedContent
-                projection
-                contentRating {
-                  acbRating
-                  agcomRating
-                  anatelRating
-                  bbfcRating
-                  bfvcRating
-                  bmukkRating
-                  catvRating
-                  catvfrRating
-                  cbfcRating
-                  cccRating
-                  cceRating
-                  chfilmRating
-                  chvrsRating
-                  cicfRating
-                  cnaRating
-                  cncRating
-                  csaRating
-                  cscfRating
-                  czfilmRating
-                  djctqRating
-                  djctqRatingReasons
-                  ecbmctRating
-                  eefilmRating
-                  egfilmRating
-                  eirinRating
-                  fcbmRating
-                  fcoRating
-                  fmocRating
-                  fpbRating
-                  fpbRatingReasons
-                  fskRating
-                  grfilmRating
-                  icaaRating
-                  ifcoRating
-                  ilfilmRating
-                  incaaRating
-                  kfcbRating
-                  kijkwijzerRating
-                  kmrbRating
-                  lsfRating
-                  mccaaRating
-                  mccypRating
-                  mcstRating
-                  mdaRating
-                  medietilsynetRating
-                  mekuRating
-                  mibacRating
-                  mocRating
-                  moctwRating
-                  mpaaRating
-                  mpaatRating
-                  mtrcbRating
-                  nbcRating
-                  nbcplRating
-                  nfrcRating
-                  nfvcbRating
-                  nkclvRating
-                  oflcRating
-                  pefilmRating
-                  rcnofRating
-                  resorteviolenciaRating
-                  rtcRating
-                  rteRating
-                  russiaRating
-                  skfilmRating
-                  smaisRating
-                  smsaRating
-                  tvpgRating
-                  ytRating
-                }
-                regionRestriction {
-                  allowed
-                  blocked
-                }
-                hasCustomThumbnail
-              }
-              status {
-                uploadStatus
-                privacyStatus
-                license
-                embeddable
-                publicStatsViewable
-              }
-            }
-            videoTypes
-            notesURL
-            videoURL
-            audioURL
-            thumbnailDescription
-            move
-            createdAt
-            updatedAt
-          }
-          nextToken
-        }
-        blogs {
-          items {
-            id
-            author
-            createdBy
-            createdDate
-            publishedDate
-            expirationDate
-            videoSeries {
-              items {
-                id
-                videoSeriesId
-                blogId
-                blog {
-                  id
-                  author
-                  createdBy
-                  createdDate
-                  publishedDate
-                  expirationDate
-                  blogSeriesId
-                  blogSeriesIndex
-                  blogStatus
-                  description
-                  thumbnailDescription
-                  content
-                  blogTitle
-                  topics
-                  tags
-                  hiddenMainIndex
-                  createdAt
-                  updatedAt
-                }
-                videoSeries {
-                  id
-                  seriesType
-                  title
-                  description
-                  thumbnailDescription
-                  image
-                  startDate
-                  endDate
-                  createdAt
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            series {
-              id
-              videos {
-                items {
-                  id
-                  createdBy
-                  createdDate
-                  episodeTitle
-                  originalEpisodeTitle
-                  episodeNumber
-                  seriesTitle
-                  videoSeriesId
-                  customPlaylistIDs
-                  publishedDate
-                  recordedDate
-                  description
-                  viewCount
-                  closedCaptioning
-                  referencedMedia
-                  campaigns
-                  bibleVerses
-                  topics
-                  qandeh
-                  length
-                  YoutubeIdent
-                  videoTypes
-                  notesURL
-                  videoURL
-                  audioURL
-                  thumbnailDescription
-                  move
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              blogs {
-                items {
-                  id
-                  author
-                  createdBy
-                  createdDate
-                  publishedDate
-                  expirationDate
-                  blogSeriesId
-                  blogSeriesIndex
-                  blogStatus
-                  description
-                  thumbnailDescription
-                  content
-                  blogTitle
-                  topics
-                  tags
-                  hiddenMainIndex
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              blogPosts {
-                items {
-                  id
-                  videoSeriesId
-                  blogId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              seriesType
-              title
-              description
-              thumbnailDescription
-              image
-              startDate
-              endDate
-              notes {
-                items {
-                  id
-                  title
-                  content
-                  questions
-                  jsonContent
-                  jsonQuestions
-                  episodeDescription
-                  episodeNumber
-                  seriesId
-                  pdf
-                  topics
-                  tags
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              createdAt
-              updatedAt
-            }
-            blogSeriesId
-            blogSeriesIndex
-            blogSeries {
-              items {
-                id
-                blogSeriesID
-                blogPostID
-                blogSeries {
-                  id
-                  seriesType
-                  title
-                  description
-                  thumbnailDescription
-                  image
-                  startDate
-                  endDate
-                  createdAt
-                  updatedAt
-                }
-                blogPost {
-                  id
-                  author
-                  createdBy
-                  createdDate
-                  publishedDate
-                  expirationDate
-                  blogSeriesId
-                  blogSeriesIndex
-                  blogStatus
-                  description
-                  thumbnailDescription
-                  content
-                  blogTitle
-                  topics
-                  tags
-                  hiddenMainIndex
-                  createdAt
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            blogStatus
-            description
-            thumbnailDescription
-            content
-            blogTitle
-            topics
-            tags
-            hiddenMainIndex
-            squareImage {
-              src
-              alt
-            }
-            bannerImage {
-              src
-              alt
-            }
-            babyHeroImage {
-              src
-              alt
-            }
-            createdAt
-            updatedAt
-          }
-          nextToken
-        }
-        blogPosts {
-          items {
-            id
-            videoSeriesId
-            blogId
-            blog {
-              id
-              author
-              createdBy
-              createdDate
-              publishedDate
-              expirationDate
-              videoSeries {
-                items {
-                  id
-                  videoSeriesId
-                  blogId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              series {
-                id
-                videos {
-                  nextToken
-                }
-                blogs {
-                  nextToken
-                }
-                blogPosts {
-                  nextToken
-                }
-                seriesType
-                title
-                description
-                thumbnailDescription
-                image
-                startDate
-                endDate
-                notes {
-                  nextToken
-                }
-                createdAt
-                updatedAt
-              }
-              blogSeriesId
-              blogSeriesIndex
-              blogSeries {
-                items {
-                  id
-                  blogSeriesID
-                  blogPostID
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              blogStatus
-              description
-              thumbnailDescription
-              content
-              blogTitle
-              topics
-              tags
-              hiddenMainIndex
-              squareImage {
-                src
-                alt
-              }
-              bannerImage {
-                src
-                alt
-              }
-              babyHeroImage {
-                src
-                alt
-              }
-              createdAt
-              updatedAt
-            }
-            videoSeries {
-              id
-              videos {
-                items {
-                  id
-                  createdBy
-                  createdDate
-                  episodeTitle
-                  originalEpisodeTitle
-                  episodeNumber
-                  seriesTitle
-                  videoSeriesId
-                  customPlaylistIDs
-                  publishedDate
-                  recordedDate
-                  description
-                  viewCount
-                  closedCaptioning
-                  referencedMedia
-                  campaigns
-                  bibleVerses
-                  topics
-                  qandeh
-                  length
-                  YoutubeIdent
-                  videoTypes
-                  notesURL
-                  videoURL
-                  audioURL
-                  thumbnailDescription
-                  move
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              blogs {
-                items {
-                  id
-                  author
-                  createdBy
-                  createdDate
-                  publishedDate
-                  expirationDate
-                  blogSeriesId
-                  blogSeriesIndex
-                  blogStatus
-                  description
-                  thumbnailDescription
-                  content
-                  blogTitle
-                  topics
-                  tags
-                  hiddenMainIndex
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              blogPosts {
-                items {
-                  id
-                  videoSeriesId
-                  blogId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              seriesType
-              title
-              description
-              thumbnailDescription
-              image
-              startDate
-              endDate
-              notes {
-                items {
-                  id
-                  title
-                  content
-                  questions
-                  jsonContent
-                  jsonQuestions
-                  episodeDescription
-                  episodeNumber
-                  seriesId
-                  pdf
-                  topics
-                  tags
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              createdAt
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
-          nextToken
-        }
-        seriesType
-        title
-        description
-        thumbnailDescription
-        image
-        startDate
-        endDate
-        notes {
-          items {
-            id
-            title
-            content
-            questions
-            jsonContent
-            jsonQuestions
-            episodeDescription
-            episodeNumber
-            seriesId
-            series {
-              id
-              videos {
-                items {
-                  id
-                  createdBy
-                  createdDate
-                  episodeTitle
-                  originalEpisodeTitle
-                  episodeNumber
-                  seriesTitle
-                  videoSeriesId
-                  customPlaylistIDs
-                  publishedDate
-                  recordedDate
-                  description
-                  viewCount
-                  closedCaptioning
-                  referencedMedia
-                  campaigns
-                  bibleVerses
-                  topics
-                  qandeh
-                  length
-                  YoutubeIdent
-                  videoTypes
-                  notesURL
-                  videoURL
-                  audioURL
-                  thumbnailDescription
-                  move
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              blogs {
-                items {
-                  id
-                  author
-                  createdBy
-                  createdDate
-                  publishedDate
-                  expirationDate
-                  blogSeriesId
-                  blogSeriesIndex
-                  blogStatus
-                  description
-                  thumbnailDescription
-                  content
-                  blogTitle
-                  topics
-                  tags
-                  hiddenMainIndex
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              blogPosts {
-                items {
-                  id
-                  videoSeriesId
-                  blogId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              seriesType
-              title
-              description
-              thumbnailDescription
-              image
-              startDate
-              endDate
-              notes {
-                items {
-                  id
-                  title
-                  content
-                  questions
-                  jsonContent
-                  jsonQuestions
-                  episodeDescription
-                  episodeNumber
-                  seriesId
-                  pdf
-                  topics
-                  tags
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              createdAt
-              updatedAt
-            }
-            pdf
-            topics
-            tags
-            verses {
-              items {
-                id
-                key
-                offset
-                length
-                dataType
-                content
-                youVersionUri
-                noteId
-                note {
-                  id
-                  title
-                  content
-                  questions
-                  jsonContent
-                  jsonQuestions
-                  episodeDescription
-                  episodeNumber
-                  seriesId
-                  pdf
-                  topics
-                  tags
-                  createdAt
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
       pdf
       topics
       tags
@@ -24300,151 +23398,6 @@ export const getNotes = /* GraphQL */ `
           content
           youVersionUri
           noteId
-          note {
-            id
-            title
-            content
-            questions
-            jsonContent
-            jsonQuestions
-            episodeDescription
-            episodeNumber
-            seriesId
-            series {
-              id
-              videos {
-                items {
-                  id
-                  createdBy
-                  createdDate
-                  episodeTitle
-                  originalEpisodeTitle
-                  episodeNumber
-                  seriesTitle
-                  videoSeriesId
-                  customPlaylistIDs
-                  publishedDate
-                  recordedDate
-                  description
-                  viewCount
-                  closedCaptioning
-                  referencedMedia
-                  campaigns
-                  bibleVerses
-                  topics
-                  qandeh
-                  length
-                  YoutubeIdent
-                  videoTypes
-                  notesURL
-                  videoURL
-                  audioURL
-                  thumbnailDescription
-                  move
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              blogs {
-                items {
-                  id
-                  author
-                  createdBy
-                  createdDate
-                  publishedDate
-                  expirationDate
-                  blogSeriesId
-                  blogSeriesIndex
-                  blogStatus
-                  description
-                  thumbnailDescription
-                  content
-                  blogTitle
-                  topics
-                  tags
-                  hiddenMainIndex
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              blogPosts {
-                items {
-                  id
-                  videoSeriesId
-                  blogId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              seriesType
-              title
-              description
-              thumbnailDescription
-              image
-              startDate
-              endDate
-              notes {
-                items {
-                  id
-                  title
-                  content
-                  questions
-                  jsonContent
-                  jsonQuestions
-                  episodeDescription
-                  episodeNumber
-                  seriesId
-                  pdf
-                  topics
-                  tags
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              createdAt
-              updatedAt
-            }
-            pdf
-            topics
-            tags
-            verses {
-              items {
-                id
-                key
-                offset
-                length
-                dataType
-                content
-                youVersionUri
-                noteId
-                note {
-                  id
-                  title
-                  content
-                  questions
-                  jsonContent
-                  jsonQuestions
-                  episodeDescription
-                  episodeNumber
-                  seriesId
-                  pdf
-                  topics
-                  tags
-                  createdAt
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
           createdAt
           updatedAt
         }
@@ -26004,6 +24957,217 @@ export const searchTMHPeople = /* GraphQL */ `
           }
         }
       }
+    }
+  }
+`;
+export const getTMHLocation = /* GraphQL */ `
+  query GetTMHLocation($id: ID!) {
+    getTMHLocation(id: $id) {
+      id
+      name
+      regionShortName
+      homeChurchGroupID
+      abbreviation
+      serviceTimeDescription
+      region
+      facebookPageIds
+      contact {
+        name
+        email
+        phone
+        extension
+      }
+      servicesTimes
+      youth {
+        age
+        location {
+          name
+          googleMapLink
+        }
+        time
+        facebookLink
+        instagramLink
+        contact {
+          name
+          email
+          phone
+          extension
+        }
+      }
+      socials {
+        facebook {
+          name
+          pageId
+          link
+        }
+        instagram {
+          name
+          username
+          pageId
+          link
+        }
+        discord
+        twitter
+      }
+      location {
+        latitude
+        longitude
+        address1
+        address2
+        city
+        state
+        zip
+        country
+      }
+      pastors {
+        id
+        email
+        firstName
+        lastName
+        image
+        phone
+        extension
+        sites
+        position
+        isTeacher
+        isStaff
+        isCoordinator
+        isOverseer
+        createdAt
+        updatedAt
+      }
+      pastorEmail
+      staff {
+        id
+        email
+        firstName
+        lastName
+        image
+        phone
+        extension
+        sites
+        position
+        isTeacher
+        isStaff
+        isCoordinator
+        isOverseer
+        createdAt
+        updatedAt
+      }
+      showInLocationMap
+      showInLocationList
+      locationType
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listTMHLocations = /* GraphQL */ `
+  query ListTMHLocations(
+    $filter: ModelTMHLocationFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listTMHLocations(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        regionShortName
+        homeChurchGroupID
+        abbreviation
+        serviceTimeDescription
+        region
+        facebookPageIds
+        contact {
+          name
+          email
+          phone
+          extension
+        }
+        servicesTimes
+        youth {
+          age
+          location {
+            name
+            googleMapLink
+          }
+          time
+          facebookLink
+          instagramLink
+          contact {
+            name
+            email
+            phone
+            extension
+          }
+        }
+        socials {
+          facebook {
+            name
+            pageId
+            link
+          }
+          instagram {
+            name
+            username
+            pageId
+            link
+          }
+          discord
+          twitter
+        }
+        location {
+          latitude
+          longitude
+          address1
+          address2
+          city
+          state
+          zip
+          country
+        }
+        pastors {
+          id
+          email
+          firstName
+          lastName
+          image
+          phone
+          extension
+          sites
+          position
+          isTeacher
+          isStaff
+          isCoordinator
+          isOverseer
+          createdAt
+          updatedAt
+        }
+        pastorEmail
+        staff {
+          id
+          email
+          firstName
+          lastName
+          image
+          phone
+          extension
+          sites
+          position
+          isTeacher
+          isStaff
+          isCoordinator
+          isOverseer
+          createdAt
+          updatedAt
+        }
+        showInLocationMap
+        showInLocationList
+        locationType
+        createdAt
+        updatedAt
+      }
+      nextToken
     }
   }
 `;

@@ -102,6 +102,7 @@ export default function PeopleManager() {
           flexDirection: 'row',
           flexWrap: 'wrap',
           rowGap: 20,
+          marginBottom: 20,
         }}
       >
         <span

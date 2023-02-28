@@ -17,7 +17,7 @@ export const handler = async (event) => {
     );
 
     var params = {
-      DistributionId: 'EYO80SQB3QGL' /* required */,
+      DistributionId: process.env.DISTRIBUTION_ID /* required */,
       InvalidationBatch: {
         /* required */ CallerReference: Date.now().toString() /* required */,
         Paths: {
