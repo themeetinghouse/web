@@ -162,7 +162,7 @@ export default function PeopleManager() {
         {filteredPeeps.map((person) => (
           <PersonCard
             openModal={openModal}
-            key={person?.email ?? person?.firstName + ' ' + person?.lastName}
+            key={person?.id}
             personData={person}
           ></PersonCard>
         ))}
