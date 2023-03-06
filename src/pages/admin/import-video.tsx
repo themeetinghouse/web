@@ -933,7 +933,7 @@ class Index extends React.Component<EmptyProps, State> {
                         for (const listItem of list) {
                           finalValue = finalValue[listItem];
                         }
-
+                        item.type === 'String' ? console.log({ item }) : null;
                         return (
                           <tr key={item.id}>
                             <td>{item.name}</td>
@@ -963,14 +963,32 @@ class Index extends React.Component<EmptyProps, State> {
                                   value={finalValue}
                                 ></input>
                               ) : item.type === 'String' ? (
-                                <input
-                                  className="importvideoInput"
-                                  onChange={(e: any) =>
-                                    this.writeField(item.id, e.target.value)
-                                  }
-                                  type="text"
-                                  value={finalValue}
-                                ></input>
+                                item.id === 'description' ? (
+                                  <textarea
+                                    className="importvideoInput"
+                                    style={{ height: '200px', width: '100%' }}
+                                    onChange={(e: any) =>
+                                      this.writeField(item.id, e.target.value)
+                                    }
+                                    value={finalValue}
+                                  ></textarea>
+                                ) : (
+                                  <input
+                                    className="importvideoInput"
+                                    style={
+                                      item.id === 'notesURL' ||
+                                      item.id === 'audioURL' ||
+                                      item.id === 'videoURL'
+                                        ? { width: '100%' }
+                                        : {}
+                                    }
+                                    type="text"
+                                    onChange={(e: any) =>
+                                      this.writeField(item.id, e.target.value)
+                                    }
+                                    value={finalValue}
+                                  ></input>
+                                )
                               ) : item.type === 'VideoType' ? (
                                 <select
                                   className="importvideoDropdown"
