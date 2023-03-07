@@ -38234,19 +38234,38 @@ export const onCreateTMHLocation = /* GraphQL */ `
         extension
       }
       meetings {
-        day
+        date
         time
         name
         description
         frequency
-        location
+        location {
+          name
+          latitude
+          longitude
+          address1
+          address2
+          city
+          state
+          zip
+          country
+          url
+        }
         type
       }
       youth {
         age
         location {
           name
-          googleMapLink
+          latitude
+          longitude
+          address1
+          address2
+          city
+          state
+          zip
+          country
+          url
         }
         time
         facebookLink
@@ -38274,6 +38293,7 @@ export const onCreateTMHLocation = /* GraphQL */ `
         twitter
       }
       location {
+        name
         latitude
         longitude
         address1
@@ -38282,6 +38302,7 @@ export const onCreateTMHLocation = /* GraphQL */ `
         state
         zip
         country
+        url
       }
       pastors {
         id
@@ -38344,19 +38365,38 @@ export const onUpdateTMHLocation = /* GraphQL */ `
         extension
       }
       meetings {
-        day
+        date
         time
         name
         description
         frequency
-        location
+        location {
+          name
+          latitude
+          longitude
+          address1
+          address2
+          city
+          state
+          zip
+          country
+          url
+        }
         type
       }
       youth {
         age
         location {
           name
-          googleMapLink
+          latitude
+          longitude
+          address1
+          address2
+          city
+          state
+          zip
+          country
+          url
         }
         time
         facebookLink
@@ -38384,6 +38424,7 @@ export const onUpdateTMHLocation = /* GraphQL */ `
         twitter
       }
       location {
+        name
         latitude
         longitude
         address1
@@ -38392,6 +38433,7 @@ export const onUpdateTMHLocation = /* GraphQL */ `
         state
         zip
         country
+        url
       }
       pastors {
         id
@@ -38454,19 +38496,38 @@ export const onDeleteTMHLocation = /* GraphQL */ `
         extension
       }
       meetings {
-        day
+        date
         time
         name
         description
         frequency
-        location
+        location {
+          name
+          latitude
+          longitude
+          address1
+          address2
+          city
+          state
+          zip
+          country
+          url
+        }
         type
       }
       youth {
         age
         location {
           name
-          googleMapLink
+          latitude
+          longitude
+          address1
+          address2
+          city
+          state
+          zip
+          country
+          url
         }
         time
         facebookLink
@@ -38494,6 +38555,7 @@ export const onDeleteTMHLocation = /* GraphQL */ `
         twitter
       }
       location {
+        name
         latitude
         longitude
         address1
@@ -38502,6 +38564,7 @@ export const onDeleteTMHLocation = /* GraphQL */ `
         state
         zip
         country
+        url
       }
       pastors {
         id
