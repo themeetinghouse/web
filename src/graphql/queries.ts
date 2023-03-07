@@ -26015,16 +26015,22 @@ export const getTMHLocation = /* GraphQL */ `
       regionShortName
       homeChurchGroupID
       abbreviation
-      serviceTimeDescription
       region
-      facebookPageIds
       contact {
         name
         email
         phone
         extension
       }
-      servicesTimes
+      meetings {
+        day
+        time
+        name
+        description
+        frequency
+        location
+        type
+      }
       youth {
         age
         location {
@@ -26122,16 +26128,22 @@ export const listTMHLocations = /* GraphQL */ `
         regionShortName
         homeChurchGroupID
         abbreviation
-        serviceTimeDescription
         region
-        facebookPageIds
         contact {
           name
           email
           phone
           extension
         }
-        servicesTimes
+        meetings {
+          day
+          time
+          name
+          description
+          frequency
+          location
+          type
+        }
         youth {
           age
           location {

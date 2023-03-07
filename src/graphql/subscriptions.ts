@@ -38226,16 +38226,22 @@ export const onCreateTMHLocation = /* GraphQL */ `
       regionShortName
       homeChurchGroupID
       abbreviation
-      serviceTimeDescription
       region
-      facebookPageIds
       contact {
         name
         email
         phone
         extension
       }
-      servicesTimes
+      meetings {
+        day
+        time
+        name
+        description
+        frequency
+        location
+        type
+      }
       youth {
         age
         location {
@@ -38330,16 +38336,22 @@ export const onUpdateTMHLocation = /* GraphQL */ `
       regionShortName
       homeChurchGroupID
       abbreviation
-      serviceTimeDescription
       region
-      facebookPageIds
       contact {
         name
         email
         phone
         extension
       }
-      servicesTimes
+      meetings {
+        day
+        time
+        name
+        description
+        frequency
+        location
+        type
+      }
       youth {
         age
         location {
@@ -38434,16 +38446,22 @@ export const onDeleteTMHLocation = /* GraphQL */ `
       regionShortName
       homeChurchGroupID
       abbreviation
-      serviceTimeDescription
       region
-      facebookPageIds
       contact {
         name
         email
         phone
         extension
       }
-      servicesTimes
+      meetings {
+        day
+        time
+        name
+        description
+        frequency
+        location
+        type
+      }
       youth {
         age
         location {

@@ -1562,19 +1562,27 @@ enum LocationType {
   ONLINE
 }
 
+type TMHLocationMeeting { 
+  day: String!
+  time: String!
+  name: String!
+  description: String
+  frequency: String!
+  location: String
+  type: String!
+}
+
 type TMHLocation @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Admin"], provider: userPools}]) {
   id: String!
   name: String!
   regionShortName: String
   homeChurchGroupID: String
   abbreviation: String
-  serviceTimeDescription: String
   region: String
-  facebookPageIds: [String]
   contact: TMHLocationContact
-  servicesTimes: [String]
+  meetings: [TMHLocationMeeting]
   youth: TMHYouth
-  socials: [TMHLocationSocials]
+  socials: TMHLocationSocials
   location: TMHLocationAddress
   pastors: [TMHPerson]
   pastorEmail: AWSEmail
@@ -1653,4 +1661,4 @@ type Address {
   state: String
 }
                                           
-                                                        
+                                                          
