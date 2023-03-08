@@ -38362,7 +38362,8 @@ export const createTMHLocation = /* GraphQL */ `
       }
       meetings {
         date
-        time
+        startTime
+        endTime
         name
         description
         frequency
@@ -38381,6 +38382,8 @@ export const createTMHLocation = /* GraphQL */ `
         type
       }
       youth {
+        name
+        description
         age
         location {
           name
@@ -38494,7 +38497,8 @@ export const updateTMHLocation = /* GraphQL */ `
       }
       meetings {
         date
-        time
+        startTime
+        endTime
         name
         description
         frequency
@@ -38513,6 +38517,8 @@ export const updateTMHLocation = /* GraphQL */ `
         type
       }
       youth {
+        name
+        description
         age
         location {
           name
@@ -38626,7 +38632,8 @@ export const deleteTMHLocation = /* GraphQL */ `
       }
       meetings {
         date
-        time
+        startTime
+        endTime
         name
         description
         frequency
@@ -38645,6 +38652,8 @@ export const deleteTMHLocation = /* GraphQL */ `
         type
       }
       youth {
+        name
+        description
         age
         location {
           name

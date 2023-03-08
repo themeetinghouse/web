@@ -1564,7 +1564,8 @@ enum LocationType {
 
 type TMHLocationMeeting { 
   date: AWSDate!
-  time: AWSTime!
+  startTime: AWSTime!
+  endTime: AWSTime!
   name: String!
   description: String
   frequency: String!
@@ -1633,6 +1634,8 @@ type TMHLocationSocialsInstagram {
 }
 
 type TMHYouth {
+  name: String
+  description: String
   age: String
   location: TMHLocationAddress
   time: String
@@ -1658,4 +1661,4 @@ type Address {
   state: String
 }
                                           
-                                                           
+                                                            
