@@ -76,6 +76,26 @@
         ]
       },
       {
+        "type": "content",
+        "style": "oneImageBlackRight",
+        "header1": "Month of Prayer",
+        "header2": "",
+        "text1": "Join us through the Lent season as we invite God into our daily rhythms. Together we'll take time to read and meditate on scripture, join in prayerful rhythms, and act on what we're hearing from God through weekly practices. See the prayer guide below.",
+        "list": [
+          {
+            "type": "link",
+            "title": "Prayer Guide",
+            "navigateTo": "/prayerguide"
+          }
+        ],
+        "image1": [
+          {
+            "src": "/static/images/homepage-covid-1.jpg",
+            "alt": "A woman wearing a mask looking directly at the camera."
+          }
+        ]
+      },
+      {
         "type": "list",
         "style": "imageList",
         "class": "user-defined",
