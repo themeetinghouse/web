@@ -1563,9 +1563,9 @@ enum LocationType {
 }
 
 type TMHLocationMeeting { 
-  date: AWSDate!
-  startTime: AWSTime!
-  endTime: AWSTime!
+  date: String!
+  startTime: String!
+  endTime: String!
   name: String!
   description: String
   frequency: String!
@@ -1586,7 +1586,7 @@ type TMHLocation @model @auth(rules: [{allow: public, operations: [read]}, {allo
   socials: TMHLocationSocials
   location: TMHLocationAddress
   pastors: [TMHPerson]
-  pastorEmail: AWSEmail
+  pastorEmail: String
   staff: [TMHPerson]
   showInLocationMap: Boolean
   showInLocationList: Boolean
@@ -1603,13 +1603,13 @@ type TMHLocationAddress {
   state: String
   zip: String
   country: String
-  url: AWSURL
+  url: String
 }
 
 type TMHLocationContact {
   name: String
-  email: AWSEmail
-  phone: AWSPhone
+  email: String
+  phone: String
   extension: String
 }
 
@@ -1623,14 +1623,14 @@ type TMHLocationSocials {
 type TMHLocationSocialsFacebook {
   name: String
   pageId: String
-  link: AWSURL
+  link: String
 }
 
 type TMHLocationSocialsInstagram {
   name: String
   username: String
   pageId: String
-  link: AWSURL
+  link: String
 }
 
 type TMHYouth {
@@ -1639,8 +1639,8 @@ type TMHYouth {
   age: String
   location: TMHLocationAddress
   time: String
-  facebookLink: AWSURL
-  instagramLink: AWSURL
+  facebookLink: String
+  instagramLink: String
   contact: TMHLocationContact
 }
 
@@ -1661,4 +1661,4 @@ type Address {
   state: String
 }
                                           
-                                                            
+                                                             
