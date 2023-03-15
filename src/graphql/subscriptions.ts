@@ -38252,7 +38252,6 @@ export const onCreateTMHLocation = /* GraphQL */ `
           country
           url
         }
-        type
       }
       youth {
         name
@@ -38386,7 +38385,6 @@ export const onUpdateTMHLocation = /* GraphQL */ `
           country
           url
         }
-        type
       }
       youth {
         name
@@ -38520,7 +38518,6 @@ export const onDeleteTMHLocation = /* GraphQL */ `
           country
           url
         }
-        type
       }
       youth {
         name

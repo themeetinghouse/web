@@ -1570,7 +1570,6 @@ type TMHLocationMeeting {
   description: String
   frequency: String!
   location: TMHLocationAddress
-  type: String!
 }
 
 type TMHLocation @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Admin"], provider: userPools}]) {
@@ -1661,4 +1660,4 @@ type Address {
   state: String
 }
                                           
-                                                             
+                                                              
