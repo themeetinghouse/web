@@ -169,11 +169,6 @@
         "list": [
           {
             "type": "link",
-            "title": "NextGen Project Coordinator & Administrator",
-            "navigateTo": "/static/pdfs/careers/NextGen Project Coordinator & Administrator (Sept2022).pdf"
-          },
-          {
-            "type": "link",
             "title": "Burlington Administrator",
             "navigateTo": "/static/pdfs/careers/Administrator.pdf"
           },
