@@ -22,7 +22,6 @@ import DataLoader, {
   RandomCustomPlaylistData,
   BlogQuery,
   InstagramData,
-  InstaQuery,
 } from './DataLoader';
 import Select, { components } from 'react-select';
 import HorizontalScrollList from './HorizontalScrollList';
@@ -64,6 +63,7 @@ interface State {
   selectedFilter: string;
   searchFilter: string;
   listData: ListData[];
+  locationInstaURL?: string;
   overlayData: any;
   showMoreVideos: boolean;
   windowWidth: number;
@@ -152,6 +152,7 @@ class ListItem extends React.Component<Props, State> {
     super(props);
 
     this.state = {
+      locationInstaURL: 'https://www.instagram.com/themeetinghouse/',
       searchFilter: '',
       content: props.content,
       listData: props.content.list ?? [],
@@ -184,9 +185,12 @@ class ListItem extends React.Component<Props, State> {
     let data: ListData[];
     const query: DataQuery = this.props.content;
     switch (query.class) {
-      case 'instagram':
-        data = await DataLoader.loadInsta(query);
+      case 'instagram': {
+        const response = await DataLoader.loadInsta(query);
+        data = response.data;
+        this.setState({ locationInstaURL: response.link });
         break;
+      }
       case 'speakers':
         await DataLoader.getSpeakers(query, dataLoaded);
         return;
@@ -684,7 +688,7 @@ class ListItem extends React.Component<Props, State> {
         key={item.id ?? ''}
         className="container"
         to={{
-          pathname: 'event',
+          pathname: '/event',
           state: { event: item },
           hash: item?.id ?? '',
         }}
@@ -759,7 +763,7 @@ class ListItem extends React.Component<Props, State> {
 
     return (
       <div className="StaffFlexArea" key={index}>
-        {(items as TMHPerson[]).map((item, index: number) => {
+        {(items as TMHPerson[]).map((item) => {
           const telephone = `tel:${item.phone}${
             item.extension ? ',,,' + item.extension : ''
           }`;
@@ -954,76 +958,6 @@ class ListItem extends React.Component<Props, State> {
       console.log({ 'None:': item });
       return null;
     }
-  }
-  getInstaUrl(query: InstaQuery): string {
-    let id = '';
-    switch (query.filterValue) {
-      case 'alliston':
-        id = 'themeetinghousealliston';
-        break;
-      case 'sandbanks':
-        id = 'tmhsandbanks';
-        break;
-      case 'ancaster':
-        id = 'tmhancaster';
-        break;
-      case 'brampton':
-        id = 'tmhbrampton';
-        break;
-      case 'brantford':
-        id = 'tmhbrantford';
-        break;
-      case 'burlington':
-        id = 'tmhburlington';
-        break;
-      case 'hamilton-downtown':
-        id = 'tmhdowntownham';
-        break;
-      case 'toronto-downtown':
-        id = 'tmhdowntowntoronto';
-        break;
-      case 'hamilton-mountain':
-        id = 'tmhhammountain';
-        break;
-      case 'toronto-east':
-        id = 'tmheasttoronto';
-        break;
-      case 'toronto-high-park':
-        id = 'tmhhighpark';
-        break;
-      case 'kitchener':
-        id = 'tmhkitchener';
-        break;
-      case 'london':
-        id = 'themeetinghouseldn';
-        break;
-      case 'newmarket':
-        id = 'newmarket.tmh';
-        break;
-      case 'oakville':
-        id = 'tmhoakville';
-        break;
-      case 'ottawa':
-        id = 'tmhottawa';
-        break;
-
-      case 'parry-sound':
-        id = 'tmhparrysound';
-        break;
-      case 'richmond-hill':
-        id = 'tmhrichmond';
-        break;
-      case 'toronto-uptown':
-        id = 'tmhuptowntoronto';
-        break;
-      case 'waterloo':
-        id = 'tmhwaterloo';
-        break;
-      default:
-        id = 'themeetinghouse';
-    }
-
-    return id;
   }
 
   renderInstaTile(item: InstagramData): JSX.Element | null {
@@ -1818,7 +1752,6 @@ class ListItem extends React.Component<Props, State> {
         this.state.content.class === 'instagram'
       ) {
         //This renders the instagram div and iterate tiles
-
         return (
           <div className="ListItem horizontal">
             <div className="InstagramGridRectangle" />
@@ -1832,10 +1765,8 @@ class ListItem extends React.Component<Props, State> {
               target="_blank"
               rel="noreferrer"
               href={
-                this.props.content.filterValue
-                  ? `https://instagram.com/` +
-                    this.getInstaUrl(this.props.content)
-                  : `https://instagram.com/themeetinghouse`
+                this.state.locationInstaURL ||
+                'https://www.instagram.com/themeetinghouse'
               }
             >
               <img

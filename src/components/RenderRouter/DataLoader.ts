@@ -26,6 +26,8 @@ import {
   GetSeriesBySeriesTypeQueryVariables,
   GetSeriesQuery,
   GetSeriesQueryVariables,
+  GetTMHLocationQuery,
+  GetTMHLocationQueryVariables,
   GetVideoByVideoTypeQuery,
   GetVideoByVideoTypeQueryVariables,
   ListCustomPlaylistsQuery,
@@ -34,11 +36,13 @@ import {
   ListF1ListGroup2sQueryVariables,
   ListSpeakersQuery,
   ListSpeakersQueryVariables,
+  ListTMHLocationsQuery,
   ModelSortDirection,
   SearchBlogsQuery,
   SearchBlogsQueryVariables,
   SearchTMHPeopleQuery,
   SearchVideosQuery,
+  TMHLocation,
   TMHPerson,
   TMHPersonByIsCoordinatorQuery,
   TMHPersonByIsOverseerQuery,
@@ -163,6 +167,7 @@ export interface CompassionData {
 }
 
 export interface LocationQuery extends DataLoaderQuery {
+  style?: string;
   class: 'locations';
   alternate?: string;
   filterField?: string;
@@ -274,6 +279,11 @@ export type InstagramData = NonNullable<
   NonNullable<GetInstaPhotosQuery['getInstaPhotos']>['data']
 >[0];
 
+export type InstaData = {
+  data: InstagramData[];
+  link: string;
+};
+
 function parseFBDate(date: string): Date {
   return new Date(
     date.substring(0, date.length - 2) + ':' + date.substring(date.length - 2)
@@ -323,6 +333,37 @@ export default class DataLoader {
       console.error(e);
     }
     return [];
+  }
+
+  static async listTMHLocations() {
+    try {
+      const listTMHLocations = (await API.graphql({
+        query: queries.listTMHLocations,
+        authMode: GRAPHQL_AUTH_MODE.API_KEY,
+      })) as GraphQLResult<ListTMHLocationsQuery>;
+      return (
+        listTMHLocations.data?.listTMHLocations?.items.sort(
+          (locA, locB) => locA?.name?.localeCompare(locB?.name ?? '') ?? 0
+        ) ?? []
+      );
+    } catch (error) {
+      console.error({ error });
+      return [];
+    }
+  }
+
+  static async getTMHLocation(
+    locationID: string
+  ): Promise<GraphQLResult<GetTMHLocationQuery>> {
+    const variables: GetTMHLocationQueryVariables = {
+      id: locationID,
+    };
+    const getTMHLocation = API.graphql({
+      query: queries.getTMHLocation,
+      variables: variables,
+      authMode: GRAPHQL_AUTH_MODE.API_KEY,
+    }) as Promise<GraphQLResult<GetTMHLocationQuery>>;
+    return getTMHLocation;
   }
 
   static async getVideos(
@@ -918,7 +959,22 @@ export default class DataLoader {
         return new Date() < parseFBDate(item.start_time);
       });
   }
-
+  static async loadLocations(): Promise<TMHLocation[]> {
+    let locations: TMHLocation[] = [];
+    try {
+      const response = (await API.graphql({
+        query: queries.listTMHLocations,
+        authMode: GRAPHQL_AUTH_MODE.API_KEY,
+      })) as GraphQLResult<ListTMHLocationsQuery>;
+      locations =
+        (response.data?.listTMHLocations?.items as TMHLocation[]) ?? [];
+      console.log({ locations });
+      return locations;
+    } catch (error) {
+      console.log({ error });
+      return [];
+    }
+  }
   static async loadStaff(query: StaffQuery): Promise<TMHPerson[]> {
     let staff: TMHPerson[] = [];
     let coordinators: TMHPerson[] = [];
@@ -955,74 +1011,17 @@ export default class DataLoader {
     }
   }
 
-  static async loadInsta(query: InstaQuery): Promise<InstagramData[]> {
-    let id = '';
-    switch (query.filterValue) {
-      case 'alliston':
-        id = '17841433891090773';
-        break;
-      case 'sandbanks':
-        id = '17841400321603203';
-        break;
-      case 'ancaster':
-        id = '17841408879897536';
-        break;
-      case 'brampton':
-        id = '17841411750520408';
-        break;
-      case 'brantford':
-        id = '17841428047284261';
-        break;
-      case 'burlington':
-        id = '17841408871557337';
-        break;
-      case 'hamilton-downtown':
-        id = '17841417565818186';
-        break;
-      case 'toronto-downtown':
-        id = '17841408838131893';
-        break;
-      case 'hamilton-mountain':
-        id = '17841411488786563';
-        break;
-      case 'toronto-east':
-        id = '17841409652026703';
-        break;
-      case 'toronto-high-park':
-        id = '17841432164905254';
-        break;
-      case 'kitchener':
-        id = '17841425888842969';
-        break;
-      case 'london':
-        id = '17841408115069699';
-        break;
-      case 'newmarket':
-        id = '17841421476822902';
-        break;
-      case 'oakville':
-        id = '17841408641187599';
-        break;
-      case 'ottawa':
-        id = '17841408719847486';
-        break;
+  static async loadInsta(query: InstaQuery): Promise<InstaData> {
+    console.log({ query });
+    const location = await this.getTMHLocation(query.filterValue);
+    console.log({ igs: location.data?.getTMHLocation?.socials?.instagram });
+    console.log({ location });
+    let id = '17841400321603203';
 
-      case 'parry-sound':
-        id = '17841443108276837';
-        break;
-      case 'richmond-hill':
-        id = '17841413912356153';
-        break;
-      case 'toronto-uptown':
-        id = '17841409652056784';
-        break;
-      case 'waterloo':
-        id = '17841417962985605';
-        break;
-      default:
-        id = '17841400321603203';
+    if (location?.data?.getTMHLocation?.socials?.instagram?.[0]?.pageId) {
+      id = location.data.getTMHLocation.socials.instagram[0].pageId;
     }
-
+    console.log({ instaId: id });
     const variables: GetInstaPhotosQueryVariables = {
       pageId: id,
     };
@@ -1036,7 +1035,10 @@ export default class DataLoader {
       const json = await getInsta;
 
       if (!json?.data?.getInstaPhotos?.data) {
-        return [];
+        return {
+          data: [],
+          link: 'https://www.instagram.com/themeetinghouse/',
+        };
       }
 
       const { data } = json.data.getInstaPhotos;
@@ -1049,12 +1051,20 @@ export default class DataLoader {
         i++;
       }
 
-      return photos;
+      return {
+        data: photos,
+        link:
+          location.data?.getTMHLocation?.socials?.instagram?.[0]?.link ??
+          'https://www.instagram.com/themeetinghouse/',
+      };
     } catch (e) {
       console.error(e);
     }
 
-    return [];
+    return {
+      data: [],
+      link: 'https://www.instagram.com/themeetinghouse/',
+    };
   }
 
   static async loadOverseers(): Promise<TMHPerson[]> {

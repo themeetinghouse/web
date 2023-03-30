@@ -169,56 +169,6 @@ export default function AddToCalendar({
 
   return (
     <div className={'add-to-calendar-wrapper ' + className} style={style}>
-      <svg
-        style={{ marginRight: 10 }}
-        width={isIcon ? 15 : 25}
-        height={isIcon ? 15 : 25}
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M20 17V23"
-          stroke={strokeColor}
-          strokeWidth="1.5"
-          strokeMiterlimit="10"
-          strokeLinecap="square"
-        />
-        <path
-          d="M17 20H23"
-          stroke={strokeColor}
-          strokeWidth="1.5"
-          strokeMiterlimit="10"
-          strokeLinecap="square"
-        />
-        <path
-          d="M12 22H1V4H23V12"
-          stroke={strokeColor}
-          strokeWidth="1.5"
-          strokeMiterlimit="10"
-          strokeLinecap="square"
-        />
-        <path
-          d="M7 1V4"
-          stroke={strokeColor}
-          strokeWidth="1.5"
-          strokeMiterlimit="10"
-          strokeLinecap="square"
-        />
-        <path
-          d="M17 1V4"
-          stroke={strokeColor}
-          strokeWidth="1.5"
-          strokeMiterlimit="10"
-          strokeLinecap="square"
-        />
-        <path
-          d="M1 8H23"
-          stroke={strokeColor}
-          strokeWidth="1.5"
-          strokeMiterlimit="10"
-        />
-      </svg>
       <Dropdown isOpen={open} toggle={toggle}>
         <DropdownToggle
           className={`add-to-calendar ${
@@ -231,6 +181,56 @@ export default function AddToCalendar({
               : ''
           }`}
         >
+          <svg
+            style={{ marginRight: 10 }}
+            width={25}
+            height={25}
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 17V23"
+              stroke={strokeColor}
+              strokeWidth="1.5"
+              strokeMiterlimit="10"
+              strokeLinecap="square"
+            />
+            <path
+              d="M17 20H23"
+              stroke={strokeColor}
+              strokeWidth="1.5"
+              strokeMiterlimit="10"
+              strokeLinecap="square"
+            />
+            <path
+              d="M12 22H1V4H23V12"
+              stroke={strokeColor}
+              strokeWidth="1.5"
+              strokeMiterlimit="10"
+              strokeLinecap="square"
+            />
+            <path
+              d="M7 1V4"
+              stroke={strokeColor}
+              strokeWidth="1.5"
+              strokeMiterlimit="10"
+              strokeLinecap="square"
+            />
+            <path
+              d="M17 1V4"
+              stroke={strokeColor}
+              strokeWidth="1.5"
+              strokeMiterlimit="10"
+              strokeLinecap="square"
+            />
+            <path
+              d="M1 8H23"
+              stroke={strokeColor}
+              strokeWidth="1.5"
+              strokeMiterlimit="10"
+            />
+          </svg>
           {!isIcon ? 'Add to Calendar' : null}
         </DropdownToggle>
         <DropdownMenu>

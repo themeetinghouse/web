@@ -26015,21 +26015,49 @@ export const getTMHLocation = /* GraphQL */ `
       regionShortName
       homeChurchGroupID
       abbreviation
-      serviceTimeDescription
       region
-      facebookPageIds
       contact {
         name
         email
         phone
         extension
       }
-      servicesTimes
+      meetings {
+        date
+        startTime
+        endTime
+        name
+        description
+        frequency
+        location {
+          name
+          latitude
+          longitude
+          address1
+          address2
+          city
+          state
+          zip
+          country
+          url
+        }
+        type
+      }
       youth {
+        name
+        description
         age
         location {
           name
-          googleMapLink
+          latitude
+          longitude
+          address1
+          address2
+          city
+          state
+          zip
+          country
+          url
         }
         time
         facebookLink
@@ -26057,6 +26085,7 @@ export const getTMHLocation = /* GraphQL */ `
         twitter
       }
       location {
+        name
         latitude
         longitude
         address1
@@ -26065,6 +26094,7 @@ export const getTMHLocation = /* GraphQL */ `
         state
         zip
         country
+        url
       }
       pastors {
         id
@@ -26122,21 +26152,49 @@ export const listTMHLocations = /* GraphQL */ `
         regionShortName
         homeChurchGroupID
         abbreviation
-        serviceTimeDescription
         region
-        facebookPageIds
         contact {
           name
           email
           phone
           extension
         }
-        servicesTimes
+        meetings {
+          date
+          startTime
+          endTime
+          name
+          description
+          frequency
+          location {
+            name
+            latitude
+            longitude
+            address1
+            address2
+            city
+            state
+            zip
+            country
+            url
+          }
+          type
+        }
         youth {
+          name
+          description
           age
           location {
             name
-            googleMapLink
+            latitude
+            longitude
+            address1
+            address2
+            city
+            state
+            zip
+            country
+            url
           }
           time
           facebookLink
@@ -26164,6 +26222,7 @@ export const listTMHLocations = /* GraphQL */ `
           twitter
         }
         location {
+          name
           latitude
           longitude
           address1
@@ -26172,6 +26231,7 @@ export const listTMHLocations = /* GraphQL */ `
           state
           zip
           country
+          url
         }
         pastors {
           id

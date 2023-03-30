@@ -2,6 +2,8 @@ import Analytics from '@aws-amplify/analytics';
 import React, { ReactElement, useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import GenericModalPage from '../RenderRouter/GenericModalPage';
+import DataLoader from '../RenderRouter/DataLoader';
+
 const RenderRouter = React.lazy(() => import('../RenderRouter/RenderRouter'));
 const VideoOverlay = React.lazy(() => import('../VideoOverlay/VideoOverlay'));
 const S3_BUCKET =
@@ -61,7 +63,82 @@ export default function ContentPage(): ReactElement | null {
             ...pages,
           });
         } catch (error) {
+          if (window.location.href.includes('communities')) {
+            const locationId = window.location.href
+              .split('communities/')
+              .at(-1)
+              ?.toLowerCase();
+            console.log({ locationId });
+            if (!locationId) {
+              const response3 = await fetch('/static/content/404.json');
+              content = await response3.json();
+              setPages({
+                [jsonFile]: content,
+                ...pages,
+              });
+              return;
+            }
+            const TMHLocationData = await DataLoader.getTMHLocation(locationId);
+            if (!TMHLocationData.data?.getTMHLocation) {
+              const response3 = await fetch('/static/content/404.json');
+              content = await response3.json();
+              setPages({
+                [jsonFile]: content,
+                ...pages,
+              });
+              return;
+            }
+            console.log({ TMHLocationData });
+            const response3 = await fetch('/static/content/communities.json');
+            content = await response3.json();
+            const newContent = {
+              ...content,
+              page: {
+                ...content.page,
+                content: content.page.content.map((item: any) => {
+                  if (item.type === 'hero' && item.style === 'locationPage') {
+                    item.filterValue = TMHLocationData.data?.getTMHLocation?.id;
+                  } else if (item.type === 'list' && item.style === 'staff') {
+                    item.filterValue =
+                      TMHLocationData.data?.getTMHLocation?.abbreviation;
+                  } else if (item.type === 'list' && item.class === 'events') {
+                    item.facebookEvents =
+                      TMHLocationData.data?.getTMHLocation?.socials?.facebook?.map(
+                        (facebook: any) => facebook.pageId
+                      );
+                  } else if (
+                    item.type === 'list' &&
+                    item.class === 'instagram'
+                  ) {
+                    item.filterValue = TMHLocationData.data?.getTMHLocation?.id;
+                  } else if (
+                    item.type === 'list' &&
+                    item.class === 'compassion'
+                  ) {
+                    item.filterValue = TMHLocationData.data?.getTMHLocation?.id;
+                  } else if (
+                    item.type === 'hero' &&
+                    item.style === 'partial' &&
+                    item.link1Text.includes('Home Church')
+                  ) {
+                    item.link1Text = `Browse Home Churches in ${TMHLocationData.data?.getTMHLocation?.name}`;
+                  }
+                  return item;
+                }),
+                name: TMHLocationData.data.getTMHLocation.id,
+                title: `The Meeting House - ${TMHLocationData.data.getTMHLocation.name}`,
+              },
+            };
+            setPages({
+              [jsonFile]: newContent,
+              ...pages,
+            });
+            setContent(content);
+            return;
+          }
+
           console.error({ error });
+
           const response3 = await fetch('/static/content/404.json');
           content = await response3.json();
           setPages({
@@ -91,6 +168,7 @@ export default function ContentPage(): ReactElement | null {
     isPopup = false,
     navigateOnPopupClose,
   } = content.page.pageConfig ?? {};
+  console.log(window.location.href);
   if (showGenericModalPage && isPopup) {
     return (
       <GenericModalPage

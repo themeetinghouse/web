@@ -12,6 +12,7 @@ const HomeChurch = lazy(() => import('../../pages/admin/homechurch'));
 const Redirect = lazy(() => import('../../pages/admin/Redirect'));
 const Editor = lazy(() => import('../../pages/admin/Editor/Editor'));
 const PeopleManager = lazy(() => import('./PeopleManager/PeopleManager'));
+const LocationsManager = lazy(() => import('./locations/locations'));
 
 class Admin extends React.Component {
   render() {
@@ -48,6 +49,10 @@ class Admin extends React.Component {
           <Route
             path="/account/admin/homechurches"
             render={() => <HomeChurch />}
+          />
+          <Route
+            path="/account/admin/locations"
+            render={() => <LocationsManager />}
           />
           <Route path="/account/admin/redirects" render={() => <Redirect />} />
           <Route

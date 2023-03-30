@@ -1,0 +1,116 @@
+.LocationsHeaderContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.LocationsHeaderTextContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1;
+}
+.LocationsHeaderText {
+  font-weight: 700;
+  font-size: 20px;
+  flex: 1;
+}
+.LocationsSubHeaderText {
+  font-weight: 400;
+  font-size: 12px;
+  flex: 1;
+}
+
+.LocationsContainer {
+  display: flex;
+  flex-direction: column;
+}
+.LocationsListButton {
+  background-color: transparent;
+  border: none;
+}
+.LocationsListButton:focus {
+  background-color: lightgrey;
+  border: none;
+}
+.LocationsListButton:active {
+  background-color: lightgrey;
+  border: none;
+}
+.LocationsListButton:visited {
+  background-color: lightgrey;
+  border: none;
+}
+.LocationsListButton:link {
+  background-color: lightgrey;
+  border: none;
+}
+
+.LocationsCreateButton {
+  background-color: #000;
+  color: #fff;
+  line-height: 0px;
+  font-size: 12px;
+  height: 30px;
+  font-weight: 700;
+  padding: 6px 12px;
+  &.white {
+    background-color: #fff;
+    color: #000;
+  }
+}
+.LocationsListContainer {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  .LocationsListHeader {
+    border-top: 1px solid lightgrey;
+    border-left: 1px solid lightgrey;
+    display: flex;
+    flex-direction: row;
+    span {
+      border-right: 1px solid lightgrey;
+      font-weight: 700;
+      font-size: 12px;
+      flex: 1;
+      padding: 4px 8px;
+    }
+    :last-child {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+  }
+  .LocationsListItemContainer {
+    border-left: 1px solid lightgrey;
+    border-top: 1px solid lightgrey;
+    display: flex;
+    flex-direction: column;
+  }
+  .LocationsListItem {
+    &:hover {
+      background-color: #d7d7d7;
+    }
+    &:nth-child(odd) {
+      background-color: #efefef;
+    }
+    cursor: pointer;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    span {
+      padding: 4px 8px;
+      border-bottom: 1px solid lightgrey;
+      border-right: 1px solid lightgrey;
+      font-size: 12px;
+      flex: 1;
+    }
+    :last-child {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+  }
+}

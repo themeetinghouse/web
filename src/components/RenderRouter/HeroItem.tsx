@@ -4,10 +4,11 @@ import { withRouter, RouteComponentProps } from 'react-router-dom';
 import AddToCalendar, { Event } from '../AddToCalendar/AddToCalendar';
 import './HeroItem.scss';
 import Select from 'react-select';
-import DataLoader, { LocationData, LocationQuery } from './DataLoader';
+import DataLoader, { LocationQuery } from './DataLoader';
 import moment from 'moment';
 import { ScaledImage } from 'components/ScaledImage';
 import { Link, LinkButton } from 'components/Link/Link';
+import { TMHLocation, TMHLocationMeeting } from 'API';
 
 interface Props extends RouteComponentProps {
   content: LocationQuery;
@@ -15,8 +16,9 @@ interface Props extends RouteComponentProps {
 }
 interface State {
   content: any;
-  locationData: LocationData[];
+  locationData: TMHLocation[];
   arrowOpacity: any;
+  currentLocation: TMHLocation | null;
 }
 class HeroItem extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -25,6 +27,7 @@ class HeroItem extends React.Component<Props, State> {
       content: props.content,
       locationData: [],
       arrowOpacity: 1,
+      currentLocation: null,
     };
     this.navigate = this.navigate.bind(this);
     this.setData = this.setData.bind(this);
@@ -37,36 +40,79 @@ class HeroItem extends React.Component<Props, State> {
   async componentDidMount() {
     const query = this.props.content;
     if (query.class === 'locations' || query.class === 'region') {
-      console.log('REGION');
-      const data = await DataLoader.getLocations(query);
-      this.setData(data);
+      if (query.style === 'locationPage') {
+        console.log('location', query);
+        if (!query.filterValue) return;
+        const data = await DataLoader.getTMHLocation(query.filterValue);
+        if (data.data?.getTMHLocation) {
+          this.setState({ currentLocation: data.data.getTMHLocation });
+        }
+      } else {
+        console.log('REGION');
+        const data = await DataLoader.listTMHLocations();
+        this.setData(data as TMHLocation[]);
+      }
     }
   }
 
-  setData(data: LocationData[]) {
+  setData(data: TMHLocation[]) {
     this.setState({
       locationData: this.state.locationData.concat(data),
     });
   }
-  getCalendarEventForLocation(locationItem: LocationData): Event {
-    let nextSunday = moment().add(1, 'week').day(0).startOf('day');
-    let serviceHour =
-      locationItem.serviceTimes[locationItem.serviceTimes.length - 1];
-    serviceHour = serviceHour.substr(0, serviceHour.indexOf(':'));
-    nextSunday = nextSunday.hour(+serviceHour);
+  getNextMeetingDate(meeting: TMHLocationMeeting) {
+    const now = moment();
+    const past = moment(meeting?.date, 'YYYY-MM-DD');
+    const daysSinceLastMeeting = now.diff(past, 'days');
+    const daysToAdd =
+      meeting.frequency === 'WEEKLY'
+        ? 7
+        : meeting.frequency === 'BIWEEKLY'
+        ? 14
+        : meeting.frequency === 'MONTHLY'
+        ? 28
+        : 7; //defaults to weekly
+    for (let i = 0; i < daysSinceLastMeeting; i += daysToAdd) {
+      if (meeting.frequency === 'WEEKLY') {
+        past.add(daysToAdd, 'days');
+      } else if (meeting.frequency === 'BIWEEKLY') {
+        past.add(daysToAdd, 'days');
+      } else if (meeting.frequency === 'MONTHLY') {
+        past.add(daysToAdd, 'days');
+      } else {
+        past.add(7, 'days');
+      }
+    }
+    const startingDateTime = moment(
+      past.format('YYYY-MM-DD') + ' ' + meeting.startTime,
+      'YYYY-MM-DD HH:mm:ss'
+    );
+    const endingDateTime = moment(
+      past.format('YYYY-MM-DD') + ' ' + meeting.endTime,
+      'YYYY-MM-DD HH:mm:ss'
+    );
+    return { startingDateTime, endingDateTime };
+  }
+
+  getCalendarEventForMeeting(
+    location: TMHLocation,
+    meeting: TMHLocationMeeting
+  ): Event {
+    const { startingDateTime, endingDateTime } =
+      this.getNextMeetingDate(meeting);
     const event = {
-      summary: 'Church at The Meeting House',
-      description: 'Join us at The Meeting House on Sunday!',
-      location: locationItem.location.address,
-      start: nextSunday.format(),
-      end: moment(nextSunday).add(90, 'minutes').format(),
-      url: 'https://themeetinghouse.com/live',
+      title: meeting?.name ?? '',
+      description: '',
+      summary: meeting?.description ?? '',
+      location: location.location?.name ?? '',
+      start: startingDateTime.format('YYYYMMDDTHHmmssZ'),
+      end: endingDateTime.format('YYYYMMDDTHHmmssZ'),
     };
     return event;
   }
 
   locationChange(item: any) {
-    this.props.history.push('/' + item.value);
+    this.props.history.push('/communities/' + item.value);
   }
   navigate() {
     this.props.history.push('spirituality', 'as');
@@ -266,7 +312,6 @@ class HeroItem extends React.Component<Props, State> {
       </div>
     );
   }
-
   renderSecondaryCTA(buttonInfo: any) {
     if (!buttonInfo) return null;
     return (
@@ -298,6 +343,7 @@ class HeroItem extends React.Component<Props, State> {
       (loc) => loc.id == this.state.content.filterValue
     )[0];
     if (this.state.content.style === 'full') {
+      console.log({ content: this.state.content });
       return (
         <div className="headerItem heroItem">
           <div
@@ -316,15 +362,15 @@ class HeroItem extends React.Component<Props, State> {
             {this.state.content.autoSite ? (
               <>
                 <h1 className="heroH1">{activeLocation?.name}</h1>
-                <h2 className="heroH2">{activeLocation?.location?.address}</h2>
-                <div className="heroText1">
-                  {activeLocation?.serviceTimeDescription}
-                </div>
+                <h2 className="heroH2">
+                  {/* {activeLocation?.location?.address}*/}
+                </h2>
+                <div className="heroText1">{/* serviceTimeDescription*/}</div>
               </>
             ) : null}
             {this.state.content.class == 'region' ? (
               <div style={{ width: '32vw' }}>
-                {this.state.locationData.map((z: LocationData) => {
+                {this.state.locationData.map((z) => {
                   return (
                     <div key={z.id} className="heroHover">
                       <div
@@ -367,12 +413,17 @@ class HeroItem extends React.Component<Props, State> {
                             width: '3vw',
                           }}
                         >
-                          <AddToCalendar
-                            textDecoration="always"
-                            color="white"
-                            isIcon={true}
-                            event={this.getCalendarEventForLocation(z)}
-                          />
+                          {z?.meetings?.[0] ? (
+                            <AddToCalendar
+                              textDecoration="always"
+                              color="white"
+                              isIcon={true}
+                              event={this.getCalendarEventForMeeting(
+                                z,
+                                z?.meetings?.[0]
+                              )}
+                            />
+                          ) : null}
                         </span>
                       </div>
                       <div className="heroText1">
@@ -384,7 +435,7 @@ class HeroItem extends React.Component<Props, State> {
                               width: '32vw',
                             }}
                           >
-                            {z.serviceTimeDescription}
+                            {/*z.serviceTimeDescription*/}
                           </span>
                         </a>
                       </div>
@@ -434,13 +485,16 @@ class HeroItem extends React.Component<Props, State> {
                   Watch Live
                 </Link>
               ) : this.state.content.addToCalendar ? (
-                this.state.locationData.length === 1 ? (
+                this.state.locationData.length === 1 &&
+                this.state.currentLocation &&
+                this.state.currentLocation?.meetings?.[0] ? (
                   <AddToCalendar
                     style={{ marginRight: 25 }}
                     textDecoration="always"
                     color="white"
-                    event={this.getCalendarEventForLocation(
-                      this.state.locationData[0]
+                    event={this.getCalendarEventForMeeting(
+                      this.state.currentLocation,
+                      this.state.currentLocation.meetings[0]
                     )}
                   />
                 ) : null
@@ -500,6 +554,199 @@ class HeroItem extends React.Component<Props, State> {
           </div>
         </div>
       );
+    } else if (this.state.content.style === 'locationPage') {
+      console.log({ a1: this.state.content });
+      return (
+        <div className="headerItem heroItem">
+          <div
+            className="heroImageGradient"
+            onClick={() => {
+              this.scrollToNextPage();
+            }}
+          ></div>
+          {this.renderHeroImage('heroImage')}
+          <div className="heroBlackBox">
+            <h1 className="heroH1">{this.state.content.header1}</h1>
+            {this.state.content.header2 && (
+              <h2 className="heroH2">{this.state.content.header2}</h2>
+            )}
+            {this.state.content.hideHr ? null : <hr className="heroHr"></hr>}
+            {this.state.content.autoSite ? (
+              <>
+                <h1
+                  className="heroH1"
+                  style={{
+                    letterSpacing: '-0.5px',
+                  }}
+                >
+                  {this.state.currentLocation?.name}
+                </h1>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={`https://www.google.com/maps/dir/?api=1&destination=${this.state.currentLocation?.location?.latitude},${this.state.currentLocation?.location?.longitude}`}
+                  style={{
+                    fontSize: 16,
+                    color: '#FFF',
+                    textDecoration: 'underline',
+                    textDecorationThickness: 1.5,
+                    textUnderlineOffset: 4,
+                  }}
+                >
+                  {this.state.currentLocation?.location?.name}
+                </a>
+                {this.state.currentLocation?.meetings
+                  ?.sort((meetingA, meetingB) => {
+                    if (!meetingA || !meetingB) return 0;
+                    const today = moment();
+                    const meetingADate = this.getNextMeetingDate(meetingA);
+                    const meetingBDate = this.getNextMeetingDate(meetingB);
+                    if (!meetingADate || !meetingBDate) return 0;
+                    return (
+                      meetingADate.startingDateTime.diff(today) -
+                      meetingBDate.startingDateTime.diff(today)
+                    );
+                  })
+                  .map((meeting) => {
+                    console.log({ meeting });
+                    if (!meeting) return;
+                    const nextMeetingDate = this.getNextMeetingDate(meeting);
+                    console.log({ nextMeetingDate });
+                    const numMeetings =
+                      this.state.currentLocation?.meetings?.length ?? 0;
+                    return (
+                      <>
+                        <div
+                          className="heroText2"
+                          style={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            marginTop: 16,
+                            marginBottom: 16,
+                          }}
+                        >
+                          <span
+                            style={{
+                              flexDirection: 'column',
+                              display: 'flex',
+                              marginRight: 8,
+                              flex: 1,
+                            }}
+                          >
+                            <span
+                              style={{
+                                fontSize: 14,
+                                fontWeight: 600,
+                              }}
+                            >
+                              {meeting?.name}
+                            </span>
+                            <span
+                              style={{
+                                fontSize: 14,
+                                color: '#C8C8C8',
+                              }}
+                            >
+                              {meeting?.description ? (
+                                <span
+                                  style={{
+                                    fontSize: 14,
+                                    fontWeight: 300,
+                                    color: '#C8C8C8',
+                                  }}
+                                >
+                                  {meeting?.description}
+                                </span>
+                              ) : null}
+                              <span
+                                style={{
+                                  display: 'block',
+                                }}
+                              >
+                                {meeting?.frequency === 'WEEKLY'
+                                  ? `Every ${nextMeetingDate.startingDateTime.format(
+                                      'dddd h:mm a'
+                                    )}`
+                                  : `Meets on ${nextMeetingDate.startingDateTime.format(
+                                      'LLLL'
+                                    )}
+                                      `}
+                              </span>
+                            </span>
+                          </span>
+                          {numMeetings > 1 && this.state.currentLocation ? (
+                            <AddToCalendar
+                              textDecoration="always"
+                              color="white"
+                              isIcon={true}
+                              event={this.getCalendarEventForMeeting(
+                                this.state.currentLocation,
+                                meeting
+                              )}
+                            />
+                          ) : null}
+                        </div>
+                      </>
+                    );
+                  })}
+              </>
+            ) : null}
+            <div className="heroText1">{this.state.content.text1}</div>
+            <div className="contactPastorLink">
+              {this.state.currentLocation?.meetings?.length === 1 &&
+              this.state.currentLocation?.meetings?.[0] ? (
+                <AddToCalendar
+                  style={{ marginRight: 25 }}
+                  textDecoration="always"
+                  color="white"
+                  event={{
+                    summary:
+                      this.state.currentLocation?.meetings?.[0]?.name ?? '',
+                    description:
+                      this.state.currentLocation?.meetings?.[0]?.description ??
+                      '',
+                    location: this.state.currentLocation?.location?.name ?? '',
+                    start: this.getNextMeetingDate(
+                      this.state.currentLocation
+                        ?.meetings?.[0] as TMHLocationMeeting
+                    ).startingDateTime.format('YYYYMMDDTHHmmssZ'),
+                    end: this.getNextMeetingDate(
+                      this.state.currentLocation
+                        ?.meetings?.[0] as TMHLocationMeeting
+                    ).endingDateTime.format('YYYYMMDDTHHmmssZ'),
+                    url: 'https://themeetinghouse.com/live',
+                  }}
+                />
+              ) : null}
+              {this.state.currentLocation?.pastorEmail ? (
+                <a href={'mailto:' + this.state.currentLocation?.pastorEmail}>
+                  <button className="calendarButton contactPastor">
+                    <img
+                      className="calendarImage"
+                      src="/static/svg/Contact-white.svg"
+                      alt="Contact Icon"
+                    />
+                    Contact Pastor
+                  </button>
+                </a>
+              ) : null}
+            </div>
+            <br />
+          </div>
+          <div>
+            <img
+              id="downArrow"
+              style={{ opacity: this.state.arrowOpacity, cursor: 'pointer' }}
+              src="/static/svg/DownArrow.svg"
+              className="downarrow animated bounce"
+              alt="Down Arrow"
+              onClick={() => {
+                this.scrollToNextPage();
+              }}
+            />{' '}
+          </div>
+        </div>
+      );
     } else if (this.state.content.style === 'partialNoFooter') {
       return (
         <div className="partialNoFooter">
@@ -534,9 +781,11 @@ class HeroItem extends React.Component<Props, State> {
                     placeholder="Select city"
                     className="partialNoFooterLocationDropDown"
                     classNamePrefix="react-select-custom"
-                    options={this.state.locationData.map((item) => {
-                      return { label: item.name, value: item.id };
-                    })}
+                    options={this.state.locationData
+                      ?.filter((tmhLocation) => tmhLocation?.showInLocationList)
+                      .map((item) => {
+                        return { label: item.name, value: item.id };
+                      })}
                   />
                 )}
               </div>
@@ -609,6 +858,7 @@ class HeroItem extends React.Component<Props, State> {
                     className="partialLocationDropDown"
                     classNamePrefix="react-select-custom"
                     options={this.state.locationData
+                      ?.filter((tmhLocation) => tmhLocation?.showInLocationList)
                       .map((item) => {
                         return { label: item.name, value: item.id };
                       })

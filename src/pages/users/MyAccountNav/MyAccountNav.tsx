@@ -123,6 +123,11 @@ export default function MyAccountNav({
                   Redirects
                 </DropdownItem>
                 <DropdownItem
+                  onClick={() => history.push('/account/admin/locations')}
+                >
+                  Locations
+                </DropdownItem>
+                <DropdownItem
                   onClick={() => history.push('/account/admin/people')}
                 >
                   People
