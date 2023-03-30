@@ -26041,7 +26041,6 @@ export const getTMHLocation = /* GraphQL */ `
           country
           url
         }
-        type
       }
       youth {
         name
@@ -26178,7 +26177,6 @@ export const listTMHLocations = /* GraphQL */ `
             country
             url
           }
-          type
         }
         youth {
           name
