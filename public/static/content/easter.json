@@ -32,23 +32,23 @@
         ],
         "header1": "Easter",
         "header2": "",
-        "text1": "This Easter is all about hope. Journey with us as we testify to the hope we've seen, the hope we have yet to see, and the true living hope of the world: Jesus."
+        "text1": "Easter is a celebration of hope and new life, but we can’t forget that this story begins in the crucifixion and the feelings of loss and unknown for the disciples. Join us as we journey from the sacrifice of Good Friday, through the unknown of Holy Saturday, and into the new hope of Easter Sunday."
       },
       {
         "type": "content",
         "style": "oneImage",
         "header1": "Good Friday Livestream",
-        "header2": "April 15, 10:00am ET",
-        "text1": "This Good Friday we testify to the hope we've seen, and the hope we have yet to see. Join us as we hold forth the hope of Jesus in times of expectation.",
+        "header2": "April 7, 10:00am ET",
+        "text1": "Good Friday is a unique time to reflect on the way that God is with us in the middle of the hard and heavy seasons of our lives. When we skip over or avoid being present in these spaces where our lives intersect with death, we also miss out on the way God wants to meet us there with his faithful gift of new life.",
         "image1": [
           {
-            "src": "/static/images/GF_website_square_image_2.jpg",
-            "alt": "The word, Testify on a yellow, orange, and pink abstract design"
+            "src": "/static/images/GF2023.png",
+            "alt": "An altar with a cross"
           }
         ],
         "calendar": {
-          "start": "2022-04-15T10:00:00-04:00",
-          "end": "2022-04-15T11:30:00-04:00",
+          "start": "2022-04-07T10:00:00-04:00",
+          "end": "2022-04-07T11:30:00-04:00",
           "summary": "Good Friday",
           "description": "Join The Meeting House's livestream on Good Friday.",
           "url": "https://www.themeetinghouse.com/live"
@@ -57,18 +57,38 @@
       {
         "type": "content",
         "style": "oneImage",
-        "header1": "Easter Sunday Livestream",
-        "header2": "April 17, 10:00am ET",
-        "text1": "Hope lives this Easter! Join us as we celebrate and declare together our hope: the hope of the world: the risen and exalted Jesus.",
+        "header1": "Holy Saturday",
+        "header2": "April 8, 10:00am ET",
+        "text1": "The first Holy Saturday was full of agonizing unknowns. What did Jesus' human peers do with that? Join us as we share musings around when we find ourselves in the middle of a story where the end is not known.",
         "image1": [
           {
-            "src": "/static/images/Easter_website_square_image.jpg",
-            "alt": "The words, Hope Lives on a yellow, orange, and pink abstract design."
+            "src": "/static/images/HolySaturday2023.png",
+            "alt": "A grey graphic with the words Holy Saturday."
           }
         ],
         "calendar": {
-          "start": "2022-04-17T10:00:00-04:00",
-          "end": "2022-04-17T11:30:00-04:00",
+          "start": "2022-04-08T10:00:00-04:00",
+          "end": "2022-04-08T11:30:00-04:00",
+          "summary": "Holy Saturday",
+          "description": "Join The Meeting House's livestream for Holy Saturday.",
+          "url": "https://www.themeetinghouse.com/live"
+        }
+      },
+      {
+        "type": "content",
+        "style": "oneImage",
+        "header1": "Easter Sunday Livestream",
+        "header2": "April 9, 10:00am ET",
+        "text1": "This Easter we share how Jesus’ resurrection gives us hope, a story, and a future. We hope you join us as we share in the story that changed everything and what that means for us today.",
+        "image1": [
+          {
+            "src": "/static/images/Easter2023.png",
+            "alt": "A half filled cup with the word Ressurrection."
+          }
+        ],
+        "calendar": {
+          "start": "2022-04-09T10:00:00-04:00",
+          "end": "2022-04-09T11:30:00-04:00",
           "summary": "Easter Sunday",
           "description": "Join The Meeting House's livestream on Easter Sunday.",
           "url": "https://www.themeetinghouse.com/live"
@@ -83,9 +103,9 @@
             "alt": "A map representing locations of The Meeting House churches."
           }
         ],
-        "header1": "Good Friday and Easter at Local Communities",
-        "text1": "Local in-person experiences that feel like family and give you opportunity to meaningfully connect with people near you.",
-        "text2": "Choose a location from the menu below for more details.",
+        "header1": "Good Friday and Easter in-person services",
+        "text1": "Local, in-person experiences that feel like family and give you the opportunity to meaningfully connect with people near you.",
+        "text2": "Choose a location below for more details.",
         "link1Text": "",
         "link1AriaLabel": "",
         "link1Action": "/find-sunday-morning",
@@ -102,8 +122,7 @@
           }
         ],
         "header1": "Your best next step.",
-        "header2": "Subscribe and save the date.",
-        "text2": "We'll email you a few days before Easter with a reminder and helpful links. Until then, we'll send you some of our favourite and most popular content."
+        "header2": "Subscribe and save the date."
       }
     ]
   }
