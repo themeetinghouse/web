@@ -96,24 +96,6 @@
       },
       {
         "type": "hero",
-        "style": "partialNoFooter",
-        "image1": [
-          {
-            "src": "/static/svg/Map.svg",
-            "alt": "A map representing locations of The Meeting House churches."
-          }
-        ],
-        "header1": "Good Friday and Easter in-person services",
-        "text1": "Local, in-person experiences that feel like family and give you the opportunity to meaningfully connect with people near you.",
-        "text2": "Choose a location below for more details.",
-        "link1Text": "",
-        "link1AriaLabel": "",
-        "link1Action": "/find-sunday-morning",
-        "class": "locations",
-        "showLocationSearch": true
-      },
-      {
-        "type": "hero",
         "style": "connect",
         "image1": [
           {
