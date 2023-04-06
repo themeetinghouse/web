@@ -1723,7 +1723,7 @@ class ListItem extends React.Component<Props, State> {
                       No results found
                     </h2>
                   ) : null}
-                  <HorizontalScrollList>
+                  <HorizontalScrollList isItemWholePage>
                     {isMobile
                       ? filteredPeopleData.map((item, index) => {
                           return this.renderItemRouter(item, index);

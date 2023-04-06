@@ -889,14 +889,9 @@
     width: 64vw;
   }
 
-  $staffwidth: 19vw;
-
   .StaffFlexArea {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    // width: $staffwidth * 2;
-    margin-right: 3vw;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .StaffImage {
@@ -911,7 +906,7 @@
   }
 
   .StaffItem {
-    flex: 1;
+    width: 100%;
     display: flex;
     align-items: flex-start;
     flex-direction: row;
@@ -1559,11 +1554,8 @@
   $staffwidth: 18vw;
 
   .StaffFlexArea {
-    flex-direction: row;
-    // width: $staffwidth * 2;
-    margin-right: 6.5vw;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .StaffImage {
@@ -1578,7 +1570,7 @@
     // display: block;
     align-items: flex-start;
     flex-direction: row;
-    width: 30vw;
+    width: 100%;
     margin-bottom: 6vw;
   }
 

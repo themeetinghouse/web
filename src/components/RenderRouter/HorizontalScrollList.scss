@@ -24,6 +24,10 @@
         margin: 10px 0;
         padding: 0 5px;
         vertical-align: top;
+
+        &.whole-page {
+          width: 80vw;
+        }
       }
     }
 

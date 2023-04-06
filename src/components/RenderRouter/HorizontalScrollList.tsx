@@ -5,6 +5,7 @@ import './HorizontalScrollList.scss';
 interface Props extends RouteComponentProps {
   darkMode?: boolean;
   children: (Element | null)[] | ReactNode;
+  isItemWholePage?: boolean;
 }
 interface State {
   numPages: number;
@@ -179,7 +180,7 @@ class HorizontalScrollList extends React.Component<Props, State> {
       <>
         <div
           className={
-            'HorizontalScrollListContainer ' +
+            'HorizontalScrollListContainer' +
             (this.props.darkMode ? 'dark' : '')
           }
         >
@@ -194,7 +195,13 @@ class HorizontalScrollList extends React.Component<Props, State> {
               Array.isArray(this.props.children) &&
               this.props.children.map((child, index) =>
                 child ? (
-                  <div className="HorizontalScrollListItem" key={index}>
+                  <div
+                    className={
+                      'HorizontalScrollListItem' +
+                      (this.props.isItemWholePage ? ' whole-page' : '')
+                    }
+                    key={index}
+                  >
                     {child}
                   </div>
                 ) : null
