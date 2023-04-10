@@ -7,9 +7,21 @@
     },
     "storage": {
       "tmhusercontent": [
-        "create"
+        "create",
+        "read",
+        "update"
       ]
     }
   },
-  "lambdaLayers": []
+  "lambdaLayers": [],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "s3AccessKeyId",
+      "environmentVariableName": "s3AccessKeyId"
+    },
+    {
+      "cloudFormationParameterName": "s3SecretAccessKey",
+      "environmentVariableName": "s3SecretAccessKey"
+    }
+  ]
 }

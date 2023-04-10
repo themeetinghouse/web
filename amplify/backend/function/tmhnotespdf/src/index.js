@@ -17,7 +17,11 @@ const { v4: uuidv4 } = require('uuid');
 const cognito = new AWS.CognitoIdentityServiceProvider({
   apiVersion: '2016-04-18',
 });
-const s3 = new AWS.S3();
+const s3 = new AWS.S3({
+  accessKeyId: process.env.s3AccessKeyId,
+  secretAccessKey: process.env.s3SecretAccessKey,
+  region: 'us-east-1',
+});
 
 exports.handler = async (event) => {
   try {

@@ -35,6 +35,12 @@
     },
     "s3Key": {
       "Type": "String"
+    },
+    "s3AccessKeyId": {
+      "Type": "String"
+    },
+    "s3SecretAccessKey": {
+      "Type": "String"
     }
   },
   "Conditions": {
@@ -96,6 +102,12 @@
             },
             "STORAGE_TMHUSERCONTENT_BUCKETNAME": {
               "Ref": "storagetmhusercontentBucketName"
+            },
+            "s3AccessKeyId": {
+              "Ref": "s3AccessKeyId"
+            },
+            "s3SecretAccessKey": {
+              "Ref": "s3SecretAccessKey"
             }
           }
         },
@@ -258,8 +270,26 @@
             },
             {
               "Effect": "Allow",
+              "Action": "s3:ListBucket",
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:s3:::",
+                      {
+                        "Ref": "storagetmhusercontentBucketName"
+                      }
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Effect": "Allow",
               "Action": [
-                "s3:PutObject"
+                "s3:PutObject",
+                "s3:GetObject"
               ],
               "Resource": [
                 {
