@@ -1,0 +1,27 @@
+.TMHTooltipBox {
+  width: max-content;
+  max-width: 300px;
+  background-color: #1a1a1a;
+  color: #fff;
+  border-radius: 4px;
+  left: 0px;
+  top: -25px;
+  padding: 4px 8px;
+  font-weight: 400;
+  position: absolute;
+  z-index: 1000000;
+  font-size: 12px;
+  visibility: hidden;
+}
+
+.TMHTooltipItem {
+  cursor: pointer;
+}
+
+.TMHTooltipContainer {
+  position: relative;
+}
+
+.TMHTooltipContainer:hover .TMHTooltipBox {
+  visibility: visible;
+}
