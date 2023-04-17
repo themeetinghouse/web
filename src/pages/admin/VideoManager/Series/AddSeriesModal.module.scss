@@ -1,0 +1,22 @@
+.AddSeriesModalContainer {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+}
+input,
+select {
+  margin-top: 2px;
+  padding: 8px;
+  border: 1px solid lightgrey;
+  font-size: 1rem;
+  &:focus {
+    outline: none;
+    border-color: #1a1a1a;
+  }
+}

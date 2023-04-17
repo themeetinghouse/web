@@ -1,0 +1,37 @@
+.ToggleNavigationBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-bottom: 1px solid lightgrey;
+  border: 1px solid lightgrey;
+  border-radius: 4px;
+  :first-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+  :nth-child(even) {
+    border-right: 1px solid lightgrey !important;
+    border-left: 1px solid lightgrey !important;
+  }
+  :last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-right: none !important;
+  }
+  .Button {
+    flex: 1;
+    background-color: #fff;
+    padding: 8px;
+    border: none;
+    border-bottom: 3px solid transparent;
+    font-weight: 400;
+    &.Active {
+      background-color: #efefef;
+      border-bottom: 3px solid #1a1a1a;
+      font-weight: 500;
+    }
+    background-color: white;
+
+    font-size: 13px;
+  }
+}

@@ -1285,6 +1285,9 @@ type Series @model @auth(rules: [{allow: public, operations: [read]}, {allow: pr
   description: String
   thumbnailDescription: String
   image: String
+  squareImage: Image
+  bannerImage: Image
+  babyHeroImage: Image
   startDate: String
   endDate: String
   notes: [Notes] @hasMany(indexName: "notesBySeriesId", fields: ["id"])
@@ -1660,4 +1663,4 @@ type Address {
   state: String
 }
                                           
-                                                                
+                                                                 

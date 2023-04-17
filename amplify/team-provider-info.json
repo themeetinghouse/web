@@ -580,7 +580,9 @@
           "userPoolWebClientId": "4r6fjaifitufbsl1qcju0f9jbt",
           "identityPoolId": "us-east-1:3ff56cd7-e4b2-4543-aed6-94f258a95dd8",
           "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
-          "s3Key": "amplify-builds/tmhnotespdf-444369713969762b6e61-build.zip"
+          "s3Key": "amplify-builds/tmhnotespdf-444369713969762b6e61-build.zip",
+          "s3AccessKeyId": "",
+          "s3SecretAccessKey": ""
         },
         "tmhF1SyncGroupPermissions": {
           "userPoolId": "us-east-1_SuPgaibT1",

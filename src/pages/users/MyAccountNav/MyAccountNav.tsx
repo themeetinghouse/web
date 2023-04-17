@@ -98,9 +98,9 @@ export default function MyAccountNav({
                   Blog
                 </DropdownItem>
                 <DropdownItem
-                  onClick={() => history.push('/account/admin/import-video')}
+                  onClick={() => history.push('/account/admin/videos')}
                 >
-                  Import Video
+                  Manage Media
                 </DropdownItem>
                 <DropdownItem
                   onClick={() => history.push('/account/admin/move-video')}

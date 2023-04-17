@@ -9,6 +9,68 @@ export const createVerse = /* GraphQL */ `
     }
   }
 `;
+export const updateSeries = /* GraphQL */ `
+  mutation UpdateSeries(
+    $input: UpdateSeriesInput!
+    $condition: ModelSeriesConditionInput
+  ) {
+    updateSeries(input: $input, condition: $condition) {
+      id
+      seriesType
+      title
+      description
+      thumbnailDescription
+      image
+      squareImage {
+        src
+        alt
+      }
+      bannerImage {
+        src
+        alt
+      }
+      babyHeroImage {
+        src
+        alt
+      }
+      startDate
+      endDate
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createSeries = /* GraphQL */ `
+  mutation CreateSeries(
+    $input: CreateSeriesInput!
+    $condition: ModelSeriesConditionInput
+  ) {
+    createSeries(input: $input, condition: $condition) {
+      id
+      seriesType
+      title
+      description
+      thumbnailDescription
+      image
+      squareImage {
+        src
+        alt
+      }
+      bannerImage {
+        src
+        alt
+      }
+      babyHeroImage {
+        src
+        alt
+      }
+      startDate
+      endDate
+      createdAt
+      updatedAt
+    }
+  }
+`;
 
 export const deleteTMHLocation = /* GraphQL */ `
   mutation DeleteTMHLocation(

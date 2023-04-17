@@ -1,0 +1,22 @@
+.SeriesCard {
+  background-color: #fff;
+  border: 1px solid lightgrey;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    border-color: #1a1a1a;
+  }
+}
+.SeriesCard__title {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+}
+.SeriesCard__description {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  text-align: center;
+}
