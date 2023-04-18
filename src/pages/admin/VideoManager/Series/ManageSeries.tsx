@@ -41,19 +41,11 @@ export default function ManageSeries() {
           onClick={() => setShowSeriesModal(true)}
           className={styles['NewSeriesButton']}
         >
-          <span style={{ flex: 1, textAlign: 'center' }}>Add a new series</span>
-
-          <span
-            style={{
-              display: 'block',
-              fontSize: 50,
-              paddingBottom: 20,
-              textAlign: 'center',
-              flex: 1,
-            }}
-          >
-            +
+          <span className={styles['NewSeriesButtonText']}>
+            Add a new series
           </span>
+
+          <span className={styles['NewSeriesButtonPlus']}>+</span>
         </div>
         {series.slice(page, page + paginateAmount).map((series) => {
           return (

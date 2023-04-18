@@ -27,10 +27,6 @@ export default function SeriesCard({
       className={styles['SeriesCard']}
     >
       <img
-        style={{
-          borderTopLeftRadius: 4,
-          borderTopRightRadius: 4,
-        }}
         width={'100%'}
         height={200}
         onError={() => setUri(fallbackUrl)}
@@ -38,25 +34,7 @@ export default function SeriesCard({
         alt={series.bannerImage?.alt}
       ></img>
       {uri?.includes('fallback') ? (
-        <span
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            maxHeight: 28,
-            width: '100%',
-            backgroundClip: 'padding-box',
-            backgroundColor: 'rgba(0,0,0,0.5)',
-            color: 'white',
-            padding: 2,
-            textOverflow: 'ellipsis',
-            overflow: 'hidden',
-            whiteSpace: 'nowrap',
-            left: 0,
-            textAlign: 'center',
-          }}
-        >
-          {series.title}
-        </span>
+        <span className={styles['FallbackText']}>{series.title}</span>
       ) : null}
     </div>
   );

@@ -59,25 +59,12 @@ export default function ManageSpeaker() {
   return (
     <div className={styles['ManageSpeakerContainer']}>
       {isLoading ? (
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            height: 400,
-          }}
-        >
+        <div className={styles['ManageSpeakerSpinnerContainer']}>
           <Spinner />
         </div>
       ) : (
         <>
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              marginBottom: 20,
-            }}
-          >
+          <div className={styles['ManageSpeakerHeader']}>
             <h1 style={{ flex: 1 }}>Speakers</h1>
             <button
               className="adminButton"

@@ -18,12 +18,10 @@ export default function UploadPicture({
     <button
       type="button"
       onClick={() => uploadRef.current?.click()}
+      className={styles['UploadContainer']}
       style={{
-        position: 'relative',
         width,
         height,
-        border: 'none',
-        padding: 0,
       }}
     >
       <img
@@ -32,7 +30,7 @@ export default function UploadPicture({
         }}
         width={width}
         height={height}
-        style={{ objectFit: 'contain' }}
+        className={styles['UploadImage']}
         src={uri}
       ></img>
 
@@ -52,7 +50,6 @@ export default function UploadPicture({
               alert('File must be smaller than 2mb');
             } else if (e?.target?.files?.[0]) {
               const url = URL.createObjectURL(e.target.files[0]);
-              console.log('new url: ', url);
               setUri(url);
               setFile(e.target.files[0]);
             }
@@ -60,7 +57,6 @@ export default function UploadPicture({
         }}
         ref={uploadRef}
         type="file"
-        style={{ display: 'none' }}
       ></input>
     </button>
   );
