@@ -306,25 +306,6 @@
   },
 
   {
-    "id": 17,
-    "sites": ["oakville"],
-    "region": "peel",
-    "name": "Food for Life",
-    "description": "Food for Life is an outreach program that provides neighbours in need with direct access to fresh food within their neighbourhood. The food is delivered by the refrigerated Food for Life truck.",
-    "website": "https://www.foodforlife.ca/",
-    "image": "/static/photos/compassion/FoodForLife.jpg",
-    "imagealt": "Placeholder image for Compassion Partner",
-    "address": "2258 Mountainside Dr, Burlington, ON L7P 1B7",
-    "Phone": "(905) 635-1106",
-    "email": "carolynn.bucek@themeetinghouse.com",
-    "social": { "instagram": "https://instagram.com/@foodforlifecan" },
-    "location": {
-      "longitude": -79.81573275727317,
-      "latitude": 43.35001335416619,
-      "address": "2258 Mountainside Dr"
-    }
-  },
-  {
     "id": 18,
     "sites": ["oakville"],
     "region": "peel",
@@ -344,25 +325,6 @@
     }
   },
   {
-    "id": 19,
-    "sites": ["oakville"],
-    "region": "peel",
-    "name": "Kerr Street Mission",
-    "description": "We partner with KSM's Neighbour Care Network which is committed to helping people in difficulty and distress with one-on-one support and encouragement.",
-    "website": "https://www.kerrstreet.com/",
-    "image": "/static/photos/compassion/KerrStreet.jpg",
-    "imagealt": "Placeholder image for Compassion Partner",
-    "address": "485 Kerr St, Oakville, ON L6K 3C6",
-    "Phone": "(905) 845-7485",
-    "email": "carolynn.bucek@themeetinghouse.com",
-    "social": { "instagram": "https://instagram.com/@kerrstreetmission" },
-    "location": {
-      "longitude": -79.68587289984224,
-      "latitude": 43.44664180118696,
-      "address": "485 Kerr St"
-    }
-  },
-  {
     "id": 20,
     "sites": ["oakville"],
     "region": "peel",
@@ -379,25 +341,6 @@
       "longitude": -79.86229985751255,
       "latitude": 43.5239737279105,
       "address": "900 Nipissing Rd"
-    }
-  },
-  {
-    "id": 21,
-    "sites": ["oakville"],
-    "region": "peel",
-    "name": "Salvation Army Halton Lighthouse Shelter",
-    "description": "The Salvation Army Halton Lighthouse provides emergency shelter, basic needs and intensive case management for men, and women who are homeless. The Lighthouse Shelter provides accommodation for 30 men and women who are experiencing homelessness and partners with the Canadian Mental Health SafePlace program for persons who have mental health crisis needs.",
-    "website": "https://www.hipinfo.ca/record/OAK3707",
-    "image": "/static/photos/compassion/SalvationArmy.jpg",
-    "imagealt": "Placeholder image for Compassion Partner",
-    "address": "750 Redwood Square, Oakville, ON L6L 6X7",
-    "Phone": "(905) 339-2918",
-    "email": "carolynn.bucek@themeetinghouse.com",
-    "social": {},
-    "location": {
-      "longitude": -79.7084579440241,
-      "latitude": 43.43480436827835,
-      "address": "750 Redwood Square"
     }
   },
   {
@@ -422,29 +365,6 @@
       "address": ""
     }
   },
-  {
-    "id": 23,
-    "sites": ["oakville"],
-    "region": "peel",
-    "name": "Women's Habitat",
-    "description": "Women's Habitat is a shelter and outreach centre that provides services and temporary housing for women in need to make a new life for themselves and their children.",
-    "website": "https://womenshabitat.ca/",
-    "image": "/static/photos/compassion/womens habitat.jpg",
-    "imagealt": "Placeholder image for Compassion Partner",
-    "address": "140 Islington Ave, Etobicoke, ON M8V 3B6",
-    "Phone": "(416) 252-7949",
-    "email": "carolynn.bucek@themeetinghouse.com",
-    "social": {
-      "instagram": "https://instagram.com/@womenshabitat",
-      "facebook": "https://www.facebook.com/WomensHabitat"
-    },
-    "location": {
-      "longitude": -79.50574704587343,
-      "latitude": 43.60131864382997,
-      "address": "140 Islington Ave"
-    }
-  },
-
   {
     "id": 24,
     "sites": ["ottawa"],
