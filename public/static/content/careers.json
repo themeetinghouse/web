@@ -181,6 +181,11 @@
             "type": "link",
             "title": "Richmond Hill Family Ministries Associate",
             "navigateTo": "/static/pdfs/careers/Richmond Hill Family Ministries Associate.pdf"
+          },
+          {
+            "type": "link",
+            "title": "East Toronto Next Gen Pastor",
+            "navigateTo": "/static/pdfs/careers/NextGen Pastor.pdf"
           }
         ],
         "image1": [
