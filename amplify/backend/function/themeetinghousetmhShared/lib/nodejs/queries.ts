@@ -220,11 +220,9 @@ export const f1ListTimezones = /* GraphQL */ `
     F1ListTimezones(itemId: $itemId) {
       id
       info {
-        group {
-          timeZone {
-            id
-            name
-          }
+        timeZone {
+          id
+          name
         }
       }
     }

@@ -2738,6 +2738,10 @@ export const f1ListGroups = /* GraphQL */ `
           createdDate
           lastUpdatedDate
           isLocationPrivate
+          timeZone {
+            id
+            name
+          }
           location {
             id
             name
@@ -2858,11 +2862,9 @@ export const f1ListTimezones = /* GraphQL */ `
     F1ListTimezones(itemId: $itemId) {
       id
       info {
-        group {
-          timeZone {
-            id
-            name
-          }
+        timeZone {
+          id
+          name
         }
       }
     }

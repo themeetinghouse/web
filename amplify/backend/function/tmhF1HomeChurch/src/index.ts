@@ -37,7 +37,8 @@ async function Execute(event) {
       else openGroupsForLocation = [];
 
       const groupIdsForLocation = openGroupsForLocation.map((g) => g.id);
-      const listTimezonesResponse =
+      console.log({ groupIdsForLocation: groupIdsForLocation });
+      /*  const listTimezonesResponse =
         await TMHDB.getRetryableGraphQLOperationPromise(
           queries.f1ListTimezones,
           { itemId: groupIdsForLocation },
@@ -50,11 +51,11 @@ async function Execute(event) {
             (s) => s.id == group.id
           );
         else timeZones = [];
-        const timeZone = timeZones.info.group.timeZone;
+        const timeZone = timeZones.info.timeZone;
         if (timeZone) {
           group.timeZone = timeZone;
         }
-      }
+      }*/
 
       const eventIdsForLocation = openGroupsForLocation.map((g) => g.event.id);
       if (eventIdsForLocation) {

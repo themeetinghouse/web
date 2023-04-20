@@ -490,10 +490,6 @@ type F1ListTimezones {
 }
 
 type F1ListTimezoneInfo {
-  group: F1ListTimezoneGroup
-}
-
-type F1ListTimezoneGroup {
   timeZone: F1ListGroup2Timezone
 }
 
@@ -737,6 +733,7 @@ type F1ListGroup2A {
   createdDate: String
   lastUpdatedDate: String
   isLocationPrivate: String
+  timeZone: F1ListGroup2Timezone
   location: F1ListGroup2Location
   schedule: F1ListEventSchedule2
 }
