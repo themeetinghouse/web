@@ -125,11 +125,6 @@
         "list": [
           {
             "type": "link",
-            "title": "Finance Manager",
-            "navigateTo": "/static/pdfs/careers/Finance Manager 2022.pdf"
-          },
-          {
-            "type": "link",
             "title": "Human Resources Manager",
             "navigateTo": "/static/pdfs/careers/Human Resources Manager_Director (2023).docx - Google Docs.pdf"
           },
@@ -142,11 +137,6 @@
             "type": "link",
             "title": "Burlington Pastor",
             "navigateTo": "/static/pdfs/careers/Burlington Lead Pastor.pdf"
-          },
-          {
-            "type": "link",
-            "title": "Facility Manager",
-            "navigateTo": "/static/pdfs/careers/Facility Manager 2022-v2.pdf"
           }
         ],
         "image1": [
@@ -171,11 +161,6 @@
             "type": "link",
             "title": "Hamilton Region Kids Ministry Associate",
             "navigateTo": "/static/pdfs/careers/Hamilton Region - Ministry Associate - Kids.pdf"
-          },
-          {
-            "type": "link",
-            "title": "Richmond Hill Family Ministries Associate",
-            "navigateTo": "/static/pdfs/careers/Richmond Hill Family Ministries Associate.pdf"
           },
           {
             "type": "link",
