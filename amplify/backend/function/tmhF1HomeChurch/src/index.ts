@@ -10,6 +10,7 @@ async function asyncForEach(array, callback) {
     await callback(array[index], index, array);
   }
 }
+
 async function Execute(event) {
   try {
     console.log('Logged in');

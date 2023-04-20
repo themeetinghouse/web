@@ -3,7 +3,7 @@ import Amplify from '@aws-amplify/core';
 import * as queries from './queries';
 import * as mutations from './mutations';
 const aws = require('aws-sdk');
-const apiKey = 'da2-z4ilyrquhnagtbiosodc6qq4kq';
+const apiKey = 'da2-e4tke5ydc5hffgrwy5e36qdrmu';
 
 Amplify.configure({
   aws_appsync_graphqlEndpoint:

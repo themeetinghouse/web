@@ -242,7 +242,7 @@
                     "",
                     [
                       "arn:aws:s3:::",
-                      "heeetingouse-20190312104205-hostingbucket-tmhprod",
+                      "heeetingouse-20190312104205-hostingbucket-prodnew",
                       "/*"
                     ]
                   ]

@@ -172,10 +172,10 @@ exports.handler = async (event, context, callback) => {
   ) {
     prerender = false;
   }
-  const bucket = 'heeetingouse-20190312104205-hostingbucket-tmhprod';
+  const bucket = 'heeetingouse-20190312104205-hostingbucket-prodnew';
   const url =
-    'https://qt6manqtzbhkvd6tcxvchusmyq.appsync-api.us-east-1.amazonaws.com/graphql';
-  const apiKey = 'da2-z4ilyrquhnagtbiosodc6qq4kq';
+    'https://ivmnti3f45d2phjrvkx62mxgyi.appsync-api.us-east-1.amazonaws.com/graphql';
+  const apiKey = 'da2-e4tke5ydc5hffgrwy5e36qdrmu';
   if (prerender) {
     //console.log("Prerender")
     if (path && path.length > 2) {
