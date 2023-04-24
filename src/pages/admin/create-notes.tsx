@@ -58,6 +58,7 @@ interface State {
   notesEditorState: EditorState;
   questionsEditorState: EditorState;
   showConfirmDeleteModal: boolean;
+  showCompleteModal: boolean;
   showPreview: boolean;
   isLoading: boolean;
   notesList: any[];
@@ -92,6 +93,7 @@ class Index extends React.Component<EmptyProps, State> {
     this.state = {
       // input
       showConfirmDeleteModal: false,
+      showCompleteModal: false,
       loadingNote: false,
       notesEditorState: EditorState.createEmpty(),
       questionsEditorState: EditorState.createEmpty(),
@@ -298,7 +300,7 @@ class Index extends React.Component<EmptyProps, State> {
     await this.saveBiblePassages(rawQuestions, 'questions');
     console.log('finished');
 
-    this.setState({ statusMessage: 'done' });
+    this.setState({ statusMessage: 'done', showCompleteModal: true });
   }
 
   async saveBiblePassages(
@@ -1059,16 +1061,11 @@ class Index extends React.Component<EmptyProps, State> {
             DELETE
           </button>
         ) : null}
-        {this.state.isLoading ? (
+        {this.state.isLoading ||
+        (this.state.statusMessage !== 'done' &&
+          this.state.statusMessage !== '') ? (
           <Spinner style={{ alignSelf: 'center' }} size="sm" />
         ) : null}
-        <br />
-        <span>
-          {this.state.statusMessage !== 'done' &&
-          this.state.statusMessage !== '' ? (
-            <Spinner size="sm" />
-          ) : null}
-        </span>
       </div>
     );
   }
@@ -1133,6 +1130,23 @@ class Index extends React.Component<EmptyProps, State> {
       </Modal>
     );
   }
+  renderFinishedModal() {
+    return (
+      <Modal isOpen={this.state.showCompleteModal}>
+        <div style={{ padding: 16 }}>
+          <div style={{ paddingBottom: 40 }}>Finished adding passages</div>
+          <div style={{ display: 'flex', flexDirection: 'row' }}>
+            <button
+              className="toolbar-button"
+              onClick={() => this.setState({ showCompleteModal: false })}
+            >
+              Dismiss
+            </button>
+          </div>
+        </div>
+      </Modal>
+    );
+  }
   render() {
     console.log({ state: this.state });
     return (
@@ -1141,6 +1155,7 @@ class Index extends React.Component<EmptyProps, State> {
         {this.renderAlert()}
         {this.renderPdfModal()}
         {this.renderEditModal()}
+        {this.renderFinishedModal()}
         {this.renderToolbar()}
         {this.renderTextInput()}
         <div className="preview">
