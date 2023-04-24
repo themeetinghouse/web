@@ -51,22 +51,14 @@ const awsmobile = {
     "aws_content_delivery_url": "https://dx0d3ykzhvif.cloudfront.net",
     "aws_mobile_analytics_app_id": "0a2b4c0b6e7448249fac4bf70c54b478",
     "aws_mobile_analytics_app_region": "us-east-1",
+    "aws_user_files_s3_bucket": "themeetinghouse-usercontent221608-prodnew",
+    "aws_user_files_s3_bucket_region": "us-east-1",
     "Analytics": {
         "AWSPinpoint": {
             "appId": "0a2b4c0b6e7448249fac4bf70c54b478",
             "region": "us-east-1"
         }
-    },
-    "Notifications": {
-        "Push": {
-            "AWSPinpoint": {
-                "appId": "0a2b4c0b6e7448249fac4bf70c54b478",
-                "region": "us-east-1"
-            }
-        }
-    },
-    "aws_user_files_s3_bucket": "themeetinghouse-usercontent221608-prodnew",
-    "aws_user_files_s3_bucket_region": "us-east-1"
+    }
 };
 
 

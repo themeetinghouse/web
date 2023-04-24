@@ -34,6 +34,53 @@ export const listSpeakers = /* GraphQL */ `
     }
   }
 `;
+
+export const getSeriesBySeriesType = /* GraphQL */ `
+  query GetSeriesBySeriesType(
+    $seriesType: String!
+    $startDate: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelSeriesFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    getSeriesBySeriesType(
+      seriesType: $seriesType
+      startDate: $startDate
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        seriesType
+        title
+        description
+        thumbnailDescription
+        image
+        squareImage {
+          src
+          alt
+        }
+        bannerImage {
+          src
+          alt
+        }
+        babyHeroImage {
+          src
+          alt
+        }
+        startDate
+        endDate
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+
 export const listNotes = /* GraphQL */ `
   query ListNotes(
     $filter: ModelNotesFilterInput

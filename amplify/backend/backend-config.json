@@ -1628,7 +1628,23 @@
         }
       ]
     },
+    "AMPLIFY_function_tmhnotespdf_s3AccessKeyId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhnotespdf"
+        }
+      ]
+    },
     "AMPLIFY_function_tmhnotespdf_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhnotespdf"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhnotespdf_s3SecretAccessKey": {
       "usedBy": [
         {
           "category": "function",

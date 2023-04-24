@@ -1,0 +1,35 @@
+.ManageSpeakerContainer {
+  table {
+    width: 100%;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+    th {
+      padding: 4px;
+    }
+    tbody {
+      tr:nth-child(odd) {
+        background-color: #f2f2f2;
+      }
+      tr:hover {
+        background-color: #ddd;
+      }
+      td {
+        padding: 4px;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.ManageSpeakerSpinnerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+
+.ManageSpeakerHeader {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
