@@ -12,7 +12,6 @@ import { Modal, Spinner } from 'reactstrap';
 import { DeleteCustomPlaylistMutation } from 'API';
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import moment from 'moment';
-
 interface State {
   nextToken: string | undefined | null;
   getVideoQueryId: any;
@@ -114,9 +113,13 @@ class Index extends React.Component<EmptyProps, State> {
     this.getVideos(null);
     this.getSpeakers();
   }
-  importYoutube() {
+  async importYoutube() {
+    this.setState({ getVideosState: 'Importing' });
     const z = new ImportYoutube();
-    z.reloadPlaylists();
+    await z.reloadPlaylists();
+    setTimeout(() => {
+      this.setState({ getVideosState: 'Done' });
+    }, 4000);
   }
 
   async getPlaylistTypes(): Promise<void> {
@@ -186,60 +189,6 @@ class Index extends React.Component<EmptyProps, State> {
     }
     return 0;
   }
-  /* Use this to find duplicate entries with speaker id(name)
-  async findDuplicates (userid:string) : Promise<void>{
-    try {
-      const fetchSpeakers: any = await API.graphql({
-        query: adminQueries.listSpeakers,
-        variables: { nextToken: null, limit: 9999 },
-        authMode: GRAPHQL_AUTH_MODE.API_KEY,
-      });
-      console.log({ 'Success adminQueries.listSpeakers: ': fetchSpeakers });
-      const vids = fetchSpeakers.data.listSpeakers.items.filter(
-        (a: any) => a.id === userid
-      )[0].videos.items;
-      console.log(
-        '========================================================================================================================='
-      );
-      const duplicates: any = [];
-      let currentVal;
-      for (let i = 0; i < vids.length; i++) {
-        currentVal = vids[i].speakerVideosVideoId;
-        for (let x = 0; x < vids.length; x++) {
-          if (currentVal === vids[x].speakerVideosVideoId && x !== i)
-            duplicates.push({
-              videoId: currentVal,
-              id: vids[x].id,
-              title: vids[x].video.episodeTitle,
-              date: vids[x].video.publishedDate,
-            });
-        }
-      }
-      console.log(duplicates);
-      console.log(
-        '========================================================================================================================='
-      );
-    } catch (e) {
-      console.error(e);
-    }
-  }
-  // Takes an array of speakerVideo ids and deletes them
-  async deleteDuplicates(values : Array<string>){
-    try {
-      for(let i=0; i<values.length; i++){
-          const deleteSpeakerVideo: any = await API.graphql({
-            query: customMutations.deleteSpeakerVideos,
-            variables: { input: { id: values[i] } },
-            authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-          });
-          console.log(deleteSpeakerVideo);
-      }
-
-      this.setState({ showError: 'Saved' });
-    } catch (e) {
-      if (!e.errors[0].message.includes('access')) console.log('error');
-    }
-  } */
   async getSpeakers(): Promise<void> {
     try {
       const fetchSpeakers: any = await API.graphql({
@@ -392,7 +341,7 @@ class Index extends React.Component<EmptyProps, State> {
           }}
         >
           <span style={{ fontWeight: 700, fontSize: 20, flex: 1 }}>
-            Import Videos{' '}
+            Videos{' '}
             {this.state.videoList.length ? (
               <span style={{ fontSize: 10 }}>
                 &#40;{this.state.videoList.length}&#41;
@@ -405,6 +354,28 @@ class Index extends React.Component<EmptyProps, State> {
               size="sm"
             />
           ) : null}
+          <button
+            disabled={
+              this.state.getVideosState === 'Loading Videos' ||
+              this.state.getVideosState === 'Importing'
+            }
+            className="adminButton"
+            style={{ height: 38, marginTop: 4 }}
+            onClick={() => this.importYoutube()}
+          >
+            <img
+              width={17}
+              height={17}
+              src="/static/svg/Download.svg"
+              style={{
+                marginRight: 8,
+                marginLeft: 2,
+              }}
+            />
+            {this.state.getVideosState === 'Importing'
+              ? 'Importing...'
+              : 'Import Videos'}
+          </button>
           <div style={{ display: 'flex', flexDirection: 'row' }}>
             <select
               className="importvideoDropdown"
@@ -436,61 +407,6 @@ class Index extends React.Component<EmptyProps, State> {
             </select>
           </div>
         </div>
-        <div className="importVideoHeader">
-          <button className="adminButton" onClick={() => this.importYoutube()}>
-            Add All New
-          </button>
-          <button className="adminButton">Add Unlisted</button>
-
-          <button
-            className="adminButton"
-            onClick={() => {
-              this.setState({ showAddSpeaker: true });
-            }}
-          >
-            Add Speaker
-          </button>
-          <button
-            className="adminButton"
-            onClick={() => {
-              this.setState({ showManageSpeaker: true });
-            }}
-          >
-            Manage Speaker
-          </button>
-          <button
-            className="adminButton"
-            onClick={() => {
-              this.setState({ showAddSeries: true });
-            }}
-          >
-            Add Series
-          </button>
-          <button
-            className="adminButton"
-            onClick={() => {
-              this.setState({ showDeleteVideo: true });
-            }}
-          >
-            Delete a Video
-          </button>
-          <button
-            className="adminButton"
-            onClick={() => {
-              this.setState({ showDeletePlaylist: true });
-            }}
-          >
-            Delete a Playlist
-          </button>
-          <button
-            className="adminButton"
-            onClick={() => {
-              this.setState({ showAddCustomPlaylist: true });
-            }}
-          >
-            Add Custom Playlist
-          </button>
-        </div>
       </div>
     );
   }
@@ -514,6 +430,7 @@ class Index extends React.Component<EmptyProps, State> {
                       })
                   : null
                 : null}
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -566,6 +483,19 @@ class Index extends React.Component<EmptyProps, State> {
                           })
                       : null
                     : null}
+                  <td>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        this.setState({
+                          showDeleteVideo: true,
+                          toDeleteVideo: video.id,
+                        });
+                      }}
+                    >
+                      Delete
+                    </button>
+                  </td>
                 </tr>
               );
             })}
@@ -1277,381 +1207,19 @@ class Index extends React.Component<EmptyProps, State> {
     this.setState({ toSaveSeries: toSaveSeries });
     console.log(toSaveSeries);
   }
-  saveSeries() {
-    if (
-      this.state.toSaveSeries.title !== '' &&
-      this.state.toSaveSeries.seriesType !== ''
-    ) {
-      const saveSeries: any = API.graphql({
-        query: mutations.createSeries,
-        variables: { input: this.state.toSaveSeries },
-        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-      });
 
-      saveSeries
-        .then((json: any) => {
-          console.log({ 'Success mutations.saveSeries: ': json });
-        })
-        .catch((e: any) => {
-          console.log(e);
-        });
-      return true;
-    }
-    return false;
-  }
-  async savePlaylist(): Promise<void> {
-    if (this.state.toSavePlaylist.title) {
-      try {
-        const savePlaylist: any = await API.graphql({
-          query: mutations.createCustomPlaylist,
-          variables: { input: this.state.toSavePlaylist },
-          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-        });
-        console.log({
-          'Success mutations.createCustomPlaylist: ': savePlaylist,
-        });
-        this.setState({ showAddCustomPlaylist: false, toSavePlaylist: {} });
-      } catch (e) {
-        console.error(e);
-        this.setState({ showAddCustomPlaylist: false });
-      }
-    } else {
-      this.setState({ showError: 'Playlist needs title' });
-    }
-  }
-  renderAddSeries() {
-    return (
-      <Modal isOpen={this.state.showAddSeries}>
-        <div>
-          <div>id: {this.state.toSaveSeries.id}</div>
-          <div>
-            Name:{' '}
-            <input
-              value={this.state.toSaveSeries.title}
-              onChange={(item: any) => {
-                this.updateSeriesField('title', item.target.value);
-              }}
-            />
-          </div>
-          <div>
-            Start Date:{' '}
-            <input
-              value={this.state.toSaveSeries.startDate}
-              onChange={(item: any) => {
-                this.updateSeriesField('startDate', item.target.value);
-              }}
-            />
-          </div>
-          <div>
-            End Date:{' '}
-            <input
-              value={this.state.toSaveSeries.endDate}
-              onChange={(item: any) => {
-                this.updateSeriesField('endDate', item.target.value);
-              }}
-            />
-          </div>
-          <div>
-            Series Type:{' '}
-            <select
-              className="importvideoDropdown"
-              value={this.state.toSaveSeries.seriesType}
-              onChange={(item: any) => {
-                this.updateSeriesField('seriesType', item.target.value);
-              }}
-            >
-              {this.state.videoTypes.map((item: any) => {
-                return (
-                  <option key={item.id} value={item.id}>
-                    {item.name}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
-          <button
-            onClick={() => {
-              if (this.saveSeries()) this.setState({ showAddSeries: false });
-            }}
-          >
-            Save
-          </button>
-          <button
-            style={{ background: 'red' }}
-            onClick={() => {
-              this.setState({ showAddSeries: false });
-            }}
-          >
-            Cancel
-          </button>
-        </div>
-      </Modal>
-    );
-  }
-
-  async saveSpeaker() {
-    if (this.state.speakerFieldValue !== '') {
-      const exists = this.state.speakers.find((speaker: any) => {
-        return speaker.id === this.state.speakerFieldValue;
-      });
-      if (!exists) {
-        const speakerName: string = this.state.speakerFieldValue
-          .trim()
-          .replaceAll(' ', '_');
-        try {
-          const createSpeaker: any = await API.graphql({
-            query: mutations.createSpeaker,
-            variables: {
-              input: {
-                id: this.state.speakerFieldValue.trim(),
-                name: this.state.speakerFieldValue.trim(),
-                hidden: this.state.hiddenSpeaker,
-                image: `https://themeetinghouse.com/cache/320/static/photos/teachers/${speakerName}_app.jpg`,
-              },
-            },
-            authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-          });
-          console.log({
-            'Success mutations.createSpeaker: ': createSpeaker,
-          });
-          this.getSpeakers();
-        } catch (e) {
-          console.error(e);
-        }
-      }
-    }
-  }
-  async deleteSpeaker() {
-    try {
-      const removeSpeaker: any = await API.graphql({
-        query: mutations.deleteSpeaker,
-        variables: {
-          input: {
-            id: this.state.selectedSpeaker,
-          },
-        },
-        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-      });
-      console.log({
-        'Success mutations.deleteSpeaker: ': removeSpeaker,
-      });
-      this.getSpeakers();
-    } catch (e) {
-      console.error(e);
-    }
-  }
-  renderAddSpeaker() {
-    return (
-      <Modal isOpen={this.state.showAddSpeaker}>
-        <div>
-          <div>
-            id:{' '}
-            <input
-              value={this.state.speakerFieldValue}
-              onChange={(item: any) => {
-                this.setState({ speakerFieldValue: item.target.value });
-              }}
-            />
-            <input
-              style={{ display: 'inline-block', marginRight: '4px' }}
-              type="checkbox"
-              onChange={() =>
-                this.setState({ hiddenSpeaker: !this.state.hiddenSpeaker })
-              }
-              checked={this.state.hiddenSpeaker}
-            ></input>
-            Hide Speaker
-          </div>
-          <button
-            onClick={async () => {
-              await this.saveSpeaker();
-              this.setState({
-                showAddSpeaker: false,
-                speakerFieldValue: '',
-                hiddenSpeaker: false,
-              });
-            }}
-          >
-            Save
-          </button>
-
-          <button onClick={() => console.log(this.state.hiddenSpeaker)}>
-            Check State
-          </button>
-          <button
-            style={{ background: 'red' }}
-            onClick={() => {
-              this.setState({
-                showAddSpeaker: false,
-                speakerFieldValue: '',
-                hiddenSpeaker: false,
-              });
-            }}
-          >
-            Cancel
-          </button>
-        </div>
-      </Modal>
-    );
-  }
-  renderManageSpeaker() {
-    return (
-      <Modal isOpen={this.state.showManageSpeaker}>
-        <div>
-          <div style={{ margin: '16px' }}>
-            <select
-              style={{ display: 'inline' }}
-              onChange={(e: any) => {
-                this.setState({
-                  selectedSpeaker: e.target.value,
-                });
-              }}
-            >
-              <option key={'nothing'} value={''}>
-                {''}
-              </option>
-              {this.state.speakers
-                .sort((a: any, b: any) => a.id.localeCompare(b.id))
-                .map((item2: any) => {
-                  return (
-                    <option key={item2.id} value={item2.name}>
-                      {item2.name}
-                    </option>
-                  );
-                })}
-            </select>
-            <input
-              style={{
-                display: 'inline-block',
-                marginRight: '8px',
-                marginLeft: '8px',
-              }}
-              type="checkbox"
-              onChange={() =>
-                this.setState({ hiddenSpeaker: !this.state.hiddenSpeaker })
-              }
-              checked={this.state.hiddenSpeaker}
-            ></input>
-            Hide Speaker
-          </div>
-          <button
-            onClick={async () => {
-              await this.updateSpeaker();
-              this.setState({
-                showManageSpeaker: false,
-                hiddenSpeaker: false,
-                speakerFieldValue: '',
-              });
-            }}
-          >
-            Save
-          </button>
-
-          <button
-            onClick={() => {
-              this.setState({
-                showManageSpeaker: false,
-                hiddenSpeaker: false,
-                speakerFieldValue: '',
-              });
-            }}
-          >
-            Cancel
-          </button>
-          <button
-            style={{ background: 'red' }}
-            onClick={async () => {
-              await this.deleteSpeaker();
-              this.setState({
-                showManageSpeaker: false,
-                hiddenSpeaker: false,
-                speakerFieldValue: '',
-              });
-            }}
-          >
-            Delete
-          </button>
-        </div>
-      </Modal>
-    );
-  }
-  renderAddCustomPlaylist() {
-    return (
-      <Modal isOpen={this.state.showAddCustomPlaylist}>
-        <div>
-          <div>id: {this.state.toSavePlaylist.id}</div>
-          <div>
-            Name:{' '}
-            <input
-              value={this.state.toSavePlaylist.title}
-              onChange={(item: any) => {
-                this.updateCustomPlaylistField('title', item.target.value);
-              }}
-            />
-          </div>
-          <div>
-            Playlist Type:{' '}
-            <select
-              className="importvideoDropdown"
-              value={this.state.toSavePlaylist.seriesType}
-              onChange={(item: any) => {
-                this.updateCustomPlaylistField('seriesType', item.target.value);
-              }}
-            >
-              <option key="null" value="null">
-                None Selected
-              </option>
-              {this.state.customPlaylistTypes.map(
-                (item: string, index: number) => {
-                  return (
-                    <option key={index} value={item}>
-                      {item}
-                    </option>
-                  );
-                }
-              )}
-            </select>
-          </div>
-          <button
-            onClick={() => {
-              this.savePlaylist();
-            }}
-          >
-            Save
-          </button>
-          <button
-            style={{ background: 'red' }}
-            onClick={() => {
-              this.setState({
-                showAddCustomPlaylist: false,
-                toSavePlaylist: {},
-              });
-            }}
-          >
-            Cancel
-          </button>
-        </div>
-      </Modal>
-    );
-  }
   renderDeleteVideo() {
     return (
       <Modal isOpen={this.state.showDeleteVideo}>
         <div>
           <div>
-            Enter ID:{' '}
-            <input
-              value={this.state.toDeleteVideo}
-              onChange={(item: any) =>
-                this.setState({ toDeleteVideo: item.target.value })
-              }
-            />
+            Are you sure you want to delete video id: {this.state.toDeleteVideo}
           </div>
           <button
             style={{ background: 'orange' }}
             onClick={() => this.delete()}
           >
-            DELETE
+            Confirm
           </button>
           <button
             style={{ background: 'grey' }}
@@ -1659,41 +1227,7 @@ class Index extends React.Component<EmptyProps, State> {
               this.setState({ showDeleteVideo: false, toDeleteVideo: '' });
             }}
           >
-            CANCEL
-          </button>
-        </div>
-      </Modal>
-    );
-  }
-  renderDeletePlaylist() {
-    return (
-      <Modal isOpen={this.state.showDeletePlaylist}>
-        <div>
-          <div>
-            Enter ID:{' '}
-            <input
-              value={this.state.toDeletePlaylist}
-              onChange={(item) =>
-                this.setState({ toDeletePlaylist: item.target.value })
-              }
-            />
-          </div>
-          <button
-            style={{ background: 'orange' }}
-            onClick={() => this.deletePlaylist()}
-          >
-            DELETE
-          </button>
-          <button
-            style={{ background: 'grey' }}
-            onClick={() => {
-              this.setState({
-                showDeletePlaylist: false,
-                toDeletePlaylist: '',
-              });
-            }}
-          >
-            CANCEL
+            Cancel
           </button>
         </div>
       </Modal>
@@ -1705,12 +1239,7 @@ class Index extends React.Component<EmptyProps, State> {
         {this.renderHeader()}
         {this.renderVideos()}
         {this.renderVideoEditor()}
-        {this.renderAddSpeaker()}
-        {this.renderManageSpeaker()}
-        {this.renderAddSeries()}
         {this.renderDeleteVideo()}
-        {this.renderDeletePlaylist()}
-        {this.renderAddCustomPlaylist()}
         <div style={{ color: '#ff0000' }}>{this.state.showError}</div>
       </div>
     );

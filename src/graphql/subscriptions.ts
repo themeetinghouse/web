@@ -1732,6 +1732,18 @@ export const onCreateSpeaker = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -2151,6 +2163,18 @@ export const onUpdateSpeaker = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -2570,6 +2594,18 @@ export const onDeleteSpeaker = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -2897,6 +2933,18 @@ export const onCreateSpeakerVideos = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -3037,6 +3085,18 @@ export const onCreateSpeakerVideos = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -3143,6 +3203,18 @@ export const onCreateSpeakerVideos = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -3259,6 +3331,18 @@ export const onCreateSpeakerVideos = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -3277,6 +3361,18 @@ export const onCreateSpeakerVideos = /* GraphQL */ `
           description
           thumbnailDescription
           image
+          squareImage {
+            src
+            alt
+          }
+          bannerImage {
+            src
+            alt
+          }
+          babyHeroImage {
+            src
+            alt
+          }
           startDate
           endDate
           notes {
@@ -3306,6 +3402,18 @@ export const onCreateSpeakerVideos = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -3401,6 +3509,18 @@ export const onCreateSpeakerVideos = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -3678,6 +3798,18 @@ export const onCreateSpeakerVideos = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -3835,6 +3967,18 @@ export const onUpdateSpeakerVideos = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -3975,6 +4119,18 @@ export const onUpdateSpeakerVideos = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -4081,6 +4237,18 @@ export const onUpdateSpeakerVideos = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -4197,6 +4365,18 @@ export const onUpdateSpeakerVideos = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -4215,6 +4395,18 @@ export const onUpdateSpeakerVideos = /* GraphQL */ `
           description
           thumbnailDescription
           image
+          squareImage {
+            src
+            alt
+          }
+          bannerImage {
+            src
+            alt
+          }
+          babyHeroImage {
+            src
+            alt
+          }
           startDate
           endDate
           notes {
@@ -4244,6 +4436,18 @@ export const onUpdateSpeakerVideos = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -4339,6 +4543,18 @@ export const onUpdateSpeakerVideos = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -4616,6 +4832,18 @@ export const onUpdateSpeakerVideos = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -4773,6 +5001,18 @@ export const onDeleteSpeakerVideos = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -4913,6 +5153,18 @@ export const onDeleteSpeakerVideos = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -5019,6 +5271,18 @@ export const onDeleteSpeakerVideos = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -5135,6 +5399,18 @@ export const onDeleteSpeakerVideos = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -5153,6 +5429,18 @@ export const onDeleteSpeakerVideos = /* GraphQL */ `
           description
           thumbnailDescription
           image
+          squareImage {
+            src
+            alt
+          }
+          bannerImage {
+            src
+            alt
+          }
+          babyHeroImage {
+            src
+            alt
+          }
           startDate
           endDate
           notes {
@@ -5182,6 +5470,18 @@ export const onDeleteSpeakerVideos = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -5277,6 +5577,18 @@ export const onDeleteSpeakerVideos = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -5554,6 +5866,18 @@ export const onDeleteSpeakerVideos = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -5909,6 +6233,18 @@ export const onCreateSeries = /* GraphQL */ `
             description
             thumbnailDescription
             image
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
             startDate
             endDate
             notes {
@@ -6263,6 +6599,18 @@ export const onCreateSeries = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -6435,6 +6783,18 @@ export const onCreateSeries = /* GraphQL */ `
             description
             thumbnailDescription
             image
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
             startDate
             endDate
             notes {
@@ -6704,6 +7064,18 @@ export const onCreateSeries = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -6954,6 +7326,18 @@ export const onCreateSeries = /* GraphQL */ `
             description
             thumbnailDescription
             image
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
             startDate
             endDate
             notes {
@@ -7003,6 +7387,18 @@ export const onCreateSeries = /* GraphQL */ `
       description
       thumbnailDescription
       image
+      squareImage {
+        src
+        alt
+      }
+      bannerImage {
+        src
+        alt
+      }
+      babyHeroImage {
+        src
+        alt
+      }
       startDate
       endDate
       notes {
@@ -7175,6 +7571,18 @@ export const onCreateSeries = /* GraphQL */ `
             description
             thumbnailDescription
             image
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
             startDate
             endDate
             notes {
@@ -7522,6 +7930,18 @@ export const onUpdateSeries = /* GraphQL */ `
             description
             thumbnailDescription
             image
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
             startDate
             endDate
             notes {
@@ -7876,6 +8296,18 @@ export const onUpdateSeries = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -8048,6 +8480,18 @@ export const onUpdateSeries = /* GraphQL */ `
             description
             thumbnailDescription
             image
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
             startDate
             endDate
             notes {
@@ -8317,6 +8761,18 @@ export const onUpdateSeries = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -8567,6 +9023,18 @@ export const onUpdateSeries = /* GraphQL */ `
             description
             thumbnailDescription
             image
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
             startDate
             endDate
             notes {
@@ -8616,6 +9084,18 @@ export const onUpdateSeries = /* GraphQL */ `
       description
       thumbnailDescription
       image
+      squareImage {
+        src
+        alt
+      }
+      bannerImage {
+        src
+        alt
+      }
+      babyHeroImage {
+        src
+        alt
+      }
       startDate
       endDate
       notes {
@@ -8788,6 +9268,18 @@ export const onUpdateSeries = /* GraphQL */ `
             description
             thumbnailDescription
             image
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
             startDate
             endDate
             notes {
@@ -9135,6 +9627,18 @@ export const onDeleteSeries = /* GraphQL */ `
             description
             thumbnailDescription
             image
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
             startDate
             endDate
             notes {
@@ -9489,6 +9993,18 @@ export const onDeleteSeries = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -9661,6 +10177,18 @@ export const onDeleteSeries = /* GraphQL */ `
             description
             thumbnailDescription
             image
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
             startDate
             endDate
             notes {
@@ -9930,6 +10458,18 @@ export const onDeleteSeries = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -10180,6 +10720,18 @@ export const onDeleteSeries = /* GraphQL */ `
             description
             thumbnailDescription
             image
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
             startDate
             endDate
             notes {
@@ -10229,6 +10781,18 @@ export const onDeleteSeries = /* GraphQL */ `
       description
       thumbnailDescription
       image
+      squareImage {
+        src
+        alt
+      }
+      bannerImage {
+        src
+        alt
+      }
+      babyHeroImage {
+        src
+        alt
+      }
       startDate
       endDate
       notes {
@@ -10401,6 +10965,18 @@ export const onDeleteSeries = /* GraphQL */ `
             description
             thumbnailDescription
             image
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
             startDate
             endDate
             notes {
@@ -10702,6 +11278,18 @@ export const onCreateCustomPlaylist = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -11124,6 +11712,18 @@ export const onUpdateCustomPlaylist = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -11546,6 +12146,18 @@ export const onDeleteCustomPlaylist = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -11835,6 +12447,18 @@ export const onCreateCustomPlaylistVideo = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -11961,6 +12585,18 @@ export const onCreateCustomPlaylistVideo = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -12101,6 +12737,18 @@ export const onCreateCustomPlaylistVideo = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -12207,6 +12855,18 @@ export const onCreateCustomPlaylistVideo = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -12323,6 +12983,18 @@ export const onCreateCustomPlaylistVideo = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -12341,6 +13013,18 @@ export const onCreateCustomPlaylistVideo = /* GraphQL */ `
           description
           thumbnailDescription
           image
+          squareImage {
+            src
+            alt
+          }
+          bannerImage {
+            src
+            alt
+          }
+          babyHeroImage {
+            src
+            alt
+          }
           startDate
           endDate
           notes {
@@ -12370,6 +13054,18 @@ export const onCreateCustomPlaylistVideo = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -12465,6 +13161,18 @@ export const onCreateCustomPlaylistVideo = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -12772,6 +13480,18 @@ export const onUpdateCustomPlaylistVideo = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -12898,6 +13618,18 @@ export const onUpdateCustomPlaylistVideo = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -13038,6 +13770,18 @@ export const onUpdateCustomPlaylistVideo = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -13144,6 +13888,18 @@ export const onUpdateCustomPlaylistVideo = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -13260,6 +14016,18 @@ export const onUpdateCustomPlaylistVideo = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -13278,6 +14046,18 @@ export const onUpdateCustomPlaylistVideo = /* GraphQL */ `
           description
           thumbnailDescription
           image
+          squareImage {
+            src
+            alt
+          }
+          bannerImage {
+            src
+            alt
+          }
+          babyHeroImage {
+            src
+            alt
+          }
           startDate
           endDate
           notes {
@@ -13307,6 +14087,18 @@ export const onUpdateCustomPlaylistVideo = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -13402,6 +14194,18 @@ export const onUpdateCustomPlaylistVideo = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -13709,6 +14513,18 @@ export const onDeleteCustomPlaylistVideo = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -13835,6 +14651,18 @@ export const onDeleteCustomPlaylistVideo = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -13975,6 +14803,18 @@ export const onDeleteCustomPlaylistVideo = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -14081,6 +14921,18 @@ export const onDeleteCustomPlaylistVideo = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -14197,6 +15049,18 @@ export const onDeleteCustomPlaylistVideo = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -14215,6 +15079,18 @@ export const onDeleteCustomPlaylistVideo = /* GraphQL */ `
           description
           thumbnailDescription
           image
+          squareImage {
+            src
+            alt
+          }
+          bannerImage {
+            src
+            alt
+          }
+          babyHeroImage {
+            src
+            alt
+          }
           startDate
           endDate
           notes {
@@ -14244,6 +15120,18 @@ export const onDeleteCustomPlaylistVideo = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -14339,6 +15227,18 @@ export const onDeleteCustomPlaylistVideo = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -14719,6 +15619,18 @@ export const onCreateVideo = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -15130,6 +16042,18 @@ export const onCreateVideo = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -15461,6 +16385,18 @@ export const onCreateVideo = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -15592,6 +16528,18 @@ export const onCreateVideo = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -15709,6 +16657,18 @@ export const onCreateVideo = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -15743,6 +16703,18 @@ export const onCreateVideo = /* GraphQL */ `
         description
         thumbnailDescription
         image
+        squareImage {
+          src
+          alt
+        }
+        bannerImage {
+          src
+          alt
+        }
+        babyHeroImage {
+          src
+          alt
+        }
         startDate
         endDate
         notes {
@@ -15830,6 +16802,18 @@ export const onCreateVideo = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -16094,6 +17078,18 @@ export const onCreateVideo = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -16606,6 +17602,18 @@ export const onUpdateVideo = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -17017,6 +18025,18 @@ export const onUpdateVideo = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -17348,6 +18368,18 @@ export const onUpdateVideo = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -17479,6 +18511,18 @@ export const onUpdateVideo = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -17596,6 +18640,18 @@ export const onUpdateVideo = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -17630,6 +18686,18 @@ export const onUpdateVideo = /* GraphQL */ `
         description
         thumbnailDescription
         image
+        squareImage {
+          src
+          alt
+        }
+        bannerImage {
+          src
+          alt
+        }
+        babyHeroImage {
+          src
+          alt
+        }
         startDate
         endDate
         notes {
@@ -17717,6 +18785,18 @@ export const onUpdateVideo = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -17981,6 +19061,18 @@ export const onUpdateVideo = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -18493,6 +19585,18 @@ export const onDeleteVideo = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -18904,6 +20008,18 @@ export const onDeleteVideo = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -19235,6 +20351,18 @@ export const onDeleteVideo = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -19366,6 +20494,18 @@ export const onDeleteVideo = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -19483,6 +20623,18 @@ export const onDeleteVideo = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -19517,6 +20669,18 @@ export const onDeleteVideo = /* GraphQL */ `
         description
         thumbnailDescription
         image
+        squareImage {
+          src
+          alt
+        }
+        bannerImage {
+          src
+          alt
+        }
+        babyHeroImage {
+          src
+          alt
+        }
         startDate
         endDate
         notes {
@@ -19604,6 +20768,18 @@ export const onDeleteVideo = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -19868,6 +21044,18 @@ export const onDeleteVideo = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -20425,6 +21613,18 @@ export const onCreateBlogSeries = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -20721,6 +21921,18 @@ export const onUpdateBlogSeries = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -21017,6 +22229,18 @@ export const onDeleteBlogSeries = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -21195,6 +22419,18 @@ export const onCreateBlogSeriesBridge = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -21298,6 +22534,18 @@ export const onCreateBlogSeriesBridge = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -21415,6 +22663,18 @@ export const onCreateBlogSeriesBridge = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -21483,6 +22743,18 @@ export const onCreateBlogSeriesBridge = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -21589,6 +22861,18 @@ export const onCreateBlogSeriesBridge = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -21705,6 +22989,18 @@ export const onCreateBlogSeriesBridge = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -21723,6 +23019,18 @@ export const onCreateBlogSeriesBridge = /* GraphQL */ `
           description
           thumbnailDescription
           image
+          squareImage {
+            src
+            alt
+          }
+          bannerImage {
+            src
+            alt
+          }
+          babyHeroImage {
+            src
+            alt
+          }
           startDate
           endDate
           notes {
@@ -21752,6 +23060,18 @@ export const onCreateBlogSeriesBridge = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -21848,6 +23168,18 @@ export const onCreateBlogSeriesBridge = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -21994,6 +23326,18 @@ export const onUpdateBlogSeriesBridge = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -22097,6 +23441,18 @@ export const onUpdateBlogSeriesBridge = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -22214,6 +23570,18 @@ export const onUpdateBlogSeriesBridge = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -22282,6 +23650,18 @@ export const onUpdateBlogSeriesBridge = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -22388,6 +23768,18 @@ export const onUpdateBlogSeriesBridge = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -22504,6 +23896,18 @@ export const onUpdateBlogSeriesBridge = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -22522,6 +23926,18 @@ export const onUpdateBlogSeriesBridge = /* GraphQL */ `
           description
           thumbnailDescription
           image
+          squareImage {
+            src
+            alt
+          }
+          bannerImage {
+            src
+            alt
+          }
+          babyHeroImage {
+            src
+            alt
+          }
           startDate
           endDate
           notes {
@@ -22551,6 +23967,18 @@ export const onUpdateBlogSeriesBridge = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -22647,6 +24075,18 @@ export const onUpdateBlogSeriesBridge = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -22793,6 +24233,18 @@ export const onDeleteBlogSeriesBridge = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -22896,6 +24348,18 @@ export const onDeleteBlogSeriesBridge = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -23013,6 +24477,18 @@ export const onDeleteBlogSeriesBridge = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -23081,6 +24557,18 @@ export const onDeleteBlogSeriesBridge = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -23187,6 +24675,18 @@ export const onDeleteBlogSeriesBridge = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -23303,6 +24803,18 @@ export const onDeleteBlogSeriesBridge = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -23321,6 +24833,18 @@ export const onDeleteBlogSeriesBridge = /* GraphQL */ `
           description
           thumbnailDescription
           image
+          squareImage {
+            src
+            alt
+          }
+          bannerImage {
+            src
+            alt
+          }
+          babyHeroImage {
+            src
+            alt
+          }
           startDate
           endDate
           notes {
@@ -23350,6 +24874,18 @@ export const onDeleteBlogSeriesBridge = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -23446,6 +24982,18 @@ export const onDeleteBlogSeriesBridge = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -23575,6 +25123,18 @@ export const onCreateBlogToVideoSeries = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -23692,6 +25252,18 @@ export const onCreateBlogToVideoSeries = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -23760,6 +25332,18 @@ export const onCreateBlogToVideoSeries = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -23866,6 +25450,18 @@ export const onCreateBlogToVideoSeries = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -23982,6 +25578,18 @@ export const onCreateBlogToVideoSeries = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -24000,6 +25608,18 @@ export const onCreateBlogToVideoSeries = /* GraphQL */ `
           description
           thumbnailDescription
           image
+          squareImage {
+            src
+            alt
+          }
+          bannerImage {
+            src
+            alt
+          }
+          babyHeroImage {
+            src
+            alt
+          }
           startDate
           endDate
           notes {
@@ -24029,6 +25649,18 @@ export const onCreateBlogToVideoSeries = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -24125,6 +25757,18 @@ export const onCreateBlogToVideoSeries = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -24332,6 +25976,18 @@ export const onCreateBlogToVideoSeries = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -24663,6 +26319,18 @@ export const onCreateBlogToVideoSeries = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -24794,6 +26462,18 @@ export const onCreateBlogToVideoSeries = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -24911,6 +26591,18 @@ export const onCreateBlogToVideoSeries = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -24945,6 +26637,18 @@ export const onCreateBlogToVideoSeries = /* GraphQL */ `
         description
         thumbnailDescription
         image
+        squareImage {
+          src
+          alt
+        }
+        bannerImage {
+          src
+          alt
+        }
+        babyHeroImage {
+          src
+          alt
+        }
         startDate
         endDate
         notes {
@@ -25032,6 +26736,18 @@ export const onCreateBlogToVideoSeries = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -25156,6 +26872,18 @@ export const onUpdateBlogToVideoSeries = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -25273,6 +27001,18 @@ export const onUpdateBlogToVideoSeries = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -25341,6 +27081,18 @@ export const onUpdateBlogToVideoSeries = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -25447,6 +27199,18 @@ export const onUpdateBlogToVideoSeries = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -25563,6 +27327,18 @@ export const onUpdateBlogToVideoSeries = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -25581,6 +27357,18 @@ export const onUpdateBlogToVideoSeries = /* GraphQL */ `
           description
           thumbnailDescription
           image
+          squareImage {
+            src
+            alt
+          }
+          bannerImage {
+            src
+            alt
+          }
+          babyHeroImage {
+            src
+            alt
+          }
           startDate
           endDate
           notes {
@@ -25610,6 +27398,18 @@ export const onUpdateBlogToVideoSeries = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -25706,6 +27506,18 @@ export const onUpdateBlogToVideoSeries = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -25913,6 +27725,18 @@ export const onUpdateBlogToVideoSeries = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -26244,6 +28068,18 @@ export const onUpdateBlogToVideoSeries = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -26375,6 +28211,18 @@ export const onUpdateBlogToVideoSeries = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -26492,6 +28340,18 @@ export const onUpdateBlogToVideoSeries = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -26526,6 +28386,18 @@ export const onUpdateBlogToVideoSeries = /* GraphQL */ `
         description
         thumbnailDescription
         image
+        squareImage {
+          src
+          alt
+        }
+        bannerImage {
+          src
+          alt
+        }
+        babyHeroImage {
+          src
+          alt
+        }
         startDate
         endDate
         notes {
@@ -26613,6 +28485,18 @@ export const onUpdateBlogToVideoSeries = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -26737,6 +28621,18 @@ export const onDeleteBlogToVideoSeries = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -26854,6 +28750,18 @@ export const onDeleteBlogToVideoSeries = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -26922,6 +28830,18 @@ export const onDeleteBlogToVideoSeries = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -27028,6 +28948,18 @@ export const onDeleteBlogToVideoSeries = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -27144,6 +29076,18 @@ export const onDeleteBlogToVideoSeries = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -27162,6 +29106,18 @@ export const onDeleteBlogToVideoSeries = /* GraphQL */ `
           description
           thumbnailDescription
           image
+          squareImage {
+            src
+            alt
+          }
+          bannerImage {
+            src
+            alt
+          }
+          babyHeroImage {
+            src
+            alt
+          }
           startDate
           endDate
           notes {
@@ -27191,6 +29147,18 @@ export const onDeleteBlogToVideoSeries = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -27287,6 +29255,18 @@ export const onDeleteBlogToVideoSeries = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -27494,6 +29474,18 @@ export const onDeleteBlogToVideoSeries = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -27825,6 +29817,18 @@ export const onDeleteBlogToVideoSeries = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -27956,6 +29960,18 @@ export const onDeleteBlogToVideoSeries = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -28073,6 +30089,18 @@ export const onDeleteBlogToVideoSeries = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -28107,6 +30135,18 @@ export const onDeleteBlogToVideoSeries = /* GraphQL */ `
         description
         thumbnailDescription
         image
+        squareImage {
+          src
+          alt
+        }
+        bannerImage {
+          src
+          alt
+        }
+        babyHeroImage {
+          src
+          alt
+        }
         startDate
         endDate
         notes {
@@ -28194,6 +30234,18 @@ export const onDeleteBlogToVideoSeries = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -28402,6 +30454,18 @@ export const onCreateBlog = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -28652,6 +30716,18 @@ export const onCreateBlog = /* GraphQL */ `
             description
             thumbnailDescription
             image
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
             startDate
             endDate
             notes {
@@ -28832,6 +30908,18 @@ export const onCreateBlog = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -29163,6 +31251,18 @@ export const onCreateBlog = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -29294,6 +31394,18 @@ export const onCreateBlog = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -29411,6 +31523,18 @@ export const onCreateBlog = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -29445,6 +31569,18 @@ export const onCreateBlog = /* GraphQL */ `
         description
         thumbnailDescription
         image
+        squareImage {
+          src
+          alt
+        }
+        bannerImage {
+          src
+          alt
+        }
+        babyHeroImage {
+          src
+          alt
+        }
         startDate
         endDate
         notes {
@@ -29532,6 +31668,18 @@ export const onCreateBlog = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -29782,6 +31930,18 @@ export const onCreateBlog = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -30040,6 +32200,18 @@ export const onUpdateBlog = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -30290,6 +32462,18 @@ export const onUpdateBlog = /* GraphQL */ `
             description
             thumbnailDescription
             image
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
             startDate
             endDate
             notes {
@@ -30470,6 +32654,18 @@ export const onUpdateBlog = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -30801,6 +32997,18 @@ export const onUpdateBlog = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -30932,6 +33140,18 @@ export const onUpdateBlog = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -31049,6 +33269,18 @@ export const onUpdateBlog = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -31083,6 +33315,18 @@ export const onUpdateBlog = /* GraphQL */ `
         description
         thumbnailDescription
         image
+        squareImage {
+          src
+          alt
+        }
+        bannerImage {
+          src
+          alt
+        }
+        babyHeroImage {
+          src
+          alt
+        }
         startDate
         endDate
         notes {
@@ -31170,6 +33414,18 @@ export const onUpdateBlog = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -31420,6 +33676,18 @@ export const onUpdateBlog = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -31678,6 +33946,18 @@ export const onDeleteBlog = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -31928,6 +34208,18 @@ export const onDeleteBlog = /* GraphQL */ `
             description
             thumbnailDescription
             image
+            squareImage {
+              src
+              alt
+            }
+            bannerImage {
+              src
+              alt
+            }
+            babyHeroImage {
+              src
+              alt
+            }
             startDate
             endDate
             notes {
@@ -32108,6 +34400,18 @@ export const onDeleteBlog = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -32439,6 +34743,18 @@ export const onDeleteBlog = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -32570,6 +34886,18 @@ export const onDeleteBlog = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -32687,6 +35015,18 @@ export const onDeleteBlog = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -32721,6 +35061,18 @@ export const onDeleteBlog = /* GraphQL */ `
         description
         thumbnailDescription
         image
+        squareImage {
+          src
+          alt
+        }
+        bannerImage {
+          src
+          alt
+        }
+        babyHeroImage {
+          src
+          alt
+        }
         startDate
         endDate
         notes {
@@ -32808,6 +35160,18 @@ export const onDeleteBlog = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -33058,6 +35422,18 @@ export const onDeleteBlog = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -33296,6 +35672,18 @@ export const onCreateVerse = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -33402,6 +35790,18 @@ export const onCreateVerse = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -33518,6 +35918,18 @@ export const onCreateVerse = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -33536,6 +35948,18 @@ export const onCreateVerse = /* GraphQL */ `
           description
           thumbnailDescription
           image
+          squareImage {
+            src
+            alt
+          }
+          bannerImage {
+            src
+            alt
+          }
+          babyHeroImage {
+            src
+            alt
+          }
           startDate
           endDate
           notes {
@@ -33565,6 +35989,18 @@ export const onCreateVerse = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -33638,6 +36074,18 @@ export const onCreateVerse = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -33740,6 +36188,18 @@ export const onUpdateVerse = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -33846,6 +36306,18 @@ export const onUpdateVerse = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -33962,6 +36434,18 @@ export const onUpdateVerse = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -33980,6 +36464,18 @@ export const onUpdateVerse = /* GraphQL */ `
           description
           thumbnailDescription
           image
+          squareImage {
+            src
+            alt
+          }
+          bannerImage {
+            src
+            alt
+          }
+          babyHeroImage {
+            src
+            alt
+          }
           startDate
           endDate
           notes {
@@ -34009,6 +36505,18 @@ export const onUpdateVerse = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -34082,6 +36590,18 @@ export const onUpdateVerse = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -34184,6 +36704,18 @@ export const onDeleteVerse = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -34290,6 +36822,18 @@ export const onDeleteVerse = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -34406,6 +36950,18 @@ export const onDeleteVerse = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -34424,6 +36980,18 @@ export const onDeleteVerse = /* GraphQL */ `
           description
           thumbnailDescription
           image
+          squareImage {
+            src
+            alt
+          }
+          bannerImage {
+            src
+            alt
+          }
+          babyHeroImage {
+            src
+            alt
+          }
           startDate
           endDate
           notes {
@@ -34453,6 +37021,18 @@ export const onDeleteVerse = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -34526,6 +37106,18 @@ export const onDeleteVerse = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -34716,6 +37308,18 @@ export const onCreateNotes = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -35047,6 +37651,18 @@ export const onCreateNotes = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -35178,6 +37794,18 @@ export const onCreateNotes = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -35295,6 +37923,18 @@ export const onCreateNotes = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -35329,6 +37969,18 @@ export const onCreateNotes = /* GraphQL */ `
         description
         thumbnailDescription
         image
+        squareImage {
+          src
+          alt
+        }
+        bannerImage {
+          src
+          alt
+        }
+        babyHeroImage {
+          src
+          alt
+        }
         startDate
         endDate
         notes {
@@ -35416,6 +38068,18 @@ export const onCreateNotes = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -35579,6 +38243,18 @@ export const onCreateNotes = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -35798,6 +38474,18 @@ export const onUpdateNotes = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -36129,6 +38817,18 @@ export const onUpdateNotes = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -36260,6 +38960,18 @@ export const onUpdateNotes = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -36377,6 +39089,18 @@ export const onUpdateNotes = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -36411,6 +39135,18 @@ export const onUpdateNotes = /* GraphQL */ `
         description
         thumbnailDescription
         image
+        squareImage {
+          src
+          alt
+        }
+        bannerImage {
+          src
+          alt
+        }
+        babyHeroImage {
+          src
+          alt
+        }
         startDate
         endDate
         notes {
@@ -36498,6 +39234,18 @@ export const onUpdateNotes = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -36661,6 +39409,18 @@ export const onUpdateNotes = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -36880,6 +39640,18 @@ export const onDeleteNotes = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -37211,6 +39983,18 @@ export const onDeleteNotes = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -37342,6 +40126,18 @@ export const onDeleteNotes = /* GraphQL */ `
                 description
                 thumbnailDescription
                 image
+                squareImage {
+                  src
+                  alt
+                }
+                bannerImage {
+                  src
+                  alt
+                }
+                babyHeroImage {
+                  src
+                  alt
+                }
                 startDate
                 endDate
                 notes {
@@ -37459,6 +40255,18 @@ export const onDeleteNotes = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -37493,6 +40301,18 @@ export const onDeleteNotes = /* GraphQL */ `
         description
         thumbnailDescription
         image
+        squareImage {
+          src
+          alt
+        }
+        bannerImage {
+          src
+          alt
+        }
+        babyHeroImage {
+          src
+          alt
+        }
         startDate
         endDate
         notes {
@@ -37580,6 +40400,18 @@ export const onDeleteNotes = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {
@@ -37743,6 +40575,18 @@ export const onDeleteNotes = /* GraphQL */ `
               description
               thumbnailDescription
               image
+              squareImage {
+                src
+                alt
+              }
+              bannerImage {
+                src
+                alt
+              }
+              babyHeroImage {
+                src
+                alt
+              }
               startDate
               endDate
               notes {

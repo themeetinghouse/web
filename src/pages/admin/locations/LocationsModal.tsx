@@ -3,7 +3,7 @@ import {
   TMHLocation,
   UpdateTMHLocationMutation,
 } from 'API';
-import { useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { Modal, ModalHeader } from 'reactstrap';
 
 import styles from './LocationsModal.module.scss';
@@ -15,6 +15,7 @@ import LocationsTMHButton from './LocationsTMHButton';
 import { API, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import * as mutations from '../mutations';
 import { GraphQLResult } from '@aws-amplify/api-graphql';
+import ToggleNavigationBar from '../../../components/ToggleNavBar/ToggleNavigationBar';
 
 type LocationsModalProps = {
   locations: TMHLocation[];
@@ -222,20 +223,12 @@ export default function LocationsModal({
                 : 'Create a new location'}
             </span>
           </ModalHeader>
-          <div className={styles['LocationsButtonContainer']}>
-            {pages.map((page) => (
-              <button
-                key={page}
-                type="button"
-                className={`${styles['Button']} ${
-                  currentPage === page ? styles['Active'] : ''
-                }`}
-                onClick={() => setCurrentPage(page)}
-              >
-                {page}
-              </button>
-            ))}
-          </div>
+          <ToggleNavigationBar
+            style={{ margin: '16px 32px' }}
+            pages={pages}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage as Dispatch<SetStateAction<string>>}
+          />
 
           <div className={styles['LocationsModal']}>
             {currentPage === 'General Information' ? (
