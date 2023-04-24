@@ -8,9 +8,6 @@
   box-shadow: 1px 1px 1px 1px;
   border-radius: 50px;
   transition: all 0.3s;
-  input {
-    display: none;
-  }
 }
 
 .UploadImageEditButton:hover {
@@ -21,6 +18,9 @@
   position: relative;
   border: none;
   padding: 0;
+  input {
+    display: none;
+  }
 }
 .UploadImage {
   object-fit: contain;
