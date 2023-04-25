@@ -238,14 +238,7 @@ class TeachingItem extends React.Component<Props, State> {
       this.state.listData[this.state.teachingId].videoTypes === 'ky-srhigh' ||
       (this.state.listData[this.state.teachingId].videoTypes === 'bbq' &&
         this.state.listData[this.state.teachingId].seriesTitle != null)
-      ? '/static/photos/series/baby-hero/' +
-          this.state.listData[this.state.teachingId].videoTypes +
-          '-' +
-          this.state.listData[this.state.teachingId].seriesTitle.replace(
-            /\?|[']/g,
-            ''
-          ) +
-          '.jpg'
+      ? this.state.listData[this.state.teachingId].series.babyHeroImage.src
       : this.state.listData[this.state.teachingId].Youtube.snippet.thumbnails
           .maxres.url;
   }
@@ -326,6 +319,7 @@ class TeachingItem extends React.Component<Props, State> {
                 ) : null}
               </div>
               <div>
+                a
                 <FadeImage
                   className="teaching-image-desktop"
                   onClick={() =>

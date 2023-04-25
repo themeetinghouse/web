@@ -708,6 +708,14 @@ export const getVideoByVideoType = `query GetVideoByVideoType(
       seriesTitle
       series {
         id
+        bannerImage { 
+          src
+          alt
+        }
+        babyHeroImage {
+          src
+          alt
+        }
       }
       publishedDate
       description
