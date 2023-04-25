@@ -1,7 +1,7 @@
 {
   "page": {
-    "name": "Victim Advocacy",
-    "title": "Victim Advocacy",
+    "name": "Sexual Misconduct and Harassment",
+    "title": "Sexual Misconduct and Harassment",
     "keywords": "",
     "description": "",
     "pageConfig": {
@@ -30,61 +30,54 @@
             "alt": "View of a blue sky through yellow leaves."
           }
         ],
-        "header1": "Victim Advocacy at The Meeting House",
+        "header1": "Submit a Complaint",
         "header2": "",
-        "text1": "We grieve with all victims and are committed to taking all allegations of sexual misconduct seriously. We encourage anyone who thinks they may have experienced sexual misconduct or abuse by a pastor, staff member, or lay leader within The Meeting House to contact Melodie Bissell confidentially via the methods available below.",
+        "text1": "The Meeting House is committed to ensuring that our congregations are safe and healthy communities for all to become disciples of Jesus. We desire an environment that is free from harassment and abuse of any kind, including sexual misconduct. To submit a sexual misconduct complaint, click below to contact our independent complaint intake partner, Linda Lambert.",
         "button1": {
-          "text": "Online Referral Form",
-          "action": "https://form.jotform.com/220701021515538",
-          "description": "Button to victim advocacy form."
+          "text": "Contact Linda",
+          "action": "https://meeting.formstack.com/forms/sexual_misconduct_complainant_form",
+          "description": "Button to sexual misconduct reporting form."
         }
       },
       {
-        "type": "list",
-        "style": "staff",
-        "class": "staff",
-        "header1": "Victim Advocate",
-        "filterVisible": false,
-        "filterField": "sites",
-        "filterValue": "Advocate"
-      },
-      {
         "type": "content",
-        "style": "oneImage",
-        "header1": "Victim Advocacy",
+        "style": "greyTwoText",
+        "header1": "Sexual Misconduct and Harassment",
         "header2": "",
-        "text1": "Click below to read the investigation updates from The Meeting House.",
-        "image1": [
-          {
-            "src": "/static/images/TMH_House_Symbol_1280x1280.jpg",
-            "alt": "Graphic of The Meeting House logo."
-          }
-        ],
+        "text1": "All sexual misconduct is unacceptable and will not be tolerated in any context. We are committed to the prevention of sexual misconduct through regular training and appropriate measures of accountability for all staff, leaders, and volunteers. Complaints of sexual misconduct will be treated with integrity, fairness, and concern for the well-being of the complainants and those accused. We commit ourselves to supporting persons who have been harmed by sexual misconduct. We are also committed to protecting those who serve our community. Our ministry leaders, paid staff, volunteers, elders, and overseers must have the security of knowing that they are working in a setting where it is safe to serve, and procedures are in place that allow them full opportunity to respond to any allegations of misconduct. Our Sexual Misconduct and Harassment Policy provides an overall prevention and response framework for all forms of sexual misconduct and abuse. If you have questions about this policy, you can contact us at hello@themeetinghouse.com.",
+        "text2": "",
         "list": [
           {
             "type": "link",
-            "title": "Investigation Updates",
-            "navigateTo": "/churchupdatesummary"
+            "title": "Go Campaign FAQ",
+            "navigateTo": "/static/pdfs/go/GoChangesFAQNov19.pdf",
+            "openNewBrowser": true
+          },
+          {
+            "type": "link",
+            "title": "Discover Jesus Collective",
+            "navigateTo": "https://www.jesuscollective.com",
+            "openNewBrowser": true
           }
         ]
       },
       {
         "type": "content",
-        "style": "oneImageBlackRight",
-        "header1": "Connect with a pastor",
+        "style": "oneImage",
+        "header1": "Who's Linda Lambert?",
         "header2": "",
-        "text1": "If you need to process further, you can connect with a lead pastor. If you need financial assistance with counselling, please speak to your local pastor.",
-        "list": [
-          {
-            "type": "link",
-            "title": "Connect with a pastor",
-            "navigateTo": "mailto:connect@themeetinghouse.com"
-          }
-        ],
+        "text1": "Dr. Linda Lambert is a therapist practicing in the Niagara area. Linda is a Registered Nurse (currently non-practicing); has a BA in Psychology degree, post-graduate education in Pastoral Counselling, a Master of Divinity degree, and a Doctor of Ministry degree in Marriage and Family Counselling. Linda’s varied career experience includes work as a Psychiatric Nurse and Psychiatric Research Nurse, as an Ordained Pastor, as a Pastoral Counsellor, and Marriage and Family Therapist. Linda has two grown children and eight growing grandchildren. Linda enjoys home renovation, music, walking, and biking.",
         "image1": [
           {
             "src": "/static/images/TMH_House_Symbol_1280x1280.jpg",
             "alt": "Graphic of The Meeting House logo."
+          }
+        ],
+        "list": [
+          {
+            "type": "link",
+            "title": "Email Linda",
+            "navigateTo": "mailto:drlindalambert92@gmail.com"
           }
         ]
       }
