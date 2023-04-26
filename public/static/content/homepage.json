@@ -76,26 +76,6 @@
         ]
       },
       {
-        "type": "content",
-        "style": "oneImageBlackRight",
-        "header1": "Month of Prayer",
-        "header2": "",
-        "text1": "Join us through the Lent season as we invite God into our daily rhythms. Together we'll take time to read and meditate on scripture, join in prayerful rhythms, and act on what we're hearing from God through weekly practices. See the prayer guide below.",
-        "list": [
-          {
-            "type": "link",
-            "title": "Prayer Guide",
-            "navigateTo": "/prayerguide"
-          }
-        ],
-        "image1": [
-          {
-            "src": "/static/images/homepage-covid-1.jpg",
-            "alt": "A woman wearing a mask looking directly at the camera."
-          }
-        ]
-      },
-      {
         "type": "list",
         "style": "imageList",
         "class": "user-defined",
@@ -126,7 +106,7 @@
           {
             "title": "Kids & Youth Curriculum",
             "text": "Through Sunday morning teaching and midweek group resources, our kids and youth curriculum is designed to partner with parents and leaders and equip them with resources to disciple their kids and youth well.",
-            "imageSrc": "/static/images/homepage-4-4-new.jpg",
+            "imageSrc": "/static/images/FamilyTOBC.jpeg",
             "imageAlt": "Kids gathering around a smartphone to watch a video from The Meeting House Kids and Youth curriculum.",
             "navigateTo": "/kids-and-youth"
           }
@@ -185,26 +165,6 @@
           {
             "src": "/static/images/homepage-6-new.jpg",
             "alt": "Friends walking together across the street talking about volunteering, compassion, and giving at The Meeting House."
-          }
-        ]
-      },
-      {
-        "type": "content",
-        "style": "oneImageBlackRight",
-        "header1": "Go",
-        "header2": "",
-        "text1": "We're excited to invest in a number of special projects over the next few years that are generating stories of impact. Find out how you can make a difference.",
-        "list": [
-          {
-            "type": "link",
-            "title": "See the impact",
-            "navigateTo": "/go"
-          }
-        ],
-        "image1": [
-          {
-            "src": "/static/images/homepage-covid-1.jpg",
-            "alt": "A woman wearing a mask looking directly at the camera."
           }
         ]
       },
