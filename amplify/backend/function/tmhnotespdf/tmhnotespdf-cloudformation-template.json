@@ -35,12 +35,6 @@
     },
     "s3Key": {
       "Type": "String"
-    },
-    "s3AccessKeyId": {
-      "Type": "String"
-    },
-    "s3SecretAccessKey": {
-      "Type": "String"
     }
   },
   "Conditions": {
@@ -102,12 +96,6 @@
             },
             "STORAGE_TMHUSERCONTENT_BUCKETNAME": {
               "Ref": "storagetmhusercontentBucketName"
-            },
-            "s3AccessKeyId": {
-              "Ref": "s3AccessKeyId"
-            },
-            "s3SecretAccessKey": {
-              "Ref": "s3SecretAccessKey"
             }
           }
         },
@@ -301,6 +289,22 @@
                         "Ref": "storagetmhusercontentBucketName"
                       },
                       "/*"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "s3:*"
+              ],
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:s3:::*"
                     ]
                   ]
                 }
