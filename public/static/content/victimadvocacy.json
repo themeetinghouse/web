@@ -44,19 +44,13 @@
         "style": "greyTwoText",
         "header1": "Sexual Misconduct and Harassment",
         "header2": "",
-        "text1": "All sexual misconduct is unacceptable and will not be tolerated in any context. We are committed to the prevention of sexual misconduct through regular training and appropriate measures of accountability for all staff, leaders, and volunteers. Complaints of sexual misconduct will be treated with integrity, fairness, and concern for the well-being of the complainants and those accused. Our Sexual Misconduct and Harassment Policy provides an overall prevention and response framework for all forms of sexual misconduct and abuse. If you have questions about this policy, you can contact us at hello@themeetinghouse.com.",
+        "text1": "All sexual misconduct is unacceptable and will not be tolerated in any context. We are committed to the prevention of sexual misconduct through regular training and appropriate measures of accountability for all staff, leaders, and volunteers. Complaints of sexual misconduct will be treated with integrity, fairness, and concern for the well-being of the complainants and those accused. Our Sexual Misconduct and Harassment Policy provides an overall prevention and response framework for all forms of sexual misconduct and abuse. If you have questions about this policy, you can contact us.",
         "text2": "",
         "list": [
           {
             "type": "link",
-            "title": "Go Campaign FAQ",
-            "navigateTo": "/static/pdfs/go/GoChangesFAQNov19.pdf",
-            "openNewBrowser": true
-          },
-          {
-            "type": "link",
-            "title": "Discover Jesus Collective",
-            "navigateTo": "https://www.jesuscollective.com",
+            "title": "Email us",
+            "navigateTo": "mailto:hello@themeetinghouse.com",
             "openNewBrowser": true
           }
         ]
