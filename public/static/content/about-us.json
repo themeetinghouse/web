@@ -150,7 +150,7 @@
       {
         "type": "content",
         "style": "oneImageBlackRight",
-        "header1": "Policies",
+        "header1": "Policies and Procedures",
         "header2": "",
         "text1": "",
         "image1": [
@@ -160,6 +160,12 @@
           }
         ],
         "list": [
+          {
+            "type": "link",
+            "title": "Report Sexual Misconduct",
+            "navigateTo": "/reportsexualmisconduct",
+            "openNewBrowser": true
+          },
           {
             "type": "link",
             "title": "Info about our Protection Plan",
