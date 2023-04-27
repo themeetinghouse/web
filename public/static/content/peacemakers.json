@@ -3,7 +3,7 @@
     "name": "peacemakers",
     "title": "Peacemakers",
     "keywords": "peacemakers",
-    "description": "The page for The Meeting House 2021 Peacemakers campaign in partnership with MCC Canada.",
+    "description": "The page for The Meeting House 2023 Peacemakers campaign in partnership with MCC Canada.",
     "pageConfig": {
       "showLive": true,
       "movingMenu": false,
@@ -30,8 +30,7 @@
             "alt": "Girl wearing a head covering holding a hand drawn picture of her violent environment."
           }
         ],
-        "header1": "Peace is impossible...",
-        "header2": "Without you.",
+        "header1": "What is the impact of a dollar?",
         "text1": "Peacemakers is our opportunity to work towards peace and justice in some of the most vulnerable communities around the world. Take a step to become a peacemaker below.",
         "button1": {
           "text": "Watch Video",
@@ -43,46 +42,17 @@
       {
         "type": "content",
         "style": "pieChart",
-        "text1": "Together, we made peace possible by raising $160,858 for peacebuilding projects through our partner, Mennonite Central Committee.",
+        "text1": "Together, we can make peace possible!",
         "pieChart": {
           "raised": 160858,
           "goal": 150000,
-          "text": "We did it!"
+          "text": "Let's do it!"
         },
         "list": [
           {
             "type": "button",
             "title": "Donate Today",
             "navigateTo": "https://pushpay.com/g/themeetinghouse?src=hpp"
-          }
-        ]
-      },
-      {
-        "type": "content",
-        "style": "mad",
-        "header1": "Step 1: Learn",
-        "text1": "The first step to peacebuilding is to learn about a conflict. By having a posture of learning before we act, we can be more effective agents for peace. Take time to learn about our partnership with MCC and the areas we are investing in peacebuilding.",
-        "list": [
-          {
-            "type": "arrow",
-            "title": "Why Peacemakers?",
-            "navigateTo": "https://www.themeetinghouse.com/posts/why-peacemakers"
-          },
-          {
-            "type": "arrow",
-            "title": "Indigenous and Settler Reconciliation",
-            "navigateTo": "https://www.themeetinghouse.com/posts/indigenous-and-settler-reconciliation"
-          },
-          {
-            "type": "arrow",
-            "title": "Peacebuilding in Sub-Saharan Africa",
-            "navigateTo": "https://www.themeetinghouse.com/posts/peacebuilding"
-          }
-        ],
-        "image1": [
-          {
-            "src": "/static/images/PM2022_Learn-Mod-Image_2.jpg",
-            "alt": "Man playing Indigenous drumming instrument."
           }
         ]
       },
@@ -94,167 +64,6 @@
         "sortOrder": "DESC",
         "header1": "Peacemakers Stories",
         "showEpisodeNumbers": false
-      },
-      {
-        "type": "content",
-        "style": "oneImageBlackRight",
-        "header1": "Step 2: Take Action",
-        "header2": "",
-        "text1": "After learning about a conflict we can take steps to work toward peace. In many situations this includes working to right injustices so that individuals and communities can heal. You can help by:",
-        "list": [
-          {
-            "type": "link",
-            "title": "Giving",
-            "navigateTo": "/peacemakers-give"
-          },
-          {
-            "type": "link",
-            "title": "Start a fundraiser",
-            "navigateTo": "https://go.dojiggy.io/c/deae7e"
-          },
-          {
-            "type": "link",
-            "title": "Tell others about Peacemakers",
-            "navigateTo": "/peacemakers"
-          }
-        ],
-        "image1": [
-          {
-            "src": "/static/images/PM2022_TakeAction_Mod_1.jpg",
-            "alt": "Older woman smiling holding a baked pie."
-          }
-        ]
-      },
-      {
-        "type": "horizontal-list",
-        "header1": "Join a Fundraiser",
-        "list": [
-          {
-            "title": "Create a Fundraiser",
-            "text": "Click here to start your own fundraiser for peacemakers.",
-            "imageSrc": "/static/images/CreateAFundraiser-1125x840.jpg",
-            "imageAlt": "Black and yellow graphic with the words create a fundraiser.",
-            "navigateTo": "https://go.dojiggy.io/c/deae7e"
-          },
-          {
-            "title": "Silent Auction",
-            "text": "Communities from all over have donated some great items for our online silent auction!",
-            "imageSrc": "/static/images/SilentAuction_1125x840.jpg",
-            "imageAlt": "Black and yellow graphic with the words silence auction.",
-            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/Auction/Details"
-          },
-          {
-            "title": "Downtown Hamilton The Art Peace",
-            "text": "Join the downtown Hamilton community on May 27 for a fun night of wine, cheese, and art.",
-            "imageSrc": "/static/images/The_art_peace.jpg",
-            "imageAlt": "Black and yellow graphic with the words Downtown Hamilton The Art Peace.",
-            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/theartpeace/Team/Details"
-          },
-          {
-            "title": "Oakville Peace Wreaths",
-            "text": "We invite you to participate in our Peacemakers Raffle! For a donation of 3$ you can win one of 3 handcrafted spring wreathes.",
-            "imageSrc": "/static/images/Oakville_Peace_Wreaths.jpg",
-            "imageAlt": "Black and yellow graphic with the words Oakville Peace Wreaths.",
-            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/d895ad/Team/Details"
-          },
-          {
-            "title": "Ottawa Scone Baking",
-            "text": "Join April on May 24 when she goes live on The Meeting House Ottawa's Facebook page to share all her scone-related tips and tricks. Get a tasty treat for your troubles. Suggested donation: $5 per viewer.",
-            "imageSrc": "/static/images/Ottawa_Scone_Baking.jpg",
-            "imageAlt": "Black and yellow graphic with the words Ottawa Scone Baking.",
-            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/scones"
-          },
-          {
-            "title": "Ottawa Knitting with Jasmine",
-            "text": "Jasmine Duckworth has kindly offered to teach us some knitting. Join us on Sunday, May 29 before church in Ottawa to learn to knit a dishcloth, repair your own knitwear, or drop something off to be repaired by Jasmine's expert hands.",
-            "imageSrc": "/static/images/Ottawa_Knitting_with_jasmine.jpg",
-            "imageAlt": "Black and yellow graphic with the words Ottawa Knitting with Jasmine.",
-            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/knitting"
-          },
-          {
-            "title": "Ottawa 2SLGBTQIA+ Q&A",
-            "text": "Do you have questions about 2SLGBTQIA+ stuff? On May 25, join Heather Sutherland, queer mom of a trans preteen, and compassion coordinator April Yorke, as we endeavor to discuss questions about gender and sexuality in a safe space for knowledge seekers.",
-            "imageSrc": "/static/images/Ottawa_Q&A.jpg",
-            "imageAlt": "Black and yellow graphic with the words Ottawa 2SLGBTQIA+ Q&A.",
-            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/6d06cf/Team/Details"
-          },
-          {
-            "title": "Toronto Clothing Swap",
-            "text": "Come with clothes, leave with clothes! Saturday May 28th @ 3pm (Queen & Ossington)",
-            "imageSrc": "/static/images/Toronto_ClothingSwap.jpg",
-            "imageAlt": "Black and yellow graphic with the words Toronto Clothing Swap.",
-            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/clothingswap/Team/Details"
-          },
-          {
-            "title": "Oakville Refugee Encounter",
-            "text": "In the history of humanity, there have never been as many refugees around the world as we are seeing today. Join us for our 3rd Annual Refugee Encounter on May 29 to learn more about Tayiba and Elyas’ journey since fleeing their home in Ethiopia.",
-            "imageSrc": "/static/images/OakvilleRefugeeEncounter_1125x840.jpg",
-            "imageAlt": "Black and yellow graphic with the words oakville refugee encounter.",
-            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/oakvillerefugeeencounter/Team/Details"
-          },
-          {
-            "title": "Oakville Zumba for Peace",
-            "text": "Join Miriam and friends to try Zumba! Thursday May 26th, 7:30pm @ 2700 Bristol Circle, The Meeting House East Entrance",
-            "imageSrc": "/static/images/Oakville_Zumba.jpg",
-            "imageAlt": "Black and yellow graphic with the words Oakville Zumba for Peace.",
-            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/zumba-for-peace/Team/Details"
-          },
-          {
-            "title": "Oakville Kidmax Bake Sale",
-            "text": "Enjoy a sweet treat provided by our Kidmax kids!",
-            "imageSrc": "/static/images/Oakville_KidmaxBakeSale.jpg",
-            "imageAlt": "Black and yellow graphic with the words Oakville Kidmax Bake Sale.",
-            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/45fe9b/Team/Details"
-          },
-          {
-            "title": "Waterdown - Riding for Peace & Reconciliation",
-            "text": "Member of Waterdown Home Church will cycle 400km over a few days for peace!",
-            "imageSrc": "/static/images/Waterdown_RidingforPeace.jpg",
-            "imageAlt": "Black and yellow graphic with the words Waterdown Riding for Peace.",
-            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/77c82b/Team/Details"
-          },
-          {
-            "title": "Newmarket Hike for Peace",
-            "text": "Angela is hiking 200km in the next four weeks to raise awareness for Peacemakers.",
-            "imageSrc": "/static/images/NewmarketHikeforPeace_1125x840.jpg",
-            "imageAlt": "Black and yellow graphic with the words Hike for Peace.",
-            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/nmkthikeforpeace/Team/Details"
-          },
-          {
-            "title": "Burlington Yard and Book Sale",
-            "text": "Join us from 8am to noon, to pick up a gently used treasure or two along with some books for summer reading.",
-            "imageSrc": "/static/images/Burlington_YardandBookSale.jpg",
-            "imageAlt": "Black and yellow graphic with the words Burlington Yard and Book Sale.",
-            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/c4905f/Team/Details"
-          },
-          {
-            "title": "Alliston Peace it together Garage Sale",
-            "text": "Held at PPG Park Pavilion in Alliston. May 29th 10am-2pm (behind the Alliston Fire Hall)",
-            "imageSrc": "/static/images/AllistonPeaceittogetherGarageSale_1125x840.jpg",
-            "imageAlt": "Black and yellow graphic with the words Alliston Peace it together Garage Sale.",
-            "navigateTo": "https://go.dojiggy.io/peacemakers-2022/t/alliston/Team/Details"
-          }
-        ]
-      },
-      {
-        "type": "content",
-        "style": "oneImageYellow",
-        "header1": "Kids and Youth",
-        "header2": "",
-        "text1": "Making peace is for everyone, no matter your age. Check out how kids and youth can make an impact too.",
-        "list": [
-          {
-            "type": "button",
-            "title": "Ideas for Kids and Youth",
-            "navigateTo": "/nextgenpeace"
-          }
-        ],
-        "image1": [
-          {
-            "src": "/static/images/Mod7_pic.jpg",
-            "alt": "Little boy playing with hulla hoop."
-          }
-        ]
       }
     ]
   }
