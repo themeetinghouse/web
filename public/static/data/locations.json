@@ -85,6 +85,7 @@
     "id": "hamilton",
     "name": "Hamilton",
     "regionShortName": "Hamilton",
+    "homeChurchGroupID": "414970",
     "serviceTimeDescription": "Every Sunday at 10am",
     "region": "Hamilton",
     "facebookEvents": ["1038050089551916", "126960067401497"],
