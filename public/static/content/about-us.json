@@ -105,6 +105,12 @@
         "list": [
           {
             "type": "link",
+            "title": "Spring 2023 Finance Update",
+            "navigateTo": "/static/pdfs/annual-reports/March 2023 Finance Update.pdf",
+            "openNewBrowser": true
+          },
+          {
+            "type": "link",
             "title": "2022 - AGM Document",
             "navigateTo": "/static/pdfs/annual-reports/2022 AGM Supporting Documentation combined.pdf",
             "openNewBrowser": true
@@ -131,18 +137,6 @@
             "type": "link",
             "title": "April 2021 - Finance Update",
             "navigateTo": "/static/pdfs/annual-reports/Finance Update April 2021.pdf",
-            "openNewBrowser": true
-          },
-          {
-            "type": "link",
-            "title": "January 2021 - Finance Update",
-            "navigateTo": "/static/pdfs/annual-reports/Jan Finance Update 2021.pdf",
-            "openNewBrowser": true
-          },
-          {
-            "type": "link",
-            "title": "2020 - AGM Document",
-            "navigateTo": "/static/pdfs/annual-reports/2020_AGM_Report_1.pdf",
             "openNewBrowser": true
           }
         ]
