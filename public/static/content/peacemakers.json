@@ -31,7 +31,7 @@
           }
         ],
         "header1": "What is the impact of a dollar?",
-        "text1": "Peacemakers is our opportunity to work towards peace and justice in some of the most vulnerable communities around the world. Take a step to become a peacemaker below.",
+        "text1": "Join us in supporting the Meeting House Annual Peacemakers Campaign! Your donation, no matter how small, can make a huge impact in promoting peace and compassion in our community and beyond. Help us reach our fundraising goal by donating today and inviting your friends, family, and colleagues to join us in making a difference. Together, we can make the world a better place, one dollar at a time. Thank you for your support!",
         "button1": {
           "text": "Watch Video",
           "buttonColor": "yellow",
@@ -41,10 +41,31 @@
       },
       {
         "type": "content",
+        "style": "oneImageBlackRight",
+        "header1": "Why MCC?",
+        "header2": "",
+        "text1": "",
+        "image1": [
+          {
+            "src": "/static/images/about-us-2.jpg",
+            "alt": "Three people sitting at a table, talking about the bible"
+          }
+        ],
+        "list": [
+          {
+            "type": "button",
+            "title": "Watch Video",
+            "navigateTo": "/static/pdfs/Policies-and-Statements/Gospel_Cheat_Sheet_Booklet_V2.pdf",
+            "openNewBrowser": true
+          }
+        ]
+      },
+      {
+        "type": "content",
         "style": "pieChart",
         "text1": "Together, we can make peace possible!",
         "pieChart": {
-          "raised": 160858,
+          "raised": 0,
           "goal": 150000,
           "text": "Let's do it!"
         },
@@ -60,10 +81,31 @@
         "type": "list",
         "style": "horizontal",
         "class": "videos",
-        "subclass": "compassion",
+        "subclass": "Peacemakers",
         "sortOrder": "DESC",
-        "header1": "Peacemakers Stories",
+        "header1": "Areas of Impact",
         "showEpisodeNumbers": false
+      },
+      {
+        "type": "horizontal-list",
+        "header1": "Fundraisers",
+        "header2": "",
+        "list": [
+          {
+            "title": "Start a Fundraiser",
+            "text":"",
+            "imageSrc":"",
+            "imageAlt":",",
+            "navigateTo": "/kids-and-youth"
+          },
+          {
+            "title": "Fundraiser Ideas",
+            "text":"",
+            "imageSrc":"",
+            "imageAlt":",",
+            "navigateTo": "/kids-and-youth"
+          }
+        ]
       }
     ]
   }
