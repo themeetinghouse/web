@@ -35,7 +35,7 @@
         "button1": {
           "text": "Give",
           "buttonColor": "yellow",
-          "action": "/peaceamakers-give",
+          "action": "/peacemakers-give",
           "description": "a link to a donation page."
         }
       },
@@ -66,7 +66,8 @@
         "text1": "Give to MCC's Peacemakers campaign to foster peace. Here we can track how many dollars will be making an impact through MCC this year.",
         "pieChart": {
           "raised": 0,
-          "goal": 100000
+          "goal": 100000,
+          "text":"Make an Impact"
         },
         "list": [
           {
