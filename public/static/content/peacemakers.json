@@ -47,7 +47,7 @@
         "text1": "When we partner organizations like MCC, we increase the impact made in addressing complex global issues. Collaborating with MCC can result in more cost effective and long-term solutions to complex global issues.",
         "image1": [
           {
-            "src": "/static/images/PM2022_Web-Hero_v3_smaller-size.jpg",
+            "src": "/static/images/PM2022_TMH-Landing-page_Images.jpg",
             "alt": "Girl wearing a head covering holding a hand drawn picture of her violent environment."
           }
         ],
@@ -55,7 +55,7 @@
           {
             "type": "button",
             "title": "Watch Video",
-            "navigateTo": "/static/pdfs/Policies-and-Statements/Gospel_Cheat_Sheet_Booklet_V2.pdf",
+            "navigateTo": "/videos/peacemakers-Launch/B3DG1KEbaVA",
             "openNewBrowser": true
           }
         ]
@@ -63,11 +63,10 @@
       {
         "type": "content",
         "style": "pieChart",
-        "text1": "Together, we can make peace possible!",
+        "text1": "Give to MCC's Peacemakers campaign to foster peace. Here we can track how many dollars will be making an impact through MCC this year.",
         "pieChart": {
           "raised": 0,
-          "goal": 100000,
-          "text": "Let's do it!"
+          "goal": 100000
         },
         "list": [
           {
