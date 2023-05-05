@@ -12,6 +12,10 @@
     "location": "/peacemakers"
   },
   {
+    "name": "Give",
+    "location": "/give"
+  },
+  {
     "name": "Teaching",
     "location": "/teaching",
     "children": [
@@ -44,10 +48,6 @@
       {
         "name": "Compassion",
         "location": "/compassion"
-      },
-      {
-        "name": "Give",
-        "location": "/give"
       }
     ]
   },
