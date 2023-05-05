@@ -55,7 +55,7 @@
           {
             "type": "button",
             "title": "Watch Video",
-            "navigateTo": "/videos/peacemakers-Launch/B3DG1KEbaVA",
+            "navigateTo": "https://themeetinghouse.com/videos/peacemakers-Launch/B3DG1KEbaVA",
             "openNewBrowser": true
           }
         ]
