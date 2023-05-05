@@ -104,41 +104,6 @@
             "imageSrc":"/static/pdfs/compassion/fundraiser-ideas.jpg",
             "imageAlt":"black and yellow square with title of fundraiser.",
             "navigateTo": "/static/pdfs/compassion/2023_PM List of Fundraiser Ideas.pdf"
-          },
-          {
-            "title": "Creation Care Plant Sale",
-            "text":"",
-            "imageSrc":"/static/pdfs/compassion/fundraiser-creation-care-plants.jpg",
-            "imageAlt":"black and yellow square with title of fundraiser.",
-            "navigateTo": ""
-          },
-          {
-            "title": "Youth Retreat Shirts",
-            "text":"",
-            "imageSrc":"/static/pdfs/compassion/fundraiser-youth-shirts.jpg",
-            "imageAlt":"black and yellow square with title of fundraiser.",
-            "navigateTo": ""
-          },
-          {
-            "title": "TMH Merch",
-            "text":"",
-            "imageSrc":"/static/pdfs/compassion/fundraiser-tmh-merch.jpg",
-            "imageAlt":"black and yellow square with title of fundraiser.",
-            "navigateTo": ""
-          },
-          {
-            "title": "Kids Clothing Drive",
-            "text":"",
-            "imageSrc":"/static/pdfs/compassion/fundraiser-kids-clothing.jpg",
-            "imageAlt":"black and yellow square with title of fundraiser.",
-            "navigateTo": ""
-          },
-          {
-            "title": "Octopuses",
-            "text":"",
-            "imageSrc":"/static/pdfs/compassion/fundraiser-octopuses.jpg",
-            "imageAlt":"black and yellow square with title of fundraiser.",
-            "navigateTo": ""
           }
         ]
       }
