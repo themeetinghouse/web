@@ -16,7 +16,7 @@
     "content": [
       {
         "type": "og-tags",
-        "image": "/static/images/PM2022_Web-Hero_v3_smaller-size.jpg",
+        "image": "/static/images/Coin Impact.jpg",
         "url": "https://www.themeetinghouse.com/peacemakers",
         "title": "Peacemakers",
         "description": "What's the impact of a dollar?"
@@ -26,12 +26,12 @@
         "style": "full",
         "image1": [
           {
-            "src": "/static/images/PM2022_Web-Hero_v3_smaller-size.jpg",
-            "alt": "Girl wearing a head covering holding a hand drawn picture of her violent environment."
+            "src": "/static/images/Coin Impact.jpg",
+            "alt": "Coin striking sand."
           }
         ],
         "header1": "What is the impact of a dollar?",
-        "text1": "Your donation, no matter how small, can make a huge impact in promoting peace and compassion in our community and beyond. Help us reach our fundraising goal by donating today and inviting your friends, family, and colleagues to join us in making a difference. Let's make the world a better place, one dollar at a time.",
+        "text1": "Your donation, no matter how small, can make a huge impact in fostering peace and compassion in our community and beyond. Donate today and inviting your friends, family, and colleagues to join us in making a difference. Let's make the world a better place, one dollar at a time.",
         "button1": {
           "text": "Give",
           "buttonColor": "yellow",
@@ -47,8 +47,8 @@
         "text1": "When we partner organizations like MCC, we increase the impact made in addressing complex global issues. Collaborating with MCC can result in more cost effective and long-term solutions to complex global issues.",
         "image1": [
           {
-            "src": "/static/images/about-us-2.jpg",
-            "alt": "Three people sitting at a table, talking about the bible"
+            "src": "/static/images/PM2022_Web-Hero_v3_smaller-size.jpg",
+            "alt": "Girl wearing a head covering holding a hand drawn picture of her violent environment."
           }
         ],
         "list": [
@@ -66,7 +66,7 @@
         "text1": "Together, we can make peace possible!",
         "pieChart": {
           "raised": 0,
-          "goal": 150000,
+          "goal": 100000,
           "text": "Let's do it!"
         },
         "list": [
@@ -81,7 +81,7 @@
         "type": "list",
         "style": "horizontal",
         "class": "videos",
-        "subclass": "Peacemakers",
+        "subclass": "peacemakers",
         "sortOrder": "DESC",
         "header1": "Areas of Impact",
         "showEpisodeNumbers": false
@@ -94,50 +94,50 @@
           {
             "title": "Start a Fundraiser",
             "text":"",
-            "imageSrc":"",
-            "imageAlt":",",
+            "imageSrc":"/static/pdfs/compassion/fundraiser-start.jpg",
+            "imageAlt":"black and yellow square with title of fundraiser.",
             "navigateTo": "/static/pdfs/compassion/2023_PM _START HERE_ Guide to Setting Up a Fundraiser.pdf"
           },
           {
             "title": "Fundraiser Ideas",
             "text":"",
-            "imageSrc":"",
-            "imageAlt":",",
+            "imageSrc":"/static/pdfs/compassion/fundraiser-ideas.jpg",
+            "imageAlt":"black and yellow square with title of fundraiser.",
             "navigateTo": "/static/pdfs/compassion/2023_PM List of Fundraiser Ideas.pdf"
           },
           {
             "title": "Creation Care Plant Sale",
             "text":"",
-            "imageSrc":"",
-            "imageAlt":",",
+            "imageSrc":"/static/pdfs/compassion/fundraiser-creation-care-plants.jpg",
+            "imageAlt":"black and yellow square with title of fundraiser.",
             "navigateTo": ""
           },
           {
             "title": "Youth Retreat Shirts",
             "text":"",
-            "imageSrc":"",
-            "imageAlt":",",
+            "imageSrc":"/static/pdfs/compassion/fundraiser-youth-shirts.jpg",
+            "imageAlt":"black and yellow square with title of fundraiser.",
             "navigateTo": ""
           },
           {
             "title": "TMH Merch",
             "text":"",
-            "imageSrc":"",
-            "imageAlt":",",
+            "imageSrc":"/static/pdfs/compassion/fundraiser-tmh-merch.jpg",
+            "imageAlt":"black and yellow square with title of fundraiser.",
             "navigateTo": ""
           },
           {
             "title": "Kids Clothing Drive",
             "text":"",
-            "imageSrc":"",
-            "imageAlt":",",
+            "imageSrc":"/static/pdfs/compassion/fundraiser-kids-clothing.jpg",
+            "imageAlt":"black and yellow square with title of fundraiser.",
             "navigateTo": ""
           },
           {
             "title": "Octopuses",
             "text":"",
-            "imageSrc":"",
-            "imageAlt":",",
+            "imageSrc":"/static/pdfs/compassion/fundraiser-octopuses.jpg",
+            "imageAlt":"black and yellow square with title of fundraiser.",
             "navigateTo": ""
           }
         ]
