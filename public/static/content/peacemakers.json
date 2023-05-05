@@ -19,7 +19,7 @@
         "image": "/static/images/PM2022_Web-Hero_v3_smaller-size.jpg",
         "url": "https://www.themeetinghouse.com/peacemakers",
         "title": "Peacemakers",
-        "description": "Is peace impossible? That depends on you."
+        "description": "What's the impact of a dollar?"
       },
       {
         "type": "hero",
@@ -31,12 +31,12 @@
           }
         ],
         "header1": "What is the impact of a dollar?",
-        "text1": "Join us in supporting the Meeting House Annual Peacemakers Campaign! Your donation, no matter how small, can make a huge impact in promoting peace and compassion in our community and beyond. Help us reach our fundraising goal by donating today and inviting your friends, family, and colleagues to join us in making a difference. Together, we can make the world a better place, one dollar at a time. Thank you for your support!",
+        "text1": "Your donation, no matter how small, can make a huge impact in promoting peace and compassion in our community and beyond. Help us reach our fundraising goal by donating today and inviting your friends, family, and colleagues to join us in making a difference. Let's make the world a better place, one dollar at a time.",
         "button1": {
-          "text": "Watch Video",
+          "text": "Give",
           "buttonColor": "yellow",
-          "action": "https://www.themeetinghouse.com/videos/compassion-Peacemakers/4blwlOGupgE",
-          "description": "Introduction to our Peacemakers campaign and watch video button."
+          "action": "/peaceamakers-give",
+          "description": "a link to a donation page."
         }
       },
       {
@@ -44,7 +44,7 @@
         "style": "oneImageBlackRight",
         "header1": "Why MCC?",
         "header2": "",
-        "text1": "",
+        "text1": "When we partner organizations like MCC, we increase the impact made in addressing complex global issues. Collaborating with MCC can result in more cost effective and long-term solutions to complex global issues.",
         "image1": [
           {
             "src": "/static/images/about-us-2.jpg",
@@ -96,14 +96,49 @@
             "text":"",
             "imageSrc":"",
             "imageAlt":",",
-            "navigateTo": "/kids-and-youth"
+            "navigateTo": "/static/pdfs/compassion/2023_PM _START HERE_ Guide to Setting Up a Fundraiser.pdf"
           },
           {
             "title": "Fundraiser Ideas",
             "text":"",
             "imageSrc":"",
             "imageAlt":",",
-            "navigateTo": "/kids-and-youth"
+            "navigateTo": "/static/pdfs/compassion/2023_PM List of Fundraiser Ideas.pdf"
+          },
+          {
+            "title": "Creation Care Plant Sale",
+            "text":"",
+            "imageSrc":"",
+            "imageAlt":",",
+            "navigateTo": ""
+          },
+          {
+            "title": "Youth Retreat Shirts",
+            "text":"",
+            "imageSrc":"",
+            "imageAlt":",",
+            "navigateTo": ""
+          },
+          {
+            "title": "TMH Merch",
+            "text":"",
+            "imageSrc":"",
+            "imageAlt":",",
+            "navigateTo": ""
+          },
+          {
+            "title": "Kids Clothing Drive",
+            "text":"",
+            "imageSrc":"",
+            "imageAlt":",",
+            "navigateTo": ""
+          },
+          {
+            "title": "Octopuses",
+            "text":"",
+            "imageSrc":"",
+            "imageAlt":",",
+            "navigateTo": ""
           }
         ]
       }
