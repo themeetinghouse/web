@@ -76,6 +76,27 @@
         ]
       },
       {
+        "type": "content",
+        "style": "oneImageBlackRightExtended",
+        "header1": "Peacemakers 2023",
+        "header2": "",
+        "text1": "What's the impact of a dollar? Give to Peacemakers to support MCC's peacebuilding efforts. Our goal this year is $100,000.",
+        "image1": [
+          {
+            "src": "/static/images/PM2022_TMH-Landing-page_Images.jpg",
+            "alt": "Girl wearing a head covering holding a hand drawn picture of her violent environment."
+          }
+        ],
+        "list": [
+          {
+            "type": "link",
+            "title": "Give to Peacemakers",
+            "navigateTo": "/peacemakers-give",
+            "openNewBrowser": true
+          }
+        ]
+      },
+      {
         "type": "list",
         "style": "imageList",
         "class": "user-defined",
