@@ -104,6 +104,41 @@
             "imageSrc":"/static/pdfs/compassion/fundraiser-ideas.jpg",
             "imageAlt":"black and yellow square with title of fundraiser.",
             "navigateTo": "/static/pdfs/compassion/2023_PM List of Fundraiser Ideas.pdf"
+          },
+          {
+            "title": "Creation Care Plant Sale",
+            "text":"",
+            "imageSrc":"/static/pdfs/compassion/fundraiser-creation-care-plants.jpg",
+            "imageAlt":"black and yellow square with title of fundraiser.",
+            "navigateTo": "https://square.link/u/04B2vIA9"
+          },
+          {
+            "title": "Youth Retreat Shirts",
+            "text":"",
+            "imageSrc":"/static/pdfs/compassion/fundraiser-youth-shirts.jpg",
+            "imageAlt":"black and yellow square with title of fundraiser.",
+            "navigateTo": "https://square.link/u/HvA3SeqO"
+          },
+          {
+            "title": "TMH Merch",
+            "text":"",
+            "imageSrc":"/static/pdfs/compassion/fundraiser-tmh-merch.jpg",
+            "imageAlt":"black and yellow square with title of fundraiser.",
+            "navigateTo": "https://square.link/u/azI3jdRu"
+          },
+          {
+            "title": "Kids Clothing Drive",
+            "text":"",
+            "imageSrc":"/static/pdfs/compassion/fundraiser-kids-clothing.jpg",
+            "imageAlt":"black and yellow square with title of fundraiser.",
+            "navigateTo": "https://square.link/u/31QYvHlA"
+          },
+          {
+            "title": "Octopuses",
+            "text":"",
+            "imageSrc":"/static/pdfs/compassion/fundraiser-octopuses.jpg",
+            "imageAlt":"black and yellow square with title of fundraiser.",
+            "navigateTo": "https://square.link/u/ZAhRn0PI"
           }
         ]
       }
