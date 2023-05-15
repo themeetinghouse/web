@@ -24,10 +24,6 @@
         "location": "/notes"
       },
       {
-        "name": "Video Playlists",
-        "location": "/teaching-curated"
-      },
-      {
         "name": "Podcasts",
         "location": "/teaching-podcasts"
       },

@@ -97,10 +97,10 @@
           },
           {
             "title": "Kids & Youth",
-            "text": "We work together to create a safe community where our kids and youth can learn to love and follow Jesus. We do this through building relationships, and equipping parents. Learn more about our programs.",
+            "text": "We work together to create a safe community where our kids and youth can learn to love and follow Jesus. We do this through building relationships and equipping parents. Learn more about our programs.",
             "imageSrc": "/static/images/community-3-3.jpg",
             "imageAlt": "Two kids smiling",
-            "navigateTo": "/kids-and-youth"
+            "navigateTo": "/fund-sunday-morning"
           }
         ]
       },
