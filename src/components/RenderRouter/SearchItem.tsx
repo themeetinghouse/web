@@ -619,15 +619,6 @@ export default function SearchItem(props: SearchItemProps) {
     else return null;
   };
   const renderSeries = (item: any) => {
-    const image = {
-      src:
-        '/static/photos/series/' +
-        item.seriesType +
-        '-' +
-        (item.title ?? '').replace('?', '') +
-        '.jpg',
-      alt: `${item.title} series image`,
-    };
     if (item.episodeTitle !== null)
       return (
         <Button
@@ -637,18 +628,11 @@ export default function SearchItem(props: SearchItemProps) {
           }}
           className="SearchResultItem"
         >
-          <ScaledImage
-            image={image}
+          <FadeImage
+            imageSrc={item?.bannerImage?.src}
+            alt={item?.babyHeroImage?.alt}
             className="SearchThumb series"
             fallbackUrl="/static/photos/blogs/square/fallback.jpg"
-            breakpointSizes={{
-              320: 80,
-              480: 120,
-              640: 180,
-              1280: 320,
-              1920: 480,
-              2560: 640,
-            }}
           />
           <div className="Content">
             <div style={{ marginBottom: 16 }}>
