@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import HamburgerMenu from 'react-hamburger-menu';
 import { useHistory } from 'react-router-dom';
 import './HorizMenu.scss';
+import { Storage } from 'aws-amplify';
 
 type NavItem = {
   name: string;
@@ -24,7 +25,8 @@ export default function HorizMenu({
   useEffect(() => {
     const fetchNavItems = async () => {
       try {
-        const response = await fetch('/static/data/MainMenu.json');
+        const url = await Storage.get('/editor/navigation.json');
+        const response = await fetch(url);
         const json = await response.json();
         console.log({ json: json });
         if (json) {

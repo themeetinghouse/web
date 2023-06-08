@@ -2,8 +2,8 @@ import React, { Suspense, lazy } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { History } from 'history';
-import HomePage from 'pages/HomePage';
-import Authenticator from 'components/Auth/Authenticator';
+import HomePage from './pages/HomePage';
+import Authenticator from './components/Auth/Authenticator';
 
 interface Props extends RouteComponentProps<any> {
   match: any;

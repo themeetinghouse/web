@@ -563,7 +563,9 @@ function ContentItem({ content, nextItem }: Props) {
                 <div
                   className={`madrec ${content.reverse ? 'madReverse' : ''}`}
                 ></div>
-                <div className="madImage">
+                <div
+                  className={`madImage ${content.reverse ? 'madReverse' : ''}`}
+                >
                   {content?.image1?.map((image, index) => {
                     const shouldShow =
                       (content?.image1?.length &&
@@ -580,6 +582,7 @@ function ContentItem({ content, nextItem }: Props) {
                           position: 'absolute',
                           top: 0,
                         };
+                    if (content.reverse) fadeStyle.left = '4vw';
                     return (
                       <FadeImage
                         noShowOnStartup

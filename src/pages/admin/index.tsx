@@ -11,7 +11,7 @@ const GetInsta = lazy(() => import('../../pages/admin/instagram'));
 const Announcements = lazy(() => import('../../pages/admin/Announcements'));
 const HomeChurch = lazy(() => import('../../pages/admin/homechurch'));
 const Redirect = lazy(() => import('../../pages/admin/Redirect'));
-const Editor = lazy(() => import('../../pages/admin/Editor/Editor'));
+const Editor = lazy(() => import('./Editor/Editor'));
 const PeopleManager = lazy(() => import('./PeopleManager/PeopleManager'));
 const LocationsManager = lazy(() => import('./locations/locations'));
 

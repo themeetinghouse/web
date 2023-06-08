@@ -566,7 +566,9 @@ class HeroItem extends React.Component<Props, State> {
           ></div>
           {this.renderHeroImage('heroImage')}
           <div className="heroBlackBox">
-            <h1 className="heroH1">{this.state.content.header1}</h1>
+            {this.state.content.header1 ? (
+              <h1 className="heroH1">{this.state.content.header1}</h1>
+            ) : null}
             {this.state.content.header2 && (
               <h2 className="heroH2">{this.state.content.header2}</h2>
             )}

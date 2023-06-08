@@ -1,4 +1,4 @@
-﻿import React, { useContext } from 'react';
+﻿import React from 'react';
 import {
   Collapse,
   Navbar,
@@ -8,19 +8,19 @@ import {
   Button,
   NavItem,
 } from 'reactstrap';
-
+import { Storage } from 'aws-amplify';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import HamburgerMenu from 'react-hamburger-menu';
 import './menu.scss';
 import moment from 'moment-timezone';
 
 import { Link } from 'components/Link/Link';
-import { EditorContext } from '../../pages/admin/Editor/EditorContext';
 
 import RSNavLinkWrapper from './RSNavLinkWrapper';
 import TMHLogo from './TMHLogo';
 import ExpandButton from './ExpandButton';
 import YellowAnnouncement from 'components/AnnouncementBar/YellowAnnouncement';
+import { useEditorPageContext } from 'pages/admin/Editor/contexts/EditorPageContext';
 const VideoOverlay = React.lazy(() => import('../VideoOverlay/VideoOverlay'));
 const AnnouncementBar = React.lazy(
   () => import('../../components/AnnouncementBar/AnnouncementBar')
@@ -62,13 +62,12 @@ interface hcProps {
   children: any;
 }
 function HomeMenuContainer(props: hcProps) {
-  const editorContext = useContext(EditorContext);
+  const { state } = useEditorPageContext();
+  const { content } = state;
   return (
     <div
       style={
-        editorContext.content
-          ? { zIndex: 100000, visibility: 'hidden' }
-          : { zIndex: 100000 }
+        content ? { zIndex: 100000, visibility: 'hidden' } : { zIndex: 100000 }
       }
     >
       {props.children}
@@ -88,15 +87,23 @@ class HomeMenu extends React.Component<Props, State> {
           this.setState({ MainMenuItems: myJson });
         })
         .catch((e: any) => console.log(e));
-    else
-      fetch('/static/data/MainMenu.json')
-        .then(function (response) {
-          return response.json();
-        })
-        .then((myJson) => {
-          this.setState({ MainMenuItems: myJson });
-        })
-        .catch((e: any) => console.log(e));
+    else {
+      const fetchNavItems = async () => {
+        try {
+          const url = await Storage.get('editor/navigation.json');
+          const response = await fetch(url);
+          console.log({ response });
+          const json = await response.json();
+          console.log({ json1: json });
+          if (json) {
+            this.setState({ MainMenuItems: json });
+          }
+        } catch (err) {
+          console.log({ err });
+        }
+      };
+      fetchNavItems(); // only fetches if there are items already in the nav, preferred for nav in auth flow
+    }
 
     this.toggle = this.toggle.bind(this);
     this.state = {
@@ -281,7 +288,7 @@ class HomeMenu extends React.Component<Props, State> {
                                 className="bigNav"
                                 item={item}
                               />
-                              {item.children != null ? (
+                              {item.children != null && item.children.length ? (
                                 <ExpandButton
                                   expand={this.state.expand}
                                   item={item.location}

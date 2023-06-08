@@ -1,0 +1,15 @@
+.EditorToolbarContainer {
+  display: flex;
+  flex-direction: row;
+  background-color: #efefef;
+  border: 3px solid #d3d3d3;
+  margin-bottom: 20px;
+  width: fit-content;
+  button {
+    border: none;
+    padding: 24px;
+  }
+  button:hover {
+    background-color: #ccc;
+  }
+}

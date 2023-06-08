@@ -2,6 +2,7 @@ import { NavLink as RSNavLink } from 'reactstrap';
 import { NavLink as RRNavLink } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import { flipElementColor } from './navUtils';
+
 type RSNavLinkWrapperProps = {
   item: any;
   className: string;
@@ -30,6 +31,7 @@ export default function RSNavLinkWrapper(props: RSNavLinkWrapperProps) {
       15
     );
   }, [expand]);
+
   return (
     <RSNavLink
       tag={RRNavLink}
@@ -42,7 +44,7 @@ export default function RSNavLinkWrapper(props: RSNavLinkWrapperProps) {
         transition: 'all 0.2s ease-in-out',
       }}
       key={item.location}
-      to={item.location}
+      to={{ pathname: item.location }}
     >
       {item.name}
     </RSNavLink>

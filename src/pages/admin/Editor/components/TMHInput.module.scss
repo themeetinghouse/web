@@ -1,0 +1,17 @@
+.TMHInput {
+  margin-top: 4px;
+  border: 1px solid lightgrey;
+  padding: 8px;
+}
+
+.TMHInput:focus {
+  outline: none;
+  border: 1px solid #1a1a1a;
+  border-radius: 0px;
+}
+
+.TMHInputLabel {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
