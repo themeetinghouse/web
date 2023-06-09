@@ -14,6 +14,43 @@ import {
   useEditorPageContext,
 } from '../contexts/EditorPageContext';
 
+const SubNavTree = () => {
+  const { state, dispatch } = useEditorPageContext();
+  const { content, currentPage } = state;
+  return (
+    <div
+      style={{
+        display: 'flex',
+        flex: 1,
+        flexDirection: 'column',
+      }}
+    >
+      <button
+        type="button"
+        style={{ paddingLeft: 40 }}
+        className={`${styles['MenuItem']} ${
+          currentPage === EditorPage.EDIT_PAGE ? styles['MenuActiveItem'] : ''
+        }`}
+        onClick={() =>
+          dispatch({
+            type: EditorPageActionType.NAVIGATE_TO,
+            payload: EditorPage.PUBLIC_PAGE,
+          })
+        }
+      >
+        <span style={{ flex: 1 }}>/{content?.page?.name}</span>
+        <img src="/static/svg/More.svg" width={20} height={20} />
+      </button>
+      <div>
+        <AddComponentModal />
+        <PageSettingsModal />
+        <SaveModal />
+        <SaveAsTemplateModal />
+        <SaveAsDraftModal />
+      </div>
+    </div>
+  );
+};
 export default function EditorMenu() {
   const { state, dispatch } = useEditorPageContext();
 
@@ -33,42 +70,7 @@ export default function EditorMenu() {
     currentPage === EditorPage.PDF_FILES_PAGE ||
     currentPage === EditorPage.MEDIA_PAGE ||
     currentPage === EditorPage.IMAGE_FILES_PAGE;
-  console.log({ currentPage });
-  const SubNavTree = () => {
-    return (
-      <div
-        style={{
-          display: 'flex',
-          flex: 1,
-          flexDirection: 'column',
-        }}
-      >
-        <button
-          type="button"
-          style={{ paddingLeft: 40 }}
-          className={`${styles['MenuItem']} ${
-            currentPage === EditorPage.EDIT_PAGE ? styles['MenuActiveItem'] : ''
-          }`}
-          onClick={() =>
-            dispatch({
-              type: EditorPageActionType.NAVIGATE_TO,
-              payload: EditorPage.PUBLIC_PAGE,
-            })
-          }
-        >
-          <span style={{ flex: 1 }}>/{state.content?.page?.name}</span>
-          <img src="/static/svg/More.svg" width={20} height={20} />
-        </button>
-        <div>
-          <AddComponentModal />
-          <PageSettingsModal />
-          <SaveModal />
-          <SaveAsTemplateModal />
-          <SaveAsDraftModal />
-        </div>
-      </div>
-    );
-  };
+
   return (
     <nav className={styles['MenuContainer']}>
       <div style={{ flex: 1, flexDirection: 'column', display: 'flex' }}>
@@ -186,25 +188,44 @@ export default function EditorMenu() {
           {/* <img src="/static/svg/Notes.svg" width={20} height={20} /> */}
         </button>
         {mediaActive ? (
-          <button
-            type="button"
-            style={{ paddingLeft: 20 }}
-            className={`${styles['MenuItem']} ${
-              currentPage === EditorPage.PDF_FILES_PAGE
-                ? styles['MenuActiveItem']
-                : ''
-            }`}
-            onClick={() => {
-              console.log('setting to pdf page');
-              dispatch({
-                type: EditorPageActionType.NAVIGATE_TO,
-                payload: EditorPage.PDF_FILES_PAGE,
-              });
-            }}
-          >
-            <span style={{ flex: 1 }}>PDFs</span>
-            <img src={'/static/svg/Notes.svg'} width={20} height={20} />
-          </button>
+          <>
+            <button
+              type="button"
+              style={{ paddingLeft: 20 }}
+              className={`${styles['MenuItem']} ${
+                currentPage === EditorPage.PDF_FILES_PAGE
+                  ? styles['MenuActiveItem']
+                  : ''
+              }`}
+              onClick={() => {
+                dispatch({
+                  type: EditorPageActionType.NAVIGATE_TO,
+                  payload: EditorPage.PDF_FILES_PAGE,
+                });
+              }}
+            >
+              <span style={{ flex: 1 }}>PDFs</span>
+              <img src={'/static/svg/Notes.svg'} width={20} height={20} />
+            </button>
+            <button
+              type="button"
+              style={{ paddingLeft: 20 }}
+              className={`${styles['MenuItem']} ${
+                currentPage === EditorPage.IMAGE_FILES_PAGE
+                  ? styles['MenuActiveItem']
+                  : ''
+              }`}
+              onClick={() => {
+                dispatch({
+                  type: EditorPageActionType.NAVIGATE_TO,
+                  payload: EditorPage.IMAGE_FILES_PAGE,
+                });
+              }}
+            >
+              <span style={{ flex: 1 }}>Images</span>
+              <img src={'/static/svg/Notes.svg'} width={20} height={20} />
+            </button>
+          </>
         ) : null}
       </div>
       <div style={{ flex: 1, flexDirection: 'column', display: 'flex' }}>
@@ -751,7 +772,8 @@ function SaveModal() {
   );
 }
 function PageSettingsModal() {
-  const [modalVisible, setModalVisible] = React.useState(false);
+  const { state, dispatch } = useEditorPageContext();
+  const { showPageSettingsModal } = state;
   const [editorList, setEditorList] = React.useState<any>();
   React.useEffect(() => {
     const updateEditorList = async () => {
@@ -777,13 +799,20 @@ function PageSettingsModal() {
         className={styles['MenuItem']}
         style={{ paddingLeft: 60 }}
         onClick={() => {
-          setModalVisible(true);
+          dispatch({
+            type: EditorPageActionType.SET_SHOW_PAGE_SETTINGS_MODAL,
+            payload: true,
+          });
         }}
       >
         <span style={{ flex: 1 }}>Settings</span>
         <img src="/static/svg/More.svg" width={20} height={20} />
       </button>
-      <Modal isOpen={modalVisible} style={{ zIndex: 100000 }} size="xl">
+      <Modal
+        isOpen={showPageSettingsModal}
+        style={{ zIndex: 100000 }}
+        size="xl"
+      >
         <div
           style={{
             padding: 16,
@@ -796,7 +825,10 @@ function PageSettingsModal() {
           <div style={{ marginTop: 20 }}>
             <LocationsTMHButton
               onClick={() => {
-                setModalVisible(false);
+                dispatch({
+                  type: EditorPageActionType.SET_SHOW_PAGE_SETTINGS_MODAL,
+                  payload: false,
+                });
               }}
             >
               Done

@@ -3,7 +3,7 @@ import styles from '../Pages.module.scss';
 import TransactionPaginate from 'pages/users/Transactions/TransactionsPaginate';
 import ConfirmDeleteModal from '../ConfirmDeleteModal';
 import { Storage } from 'aws-amplify';
-import UploadModal from '../UploadModal';
+import UploadModal from '../components/UploadModal';
 import LocationsTMHButton from '../../locations/LocationsTMHButton';
 import { Spinner } from 'reactstrap';
 
@@ -162,6 +162,8 @@ export default function PDFFilesPage() {
             <div style={{ padding: 16 }}>No PDFs found.</div>
           )}
           <UploadModal
+            uploadLocation="editor/pdfs/"
+            contentType="application/pdf"
             showUploadModal={showUploadModal}
             setShowUploadModal={setShowUploadModal}
           />

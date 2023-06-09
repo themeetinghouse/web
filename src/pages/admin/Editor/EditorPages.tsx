@@ -17,6 +17,7 @@ import FooterSettingsPage from './pages/FooterSettingsPage';
 import NavigationSettingsPage from './pages/NavigationSettingsPage';
 import PDFFilesPage from './pages/PDFFilesPage';
 import IgnorePages from './utils/IgnorePages.json';
+import ImageFilesPage from './pages/ImageFilesPage';
 
 async function deletePage(filename: string) {
   try {
@@ -93,17 +94,39 @@ export default function EditorPages() {
     }
   };
   const handleDelete = async () => {
+    console.log('Deleting', contentKeyToDelete);
     if (contentKeyToDelete) {
       const success = await deletePage(contentKeyToDelete);
       if (success) {
-        const filteredContent = loadContent.filter((cont) => {
-          return cont.key !== contentKeyToDelete;
-        });
-        setLoadContent(filteredContent);
+        console.log('successfully deleted...');
+        console.log('previous content', loadContent);
+        // if backup page
+        if (currentPage === EditorPage.BACKUP_PAGE) {
+          const filteredContent = backupContent.filter((cont) => {
+            return cont.key !== contentKeyToDelete;
+          });
+          console.log('filtered content', filteredContent);
+          setBackupContent(filteredContent);
+        }
+        if (currentPage === EditorPage.DRAFT_PAGE) {
+          const filteredContent = draftContent.filter((cont) => {
+            return cont.key !== contentKeyToDelete;
+          });
+          console.log('filtered content', filteredContent);
+          setDraftContent(filteredContent);
+        }
+        if (currentPage === EditorPage.PUBLIC_PAGE) {
+          const filteredContent = loadContent.filter((cont) => {
+            return cont.key !== contentKeyToDelete;
+          });
+          console.log('filtered content', filteredContent);
+          setLoadContent(filteredContent);
+        }
+        setContentKeyToDelete(null);
         return true;
       }
       return false;
-    }
+    } else console.log('No key to delete...');
     return false;
   };
   const contentToShow =
@@ -114,6 +137,7 @@ export default function EditorPages() {
       : loadContent;
   console.log({ currentPage });
   if (currentPage === EditorPage.PDF_FILES_PAGE) return <PDFFilesPage />;
+  if (currentPage === EditorPage.IMAGE_FILES_PAGE) return <ImageFilesPage />;
   return (
     <div
       style={{

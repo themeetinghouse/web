@@ -6,6 +6,7 @@ export enum EditorPageActionType {
   SET_EDIT_MODE = 'SET_EDIT_MODE',
   UPDATE_SAVED_STATUS = 'UPDATE_SAVED_STATUS',
   SET_SHOW_ADD_COMPONENT_MODAL = 'SET_SHOW_ADD_COMPONENT_MODAL',
+  SET_SHOW_PAGE_SETTINGS_MODAL = 'SET_SHOW_PAGE_SETTINGS_MODAL',
 }
 export enum EditorPage {
   EDIT_PAGE = 'EDIT_PAGE',
@@ -27,6 +28,7 @@ export type EditorPageState = {
   isBackup: boolean;
   isSaved: boolean;
   showAddComponentModal: boolean;
+  showPageSettingsModal: boolean;
   content?: any;
   data?: any;
 };
@@ -42,6 +44,7 @@ const initialState = {
   isDraft: false,
   isBackup: false,
   isSaved: false,
+  showPageSettingsModal: false,
   showAddComponentModal: false,
   data: null,
 };
@@ -87,6 +90,7 @@ export default function EditorPageReducer(
         state.isBackup = false;
         state.isDraft = false;
         state.content = null;
+        state.showAddComponentModal = false;
       } else state.isSaved = false;
 
       return {
@@ -116,6 +120,12 @@ export default function EditorPageReducer(
       return {
         ...state,
         ...action.payload,
+      };
+    }
+    case EditorPageActionType.SET_SHOW_PAGE_SETTINGS_MODAL: {
+      return {
+        ...state,
+        showPageSettingsModal: action.payload,
       };
     }
     case EditorPageActionType.SET_SHOW_ADD_COMPONENT_MODAL: {

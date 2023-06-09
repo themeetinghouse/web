@@ -1,18 +1,22 @@
 import { Modal } from 'reactstrap';
-import LocationsTMHButton from '../locations/LocationsTMHButton';
+import LocationsTMHButton from '../../locations/LocationsTMHButton';
 import React from 'react';
 import { Storage } from 'aws-amplify';
 //import { EditorContext } from './EditorContext';
-import TMHInput from './components/TMHInput';
+import TMHInput from './TMHInput';
 
 export default function UploadModal({
   showUploadModal,
   setShowUploadModal,
+  uploadLocation,
+  contentType,
 }: {
   showUploadModal: boolean;
   setShowUploadModal: (show: boolean) => void;
+  uploadLocation: string;
+  contentType: string;
 }) {
-  const [pdfFile, setPdfFile] = React.useState<File | null>(null);
+  const [file, setFile] = React.useState<File | null>(null);
   const [resultMessage, setResultMessage] = React.useState('');
   const [showOverwriteMessage, setShowOverwriteMessage] = React.useState(false);
   const [isSaving, setIsSaving] = React.useState(false);
@@ -21,13 +25,13 @@ export default function UploadModal({
     setResultMessage('');
     setShowOverwriteMessage(false);
     setIsSaving(false);
-    setPdfFile(null);
+    setFile(null);
     setShowUploadModal(false);
   };
 
   const checkFileExists = async (fileName: string) => {
     try {
-      const path = 'editor/pdfs/' + fileName;
+      const path = `${uploadLocation}` + fileName;
       const existingURL = await Storage.get(path);
       const response = await fetch(existingURL);
       const json = await response.json();
@@ -38,8 +42,8 @@ export default function UploadModal({
   };
 
   const handleSaveFile = async () => {
-    if (!pdfFile) return;
-    const exists = await checkFileExists(pdfFile.name);
+    if (!file) return;
+    const exists = await checkFileExists(file.name);
     if (exists) {
       setShowOverwriteMessage(true);
     } else {
@@ -49,12 +53,12 @@ export default function UploadModal({
   };
 
   const saveFile = async () => {
-    if (!pdfFile) return;
+    if (!file) return;
     try {
       setIsSaving(true);
-      console.log('Saving new file', pdfFile?.name);
-      await Storage.put(`editor/pdfs/${pdfFile.name}`, pdfFile, {
-        contentType: 'application/pdf',
+      console.log('Saving new file', file?.name);
+      await Storage.put(`${uploadLocation}${file.name}`, file, {
+        contentType,
         acl: 'public-read',
       });
       setResultMessage('Successfully saved!');
@@ -76,7 +80,7 @@ export default function UploadModal({
           margin: 16,
         }}
       >
-        {pdfFile ? (
+        {file ? (
           <span>
             {resultMessage ? (
               <b>{resultMessage}</b>
@@ -89,25 +93,25 @@ export default function UploadModal({
                   }}
                 >
                   {' '}
-                  {pdfFile?.name}
+                  {file?.name}
                 </b>
                 ?
               </span>
             ) : !resultMessage && !showOverwriteMessage ? (
               <span>
                 Are you sure you want to save the following file:
-                <b> {pdfFile?.name}</b>?
+                <b> {file?.name}</b>?
               </span>
             ) : null}
           </span>
         ) : (
           <TMHInput
             type="file"
-            accept="application/pdf"
+            accept={'image/*,.pdf'}
             onChange={(event) => {
               const file = event?.target?.files?.[0];
               console.log({ file: file });
-              if (file) setPdfFile(file);
+              if (file) setFile(file);
             }}
           />
         )}
