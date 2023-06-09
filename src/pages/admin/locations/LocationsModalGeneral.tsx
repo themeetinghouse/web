@@ -125,7 +125,7 @@ export default function LocationsModalGeneral({
             <input
               onChange={handleChange}
               placeholder="i.e. Gibson Centre, 63 Tupper Street West"
-              name={'name'}
+              name={'location.name'}
               value={newLocData?.location?.name?.toString()}
               type="text"
             />
@@ -227,7 +227,7 @@ export default function LocationsModalGeneral({
               <input
                 onChange={handleChange}
                 placeholder="i.e. 44.44"
-                name={'name'}
+                name={'location.latitude'}
                 value={newLocData?.location?.latitude?.toString()}
                 type="text"
               />
@@ -246,7 +246,7 @@ export default function LocationsModalGeneral({
               <input
                 onChange={handleChange}
                 placeholder="i.e. 47.49123"
-                name={'name'}
+                name={'location.longitude'}
                 value={newLocData?.location?.longitude?.toString()}
                 type="text"
               />
