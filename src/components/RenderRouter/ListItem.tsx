@@ -1020,19 +1020,6 @@ class ListItem extends React.Component<Props, State> {
       item.endDate && format(new Date(), 'yyyy-MM-dd') > item.endDate;
     const videos = item.videos?.items ?? [];
     if (videos.length > 0) {
-      console.log(item.seriesType + '-' + item.title + '.jpg');
-      const image = {
-        src:
-          '/static/photos/series/' +
-          item.seriesType +
-          '-' +
-          (item.title ?? '').replace('?', '') +
-          '.jpg',
-        alt: `Graphic for the ${item.title?.replace(
-          /^The /,
-          ''
-        )}${item.title?.slice(4)} series.`,
-      };
       return (
         <button
           onClick={() =>
@@ -1047,8 +1034,9 @@ class ListItem extends React.Component<Props, State> {
           key={item.id}
           className="ListItemVideo"
         >
-          <ScaledImage
-            image={image}
+          <FadeImage
+            imageSrc={item?.bannerImage?.src ?? ''}
+            alt={item?.bannerImage?.alt ?? ''}
             className="ListItemImage2"
             fallbackUrl="/static/photos/series/series-fallback.jpg"
             breakpointSizes={{

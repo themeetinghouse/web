@@ -1,4 +1,4 @@
-﻿import { Link } from 'components/Link/Link';
+import { Link } from 'components/Link/Link';
 import { Col, Container, Row } from 'reactstrap';
 import './HomeFooter.scss';
 import { useEffect, useState } from 'react';

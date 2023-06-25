@@ -55,13 +55,6 @@
             "imageSrc": "/static/images/make-a-difference-2.jpg",
             "imageAlt": "Two people crossing a road",
             "navigateTo": "/compassion"
-          },
-          {
-            "title": "Giving",
-            "text": "We strive to live simply so that we can give generously. Jesus teaches that our money and possessions are entrusted to us by God to use, manage, and steward wisely by investing in what God is doing today. Click here to make a secure donation.",
-            "imageSrc": "/static/images/info-desk-hero-1.jpg",
-            "imageAlt": "A woman on her phone outside",
-            "navigateTo": "/give"
           }
         ]
       }

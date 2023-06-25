@@ -347,6 +347,14 @@ export const getSeriesBySeriesType = `query GetSeriesBySeriesType(
   ) {
     items {
       id
+      bannerImage { 
+        src
+        alt
+      }
+      babyHeroImage { 
+        src
+        alt
+      }
       videos {
         items {
           id
@@ -400,6 +408,14 @@ export const searchSeries = /* GraphQL */ `
       items {
         id
         seriesType
+        bannerImage {
+          src
+          alt
+        }
+        babyHeroImage {
+          src
+          alt
+        }
         title
         description
         image
@@ -692,6 +708,14 @@ export const getVideoByVideoType = `query GetVideoByVideoType(
       seriesTitle
       series {
         id
+        bannerImage { 
+          src
+          alt
+        }
+        babyHeroImage {
+          src
+          alt
+        }
       }
       publishedDate
       description

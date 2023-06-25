@@ -41,10 +41,52 @@
       },
       {
         "type": "content",
+        "style": "oneImageBlackRightExtended",
+        "header1": "Peacemakers 2023",
+        "header2": "",
+        "text1": "What's the impact of a dollar? Give to Peacemakers to support MCC's peacebuilding efforts. Our goal this year is $100,000.",
+        "image1": [
+          {
+            "src": "/static/images/PM2022_TMH-Landing-page_Images.jpg",
+            "alt": "Girl wearing a head covering holding a hand drawn picture of her violent environment."
+          }
+        ],
+        "list": [
+          {
+            "type": "link",
+            "title": "Give to Peacemakers",
+            "navigateTo": "/peacemakers-give",
+            "openNewBrowser": true
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "style": "oneImageBlackRight",
+        "header1": "Why MCC?",
+        "header2": "",
+        "text1": "When we partner organizations like MCC, we increase the impact made in addressing complex global issues. Collaborating with MCC can result in more cost effective and long-term solutions to complex global issues.",
+        "image1": [
+          {
+            "src": "/static/images/PM2022_TMH-Landing-page_Images.jpg",
+            "alt": "Girl wearing a head covering holding a hand drawn picture of her violent environment."
+          }
+        ],
+        "list": [
+          {
+            "type": "button",
+            "title": "Watch Video",
+            "navigateTo": "https://themeetinghouse.com/videos/peacemakers-Launch/B3DG1KEbaVA",
+            "openNewBrowser": true
+          }
+        ]
+      },
+      {
+        "type": "content",
         "style": "oneImageBlackRight",
         "header1": "World Vision Partnership",
         "header2": "",
-        "text1": "One of our core values at The Meeting House is peace. It is because we value peace so much that we will be partnering with projects in Honduras in the next season of our partnership with World Vision.", 
+        "text1": "One of our core values at The Meeting House is peace. It is because we value peace so much that we are supporting projects in Honduras in this season of our partnership with World Vision.", 
         "list": [
           {
             "type": "link",
@@ -76,7 +118,7 @@
         "type": "content",
         "style": "oneImageBlackRight",
         "header1": "Consider Making a Donation",
-        "text1": "As a church, we want to support these valuable programs and we invite you to join us. Consider making a special gift towards this beautiful, resilient country that is so filled with hope. To give, simply go to themeetinghouse.com/give or use the link below, and mark your donation towards World Vision.",
+        "text1": "As a church, we want to support these valuable programs and we invite you to join us. Consider making a special gift towards this beautiful, resilient country that is so filled with hope. Click below and indicate your donation is towards World Vision.",
         "list": [
           {
             "type": "link",
@@ -113,30 +155,25 @@
       {
         "type": "content",
         "style": "oneImage",
-        "header1": "Local Compassion Fund",
-        "text1": "This fund provides us with an opportunity to further invest financially in local organizations we partner with across southern Ontario who are having a positive impact in our community.",
+        "header1": "Local Compassion Fund Reports",
+        "text1": "This fund provides us with an opportunity to invest financially in local organizations we partner with across Southern Ontario who are having a positive impact in our community.",
         "list": [
           {
             
             "type": "link",
-            "title": "Final Report 2022-23",
+            "title": "Submit Final Report 2022-23",
             "navigateTo": "https://meeting.formstack.com/forms/tmh_local_compassion_fund_final_report_2022_23"
           },
           {
             
             "type": "link",
-            "title": "Final Report 2021-22",
+            "title": "Submit Final Report 2021-22",
             "navigateTo": "https://meeting.formstack.com/forms/tmh_local_compassion_fund_final_report_2021_22"
           },
           {
             "type": "link",
-            "title": "Final Report 2020-21",
+            "title": "Submit Final Report 2020-21",
             "navigateTo": "https://meeting.formstack.com/forms/tmh_local_compassion_fund_final_report_copy"
-          },
-          {
-            "type": "link",
-            "title": "Final Report 2019-20",
-            "navigateTo": "https://meeting.formstack.com/forms/tmh_local_compassion_fund_final_report"
           }
         ],
 
@@ -150,8 +187,8 @@
       {
         "type": "content",
         "style": "oneImageBlackRight",
-        "header1": "Local Compassion Fund Application",
-        "text1": "Grant window open Jan 23-Feb 28, 2023.",
+        "header1": "Local Compassion Fund",
+        "text1": "Grant application window is now closed",
         "list": [
           {
             "type": "link",

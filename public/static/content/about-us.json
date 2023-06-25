@@ -105,6 +105,12 @@
         "list": [
           {
             "type": "link",
+            "title": "Spring 2023 Finance Update",
+            "navigateTo": "/static/pdfs/annual-reports/March 2023 Finance Update.pdf",
+            "openNewBrowser": true
+          },
+          {
+            "type": "link",
             "title": "2022 - AGM Document",
             "navigateTo": "/static/pdfs/annual-reports/2022 AGM Supporting Documentation combined.pdf",
             "openNewBrowser": true
@@ -132,25 +138,13 @@
             "title": "April 2021 - Finance Update",
             "navigateTo": "/static/pdfs/annual-reports/Finance Update April 2021.pdf",
             "openNewBrowser": true
-          },
-          {
-            "type": "link",
-            "title": "January 2021 - Finance Update",
-            "navigateTo": "/static/pdfs/annual-reports/Jan Finance Update 2021.pdf",
-            "openNewBrowser": true
-          },
-          {
-            "type": "link",
-            "title": "2020 - AGM Document",
-            "navigateTo": "/static/pdfs/annual-reports/2020_AGM_Report_1.pdf",
-            "openNewBrowser": true
           }
         ]
       },
       {
         "type": "content",
         "style": "oneImageBlackRight",
-        "header1": "Policies",
+        "header1": "Policies and Procedures",
         "header2": "",
         "text1": "",
         "image1": [
@@ -160,6 +154,12 @@
           }
         ],
         "list": [
+          {
+            "type": "link",
+            "title": "Report Sexual Misconduct",
+            "navigateTo": "/reportsexualmisconduct",
+            "openNewBrowser": true
+          },
           {
             "type": "link",
             "title": "Info about our Protection Plan",
@@ -182,18 +182,6 @@
             "type": "link",
             "title": "Conflict of Interest Policy",
             "navigateTo": "/static/pdfs/Policies-and-Statements/Conflict of Interest Policy_2018.pdf",
-            "openNewBrowser": true
-          },
-          {
-            "type": "link",
-            "title": "COVID-19 FAQs",
-            "navigateTo": "/static/pdfs/Policies-and-Statements/COVID-19 FAQs.pdf",
-            "openNewBrowser": true
-          },
-          {
-            "type": "link",
-            "title": "COVID-19 Gatherings",
-            "navigateTo": "/static/pdfs/Policies-and-Statements/COVID-19 Gatherings-June.pdf",
             "openNewBrowser": true
           },
           {

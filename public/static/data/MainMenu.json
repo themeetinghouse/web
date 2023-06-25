@@ -8,16 +8,20 @@
     "location": "/community"
   },
   {
+    "name": "Peacemakers",
+    "location": "/peacemakers"
+  },
+  {
+    "name": "Give",
+    "location": "/give"
+  },
+  {
     "name": "Teaching",
     "location": "/teaching",
     "children": [
       {
         "name": "Notes",
         "location": "/notes"
-      },
-      {
-        "name": "Video Playlists",
-        "location": "/teaching-curated"
       },
       {
         "name": "Podcasts",
@@ -40,10 +44,6 @@
       {
         "name": "Compassion",
         "location": "/compassion"
-      },
-      {
-        "name": "Give",
-        "location": "/give"
       }
     ]
   },
