@@ -10,11 +10,13 @@ export default function UploadModal({
   setShowUploadModal,
   uploadLocation,
   contentType,
+  onUpload,
 }: {
   showUploadModal: boolean;
   setShowUploadModal: (show: boolean) => void;
   uploadLocation: string;
   contentType: string;
+  onUpload?: (newFileKey: string) => any;
 }) {
   const [file, setFile] = React.useState<File | null>(null);
   const [resultMessage, setResultMessage] = React.useState('');
@@ -57,10 +59,11 @@ export default function UploadModal({
     try {
       setIsSaving(true);
       console.log('Saving new file', file?.name);
-      await Storage.put(`${uploadLocation}${file.name}`, file, {
+      const result = await Storage.put(`${uploadLocation}${file.name}`, file, {
         contentType,
         acl: 'public-read',
       });
+      if (onUpload) onUpload(result.key);
       setResultMessage('Successfully saved!');
     } catch (e) {
       console.log({ e: e });
@@ -78,6 +81,8 @@ export default function UploadModal({
       <div
         style={{
           margin: 16,
+          display: 'flex',
+          flexDirection: 'column',
         }}
       >
         {file ? (
@@ -115,7 +120,17 @@ export default function UploadModal({
             }}
           />
         )}
-
+        {file?.type?.includes('image') ? (
+          <img
+            src={URL.createObjectURL(file)}
+            style={{
+              maxWidth: 150,
+              marginTop: 60,
+              marginBottom: 20,
+              alignSelf: 'center',
+            }}
+          />
+        ) : null}
         <div
           style={{
             marginTop: 40,

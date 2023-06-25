@@ -101,7 +101,7 @@ export function RenderItem({
     case 'list':
       return (
         <ListItem
-          pageConfig={content.page.pageConfig}
+          pageConfig={content?.page?.pageConfig}
           data={data}
           key={index}
           content={item}

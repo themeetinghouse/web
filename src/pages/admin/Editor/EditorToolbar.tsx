@@ -1,8 +1,5 @@
-import { useEffect, useState } from 'react';
-import { Modal } from 'reactstrap';
-import { RenderEditorList } from './PageConfigEditor';
 import styles from './EditorToolbar.module.scss';
-import LocationsTMHButton from '../locations/LocationsTMHButton';
+
 import {
   EditorPageActionType,
   useEditorPageContext,
@@ -14,22 +11,6 @@ interface ToolbarProps {
 export default function EditorToolbar(props: ToolbarProps) {
   const { state, dispatch } = useEditorPageContext();
   const { content } = state;
-  const [showModal, setShowModal] = useState<boolean>(false);
-  const [componentList, setComponentList] = useState<any>();
-  useEffect(() => {
-    const updateComponents = async () => {
-      try {
-        const z = await fetch('/static/editor/Hero.json');
-        const z1 = await z.json();
-        console.log({ components: z1 });
-        setComponentList(z1);
-      } catch (e) {
-        console.log({ e: e });
-      }
-    };
-    updateComponents();
-  }, []);
-  console.log({ length: content?.page?.content?.length - 1 });
   return content ? (
     <div className={styles['EditorToolbarContainer']}>
       {props.index !== 0 ? (
@@ -100,46 +81,17 @@ export default function EditorToolbar(props: ToolbarProps) {
         title="Edit Component"
         type="button"
         onClick={() => {
-          setShowModal(true);
+          dispatch({
+            type: EditorPageActionType.SET_SHOW_EDIT_COMPONENT_MODAL,
+            payload: {
+              content: content.page.content[props.index],
+              editIndex: props.index,
+            },
+          });
         }}
       >
         <img src="/static/svg/More.svg" width={40} height={40} />
       </button>
-      <Modal isOpen={showModal} style={{ zIndex: 100000 }} size="lg">
-        <div
-          style={{
-            padding: 16,
-          }}
-        >
-          {componentList &&
-          componentList.filter((x: any) => x.type == props.item.type)[0]
-            .items ? (
-            <RenderEditorList
-              parents={['page', 'content', props.index]}
-              list={
-                componentList.filter((x: any) => x.type == props.item.type)[0]
-                  .items
-              }
-            />
-          ) : null}
-          <div
-            style={{
-              marginTop: 20,
-            }}
-          >
-            <LocationsTMHButton
-              title="Save Changes"
-              aria-label="Save Changes"
-              type="button"
-              onClick={() => {
-                setShowModal(false);
-              }}
-            >
-              Done
-            </LocationsTMHButton>
-          </div>
-        </div>
-      </Modal>
     </div>
   ) : null;
 }

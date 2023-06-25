@@ -33,8 +33,8 @@ const SubNavTree = () => {
         }`}
         onClick={() =>
           dispatch({
-            type: EditorPageActionType.NAVIGATE_TO,
-            payload: EditorPage.PUBLIC_PAGE,
+            type: EditorPageActionType.SET_SHOW_PAGE_SETTINGS_MODAL,
+            payload: true,
           })
         }
       >
@@ -99,7 +99,7 @@ export default function EditorMenu() {
             <button
               type="button"
               style={
-                currentPage === EditorPage.EDIT_PAGE
+                currentPage === EditorPage.EDIT_PAGE && !isBackup && !isDraft
                   ? { fontWeight: 600, paddingLeft: 20 }
                   : { paddingLeft: 20 }
               }
@@ -124,7 +124,11 @@ export default function EditorMenu() {
 
             <button
               type="button"
-              style={{ paddingLeft: 20 }}
+              style={
+                currentPage === EditorPage.EDIT_PAGE && isBackup
+                  ? { fontWeight: 600, paddingLeft: 20 }
+                  : { paddingLeft: 20 }
+              }
               className={`${styles['MenuItem']} ${
                 currentPage === EditorPage.BACKUP_PAGE
                   ? styles['MenuActiveItem']
@@ -149,7 +153,11 @@ export default function EditorMenu() {
             ) : null}
             <button
               type="button"
-              style={{ paddingLeft: 20 }}
+              style={
+                currentPage === EditorPage.EDIT_PAGE && isDraft
+                  ? { fontWeight: 600, paddingLeft: 20 }
+                  : { paddingLeft: 20 }
+              }
               className={`${styles['MenuItem']} ${
                 currentPage === EditorPage.DRAFT_PAGE
                   ? styles['MenuActiveItem']
@@ -795,7 +803,7 @@ function PageSettingsModal() {
         flex: 1,
       }}
     >
-      <button
+      {/* <button
         className={styles['MenuItem']}
         style={{ paddingLeft: 60 }}
         onClick={() => {
@@ -807,7 +815,7 @@ function PageSettingsModal() {
       >
         <span style={{ flex: 1 }}>Settings</span>
         <img src="/static/svg/More.svg" width={20} height={20} />
-      </button>
+      </button> */}
       <Modal
         isOpen={showPageSettingsModal}
         style={{ zIndex: 100000 }}
@@ -841,7 +849,7 @@ function PageSettingsModal() {
 }
 function AddComponentModal() {
   const { state, dispatch } = useEditorPageContext();
-  const { content } = state;
+  const { content, showAddComponentModal } = state;
   const [addList, setAddList] = React.useState<any>();
   const [componentType, setComponentType] = React.useState<string>('hero');
   const [page, setPage] = React.useState<number>(0);
@@ -881,7 +889,7 @@ function AddComponentModal() {
         <img src="/static/svg/Plus-Expand.svg" width={20} height={20} />
       </button>
       <Modal
-        isOpen={state.showAddComponentModal}
+        isOpen={showAddComponentModal}
         style={{ zIndex: 100000 }}
         size="xl"
       >
@@ -952,17 +960,25 @@ function AddComponentModal() {
                 return (
                   <div
                     onClick={() => {
-                      const z = content;
-                      z.page.content.push(item.content);
-
-                      dispatch({
-                        type: EditorPageActionType.UPDATE_CONTENT,
-                        payload: z,
-                      });
                       dispatch({
                         type: EditorPageActionType.SET_SHOW_ADD_COMPONENT_MODAL,
                         payload: false,
                       });
+                      dispatch({
+                        type: EditorPageActionType.SET_SHOW_EDIT_COMPONENT_MODAL,
+                        payload: item,
+                      });
+                      // const z = content;
+                      // z.page.content.push(item.content);
+
+                      // dispatch({
+                      //   type: EditorPageActionType.UPDATE_CONTENT,
+                      //   payload: z,
+                      // });
+                      // dispatch({
+                      //   type: EditorPageActionType.SET_SHOW_ADD_COMPONENT_MODAL,
+                      //   payload: false,
+                      // });
                     }}
                     className={styles['Card']}
                     key={index}

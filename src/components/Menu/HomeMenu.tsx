@@ -104,7 +104,6 @@ class HomeMenu extends React.Component<Props, State> {
       };
       fetchNavItems(); // only fetches if there are items already in the nav, preferred for nav in auth flow
     }
-
     this.toggle = this.toggle.bind(this);
     this.state = {
       MainMenuItems: null,

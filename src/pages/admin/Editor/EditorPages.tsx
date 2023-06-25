@@ -18,6 +18,8 @@ import NavigationSettingsPage from './pages/NavigationSettingsPage';
 import PDFFilesPage from './pages/PDFFilesPage';
 import IgnorePages from './utils/IgnorePages.json';
 import ImageFilesPage from './pages/ImageFilesPage';
+import PageSettingsModal from './PageSettingsModal';
+import PageComponentEditor from './PageComponentEditor';
 
 async function deletePage(filename: string) {
   try {
@@ -138,6 +140,10 @@ export default function EditorPages() {
   console.log({ currentPage });
   if (currentPage === EditorPage.PDF_FILES_PAGE) return <PDFFilesPage />;
   if (currentPage === EditorPage.IMAGE_FILES_PAGE) return <ImageFilesPage />;
+  if (currentPage === EditorPage.ENTER_PAGE_SETTINGS_PAGE)
+    return (
+      <PageSettingsModal draftPages={draftContent} publicPages={loadContent} />
+    );
   return (
     <div
       style={{
@@ -149,12 +155,30 @@ export default function EditorPages() {
     >
       {numberOfComponents === 0 && currentPage === EditorPage.EDIT_PAGE ? (
         <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
-          <span>There are no components on this page yet.</span>
-          <div style={{ marginTop: 20 }}>
-            <LocationsTMHButton onClick={() => null}>
-              Start adding components
-            </LocationsTMHButton>
-          </div>
+          <span>
+            There are no components on this page yet.{' '}
+            <span style={{ color: 'black' }}>
+              <button
+                onClick={() => {
+                  dispatch({
+                    type: EditorPageActionType.SET_SHOW_ADD_COMPONENT_MODAL,
+                    payload: true,
+                  });
+                }}
+                style={{
+                  backgroundColor: 'transparent',
+                  border: 'none',
+                  textDecoration: 'underline',
+                  margin: 0,
+                  padding: 0,
+                }}
+              >
+                {'  '}
+                Click here
+              </button>{' '}
+              to start adding components.
+            </span>
+          </span>
         </div>
       ) : null}
       {currentPage === EditorPage.PUBLIC_PAGE ||
@@ -338,7 +362,12 @@ export default function EditorPages() {
                     {currentPage !== EditorPage.BACKUP_PAGE ? (
                       <div>
                         <LocationsTMHButton
-                          style={{ marginTop: 16 }}
+                          style={{
+                            marginTop: -16,
+
+                            paddingLeft: 0,
+                          }}
+                          link
                           onClick={() =>
                             dispatch({
                               type: EditorPageActionType.NAVIGATE_TO,
@@ -366,10 +395,10 @@ export default function EditorPages() {
           style={{ height: containerRef.current?.scrollHeight.toString() ?? 0 }}
           className={styles['ContentParentContainer']}
         >
-          {currentPage?.toString()}
           {currentPage === EditorPage.EDIT_PAGE && content ? (
             <div className={styles['ContentContainer']}>
               <HomeMenu pageConfig={content.page.pageConfig} />
+              <PageComponentEditor />
               <RenderRouter data={state.data} content={content}></RenderRouter>
             </div>
           ) : null}

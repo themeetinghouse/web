@@ -293,9 +293,16 @@ const BlogItem = ({ content }: Props) => {
     }
   };
 
-  const { description, header1, header2, style, limit, hideAllBlogsButton } =
-    content;
-
+  const {
+    description,
+    header1,
+    header2,
+    style,
+    limit,
+    hideAllBlogsButton,
+    button1Action,
+    button1Label,
+  } = content;
   const isDesktop = screenWidth >= MOBILE_BREAKPOINT;
 
   if (style === 'hero') {
@@ -393,7 +400,7 @@ const BlogItem = ({ content }: Props) => {
 
   if (style === 'multiImage') {
     const imageType = isDesktop ? 'banner' : 'square';
-
+    console.log();
     return blogs.length > 0 ? (
       <div className="blog-item">
         <div className="blog multiImage">
@@ -429,9 +436,9 @@ const BlogItem = ({ content }: Props) => {
               <LinkButton
                 size="lg"
                 className="inverted multiImageButton"
-                to="/blog"
+                to={button1Action ?? '/blog'}
               >
-                View All Blogs
+                {button1Label ?? 'View All Blogs'}
               </LinkButton>
             </>
           )}

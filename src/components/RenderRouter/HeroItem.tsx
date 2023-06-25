@@ -9,7 +9,133 @@ import moment from 'moment';
 import { ScaledImage } from 'components/ScaledImage';
 import { Link, LinkButton } from 'components/Link/Link';
 import { TMHLocation, TMHLocationMeeting } from 'API';
-
+import { Storage } from 'aws-amplify';
+import FadeImage from 'components/ScaledImage/FadeImage';
+function RenderLinkButton({
+  buttonInfo,
+  buttonClass,
+}: {
+  buttonInfo: any;
+  buttonClass?: string;
+}) {
+  if (!buttonInfo) return null;
+  const [link, setLink] = React.useState(buttonInfo.action);
+  React.useEffect(() => {
+    (async () => {
+      if (buttonInfo.action.includes('editor/pdfs')) {
+        const newLink = await Storage.get(buttonInfo.action);
+        setLink(newLink);
+      } else {
+        setLink(buttonInfo.action);
+      }
+    })();
+  }, [buttonInfo.action]);
+  const customStyle = buttonInfo.buttonColor ?? '';
+  return buttonInfo.text ? (
+    <LinkButton
+      aria-label={buttonInfo.description}
+      className={`${buttonClass} ${customStyle}`}
+      to={link}
+    >
+      {buttonInfo.text}
+    </LinkButton>
+  ) : null;
+}
+function RenderLink({
+  link1Action,
+  link1Text,
+  link1AriaLabel,
+  linkClass,
+}: {
+  link1Action: string;
+  link1Text: string;
+  link1AriaLabel?: string;
+  linkClass?: string;
+}) {
+  const [link, setLink] = React.useState(link1Action);
+  React.useEffect(() => {
+    (async () => {
+      if (link1Action.includes('editor/pdfs')) {
+        const newLink = await Storage.get(link1Action);
+        setLink(newLink);
+      } else {
+        setLink(link1Action);
+      }
+    })();
+  }, [link1Action]);
+  console.log('newButton', { link1Action });
+  return (
+    <Link className={linkClass} to={link} aria-label={link1AriaLabel}>
+      {link1Text}
+    </Link>
+  );
+}
+function HeroImage({
+  className,
+  content,
+}: {
+  className: string;
+  content: any;
+}) {
+  const [image1, setImage1] = React.useState({
+    src: '',
+    alt: '',
+  });
+  React.useEffect(() => {
+    const image =
+      content.image1[Math.floor(Math.random() * content.image1.length)];
+    if (image?.src?.includes('editor')) {
+      const imageKey = image.src[0] === '/' ? image.src.slice(1) : image.src;
+      Storage.get(imageKey).then(async (url) => {
+        setImage1({
+          src: url,
+          alt: image.alt,
+        });
+      });
+    } else {
+      setImage1({
+        src: image.src,
+        alt: image.alt,
+      });
+    }
+  }, [content]);
+  if (!image1.src) return null;
+  function fadeIn(style: CSSStyleDeclaration) {
+    style.transition = 'opacity 1s';
+    style.opacity = '1';
+    return style;
+  }
+  let onLoad: EventHandler<SyntheticEvent<HTMLImageElement>> | undefined;
+  let style: CSSProperties | undefined;
+  if (
+    className === 'heroImage' ||
+    className === 'partial' ||
+    className === 'partialConnectImage' ||
+    className === 'partialNoFooterImage'
+  ) {
+    onLoad = (event) => fadeIn(event.currentTarget.style);
+    style = { opacity: 0 };
+  }
+  return image1.src.includes('.svg') ? (
+    <img src={image1.src} alt={image1.alt} className={className} />
+  ) : (
+    <FadeImage
+      imageSrc={image1.src}
+      alt={image1.alt}
+      className={className}
+      style={style}
+      onLoad={onLoad}
+      breakpointSizes={{
+        320: 320,
+        480: 480,
+        640: 640,
+        1280: 1280,
+        1920: 1920,
+        2560: 2560,
+      }}
+    />
+  );
+}
 interface Props extends RouteComponentProps {
   content: LocationQuery;
   data: any;
@@ -32,9 +158,27 @@ class HeroItem extends React.Component<Props, State> {
     this.navigate = this.navigate.bind(this);
     this.setData = this.setData.bind(this);
   }
-  componentDidUpdate(prevProps: Props) {
+  async componentDidUpdate(prevProps: Props) {
+    console.log({ prevProps });
     if (prevProps.content !== this.props.content) {
       this.setState({ content: this.props.content });
+    }
+    if (prevProps.content.filterValue !== this.state.currentLocation?.id) {
+      const query = this.props.content;
+      if (query.class === 'locations' || query.class === 'region') {
+        if (query.style === 'locationPage') {
+          console.log('location', query);
+          if (!query.filterValue) return;
+          const data = await DataLoader.getTMHLocation(query.filterValue);
+          if (data.data?.getTMHLocation) {
+            this.setState({ currentLocation: data.data.getTMHLocation });
+          }
+        } else {
+          console.log('REGION');
+          const data = await DataLoader.listTMHLocations();
+          this.setData(data as TMHLocation[]);
+        }
+      }
     }
   }
   async componentDidMount() {
@@ -257,19 +401,6 @@ class HeroItem extends React.Component<Props, State> {
       />
     );
   }
-  renderLinkButton(buttonInfo: any) {
-    if (!buttonInfo) return null;
-    const customStyle = buttonInfo.buttonColor ?? '';
-    return buttonInfo.text ? (
-      <LinkButton
-        aria-label={buttonInfo.description}
-        className={`heroButton ${customStyle}`}
-        to={buttonInfo.action}
-      >
-        {buttonInfo.text}
-      </LinkButton>
-    ) : null;
-  }
 
   renderButton(buttonInfo: any, className: string): any {
     if (!buttonInfo) return null;
@@ -352,7 +483,8 @@ class HeroItem extends React.Component<Props, State> {
               this.scrollToNextPage();
             }}
           ></div>
-          {this.renderHeroImage('heroImage')}
+          {/*this.renderHeroImage('heroImage')*/}
+          <HeroImage className="heroImage" content={this.props.content} />
           <div className="heroBlackBox">
             <h1 className="heroH1">{this.state.content.header1}</h1>
             {this.state.content.header2 && (
@@ -452,7 +584,10 @@ class HeroItem extends React.Component<Props, State> {
             <div className="heroText2">{this.state.content.text6}</div>
             <div className="heroText2">{this.state.content.text7}</div>
             <div className="contactPastorLink">
-              {this.renderLinkButton(this.state.content.button1)}
+              <RenderLinkButton
+                buttonInfo={this.state.content.button1}
+                buttonClass="heroButton"
+              />
               {moment().weekday() === 0 && this.state.locationData.length ? ( // Is Sunday
                 <Link
                   to={'/live'}
@@ -518,12 +653,12 @@ class HeroItem extends React.Component<Props, State> {
             </div>
             {this.state.content.link1Text ? (
               <div className="heroAContainer">
-                <Link
-                  className="heroBlackBoxA inverted"
-                  to={this.state.content.link1Action}
-                >
-                  {this.state.content.link1Text}
-                </Link>
+                <RenderLink
+                  linkClass="heroBlackBoxA inverted"
+                  link1Text={this.state.content.link1Text}
+                  link1Action={this.state.content.link1Action}
+                  link1AriaLabel={this.state.content.link1AriaLabel}
+                />
               </div>
             ) : null}
             <br />
@@ -564,7 +699,19 @@ class HeroItem extends React.Component<Props, State> {
               this.scrollToNextPage();
             }}
           ></div>
-          {this.renderHeroImage('heroImage')}
+          <HeroImage className="heroImage" content={this.props.content} />
+          {this.state.content.showSpecial ? (
+            <div className="covidButton">
+              <Button
+                onClick={() => {
+                  this.navigateTo(this.state.content.showSpecialNavigateTo);
+                }}
+                className="covidButtonDetail"
+              >
+                {this.state.content.showSpecialText}
+              </Button>
+            </div>
+          ) : null}
           <div className="heroBlackBox">
             {this.state.content.header1 ? (
               <h1 className="heroH1">{this.state.content.header1}</h1>
@@ -572,7 +719,9 @@ class HeroItem extends React.Component<Props, State> {
             {this.state.content.header2 && (
               <h2 className="heroH2">{this.state.content.header2}</h2>
             )}
-            {this.state.content.hideHr ? null : <hr className="heroHr"></hr>}
+            {this.state.content.hideHr || this.state.content.autoSite ? null : (
+              <hr className="heroHr"></hr>
+            )}
             {this.state.content.autoSite ? (
               <>
                 <h1
@@ -583,6 +732,9 @@ class HeroItem extends React.Component<Props, State> {
                 >
                   {this.state.currentLocation?.name}
                 </h1>
+                {this.state.content.hideHr ? null : (
+                  <hr className="heroHr"></hr>
+                )}
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
@@ -676,7 +828,9 @@ class HeroItem extends React.Component<Props, State> {
                               </span>
                             </span>
                           </span>
-                          {numMeetings > 1 && this.state.currentLocation ? (
+                          {numMeetings > 1 &&
+                          this.state.currentLocation &&
+                          this.state.content.addToCalendar ? (
                             <AddToCalendar
                               textDecoration="always"
                               color="white"
@@ -696,7 +850,8 @@ class HeroItem extends React.Component<Props, State> {
             <div className="heroText1">{this.state.content.text1}</div>
             <div className="contactPastorLink">
               {this.state.currentLocation?.meetings?.length === 1 &&
-              this.state.currentLocation?.meetings?.[0] ? (
+              this.state.currentLocation?.meetings?.[0] &&
+              this.state.content.addToCalendar ? (
                 <AddToCalendar
                   style={{ marginRight: 25 }}
                   textDecoration="always"
@@ -720,7 +875,8 @@ class HeroItem extends React.Component<Props, State> {
                   }}
                 />
               ) : null}
-              {this.state.currentLocation?.pastorEmail ? (
+              {this.state.currentLocation?.pastorEmail &&
+              this.state.content.contactPastor ? (
                 <a href={'mailto:' + this.state.currentLocation?.pastorEmail}>
                   <button className="calendarButton contactPastor">
                     <img
@@ -752,7 +908,10 @@ class HeroItem extends React.Component<Props, State> {
     } else if (this.state.content.style === 'partialNoFooter') {
       return (
         <div className="partialNoFooter">
-          {this.renderHeroImage('partialNoFooterImage')}
+          <HeroImage
+            className="partialNoFooterImage"
+            content={this.props.content}
+          />
           <div className="partialNoFooterBox">
             <h1 className="heroH1">{this.state.content.header1}</h1>
             {this.state.content.header2 && (
@@ -793,13 +952,12 @@ class HeroItem extends React.Component<Props, State> {
               </div>
             ) : null}
             {this.renderButton(this.state.content.button1, 'heroItemButton')}
-            <Link
-              aria-label={this.state.content.link1AriaLabel}
-              className="inverted"
-              to={this.state.content.link1Action}
-            >
-              {this.state.content.link1Text}
-            </Link>
+            <RenderLink
+              link1Action={this.state.content.link1Action}
+              link1Text={this.state.content.link1Text}
+              linkClass="inverted"
+              link1AriaLabel={this.state.content.link1AriaLabel}
+            />
             {this.state.content.addToCalendar ? (
               <Button className="heroItemButton" onClick={this.navigate}>
                 <img
@@ -827,7 +985,7 @@ class HeroItem extends React.Component<Props, State> {
     } else if (this.state.content.style === 'partial') {
       return (
         <div className="headerItem divPartial">
-          {this.renderHeroImage('partial')}
+          <HeroImage className="partial" content={this.props.content} />
           <div className="heroPartialBlackBox">
             <h1 className="heroH1">{this.state.content.header1}</h1>
             {this.state.content.header2 && (
@@ -875,13 +1033,12 @@ class HeroItem extends React.Component<Props, State> {
 
             {this.state.content.link1Text ? (
               <div className="heroAContainer">
-                <Link
-                  className="HeroItemA2 inverted"
-                  aria-label={this.state.content.link1AriaLabel}
-                  to={this.state.content.link1Action}
-                >
-                  {this.state.content.link1Text}
-                </Link>
+                <RenderLink
+                  linkClass="HeroItemA2 inverted"
+                  link1Action={this.state.content.link1Action}
+                  link1AriaLabel={this.state.content.link1AriaLabel}
+                  link1Text={this.state.content.link1Text}
+                />
               </div>
             ) : null}
             {this.state.content.addToCalendar ? (
@@ -909,7 +1066,10 @@ class HeroItem extends React.Component<Props, State> {
       return (
         <>
           <div className="partialConnect">
-            {this.renderHeroImage('partialConnectImage')}
+            <HeroImage
+              className="partialConnectImage"
+              content={this.props.content}
+            />
             <div className="partialConnectBox">
               <h1 className="heroH1">{this.state.content.header1}</h1>
               {this.state.content.header2 && (

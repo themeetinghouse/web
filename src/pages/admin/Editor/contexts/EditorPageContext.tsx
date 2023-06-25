@@ -7,6 +7,7 @@ export enum EditorPageActionType {
   UPDATE_SAVED_STATUS = 'UPDATE_SAVED_STATUS',
   SET_SHOW_ADD_COMPONENT_MODAL = 'SET_SHOW_ADD_COMPONENT_MODAL',
   SET_SHOW_PAGE_SETTINGS_MODAL = 'SET_SHOW_PAGE_SETTINGS_MODAL',
+  SET_SHOW_EDIT_COMPONENT_MODAL = 'SET_SHOW_EDIT_COMPONENT_MODAL',
 }
 export enum EditorPage {
   EDIT_PAGE = 'EDIT_PAGE',
@@ -20,6 +21,7 @@ export enum EditorPage {
   TEMPLATE_PAGE = 'TEMPLATE_PAGE',
   PDF_FILES_PAGE = 'PDF_FILES_PAGE',
   IMAGE_FILES_PAGE = 'IMAGE_FILES_PAGE',
+  ENTER_PAGE_SETTINGS_PAGE = 'ENTER_PAGE_SETTINGS_PAGE',
 }
 
 export type EditorPageState = {
@@ -27,8 +29,10 @@ export type EditorPageState = {
   isDraft: boolean;
   isBackup: boolean;
   isSaved: boolean;
-  showAddComponentModal: boolean;
+  editIndex?: number | null;
+  showAddComponentModal: boolean; // gallery
   showPageSettingsModal: boolean;
+  componentToEdit?: any;
   content?: any;
   data?: any;
 };
@@ -44,8 +48,10 @@ const initialState = {
   isDraft: false,
   isBackup: false,
   isSaved: false,
+  editIndex: null,
+  showAddComponentModal: false, // gallery
   showPageSettingsModal: false,
-  showAddComponentModal: false,
+  componentToEdit: null,
   data: null,
 };
 
@@ -92,12 +98,19 @@ export default function EditorPageReducer(
         state.content = null;
         state.showAddComponentModal = false;
       } else state.isSaved = false;
-
+      if (action.payload === EditorPage.EDIT_PAGE) {
+        setTimeout(() => {
+          document.title = 'The Meeting House - Site Editor';
+        }, 500);
+      }
       return {
         ...state,
         currentPage: action.payload,
       };
     case EditorPageActionType.SET_CURRENT_PAGE: {
+      setTimeout(() => {
+        document.title = 'The Meeting House - Site Editor';
+      }, 500);
       return {
         ...state,
         currentPage: EditorPage.EDIT_PAGE,
@@ -132,6 +145,13 @@ export default function EditorPageReducer(
       return {
         ...state,
         showAddComponentModal: action.payload,
+      };
+    }
+    case EditorPageActionType.SET_SHOW_EDIT_COMPONENT_MODAL: {
+      return {
+        ...state,
+        componentToEdit: action.payload,
+        editIndex: action.payload?.editIndex,
       };
     }
     default:

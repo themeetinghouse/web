@@ -66,6 +66,7 @@ export default function TemplatesModal() {
             <button
               key={template}
               onClick={(e) => {
+                console.log({ template });
                 dispatch({
                   type: EditorPageActionType.UPDATE_CONTENT,
                   payload: template,
@@ -78,7 +79,7 @@ export default function TemplatesModal() {
                 });
                 dispatch({
                   type: EditorPageActionType.NAVIGATE_TO,
-                  payload: EditorPage.EDIT_PAGE,
+                  payload: EditorPage.ENTER_PAGE_SETTINGS_PAGE,
                 });
               }}
               style={{

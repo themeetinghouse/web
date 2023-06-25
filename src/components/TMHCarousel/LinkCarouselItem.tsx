@@ -1,8 +1,10 @@
 import './TMHCarousel.scss';
 import { Link } from 'components/Link/Link';
-import ScaledImage from 'components/ScaledImage/ScaledImage';
-
+import { ListImage } from 'components/RenderRouter/ListItem';
+import React from 'react';
+import { Storage } from 'aws-amplify';
 type CarouselItemProps = {
+  isFromList?: boolean;
   link: {
     title: string;
     text: string;
@@ -13,13 +15,24 @@ type CarouselItemProps = {
 };
 export default function LinkCarouselItem(props: CarouselItemProps) {
   const { link } = props;
+  const [url, setUrl] = React.useState('');
+  React.useEffect(() => {
+    (async () => {
+      if (link.navigateTo.includes('editor/pdfs')) {
+        const newLink = await Storage.get(link.navigateTo);
+        setUrl(newLink);
+      } else {
+        setUrl(link.navigateTo);
+      }
+    })();
+  }, [link.navigateTo]);
+  if (!url) return null;
   return (
-    <Link className="TMHCarouselLink" to={link?.navigateTo}>
-      <ScaledImage
+    <Link className="TMHCarouselLink" to={url}>
+      <ListImage
         image={{ src: link?.imageSrc, alt: link?.imageAlt }}
         className="TMHCarouselImage"
-        fallbackUrl={fallbackImageUrl}
-        breakpointSizes={imageBreakPointSizes}
+        fallbackImageUrl={fallbackImageUrl}
       />
       {link?.title ? (
         <div className="TMHCarouselItemTitle">
@@ -40,11 +53,3 @@ export default function LinkCarouselItem(props: CarouselItemProps) {
 }
 
 const fallbackImageUrl = '/static/photos/blogs/baby-hero/fallback.jpg';
-const imageBreakPointSizes = {
-  320: 80,
-  480: 120,
-  640: 180,
-  1280: 320,
-  1920: 480,
-  2560: 640,
-};
