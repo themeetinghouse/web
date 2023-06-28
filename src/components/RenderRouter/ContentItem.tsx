@@ -8,6 +8,8 @@ import './ContentItem.scss';
 import DataLoader, { LocationData, LocationQuery } from './DataLoader';
 import AddToCalendar, { Event } from '../AddToCalendar/AddToCalendar';
 import FadeImage from 'components/ScaledImage/FadeImage';
+import React from 'react';
+import { Storage } from 'aws-amplify';
 
 type ContentList = Array<
   | {
@@ -38,7 +40,52 @@ type ContentList = Array<
       type: 'downArrow';
     }
 >;
+function ContentImage({
+  className,
+  image,
+  noShowOnStartup,
+  style,
+}: {
+  className: string;
+  image: any;
+  noShowOnStartup?: boolean;
+  style?: CSSProperties;
+}) {
+  const [image1, setImage1] = React.useState({
+    src: '',
+    alt: '',
+  });
+  console.log({ image1 });
+  React.useEffect(() => {
+    if (image?.src?.includes('editor')) {
+      const imageKey = image.src[0] === '/' ? image.src.slice(1) : image.src;
+      Storage.get(imageKey).then(async (url) => {
+        console.log({ url });
+        setImage1({
+          src: url,
+          alt: image.alt,
+        });
+      });
+    } else {
+      setImage1({
+        src: image.src,
+        alt: image.alt,
+      });
+    }
+  }, [image]);
+  if (!image1.src) return null;
+  console.log({ testImage: image1 });
 
+  return (
+    <FadeImage
+      noShowOnStartup={noShowOnStartup}
+      imageSrc={image1.src}
+      alt={image1.alt}
+      className={className}
+      style={style}
+    />
+  );
+}
 interface BannerImage {
   src: string;
   alt: string;
@@ -72,6 +119,88 @@ interface Props extends RouteComponentProps {
   content: ContentType;
   nextItem: number;
 }
+function ContentButton({
+  buttonClass,
+  item,
+  onMouseEnter,
+  hideArrow,
+}: {
+  buttonClass: string;
+  onMouseEnter?: () => void;
+  item: {
+    navigateTo: string;
+    title: string;
+    openNewBrowser?: boolean;
+  };
+  hideArrow?: boolean;
+}) {
+  const [link, setLink] = React.useState(item.navigateTo);
+  React.useEffect(() => {
+    (async () => {
+      if (item.navigateTo.includes('editor/pdfs')) {
+        const newLink = await Storage.get(item.navigateTo);
+        setLink(newLink);
+      } else {
+        setLink(item.navigateTo);
+      }
+    })();
+  }, [item.navigateTo]);
+  return (
+    <LinkButton
+      newWindow={item.navigateTo.includes('http')}
+      onMouseEnter={onMouseEnter}
+      to={link}
+      className={buttonClass}
+    >
+      {item.title}
+      {!hideArrow ? (
+        <img
+          className="madarrow"
+          alt=""
+          src="/static/svg/ArrowRight black.svg"
+        />
+      ) : null}
+    </LinkButton>
+  );
+}
+function ContentLink({
+  buttonClass,
+  item,
+}: {
+  buttonClass: string;
+  onMouseEnter?: () => void;
+  item: {
+    navigateTo: string;
+    title: string;
+    openNewBrowser?: boolean;
+  };
+}) {
+  const [link, setLink] = React.useState(item.navigateTo);
+  React.useEffect(() => {
+    (async () => {
+      if (item.navigateTo.includes('editor/pdfs')) {
+        const newLink = await Storage.get(item.navigateTo);
+        setLink(newLink);
+      } else {
+        setLink(item.navigateTo);
+      }
+    })();
+  }, [item.navigateTo]);
+  return (
+    <Link
+      className={buttonClass}
+      newWindow={
+        item.openNewBrowser ||
+        item.navigateTo.includes('http') ||
+        item.navigateTo.includes('https') ||
+        item.navigateTo.includes('www')
+      }
+      to={link}
+    >
+      {item.title}
+    </Link>
+  );
+}
 
 function ContentItem({ content, nextItem }: Props) {
   const [data, setData] = useState<LocationData[]>();
@@ -98,28 +227,23 @@ function ContentItem({ content, nextItem }: Props) {
         case 'button':
           return (
             <div key={id}>
-              <LinkButton
-                className={`contentButton ${item.buttonColor ?? ''}`}
-                to={item.navigateTo}
-                newWindow={item.navigateTo.includes('http')}
-              >
-                {item.title}
-              </LinkButton>
+              <ContentButton
+                hideArrow
+                buttonClass={`contentButton ${item.buttonColor ?? ''}`}
+                item={item}
+              />
             </div>
           );
 
         case 'link':
           return (
             <div className="oneImageAContainer" key={id}>
-              <Link
-                className={`oneImageA ${
+              <ContentLink
+                item={item}
+                buttonClass={`oneImageA ${
                   boxColor === 'black' ? 'inverted' : ''
                 }`}
-                newWindow={item.openNewBrowser}
-                to={item.navigateTo}
-              >
-                {item.title}
-              </Link>
+              />
             </div>
           );
 
@@ -136,24 +260,16 @@ function ContentItem({ content, nextItem }: Props) {
 
         case 'arrow':
           return (
-            <LinkButton
+            <ContentButton
               onMouseEnter={() => {
                 // needed to display last image if mismatched number of links and images
                 if (content?.image1?.length && id > content?.image1?.length - 1)
                   setCurrentImage(content?.image1?.length - 1);
                 else setCurrentImage(id);
               }}
-              className="madAContainer"
-              key={id}
-              to={item.navigateTo}
-            >
-              {item.title}
-              <img
-                className="madarrow"
-                alt=""
-                src="/static/svg/ArrowRight black.svg"
-              />
-            </LinkButton>
+              item={item}
+              buttonClass="madAContainer"
+            />
           );
         case 'downArrow':
           return (
@@ -173,10 +289,10 @@ function ContentItem({ content, nextItem }: Props) {
       }
     });
   };
-  const image1 = content.image1
+  const image1 = content.image1?.length
     ? content.image1[Math.floor(Math.random() * content.image1.length)]
     : undefined;
-
+  console.log('selectedImage', content.image1);
   const heroBreakpoints = {
     320: 320,
     480: 480,
@@ -208,12 +324,7 @@ function ContentItem({ content, nextItem }: Props) {
                 />
               )}
             </div>
-
-            <ScaledImage
-              image={image1}
-              className="oneImageImage"
-              breakpointSizes={heroBreakpoints}
-            />
+            <ContentImage image={image1} className="oneImageImage" />
           </div>
         </div>
       );
@@ -264,11 +375,7 @@ function ContentItem({ content, nextItem }: Props) {
                 />
               )}
             </div>
-            <ScaledImage
-              image={image1}
-              className="oneImageImage"
-              breakpointSizes={heroBreakpoints}
-            />
+            <ContentImage image={image1} className="oneImageImage" />
           </div>
         </div>
       );
@@ -337,10 +444,9 @@ function ContentItem({ content, nextItem }: Props) {
                 />
               )}
             </div>
-            <ScaledImage
+            <ContentImage
               image={image1}
               className="oneImageImage right secondImg extramrg"
-              breakpointSizes={heroBreakpoints}
             />
           </div>
         </div>
@@ -363,10 +469,9 @@ function ContentItem({ content, nextItem }: Props) {
                 />
               )}
             </div>
-            <ScaledImage
+            <ContentImage
               image={image1}
               className="oneImageImage right secondImg extramrg"
-              breakpointSizes={heroBreakpoints}
             />
           </div>
         </div>
@@ -563,7 +668,9 @@ function ContentItem({ content, nextItem }: Props) {
                 <div
                   className={`madrec ${content.reverse ? 'madReverse' : ''}`}
                 ></div>
-                <div className="madImage">
+                <div
+                  className={`madImage ${content.reverse ? 'madReverse' : ''}`}
+                >
                   {content?.image1?.map((image, index) => {
                     const shouldShow =
                       (content?.image1?.length &&
@@ -580,16 +687,24 @@ function ContentItem({ content, nextItem }: Props) {
                           position: 'absolute',
                           top: 0,
                         };
+                    if (content.reverse) fadeStyle.left = '4vw';
                     return (
-                      <FadeImage
-                        noShowOnStartup
+                      <ContentImage
                         key={image.src}
-                        imageSrc={image.src ?? ''}
-                        alt={image.alt ?? ''}
-                        style={fadeStyle}
+                        image={image1}
                         className="madImage"
-                        breakpointSizes={heroBreakpoints}
+                        style={fadeStyle}
+                        noShowOnStartup
                       />
+                      // <FadeImage
+                      //   noShowOnStartup
+                      //   key={image.src}
+                      //   imageSrc={image.src ?? ''}
+                      //   alt={image.alt ?? ''}
+                      //   style={fadeStyle}
+                      //   className="madImage"
+                      //   breakpointSizes={heroBreakpoints}
+                      // />
                     );
                   })}
                 </div>

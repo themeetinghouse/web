@@ -5,13 +5,47 @@ import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { ScaledImage } from 'components/ScaledImage';
 import { ItemImage } from 'components/types';
 import { Link, LinkButton } from 'components/Link/Link';
-
+import { Storage } from 'aws-amplify';
 interface Props extends RouteComponentProps {
   content: any;
 }
 interface State {
   content: any;
   isOpen: any;
+}
+function IsLinkFromStorage({
+  type,
+  item,
+  id,
+}: {
+  type: 'link' | 'button';
+  item: any;
+  id: string;
+}) {
+  const [link, setLink] = React.useState('');
+  React.useEffect(() => {
+    (async () => {
+      if (item.navigateTo.includes('editor/pdfs')) {
+        const newLink = await Storage.get(item.navigateTo);
+        setLink(newLink);
+      } else {
+        setLink(item.navigateTo.action);
+      }
+    })();
+  }, [item.navigateTo]);
+  return type === 'button' ? (
+    <div key={id}>
+      <LinkButton className="contentButton" to={link}>
+        {item.title}
+      </LinkButton>
+    </div>
+  ) : item.type === 'link' ? (
+    <div key={id}>
+      <Link className="oneImageA" to={link} newWindow={item.openNewBrowser}>
+        {item.title}
+      </Link>
+    </div>
+  ) : null;
 }
 class ContentItem extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -29,8 +63,8 @@ class ContentItem extends React.Component<Props, State> {
   };
 
   renderList(image1: any) {
-    return this.state.content.list
-      ? this.state.content.list.map((item: any, id: any) => {
+    return this.props.content.list
+      ? this.props.content.list.map((item: any, id: any) => {
           return item.type === 'question' ? (
             <div key={id}>
               <div
@@ -73,21 +107,9 @@ class ContentItem extends React.Component<Props, State> {
               </div>
             </div>
           ) : item.type === 'button' ? (
-            <div key={id}>
-              <LinkButton className="contentButton" to={item.navigateTo}>
-                {item.title}
-              </LinkButton>
-            </div>
+            <IsLinkFromStorage type="button" item={item} id={id} />
           ) : item.type === 'link' ? (
-            <div key={id}>
-              <Link
-                className="oneImageA"
-                to={item.navigateTo}
-                newWindow={item.openNewBrowser}
-              >
-                {item.title}
-              </Link>
-            </div>
+            <IsLinkFromStorage type="link" item={item} id={id} />
           ) : item.type === 'text' ? (
             <div key={id} className={item.class}>
               {item.title}
@@ -121,7 +143,7 @@ class ContentItem extends React.Component<Props, State> {
                   : 'faqH1'
               }
             >
-              {this.state.content.header1}
+              {this.props.content.header1}
             </h1>
             <h2
               className={
@@ -139,7 +161,7 @@ class ContentItem extends React.Component<Props, State> {
                   : 'faqText'
               }
             >
-              {this.state.content.text1}
+              {this.props.content.text1}
             </div>
             {this.renderList(image1)}
           </div>

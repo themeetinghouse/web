@@ -55,6 +55,8 @@ export interface BlogItemContent {
   limit?: number;
   blogSeries?: string;
   hideAllBlogsButton?: boolean;
+  button1Action?: string;
+  button1Label?: string;
   description?: string;
   backgroundColor?: 'white' | 'black';
   lessPadding?: boolean;

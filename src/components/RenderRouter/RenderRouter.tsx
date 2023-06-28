@@ -4,12 +4,9 @@ import HomeMenu from 'components/Menu/HomeMenu';
 import HorizMenu from 'components/Menu/HorizMenu';
 import TMHCarousel from 'components/TMHCarousel/TMHCarousel';
 import moment from 'moment';
-import { EditorContext } from 'pages/admin/Editor/EditorContext';
-import { RenderEditorList } from 'pages/admin/Editor/PageConfigEditor';
-import React, { useContext, useEffect, useState } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
-import { Button, Modal } from 'reactstrap';
 import AppPromo from '../AppPromo/AppPromo';
 import BlogItem from './BlogItem';
 import ContentItem from './ContentItem';
@@ -18,6 +15,7 @@ import { GEProvider } from './GiveComponents/GEContext';
 import HeroItem from './HeroItem';
 import ListItem from './ListItem';
 import RenderRouterItemWrapper from './RenderRouterItemWrapper';
+import EditorToolbar from 'pages/admin/Editor/EditorToolbar';
 const CombinedMap = React.lazy(() => import('./CombinedMap'));
 const SimpleItem = React.lazy(() => import('./SimpleItem'));
 const SearchItem = React.lazy(() => import('./SearchItem'));
@@ -52,69 +50,116 @@ interface Props extends RouteComponentProps {
   content: any;
   data: any;
 }
-interface PropsAdmin {
+type State = { content: any };
+export function RenderItem({
+  item,
+  index,
+  content,
+  data,
+}: {
   item: any;
   index: any;
+  content?: any;
+  data?: any;
+}) {
+  switch (item.type) {
+    case 'timer':
+      if (moment(item.after) > moment())
+        return item.contentNow.map((item: any, index2: any) => (
+          <RenderItem key={index2} item={item} index={index + 'now' + index2} />
+        ));
+      else
+        return item.contentFuture.map((item: any, index2: any) => (
+          <RenderItem key={index2} item={item} index={index + 'now' + index2} />
+        ));
+    case 'video-archive':
+    case 'series-archive':
+      return (
+        <ArchiveItem
+          pageConfig={content.page.pageConfig}
+          key={index}
+          content={item}
+          data={data}
+        />
+      );
+    case 'content':
+      return <ContentItem nextItem={index + 1} key={index} content={item} />;
+    case 'videoPlayer':
+      return <VideoPlayer data={data} key={index} content={item} />;
+    case 'blog':
+      return <BlogItem key={index} content={item} />;
+    case 'post':
+      return <BlogReader data={data} key={index} style={item.style} />;
+    case 'liveVideoPlayer':
+      return <VideoPlayerLive key={index} content={item} />;
+    case 'liveVideoPlayer2':
+      return <VideoPlayerLiveLeadersDay key={index} content={item} />;
+    case 'horizontal-list':
+      return <TMHCarousel key={index} content={item} />;
+    case 'map':
+      return <CombinedMap key={index} content={item} />;
+    case 'list':
+      return (
+        <ListItem
+          pageConfig={content?.page?.pageConfig}
+          data={data}
+          key={index}
+          content={item}
+        />
+      );
+    case 'hero':
+      return <HeroItem data={data} key={index} content={item} />;
+    case 'goContent':
+    case 'goLink':
+      return <GoContentItem key={index} content={item} />;
+    case 'teaching':
+      return <TeachingItem key={index} content={item} />;
+    case 'sunday-morning':
+      return <SundayMorningItem key={index} content={item} />;
+    case 'distance-groups':
+      return <DistanceGroupItem key={index} content={item} />;
+    case 'home-church':
+      return <HomeChurchItem key={index} content={item} />;
+    case 'form':
+      return <FormItem key={index} content={item} />;
+    case 'iframe':
+      return <IFrameItem key={index} content={item} />;
+    case 'search':
+      return <SearchItem key={index} content={item} />;
+    case 'payment':
+      return <PaymentItem key={index} content={item} />;
+    case 'give2':
+      return (
+        <GEProvider>
+          <NewGiveItem content={item} />
+        </GEProvider>
+      );
+    case 'give':
+      return <GiveItem key={index} content={item} />;
+    case 'regather':
+      return <RegatherItem key={index} content={item} />;
+    case 'event':
+      return <EventPage key={index} />;
+    case 'searchResult':
+      return <SearchResult key={index} content={item} />;
+    case 'give2':
+      return <Give2Item key={index} content={item} />;
+    case 'faq':
+      return <FAQItem key={index} content={item} />;
+    case 'simple':
+      return <SimpleItem key={index} content={item} />;
+    case 'podcasts':
+      return <PodcastItem key={index} content={item} />;
+    case 'weather':
+      return <WeatherItem data={data} key={index} content={item} />;
+    case 'teachingsearch':
+      return <TeachingSearch key={index} content={item} />;
+    case 'podcast-player':
+      return <PodcastPlayer key={index} data={data} />;
+    default:
+      return null;
+  }
 }
-function RenderAdmin(props: PropsAdmin): JSX.Element | null {
-  const editorContext = useContext(EditorContext);
-  const [showModal, setShowModal] = useState<boolean>(false);
-  const [componentList, setComponentList] = useState<any>();
-  useEffect(() => {
-    const updateComponents = async () => {
-      try {
-        const z = await fetch('/static/editor/Hero.json');
-        const z1 = await z.json();
-        console.log({ components: z1 });
-        setComponentList(z1);
-      } catch (e) {
-        console.log({ e: e });
-      }
-    };
-    updateComponents();
-  }, []);
-
-  return editorContext.content ? (
-    <>
-      <Button
-        onClick={() => {
-          setShowModal(true);
-        }}
-      >
-        Edit
-      </Button>
-      <Button>Move Up</Button>
-      <Button>Move Down</Button>
-      <Button
-        onClick={() => {
-          editorContext.deleteContent(props.index);
-        }}
-      >
-        X
-      </Button>
-      <Modal isOpen={showModal} style={{ zIndex: 100000 }}>
-        {componentList &&
-        componentList.filter((x: any) => x.type == props.item.type)[0].items ? (
-          <RenderEditorList
-            parents={['page', 'content', props.index]}
-            list={
-              componentList.filter((x: any) => x.type == props.item.type)[0]
-                .items
-            }
-          />
-        ) : null}
-        <Button
-          onClick={() => {
-            setShowModal(false);
-          }}
-        >
-          Done
-        </Button>
-      </Modal>
-    </>
-  ) : null;
-}
-type State = { content: any };
 class RenderRouter extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
@@ -238,7 +283,7 @@ class RenderRouter extends React.Component<Props, State> {
           <ErrorBoundary key={index}>
             <RenderRouterItemWrapper index={index}>
               <ErrorBoundary>
-                <RenderAdmin item={item} index={index} />
+                <EditorToolbar item={item} index={index} />
               </ErrorBoundary>
               <ErrorBoundary>{this.renderItemNow(item, index)}</ErrorBoundary>
             </RenderRouterItemWrapper>
@@ -249,7 +294,6 @@ class RenderRouter extends React.Component<Props, State> {
   }
   render() {
     if (!this.state.content) return null;
-
     return (
       <>
         <Helmet>

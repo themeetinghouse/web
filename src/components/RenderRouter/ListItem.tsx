@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import VideoOverlay from '../VideoOverlay/VideoOverlay';
 import DataLoader, {
@@ -37,7 +37,81 @@ import moment from 'moment';
 import { ModelSortDirection, TMHPerson } from 'API';
 import { Margin } from '../types';
 import FadeImage from 'components/ScaledImage/FadeImage';
+import { Storage } from 'aws-amplify';
+export function ListImage({
+  className,
+  image,
+  noShowOnStartup,
+  style,
+  fallbackImageUrl,
+}: {
+  className: string;
+  image: any;
+  noShowOnStartup?: boolean;
+  style?: CSSProperties;
+  fallbackImageUrl?: string;
+}) {
+  const [image1, setImage1] = React.useState({
+    src: '',
+    alt: '',
+  });
+  React.useEffect(() => {
+    if (image?.src?.includes('editor')) {
+      const imageKey = image.src[0] === '/' ? image.src.slice(1) : image.src;
+      Storage.get(imageKey).then(async (url) => {
+        setImage1({
+          src: url,
+          alt: image.alt,
+        });
+      });
+    } else {
+      setImage1({
+        src: image.src,
+        alt: image.alt,
+      });
+    }
+  }, [image]);
+  if (!image1.src) return null;
 
+  return (
+    <FadeImage
+      noShowOnStartup={noShowOnStartup}
+      imageSrc={image1.src}
+      alt={image1.alt}
+      className={className}
+      fallbackUrl={fallbackImageUrl}
+      style={style}
+    />
+  );
+}
+function ListItemLink({
+  to,
+  className,
+  children,
+  style,
+}: {
+  to: string;
+  className?: string;
+  children: React.ReactNode;
+  style: CSSProperties;
+}) {
+  const [url, setUrl] = React.useState('');
+  React.useEffect(() => {
+    (async () => {
+      if (to.includes('editor/pdfs')) {
+        const newLink = await Storage.get(to);
+        setUrl(newLink);
+      } else {
+        setUrl(to);
+      }
+    })();
+  }, [to]);
+  return (
+    <Link className={className} style={style} to={url}>
+      {children}
+    </Link>
+  );
+}
 interface Props extends RouteComponentProps<RouteParams> {
   content: any;
   data: any;
@@ -166,13 +240,53 @@ class ListItem extends React.Component<Props, State> {
     this.videoHandler = this.videoHandler.bind(this);
     this.setData = this.setData.bind(this);
   }
-
   videoHandler() {
     this.setState({
       showMoreVideos: true,
     });
   }
-
+  async componentDidUpdate(prevProps: Readonly<Props>): Promise<void> {
+    if (this.props.content?.class === 'instagram') {
+      if (prevProps.content.filterValue !== this.props.content.filterValue) {
+        const response = await DataLoader.loadInsta(this.props.content);
+        const data = response.data;
+        this.setState({
+          listData: data,
+          locationInstaURL: response.link,
+        });
+      }
+    } else if (this.props.content?.class === 'series') {
+      if (prevProps.content.subclass !== this.props.content.subclass) {
+        //reload data!
+        this.setState({ listData: [] }, async () => {
+          await DataLoader.getSeriesByType(
+            this.props.content,
+            (data) => {
+              this.setState((prevState) => ({
+                listData: [...prevState.listData, ...data],
+              }));
+            },
+            () => null
+          );
+        });
+      }
+    } else if (this.props.content?.class === 'videos') {
+      if (prevProps.content.subclass !== this.props.content.subclass) {
+        //reload data!
+        this.setState({ listData: [] }, async () => {
+          await DataLoader.getVideos(
+            this.props.content,
+            (data) => {
+              this.setState((prevState) => ({
+                listData: [...prevState.listData, ...data],
+              }));
+            },
+            () => null
+          );
+        });
+      }
+    }
+  }
   async componentDidMount() {
     window.addEventListener('resize', () => {
       this.setState({ windowWidth: window.innerWidth });
@@ -1006,7 +1120,7 @@ class ListItem extends React.Component<Props, State> {
   }
 
   render() {
-    const data: Array<ListData | string> =
+    let data: Array<ListData | string> =
       this.props.content.filterField == null
         ? this.state.listData
         : this.state.listData.filter((item) => {
@@ -1017,7 +1131,9 @@ class ListItem extends React.Component<Props, State> {
               item[this.props.content.filterField as keyof ListData] as string
             )?.includes(this.props.content.filterValue);
           });
-
+    if (this.props.content.class === 'user-defined') {
+      data = this.props.content.list;
+    }
     const dataLength = data.length;
 
     const { logoColor } = this.props.pageConfig;
@@ -1082,11 +1198,11 @@ class ListItem extends React.Component<Props, State> {
                       'ListItemH1' + (logoColor === 'white' ? ' whiteText' : '')
                     }
                   >
-                    {this.state.content.header1}
+                    {this.props.content.header1}
                   </h1>
                   {this.state.content.text1 != null ? (
                     <div className="ListItemText1">
-                      {this.state.content.text1}
+                      {this.props.content.text1}
                     </div>
                   ) : null}
                   <div className="ListItemDiv2">
@@ -1143,7 +1259,7 @@ class ListItem extends React.Component<Props, State> {
             );
         }
       } else if (this.state.content.style === 'blogs') {
-        const startIndex = this.state.content.skipFirstPost ? 1 : 0;
+        const startIndex = this.props.content.skipFirstPost ? 1 : 0;
         const sortBlogs = (a: BlogData, b: BlogData) => {
           if (a?.publishedDate && b?.publishedDate) {
             if (a.publishedDate === b.publishedDate) {
@@ -1427,16 +1543,22 @@ class ListItem extends React.Component<Props, State> {
         }
       } else if (this.state.content.style === 'staff') {
         const tempData = data as PeopleData[];
+        console.log({ sort: this.props.content.sortByName });
         const filteredPeopleData = tempData
-          .sort((tmhPersonA, tmhPersonB) =>
-            this.state.content.sortByName
-              ? tmhPersonA?.firstName && tmhPersonB?.firstName
-                ? tmhPersonA?.firstName?.localeCompare(
-                    tmhPersonB?.firstName ?? ''
-                  )
-                : 0
-              : 0
-          )
+          .sort((tmhPersonA, tmhPersonB) => {
+            if (
+              !tmhPersonA?.firstName ||
+              !tmhPersonB?.firstName ||
+              !tmhPersonA?.lastName ||
+              !tmhPersonB?.lastName
+            )
+              return 0;
+            if (this.props.content.sortByName) {
+              return tmhPersonA.firstName.localeCompare(tmhPersonB.firstName);
+            } else {
+              return tmhPersonA.lastName.localeCompare(tmhPersonB.lastName);
+            }
+          })
           .filter((person) => {
             if (this.state.searchFilter === '') {
               if (this.state.selectedFilter === 'All') return true;
@@ -1456,6 +1578,7 @@ class ListItem extends React.Component<Props, State> {
               return personNameMatches && personSiteMatches;
             }
           });
+
         const isMobile = this.state.windowWidth < 768;
         const binnedData: PeopleData[][] = [];
         if (data.length > 0) {
@@ -1474,18 +1597,18 @@ class ListItem extends React.Component<Props, State> {
             <div className="ListItem horizontal">
               <div className="ListItemDiv1">
                 <h1 className="ListItemH1 staff">
-                  {this.state.content.header1}
+                  {this.props.content.header1}
                 </h1>
-                {this.state.content.text1 != null ? (
+                {this.props.content.text1 != null ? (
                   <div className="ListItemText1">
-                    {this.state.content.text1}
+                    {this.props.content.text1}
                   </div>
                 ) : null}
 
-                {this.state.content?.showSearch ||
-                this.state.content?.filterOptions ? (
+                {this.props.content?.showSearch ||
+                this.props.content?.filterOptions ? (
                   <div className="FilterContainer">
-                    {this.state.content?.showSearch ? (
+                    {this.props.content?.showSearch ? (
                       <>
                         <img
                           width={20}
@@ -1497,7 +1620,7 @@ class ListItem extends React.Component<Props, State> {
                         <input
                           value={this.state.searchFilter}
                           className={`TeamsSearch ${
-                            !this.state.content?.filterOptions ? 'single' : ''
+                            !this.props.content?.filterOptions ? 'single' : ''
                           }`}
                           type="text"
                           placeholder="Search by name"
@@ -1507,7 +1630,7 @@ class ListItem extends React.Component<Props, State> {
                         />
                       </>
                     ) : null}
-                    {this.state.content?.filterOptions ? (
+                    {this.props.content?.filterOptions ? (
                       <Select
                         onChange={(item) => {
                           if (item)
@@ -1620,14 +1743,16 @@ class ListItem extends React.Component<Props, State> {
                         aria-label="Staff Search By Team"
                         placeholder="Teams"
                         className={`TeamsDropdown ${
-                          !this.state.content?.showSearch ? 'single' : ''
+                          !this.props.content?.showSearch ? 'single' : ''
                         }`}
                         classNamePrefix="react-select-custom"
                         options={[
                           { label: 'All', value: 'All' },
-                          ...this.state.content.filterOptions?.map((item) => {
-                            return { label: item.label, value: item.id };
-                          }),
+                          ...this.props.content.filterOptions?.map(
+                            (item: any) => {
+                              return { label: item.label, value: item.id };
+                            }
+                          ),
                         ]}
                       />
                     ) : null}
@@ -1701,7 +1826,7 @@ class ListItem extends React.Component<Props, State> {
         return (
           <div className="ListItem horizontalBig">
             <div className="ListItemDiv1 ListItemAllSeries">
-              <h1 className="ListItemH1">{this.state.content.header1}</h1>
+              <h1 className="ListItemH1">{this.props.content.header1}</h1>
               <div className="ListItemDiv6">
                 {this.state.content.class === 'series' ? (
                   <HorizontalScrollList>
@@ -1833,27 +1958,19 @@ class ListItem extends React.Component<Props, State> {
                   return (
                     <div className="ListItemDiv10" key={index}>
                       {href ? (
-                        <Link
+                        <ListItemLink
                           className="container"
                           style={{ display: 'inline-block', padding: 0 }}
                           to={href}
                         >
                           {body}
-                        </Link>
+                        </ListItemLink>
                       ) : (
                         body
                       )}
-                      <ScaledImage
+                      <ListImage
                         className="ListItemH1ImageList2"
                         image={{ src: item.imageSrc, alt: item.imageAlt }}
-                        breakpointSizes={{
-                          320: 320,
-                          480: 480,
-                          640: 640,
-                          1280: 1280,
-                          1920: 1920,
-                          2560: 2560,
-                        }}
                       />
                     </div>
                   );
@@ -1881,6 +1998,12 @@ class ListItem extends React.Component<Props, State> {
               </div>
             </div>
           );
+        } else {
+          if (this.state.content.class === 'events') {
+            return (
+              <div className="ListItemH1">There are no upcoming events.</div>
+            );
+          }
         }
       }
       return null;

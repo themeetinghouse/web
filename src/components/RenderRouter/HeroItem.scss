@@ -335,7 +335,7 @@ $no-footer-height: 38vw;
     z-index: 100;
   }
   .heroBlackBox {
-    position: absolute;
+    position: relative;
     background-color: theme.$onyxblacktext;
     padding: 2vw;
     left: 20vw;

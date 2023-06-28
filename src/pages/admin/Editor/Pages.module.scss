@@ -1,0 +1,35 @@
+.PageList {
+  table {
+    width: 100%;
+    border: 1px solid lightgrey;
+    th {
+      padding: 4px;
+    }
+    tbody {
+      tr:nth-child(odd) {
+        background-color: #f2f2f2;
+      }
+      tr:hover {
+        background-color: #ddd;
+      }
+      td {
+        padding: 4px;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.ContentParentContainer {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  width: 0;
+}
+.ContentContainer {
+  transform: scale(0.4);
+  transform-origin: top left;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}

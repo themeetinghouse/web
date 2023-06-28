@@ -2,4 +2,9 @@
   display: flex;
   justify-content: flex-end;
   margin-top: 50px;
+  & span {
+    font-weight: bold;
+    align-self: flex-end;
+    flex: 1;
+  }
 }
