@@ -1540,6 +1540,11 @@ type TMHUser @model @auth(rules: [{allow: owner, ownerField: "owner", operations
   f1HouseholdId: String @auth(rules: [{allow: owner, ownerField: "owner", operations: [read]}, {allow: groups, groups: ["PaymentService"]}])
 }
 
+type TMHSite @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Admin"], provider: userPools}]){
+  id: String!
+  tmhPeople: [TMHPerson] @manyToMany(relationName: "SitePerson")
+}
+
 type TMHPerson @model @searchable @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Admin"], provider: userPools}]) {
   id: ID!
   email: AWSEmail
@@ -1549,6 +1554,7 @@ type TMHPerson @model @searchable @auth(rules: [{allow: public, operations: [rea
   phone: String
   extension: String
   sites: [String]
+  tmhSites: [TMHSite] @manyToMany(relationName: "SitePerson")
   position: String
   isTeacher: String @default(value: "false") @index(name: "byIsTeacher", queryField: "TMHPersonByIsTeacher")
   isStaff: String @default(value: "false") @index(name: "byIsStaff", queryField: "TMHPersonByIsStaff")
@@ -1658,4 +1664,4 @@ type Address {
   line2: String
   postal_code: String
   state: String
-}
+}     
