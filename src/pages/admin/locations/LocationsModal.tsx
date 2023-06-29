@@ -176,7 +176,10 @@ export default function LocationsModal({
       })) as GraphQLResult<CreateTMHLocationMutation>;
       console.log({ response });
       if (response.data?.createTMHLocation?.id) {
-        setLocations([response.data?.createTMHLocation, ...locations]);
+        setLocations([
+          response.data?.createTMHLocation as TMHLocation,
+          ...locations,
+        ]);
         setResult(true);
       }
     } catch (error) {

@@ -4,6 +4,7 @@ import './PeopleManager.scss';
 import { API } from 'aws-amplify';
 import { GraphQLResult } from '@aws-amplify/api';
 import { ListTMHPeopleQuery, TMHPerson } from 'API';
+
 import PersonCard from './PersonCard';
 import PeopleManagerModal from './PeopleManagerModal';
 import { Spinner } from 'reactstrap';
@@ -24,6 +25,17 @@ export default function PeopleManager() {
     setSelectedUser(user);
     setShowModal(true);
   };
+  // const [sites, setSites] = React.useState<TMHSite[]>([]);
+  // React.useEffect(() => {
+  //   (async () => {
+  //     const sites = (await API.graphql({
+  //       query: queries.listTMHSites,
+  //       authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+  //     })) as GraphQLResult<{ listTMHSites: { items: TMHSite[] } }>;
+  //     const siteItems = sites.data?.listTMHSites?.items ?? [];
+  //     setSites(siteItems);
+  //   })();
+  // }, []);
   React.useEffect(() => {
     const loadStaff = async () => {
       setIsLoading(true);
@@ -33,6 +45,11 @@ export default function PeopleManager() {
           variables: { limit: 500 },
         })) as GraphQLResult<ListTMHPeopleQuery>;
         const people = (data?.listTMHPeople?.items as TMHPerson[]) ?? [];
+        const peopleSites = people.map((person) => ({
+          personId: person?.id,
+          sites: person?.sites,
+        }));
+        console.log({ peopleSites });
         setPeopleData(people);
       } catch (error) {
         console.log({ error });
@@ -42,7 +59,56 @@ export default function PeopleManager() {
     };
     loadStaff();
   }, []);
+  // const createSitePerson = async (
+  //   siteId: string,
+  //   userId: string,
+  //   personName: string
+  // ) => {
+  //   try {
+  //     console.log(`creating site person for ${siteId}`);
+  //     const updatedPerson = (await API.graphql({
+  //       query: mutations.createSitePerson,
+  //       variables: {
+  //         input: {
+  //           tMHSiteID: siteId,
+  //           tMHPersonID: userId,
+  //         },
+  //       },
+  //       authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+  //     })) as GraphQLResult<CreateSitePersonMutation>;
+  //     console.log({ updatedPerson });
+  //   } catch (error) {
+  //     console.error(`error creating site person ${personName} for ${siteId}`, {
+  //       error,
+  //     });
+  //   }
+  // };
+  // React.useEffect(() => {
+  //   if (peopleData?.length && sites?.length) {
+  //     console.log('loaded', peopleData, sites);
+  //     (async () => {
+  //       let counter = 1;
+  //       for await (const person of peopleData) {
+  //         if (person?.sites?.length) {
+  //           const tempSites = person?.sites;
+  //           const personName = `${person?.firstName} ${person?.lastName}`;
+  //           for await (const site1 of tempSites) {
+  //             if (site1 && person?.id) {
+  //               await createSitePerson(site1, person.id, personName);
+  //             }
+  //           }
+  //         }
+  //         console.log(
+  //           '====================================',
+  //           counter + '/' + peopleData.length
+  //         );
+  //         counter += 1;
+  //       }
+  //     })();
+  //   }
+  // }, [peopleData, sites]);
   const updatePeopleDataCallback = (newValue: TMHPerson, type?: string) => {
+    console.log('updatePeopleDataCallback', newValue);
     let newTempArr = peopleData;
     const updatedPersonIndex = newTempArr.findIndex(
       (person) => person?.id === newValue?.id
