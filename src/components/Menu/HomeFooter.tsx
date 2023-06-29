@@ -30,7 +30,6 @@ export default function HomeFooter() {
                   className: 'FooterNavLink',
                   to: item.link,
                 };
-                console.log({ navLINK: item.link });
                 if (
                   item.link.includes('http') ||
                   item.link.includes('www') ||
@@ -142,7 +141,7 @@ export default function HomeFooter() {
           {footerData?.appBadges?.map((item: any) => {
             return (
               <a
-                key={item.platform}
+                key={item.link}
                 className="app-download-link"
                 href={item.link}
                 rel="noopener noreferrer"

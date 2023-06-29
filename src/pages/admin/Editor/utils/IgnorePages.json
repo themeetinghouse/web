@@ -4,7 +4,9 @@
   "event.json",
   "communities.json",
   "video-player.json",
+  "notes-reader.json",
   "teaching-sunday.json",
   "video-playlist.json",
-  "live.json"
+  "live.json",
+  "search.json"
 ]
