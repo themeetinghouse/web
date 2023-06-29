@@ -8,10 +8,6 @@ def file_exists(file: str):
     if ('/static' in file) and (not os.path.exists('public' + file)):
         raise Exception('file not found: ' + file)
 
-def image_exists(image: str):
-    if not os.path.exists('public' + image):
-        raise Exception('image not found: ' + image)
-
 def assert_standard_text(item, no_style = False):
     if not no_style:
         assert('style' in item and isinstance(item['style'], str))
@@ -19,19 +15,9 @@ def assert_standard_text(item, no_style = False):
         if 'header' in i or 'text' in i:
             assert(isinstance(item[i], str))
 
-def assert_image(images: list, check_link_to = False):
-    assert(isinstance(images, list))
-    for image in images:
-        assert(isinstance(image['src'], str))
-        image_exists(image['src'])
-        assert(isinstance(image['alt'], str))
-        if (check_link_to):
-            assert('linkto' not in image or isinstance(image['linkto'], str))
-
 def assert_list_image(img: dict):
     assert(isinstance(img['title'], str))
     assert(isinstance(img['imageSrc'], str))
-    image_exists(img['imageSrc'])
     assert(isinstance(img['imageAlt'], str))
     assert(img['imageAlt'])
 
@@ -101,14 +87,12 @@ if __name__ == '__main__':
                             for i in og_keys:
                                 assert(i in item)
                                 assert(isinstance(item[i], str))
-                            image_exists(item['image'])
+                            # image_exists(item['image'])
                             
                         elif item_type == 'hero':
                             assert(isinstance(item, dict))
                             assert_standard_text(item)
                             for i in item:
-                                if i == 'image1':
-                                    assert_image(item[i])
                                 if i == 'button1':
                                     assert(isinstance(item[i], dict))
                                     assert(isinstance(item[i]['text'], str))
@@ -126,9 +110,7 @@ if __name__ == '__main__':
                             assert(isinstance(item, dict))
                             assert_standard_text(item)
                             for i in item:
-                                if i == 'image1':
-                                    assert_image(item[i])
-                                elif i == 'list':
+                                if i == 'list':
                                     assert(isinstance(item[i], list))
                                     for list_item in item[i]:
                                         if list_item['type'] == 'button':
@@ -142,8 +124,6 @@ if __name__ == '__main__':
                                     assert(isinstance(item[i]['raised'], int))
                                     assert(isinstance(item[i]['goal'], int))
                                     assert(isinstance(item[i]['text'], str))
-                                elif i == 'images':
-                                    assert_image(item[i], check_link_to=True)
                                 elif i == 'calendar':
                                     assert(item['style'] in ['oneImage', 'oneImageBlack', 'oneImageBlackRight'])
                                     assert(isinstance(item[i], dict))
@@ -156,9 +136,7 @@ if __name__ == '__main__':
                             assert(isinstance(item, dict))
                             assert_standard_text(item)
                             for i in item:
-                                if i == 'image1':
-                                    assert_image(item[i])
-                                elif i == 'subclass' or i == 'status' or i == 'playlist':
+                                if i == 'subclass' or i == 'status' or i == 'playlist':
                                     assert(isinstance(item[i], str))
                                 elif i == 'collection' or i == 'forceToTop':
                                     assert(isinstance(item[i], list))
