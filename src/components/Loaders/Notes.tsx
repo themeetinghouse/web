@@ -1,4 +1,4 @@
-import { Analytics, API } from 'aws-amplify';
+import { Analytics, API, Storage } from 'aws-amplify';
 import RenderRouter from 'components/RenderRouter/RenderRouter';
 import moment from 'moment-timezone';
 import { useEffect, useState } from 'react';
@@ -80,7 +80,10 @@ export default function Notes() {
 
   useEffect(() => {
     async function fetchPageData() {
-      const response = await fetch('/static/content/notes-reader.json');
+      const notesReaderUrl = await Storage.get(
+        'savedContent/notes-reader.json'
+      );
+      const response = await fetch(notesReaderUrl);
       const json = await response.json();
       setContent(json);
     }

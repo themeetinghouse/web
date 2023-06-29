@@ -616,13 +616,12 @@ function ContentItem({ content, nextItem }: Props) {
         <div className="ContentItem bannerCards">
           {content.images.map((img: BannerImage, index) => {
             return img.linkto ? (
-              <Link to={img.linkto} newWindow={img.linkto.includes('http')}>
-                <img
-                  className="bannerCardImage"
-                  key={index}
-                  src={img.src}
-                  alt={img.alt}
-                />
+              <Link
+                key={img.linkto}
+                to={img.linkto}
+                newWindow={img.linkto.includes('http')}
+              >
+                <img className="bannerCardImage" src={img.src} alt={img.alt} />
               </Link>
             ) : (
               <img

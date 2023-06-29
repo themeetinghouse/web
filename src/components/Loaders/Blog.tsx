@@ -1,7 +1,13 @@
 import { GetBlogQuery } from 'API';
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 
-import { API, Analytics, AmazonPersonalizeProvider, Auth } from 'aws-amplify';
+import {
+  API,
+  Analytics,
+  AmazonPersonalizeProvider,
+  Auth,
+  Storage,
+} from 'aws-amplify';
 import { ReactElement, useEffect, useState } from 'react';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 import { getBlog } from '../../graphql-custom/customQueries';
@@ -53,7 +59,9 @@ export default function Blog(): ReactElement | null {
     });
 
     (async () => {
-      const response = await fetch('/static/content/blog-post.json');
+      const blogPostUrl = await Storage.get('savedContent/blog-post.json');
+
+      const response = await fetch(blogPostUrl);
       const myJson = await response.json();
       setContent(myJson);
     })();
