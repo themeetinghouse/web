@@ -3,15 +3,9 @@ import React, { ReactElement, useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import GenericModalPage from '../RenderRouter/GenericModalPage';
 import DataLoader from '../RenderRouter/DataLoader';
-
+import { Storage } from 'aws-amplify';
 const RenderRouter = React.lazy(() => import('../RenderRouter/RenderRouter'));
 const VideoOverlay = React.lazy(() => import('../VideoOverlay/VideoOverlay'));
-const S3_BUCKET =
-  'https://themeetinghouse-usercontent221608-prodnew.s3.amazonaws.com/public/';
-
-const notFoundPageContent = fetch('/static/content/404.json')
-  .then((response) => response.json())
-  .catch((e: any) => console.log({ e: e }));
 
 export default function ContentPage(): ReactElement | null {
   const history = useHistory();
@@ -35,12 +29,14 @@ export default function ContentPage(): ReactElement | null {
   useEffect(() => {
     (async () => {
       let content;
+      const errorUrl = await Storage.get('savedContent/404.json');
       try {
         content = pages[jsonFile];
         if (!content) {
-          const response = await fetch(
-            '/static/content/' + jsonFile.toLowerCase() + '.json'
+          const location = await Storage.get(
+            'savedContent/' + jsonFile.toLowerCase() + '.json'
           );
+          const response = await fetch(location);
 
           content = await response.json();
           setPages({
@@ -52,9 +48,10 @@ export default function ContentPage(): ReactElement | null {
         return;
       } catch (error1) {
         console.error({ error1 });
-        const location =
-          S3_BUCKET + 'savedContent/' + jsonFile.toLowerCase() + '.json';
-        console.log(location);
+        const location = await Storage.get(
+          'savedContent/' + jsonFile.toLowerCase() + '.json'
+        );
+        console.log({ location });
         try {
           const response2 = await fetch(location);
           content = await response2.json();
@@ -63,6 +60,7 @@ export default function ContentPage(): ReactElement | null {
             ...pages,
           });
         } catch (error) {
+          console.log('error');
           if (window.location.href.includes('communities')) {
             const locationId = window.location.href
               .split('communities/')
@@ -70,7 +68,7 @@ export default function ContentPage(): ReactElement | null {
               ?.toLowerCase();
             console.log({ locationId });
             if (!locationId) {
-              const response3 = await fetch('/static/content/404.json');
+              const response3 = await fetch(errorUrl);
               content = await response3.json();
               setPages({
                 [jsonFile]: content,
@@ -80,7 +78,7 @@ export default function ContentPage(): ReactElement | null {
             }
             const TMHLocationData = await DataLoader.getTMHLocation(locationId);
             if (!TMHLocationData.data?.getTMHLocation) {
-              const response3 = await fetch('/static/content/404.json');
+              const response3 = await fetch(errorUrl);
               content = await response3.json();
               setPages({
                 [jsonFile]: content,
@@ -89,7 +87,11 @@ export default function ContentPage(): ReactElement | null {
               return;
             }
             console.log({ TMHLocationData });
-            const response3 = await fetch('/static/content/communities.json');
+            const communitiesUrl = await Storage.get(
+              'savedContent/communities.json'
+            );
+            const response3 = await fetch(communitiesUrl);
+
             content = await response3.json();
             const newContent = {
               ...content,
@@ -139,7 +141,7 @@ export default function ContentPage(): ReactElement | null {
 
           console.error({ error });
 
-          const response3 = await fetch('/static/content/404.json');
+          const response3 = await fetch(errorUrl);
           content = await response3.json();
           setPages({
             [jsonFile]: content,
@@ -154,7 +156,9 @@ export default function ContentPage(): ReactElement | null {
       }).catch((e: any) => {
         console.log({ e: e });
       });
-      setContent(await notFoundPageContent);
+      const response = await fetch(errorUrl);
+      const notFoundPageContent = await response.json();
+      setContent(notFoundPageContent);
     })();
   }, [jsonFile, pages]);
   if (!content) {
