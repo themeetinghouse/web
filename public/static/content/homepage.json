@@ -74,20 +74,20 @@
       {
         "type": "content",
         "style": "oneImageBlackRightExtended",
-        "header1": "Peacemakers 2023",
+        "header1": "Network Senior Pastor",
         "header2": "",
-        "text1": "What's the impact of a dollar? Give to Peacemakers to support MCC's peacebuilding efforts. Our goal this year is $100,000.",
+        "text1": "We’re transforming to become a network of local Jesus-centred churches, and have begun the process of searching for a Network Senior Pastor. This person will come alongside our pastors, staff, and leaders to mobilize and equip our churches for local ministry in our communities. If you’re interested or know someone who might be a good fit, you can learn more or apply at the link below.",
         "image1": [
           {
-            "src": "/static/images/PM2022_TMH-Landing-page_Images.jpg",
-            "alt": "Girl wearing a head covering holding a hand drawn picture of her violent environment."
+            "src": "/static/images/og-images/TMH-House-Logo.jpg",
+            "alt": "white house on black background."
           }
         ],
         "list": [
           {
             "type": "link",
-            "title": "Give to Peacemakers",
-            "navigateTo": "/peacemakers-give",
+            "title": "See the role",
+            "navigateTo": "https://www.vanderbloemen.com/job/the-meeting-house-network-senior-pastor",
             "openNewBrowser": true
           }
         ]
