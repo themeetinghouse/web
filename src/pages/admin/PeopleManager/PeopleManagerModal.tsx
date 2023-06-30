@@ -1,8 +1,16 @@
-import { TMHPerson, UpdateTMHPersonInput } from 'API';
+import {
+  CreateTMHSiteMutation,
+  SitePerson,
+  TMHPerson,
+  TMHSite,
+  UpdateTMHPersonInput,
+} from 'API';
 import React from 'react';
 import { API } from 'aws-amplify';
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import * as mutations from '../../../graphql/mutations';
+import * as customQueries from '../../../graphql-custom/customQueries';
+
 import { Modal, Spinner } from 'reactstrap';
 import {
   CreateTMHPersonInput,
@@ -12,6 +20,9 @@ import {
 } from 'API';
 import { Storage } from 'aws-amplify';
 import './PeopleManager.scss';
+import CreatableSelect from 'react-select/creatable';
+import { MultiValue } from 'react-select';
+
 type EditModalProps = {
   selectedUser: TMHPerson | null;
   showModal: boolean;
@@ -72,13 +83,205 @@ const ProfileImage = ({
     </div>
   );
 };
+
+function TMHSites({
+  userData,
+  setUserData,
+}: {
+  userData: any;
+  setUserData: any;
+}) {
+  const userId = userData?.id;
+  const [sites, setSites] = React.useState<TMHSite[]>([]);
+  const [userSites, setUserSites] = React.useState<TMHSite[]>([]);
+  const [isLoading, setIsLoading] = React.useState(false);
+  React.useEffect(() => {
+    (async () => {
+      try {
+        const sites = (await API.graphql({
+          query: customQueries.listTMHSites,
+          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+        })) as GraphQLResult<{ listTMHSites: { items: TMHSite[] } }>;
+        const siteItems = sites.data?.listTMHSites?.items ?? [];
+        setSites(siteItems);
+        const siteIds = userData?.tmhSites.map(
+          (site: SitePerson) => site?.tMHSiteID
+        );
+        console.log({ sites });
+        const newUserSites =
+          siteItems.filter((site) => siteIds?.includes(site?.id)) ?? [];
+        setUserSites(newUserSites);
+      } catch (error: any) {
+        console.error({ 'failed to load sites': error });
+        const siteItems = error?.data?.listTMHSites?.items ?? [];
+        setSites(siteItems);
+        const siteIds = userData?.tmhSites.map(
+          (site: SitePerson) => site?.tMHSiteID
+        );
+        console.log({ sites });
+        const newUserSites =
+          siteItems.filter((site: any) => siteIds?.includes(site?.id)) ?? [];
+        setUserSites(newUserSites);
+      }
+    })();
+  }, []);
+  const createSitePerson = async (siteId: string) => {
+    try {
+      console.log(`creating site person for ${siteId}`);
+      const updatedPerson = (await API.graphql({
+        query: mutations.createSitePerson,
+        variables: {
+          input: {
+            tMHSiteID: siteId,
+            tMHPersonID: userId,
+          },
+        },
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      })) as GraphQLResult<UpdateTMHPersonMutation>;
+      console.log({ updatedPerson });
+    } catch (error) {
+      console.log({ error });
+    }
+  };
+  const removeSitePerson = async (sitePersonID: string) => {
+    try {
+      console.log(`removing site person for ${sitePersonID}`);
+      const removeSitePerson = (await API.graphql({
+        query: mutations.deleteSitePerson,
+        variables: {
+          input: {
+            id: sitePersonID,
+          },
+        },
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      })) as GraphQLResult<UpdateTMHPersonMutation>;
+      console.log({ removeSitePerson });
+    } catch (error) {
+      console.log({ error });
+    }
+  };
+  const createTmhSite = async (siteName: string) => {
+    setIsLoading(true);
+    try {
+      const newSite = (await API.graphql({
+        query: mutations.createTMHSite,
+        variables: {
+          input: {
+            id: siteName,
+          },
+        },
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      })) as GraphQLResult<CreateTMHSiteMutation>;
+      console.log({ newSite });
+      if (newSite?.data?.createTMHSite) {
+        try {
+          await createSitePerson(newSite.data.createTMHSite.id);
+          setUserSites([...userSites, newSite.data.createTMHSite]);
+        } catch (error) {
+          console.log('Something went wrong...');
+        } finally {
+          setSites([...sites, newSite.data.createTMHSite]);
+        }
+      }
+    } catch (error) {
+      console.log('An error occurred while creating a new site');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  const handleSelectOnChange = async (
+    newValue: MultiValue<{
+      value: string;
+      label: string;
+    }>
+  ) => {
+    if (!newValue) return;
+    const reducedNewValue = newValue.map((item) => item.value);
+    const newSite = sites.filter((site) => reducedNewValue.includes(site.id));
+    if (!newSite) return;
+    const tempOldSites = userSites.map((site) => site.id);
+    const tempNewSites = newSite.map((site) => site.id);
+    const removed = tempOldSites.filter((site) => !tempNewSites.includes(site));
+    const added = tempNewSites.filter((site) => !tempOldSites.includes(site));
+    const handleRemoved = async () => {
+      const existingSitePersonID = userData?.tmhSites?.find(
+        (sitePerson: SitePerson) => sitePerson.tMHSiteID === removed[0]
+      );
+      if (existingSitePersonID)
+        await removeSitePerson(existingSitePersonID?.id);
+
+      setIsLoading(false);
+    };
+    const handleAdded = async () => {
+      const addedSiteID = added[0];
+      if (addedSiteID) await createSitePerson(addedSiteID);
+    };
+    setIsLoading(true);
+    await handleRemoved();
+    await handleAdded();
+    setIsLoading(false);
+    setUserSites(newSite);
+  };
+  console.log({ userData });
+  return (
+    <label
+      onClick={(e) => {
+        e.preventDefault();
+      }}
+    >
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+        }}
+      >
+        Sites:
+      </div>
+      <CreatableSelect
+        isDisabled={isLoading}
+        allowCreateWhileLoading={false}
+        formatCreateLabel={(inputValue) => `Add new site "${inputValue}"`}
+        isMulti
+        styles={{
+          control: (provided: any) => ({
+            ...provided,
+            display: 'flex',
+            flex: 1,
+            marginTop: 4,
+          }),
+          container: (provided: any) => ({
+            ...provided,
+            display: 'flex',
+            flex: 1,
+          }),
+        }}
+        value={[
+          ...userSites.map((site) => ({ value: site?.id, label: site?.id })),
+        ]}
+        onCreateOption={createTmhSite}
+        isLoading={isLoading}
+        loadingMessage={() => 'Loading...'}
+        onChange={handleSelectOnChange}
+        placeholder="Select Site/Enter Site"
+        options={sites.map((item: any) => ({
+          label: item.id,
+          value: item.id,
+        }))}
+      ></CreatableSelect>
+    </label>
+  );
+}
+
 export default function PeopleManagerModal({
   selectedUser,
   showModal,
   updateCallback,
   closeModal,
 }: EditModalProps) {
-  const [userData, setUserData] = React.useState<UpdateTMHPersonInput>({
+  console.log({ selectedUser });
+  const [userData, setUserData] = React.useState<
+    UpdateTMHPersonInput & { tmhSites: SitePerson[] }
+  >({
     id: selectedUser?.id ?? '',
     firstName: selectedUser?.firstName ?? '',
     lastName: selectedUser?.lastName ?? '',
@@ -92,12 +295,10 @@ export default function PeopleManagerModal({
     extension: selectedUser?.extension ?? '',
     position: selectedUser?.position ?? '',
     sites: selectedUser?.sites ?? [],
+    tmhSites: (selectedUser?.tmhSites?.items as SitePerson[]) ?? [],
   });
   const [isLoading, setIsLoading] = React.useState(false);
   const [isDeleting, setIsDeleting] = React.useState(false);
-  const [siteString, setSitesString] = React.useState(
-    selectedUser?.sites?.join(', ')
-  );
   const [file, setFile] = React.useState<any>(null);
   const updateTMHPerson = async (
     propsToUpdate: UpdateTMHPersonInput,
@@ -121,6 +322,8 @@ export default function PeopleManagerModal({
       if (updatedPerson?.data?.updateTMHPerson) {
         const newData = updatedPerson?.data?.updateTMHPerson;
         updateCallback(newData);
+      } else {
+        console.log('NOT CALLING');
       }
     } catch (error) {
       console.log({ error });
@@ -192,6 +395,7 @@ export default function PeopleManagerModal({
   };
 
   const handleSaveTMHPerson = async () => {
+    console.log('saving');
     if (!selectedUser) {
       await createTMHPerson(userData);
       clearFields();
@@ -199,6 +403,7 @@ export default function PeopleManagerModal({
       return;
     }
     const fieldsToUpdate = Object.keys(userData)
+      .filter((key) => key !== 'tmhSites')
       .filter(
         (key) =>
           userData[key as keyof UpdateTMHPersonInput] !== '' &&
@@ -210,24 +415,13 @@ export default function PeopleManagerModal({
           selectedUser[key as keyof UpdateTMHPersonInput]
         );
       }) as Array<keyof UpdateTMHPersonInput>;
+    console.log({ fieldsToUpdate });
 
-    let newSites: string[] = [];
-    if (selectedUser?.sites?.join(', ') !== siteString) {
-      fieldsToUpdate.push('sites');
-      if (siteString)
-        newSites = siteString
-          .split(',')
-          .map((site) => site.trim())
-          .filter((site) => site !== '');
-    }
     if (file) fieldsToUpdate.push('image');
     if (!fieldsToUpdate.length) return;
     const newValues: any = { id: userData.id };
     for (const key of fieldsToUpdate) {
-      if (key === 'sites') newValues[key] = newSites;
-      else {
-        if (key) newValues[key] = userData[key as keyof UpdateTMHPersonInput];
-      }
+      if (key) newValues[key] = userData[key as keyof UpdateTMHPersonInput];
     }
     console.log({ newValues });
     await updateTMHPerson(
@@ -251,6 +445,7 @@ export default function PeopleManagerModal({
       phone: '',
       position: '',
       extension: '',
+      tmhSites: [],
     });
   };
   const uploadToS3 = async (fullName: string) => {
@@ -293,7 +488,7 @@ export default function PeopleManagerModal({
     }));
   };
   return (
-    <Modal size="sm" isOpen={showModal}>
+    <Modal size="md" isOpen={showModal}>
       <form
         className="PersonModalContentContainer"
         onSubmit={(e) => {
@@ -374,31 +569,7 @@ export default function PeopleManagerModal({
             placeholder="Email"
           />
         </label>
-        <label
-          onClick={(e) => {
-            e.preventDefault();
-          }}
-        >
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-            }}
-          >
-            Sites:{' '}
-          </div>
-          <input
-            onChange={(e) => {
-              e.persist();
-              setSitesString(e.target.value);
-            }}
-            value={siteString}
-            type="text"
-            autoCapitalize="off"
-            autoComplete="off"
-            placeholder="Comma, Separated, Sites..."
-          />
-        </label>
+        <TMHSites userData={userData} setUserData={setUserData} />
         <label htmlFor="isCoordinator" style={{ flexDirection: 'row' }}>
           <input
             name={'isCoordinator'}

@@ -4,10 +4,33 @@ import './PeopleManager.scss';
 import { API } from 'aws-amplify';
 import { GraphQLResult } from '@aws-amplify/api';
 import { ListTMHPeopleQuery, TMHPerson } from 'API';
+
 import PersonCard from './PersonCard';
 import PeopleManagerModal from './PeopleManagerModal';
 import { Spinner } from 'reactstrap';
+const loadStaff = async ({
+  setIsLoading,
+  setPeopleData,
+}: {
+  setIsLoading?: React.Dispatch<React.SetStateAction<boolean>>;
+  setPeopleData: React.Dispatch<React.SetStateAction<TMHPerson[]>>;
+}) => {
+  if (setIsLoading) setIsLoading(true);
+  try {
+    const { data } = (await API.graphql({
+      query: queries.listTMHPeople,
+      variables: { limit: 500 },
+    })) as GraphQLResult<ListTMHPeopleQuery>;
+    const people = (data?.listTMHPeople?.items as TMHPerson[]) ?? [];
+    setPeopleData(people);
+  } catch (error) {
+    console.log({ error });
+  } finally {
+    if (setIsLoading) setIsLoading(false);
+  }
+};
 export default function PeopleManager() {
+  const [disableButtons, setDisableButtons] = React.useState(false);
   const [peopleData, setPeopleData] = React.useState<TMHPerson[]>([]);
   const [searchTerm, setSearchTerm] = React.useState('');
   const [isLoading, setIsLoading] = React.useState(false);
@@ -17,6 +40,7 @@ export default function PeopleManager() {
   );
   const [filterType, setFilterType] = React.useState('All');
   const closeModal = () => {
+    loadStaff({ setIsLoading: setDisableButtons, setPeopleData });
     setSelectedUser(null);
     setShowModal(false);
   };
@@ -25,24 +49,10 @@ export default function PeopleManager() {
     setShowModal(true);
   };
   React.useEffect(() => {
-    const loadStaff = async () => {
-      setIsLoading(true);
-      try {
-        const { data } = (await API.graphql({
-          query: queries.listTMHPeople,
-          variables: { limit: 500 },
-        })) as GraphQLResult<ListTMHPeopleQuery>;
-        const people = (data?.listTMHPeople?.items as TMHPerson[]) ?? [];
-        setPeopleData(people);
-      } catch (error) {
-        console.log({ error });
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    loadStaff();
+    loadStaff({ setIsLoading, setPeopleData });
   }, []);
   const updatePeopleDataCallback = (newValue: TMHPerson, type?: string) => {
+    console.log('updatePeopleDataCallback', newValue);
     let newTempArr = peopleData;
     const updatedPersonIndex = newTempArr.findIndex(
       (person) => person?.id === newValue?.id
@@ -161,6 +171,7 @@ export default function PeopleManager() {
       <div className="PeopleWrapper">
         {filteredPeeps.map((person) => (
           <PersonCard
+            disabled={disableButtons}
             openModal={openModal}
             key={person?.id}
             personData={person}

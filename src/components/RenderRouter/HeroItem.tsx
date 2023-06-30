@@ -189,7 +189,9 @@ class HeroItem extends React.Component<Props, State> {
         if (!query.filterValue) return;
         const data = await DataLoader.getTMHLocation(query.filterValue);
         if (data.data?.getTMHLocation) {
-          this.setState({ currentLocation: data.data.getTMHLocation });
+          this.setState({
+            currentLocation: data.data.getTMHLocation as TMHLocation,
+          });
         }
       } else {
         console.log('REGION');
