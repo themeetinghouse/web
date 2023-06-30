@@ -978,6 +978,7 @@ export default class DataLoader {
   static async loadStaff(query: StaffQuery): Promise<TMHPerson[]> {
     let staff: TMHPerson[] = [];
     let coordinators: TMHPerson[] = [];
+    let returnData: TMHPerson[] = [];
     try {
       const response = (await API.graphql({
         query: queries.tMHPersonByIsStaff,
@@ -987,7 +988,7 @@ export default class DataLoader {
       const staffMembers =
         (response.data?.TMHPersonByIsStaff?.items as TMHPerson[]) ?? [];
       if (staffMembers?.length) staff = staffMembers;
-      console.log({ staff });
+      returnData = [...staff];
     } catch (error) {
       console.log({ error });
     }
@@ -1001,14 +1002,14 @@ export default class DataLoader {
         const coordinatorMembers =
           (response.data?.TMHPersonByIsCoordinator?.items as TMHPerson[]) ?? [];
         if (coordinatorMembers?.length) coordinators = coordinatorMembers;
-        console.log({ coordinators });
+
+        returnData = [...returnData, ...coordinators];
       } catch (error) {
         console.log({ error });
       }
-      return this.sortStaff(staff).concat(coordinators);
-    } else {
-      return this.sortStaff(staff);
     }
+    const sortedReturnData = this.sortStaff(returnData);
+    return sortedReturnData;
   }
 
   static async loadInsta(query: InstaQuery): Promise<InstaData> {

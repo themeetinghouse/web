@@ -2,13 +2,24 @@ import { TMHPerson } from 'API';
 import FadeImage from 'components/ScaledImage/FadeImage';
 
 type PersonCardProps = {
+  disabled?: boolean;
   personData: TMHPerson;
   openModal: (person: TMHPerson) => void;
 };
 
-export default function PersonCard({ personData, openModal }: PersonCardProps) {
+export default function PersonCard({
+  personData,
+  openModal,
+  disabled,
+}: PersonCardProps) {
   return (
-    <div className="PersonCard" onClick={() => openModal(personData)}>
+    <div
+      className="PersonCard"
+      onClick={() => (disabled ? null : openModal(personData))}
+      style={{
+        opacity: disabled ? 0.5 : 1,
+      }}
+    >
       <FadeImage
         className="PersonImage"
         imageSrc={personData?.image ?? ''}

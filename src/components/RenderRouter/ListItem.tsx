@@ -87,7 +87,8 @@ type ListData =
   | CustomPlaylistsData
   | RandomCustomPlaylistData
   | NonNullable<RandomCustomPlaylistData>['video']
-  | InstagramData;
+  | InstagramData
+  | TMHPerson;
 
 const hideEpisodeNumbers = ['adult-sunday-shortcut', 'kidmax-live'];
 
@@ -1013,6 +1014,19 @@ class ListItem extends React.Component<Props, State> {
             if (!item) {
               return false;
             }
+            if (
+              this.props.content.filterField === 'sites' &&
+              this.props.content.class === 'staff'
+            ) {
+              const person = item as TMHPerson;
+              const siteNamesFromPersonTmhSites = person.tmhSites?.items.map(
+                (site) => site?.tMHSiteID ?? ''
+              );
+              person.sites = siteNamesFromPersonTmhSites;
+              console.log({ filterValue: this.props.content.filterValue });
+
+              return person?.sites?.includes(this.props.content.filterValue);
+            }
             return (
               item[this.props.content.filterField as keyof ListData] as string
             )?.includes(this.props.content.filterValue);
@@ -1438,9 +1452,16 @@ class ListItem extends React.Component<Props, State> {
               : 0
           )
           .filter((person) => {
+            let result;
+            const siteNamesFromPersonTmhSites = person.tmhSites?.items.map(
+              (site) => site?.tMHSiteID ?? ''
+            );
+            person.sites = siteNamesFromPersonTmhSites;
             if (this.state.searchFilter === '') {
-              if (this.state.selectedFilter === 'All') return true;
-              return person?.sites?.includes(this.state.selectedFilter);
+              if (this.state.selectedFilter === 'All') result = true;
+              else {
+                result = person?.sites?.includes(this.state.selectedFilter);
+              }
             } else {
               const personNameMatches =
                 person?.lastName
@@ -1453,9 +1474,12 @@ class ListItem extends React.Component<Props, State> {
                 person?.sites?.includes(this.state.selectedFilter) ||
                 this.state.selectedFilter === 'All';
               console.log({ personNameMatches }, { personSiteMatches });
-              return personNameMatches && personSiteMatches;
+              result = personNameMatches && personSiteMatches;
             }
+            return result;
           });
+        console.log({ filteredPeopleData });
+        console.log({ tempData });
         const isMobile = this.state.windowWidth < 768;
         const binnedData: PeopleData[][] = [];
         if (data.length > 0) {

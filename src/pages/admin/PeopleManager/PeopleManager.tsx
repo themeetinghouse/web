@@ -8,7 +8,29 @@ import { ListTMHPeopleQuery, TMHPerson } from 'API';
 import PersonCard from './PersonCard';
 import PeopleManagerModal from './PeopleManagerModal';
 import { Spinner } from 'reactstrap';
+const loadStaff = async ({
+  setIsLoading,
+  setPeopleData,
+}: {
+  setIsLoading?: React.Dispatch<React.SetStateAction<boolean>>;
+  setPeopleData: React.Dispatch<React.SetStateAction<TMHPerson[]>>;
+}) => {
+  if (setIsLoading) setIsLoading(true);
+  try {
+    const { data } = (await API.graphql({
+      query: queries.listTMHPeople,
+      variables: { limit: 500 },
+    })) as GraphQLResult<ListTMHPeopleQuery>;
+    const people = (data?.listTMHPeople?.items as TMHPerson[]) ?? [];
+    setPeopleData(people);
+  } catch (error) {
+    console.log({ error });
+  } finally {
+    if (setIsLoading) setIsLoading(false);
+  }
+};
 export default function PeopleManager() {
+  const [disableButtons, setDisableButtons] = React.useState(false);
   const [peopleData, setPeopleData] = React.useState<TMHPerson[]>([]);
   const [searchTerm, setSearchTerm] = React.useState('');
   const [isLoading, setIsLoading] = React.useState(false);
@@ -18,6 +40,7 @@ export default function PeopleManager() {
   );
   const [filterType, setFilterType] = React.useState('All');
   const closeModal = () => {
+    loadStaff({ setIsLoading: setDisableButtons, setPeopleData });
     setSelectedUser(null);
     setShowModal(false);
   };
@@ -25,88 +48,9 @@ export default function PeopleManager() {
     setSelectedUser(user);
     setShowModal(true);
   };
-  // const [sites, setSites] = React.useState<TMHSite[]>([]);
-  // React.useEffect(() => {
-  //   (async () => {
-  //     const sites = (await API.graphql({
-  //       query: queries.listTMHSites,
-  //       authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-  //     })) as GraphQLResult<{ listTMHSites: { items: TMHSite[] } }>;
-  //     const siteItems = sites.data?.listTMHSites?.items ?? [];
-  //     setSites(siteItems);
-  //   })();
-  // }, []);
   React.useEffect(() => {
-    const loadStaff = async () => {
-      setIsLoading(true);
-      try {
-        const { data } = (await API.graphql({
-          query: queries.listTMHPeople,
-          variables: { limit: 500 },
-        })) as GraphQLResult<ListTMHPeopleQuery>;
-        const people = (data?.listTMHPeople?.items as TMHPerson[]) ?? [];
-        const peopleSites = people.map((person) => ({
-          personId: person?.id,
-          sites: person?.sites,
-        }));
-        console.log({ peopleSites });
-        setPeopleData(people);
-      } catch (error) {
-        console.log({ error });
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    loadStaff();
+    loadStaff({ setIsLoading, setPeopleData });
   }, []);
-  // const createSitePerson = async (
-  //   siteId: string,
-  //   userId: string,
-  //   personName: string
-  // ) => {
-  //   try {
-  //     console.log(`creating site person for ${siteId}`);
-  //     const updatedPerson = (await API.graphql({
-  //       query: mutations.createSitePerson,
-  //       variables: {
-  //         input: {
-  //           tMHSiteID: siteId,
-  //           tMHPersonID: userId,
-  //         },
-  //       },
-  //       authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-  //     })) as GraphQLResult<CreateSitePersonMutation>;
-  //     console.log({ updatedPerson });
-  //   } catch (error) {
-  //     console.error(`error creating site person ${personName} for ${siteId}`, {
-  //       error,
-  //     });
-  //   }
-  // };
-  // React.useEffect(() => {
-  //   if (peopleData?.length && sites?.length) {
-  //     console.log('loaded', peopleData, sites);
-  //     (async () => {
-  //       let counter = 1;
-  //       for await (const person of peopleData) {
-  //         if (person?.sites?.length) {
-  //           const tempSites = person?.sites;
-  //           const personName = `${person?.firstName} ${person?.lastName}`;
-  //           for await (const site1 of tempSites) {
-  //             if (site1 && person?.id) {
-  //               await createSitePerson(site1, person.id, personName);
-  //             }
-  //           }
-  //         }
-  //         console.log(
-  //           '====================================',
-  //           counter + '/' + peopleData.length
-  //         );
-  //         counter += 1;
-  //       }
-  //     })();
-  //   }
-  // }, [peopleData, sites]);
   const updatePeopleDataCallback = (newValue: TMHPerson, type?: string) => {
     console.log('updatePeopleDataCallback', newValue);
     let newTempArr = peopleData;
@@ -227,6 +171,7 @@ export default function PeopleManager() {
       <div className="PeopleWrapper">
         {filteredPeeps.map((person) => (
           <PersonCard
+            disabled={disableButtons}
             openModal={openModal}
             key={person?.id}
             personData={person}

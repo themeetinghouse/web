@@ -9,7 +9,8 @@ import React from 'react';
 import { API } from 'aws-amplify';
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import * as mutations from '../../../graphql/mutations';
-import * as queries from '../../../graphql/queries';
+import * as customQueries from '../../../graphql-custom/customQueries';
+
 import { Modal, Spinner } from 'reactstrap';
 import {
   CreateTMHPersonInput,
@@ -96,18 +97,32 @@ function TMHSites({
   const [isLoading, setIsLoading] = React.useState(false);
   React.useEffect(() => {
     (async () => {
-      const sites = (await API.graphql({
-        query: queries.listTMHSites,
-        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-      })) as GraphQLResult<{ listTMHSites: { items: TMHSite[] } }>;
-      const siteItems = sites.data?.listTMHSites?.items ?? [];
-      setSites(siteItems);
-      const siteIds = userData?.tmhSites.map(
-        (site: SitePerson) => site?.tMHSiteID
-      );
-      const newUserSites =
-        siteItems.filter((site) => siteIds?.includes(site?.id)) ?? [];
-      setUserSites(newUserSites);
+      try {
+        const sites = (await API.graphql({
+          query: customQueries.listTMHSites,
+          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+        })) as GraphQLResult<{ listTMHSites: { items: TMHSite[] } }>;
+        const siteItems = sites.data?.listTMHSites?.items ?? [];
+        setSites(siteItems);
+        const siteIds = userData?.tmhSites.map(
+          (site: SitePerson) => site?.tMHSiteID
+        );
+        console.log({ sites });
+        const newUserSites =
+          siteItems.filter((site) => siteIds?.includes(site?.id)) ?? [];
+        setUserSites(newUserSites);
+      } catch (error: any) {
+        console.error({ 'failed to load sites': error });
+        const siteItems = error?.data?.listTMHSites?.items ?? [];
+        setSites(siteItems);
+        const siteIds = userData?.tmhSites.map(
+          (site: SitePerson) => site?.tMHSiteID
+        );
+        console.log({ sites });
+        const newUserSites =
+          siteItems.filter((site: any) => siteIds?.includes(site?.id)) ?? [];
+        setUserSites(newUserSites);
+      }
     })();
   }, []);
   const createSitePerson = async (siteId: string) => {
@@ -161,7 +176,6 @@ function TMHSites({
       if (newSite?.data?.createTMHSite) {
         try {
           await createSitePerson(newSite.data.createTMHSite.id);
-
           setUserSites([...userSites, newSite.data.createTMHSite]);
         } catch (error) {
           console.log('Something went wrong...');
@@ -181,7 +195,6 @@ function TMHSites({
       label: string;
     }>
   ) => {
-    console.log({ newValue });
     if (!newValue) return;
     const reducedNewValue = newValue.map((item) => item.value);
     const newSite = sites.filter((site) => reducedNewValue.includes(site.id));
@@ -200,7 +213,6 @@ function TMHSites({
       setIsLoading(false);
     };
     const handleAdded = async () => {
-      console.log(added[0]);
       const addedSiteID = added[0];
       if (addedSiteID) await createSitePerson(addedSiteID);
     };
@@ -251,53 +263,6 @@ function TMHSites({
         loadingMessage={() => 'Loading...'}
         onChange={handleSelectOnChange}
         placeholder="Select Site/Enter Site"
-        // This could be needed if we want to add a delete button to the option items
-        // components={{
-        //   Option: ({
-        //     label,
-        //     innerRef,
-        //     innerProps,
-        //   }: {
-        //     label: string;
-        //     innerRef: any;
-        //     innerProps: any;
-        //   }) => {
-        //     console.log({ innerProps });
-        //     console.log({ innerRef });
-        //     return (
-        //       <div
-        //         ref={innerRef}
-        //         {...innerProps}
-        //         style={{
-        //           padding: 4,
-        //           marginLeft: 8,
-        //           display: 'flex',
-        //           flexDirection: 'row',
-        //           justifyContent: 'center',
-        //           alignItems: 'center',
-        //         }}
-        //       >
-        //         <span style={{ flex: 1 }}>{label}</span>
-        //         <button
-        //           className="SaveButton"
-        //           type="button"
-        //           style={{
-        //             backgroundColor: 'tomato',
-        //             flex: 0,
-        //             padding: 2,
-        //             margin: 0,
-        //           }}
-        //           onClick={(e) => {
-        //             e.stopPropagation();
-        //             console.log('Delete');
-        //           }}
-        //         >
-        //           Delete
-        //         </button>
-        //       </div>
-        //     );
-        //   },
-        // }}
         options={sites.map((item: any) => ({
           label: item.id,
           value: item.id,

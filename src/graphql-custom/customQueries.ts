@@ -1,3 +1,27 @@
+export const listTMHSites = /* GraphQL */ `
+  query ListTMHSites(
+    $filter: ModelTMHSiteFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listTMHSites(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        tmhPeople {
+          items {
+            id
+            tMHSiteID
+            tMHPersonID
+            createdAt
+          }
+          nextToken
+        }
+        createdAt
+      }
+      nextToken
+    }
+  }
+`;
 export const getBlogSeries = /* GraphQL */ `
   query GetBlogSeries($id: ID!) {
     getBlogSeries(id: $id) {
