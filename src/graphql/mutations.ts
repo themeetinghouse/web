@@ -41114,6 +41114,330 @@ export const deleteTMHUser = /* GraphQL */ `
     }
   }
 `;
+export const createTMHSite = /* GraphQL */ `
+  mutation CreateTMHSite(
+    $input: CreateTMHSiteInput!
+    $condition: ModelTMHSiteConditionInput
+  ) {
+    createTMHSite(input: $input, condition: $condition) {
+      id
+      tmhPeople {
+        items {
+          id
+          tMHSiteID
+          tMHPersonID
+          tMHSite {
+            id
+            tmhPeople {
+              items {
+                id
+                tMHSiteID
+                tMHPersonID
+                tMHSite {
+                  id
+                  createdAt
+                  updatedAt
+                }
+                tMHPerson {
+                  id
+                  email
+                  firstName
+                  lastName
+                  image
+                  phone
+                  extension
+                  sites
+                  position
+                  isTeacher
+                  isStaff
+                  isCoordinator
+                  isOverseer
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          tMHPerson {
+            id
+            email
+            firstName
+            lastName
+            image
+            phone
+            extension
+            sites
+            tmhSites {
+              items {
+                id
+                tMHSiteID
+                tMHPersonID
+                tMHSite {
+                  id
+                  createdAt
+                  updatedAt
+                }
+                tMHPerson {
+                  id
+                  email
+                  firstName
+                  lastName
+                  image
+                  phone
+                  extension
+                  sites
+                  position
+                  isTeacher
+                  isStaff
+                  isCoordinator
+                  isOverseer
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            position
+            isTeacher
+            isStaff
+            isCoordinator
+            isOverseer
+            createdAt
+            updatedAt
+          }
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateTMHSite = /* GraphQL */ `
+  mutation UpdateTMHSite(
+    $input: UpdateTMHSiteInput!
+    $condition: ModelTMHSiteConditionInput
+  ) {
+    updateTMHSite(input: $input, condition: $condition) {
+      id
+      tmhPeople {
+        items {
+          id
+          tMHSiteID
+          tMHPersonID
+          tMHSite {
+            id
+            tmhPeople {
+              items {
+                id
+                tMHSiteID
+                tMHPersonID
+                tMHSite {
+                  id
+                  createdAt
+                  updatedAt
+                }
+                tMHPerson {
+                  id
+                  email
+                  firstName
+                  lastName
+                  image
+                  phone
+                  extension
+                  sites
+                  position
+                  isTeacher
+                  isStaff
+                  isCoordinator
+                  isOverseer
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          tMHPerson {
+            id
+            email
+            firstName
+            lastName
+            image
+            phone
+            extension
+            sites
+            tmhSites {
+              items {
+                id
+                tMHSiteID
+                tMHPersonID
+                tMHSite {
+                  id
+                  createdAt
+                  updatedAt
+                }
+                tMHPerson {
+                  id
+                  email
+                  firstName
+                  lastName
+                  image
+                  phone
+                  extension
+                  sites
+                  position
+                  isTeacher
+                  isStaff
+                  isCoordinator
+                  isOverseer
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            position
+            isTeacher
+            isStaff
+            isCoordinator
+            isOverseer
+            createdAt
+            updatedAt
+          }
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteTMHSite = /* GraphQL */ `
+  mutation DeleteTMHSite(
+    $input: DeleteTMHSiteInput!
+    $condition: ModelTMHSiteConditionInput
+  ) {
+    deleteTMHSite(input: $input, condition: $condition) {
+      id
+      tmhPeople {
+        items {
+          id
+          tMHSiteID
+          tMHPersonID
+          tMHSite {
+            id
+            tmhPeople {
+              items {
+                id
+                tMHSiteID
+                tMHPersonID
+                tMHSite {
+                  id
+                  createdAt
+                  updatedAt
+                }
+                tMHPerson {
+                  id
+                  email
+                  firstName
+                  lastName
+                  image
+                  phone
+                  extension
+                  sites
+                  position
+                  isTeacher
+                  isStaff
+                  isCoordinator
+                  isOverseer
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          tMHPerson {
+            id
+            email
+            firstName
+            lastName
+            image
+            phone
+            extension
+            sites
+            tmhSites {
+              items {
+                id
+                tMHSiteID
+                tMHPersonID
+                tMHSite {
+                  id
+                  createdAt
+                  updatedAt
+                }
+                tMHPerson {
+                  id
+                  email
+                  firstName
+                  lastName
+                  image
+                  phone
+                  extension
+                  sites
+                  position
+                  isTeacher
+                  isStaff
+                  isCoordinator
+                  isOverseer
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            position
+            isTeacher
+            isStaff
+            isCoordinator
+            isOverseer
+            createdAt
+            updatedAt
+          }
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const createTMHPerson = /* GraphQL */ `
   mutation CreateTMHPerson(
     $input: CreateTMHPersonInput!
@@ -41128,6 +41452,102 @@ export const createTMHPerson = /* GraphQL */ `
       phone
       extension
       sites
+      tmhSites {
+        items {
+          id
+          tMHSiteID
+          tMHPersonID
+          tMHSite {
+            id
+            tmhPeople {
+              items {
+                id
+                tMHSiteID
+                tMHPersonID
+                tMHSite {
+                  id
+                  createdAt
+                  updatedAt
+                }
+                tMHPerson {
+                  id
+                  email
+                  firstName
+                  lastName
+                  image
+                  phone
+                  extension
+                  sites
+                  position
+                  isTeacher
+                  isStaff
+                  isCoordinator
+                  isOverseer
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          tMHPerson {
+            id
+            email
+            firstName
+            lastName
+            image
+            phone
+            extension
+            sites
+            tmhSites {
+              items {
+                id
+                tMHSiteID
+                tMHPersonID
+                tMHSite {
+                  id
+                  createdAt
+                  updatedAt
+                }
+                tMHPerson {
+                  id
+                  email
+                  firstName
+                  lastName
+                  image
+                  phone
+                  extension
+                  sites
+                  position
+                  isTeacher
+                  isStaff
+                  isCoordinator
+                  isOverseer
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            position
+            isTeacher
+            isStaff
+            isCoordinator
+            isOverseer
+            createdAt
+            updatedAt
+          }
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       position
       isTeacher
       isStaff
@@ -41152,6 +41572,102 @@ export const updateTMHPerson = /* GraphQL */ `
       phone
       extension
       sites
+      tmhSites {
+        items {
+          id
+          tMHSiteID
+          tMHPersonID
+          tMHSite {
+            id
+            tmhPeople {
+              items {
+                id
+                tMHSiteID
+                tMHPersonID
+                tMHSite {
+                  id
+                  createdAt
+                  updatedAt
+                }
+                tMHPerson {
+                  id
+                  email
+                  firstName
+                  lastName
+                  image
+                  phone
+                  extension
+                  sites
+                  position
+                  isTeacher
+                  isStaff
+                  isCoordinator
+                  isOverseer
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          tMHPerson {
+            id
+            email
+            firstName
+            lastName
+            image
+            phone
+            extension
+            sites
+            tmhSites {
+              items {
+                id
+                tMHSiteID
+                tMHPersonID
+                tMHSite {
+                  id
+                  createdAt
+                  updatedAt
+                }
+                tMHPerson {
+                  id
+                  email
+                  firstName
+                  lastName
+                  image
+                  phone
+                  extension
+                  sites
+                  position
+                  isTeacher
+                  isStaff
+                  isCoordinator
+                  isOverseer
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            position
+            isTeacher
+            isStaff
+            isCoordinator
+            isOverseer
+            createdAt
+            updatedAt
+          }
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       position
       isTeacher
       isStaff
@@ -41176,6 +41692,102 @@ export const deleteTMHPerson = /* GraphQL */ `
       phone
       extension
       sites
+      tmhSites {
+        items {
+          id
+          tMHSiteID
+          tMHPersonID
+          tMHSite {
+            id
+            tmhPeople {
+              items {
+                id
+                tMHSiteID
+                tMHPersonID
+                tMHSite {
+                  id
+                  createdAt
+                  updatedAt
+                }
+                tMHPerson {
+                  id
+                  email
+                  firstName
+                  lastName
+                  image
+                  phone
+                  extension
+                  sites
+                  position
+                  isTeacher
+                  isStaff
+                  isCoordinator
+                  isOverseer
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          tMHPerson {
+            id
+            email
+            firstName
+            lastName
+            image
+            phone
+            extension
+            sites
+            tmhSites {
+              items {
+                id
+                tMHSiteID
+                tMHPersonID
+                tMHSite {
+                  id
+                  createdAt
+                  updatedAt
+                }
+                tMHPerson {
+                  id
+                  email
+                  firstName
+                  lastName
+                  image
+                  phone
+                  extension
+                  sites
+                  position
+                  isTeacher
+                  isStaff
+                  isCoordinator
+                  isOverseer
+                  createdAt
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            position
+            isTeacher
+            isStaff
+            isCoordinator
+            isOverseer
+            createdAt
+            updatedAt
+          }
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       position
       isTeacher
       isStaff
@@ -41286,6 +41898,58 @@ export const createTMHLocation = /* GraphQL */ `
         phone
         extension
         sites
+        tmhSites {
+          items {
+            id
+            tMHSiteID
+            tMHPersonID
+            tMHSite {
+              id
+              tmhPeople {
+                items {
+                  id
+                  tMHSiteID
+                  tMHPersonID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            tMHPerson {
+              id
+              email
+              firstName
+              lastName
+              image
+              phone
+              extension
+              sites
+              tmhSites {
+                items {
+                  id
+                  tMHSiteID
+                  tMHPersonID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              position
+              isTeacher
+              isStaff
+              isCoordinator
+              isOverseer
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
         position
         isTeacher
         isStaff
@@ -41304,6 +41968,58 @@ export const createTMHLocation = /* GraphQL */ `
         phone
         extension
         sites
+        tmhSites {
+          items {
+            id
+            tMHSiteID
+            tMHPersonID
+            tMHSite {
+              id
+              tmhPeople {
+                items {
+                  id
+                  tMHSiteID
+                  tMHPersonID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            tMHPerson {
+              id
+              email
+              firstName
+              lastName
+              image
+              phone
+              extension
+              sites
+              tmhSites {
+                items {
+                  id
+                  tMHSiteID
+                  tMHPersonID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              position
+              isTeacher
+              isStaff
+              isCoordinator
+              isOverseer
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
         position
         isTeacher
         isStaff
@@ -41420,6 +42136,58 @@ export const updateTMHLocation = /* GraphQL */ `
         phone
         extension
         sites
+        tmhSites {
+          items {
+            id
+            tMHSiteID
+            tMHPersonID
+            tMHSite {
+              id
+              tmhPeople {
+                items {
+                  id
+                  tMHSiteID
+                  tMHPersonID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            tMHPerson {
+              id
+              email
+              firstName
+              lastName
+              image
+              phone
+              extension
+              sites
+              tmhSites {
+                items {
+                  id
+                  tMHSiteID
+                  tMHPersonID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              position
+              isTeacher
+              isStaff
+              isCoordinator
+              isOverseer
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
         position
         isTeacher
         isStaff
@@ -41438,6 +42206,58 @@ export const updateTMHLocation = /* GraphQL */ `
         phone
         extension
         sites
+        tmhSites {
+          items {
+            id
+            tMHSiteID
+            tMHPersonID
+            tMHSite {
+              id
+              tmhPeople {
+                items {
+                  id
+                  tMHSiteID
+                  tMHPersonID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            tMHPerson {
+              id
+              email
+              firstName
+              lastName
+              image
+              phone
+              extension
+              sites
+              tmhSites {
+                items {
+                  id
+                  tMHSiteID
+                  tMHPersonID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              position
+              isTeacher
+              isStaff
+              isCoordinator
+              isOverseer
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
         position
         isTeacher
         isStaff
@@ -41554,6 +42374,58 @@ export const deleteTMHLocation = /* GraphQL */ `
         phone
         extension
         sites
+        tmhSites {
+          items {
+            id
+            tMHSiteID
+            tMHPersonID
+            tMHSite {
+              id
+              tmhPeople {
+                items {
+                  id
+                  tMHSiteID
+                  tMHPersonID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            tMHPerson {
+              id
+              email
+              firstName
+              lastName
+              image
+              phone
+              extension
+              sites
+              tmhSites {
+                items {
+                  id
+                  tMHSiteID
+                  tMHPersonID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              position
+              isTeacher
+              isStaff
+              isCoordinator
+              isOverseer
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
         position
         isTeacher
         isStaff
@@ -41572,6 +42444,58 @@ export const deleteTMHLocation = /* GraphQL */ `
         phone
         extension
         sites
+        tmhSites {
+          items {
+            id
+            tMHSiteID
+            tMHPersonID
+            tMHSite {
+              id
+              tmhPeople {
+                items {
+                  id
+                  tMHSiteID
+                  tMHPersonID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            tMHPerson {
+              id
+              email
+              firstName
+              lastName
+              image
+              phone
+              extension
+              sites
+              tmhSites {
+                items {
+                  id
+                  tMHSiteID
+                  tMHPersonID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              position
+              isTeacher
+              isStaff
+              isCoordinator
+              isOverseer
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
         position
         isTeacher
         isStaff
@@ -41583,6 +42507,426 @@ export const deleteTMHLocation = /* GraphQL */ `
       showInLocationMap
       showInLocationList
       locationType
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createSitePerson = /* GraphQL */ `
+  mutation CreateSitePerson(
+    $input: CreateSitePersonInput!
+    $condition: ModelSitePersonConditionInput
+  ) {
+    createSitePerson(input: $input, condition: $condition) {
+      id
+      tMHSiteID
+      tMHPersonID
+      tMHSite {
+        id
+        tmhPeople {
+          items {
+            id
+            tMHSiteID
+            tMHPersonID
+            tMHSite {
+              id
+              tmhPeople {
+                items {
+                  id
+                  tMHSiteID
+                  tMHPersonID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            tMHPerson {
+              id
+              email
+              firstName
+              lastName
+              image
+              phone
+              extension
+              sites
+              tmhSites {
+                items {
+                  id
+                  tMHSiteID
+                  tMHPersonID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              position
+              isTeacher
+              isStaff
+              isCoordinator
+              isOverseer
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      tMHPerson {
+        id
+        email
+        firstName
+        lastName
+        image
+        phone
+        extension
+        sites
+        tmhSites {
+          items {
+            id
+            tMHSiteID
+            tMHPersonID
+            tMHSite {
+              id
+              tmhPeople {
+                items {
+                  id
+                  tMHSiteID
+                  tMHPersonID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            tMHPerson {
+              id
+              email
+              firstName
+              lastName
+              image
+              phone
+              extension
+              sites
+              tmhSites {
+                items {
+                  id
+                  tMHSiteID
+                  tMHPersonID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              position
+              isTeacher
+              isStaff
+              isCoordinator
+              isOverseer
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        position
+        isTeacher
+        isStaff
+        isCoordinator
+        isOverseer
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateSitePerson = /* GraphQL */ `
+  mutation UpdateSitePerson(
+    $input: UpdateSitePersonInput!
+    $condition: ModelSitePersonConditionInput
+  ) {
+    updateSitePerson(input: $input, condition: $condition) {
+      id
+      tMHSiteID
+      tMHPersonID
+      tMHSite {
+        id
+        tmhPeople {
+          items {
+            id
+            tMHSiteID
+            tMHPersonID
+            tMHSite {
+              id
+              tmhPeople {
+                items {
+                  id
+                  tMHSiteID
+                  tMHPersonID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            tMHPerson {
+              id
+              email
+              firstName
+              lastName
+              image
+              phone
+              extension
+              sites
+              tmhSites {
+                items {
+                  id
+                  tMHSiteID
+                  tMHPersonID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              position
+              isTeacher
+              isStaff
+              isCoordinator
+              isOverseer
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      tMHPerson {
+        id
+        email
+        firstName
+        lastName
+        image
+        phone
+        extension
+        sites
+        tmhSites {
+          items {
+            id
+            tMHSiteID
+            tMHPersonID
+            tMHSite {
+              id
+              tmhPeople {
+                items {
+                  id
+                  tMHSiteID
+                  tMHPersonID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            tMHPerson {
+              id
+              email
+              firstName
+              lastName
+              image
+              phone
+              extension
+              sites
+              tmhSites {
+                items {
+                  id
+                  tMHSiteID
+                  tMHPersonID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              position
+              isTeacher
+              isStaff
+              isCoordinator
+              isOverseer
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        position
+        isTeacher
+        isStaff
+        isCoordinator
+        isOverseer
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteSitePerson = /* GraphQL */ `
+  mutation DeleteSitePerson(
+    $input: DeleteSitePersonInput!
+    $condition: ModelSitePersonConditionInput
+  ) {
+    deleteSitePerson(input: $input, condition: $condition) {
+      id
+      tMHSiteID
+      tMHPersonID
+      tMHSite {
+        id
+        tmhPeople {
+          items {
+            id
+            tMHSiteID
+            tMHPersonID
+            tMHSite {
+              id
+              tmhPeople {
+                items {
+                  id
+                  tMHSiteID
+                  tMHPersonID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            tMHPerson {
+              id
+              email
+              firstName
+              lastName
+              image
+              phone
+              extension
+              sites
+              tmhSites {
+                items {
+                  id
+                  tMHSiteID
+                  tMHPersonID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              position
+              isTeacher
+              isStaff
+              isCoordinator
+              isOverseer
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      tMHPerson {
+        id
+        email
+        firstName
+        lastName
+        image
+        phone
+        extension
+        sites
+        tmhSites {
+          items {
+            id
+            tMHSiteID
+            tMHPersonID
+            tMHSite {
+              id
+              tmhPeople {
+                items {
+                  id
+                  tMHSiteID
+                  tMHPersonID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            tMHPerson {
+              id
+              email
+              firstName
+              lastName
+              image
+              phone
+              extension
+              sites
+              tmhSites {
+                items {
+                  id
+                  tMHSiteID
+                  tMHPersonID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              position
+              isTeacher
+              isStaff
+              isCoordinator
+              isOverseer
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        position
+        isTeacher
+        isStaff
+        isCoordinator
+        isOverseer
+        createdAt
+        updatedAt
+      }
       createdAt
       updatedAt
     }
