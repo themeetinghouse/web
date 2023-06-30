@@ -4,6 +4,7 @@ import ListWrapper from './ListWrapper';
 
 type TMHCarouselProps = {
   content: any;
+  isFromList?: boolean;
 };
 
 const TMHCarousel = (props: TMHCarouselProps) => {
@@ -24,7 +25,10 @@ const TMHCarousel = (props: TMHCarouselProps) => {
           {items.map((link: any) => {
             return (
               <div className="TMHCarouselItem" key={link?.navigateTo}>
-                <LinkCarouselItem link={link}></LinkCarouselItem>
+                <LinkCarouselItem
+                  isFromList={props.isFromList}
+                  link={link}
+                ></LinkCarouselItem>
               </div>
             );
           })}

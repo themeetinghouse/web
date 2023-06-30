@@ -1,14 +1,21 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import RenderRouter from '../RenderRouter/RenderRouter';
-import { Analytics } from 'aws-amplify';
+import { Analytics, Storage } from 'aws-amplify';
 
-const seriesContent = fetch(`/static/content/series-archive.json`)
-  .then((response) => response.json())
-  .catch((e: any) => console.log(e));
-const videoContent = fetch(`/static/content/video-archive.json`)
-  .then((response) => response.json())
-  .catch((e: any) => console.log(e));
+const seriesContent = Storage.get('savedContent/series-archive.json')
+  .then(async (url) => {
+    const response = await fetch(url);
+    return response.json();
+  })
+  .catch((e) => console.log(e));
+
+const videoContent = Storage.get('savedContent/video-archive.json')
+  .then(async (url) => {
+    const response = await fetch(url);
+    return response.json();
+  })
+  .catch((e) => console.log(e));
 
 interface Params {
   archiveType: string;

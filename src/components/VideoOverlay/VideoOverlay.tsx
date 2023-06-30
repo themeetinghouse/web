@@ -2,24 +2,27 @@ import React from 'react';
 import RenderRouter from '../RenderRouter/RenderRouter';
 import { Modal, ModalBody, ModalFooter } from 'reactstrap';
 import './VideoOverlay.scss';
-
-const searchPageContent = fetch('/static/content/search.json')
-  .then(function (response) {
+import { Storage } from 'aws-amplify';
+const searchPageContent = Storage.get('savedContent/search.json')
+  .then(async (url) => {
+    const response = await fetch(url);
     return response.json();
   })
   .catch((e) => console.log(e));
 
-const playerPageContent = fetch('/static/content/video-player.json')
-  .then(function (response) {
+const playerPageContent = Storage.get('savedContent/video-player.json')
+  .then(async (url) => {
+    const response = await fetch(url);
     return response.json();
   })
-  .catch((e: any) => console.log(e));
+  .catch((e) => console.log(e));
 
-const playlistPageContent = fetch('/static/content/video-playlist.json')
-  .then(function (response) {
+const playlistPageContent = Storage.get('savedContent/video-playlist.json')
+  .then(async (url) => {
+    const response = await fetch(url);
     return response.json();
   })
-  .catch((e: any) => console.log(e));
+  .catch((e) => console.log(e));
 
 interface Props {
   data: any;

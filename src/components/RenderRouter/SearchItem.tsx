@@ -125,6 +125,7 @@ export default function SearchItem(props: SearchItemProps) {
   };
 
   const searchCustom = async (searchTerm: string) => {
+    return;
     try {
       const response = await fetch(
         '/static/content/search/' + searchTerm + '.json'

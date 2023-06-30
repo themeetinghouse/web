@@ -1,0 +1,60 @@
+.MenuContainer {
+  background-color: #efefef;
+  display: flex;
+  flex-direction: column;
+  min-width: 20%;
+  height: fit-content;
+}
+
+.Card {
+  background-color: #fff;
+  transition: transform 0.2s;
+}
+.Card:hover {
+  transform: scale(1.01);
+  outline: 2px lightgrey solid;
+  z-index: 1000000000;
+  transition: transform 0.2s;
+}
+
+.MenuItem {
+  padding: 10px;
+  display: flex;
+  font-size: 15px;
+  flex-direction: row;
+  border-bottom: 1px solid #ccc;
+  background-color: transparent;
+  color: #666666;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  border-right: 3px solid transparent;
+
+  img {
+    margin-left: 8px;
+  }
+}
+.mini {
+  font-size: 13px;
+  padding-left: 20px;
+}
+.MenuTitle {
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid #d3d3d3;
+  background-color: transparent;
+
+  cursor: pointer;
+  text-align: left;
+  border-right: 3px solid transparent;
+}
+.MenuActiveItem {
+  background-color: #e3e3e3;
+  border-right: 3px solid grey;
+  color: #404040;
+  font-weight: 600;
+}
+
+.MenuItem:hover {
+  background-color: #e3e3e3;
+}

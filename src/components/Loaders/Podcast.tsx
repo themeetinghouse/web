@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 import VideoOverlay from '../../components/VideoOverlay/VideoOverlay';
+import { Storage } from 'aws-amplify';
 export default function Podcast() {
   const match = useRouteMatch<{ pod?: string }>();
   const [content, setContent] = useState<Record<string, unknown>>();
@@ -8,7 +9,10 @@ export default function Podcast() {
 
   useEffect(() => {
     async function fetchPageData() {
-      const response = await fetch('/static/content/podcast-player.json');
+      const podcastPlayerURL = await Storage.get(
+        'savedContent/podcast-player.json'
+      );
+      const response = await fetch(podcastPlayerURL);
       const json = await response.json();
       setContent(json);
     }

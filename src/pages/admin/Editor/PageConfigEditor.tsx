@@ -1,10 +1,14 @@
-import { S3ProviderListOutputItem } from '@aws-amplify/storage';
 import { Storage } from 'aws-amplify';
 import React, { useEffect, useState } from 'react';
 import { Button, Modal } from 'reactstrap';
 import { v4 as uuidv4 } from 'uuid';
-import { EditorContext } from './EditorContext';
-
+import FieldMap from './utils/FieldMap.json';
+import { recurseEdit } from './Editor';
+import {
+  EditorPageActionType,
+  useEditorPageContext,
+} from './contexts/EditorPageContext';
+const FieldName: any = FieldMap;
 type Props = {
   folder: string;
   onChange(url: string): void;
@@ -50,15 +54,20 @@ const ImageModal = (props: Props) => {
     loadFiles();
   }, []);
   return (
-    <>
+    <div style={{ display: 'flex', flexDirection: 'row', flex: 1 }}>
       <button
         onClick={() => {
           setShowImageModal(true);
         }}
+        type="button"
+        style={{
+          border: 'none',
+          backgroundColor: 'transparent',
+        }}
       >
-        Pick an Image
+        <img src="/static/svg/Download.svg" width={15} height={15} />
       </button>
-      <Modal style={{ zIndex: 100001 }} isOpen={showImageModal}>
+      <Modal style={{ zIndex: 100001 }} isOpen={showImageModal} size="xl">
         <div>
           {files?.map((item) => {
             console.log(item);
@@ -90,7 +99,7 @@ const ImageModal = (props: Props) => {
           Done
         </Button>
       </Modal>
-    </>
+    </div>
   );
 };
 
@@ -99,10 +108,11 @@ type PropsEditor = {
   list: Record<string, any>;
 };
 export const RenderEditorList = (props: PropsEditor): any => {
-  const content = React.useContext(EditorContext);
+  const { state, dispatch } = useEditorPageContext();
+  const { content } = state;
   console.log({ parents: props.parents });
   console.log({ list: props.list });
-  let currentItem: any = content.content;
+  let currentItem: any = content;
   props.parents.forEach((z) => {
     currentItem = currentItem[z] as any;
   });
@@ -120,89 +130,171 @@ export const RenderEditorList = (props: PropsEditor): any => {
       switch (item.type) {
         case 'array':
           return (
-            <div>
-              {item.fieldName}:
+            <div style={{ padding: 30, backgroundColor: 'gold' }}>
+              <label>{FieldName[item.fieldName] ?? item.fieldName}:</label>
               <div style={{ borderWidth: 1 }}>
                 {(currentItem as any)[item.fieldName]?.map(
                   (z: any, index: number) => {
                     return (
-                      <>
+                      <div
+                        key={index}
+                        style={{
+                          display: 'flex',
+                          flexDirection: 'row',
+                          flex: 1,
+                          backgroundColor: index % 2 == 0 ? 'tomato' : 'green',
+                          padding: 4,
+                        }}
+                      >
                         <RenderEditorList
                           key={index}
                           parents={[...props.parents, item.fieldName, index]}
                           list={item.fields}
                         />
                         <button
+                          style={{
+                            border: 'none',
+                            backgroundColor: 'transparent',
+                          }}
                           onClick={() => {
                             const arr1 = [
                               ...(currentItem as any)[item.fieldName],
                             ];
                             arr1.splice(index, 1);
-                            content.editContent(
+                            const newContent = recurseEdit(
+                              content,
                               props.parents,
                               item.fieldName,
                               arr1
                             );
+                            dispatch({
+                              type: EditorPageActionType.UPDATE_CONTENT,
+                              payload: newContent,
+                            });
                           }}
                         >
-                          delete item
+                          <img
+                            src="/static/svg/Delete.svg"
+                            width={15}
+                            height={15}
+                          />
                         </button>
-                      </>
+                      </div>
                     );
                   }
                 )}
               </div>
               <button
+                style={{ backgroundColor: 'transparent', border: 'none' }}
                 onClick={() => {
-                  content.editContent(props.parents, item.fieldName, [
-                    ...(currentItem as any)[item.fieldName],
-                    item.default,
-                  ]);
+                  const newContent = recurseEdit(
+                    content,
+                    props.parents,
+                    item.fieldName,
+                    [...(currentItem as any)[item.fieldName], item.default]
+                  );
+                  dispatch({
+                    type: EditorPageActionType.UPDATE_CONTENT,
+                    payload: newContent,
+                  });
                 }}
               >
-                add item
+                <span>Add Image</span>
+                <img src="/static/svg/Plus-Expand.svg" width={15} height={15} />
               </button>
             </div>
           );
           break;
         case 'image':
           return (
-            <>
+            <div
+              style={{
+                display: 'flex',
+                flex: 1,
+                backgroundColor: 'cyan',
+                flexDirection: 'column',
+              }}
+            >
               <input
                 name={item.fieldName}
                 type="text"
+                style={{
+                  borderRadius: 0,
+                  backgroundColor: 'teal',
+                  border: '1px solid lightgrey',
+                  padding: 8,
+                }}
                 value={(currentItem as any)[item.fieldName]}
                 onChange={(value) => {
-                  content.editContent(
+                  const newContent = recurseEdit(
+                    content,
                     props.parents,
                     item.fieldName,
                     value.target.value
                   );
+                  dispatch({
+                    type: EditorPageActionType.UPDATE_CONTENT,
+                    payload: newContent,
+                  });
                 }}
               />
 
               <ImageModal
                 onChange={(url) => {
-                  content.editContent(props.parents, item.fieldName, url);
+                  const newContent = recurseEdit(
+                    content,
+                    props.parents,
+                    item.fieldName,
+                    url
+                  );
+                  dispatch({
+                    type: EditorPageActionType.UPDATE_CONTENT,
+                    payload: newContent,
+                  });
                 }}
                 folder={item.folder}
               ></ImageModal>
-            </>
+            </div>
           );
           break;
         case 'string':
           return (
-            <div>
-              {item.fieldName}:
+            <label
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+              }}
+            >
+              <span
+                style={{
+                  flex: 1,
+                  marginBottom: 4,
+                  marginTop: 4,
+                }}
+              >
+                {FieldName[item.fieldName] ?? item.fieldName}:
+              </span>
+
               {item.options ? (
                 <select
+                  style={{
+                    padding: 12,
+                    flex: 1,
+                    border: '1px solid lightgrey',
+                    borderRadius: 0,
+                  }}
                   value={(currentItem as any)[item.fieldName]}
                   onChange={(value) => {
-                    content.editContent(
+                    const newContent = recurseEdit(
+                      content,
                       props.parents,
                       item.fieldName,
                       value.target.value
                     );
+                    dispatch({
+                      type: EditorPageActionType.UPDATE_CONTENT,
+                      payload: newContent,
+                    });
                   }}
                 >
                   {item.options.map((z) => {
@@ -215,36 +307,55 @@ export const RenderEditorList = (props: PropsEditor): any => {
                 </select>
               ) : (
                 <input
+                  style={{
+                    padding: 8,
+
+                    flex: 1,
+                    border: '1px solid lightgrey',
+                    borderRadius: 0,
+                  }}
                   name={item.fieldName}
                   type="text"
                   value={(currentItem as any)[item.fieldName]}
                   onChange={(value) => {
-                    content.editContent(
+                    const newContent = recurseEdit(
+                      content,
                       props.parents,
                       item.fieldName,
                       value.target.value
                     );
+
+                    console.log({ newContent });
+                    dispatch({
+                      type: EditorPageActionType.UPDATE_CONTENT,
+                      payload: newContent,
+                    });
                   }}
                 />
               )}
-            </div>
+            </label>
           );
           break;
         case 'boolean':
           return (
             <div>
-              {item.fieldName}:{' '}
+              <label>{FieldName[item.fieldName] ?? item.fieldName}: </label>
               <input
                 name={item.fieldName}
                 type="checkbox"
                 checked={(currentItem as any)[item.fieldName]}
                 onChange={(value) => {
                   console.log(value.target.value);
-                  content.editContent(
+                  const newContent = recurseEdit(
+                    content,
                     props.parents,
                     item.fieldName,
                     !(currentItem as any)[item.fieldName]
                   );
+                  dispatch({
+                    type: EditorPageActionType.UPDATE_CONTENT,
+                    payload: newContent,
+                  });
                 }}
               />
             </div>
@@ -264,252 +375,3 @@ export const RenderEditorList = (props: PropsEditor): any => {
     }
   );
 };
-
-export const PageConfigEditor = () => {
-  const content = React.useContext(EditorContext);
-
-  return (
-    <>
-      <button
-        onClick={() => {
-          content.newContent();
-        }}
-      >
-        New
-      </button>
-      <SaveModal />
-      <LoadModal />
-      <PageSettingsModal />
-      <AddListModal />
-    </>
-  );
-};
-
-function LoadModal() {
-  const [loadContent, setLoadContent] = useState<S3ProviderListOutputItem[]>(
-    []
-  );
-
-  const content = React.useContext(EditorContext);
-  const [saveModalVisible, setSaveModalVisible] = useState(false);
-  useEffect(() => {
-    const updateLoadContent = async () => {
-      setLoadContent(await Storage.list('savedContent/'));
-    };
-    updateLoadContent();
-  }, [saveModalVisible]);
-
-  const loadFile = async (location: string) => {
-    try {
-      await content.loadContent(location);
-    } catch (e) {
-      console.log({ e: e });
-    }
-  };
-
-  return (
-    <>
-      <Button
-        style={{ zIndex: 100000 }}
-        onClick={() => {
-          setSaveModalVisible(true);
-        }}
-      >
-        Load...
-      </Button>
-      <Modal isOpen={saveModalVisible} style={{ zIndex: 100000 }}>
-        {loadContent.map((item) => {
-          return (
-            <div
-              onClick={() => {
-                loadFile(item.key ?? 'unknown');
-                setSaveModalVisible(false);
-              }}
-              key={item.key}
-            >
-              {item.key?.replace('savedContent/', '')}
-            </div>
-          );
-        })}
-
-        <Button
-          onClick={() => {
-            setSaveModalVisible(false);
-          }}
-        >
-          Cancel
-        </Button>
-      </Modal>
-    </>
-  );
-}
-
-function SaveModal() {
-  const [savedContent, setSavedContent] = useState<S3ProviderListOutputItem[]>(
-    []
-  );
-  const [saveLocation, setSaveLocation] = useState<string>('');
-
-  const content = React.useContext(EditorContext);
-  const [saveModalVisible, setSaveModalVisible] = useState(false);
-  useEffect(() => {
-    const updateSavedContent = async () => {
-      setSavedContent(await Storage.list('savedContent/'));
-    };
-    updateSavedContent();
-  }, [saveModalVisible]);
-
-  const saveFile = async (location: string, json: any) => {
-    try {
-      await Storage.put('savedContent/' + location + '.json', json, {
-        contentType: 'application/json',
-        acl: 'public-read',
-      });
-      await Storage.put(
-        'savedContent/' + location + '.json.' + Date.now().toString(),
-        json,
-        {
-          contentType: 'application/json',
-          acl: 'public-read',
-        }
-      );
-    } catch (e) {
-      console.log({ e: e });
-    }
-  };
-
-  return (
-    <>
-      <Button
-        style={{ zIndex: 100000 }}
-        onClick={() => {
-          setSaveModalVisible(true);
-        }}
-      >
-        Save...
-      </Button>
-      <Modal isOpen={saveModalVisible} style={{ zIndex: 100000 }}>
-        {savedContent.map((item) => {
-          return (
-            <div key={item.key}>
-              {item.key?.replace('savedContent/', '').replace('.json', '')}
-            </div>
-          );
-        })}
-        <div>
-          Filename:
-          <input
-            type="text"
-            value={saveLocation}
-            onChange={(e) => {
-              setSaveLocation(e.target.value);
-            }}
-          />
-        </div>
-        <Button
-          onClick={() => {
-            saveFile(saveLocation, content.content);
-            setSaveModalVisible(false);
-          }}
-        >
-          Done
-        </Button>
-      </Modal>
-    </>
-  );
-}
-function PageSettingsModal() {
-  const [modalVisible, setModalVisible] = useState(false);
-  const [editorList, setEditorList] = useState<any>();
-  useEffect(() => {
-    const updateEditorList = async () => {
-      try {
-        const z = await fetch('/static/editor/PageEditorFields.json');
-        const z1 = await z.json();
-        setEditorList(z1);
-      } catch (e) {
-        console.log({ e: e });
-      }
-    };
-    updateEditorList();
-  }, []);
-  return (
-    <>
-      <Button
-        style={{ zIndex: 100000 }}
-        onClick={() => {
-          setModalVisible(true);
-        }}
-      >
-        Page Settings
-      </Button>
-      <Modal isOpen={modalVisible} style={{ zIndex: 100000 }}>
-        {editorList ? (
-          <RenderEditorList parents={['page']} list={editorList} />
-        ) : null}
-        <Button
-          onClick={() => {
-            setModalVisible(false);
-          }}
-        >
-          Done
-        </Button>
-      </Modal>
-    </>
-  );
-}
-function AddListModal() {
-  const [addModalVisible, setAddModalVisible] = useState(false);
-  const content = React.useContext(EditorContext);
-  const [addList, setAddList] = useState<any>();
-
-  useEffect(() => {
-    const updateEditorList = async () => {
-      try {
-        const z2 = await fetch('/static/editor/AddFields.json');
-        const z3 = await z2.json();
-        setAddList(z3);
-      } catch (e) {
-        console.log({ e: e });
-      }
-    };
-    updateEditorList();
-  }, []);
-  const renderAddList = (list: Record<string, any>) => {
-    return list?.map((item: any) => {
-      return (
-        <Button
-          onClick={() => {
-            content.addContent(item.content);
-            setAddModalVisible(false);
-          }}
-          key={item.name}
-        >
-          {item.name}
-        </Button>
-      );
-    });
-  };
-  return (
-    <>
-      <Button
-        style={{ zIndex: 100000 }}
-        onClick={() => {
-          setAddModalVisible(true);
-        }}
-      >
-        Add Component
-      </Button>
-      <Modal isOpen={addModalVisible} style={{ zIndex: 100000 }}>
-        {addList ? renderAddList(addList) : null}
-        <Button
-          onClick={() => {
-            setAddModalVisible(false);
-          }}
-        >
-          Done
-        </Button>
-      </Modal>
-    </>
-  );
-}

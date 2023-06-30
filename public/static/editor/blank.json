@@ -1,0 +1,19 @@
+{
+  "page": {
+    "name": "blankpage",
+    "title": "The Meeting House - New Page",
+    "keywords": "Church, Toronto, Anabaptist, Christian, Jesus, Home church, Be In Christ, Spirituality, Christianity",
+    "description": "When’s the last time someone asked you what you believe? We’re a church that loves to ask questions, and loves people with questions. We don’t have all the answers, but exploring together is pretty much our favourite thing.",
+    "pageConfig": {
+      "showLive": true,
+      "movingMenu": true,
+      "showLogoText": true,
+      "logoColor": "black",
+      "showSearch": true,
+      "showFooter": false,
+      "showMenu": true,
+      "weatherAlert": false
+    },
+    "content": []
+  }
+}

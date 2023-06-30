@@ -53,7 +53,7 @@ export default function LocationsModal({
   const [result, setResult] = useState<boolean>(false);
   const [errorMessages, setErrorMessages] = useState<string[]>([]);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log({ locationData });
+    console.log(`updating ${e.target.name} to ${e.target.value}`);
     let newValue: string | boolean = e.target.value;
     let fieldName = e.target.name;
     if (
@@ -64,12 +64,17 @@ export default function LocationsModal({
     }
     if (e.target.name.includes('location.')) {
       fieldName = e.target.name.replace('location.', '');
-      console.log({ fieldName });
-    }
-    setLocationData((prev) => ({
-      ...(prev as TMHLocation),
-      [fieldName]: newValue,
-    }));
+      setLocationData((prev) => ({
+        ...(prev as TMHLocation),
+        location: {
+          [fieldName]: newValue,
+        } as any,
+      }));
+    } else
+      setLocationData((prev) => ({
+        ...(prev as TMHLocation),
+        [fieldName]: newValue,
+      }));
   };
 
   useEffect(() => {

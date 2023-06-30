@@ -5,28 +5,42 @@ type ContainerProps = {
   paginationIndex: number;
   length: number;
   paginateCount?: number;
+  showPageCount?: boolean;
 };
 
 export default function TransactionPaginate(
   props: ContainerProps
 ): JSX.Element {
-  const { setPaginationIndex, paginationIndex, length } = props;
-  const itemsCount = props?.paginateCount ?? 10;
+  const {
+    setPaginationIndex,
+    paginationIndex,
+    length,
+    paginateCount = 10,
+    showPageCount,
+  } = props;
   return (
     <div className="TransactionPaginateContainer">
+      {showPageCount ? (
+        <span>
+          {`Page ${paginationIndex / paginateCount + 1} of ${Math.ceil(
+            length / paginateCount
+          )}`}
+        </span>
+      ) : null}
+
       <PaginateButton
         direction="Left"
         handlePaginate={() =>
-          paginationIndex <= itemsCount
+          paginationIndex <= paginateCount
             ? setPaginationIndex(0)
-            : setPaginationIndex((prev) => prev - itemsCount)
+            : setPaginationIndex((prev) => prev - paginateCount)
         }
       ></PaginateButton>
       <PaginateButton
         direction="Right"
         handlePaginate={() =>
-          paginationIndex < length - itemsCount
-            ? setPaginationIndex((prev) => prev + itemsCount)
+          paginationIndex < length - paginateCount
+            ? setPaginationIndex((prev) => prev + paginateCount)
             : null
         }
       ></PaginateButton>
