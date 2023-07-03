@@ -181,7 +181,7 @@ class HorizontalScrollList extends React.Component<Props, State> {
         <div
           className={
             'HorizontalScrollListContainer' +
-            (this.props.darkMode ? 'dark' : '')
+            (this.props.darkMode ? ' dark' : '')
           }
         >
           <div
