@@ -4105,6 +4105,7 @@ function HeroEditImageComponent({ component, setComponent }: any) {
           }}
         >
           <LocationsTMHButton
+            disabled={showAddNew && !newImage.src}
             link={!showAddNew}
             style={!showAddNew ? { paddingLeft: 0 } : { marginTop: 20 }}
             onClick={() =>
