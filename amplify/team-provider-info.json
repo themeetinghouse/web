@@ -527,7 +527,7 @@
           "userPoolWebClientId": "4r6fjaifitufbsl1qcju0f9jbt",
           "identityPoolId": "us-east-1:3ff56cd7-e4b2-4543-aed6-94f258a95dd8",
           "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
-          "s3Key": "amplify-builds/cognitodevtmhPostAuthentication-5753364a45725056716b-build.zip"
+          "s3Key": "amplify-builds/cognitodevtmhPostAuthentication-67717274375759466979-build.zip"
         },
         "cognitodevtmhPreSignup": {
           "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
@@ -538,7 +538,7 @@
           "userPoolWebClientId": "4r6fjaifitufbsl1qcju0f9jbt",
           "identityPoolId": "us-east-1:3ff56cd7-e4b2-4543-aed6-94f258a95dd8",
           "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
-          "s3Key": "amplify-builds/cognitodevtmhPreTokenGeneration-7658786d78656b6a4f31-build.zip"
+          "s3Key": "amplify-builds/cognitodevtmhPreTokenGeneration-79564a706876496e7661-build.zip"
         },
         "themeetinghousea5cd4619": {
           "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
@@ -648,7 +648,7 @@
         },
         "AdminQueriesa1b7e2e8": {
           "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
-          "s3Key": "amplify-builds/AdminQueriesa1b7e2e8-316a696d69555a315367-build.zip"
+          "s3Key": "amplify-builds/AdminQueriesa1b7e2e8-785447796955366e496c-build.zip"
         },
         "tmhF1LinkUser": {
           "userPoolId": "us-east-1_SuPgaibT1",

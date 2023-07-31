@@ -22,5 +22,17 @@
   {
     "groupName": "PaymentService",
     "precedence": 6
+  },
+  {
+    "groupName": "LocationManager",
+    "precedence": 7
+  },
+  {
+    "groupName": "GlobalContentManager",
+    "precedence": 8
+  },
+  {
+    "groupName": "WebEditorManager",
+    "precedence": 9
   }
 ]

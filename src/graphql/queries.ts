@@ -27993,6 +27993,94 @@ export const listTMHPeople = /* GraphQL */ `
     }
   }
 `;
+export const tMHPersonByEmail = /* GraphQL */ `
+  query TMHPersonByEmail(
+    $email: AWSEmail!
+    $sortDirection: ModelSortDirection
+    $filter: ModelTMHPersonFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    TMHPersonByEmail(
+      email: $email
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        email
+        firstName
+        lastName
+        image
+        phone
+        extension
+        sites
+        tmhSites {
+          items {
+            id
+            tMHSiteID
+            tMHPersonID
+            tMHSite {
+              id
+              tmhPeople {
+                items {
+                  id
+                  tMHSiteID
+                  tMHPersonID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            tMHPerson {
+              id
+              email
+              firstName
+              lastName
+              image
+              phone
+              extension
+              sites
+              tmhSites {
+                items {
+                  id
+                  tMHSiteID
+                  tMHPersonID
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              position
+              isTeacher
+              isStaff
+              isCoordinator
+              isOverseer
+              createdAt
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        position
+        isTeacher
+        isStaff
+        isCoordinator
+        isOverseer
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const tMHPersonByIsTeacher = /* GraphQL */ `
   query TMHPersonByIsTeacher(
     $isTeacher: String!

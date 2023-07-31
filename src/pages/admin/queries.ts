@@ -5,7 +5,20 @@ export const getInstagram = /* GraphQL */ `
     }
   }
 `;
-
+export const listTMHUsers = /* GraphQL */ `
+  query ListTMHUsers(
+    $filter: ModelTMHUserFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listTMHUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+      }
+      nextToken
+    }
+  }
+`;
 export const listSpeakers = /* GraphQL */ `
   query ListSpeakers(
     $filter: ModelSpeakerFilterInput

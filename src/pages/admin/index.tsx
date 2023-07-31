@@ -14,7 +14,9 @@ const Redirect = lazy(() => import('../../pages/admin/Redirect'));
 const Editor = lazy(() => import('./Editor/Editor'));
 const PeopleManager = lazy(() => import('./PeopleManager/PeopleManager'));
 const LocationsManager = lazy(() => import('./locations/locations'));
-
+const PermissionsManager = lazy(
+  () => import('./PermissionsManager/PermissionsManager')
+);
 class Admin extends React.Component {
   render() {
     return (
@@ -38,6 +40,10 @@ class Admin extends React.Component {
           />
           <Route path="/account/admin/livestream" render={() => <AddLive />} />
           <Route path="/account/admin/videos" render={() => <VideoManager />} />
+          <Route
+            path="/account/admin/permissions"
+            render={() => <PermissionsManager />}
+          />
           <Route path="/account/admin/instagram" render={() => <GetInsta />} />
           <Route path="/account/admin/editor" render={() => <Editor />} />
           <Route

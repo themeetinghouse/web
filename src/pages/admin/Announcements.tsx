@@ -7,6 +7,7 @@ import {
   Announcement as AnnouncementType,
   CreateAnnouncementMutationVariables,
   ListAnnouncementsQuery,
+  TMHPersonByEmailQuery,
   TmhPinpointCreateCampaignQuery,
   TmhPinpointListSegmentsQuery,
 } from 'API';
@@ -23,8 +24,9 @@ import {
   DeleteAnnouncementMutation,
   UpdateAnnouncementMutation,
 } from 'API';
-import DataLoader, { LocationData } from 'components/RenderRouter/DataLoader';
+import DataLoader from 'components/RenderRouter/DataLoader';
 import Announcement from 'pages/admin/Announcements/Announcement';
+import { Auth } from 'aws-amplify';
 
 type AnnouncementData = CreateAnnouncementMutationVariables['input'];
 
@@ -66,23 +68,57 @@ export default function Announcements(): JSX.Element {
   const [announcements, setAnnouncements] = useState<Array<AnnouncementData>>(
     []
   );
-
+  const [error, setError] = useState('');
   /* ========================== Populates Location Filter Dropdown ========================= */
   const fetchLocations = async (): Promise<void> => {
-    const data: LocationData[] = await DataLoader.getLocations({
-      class: 'locations',
-    });
+    const data = await DataLoader.loadLocations();
+    const user = await Auth.currentAuthenticatedUser();
+    const groups = user.signInUserSession.accessToken.payload['cognito:groups'];
     if (data) {
-      const locationArr = [
-        { label: 'Cross-Regional', value: 'Cross-Regional' },
-      ];
-      const transformedLocations = [
-        ...locationArr,
-        ...data.map((location) => {
-          return { label: location.name, value: location.name };
-        }),
-      ];
-      setLocations(transformedLocations);
+      if (groups.includes('LocationManager')) {
+        const currentTMHPerson = (await API.graphql({
+          query: queries.tMHPersonByEmail,
+          variables: { email: user.username },
+        })) as GraphQLResult<TMHPersonByEmailQuery>;
+        const currentPersonData =
+          currentTMHPerson.data?.TMHPersonByEmail?.items ?? [];
+        const currentPerson = currentPersonData[0];
+        if (currentPerson) {
+          const personSites = currentPerson.tmhSites?.items.map(
+            (site) => site?.tMHSite?.id
+          );
+          const filteredLocs = data.filter((location) => {
+            console.log({ location }, { personSites });
+            return personSites?.includes(location.abbreviation ?? '');
+          });
+          console.log({ filteredLocs });
+          if (!filteredLocs.length)
+            setError(
+              'You are not currently assigned to a location. Please contact an admin to be assigned to a location.'
+            );
+          setLocations(
+            filteredLocs.map((location) => {
+              return { label: location.name, value: location.name };
+            })
+          );
+          setlocationFilter(filteredLocs[0].name);
+        } else {
+          setError(
+            'You are not currently assigned to a location. Please contact an admin to be assigned to a location.'
+          );
+        }
+      } else {
+        const locationArr = [
+          { label: 'Cross-Regional', value: 'Cross-Regional' },
+        ];
+        const transformedLocations = [
+          ...locationArr,
+          ...data.map((location) => {
+            return { label: location.name, value: location.name };
+          }),
+        ];
+        setLocations(transformedLocations);
+      }
     }
   };
   /* ======================================================================================== */
@@ -1085,58 +1121,65 @@ export default function Announcements(): JSX.Element {
         <span style={{ flex: 1, fontWeight: 700, fontSize: 20 }}>
           {locationFilter} Announcements
         </span>
+        {!error ? (
+          <>
+            <label
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                marginRight: 32,
+              }}
+            >
+              Filter By Region
+              <select
+                className="regionalFilter"
+                value={locationFilter}
+                name="locationFilter"
+                onChange={(e) => {
+                  setCount(5);
+                  setlocationFilter(e.target.value);
+                }}
+              >
+                {locations && locations.length > 0
+                  ? locations.map((location: Location, index: number) => {
+                      return (
+                        <option key={index} value={location.value}>
+                          {location.label}
+                        </option>
+                      );
+                    })
+                  : null}
+              </select>
+            </label>
+            <button
+              type="button"
+              className="CreateAnnouncementButton"
+              onClick={() => setOpenCreateModal(!openCreateModal)}
+            >
+              <img
+                width={24}
+                height={24}
+                alt="AddAnnouncementIcon"
+                src="/static/svg/New-Announcement.svg"
+              ></img>
+              <span className="CreateAnnouncementButtonLabel">Create</span>
+            </button>
 
-        <label
-          style={{ display: 'flex', flexDirection: 'column', marginRight: 32 }}
-        >
-          Filter By Region
-          <select
-            className="regionalFilter"
-            value={locationFilter}
-            name="locationFilter"
-            onChange={(e) => {
-              setCount(5);
-              setlocationFilter(e.target.value);
-            }}
-          >
-            {locations && locations.length > 0
-              ? locations.map((location: Location, index: number) => {
-                  return (
-                    <option key={index} value={location.value}>
-                      {location.label}
-                    </option>
-                  );
-                })
-              : null}
-          </select>
-        </label>
-        <button
-          type="button"
-          className="CreateAnnouncementButton"
-          onClick={() => setOpenCreateModal(!openCreateModal)}
-        >
-          <img
-            width={24}
-            height={24}
-            alt="AddAnnouncementIcon"
-            src="/static/svg/New-Announcement.svg"
-          ></img>
-          <span className="CreateAnnouncementButtonLabel">Create</span>
-        </button>
-
-        <input
-          style={{
-            marginLeft: '16px',
-            marginRight: '8px',
-            transform: 'scale(1.5)',
-          }}
-          type="checkbox"
-          checked={showExpired}
-          onChange={() => {
-            setShowExpired(!showExpired);
-          }}
-        ></input>
-        <label>Show Expired</label>
+            <input
+              style={{
+                marginLeft: '16px',
+                marginRight: '8px',
+                transform: 'scale(1.5)',
+              }}
+              type="checkbox"
+              checked={showExpired}
+              onChange={() => {
+                setShowExpired(!showExpired);
+              }}
+            ></input>
+            <label>Show Expired</label>
+          </>
+        ) : null}
       </div>
       <div className="AnnouncementContainer">
         <>
@@ -1154,7 +1197,8 @@ export default function Announcements(): JSX.Element {
                 );
               return null;
             })}
-          {announcementsLength === 0 ? (
+          {error ? <div>{error}</div> : null}
+          {!error && announcementsLength === 0 ? (
             <span>No active announcements</span>
           ) : null}
           {announcementsLength > count ? (
