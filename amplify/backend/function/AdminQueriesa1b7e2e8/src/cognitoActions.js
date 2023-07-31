@@ -143,13 +143,13 @@ async function getUser(username) {
   }
 }
 
-async function listUsers(Limit, PaginationToken) {
+async function listUsers(Limit, PaginationToken, SearchQuery) {
   const params = {
     UserPoolId: userPoolId,
     ...(Limit && { Limit }),
     ...(PaginationToken && { PaginationToken }),
   };
-
+  if (SearchQuery) params.Filter = SearchQuery;
   console.log('Attempting to list users');
 
   try {

@@ -48,7 +48,10 @@
       "Elder",
       "Instagram",
       "Notes",
-      "PaymentService"
+      "PaymentService",
+      "LocationManager",
+      "GlobalContentManager",
+      "WebEditorManager"
     ],
     "userPoolGroups": true,
     "adminQueries": true,
@@ -118,9 +121,6 @@
     "authTriggerConnections": "[\n  {\n    \"triggerType\": \"PostAuthentication\",\n    \"lambdaFunctionName\": \"cognitodevtmhPostAuthentication\"\n  },\n  {\n    \"triggerType\": \"PreSignUp\",\n    \"lambdaFunctionName\": \"cognitodevtmhPreSignup\"\n  },\n  {\n    \"triggerType\": \"PreTokenGeneration\",\n    \"lambdaFunctionName\": \"cognitodevtmhPreTokenGeneration\"\n  }\n]",
     "parentStack": {
       "Ref": "AWS::StackId"
-    },
-    "facebookAppId": "abc",
-    "googleClientId": "def",
-    "amazonAppId": "fgh"
+    }
   }
-}   
+}

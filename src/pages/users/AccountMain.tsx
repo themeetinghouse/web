@@ -81,21 +81,12 @@ export default function AccountMain(): JSX.Element {
         <Elements stripe={stripePromise}>
           <MyAccountNav
             navigationItems={[
-              ...[
-                { label: 'Home', link: '/' },
-                { label: 'Give', link: '/give' },
-                { label: 'Transactions', link: '/transactions' },
-                { label: 'Payment Methods', link: '/payments' },
-                { label: 'Profile', link: '/profile' },
-              ],
-              ...(userState.groups?.includes('Admin')
-                ? [
-                    {
-                      label: 'Admin',
-                      link: '/admin',
-                    },
-                  ]
-                : []),
+              { label: 'Home', link: '/' },
+              { label: 'Give', link: '/give' },
+              { label: 'Transactions', link: '/transactions' },
+              { label: 'Payment Methods', link: '/payments' },
+              { label: 'Profile', link: '/profile' },
+              { label: 'Admin', link: '/admin' },
             ]}
             open={open}
             toggle={() => setOpen((prev) => !prev)}

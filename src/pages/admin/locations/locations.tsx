@@ -13,7 +13,13 @@ export default function Locations() {
   const [showModal, setShowModal] = useState(false);
   const [deleteID, setDeleteID] = useState('');
   const [locationData, setLocationData] = useState<TMHLocation | null>(null);
-  const { locations, isLoading, removeLocation, setLocations } = useLocations();
+  const {
+    locations,
+    isLoading,
+    removeLocation,
+    setLocations,
+    userAccessMessage,
+  } = useLocations();
   const [page, setPage] = useState(0);
   const [editMode, setEditMode] = useState(false);
   return (
@@ -37,7 +43,7 @@ export default function Locations() {
           Create
         </button>
       </div>
-
+      <div>{!isLoading ? userAccessMessage : null}</div>
       {!isLoading ? (
         <div className={styles['LocationsListContainer']}>
           <div className={styles['LocationsListHeader']}>
@@ -46,6 +52,7 @@ export default function Locations() {
             <span>Region</span>
             <span>Actions</span>
           </div>
+
           <div className={styles['LocationsListItemContainer']}>
             {locations.slice(page, page + 10).map((location, index) => (
               <div

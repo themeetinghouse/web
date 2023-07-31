@@ -357,9 +357,12 @@ export default function PeopleManagerModal({
       setIsDeleting(false);
     }
   };
-  const createTMHPerson = async (newUser: CreateTMHPersonInput) => {
+  const createTMHPerson = async (
+    newUser: CreateTMHPersonInput & { tmhSites: any }
+  ) => {
     setIsLoading(true);
     delete newUser.id;
+    delete newUser.tmhSites;
     if (!newUser.firstName && !newUser.lastName) return;
     const fullName = `${newUser.firstName}_${newUser.lastName}`;
     const fieldsThatExist = Object.keys(newUser).filter(
@@ -374,6 +377,7 @@ export default function PeopleManagerModal({
     if (file) s3Result = await uploadToS3(fullName);
     if (s3Result) newNewUser.image = s3Result;
     try {
+      console.log({ creating: newNewUser });
       const newTMHPerson = (await API.graphql({
         query: mutations.createTMHPerson,
         variables: {
@@ -381,7 +385,7 @@ export default function PeopleManagerModal({
         },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       })) as GraphQLResult<CreateTMHPersonMutation>;
-
+      console.log({ newTMHPerson });
       if (newTMHPerson?.data?.createTMHPerson) {
         const newData = newTMHPerson?.data?.createTMHPerson;
         updateCallback(newData as TMHPerson);
@@ -395,9 +399,14 @@ export default function PeopleManagerModal({
   };
 
   const handleSaveTMHPerson = async () => {
-    console.log('saving');
+    console.log('saving', selectedUser);
     if (!selectedUser) {
-      await createTMHPerson(userData);
+      console.log('theres no user. creating...');
+      try {
+        await createTMHPerson(userData);
+      } catch (e) {
+        console.log('failed to create person');
+      }
       clearFields();
       closeModal();
       return;
