@@ -13,7 +13,7 @@ interface Props {
 export default function NewGiveItem(props: Props): JSX.Element {
   const { dispatch, state } = useContext(GEContext);
   const renderGiveOtherWays = () => {
-    const links = props.content.extendedFamilyLinks;
+    const links = props.content.extendedFamilyLinks ?? [];
     return (
       <div className="GiveExtendedContainer">
         <div className="GiveItemOtherWays">

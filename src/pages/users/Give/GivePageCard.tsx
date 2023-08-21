@@ -177,7 +177,7 @@ export default function GivePageCard(props: GivePageCardProps) {
           $
         </span>
         <input
-          data-testID="Amount"
+          data-testid="Amount"
           type="number"
           placeholder="0.00"
           value={form.giveAmount}
@@ -196,7 +196,7 @@ export default function GivePageCard(props: GivePageCardProps) {
         <>
           <label htmlFor="frequency">Frequency</label>
           <select
-            data-testID="Frequency"
+            data-testid="Frequency"
             value={form.frequency}
             onChange={(e) => setForm({ ...form, frequency: e.target.value })}
             className="GiveInput"
@@ -210,7 +210,7 @@ export default function GivePageCard(props: GivePageCardProps) {
           <label htmlFor="date">Starting</label>
           <input
             min={today}
-            data-testID="StartDate"
+            data-testid="StartDate"
             className="GiveInput"
             placeholder={'YYYY-MM-DD'}
             type="date"

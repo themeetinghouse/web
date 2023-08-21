@@ -42,6 +42,7 @@ export default function GiftAmountButton(props: GiftAmountButtonProps) {
         {options?.map((option) => {
           return option === 'Other' ? (
             <div
+              key={option}
               onClick={() => setSelectedOption(option)}
               className="OptionButton"
               style={{

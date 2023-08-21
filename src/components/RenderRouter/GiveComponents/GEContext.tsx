@@ -4,6 +4,7 @@ import { GEAction, GEPage, GEState } from './GETypes';
 
 const initialState = {
   currentPage: GEPage.GIVE_NOW,
+  user: null,
 };
 
 const GEContext = createContext<{

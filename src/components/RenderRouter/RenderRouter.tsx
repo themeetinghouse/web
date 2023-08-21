@@ -236,14 +236,14 @@ class RenderRouter extends React.Component<Props, State> {
         return <SearchItem key={index} content={item} />;
       case 'payment':
         return <PaymentItem key={index} content={item} />;
-      case 'give2':
+      case 'give':
         return (
           <GEProvider>
             <NewGiveItem content={item} />
           </GEProvider>
         );
-      case 'give':
-        return <GiveItem key={index} content={item} />;
+      // case 'give':
+      //   return <GiveItem key={index} content={item} />;
       case 'regather':
         return <RegatherItem key={index} content={item} />;
       case 'event':

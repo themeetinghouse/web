@@ -121,7 +121,7 @@ export default class ConfirmSignUp extends React.Component<Props, State> {
                               //  accessibilityLabel="Go back"
                               //   accessibilityHint="Navigate to previous page"
                               //  accessibilityRole="button"
-                              data-testID="myConfirmSignup-back"
+                              data-testid="myConfirmSignup-back"
                               onClick={async () => {
                                 await this.changeAuthState(
                                   userActions,

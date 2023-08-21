@@ -22,7 +22,7 @@ export default function GiveSelect(props: GiveSelectProps) {
   }, []);
   return (
     <select
-      data-testID="FundType"
+      data-testid="FundType"
       value={form.fund.name}
       onChange={(e) => setForm({ ...form, fund: { name: e.target.value } })}
       className="GiveInput"
