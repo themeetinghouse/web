@@ -58,15 +58,17 @@ export default function ProfileCard(): JSX.Element {
 
           <div className="AddressContainer">
             {userData.billingAddress?.line1 ||
-              userData.billingAddress?.line2 ||
-              userData.billingAddress?.postal_code ||
-              userData.billingAddress?.city ||
-              userData.billingAddress?.state ||
-              (userData.billingAddress?.country && <span>Address</span>)}
+            userData.billingAddress?.line2 ||
+            userData.billingAddress?.postal_code ||
+            userData.billingAddress?.city ||
+            userData.billingAddress?.state ||
+            userData.billingAddress?.country ? (
+              <span>Address</span>
+            ) : null}
 
-            {userData.billingAddress?.line1 && (
+            {userData.billingAddress?.line1 ? (
               <p>{userData.billingAddress?.line1}</p>
-            )}
+            ) : null}
             {userData.billingAddress?.postal_code && (
               <p>{userData.billingAddress?.postal_code}</p>
             )}

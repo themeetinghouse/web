@@ -5,7 +5,10 @@ import * as queries from '../../../../src/graphql/queries';
 import API, { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 
 import PaymentAddMethod from './PaymentAddMethod';
-import { TmhStripeListPaymentMethodsQuery } from 'API';
+import {
+  TmhStripeDeletePaymentMethodQuery,
+  TmhStripeListPaymentMethodsQuery,
+} from 'API';
 
 type PaymentMethods = NonNullable<
   NonNullable<
@@ -13,11 +16,13 @@ type PaymentMethods = NonNullable<
   >['tmhStripeListPaymentMethods']
 >['data'];
 export default function PaymentsCard() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isInitialLoading, setIsInitialLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [cards, setCards] = useState<PaymentMethods>([]);
   const [showCardForm, setShowCardForm] = useState(false);
   const getStripePaymentMethods = async () => {
     try {
+      setIsLoading(true);
       const tmhStripeListPaymentMethods = (await API.graphql({
         query: queries.tmhStripeListPaymentMethods,
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
@@ -29,16 +34,20 @@ export default function PaymentsCard() {
     } catch (e: any) {
       console.log({ Error: e });
       setCards(e.data.tmhStripeListPaymentMethods?.data);
+    } finally {
+      setIsInitialLoading(false);
+      setIsLoading(false);
     }
-    setIsLoading(false);
   };
 
   useEffect(() => {
     getStripePaymentMethods();
   }, []);
+  const shouldShowForm =
+    showCardForm || (cards?.length === 0 && !isInitialLoading);
   return (
     <div className="Payments-Card">
-      {isLoading ? (
+      {isInitialLoading ? (
         <div
           style={{
             display: 'flex',
@@ -61,52 +70,14 @@ export default function PaymentsCard() {
             return (
               card &&
               card.card && (
-                <div key={card.id} className="Payments-ItemContainer">
-                  <div className="CardImageContainer">
-                    {card.card.brand && (
-                      <img src={`/static/svg/${card.card.brand}.svg`}></img>
-                    )}
-                  </div>
-                  <div className="CardInfoContainer">
-                    {/*isPreferredCard ? (
-                      <img
-                        style={{ alignSelf: 'flex-end' }}
-                        width={20}
-                        height={20}
-                        src="/static/svg/Check.svg"
-                      ></img>
-                    ) : (
-                      <button className="SetPreferredButton">
-                        Set as preferred
-                      </button>
-                    )*/}
-                    <span>{card.billing_details?.name}</span>
-                    <p>
-                      **** **** **** {card.card.last4}
-                      <span style={{ marginLeft: 8 }}>
-                        Exp {card.card.exp_month}/{card.card.exp_year}
-                      </span>
-                    </p>
-                    {/*lastTransactionDate ? (
-                      <>
-                        <span style={{ fontWeight: 700 }}>
-                          Last transaction
-                        </span>
-                        <p>{lastTransactionDate}</p>
-                      </>
-                    ) : (
-                      <div style={{ height: 48, marginBottom: 12 }}></div>
-                    )*/}
-                    <div className="CardButtonContainer">
-                      <button className="CardButton white">Remove</button>
-                      <button className="CardButton">Update</button>
-                    </div>
-                  </div>
-                </div>
+                <CardCard
+                  listPaymentMethods={getStripePaymentMethods}
+                  card={card}
+                />
               )
             );
           })}
-          {!showCardForm ? (
+          {!shouldShowForm ? (
             <button
               onClick={() => setShowCardForm(true)}
               className="AddNewCardButton"
@@ -114,10 +85,92 @@ export default function PaymentsCard() {
               <img src={`/static/svg/Plus-Expand.svg`}></img>Add New Credit Card
             </button>
           ) : (
-            <PaymentAddMethod closeCard={() => setShowCardForm(false)} />
+            <PaymentAddMethod
+              isLoading={isLoading}
+              closeCard={async () => {
+                await getStripePaymentMethods();
+                setShowCardForm(false);
+              }}
+            />
           )}
         </div>
       )}
     </div>
   );
 }
+
+const CardCard = ({
+  card,
+  listPaymentMethods,
+}: {
+  card: any;
+  listPaymentMethods: () => Promise<any>;
+}) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const handleRemove = async (id: string | undefined | null) => {
+    if (!id) return;
+    try {
+      setIsLoading(true);
+      const deletePaymentMethod = (await API.graphql({
+        query: queries.tmhStripeDeletePaymentMethod,
+        variables: { paymentMethodId: id },
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      })) as GraphQLResult<TmhStripeDeletePaymentMethodQuery>;
+      console.log({ deletePaymentMethod });
+      await listPaymentMethods();
+    } catch (e: any) {
+      console.log({ Error: e });
+      await listPaymentMethods();
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  return (
+    <div key={card.id} className="Payments-ItemContainer">
+      <div className="CardImageContainer">
+        {card.card.brand && (
+          <img src={`/static/svg/${card.card.brand}.svg`}></img>
+        )}
+      </div>
+      <div className="CardInfoContainer">
+        {/*isPreferredCard ? (
+        <img
+          style={{ alignSelf: 'flex-end' }}
+          width={20}
+          height={20}
+          src="/static/svg/Check.svg"
+        ></img>
+      ) : (
+        <button className="SetPreferredButton">
+          Set as preferred
+        </button>
+      )*/}
+        <span>{card.billing_details?.name}</span>
+        <p>
+          **** **** **** {card.card.last4}
+          <span style={{ marginLeft: 8 }}>
+            Exp {card.card.exp_month}/{card.card.exp_year}
+          </span>
+        </p>
+        {/*lastTransactionDate ? (
+        <>
+          <span style={{ fontWeight: 700 }}>
+            Last transaction
+          </span>
+          <p>{lastTransactionDate}</p>
+        </>
+      ) : (
+        <div style={{ height: 48, marginBottom: 12 }}></div>
+      )*/}
+        <div className="CardButtonContainer">
+          <button
+            onClick={() => handleRemove(card?.id)}
+            className="CardButton white"
+          >
+            {isLoading ? 'Removing...' : 'Remove'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};

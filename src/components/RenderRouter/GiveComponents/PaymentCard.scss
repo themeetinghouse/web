@@ -1,0 +1,189 @@
+.Payments-Card {
+  //min-height: 1200px;
+  @media (max-width: 768px) {
+    padding: 24px;
+    background-color: #efeff0 !important;
+    padding-bottom: 100px;
+  }
+}
+.AddNewCardButton {
+  img {
+    margin-top: -4px;
+    margin-right: 12px;
+  }
+  border: none;
+  padding: 4px;
+  padding-left: 0px;
+  text-decoration: underline;
+  @media (max-width: 768px) {
+    border: 2px solid #c8c8c8;
+    height: 112px;
+    font-size: 16px;
+    font-weight: 700;
+    width: 100%;
+  }
+}
+.SubmitNewCardButton {
+  text-align: center;
+  cursor: pointer;
+  background-color: #1a1a1a;
+  font-weight: 700;
+  color: white;
+  font-size: 16px;
+  margin-bottom: 8px;
+  height: 56px;
+  &.white {
+    background-color: white;
+    border: 4px solid black;
+    color: #1a1a1a;
+  }
+  &:active {
+    color: #fff;
+    background-color: #545b62;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  &.disabled {
+    background-color: grey;
+    color: lightgrey;
+  }
+}
+.SetPreferredButton {
+  align-self: flex-end;
+  background-color: white;
+  img {
+    margin-top: -4px;
+    margin-right: 12px;
+  }
+  border: none;
+  padding: 4px;
+  text-decoration: underline;
+}
+
+h1 {
+  margin-bottom: 45px;
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 700;
+  color: black;
+}
+.Payments-ItemContainer {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  padding: 38px 29px 28px 32px;
+  border: 2px solid #c8c8c8;
+  background-color: white;
+  min-height: 230px;
+  @media (max-width: 920px) {
+    flex-direction: column;
+  }
+}
+.CardImageContainer {
+  display: flex;
+  flex-direction: column;
+  min-width: 68px;
+  @media (max-width: 920px) {
+    img {
+      width: 46px;
+      height: 29px;
+    }
+  }
+}
+.CardInfoContainer {
+  @media (max-width: 920px) {
+    margin-top: -40px;
+  }
+
+  flex: 1;
+  margin-left: 67px;
+  display: flex;
+  flex-direction: column;
+}
+.CardButtonContainer {
+  justify-content: flex-end;
+  flex-direction: row;
+  display: flex;
+  :last-child {
+    margin-left: 14px;
+  }
+  @media (max-width: 920px) {
+    flex-direction: column-reverse;
+    :last-child {
+      margin-left: unset;
+    }
+    margin-left: -67px;
+  }
+}
+
+.CardButton {
+  text-align: center;
+  cursor: pointer;
+  background-color: #1a1a1a;
+  font-weight: 700;
+  color: white;
+  font-size: 16px;
+  width: 117px;
+  margin-bottom: 8px;
+  height: 56px;
+  &.white {
+    background-color: white;
+    border: 4px solid black;
+    color: #1a1a1a;
+  }
+  &:active {
+    color: #fff;
+    background-color: #545b62;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  @media (max-width: 920px) {
+    width: 100%;
+  }
+}
+
+.AddNewCardContainer {
+  margin-bottom: 44px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 38px 24px 28px 30px;
+  border: 2px solid #c8c8c8;
+  p {
+    font-weight: 700;
+  }
+  @media (max-width: 768px) {
+    img {
+      display: none;
+    }
+  }
+}
+.SecurePaymentContainer {
+  display: none;
+  justify-content: flex-end;
+  @media (max-width: 768px) {
+    display: flex;
+  }
+}
+.ExpiryCvcContainer {
+  display: flex;
+  flex-direction: row;
+  max-width: 50%;
+  @media (max-width: 1000px) {
+    min-width: 100%;
+  }
+}
+.NewCardInput {
+  margin-bottom: 32px;
+  border: 2px solid #c8c8c8;
+  height: 56px;
+  padding: 17px 30px;
+  @media (max-width: 1160px) {
+    width: 100%;
+    padding: 17px 12px;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 17px 8px;
+  }
+}

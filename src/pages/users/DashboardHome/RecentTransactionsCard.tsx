@@ -1,27 +1,35 @@
 import { LinkButton } from 'components/Link/Link';
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Spinner } from 'reactstrap';
 import './RecentTransactionsCard.scss';
 
-import { UserContext } from 'components/Auth/UserContext';
 import moment from 'moment';
+import { tmhStripeListCustomerTransactions } from 'graphql/queries';
+import { API, GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
+import { TmhStripeListCustomerTransactionsQuery } from 'API';
 
 export default function RecentTransactionsCard(): JSX.Element {
   const [isLoading, setIsLoading] = useState(true);
-  const UserConsumer = useContext(UserContext);
+  const [transactions, setTransactions] = useState<any[]>([]);
   useEffect(() => {
-    UserConsumer.userActions
-      .getReceipts()
-      .then((complete) => {
-        console.log({ complete });
+    (async () => {
+      try {
+        setIsLoading(true);
+        const response = (await API.graphql({
+          query: tmhStripeListCustomerTransactions,
+          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+        })) as GraphQLResult<TmhStripeListCustomerTransactionsQuery>;
+        setTransactions(
+          response.data?.tmhStripeListCustomerTransactions?.transactions ?? []
+        );
+        console.log({ response });
+      } catch (error) {
+        console.log({ failedToFetchTransactions: error });
+      } finally {
         setIsLoading(false);
-      })
-      .catch((error) => {
-        console.error({ error });
-        setIsLoading(false);
-      });
+      }
+    })();
   }, []);
-  const lastTransacs = UserConsumer.userState?.f1Transactions;
   return (
     <div className="Recent-Trans">
       {isLoading ? (
@@ -40,18 +48,17 @@ export default function RecentTransactionsCard(): JSX.Element {
           <br />
           <Spinner />
         </div>
-      ) : lastTransacs?.length ? (
+      ) : transactions?.length ? (
         <>
           <h3
             style={{
               fontWeight: 700,
               fontSize: 24,
-              flex: 1,
             }}
           >
             Recent Transactions
           </h3>
-          <div style={{ maxHeight: 180, overflow: 'auto' }}>
+          <div style={{ maxHeight: 180, overflow: 'auto', flex: 1 }}>
             <table>
               <thead>
                 <tr>
@@ -61,20 +68,18 @@ export default function RecentTransactionsCard(): JSX.Element {
                 </tr>
               </thead>
               <tbody>
-                {lastTransacs
+                {transactions
                   ?.filter((transac, index) => index < 4)
-                  .sort((txOne, txTwo) =>
-                    txTwo?.receivedDate && txOne?.receivedDate
-                      ? txTwo?.receivedDate?.localeCompare(txOne?.receivedDate)
-                      : 0
-                  )
                   .map((transac) => (
-                    <tr key={transac?.id}>
+                    <tr key={transac?.transactionNumber}>
                       <td>
-                        {moment(transac?.receivedDate).format('YYYY-MM-DD')}
+                        {moment(transac?.date * 1000).format('YYYY-MM-DD')}
                       </td>
-                      <td>{parseFloat(transac?.amount ?? '0').toFixed(2)}</td>
-                      <td>{transac?.accountReference}</td>
+                      <td>
+                        {transac.currency} $
+                        {parseFloat(transac?.amount ?? '0').toFixed(2)}
+                      </td>
+                      <td>{transac?.paymentMethod}</td>
                     </tr>
                   ))}
               </tbody>

@@ -200,7 +200,7 @@ export default function homechurch(): JSX.Element {
         user1.signInUserSession.accessToken.payload['cognito:groups'];
       if (groups.includes('LocationManager')) {
         const currentTMHPerson = (await API.graphql({
-          query: queries.tMHPersonByEmail,
+          query: queries.TMHPersonByEmail,
           variables: { email: user1.username },
         })) as GraphQLResult<TMHPersonByEmailQuery>;
         const currentPersonData =

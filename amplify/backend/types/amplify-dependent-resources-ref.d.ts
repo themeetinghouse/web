@@ -253,7 +253,21 @@ export type AmplifyDependentResourcesAttributes = {
       Name: 'string';
       Region: 'string';
     };
+    tmhStripeListCustomerTransactions: {
+      Arn: 'string';
+      LambdaExecutionRole: 'string';
+      LambdaExecutionRoleArn: 'string';
+      Name: 'string';
+      Region: 'string';
+    };
     tmhStripeListPaymentMethods: {
+      Arn: 'string';
+      LambdaExecutionRole: 'string';
+      LambdaExecutionRoleArn: 'string';
+      Name: 'string';
+      Region: 'string';
+    };
+    tmhStripeListProducts: {
       Arn: 'string';
       LambdaExecutionRole: 'string';
       LambdaExecutionRoleArn: 'string';

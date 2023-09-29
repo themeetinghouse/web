@@ -1,18 +1,37 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 //import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 //import { Spinner } from 'reactstrap';
 import { LinkButton } from '../../../components/Link/Link';
 import './TotalGivingCard.scss';
+import { Spinner } from 'reactstrap';
+import { getTMHUser } from 'graphql/queries';
+import { API, GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api';
+import { Auth } from '@aws-amplify/auth';
+import { GetTMHUserQuery } from 'API';
 export default function TotalGivingCard(): JSX.Element {
   const history = useHistory();
-  //  const [total, setTotal] = useState(0);
-  //  const [isLoading, setIsLoading] = useState(true);
+  const [total, setTotal] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    setTimeout(() => {
-      //      setTotal(200);
-      //      setIsLoading(false);
-    }, 700);
+    (async () => {
+      try {
+        setIsLoading(true);
+        const user = await Auth.currentAuthenticatedUser();
+        if (!user) return;
+        const total = (await API.graphql({
+          query: getTMHUser,
+          variables: { id: user.username },
+          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+        })) as GraphQLResult<GetTMHUserQuery>;
+        console.log({ total });
+        setTotal(total.data?.getTMHUser?.total ?? 0);
+      } catch (error) {
+        console.log({ error });
+      } finally {
+        setIsLoading(false);
+      }
+    })();
   }, []);
   return (
     <div style={{ textAlign: 'center' }} className="First-Column">
@@ -29,9 +48,9 @@ export default function TotalGivingCard(): JSX.Element {
       <br />
       <br />
       <br />
-      {/*
-      <h4 style={{ marginBottom: 41, fontWeight: 700, fontSize: 14 }}>
-        January 1, 2021 - Today
+
+      <h4 style={{ marginBottom: 20, fontWeight: 700, fontSize: 14 }}>
+        My Total Giving{/*January 1, 2021 - Today*/}
       </h4>
       {isLoading ? (
         <div
@@ -54,7 +73,7 @@ export default function TotalGivingCard(): JSX.Element {
         >
           ${total ?? 0}
         </p>
-        )*/}
+      )}
       <LinkButton
         style={{
           margin: 'auto',

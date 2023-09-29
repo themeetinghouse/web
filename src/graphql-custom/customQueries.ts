@@ -22,6 +22,19 @@ export const listTMHSites = /* GraphQL */ `
     }
   }
 `;
+
+export const tmhStripeListProducts = /* GraphQL */ `
+  query TmhStripeListProducts {
+    tmhStripeListProducts {
+      products {
+        id
+        name
+      }
+      error
+    }
+  }
+`;
+
 export const getBlogSeries = /* GraphQL */ `
   query GetBlogSeries($id: ID!) {
     getBlogSeries(id: $id) {
@@ -164,6 +177,34 @@ export const listCustomPlaylists = /* GraphQL */ `
         }
       }
       nextToken
+    }
+  }
+`;
+
+export const getTMHUserForGiveNow = /* GraphQL */ `
+  query GetTMHUser($id: ID!) {
+    getTMHUser(id: $id) {
+      id
+      given_name
+      family_name
+      email
+      phone
+      owner
+      stripeCustomerID
+      stripeSubscriptionID
+      billingAddress {
+        city
+        country
+        line1
+        line2
+        postal_code
+        state
+      }
+      joined
+      f1PersonId
+      f1HouseholdId
+      createdAt
+      updatedAt
     }
   }
 `;

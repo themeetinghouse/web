@@ -32,7 +32,7 @@ const loadStaff = async ({
       const people = (data?.listTMHPeople?.items as TMHPerson[]) ?? [];
       console.log({ people });
       const currentTMHPerson = (await API.graphql({
-        query: queries.tMHPersonByEmail,
+        query: queries.TMHPersonByEmail,
         variables: { email: user.username },
       })) as GraphQLResult<TMHPersonByEmailQuery>;
       const currentPersonData =

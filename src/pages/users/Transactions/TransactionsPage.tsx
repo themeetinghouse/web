@@ -6,25 +6,60 @@ import TransactionsPaginate from './TransactionsPaginate';
 import TransactionCollapsibleItem from './TransactionCollapsibleItem';
 import { UserContext } from 'components/Auth/UserContext';
 import moment from 'moment';
+import API, { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api';
+import { tmhStripeListCustomerTransactions } from 'graphql/queries';
+import { TmhStripeListCustomerTransactionsQuery } from 'API';
 
 export default function TransactionsPage(): JSX.Element {
   const [paginationIndex, setPaginationIndex] = useState(0);
+  const [transactions, setTransactions] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
   const UserConsumer = useContext(UserContext);
   useEffect(() => {
     UserConsumer.userActions.getReceipts();
   }, []);
+  useEffect(
+    function fetchUserTransactionsFromStripe() {
+      (async () => {
+        console.clear();
+
+        const user = UserConsumer.userState?.user;
+        if (!user?.stripeCustomerID) {
+          console.log('NO USER');
+          return;
+        } else {
+          try {
+            setIsLoading(true);
+            const response = (await API.graphql({
+              query: tmhStripeListCustomerTransactions,
+              authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+            })) as GraphQLResult<TmhStripeListCustomerTransactionsQuery>;
+            setTransactions(
+              response.data?.tmhStripeListCustomerTransactions?.transactions ??
+                []
+            );
+            console.log({ response });
+          } catch (error) {
+            console.log({ failedToFetchTransactions: error });
+          } finally {
+            setIsLoading(false);
+          }
+        }
+      })();
+    },
+    [UserConsumer.userState?.user]
+  );
   const tableHeaders = [
     'Transaction No.',
     'Date',
+    'Time',
     'Amount',
     'Payment Method',
     'Fund',
   ];
-  const transData = UserConsumer.userState?.f1Transactions;
-  const isLoading = transData == null;
   return (
     <div className="TransactionsContainer">
-      {false && isLoading ? (
+      {isLoading ? (
         <div
           style={{
             display: 'flex',
@@ -47,8 +82,8 @@ export default function TransactionsPage(): JSX.Element {
           </div>
           {isMobile ? (
             <div className="TransactionsSmallScreen">
-              {transData?.length ? (
-                transData
+              {transactions?.length ? (
+                transactions
                   ?.filter(
                     (contributionReceipt, index) =>
                       index >= paginationIndex && index < paginationIndex + 10
@@ -80,22 +115,28 @@ export default function TransactionsPage(): JSX.Element {
                   </tr>
                 </thead>
                 <tbody>
-                  {transData?.length ? (
-                    transData
+                  {transactions?.length ? (
+                    transactions
                       ?.filter(
                         (a, index) =>
                           index >= paginationIndex &&
                           index < paginationIndex + 10
                       )
                       .map((x) => {
+                        console.log({ x });
                         return (
                           <tr className="TransactionTableRow" key={x?.id}>
-                            <td>{x?.id}</td>
+                            <td>{x?.transactionNumber}</td>
                             <td>
-                              {moment(x?.receivedDate).format('YYYY-MM-DD')}
+                              {moment(x?.date * 1000).format('YYYY-MM-DD')}
                             </td>
-
-                            <td>{parseFloat(x?.amount ?? '0').toFixed(2)}</td>
+                            <td>{moment(x?.date * 1000).format('HH:mm')}</td>
+                            <td>
+                              {x?.currency}
+                              {' $'}
+                              {parseFloat(x?.amount ?? '0').toFixed(2)}
+                            </td>
+                            <td>{x?.paymentMethod}</td>
                             <td>{x?.accountReference}</td>
                             <td>{x?.fund?.name}</td>
                           </tr>
@@ -113,7 +154,7 @@ export default function TransactionsPage(): JSX.Element {
             </div>
           )}
           <TransactionsPaginate
-            length={transData?.length ?? 0}
+            length={transactions?.length ?? 0}
             paginationIndex={paginationIndex}
             setPaginationIndex={setPaginationIndex}
           />

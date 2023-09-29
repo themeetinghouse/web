@@ -484,19 +484,19 @@
       "dependsOn": [
         {
           "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "themeetinghousetmhShared"
+        },
+        {
+          "attributes": [
             "GraphQLAPIIdOutput",
             "GraphQLAPIEndpointOutput",
             "GraphQLAPIKeyOutput"
           ],
           "category": "api",
           "resourceName": "themeetinghouse"
-        },
-        {
-          "attributes": [
-            "Arn"
-          ],
-          "category": "function",
-          "resourceName": "themeetinghousetmhShared"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -617,6 +617,29 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
+    "tmhStripeListCustomerTransactions": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "themeetinghouse"
+        },
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "themeetinghousetmhShared"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "tmhStripeListPaymentMethods": {
       "build": true,
       "dependsOn": [
@@ -629,6 +652,20 @@
           "category": "api",
           "resourceName": "themeetinghouse"
         },
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "themeetinghousetmhShared"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "tmhStripeListProducts": {
+      "build": true,
+      "dependsOn": [
         {
           "attributes": [
             "Arn"
@@ -1532,6 +1569,46 @@
         }
       ]
     },
+    "AMPLIFY_function_tmhStripeListCustomerTransactions_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeListCustomerTransactions"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeListCustomerTransactions_identityPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeListCustomerTransactions"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeListCustomerTransactions_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeListCustomerTransactions"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeListCustomerTransactions_userPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeListCustomerTransactions"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeListCustomerTransactions_userPoolWebClientId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeListCustomerTransactions"
+        }
+      ]
+    },
     "AMPLIFY_function_tmhStripeListPaymentMethods_deploymentBucketName": {
       "usedBy": [
         {
@@ -1569,6 +1646,22 @@
         {
           "category": "function",
           "resourceName": "tmhStripeListPaymentMethods"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeListProducts_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeListProducts"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeListProducts_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeListProducts"
         }
       ]
     },

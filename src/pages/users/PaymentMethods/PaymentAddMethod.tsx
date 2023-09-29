@@ -16,7 +16,6 @@ import {
 } from '@stripe/stripe-js';
 import {
   GEAction,
-  GEActionType,
   GEPage,
   GEState,
 } from 'components/RenderRouter/GiveComponents/GETypes';
@@ -31,11 +30,12 @@ type AddPaymentMethodCardProps = {
   closeCard: (card?: CardInfo) => void;
   state?: GEState;
   dispatch?: (obj: GEAction) => void;
+  isLoading?: boolean;
 };
 export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
   // TODO:
   /* Immediate payment vs adding card to payment methods */
-  const { closeCard, state, dispatch } = props;
+  const { closeCard, state } = props;
   const [addingCard, setAddingCard] = useState(false);
   const [stripeValidation, setStripeValidation] = useState({
     cardNumber: false,
@@ -110,6 +110,7 @@ export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
       console.log({ tmhStripeLinkUser });
       return true;
     } catch (e: any) {
+      // TODO: this is succeeding but returning an error
       console.log({ ErrorAttachingPaymentMethod: e });
       return false;
     }
@@ -118,14 +119,29 @@ export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
     if (!stripe || !elements) {
       return;
     }
+    const fullName =
+      cardDataForm?.nameOnCard ||
+      state?.billingDetails?.user.given_name +
+        ' ' +
+        state?.billingDetails?.user?.family_name;
     const elNumber = elements.getElement(CardNumberElement);
     if (elNumber == null) return;
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: 'card',
       card: elNumber,
-      billing_details: { name: cardDataForm.nameOnCard },
+      billing_details: {
+        name: fullName,
+        email: state?.billingDetails.user.email,
+        phone: state?.billingDetails.user.phone,
+        address: {
+          city: state?.billingDetails.user.billingAddress.city,
+          country: state?.billingDetails.user.billingAddress.country,
+          line1: state?.billingDetails.user.billingAddress.line1,
+          postal_code: state?.billingDetails.user.billingAddress.postal_code,
+          state: state?.billingDetails.user.billingAddress.state,
+        },
+      },
     });
-
     if (error) {
       console.log('[error]', error);
     } else {
@@ -138,11 +154,6 @@ export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
     setAddingCard(true);
     await stripeAddPaymentMethod();
     setAddingCard(false);
-    if (dispatch)
-      dispatch({
-        type: GEActionType.NAVIGATE_TO_COMPLETED,
-        payload: { status: 'SUCCESS' },
-      });
     closeCard(cardDataForm);
   };
   return (
@@ -217,7 +228,7 @@ export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
             !isCardFormValid() ? ' disabled' : ''
           }`}
         >
-          {addingCard ? (
+          {addingCard || props.isLoading ? (
             <>
               <Spinner
                 style={{
@@ -228,8 +239,6 @@ export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
               />
               Adding card...
             </>
-          ) : state?.currentPage === GEPage?.PAYMENT_INFO ? (
-            `Make my $${state?.content?.amount} gift`
           ) : (
             'Add new credit card'
           )}

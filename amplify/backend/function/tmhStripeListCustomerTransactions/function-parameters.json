@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "api": {
+      "themeetinghouse": [
+        "read"
+      ]
+    }
+  },
+  "lambdaLayers": [
+    {
+      "type": "ProjectLayer",
+      "resourceName": "themeetinghousetmhShared",
+      "env": "prodnew",
+      "version": "Always choose latest version",
+      "isLatestVersionSelected": true
+    }
+  ],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "userPoolWebClientId",
+      "environmentVariableName": "userPoolWebClientId"
+    },
+    {
+      "cloudFormationParameterName": "userPoolId",
+      "environmentVariableName": "userPoolId"
+    },
+    {
+      "cloudFormationParameterName": "identityPoolId",
+      "environmentVariableName": "identityPoolId"
+    }
+  ]
+}

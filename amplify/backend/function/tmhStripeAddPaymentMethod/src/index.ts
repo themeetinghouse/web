@@ -19,29 +19,36 @@ export const handler = async (event) => {
     customer: user.stripeCustomerID,
     payment_method: paymentId,
   };
+  let message = '';
   if (user.stripeCustomerID) {
-    const setupIntentResult = await TMHStripe.createSetupIntent(
-      setupIntent,
-      idempotency
-    );
-    await TMHStripe.updateCustomer(
-      user.stripeCustomerID,
-      {
-        invoice_settings: { default_payment_method: paymentId },
-      },
-      idempotency + '2'
-    );
-    console.log(setupIntentResult);
-    return setupIntentResult;
+    try {
+      const setupIntentResult = await TMHStripe.createSetupIntent(
+        setupIntent,
+        idempotency
+      );
+      console.log({ setupIntentResult });
+      await TMHStripe.updateCustomer(
+        user.stripeCustomerID,
+        {
+          invoice_settings: { default_payment_method: paymentId },
+        },
+        idempotency + '2'
+      );
+      console.log({ setupIntentResult });
+      if (setupIntentResult.status === 'succeeded') {
+        message = 'Payment method added successfully';
+      } else {
+        message = 'Error adding payment method';
+      }
+    } catch (error) {
+      console.log(error);
+      message = 'Error adding payment method';
+    } finally {
+      return message;
+    }
+  } else {
+    console.log('No customer ID found');
+    message = 'Error no customer ID found';
   }
-  const response = {
-    statusCode: 200,
-    //  Uncomment below to enable CORS requests
-    //  headers: {
-    //      "Access-Control-Allow-Origin": "*",
-    //      "Access-Control-Allow-Headers": "*"
-    //  },
-    body: JSON.stringify('Hello from Lambda!'),
-  };
-  return response;
+  return message;
 };

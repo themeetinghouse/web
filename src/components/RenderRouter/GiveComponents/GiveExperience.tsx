@@ -1,20 +1,31 @@
 import { GEContext } from './GEContext';
-import { useContext, useState } from 'react';
+import { useCallback, useContext, useState } from 'react';
 import { GEPage, GEActionType } from './GETypes';
 import GiveToggleButton from 'pages/users/Give/GiveToggleButton';
 import GiftAmountButton from './GiftAmountButton';
 import GiveSelect from 'pages/users/Give/GiveSelect';
 import './GiveExperience.scss';
-import PaymentAddMethod from 'pages/users/PaymentMethods/PaymentAddMethod';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import ProfileForm from 'pages/users/ProfilePage/ProfileForm';
 import { useEffect } from 'react';
 import GiveAmountBanner from './GiveAmountBanner';
 import GiveOnlineBankingInfo from './GiveOnlineBankingInfo';
-import API from '@aws-amplify/api';
-import { getTMHUser } from 'graphql/queries';
-import { Auth } from 'aws-amplify';
+import { API, GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
+import * as queries from '../../../../src/graphql/queries';
+import { tmhStripeAddCustomer } from 'graphql/queries';
+import {
+  GetTMHUserQuery,
+  TMHUser,
+  TmhStripeAddCustomerQuery,
+  TmhStripeAddPaymentQuery,
+  UpdateTMHUserMutation,
+} from 'API';
+import { v4 as uuidv4 } from 'uuid';
+import PaymentsCard from './PaymentCard';
+import { getTMHUserForGiveNow } from 'graphql-custom/customQueries';
+import { updateTMHUser } from 'graphql/mutations';
+import GiveAuthManager from './GiveExperienceLogin/GiveAuthManager';
 
 let env = 'unknown';
 if (window.location === undefined) env = 'mobile';
@@ -23,8 +34,26 @@ else if (window.location.hostname.includes('beta')) env = 'beta';
 else if (window.location.hostname.includes('dev')) env = 'dev';
 else env = 'prod';
 const PageOne = () => {
-  const { dispatch } = useContext(GEContext);
-  const [form, setForm] = useState({ fund: { name: '' }, amount: null });
+  const { dispatch, state } = useContext(GEContext);
+  const [error, setError] = useState('');
+  const [form, setForm] = useState({
+    fund: {
+      name: state?.content?.fund?.name ?? '',
+      id: state?.content?.fund?.id ?? '',
+    },
+    amount: state?.content?.amount ?? '',
+  });
+  useEffect(() => {
+    if (form.amount || form.fund.name || form.fund.id)
+      dispatch({
+        type: GEActionType.SET_FUND_DATA,
+        payload: {
+          amount: form.amount,
+          name: form.fund.name,
+          id: form.fund.id,
+        },
+      });
+  }, [form.amount, form.fund.id, form.fund.name]);
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
       <GiveToggleButton
@@ -45,35 +74,173 @@ const PageOne = () => {
         Where would you like to give?
       </label>
       <GiveSelect form={form} setForm={setForm}></GiveSelect>
-      <button
-        onClick={() =>
-          dispatch({
-            type: GEActionType.NAVIGATE_TO_AUTH,
-            payload: { amount: form.amount },
-          })
-        }
-        className="GENextButton"
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          flex: 1,
+        }}
       >
-        Next
-      </button>
+        <span style={{ color: 'tomato', flex: 1 }}>{error}</span>
+        <button
+          onClick={() => {
+            if (!form.amount) {
+              setError('Please select an amount');
+            } else if (!form.fund.name || !form.fund.id) {
+              setError('Please select a fund');
+            } else {
+              setError('');
+              dispatch({
+                type: GEActionType.NAVIGATE_TO_AUTH,
+              });
+            }
+          }}
+          className="GENextButton"
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 };
+const makePayment = async (
+  id: string,
+  amount: any,
+  paymentMethodId?: string
+): Promise<any> => {
+  if (!amount) {
+    console.log('No amount');
+    return;
+  }
+  if (!id) {
+    console.log('No id');
+    return;
+  }
+  const variables = {
+    idempotency: uuidv4(),
+    amount: amount,
+    fund: id,
+  } as any;
+  if (paymentMethodId) {
+    variables['paymentMethodId'] = paymentMethodId;
+  }
+  console.log('Making a payment to ', id, ' for ', amount);
+  try {
+    const tmhStripeAddPayment = (await API.graphql({
+      query: queries.tmhStripeAddPayment,
+      variables: {
+        idempotency: uuidv4(),
+        amount: amount,
+        fund: id,
+      },
+      authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+    })) as GraphQLResult<TmhStripeAddPaymentQuery>;
+    console.log({ tmhStripeAddPayment });
+    return tmhStripeAddPayment;
+  } catch (error) {
+    console.log({ error });
+    return error;
+  }
+};
 
 const PageThree = () => {
-  const [form, setForm] = useState({});
+  const [form, setForm] = useState<any>({});
+  const [isLoading, setIsLoading] = useState(false);
   const { state, dispatch } = useContext(GEContext);
-  const isProfileValid = () => {
-    return true;
+  const [userData, setUserData] = useState<TMHUser>();
+  const loadUserData = useCallback(async () => {
+    console.log('Loading user data');
+    try {
+      setIsLoading(true);
+      const TMHUser = (await API.graphql({
+        query: getTMHUserForGiveNow,
+        variables: { id: state.user.username },
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      })) as GraphQLResult<GetTMHUserQuery>;
+      console.log({ TMHUser });
+      setForm({
+        phone: TMHUser.data?.getTMHUser?.phone,
+        given_name: TMHUser.data?.getTMHUser?.given_name,
+        family_name: TMHUser.data?.getTMHUser?.family_name,
+        email: TMHUser.data?.getTMHUser?.email,
+        billingAddress: {
+          line1: TMHUser.data?.getTMHUser?.billingAddress?.line1,
+          city: TMHUser.data?.getTMHUser?.billingAddress?.city,
+          state: TMHUser.data?.getTMHUser?.billingAddress?.state,
+          postal_code: TMHUser.data?.getTMHUser?.billingAddress?.postal_code,
+          country: TMHUser.data?.getTMHUser?.billingAddress?.country,
+        },
+      });
+      setUserData(TMHUser.data?.getTMHUser as TMHUser);
+    } catch (error) {
+      console.log({ error });
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
+  useEffect(() => {
+    loadUserData();
+  }, [loadUserData]);
+  const handleSubmit = async () => {
+    console.log({ form });
+    const tempNewUser = {
+      billingAddress: {
+        line1: form?.billingAddress?.line1,
+        city: form?.billingAddress?.city,
+        state: form?.billingAddress?.state,
+        postal_code: form?.billingAddress?.postal_code,
+        country: form?.billingAddress?.country,
+      },
+    } as TMHUser;
+    if (form?.phone !== userData?.phone) tempNewUser['phone'] = form?.phone;
+    if (form?.given_name !== userData?.given_name)
+      tempNewUser['given_name'] = form?.given_name;
+    if (form?.family_name !== userData?.family_name)
+      tempNewUser['family_name'] = form?.family_name;
+    if (form?.email !== userData?.email) tempNewUser['email'] = form?.email;
+    try {
+      // After updating the user in Dynamo, the customer needs to be updated in Stripe
+      // Maybe the stripe customer should be created on this step?
+      setIsLoading(true);
+      const updateUser = (await API.graphql({
+        query: updateTMHUser,
+        variables: {
+          input: {
+            ...tempNewUser,
+            id: state.user.username,
+          },
+        },
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      })) as GraphQLResult<UpdateTMHUserMutation>;
+      console.log({ updateUser });
+      try {
+        const tmhStripeLinkUser = (await API.graphql({
+          query: tmhStripeAddCustomer,
+          variables: { idempotency: uuidv4() },
+          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+        })) as GraphQLResult<TmhStripeAddCustomerQuery>;
+        console.log({ tmhStripeLinkUser: tmhStripeLinkUser });
+      } catch (error) {
+        console.log({ error });
+      } finally {
+        setIsLoading(false);
+      }
+      dispatch({
+        type: GEActionType.NAVIGATE_TO_PAYMENT_CARD,
+      });
+    } catch (error) {
+      console.log({ error });
+    } finally {
+      setIsLoading(false);
+    }
   };
-  const isPaymentValid = () => {
-    return true;
-  };
-  isPaymentValid();
-  isProfileValid();
+
   useEffect(() => {
     console.log('Updated form:', form);
   }, [form]);
+  useEffect(() => {
+    console.log({ user: state.user });
+  }, [state.user]);
   return (
     <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 60 }}>
       <GiveAmountBanner
@@ -85,151 +252,13 @@ const PageThree = () => {
         isFromGive={true}
         form={form}
       ></ProfileForm>
-      <PaymentAddMethod
-        state={state}
-        dispatch={dispatch}
-        closeCard={() => null}
-      ></PaymentAddMethod>
-    </div>
-  );
-};
-
-const PageTwo = () => {
-  const { state, dispatch } = useContext(GEContext);
-  const [form, setForm] = useState({
-    email: '',
-    password: '',
-  });
-  const [isLoading, setIsLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
-  const handleSubmit = async () => {
-    try {
-      setIsLoading(true);
-      setErrorMessage('');
-      const user = await Auth.signIn(form.email, form.password);
-      console.log({ user });
-      if (user) {
-        const TMHUser = await API.graphql({
-          query: getTMHUser,
-          variables: { id: user.username },
-          authMode: 'AMAZON_COGNITO_USER_POOLS',
-        });
-        // const paymentMethods = await API.graphql({
-        //   query: tmhStripeListPaymentMethods,
-        //   authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-        // });
-        // console.log({ paymentMethods });
-        console.log({ TMHUser });
-        dispatch({
-          type: GEActionType.NAVIGATE_TO_PAYMENT_INFO,
-          payload: { amount: state.content.amount, user },
-        });
-      } else setErrorMessage('An error occurred. No user found');
-      console.log({ user });
-    } catch (error1: any) {
-      console.log({ error1 });
-      setErrorMessage(error1.message || 'An error occurred');
-    } finally {
-      setIsLoading(false);
-    }
-  };
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          marginBottom: 48,
-        }}
-      >
-        <span
-          style={{
-            fontSize: 20,
-          }}
-        >
-          Login to your TMH acccount
-        </span>
-        <span
-          style={{
-            fontSize: 14,
-          }}
-        >
-          Enter your email so we can verify and sign you in
-        </span>
-      </div>
-
-      <label>Email</label>
-      <input
-        onChange={(e) => setForm({ ...form, email: e.target.value })}
-        placeholder="Email"
-        style={{
-          width: '100%',
-          backgroundColor: 'white',
-          height: '56px',
-          border: '2px solid #c8c8c8',
-          padding: '16px 0px 16px 20px',
-          fontSize: '16px',
-          marginBottom: '26px',
-          marginTop: 4,
-        }}
-      />
-      <label>Password</label>
-      <input
-        onChange={(e) => setForm({ ...form, password: e.target.value })}
-        placeholder="Password"
-        type="password"
-        style={{
-          width: '100%',
-          backgroundColor: 'white',
-          height: '56px',
-          border: '2px solid #c8c8c8',
-          padding: '16px 0px 16px 20px',
-          fontSize: '16px',
-          marginBottom: errorMessage ? 20 : 60,
-          marginTop: 4,
-        }}
-      />
-      <div
-        style={
-          errorMessage
-            ? {
-                color: 'tomato',
-                fontSize: 16,
-                marginBottom: 60,
-              }
-            : {}
-        }
-      >
-        {errorMessage}
-      </div>
       <div
         style={{
           display: 'flex',
           flexDirection: 'row',
-          justifyContent: 'flex-start',
-          alignItems: 'center',
+          justifyContent: 'flex-end',
         }}
       >
-        <span style={{ flex: 1 }}>
-          Don&apos;t have an account? Click{' '}
-          <span
-            style={{
-              textDecoration: 'underline',
-            }}
-          >
-            <button
-              style={{
-                display: 'inline',
-                backgroundColor: 'none',
-                padding: 0,
-                border: 'none',
-              }}
-            >
-              here
-            </button>
-          </span>{' '}
-          to create one
-        </span>
         <button
           disabled={isLoading}
           onClick={handleSubmit}
@@ -242,7 +271,94 @@ const PageTwo = () => {
     </div>
   );
 };
-
+const PageFour = () => {
+  const { state, dispatch } = useContext(GEContext);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const isProfileValid = () => {
+    return true;
+  };
+  const isPaymentValid = () => {
+    return true;
+  };
+  isPaymentValid();
+  isProfileValid();
+  useEffect(() => {
+    console.log({ user: state.user });
+    const loadUserData = async () => {
+      try {
+        const user = (await API.graphql({
+          query: getTMHUserForGiveNow,
+          variables: { id: state.user.username },
+          authMode: 'AMAZON_COGNITO_USER_POOLS',
+        })) as GraphQLResult<GetTMHUserQuery>;
+        console.log({ user7: user });
+        dispatch({
+          type: GEActionType.SET_BILLING_DETAILS,
+          payload: { user: user.data?.getTMHUser },
+        });
+      } catch (error) {
+        console.error({ error });
+      }
+    };
+    loadUserData();
+  }, [state.user]);
+  return (
+    <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 60 }}>
+      <GiveAmountBanner
+        goBack={() => dispatch({ type: GEActionType.NAVIGATE_GIVE_NOW })}
+        amount={state.content.amount}
+      ></GiveAmountBanner>
+      <PaymentsCard />
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'flex-end',
+        }}
+      >
+        {errorMessage}
+        {state.selectedPaymentMethodId ? (
+          <button
+            disabled={isLoading}
+            onClick={async () => {
+              setIsLoading(true);
+              console.log({ state });
+              const result = await makePayment(
+                state?.content?.id,
+                state?.content?.amount,
+                state.selectedPaymentMethodId
+              );
+              if (result?.data?.tmhStripeAddPayment?.message === 'SUCCESS') {
+                setIsLoading(false);
+                console.log({ result });
+                if ('success') {
+                  dispatch({
+                    type: GEActionType.NAVIGATE_TO_COMPLETED,
+                    payload: { status: 'Success' },
+                  });
+                }
+              }
+              if (
+                result?.data?.tmhStripeAddPayment?.message === 'FAILED' ||
+                result?.data?.tmhStripeAddPayment?.message ===
+                  'No stripe customer ID'
+              ) {
+                setIsLoading(false);
+                setErrorMessage(
+                  "We're sorry, something went wrong.. Please contact support."
+                );
+              }
+            }}
+            className="GENextButton"
+          >
+            {isLoading ? 'Donating...' : 'Donate'}
+          </button>
+        ) : null}
+      </div>
+    </div>
+  );
+};
 const CompletionPage = () => {
   return (
     <div>
@@ -271,9 +387,11 @@ export default function GiveExperience() {
         {state.currentPage === GEPage.GIVE_NOW ? (
           <PageOne></PageOne>
         ) : state.currentPage === GEPage.AUTH ? (
-          <PageTwo />
+          <GiveAuthManager />
         ) : state.currentPage === GEPage.PAYMENT_INFO ? (
           <PageThree />
+        ) : state.currentPage === GEPage.PAYMENT_CARD ? (
+          <PageFour />
         ) : state.currentPage === GEPage.COMPLETED ? (
           <CompletionPage></CompletionPage>
         ) : state.currentPage === GEPage.ONLINE_BANKING ? (
@@ -300,6 +418,14 @@ export default function GiveExperience() {
             style={{ height: '115vh', width: '100%', border: 'none' }} // TODO : STYLING
           ></iframe>
         ) : null}
+        <button
+          style={{ visibility: 'hidden' }}
+          onClick={() => console.log(state)}
+          className="GENextButton"
+          type="button"
+        >
+          Check State
+        </button>
       </div>
     </Elements>
   );

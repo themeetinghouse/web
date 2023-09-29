@@ -77,7 +77,7 @@ export default function Announcements(): JSX.Element {
     if (data) {
       if (groups.includes('LocationManager')) {
         const currentTMHPerson = (await API.graphql({
-          query: queries.tMHPersonByEmail,
+          query: queries.TMHPersonByEmail,
           variables: { email: user.username },
         })) as GraphQLResult<TMHPersonByEmailQuery>;
         const currentPersonData =

@@ -85,7 +85,7 @@ export default function NewGiveItem(props: Props): JSX.Element {
           }}
           to="/signin"
         >
-          Login to manage your giving
+          {state.user ? 'Click here to ' : 'Login to '}manage your giving
         </Link>
       </div>
     );

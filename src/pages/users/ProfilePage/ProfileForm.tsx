@@ -13,7 +13,6 @@ export default function ProfileForm(props: Props): JSX.Element {
   const provinces = provinceList();
 
   const { uploadRef, form, isFromGive, setForm } = props;
-
   return (
     <div className="LeftContainer">
       <input
@@ -118,6 +117,7 @@ export default function ProfileForm(props: Props): JSX.Element {
           <select
             name="country"
             data-testid="Country"
+            value={form?.billingAddress?.country ?? ''}
             id="country-select"
             className="ProfileInput"
             onChange={(e) =>
@@ -134,10 +134,12 @@ export default function ProfileForm(props: Props): JSX.Element {
             <option value={''} defaultValue="">
               Select a country
             </option>
-            {countries.map((country) => {
+            {Object.keys(countries).map((country) => {
+              const countryName = countries[country as keyof typeof countries];
+              const countryCode = country;
               return (
-                <option value={country} key={country}>
-                  {country}
+                <option value={countryCode} key={countryCode}>
+                  {countryName}
                 </option>
               );
             })}
@@ -146,8 +148,8 @@ export default function ProfileForm(props: Props): JSX.Element {
         <div className="LocationItem">
           <label htmlFor="province-select">Province/State</label>
           {!(
-            form?.billingAddress?.country === 'Canada' ||
-            form?.billingAddress?.country === 'United States of America (the)'
+            form?.billingAddress?.country === 'CA' ||
+            form?.billingAddress?.country === 'US'
           ) ? (
             <input
               name="province"
@@ -170,6 +172,7 @@ export default function ProfileForm(props: Props): JSX.Element {
             <select
               data-testid="Province"
               name="province"
+              value={form?.billingAddress?.state ?? ''}
               id="province-select"
               className="ProfileInput"
               onChange={(e) =>
@@ -183,8 +186,8 @@ export default function ProfileForm(props: Props): JSX.Element {
                 })
               }
             >
-              <option selected>Select a province/state</option>
-              {form.billingAddress?.country === 'Canada'
+              <option>Select a province/state</option>
+              {form.billingAddress?.country === 'CA'
                 ? provinces.map((province) => {
                     return (
                       <option value={province} key={province}>
@@ -192,11 +195,10 @@ export default function ProfileForm(props: Props): JSX.Element {
                       </option>
                     );
                   })
-                : form.billingAddress?.country ===
-                  'United States of America (the)'
-                ? states.map((state, index) => {
+                : form.billingAddress?.country === 'US'
+                ? states.map((state) => {
                     return (
-                      <option selected={index === 0} value={state} key={state}>
+                      <option value={state} key={state}>
                         {state}
                       </option>
                     );

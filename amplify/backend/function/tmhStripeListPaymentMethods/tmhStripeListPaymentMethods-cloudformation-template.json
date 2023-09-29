@@ -129,6 +129,7 @@
           ]
         },
         "Runtime": "nodejs14.x",
+        "MemorySize": "1024",
         "Layers": [
           {
             "Ref": "functionthemeetinghousetmhSharedArn"

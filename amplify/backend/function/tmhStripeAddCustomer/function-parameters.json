@@ -11,7 +11,7 @@
     {
       "type": "ProjectLayer",
       "resourceName": "themeetinghousetmhShared",
-      "env": "tmhprod",
+      "env": "prodnew",
       "version": "Always choose latest version",
       "isLatestVersionSelected": true
     }
