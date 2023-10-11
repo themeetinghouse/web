@@ -15,27 +15,27 @@ import {
   StripeCardNumberElementChangeEvent,
 } from '@stripe/stripe-js';
 import {
-  GEAction,
+  GEActionType,
   GEPage,
-  GEState,
 } from 'components/RenderRouter/GiveComponents/GETypes';
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Spinner } from 'reactstrap';
 import { CardInfo } from '../Give/GivePageCard';
 import './PaymentCard.scss';
 import API, { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
-import { TmhStripeAttachPaymentMethodQuery } from 'API';
+import { GetTMHUserQuery, TmhStripeAttachPaymentMethodQuery } from 'API';
+import { GEContext } from 'components/RenderRouter/GiveComponents/GEContext';
+import { useHistory } from 'react-router-dom';
+import { Auth } from '@aws-amplify/auth';
 
 type AddPaymentMethodCardProps = {
   closeCard: (card?: CardInfo) => void;
-  state?: GEState;
-  dispatch?: (obj: GEAction) => void;
   isLoading?: boolean;
 };
 export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
-  // TODO:
-  /* Immediate payment vs adding card to payment methods */
-  const { closeCard, state } = props;
+  const history = useHistory();
+  const { state, dispatch } = useContext(GEContext);
+  const { closeCard } = props;
   const [addingCard, setAddingCard] = useState(false);
   const [stripeValidation, setStripeValidation] = useState({
     cardNumber: false,
@@ -107,11 +107,14 @@ export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
         variables: { idempotency: uuidv4(), id: id },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       })) as GraphQLResult<TmhStripeAttachPaymentMethodQuery>;
-      console.log({ tmhStripeLinkUser });
-      return true;
+      if (
+        !tmhStripeLinkUser.data?.tmhStripeAttachPaymentMethod?.message?.includes(
+          'Error'
+        )
+      )
+        return true;
+      return false;
     } catch (e: any) {
-      // TODO: this is succeeding but returning an error
-      console.log({ ErrorAttachingPaymentMethod: e });
       return false;
     }
   };
@@ -121,24 +124,27 @@ export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
     }
     const fullName =
       cardDataForm?.nameOnCard ||
-      state?.billingDetails?.user.given_name +
+      state?.billingDetails?.user?.given_name +
         ' ' +
         state?.billingDetails?.user?.family_name;
     const elNumber = elements.getElement(CardNumberElement);
     if (elNumber == null) return;
+    console.log({ state });
+    // adding credit card here breaks because user doesnt have billing details in the
+    // account portal flow!
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: 'card',
       card: elNumber,
       billing_details: {
         name: fullName,
-        email: state?.billingDetails.user.email,
-        phone: state?.billingDetails.user.phone,
+        email: state?.billingDetails?.user?.email,
+        phone: state?.billingDetails?.user?.phone,
         address: {
-          city: state?.billingDetails.user.billingAddress.city,
-          country: state?.billingDetails.user.billingAddress.country,
-          line1: state?.billingDetails.user.billingAddress.line1,
-          postal_code: state?.billingDetails.user.billingAddress.postal_code,
-          state: state?.billingDetails.user.billingAddress.state,
+          city: state?.billingDetails?.user?.billingAddress?.city,
+          country: state?.billingDetails?.user?.billingAddress?.country,
+          line1: state?.billingDetails?.user?.billingAddress?.line1,
+          postal_code: state?.billingDetails?.user?.billingAddress?.postal_code,
+          state: state?.billingDetails.user?.billingAddress?.state,
         },
       },
     });
@@ -156,6 +162,48 @@ export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
     setAddingCard(false);
     closeCard(cardDataForm);
   };
+  const isProfileComplete =
+    state?.billingDetails &&
+    state?.billingDetails?.user?.email &&
+    state?.billingDetails?.user?.phone &&
+    state?.billingDetails?.user?.billingAddress &&
+    state?.billingDetails?.user?.billingAddress?.country &&
+    state?.billingDetails?.user?.billingAddress?.line1 &&
+    state?.billingDetails?.user?.billingAddress?.city &&
+    state?.billingDetails?.user?.billingAddress?.postal_code &&
+    state?.billingDetails?.user?.billingAddress?.state &&
+    state?.billingDetails?.user?.given_name &&
+    state?.billingDetails?.user?.family_name;
+  useEffect(() => {
+    (async () => {
+      console.log({ state });
+      if (!state?.billingDetails) {
+        try {
+          console.log({ state });
+          //navigate to profile page with callback
+          const user = await Auth.currentAuthenticatedUser();
+          if (!user) return;
+          dispatch({
+            type: GEActionType.SET_USER,
+            payload: user,
+          });
+          const userData = (await API.graphql({
+            query: queries.getTMHUser,
+            variables: { id: user.username },
+            authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+          })) as GraphQLResult<GetTMHUserQuery>;
+          console.log({ userData });
+          if (!isProfileComplete) {
+            history.push('/account/profile', {
+              previousLocation: `${history.location.pathname}`,
+            });
+          }
+        } catch (error) {
+          console.error({ error });
+        }
+      }
+    })();
+  }, [isProfileComplete]);
   return (
     <>
       <div className="SecurePaymentContainer">
@@ -165,98 +213,103 @@ export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
         />
       </div>
       <div className="AddNewCardContainer">
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            marginBottom: 49,
-          }}
-        >
-          <h3 style={{ flex: 1, fontWeight: 300 }}>
-            {state?.currentPage === GEPage?.PAYMENT_INFO
-              ? 'Credit card information'
-              : 'New credit card information'}
-          </h3>
-          <img src={`/static/svg/Secure-Payment.svg`} />
-        </div>
-
-        <p>Name on card</p>
-        <input
-          data-testid="NameOnCard"
-          onChange={(e) =>
-            setCardDataForm({
-              ...cardDataForm,
-              nameOnCard: e.target.value,
-            })
-          }
-          value={cardDataForm.nameOnCard}
-          className="NewCardInput"
-        />
-        <p>Credit card number</p>
-        <CardNumberElement
-          data-testid="CreditCardNum"
-          className="NewCardInput"
-          onChange={(el) => stripeFieldValidation(el, 'cardNumber')}
-          options={CARD_ELEMENT_OPTIONS}
-        />
-        <div
-          className="ExpiryCvcContainer"
-          style={{ display: 'flex', flexDirection: 'row' }}
-        >
-          <div style={{ flex: 1 }}>
-            <p>Expiry</p>
-            <CardExpiryElement
-              data-testid="CreditCardExpiry"
-              onChange={(el) => stripeFieldValidation(el, 'expiryDate')}
+        {isProfileComplete ? (
+          <>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                marginBottom: 49,
+              }}
+            >
+              <h3 style={{ flex: 1, fontWeight: 300 }}>
+                {state?.currentPage === GEPage?.PAYMENT_INFO
+                  ? 'Credit card information'
+                  : 'New credit card information'}
+              </h3>
+              <img src={`/static/svg/Secure-Payment.svg`} />
+            </div>
+            <p>Name on card</p>
+            <input
+              data-testid="NameOnCard"
+              onChange={(e) =>
+                setCardDataForm({
+                  ...cardDataForm,
+                  nameOnCard: e.target.value,
+                })
+              }
+              value={cardDataForm.nameOnCard}
+              className="NewCardInput"
+            />
+            <p>Credit card number</p>
+            <CardNumberElement
+              data-testid="CreditCardNum"
+              className="NewCardInput"
+              onChange={(el) => stripeFieldValidation(el, 'cardNumber')}
               options={CARD_ELEMENT_OPTIONS}
             />
-          </div>
-          <div style={{ flex: 1, marginLeft: 33 }}>
-            <p>CVC</p>
-            <CardCvcElement
-              data-testid="CreditCardCVC"
-              onChange={(el) => stripeFieldValidation(el, 'cvc')}
-              options={CARD_ELEMENT_OPTIONS}
-            />
-          </div>
-        </div>
-        <button
-          onClick={addNewPaymentMethod}
-          style={{ width: '100%' }}
-          disabled={!isCardFormValid()}
-          className={`SubmitNewCardButton${
-            !isCardFormValid() ? ' disabled' : ''
-          }`}
-        >
-          {addingCard || props.isLoading ? (
-            <>
-              <Spinner
+            <div
+              className="ExpiryCvcContainer"
+              style={{ display: 'flex', flexDirection: 'row' }}
+            >
+              <div style={{ flex: 1 }}>
+                <p>Expiry</p>
+                <CardExpiryElement
+                  data-testid="CreditCardExpiry"
+                  onChange={(el) => stripeFieldValidation(el, 'expiryDate')}
+                  options={CARD_ELEMENT_OPTIONS}
+                />
+              </div>
+              <div style={{ flex: 1, marginLeft: 33 }}>
+                <p>CVC</p>
+                <CardCvcElement
+                  data-testid="CreditCardCVC"
+                  onChange={(el) => stripeFieldValidation(el, 'cvc')}
+                  options={CARD_ELEMENT_OPTIONS}
+                />
+              </div>
+            </div>
+            <button
+              onClick={addNewPaymentMethod}
+              style={{ width: '100%' }}
+              disabled={!isCardFormValid() || props?.isLoading || addingCard}
+              className={`SubmitNewCardButton${
+                !isCardFormValid() ? ' disabled' : ''
+              }`}
+            >
+              {addingCard || props.isLoading ? (
+                <>
+                  <Spinner
+                    style={{
+                      width: '1.5rem',
+                      height: '1.5rem',
+                      marginRight: 8,
+                    }}
+                  />
+                  Adding card...
+                </>
+              ) : (
+                'Add new credit card'
+              )}
+            </button>
+            <span style={{ color: '#646469', marginTop: 12 }}>
+              This is a secure 128-bit SSL encrypted payment.
+              <span
                 style={{
-                  width: '1.5rem',
-                  height: '1.5rem',
-                  marginRight: 8,
+                  marginLeft: 10,
+                  textDecoration: 'underline',
                 }}
-              />
-              Adding card...
-            </>
-          ) : (
-            'Add new credit card'
-          )}
-        </button>
-        <span style={{ color: '#646469', marginTop: 12 }}>
-          This is a secure 128-bit SSL encrypted payment.
-          <span
-            style={{
-              marginLeft: 10,
-              textDecoration: 'underline',
-            }}
-          >
-            {'Terms & Conditions'}
-          </span>
-          <span style={{ marginLeft: 10, textDecoration: 'underline' }}>
-            Privacy Policy
-          </span>
-        </span>
+              >
+                {'Terms & Conditions'}
+              </span>
+              <span style={{ marginLeft: 10, textDecoration: 'underline' }}>
+                Privacy Policy
+              </span>
+            </span>{' '}
+          </>
+        ) : (
+          <span>You must first fill out your profile before proceeding. </span>
+        )}
       </div>
     </>
   );

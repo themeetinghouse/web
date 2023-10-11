@@ -62,8 +62,8 @@ export default function PaymentsCard() {
           <h1>Payment Method</h1>
           {cards
             ?.filter((card) => {
-              if (state.selectedPaymentMethodId) {
-                return card?.id === state.selectedPaymentMethodId;
+              if (state.content?.selectedPaymentMethodId) {
+                return card?.id === state.content?.selectedPaymentMethodId;
               } else {
                 return true;
               }
@@ -80,7 +80,7 @@ export default function PaymentsCard() {
                       )}
                     </div>
                     <div className="CardInfoContainer">
-                      {state.selectedPaymentMethodId === card.id ? (
+                      {state.content?.selectedPaymentMethodId === card.id ? (
                         <img
                           style={{ alignSelf: 'flex-end' }}
                           width={20}
@@ -105,7 +105,7 @@ export default function PaymentsCard() {
                     ) : (
                       <div style={{ height: 48, marginBottom: 12 }}></div>
                     )*/}
-                      {state.selectedPaymentMethodId !== card.id ? (
+                      {state.content?.selectedPaymentMethodId !== card.id ? (
                         <div className="CardButtonContainer">
                           <button
                             onClick={() =>
@@ -127,7 +127,7 @@ export default function PaymentsCard() {
             })}
 
           {!showCardForm ? (
-            state.selectedPaymentMethodId ? (
+            state.content?.selectedPaymentMethodId ? (
               <button
                 onClick={() =>
                   dispatch({

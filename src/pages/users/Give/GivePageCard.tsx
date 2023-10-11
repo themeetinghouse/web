@@ -1,35 +1,16 @@
-import { Dispatch, useState } from 'react';
+import { useContext, useState } from 'react';
 import { Spinner } from 'reactstrap';
 import GiveButtonToggle from './GiveToggleButton';
-import { SelectedPaymentCard } from './SelectedPaymentCard';
 import './GivePageCard.scss';
 import API, { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import * as queries from '../../../../src/graphql/queries';
 import { v4 as uuidv4 } from 'uuid';
 import moment from 'moment-timezone';
-
-import {
-  GiveAction,
-  GiveActionType,
-  GiveState,
-  GiveToggleType,
-} from './GivePage';
-import PaymentAddMethod from '../PaymentMethods/PaymentAddMethod';
 import GiveSelect from './GiveSelect';
 import { TmhStripeAddPaymentQuery, TmhStripeAddSubscriptionQuery } from 'API';
-
-type GivingData = {
-  giveAmount: string;
-  fund: { name: string };
-  frequency?: string;
-};
-
-type GiveForm = {
-  status: string; // this is likely not needed
-  submitting: boolean;
-};
-
-type GiveFormWithData = GiveForm & GivingData;
+import { GEContext } from 'components/RenderRouter/GiveComponents/GEContext';
+import { GEActionType } from 'components/RenderRouter/GiveComponents/GETypes';
+import PaymentsCard from '../PaymentMethods/PaymentCard';
 
 export type CardInfo = {
   cardNumber: string;
@@ -39,166 +20,184 @@ export type CardInfo = {
   cvc: string;
 };
 
-type GivePageCardProps = {
-  giveState: GiveState;
-  dispatch: Dispatch<GiveAction>; //?
-};
-export default function GivePageCard(props: GivePageCardProps) {
-  const { currentPayload, givePageToggleType } = props.giveState;
-  const { dispatch } = props;
-
-  const [selectedCard, setSelectedCard] = useState<CardInfo | null>(null);
-
-  // Give once vs Recurring fields toggle
-  // if currentPayload exists, then previous page was GiveManageRecurringCard.tsx
-  const [selection, setSelection] = useState(
-    currentPayload || givePageToggleType === GiveToggleType.RECURRING_PAGE
-      ? 'Recurring'
-      : 'Give once'
-  );
-
-  const initialForm = currentPayload
-    ? {
-        status: 'start',
-        submitting: false,
-        ...currentPayload,
-      }
-    : {
-        status: 'start',
-        giveAmount: '',
-        submitting: false,
-        fund: { name: '' },
-        frequency: '',
-      };
-
-  const [form, setForm] = useState<GiveFormWithData>(initialForm);
+export default function GivePageCard() {
+  const { state, dispatch } = useContext(GEContext);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const validateAmount = () => {
-    if (form.fund.name === '' || form.fund.name === 'Please make a selection')
+    console.log({ validating: state.content });
+    if (
+      state.content?.fund?.name === '' ||
+      state.content?.fund?.name === 'Please make a selection'
+    ) {
+      console.log('fund name is empty');
       return false;
-    const amount = parseFloat(form.giveAmount);
+    }
 
+    if (!state.content?.selectedPaymentMethodId) {
+      console.log('payment method is empty');
+      return false;
+    }
+    if (!state.content?.amount) {
+      console.log('amount is empty');
+      return false;
+    }
+    if (!state.content?.frequency) {
+      console.log('frequency is empty');
+      return false;
+    }
+    if (!state.content?.startDate) {
+      console.log('startDate is empty');
+      return false;
+    }
+    const amount = parseFloat(state.content?.amount);
+    console.log({ amount });
     if (amount && amount > 0) {
       return true;
     } else {
       return false;
     }
   };
-  const createPayment = async () => {
+  const createPayment = async (selection = 'Give once') => {
+    const amount = parseFloat(state.content?.amount);
+    const fund = state.content?.fund?.id;
+    const frequency = state.content?.frequency;
+    const paymentMethodID = state.content?.selectedPaymentMethodId;
+    const startingDate = state.content?.startDate;
+    if (!startingDate) return console.log('no starting date');
+    if (!paymentMethodID) return console.log('no payment method');
+    if (!fund) return console.log('no fund');
+    if (!frequency) return console.log('no frequency');
+    if (!amount) return console.log('no amount');
     try {
+      setErrorMessage('');
+      setIsLoading(true);
       if (selection == 'Recurring') {
-        console.log({ recurring: selection });
+        console.log({ frequency, amount, fund, startingDate });
         const tmhStripeAddSubscription = (await API.graphql({
           query: queries.tmhStripeAddSubscription,
           variables: {
             idempotency: uuidv4(),
-            amount: form.giveAmount,
-            fund: form.fund.name,
-            frequency: form.frequency,
+            paymentMethodId: paymentMethodID,
+            startDate: startingDate,
+            fund,
+            frequency,
+            amount,
           },
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
         })) as GraphQLResult<TmhStripeAddSubscriptionQuery>;
-        console.log(tmhStripeAddSubscription);
-        return true;
+        console.log({ tmhStripeAddSubscription });
+        const result =
+          tmhStripeAddSubscription.data?.tmhStripeAddSubscription?.message;
+        if (result && result === 'SUCCESS') {
+          dispatch({
+            type: GEActionType.NAVIGATE_TO_COMPLETED,
+            payload: { status: 'complete', amount: state.content?.amount },
+          });
+        } else {
+          setErrorMessage(
+            result || 'There was an error processing your payment.'
+          );
+        }
       } else {
         console.log({ 'ONE TIME': selection });
 
         const tmhStripeAddPayment = (await API.graphql({
           query: queries.tmhStripeAddPayment,
           variables: {
+            paymentMethodId: paymentMethodID,
             idempotency: uuidv4(),
-            amount: form.giveAmount,
-            fund: form.fund.name,
+            amount: amount,
+            fund: fund,
           },
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
         })) as GraphQLResult<TmhStripeAddPaymentQuery>;
-        console.log(tmhStripeAddPayment);
-        return true;
+        console.log({ tmhStripeAddPayment });
+        const result = tmhStripeAddPayment.data?.tmhStripeAddPayment?.message;
+        if (result && result === 'SUCCESS') {
+          dispatch({
+            type: GEActionType.NAVIGATE_TO_COMPLETED,
+            payload: { status: 'complete', amount: state.content?.amount },
+          });
+        } else {
+          setErrorMessage(
+            result || 'There was an error processing your payment.'
+          );
+        }
       }
     } catch (e: any) {
       console.log({ Error: e });
-      return false;
+      setErrorMessage('There was an error processing your payment.');
+    } finally {
+      setIsLoading(false);
     }
-    return;
   };
-  const handleSubmit = async () => {
-    setForm({ ...form, submitting: true });
 
-    await createPayment();
-    setForm({ ...form, status: 'complete', submitting: false });
-
-    /* success*/
-    dispatch({
-      type: GiveActionType.NAVIGATE_TO_COMPLETION_SUCCESS,
-      payload: { status: 'complete', amount: form.giveAmount },
-    });
-
-    /*error
-      dispatch({
-        type: GiveActionType.NAVIGATE_TO_COMPLETION_ERROR,
-        payload: { status: 'error', errorMessage: 'Something went wrong.' },
-      });
-      */
-  };
-  const getCard = async () => {
-    setSelectedCard({
-      cardNumber: '**** **** **** 5126',
-      cardType: 'visa',
-      nameOnCard: '',
-      expiry: '05/22',
-      cvc: '',
-    });
-  };
   const today = moment().format('YYYY-MM-DD');
-  console.log('currentPayload', currentPayload);
   return (
     <div className="GiveCard">
       <GiveButtonToggle
-        selection={selection}
-        setSelection={(a) => {
-          setForm({
-            status: 'start',
-            giveAmount: '',
-            submitting: false,
-            fund: { name: '' },
-            frequency: '',
-          });
-          setSelection(a);
-        }}
+        selection={state.content?.giftType}
+        setSelection={(selected) =>
+          dispatch({
+            type: GEActionType.SET_GIFT_TYPE,
+            payload: selected,
+          })
+        }
       />
       <p style={{ fontSize: 24, marginTop: 36 }}>Giving</p>
       <div>
         <span
           style={
-            form.giveAmount
+            state.content?.amount
               ? { fontSize: 48 }
               : { fontSize: 48, opacity: '0.7' }
           }
         >
           $
         </span>
+
         <input
           data-testid="Amount"
-          type="number"
-          placeholder="0.00"
-          value={form.giveAmount}
+          type="text"
+          placeholder="20"
+          value={state.content?.amount}
           onChange={(e) => {
-            e.target.value.length < 11
-              ? setForm({ ...form, giveAmount: e.target.value })
-              : null;
+            const value = e.target.value;
+            const isValidMinimum = value === '' || parseFloat(value) >= 1;
+            if (!isValidMinimum) return;
+            const isValidMaximum = value === '' || parseFloat(value) <= 999999;
+            if (!isValidMaximum) return;
+            if (value.includes('.')) {
+              const decimal = value.split('.')[1];
+              if (decimal.length > 2) return;
+            }
+            const isAmountValid =
+              value === '' || /^[0-9]*\.?[0-9]*$/.test(e.target.value);
+            if (!isAmountValid) return;
+            dispatch({
+              type: GEActionType.SET_AMOUNT,
+              payload: e.target.value,
+            });
           }}
           className="GiveAmountInput"
         />
       </div>
 
       <label htmlFor="fundType">Where would you like to give?</label>
-      <GiveSelect form={form} setForm={setForm}></GiveSelect>
-      {selection === 'Recurring' ? (
+      <GiveSelect />
+      {state.content?.giftType === 'Recurring' ? (
         <>
           <label htmlFor="frequency">Frequency</label>
           <select
             data-testid="Frequency"
-            value={form.frequency}
-            onChange={(e) => setForm({ ...form, frequency: e.target.value })}
+            value={state.content.frequency}
+            onChange={(e) =>
+              dispatch({
+                type: GEActionType.SET_FREQUENCY,
+                payload: e.target.value,
+              })
+            }
             className="GiveInput"
             id="frequency"
           >
@@ -211,6 +210,13 @@ export default function GivePageCard(props: GivePageCardProps) {
           <input
             min={today}
             data-testid="StartDate"
+            value={moment(state.content.startDate * 1000).format('YYYY-MM-DD')}
+            onChange={(e) => {
+              dispatch({
+                type: GEActionType.SET_START_DATE,
+                payload: new Date(e.target.value).valueOf() / 1000,
+              });
+            }}
             className="GiveInput"
             placeholder={'YYYY-MM-DD'}
             type="date"
@@ -218,17 +224,7 @@ export default function GivePageCard(props: GivePageCardProps) {
         </>
       ) : null}
       <div>
-        {currentPayload || selectedCard ? (
-          <SelectedPaymentCard card={currentPayload ?? selectedCard} />
-        ) : (
-          <>
-            <PaymentAddMethod
-              closeCard={(card?: CardInfo) => {
-                if (card) getCard();
-              }}
-            />
-          </>
-        )}
+        <PaymentsCard />
       </div>
       <div className="GiveButtonContainer">
         <div className="ManageRecurringButton">
@@ -239,7 +235,9 @@ export default function GivePageCard(props: GivePageCardProps) {
               margin: '16px 0px',
               borderBottom: '1px solid black',
             }}
-            onClick={() => dispatch({ type: GiveActionType.SHOW_RECURRING })}
+            onClick={() =>
+              dispatch({ type: GEActionType.NAVIGATE_TO_RECURRING_GIFT })
+            }
           >
             Manage my recurring giving
           </span>
@@ -249,9 +247,9 @@ export default function GivePageCard(props: GivePageCardProps) {
           disabled={!validateAmount()}
           aria-label="Gift now"
           className={`GiveNowButton ${!validateAmount() ? 'disabled' : ''} `}
-          onClick={() => handleSubmit()}
+          onClick={() => createPayment(state.content?.giftType)}
         >
-          {form.submitting ? (
+          {isLoading ? (
             <>
               <Spinner
                 style={{
@@ -268,6 +266,7 @@ export default function GivePageCard(props: GivePageCardProps) {
           )}
         </button>
       </div>
+      <span style={{ color: 'tomato' }}>{errorMessage}</span>
     </div>
   );
 }

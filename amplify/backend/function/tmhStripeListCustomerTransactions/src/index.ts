@@ -23,24 +23,33 @@ export const handler = async (event) => {
   try {
     const response = await TMHStripe.listCustomerTransactions(stripeCustomerID);
     console.log({ response });
-    const transactions = response.data.map(
-      (invoice: Stripe.Invoice & { charge: any }) => {
+    const transactions = response.data
+      .filter(
+        (invoice: Stripe.Invoice & { charge: any }) => invoice?.charge?.amount
+      )
+      .map((invoice: Stripe.Invoice & { charge: any }) => {
         console.log({ invoice });
+        const amount = invoice?.charge?.amount ?? 0;
+        let amountInDollars;
+        if (amount < 1) {
+          amountInDollars = 0;
+        } else {
+          amountInDollars = amount / 100;
+        }
         return {
-          currency: invoice.currency.toUpperCase(),
-          amount: invoice.charge.amount / 100,
-          date: invoice.created,
+          currency: invoice.currency?.toUpperCase(),
+          amount: amountInDollars,
+          date: invoice?.created,
           fund: {
-            name: invoice.lines.data[0].description,
-            id: invoice.lines.data[0].price.product,
+            name: invoice?.lines?.data?.[0]?.description,
+            id: invoice?.lines?.data[0]?.price?.product,
           },
-          paymentMethod: `${invoice.charge.payment_method_details.card.brand.toUpperCase()} (${
-            invoice.charge.payment_method_details.card.last4
+          paymentMethod: `${invoice.charge?.payment_method_details?.card?.brand?.toUpperCase()} (${
+            invoice?.charge?.payment_method_details?.card?.last4
           })`,
-          transactionNumber: invoice.charge.id,
+          transactionNumber: invoice?.charge?.id,
         };
-      }
-    );
+      });
     console.log({ transactions });
     return { transactions };
   } catch (error) {

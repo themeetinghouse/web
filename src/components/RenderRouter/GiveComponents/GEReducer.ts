@@ -15,6 +15,11 @@ export default function giveExperienceReducer(
         ...state,
         currentPage: GEPage.CREATE_ACCOUNT,
       };
+    case GEActionType.SET_GIFT_TYPE:
+      return {
+        ...state,
+        content: { ...state.content, giftType: action.payload },
+      };
     case GEActionType.UPDATE_FORM_DATA:
       return {
         ...state,
@@ -23,17 +28,32 @@ export default function giveExperienceReducer(
     case GEActionType.SET_PAYMENT_METHOD_ID:
       return {
         ...state,
-        selectedPaymentMethodId: action.payload,
+        content: { ...state.content, selectedPaymentMethodId: action.payload },
       };
-    case GEActionType.SET_FUND_DATA:
+    case GEActionType.SET_AMOUNT:
       return {
         ...state,
-        content: action.payload,
+        content: { ...state.content, amount: action.payload },
+      };
+    case GEActionType.SET_FREQUENCY:
+      return {
+        ...state,
+        content: { ...state.content, frequency: action.payload },
+      };
+    case GEActionType.SET_FUND:
+      return {
+        ...state,
+        content: { ...state.content, fund: action.payload },
       };
     case GEActionType.SET_BILLING_DETAILS:
       return {
         ...state,
         billingDetails: action.payload,
+      };
+    case GEActionType.SET_START_DATE:
+      return {
+        ...state,
+        content: { ...state.content, startDate: action.payload },
       };
     case GEActionType.NAVIGATE_TO_PREAUTHORIZED_WITHDRAWAL:
       return { ...state, currentPage: GEPage.PREAUTHORIZED_WITHDRAWAL };
@@ -49,6 +69,11 @@ export default function giveExperienceReducer(
       return {
         ...state,
         currentPage: GEPage.PAYMENT_CARD,
+      };
+    case GEActionType.NAVIGATE_TO_RECURRING_GIFT:
+      return {
+        ...state,
+        currentPage: GEPage.RECURRING_GIFT,
       };
     case GEActionType.NAVIGATE_GIVE_NOW:
       // wipe data belonging to other pages ie content

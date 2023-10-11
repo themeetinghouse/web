@@ -1,11 +1,10 @@
-import { createRef, useEffect, useState } from 'react';
+import { createRef, useContext, useEffect, useState } from 'react';
 import './GiftAmountButton.scss';
+import { GEContext } from './GEContext';
+import { GEActionType } from './GETypes';
 type Options = string | number | null;
-type GiftAmountButtonProps = {
-  setForm: (prev: any) => void;
-};
-export default function GiftAmountButton(props: GiftAmountButtonProps) {
-  const { setForm } = props;
+export default function GiftAmountButton() {
+  const { dispatch } = useContext(GEContext);
   const fieldRef = createRef<HTMLInputElement>();
   const [otherValue, setOtherValue] = useState<string>('');
   const [options] = useState<Array<Options>>([
@@ -20,12 +19,23 @@ export default function GiftAmountButton(props: GiftAmountButtonProps) {
   useEffect(() => {
     if (selectedOption === 'Other') {
       fieldRef?.current?.focus();
-      setForm((prev: any) => ({ ...prev, amount: otherValue }));
+      dispatch({
+        type: GEActionType.SET_AMOUNT,
+        payload: otherValue,
+      });
     } else {
       if (fieldRef?.current) fieldRef.current.value = '';
-      setForm((prev: any) => ({ ...prev, amount: selectedOption }));
+      dispatch({
+        type: GEActionType.SET_AMOUNT,
+        payload: selectedOption,
+      });
     }
   }, [selectedOption, otherValue]);
+  useEffect(() => {
+    if (selectedOption !== 'Other') {
+      setOtherValue('');
+    }
+  }, [selectedOption]);
   return (
     <div style={{ marginTop: 60 }}>
       <h1
@@ -44,7 +54,9 @@ export default function GiftAmountButton(props: GiftAmountButtonProps) {
             <div
               key={option}
               onClick={() => setSelectedOption(option)}
-              className="OptionButton"
+              className={`OptionButton ${
+                selectedOption === option ? 'active' : ''
+              } `}
               style={{
                 display: 'flex',
                 justifyContent: 'center',
@@ -57,6 +69,8 @@ export default function GiftAmountButton(props: GiftAmountButtonProps) {
                     fontSize: 24,
                     position: 'relative',
                     textAlign: 'right',
+                    display: 'flex',
+                    alignItems: 'center',
                   }}
                 >
                   $
@@ -78,15 +92,24 @@ export default function GiftAmountButton(props: GiftAmountButtonProps) {
               ) : (
                 <input
                   ref={fieldRef}
-                  placeholder={'0.00'}
+                  placeholder={'1'}
                   value={otherValue}
-                  onChange={(e) => setOtherValue(e.target.value)}
-                  style={{
-                    flex: 1,
-                    fontSize: 24,
-                    maxWidth: '6ch',
-                    textAlign: 'center',
-                    border: 'none',
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    const isValidMinimum =
+                      value === '' || parseFloat(value) >= 1;
+                    if (!isValidMinimum) return;
+                    const isValidMaximum =
+                      value === '' || parseFloat(value) <= 999999;
+                    if (!isValidMaximum) return;
+                    if (value.includes('.')) {
+                      const decimal = value.split('.')[1];
+                      if (decimal.length > 2) return;
+                    }
+                    const isAmountValid =
+                      value === '' || /^[0-9]*\.?[0-9]*$/.test(e.target.value);
+                    if (!isAmountValid) return;
+                    setOtherValue(e.target.value);
                   }}
                 ></input>
               )}

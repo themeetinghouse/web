@@ -4,6 +4,17 @@ import { GEAction, GEPage, GEState } from './GETypes';
 
 const initialState = {
   currentPage: GEPage.GIVE_NOW,
+  content: {
+    amount: '',
+    fund: {
+      id: '',
+      name: '',
+    },
+    startDate: Date.now() / 1000,
+    selectedPaymentMethodId: '',
+    frequency: 'Every month',
+    giftType: 'Give once',
+  },
   user: null,
 };
 

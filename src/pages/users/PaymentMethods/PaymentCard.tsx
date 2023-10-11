@@ -7,7 +7,9 @@ import API, { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import PaymentAddMethod from './PaymentAddMethod';
 import {
   TmhStripeDeletePaymentMethodQuery,
+  TmhStripeDeleteSubscriptionQuery,
   TmhStripeListPaymentMethodsQuery,
+  TmhStripeListSubscriptionsQuery,
 } from 'API';
 
 type PaymentMethods = NonNullable<
@@ -28,9 +30,14 @@ export default function PaymentsCard() {
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       })) as GraphQLResult<TmhStripeListPaymentMethodsQuery>;
       console.log(tmhStripeListPaymentMethods);
-      setCards(
-        tmhStripeListPaymentMethods.data?.tmhStripeListPaymentMethods?.data
-      );
+      const creditCards =
+        tmhStripeListPaymentMethods.data?.tmhStripeListPaymentMethods?.data ??
+        [];
+      if (!creditCards.length) {
+        setShowCardForm(true);
+      }
+      setCards(creditCards);
+      return creditCards;
     } catch (e: any) {
       console.log({ Error: e });
       setCards(e.data.tmhStripeListPaymentMethods?.data);
@@ -107,10 +114,48 @@ const CardCard = ({
   listPaymentMethods: () => Promise<any>;
 }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const checkForExistingSubscriptions = async (paymentID: string) => {
+    // if any subscriptions have this payment method
+    try {
+      const tmhStripeListSubscriptions = (await API.graphql({
+        query: queries.tmhStripeListSubscriptions,
+        variables: {
+          starting_after: '',
+        },
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      })) as GraphQLResult<TmhStripeListSubscriptionsQuery>;
+      console.log({ tmhStripeListSubscriptions });
+      const subs =
+        tmhStripeListSubscriptions.data?.tmhStripeListSubscriptions
+          ?.subscriptions ?? [];
+      const existingsSubs = subs.filter((sub) => {
+        return sub?.paymentID === paymentID;
+      });
+      return existingsSubs;
+    } catch (error) {
+      return [];
+    }
+  };
   const handleRemove = async (id: string | undefined | null) => {
     if (!id) return;
     try {
       setIsLoading(true);
+      // get subscriptions
+      const existingsSubs = await checkForExistingSubscriptions(id);
+      if (existingsSubs.length) {
+        existingsSubs.map((sub) =>
+          API.graphql({
+            query: queries.tmhStripeDeleteSubscription,
+            variables: {
+              subscriptionId: sub?.id,
+            },
+            authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+          })
+        ) as GraphQLResult<TmhStripeDeleteSubscriptionQuery>;
+      }
+      await Promise.all(existingsSubs).then((values) => {
+        console.log({ values });
+      });
       const deletePaymentMethod = (await API.graphql({
         query: queries.tmhStripeDeletePaymentMethod,
         variables: { paymentMethodId: id },

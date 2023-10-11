@@ -12,6 +12,7 @@
 @media (max-width: 1130px) {
   .dashboardContainer {
     grid-template-columns: 330px 330px;
+
     gap: 12px 12px;
     grid-template-areas:
       'First-Column Profile-Card'

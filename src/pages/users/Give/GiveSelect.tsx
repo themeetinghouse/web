@@ -1,14 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './GiveSelect.scss';
 import { tmhStripeListProducts } from 'graphql-custom/customQueries';
 import { API, GraphQLResult } from '@aws-amplify/api';
 import { TmhStripeListProductsQuery } from 'API';
-type GiveSelectProps = {
-  form: any;
-  setForm: (a: any) => void; //setState type
-};
-export default function GiveSelect(props: GiveSelectProps) {
-  const { form, setForm } = props;
+import { GEContext } from 'components/RenderRouter/GiveComponents/GEContext';
+import { GEActionType } from 'components/RenderRouter/GiveComponents/GETypes';
+export default function GiveSelect() {
+  const { state, dispatch } = useContext(GEContext);
   const [fundOptions, setFundOptions] = useState<
     Array<{ name: string; value: string }>
   >([]);
@@ -39,15 +37,14 @@ export default function GiveSelect(props: GiveSelectProps) {
   return (
     <select
       data-testid="FundType"
-      value={form.fund.id ?? fundOptions?.[0]?.value ?? ''}
+      value={state.content?.fund?.id ?? fundOptions?.[0]?.value ?? ''}
       onChange={(e) => {
         const selectedOption = fundOptions.find(
           (option) => option.value === e.target.value
         );
-
-        setForm({
-          ...form,
-          fund: {
+        dispatch({
+          type: GEActionType.SET_FUND,
+          payload: {
             name: selectedOption?.name ?? '',
             id: selectedOption?.value ?? '',
           },

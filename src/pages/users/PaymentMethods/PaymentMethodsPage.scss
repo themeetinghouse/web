@@ -8,11 +8,18 @@
     height: auto;
   }
   .Payments-Card {
+    padding: 48px 60px;
     background-color: #ffffff;
     min-height: 698px;
     height: fit-content;
     .spinnerContainer {
       margin: auto;
+    }
+    @media (max-width: 1130px) {
+      padding: 48px 24px;
+    }
+    @media (max-width: 768px) {
+      padding: 24px 24px;
     }
   }
   grid-template-areas:

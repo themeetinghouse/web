@@ -137,7 +137,6 @@ export default function TransactionsPage(): JSX.Element {
                               {parseFloat(x?.amount ?? '0').toFixed(2)}
                             </td>
                             <td>{x?.paymentMethod}</td>
-                            <td>{x?.accountReference}</td>
                             <td>{x?.fund?.name}</td>
                           </tr>
                         );

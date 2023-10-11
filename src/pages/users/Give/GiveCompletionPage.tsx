@@ -1,21 +1,16 @@
-import { Dispatch } from 'react';
+import { useContext } from 'react';
 import './GiveCompletionPage.scss';
-import { GiveAction, GiveActionType, GiveState } from './GivePage';
+import { GEContext } from 'components/RenderRouter/GiveComponents/GEContext';
+import { GEActionType } from 'components/RenderRouter/GiveComponents/GETypes';
 
-type GiveCompletionPageProps = {
-  giveState: GiveState;
-  dispatch: Dispatch<GiveAction>;
-};
-
-export default function GiveCompletionPage(props: GiveCompletionPageProps) {
-  const { giveState } = props;
-  console.log('giveState', giveState);
+export default function GiveCompletionPage() {
+  const { state, dispatch } = useContext(GEContext);
   return (
     <div className="GiveResultPageContainer">
-      {giveState.currentPayload.status === 'complete' ? (
+      {state.status === 'complete' ? (
         <>
           <h1 className="CompletionHeader">Thank You</h1>
-          <p>Thank you for your gift of ${giveState.currentPayload.amount}</p>
+          <p>Thank you for your gift of ${state.content.amount}</p>
           <p className="CompletionMessage">
             A few clicks later and you are now part of this great mission of
             growing loving communities of Jesus followers who live and share his
@@ -30,7 +25,7 @@ export default function GiveCompletionPage(props: GiveCompletionPageProps) {
                 borderBottom: '1px solid black',
               }}
               onClick={() =>
-                props.dispatch({ type: GiveActionType.SHOW_RECURRING })
+                dispatch({ type: GEActionType.NAVIGATE_TO_RECURRING_GIFT })
               }
             >
               Manage my recurring giving
@@ -39,9 +34,7 @@ export default function GiveCompletionPage(props: GiveCompletionPageProps) {
         </>
       ) : (
         <>
-          <h1 className="CompletionHeader">
-            {giveState.currentPayload.errorMessage}
-          </h1>
+          <h1 className="CompletionHeader">{state.errorMessage}</h1>
           <p className="CompletionMessage">
             Please contact support at{' '}
             <a href="mailto: donate@themeetinghouse.com">
@@ -57,7 +50,7 @@ export default function GiveCompletionPage(props: GiveCompletionPageProps) {
                 margin: '16px 0px',
                 borderBottom: '1px solid black',
               }}
-              onClick={() => props.dispatch({ type: GiveActionType.SHOW_GIVE })}
+              onClick={() => dispatch({ type: GEActionType.NAVIGATE_GIVE_NOW })}
             >
               Go back
             </span>

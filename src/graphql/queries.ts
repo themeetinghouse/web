@@ -3823,31 +3823,19 @@ export const tmhStripeListPaymentMethods = /* GraphQL */ `
 export const tmhStripeListSubscriptions = /* GraphQL */ `
   query TmhStripeListSubscriptions($starting_after: String) {
     tmhStripeListSubscriptions(starting_after: $starting_after) {
-      data {
+      subscriptions {
         id
-        default_source
-        items {
-          data {
-            id
-            price
-            plan {
-              id
-              interval
-              interval_count
-              active
-              amount
-              number_decimal
-              currency
-              product
-              __typename
-            }
-            __typename
-          }
-          __typename
-        }
-        next_pending_invoice_item_invoice
-        start_date
+        unit_amount
+        name
+        interval
+        interval_count
+        current_period_end
+        billing_cycle_anchor
         status
+        cardBrand
+        cardLast4
+        cardExpiry
+        paymentID
         __typename
       }
       has_more
@@ -3857,7 +3845,10 @@ export const tmhStripeListSubscriptions = /* GraphQL */ `
 `;
 export const tmhStripeDeleteSubscription = /* GraphQL */ `
   query TmhStripeDeleteSubscription($subscriptionId: String) {
-    tmhStripeDeleteSubscription(subscriptionId: $subscriptionId)
+    tmhStripeDeleteSubscription(subscriptionId: $subscriptionId) {
+      message
+      __typename
+    }
   }
 `;
 export const tmhStripeAddSubscription = /* GraphQL */ `
@@ -3866,42 +3857,18 @@ export const tmhStripeAddSubscription = /* GraphQL */ `
     $amount: String
     $fund: String
     $frequency: String
+    $paymentMethodId: String
+    $startDate: Int
   ) {
     tmhStripeAddSubscription(
       idempotency: $idempotency
       amount: $amount
       fund: $fund
       frequency: $frequency
+      paymentMethodId: $paymentMethodId
+      startDate: $startDate
     ) {
-      data {
-        id
-        type
-        card {
-          brand
-          last4
-          exp_year
-          exp_month
-          funding
-          country
-          __typename
-        }
-        billing_details {
-          email
-          name
-          phone
-          address {
-            city
-            country
-            line1
-            line2
-            postal_code
-            state
-            __typename
-          }
-          __typename
-        }
-        __typename
-      }
+      message
       __typename
     }
   }

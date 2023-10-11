@@ -19,6 +19,7 @@ import {
   TMHUser,
   TmhStripeAddCustomerQuery,
   TmhStripeAddPaymentQuery,
+  TmhStripeAddSubscriptionQuery,
   UpdateTMHUserMutation,
 } from 'API';
 import { v4 as uuidv4 } from 'uuid';
@@ -26,6 +27,7 @@ import PaymentsCard from './PaymentCard';
 import { getTMHUserForGiveNow } from 'graphql-custom/customQueries';
 import { updateTMHUser } from 'graphql/mutations';
 import GiveAuthManager from './GiveExperienceLogin/GiveAuthManager';
+import moment from 'moment';
 
 let env = 'unknown';
 if (window.location === undefined) env = 'mobile';
@@ -36,32 +38,20 @@ else env = 'prod';
 const PageOne = () => {
   const { dispatch, state } = useContext(GEContext);
   const [error, setError] = useState('');
-  const [form, setForm] = useState({
-    fund: {
-      name: state?.content?.fund?.name ?? '',
-      id: state?.content?.fund?.id ?? '',
-    },
-    amount: state?.content?.amount ?? '',
-  });
-  useEffect(() => {
-    if (form.amount || form.fund.name || form.fund.id)
-      dispatch({
-        type: GEActionType.SET_FUND_DATA,
-        payload: {
-          amount: form.amount,
-          name: form.fund.name,
-          id: form.fund.id,
-        },
-      });
-  }, [form.amount, form.fund.id, form.fund.name]);
+  const today = moment().format('YYYY-MM-DD');
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
       <GiveToggleButton
-        selection="Give once"
-        setSelection={() => null}
+        selection={state.content?.giftType}
+        setSelection={(selected) =>
+          dispatch({
+            type: GEActionType.SET_GIFT_TYPE,
+            payload: selected,
+          })
+        }
       ></GiveToggleButton>
 
-      <GiftAmountButton setForm={setForm}></GiftAmountButton>
+      <GiftAmountButton></GiftAmountButton>
       <label
         style={{
           fontSize: 24,
@@ -73,7 +63,44 @@ const PageOne = () => {
       >
         Where would you like to give?
       </label>
-      <GiveSelect form={form} setForm={setForm}></GiveSelect>
+      <GiveSelect />
+      {state.content?.giftType === 'Recurring' ? (
+        <>
+          <label htmlFor="frequency">Frequency</label>
+          <select
+            data-testid="Frequency"
+            value={state.content.frequency}
+            onChange={(e) =>
+              dispatch({
+                type: GEActionType.SET_FREQUENCY,
+                payload: e.target.value,
+              })
+            }
+            className="GiveInput"
+            id="frequency"
+          >
+            <option value="Every week">Every week</option>
+            <option value="Every 2 weeks">Every 2 weeks</option>
+            <option value="Every month">Every month</option>
+            {/* <option value={`1st & 15th monthly`}>{'1st & 15th monthly'}</option> */}
+          </select>
+          <label htmlFor="date">Starting</label>
+          <input
+            min={today}
+            data-testid="StartDate"
+            value={moment(state.content.startDate * 1000).format('YYYY-MM-DD')}
+            onChange={(e) => {
+              dispatch({
+                type: GEActionType.SET_START_DATE,
+                payload: new Date(e.target.value).valueOf() / 1000,
+              });
+            }}
+            className="GiveInput"
+            placeholder={'YYYY-MM-DD'}
+            type="date"
+          />
+        </>
+      ) : null}
       <div
         style={{
           display: 'flex',
@@ -84,9 +111,9 @@ const PageOne = () => {
         <span style={{ color: 'tomato', flex: 1 }}>{error}</span>
         <button
           onClick={() => {
-            if (!form.amount) {
+            if (!state.content.amount) {
               setError('Please select an amount');
-            } else if (!form.fund.name || !form.fund.id) {
+            } else if (!state.content.fund.name || !state.content.fund.id) {
               setError('Please select a fund');
             } else {
               setError('');
@@ -103,40 +130,69 @@ const PageOne = () => {
     </div>
   );
 };
-const makePayment = async (
-  id: string,
-  amount: any,
-  paymentMethodId?: string
-): Promise<any> => {
+const makePayment = async ({
+  fundID,
+  amount,
+  paymentMethodId,
+  selection,
+  frequency,
+  startingDate,
+}: {
+  fundID: string;
+  amount: any;
+  paymentMethodId?: string;
+  selection?: string;
+  frequency?: string;
+  startingDate?: number;
+}): Promise<any> => {
   if (!amount) {
     console.log('No amount');
     return;
   }
-  if (!id) {
+  if (!fundID) {
     console.log('No id');
     return;
   }
   const variables = {
     idempotency: uuidv4(),
     amount: amount,
-    fund: id,
+    fund: fundID,
   } as any;
   if (paymentMethodId) {
     variables['paymentMethodId'] = paymentMethodId;
   }
-  console.log('Making a payment to ', id, ' for ', amount);
+  console.log('Making a payment to ', fundID, ' for ', amount);
   try {
-    const tmhStripeAddPayment = (await API.graphql({
-      query: queries.tmhStripeAddPayment,
-      variables: {
-        idempotency: uuidv4(),
-        amount: amount,
-        fund: id,
-      },
-      authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-    })) as GraphQLResult<TmhStripeAddPaymentQuery>;
-    console.log({ tmhStripeAddPayment });
-    return tmhStripeAddPayment;
+    if (selection == 'Recurring') {
+      console.log({ frequency, amount, fundID, startingDate });
+      const tmhStripeAddSubscription = (await API.graphql({
+        query: queries.tmhStripeAddSubscription,
+        variables: {
+          idempotency: uuidv4(),
+          paymentMethodId: paymentMethodId,
+          startDate: Math.round(startingDate as number),
+          fund: fundID,
+          frequency,
+          amount,
+        },
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      })) as GraphQLResult<TmhStripeAddSubscriptionQuery>;
+      console.log({ tmhStripeAddSubscription });
+      return tmhStripeAddSubscription.data?.tmhStripeAddSubscription?.message;
+    } else {
+      const tmhStripeAddPayment = (await API.graphql({
+        query: queries.tmhStripeAddPayment,
+        variables: {
+          paymentMethodId: paymentMethodId,
+          idempotency: uuidv4(),
+          amount: amount,
+          fund: fundID,
+        },
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      })) as GraphQLResult<TmhStripeAddPaymentQuery>;
+      console.log({ tmhStripeAddPayment });
+      return tmhStripeAddPayment.data?.tmhStripeAddPayment?.message;
+    }
   } catch (error) {
     console.log({ error });
     return error;
@@ -199,8 +255,6 @@ const PageThree = () => {
       tempNewUser['family_name'] = form?.family_name;
     if (form?.email !== userData?.email) tempNewUser['email'] = form?.email;
     try {
-      // After updating the user in Dynamo, the customer needs to be updated in Stripe
-      // Maybe the stripe customer should be created on this step?
       setIsLoading(true);
       const updateUser = (await API.graphql({
         query: updateTMHUser,
@@ -318,32 +372,31 @@ const PageFour = () => {
         }}
       >
         {errorMessage}
-        {state.selectedPaymentMethodId ? (
+        {state?.content?.selectedPaymentMethodId ? (
           <button
             disabled={isLoading}
             onClick={async () => {
               setIsLoading(true);
               console.log({ state });
-              const result = await makePayment(
-                state?.content?.id,
-                state?.content?.amount,
-                state.selectedPaymentMethodId
-              );
-              if (result?.data?.tmhStripeAddPayment?.message === 'SUCCESS') {
+              const paymentParams: any = {};
+              paymentParams.fundID = state?.content?.fund?.id;
+              paymentParams.amount = state?.content?.amount;
+              paymentParams.paymentMethodId =
+                state?.content?.selectedPaymentMethodId;
+              paymentParams.selection = state?.content?.giftType;
+              paymentParams.frequency = state?.content?.frequency;
+              paymentParams.startingDate = state?.content?.startDate;
+
+              const result = await makePayment(paymentParams);
+              if (result === 'SUCCESS') {
                 setIsLoading(false);
                 console.log({ result });
-                if ('success') {
-                  dispatch({
-                    type: GEActionType.NAVIGATE_TO_COMPLETED,
-                    payload: { status: 'Success' },
-                  });
-                }
-              }
-              if (
-                result?.data?.tmhStripeAddPayment?.message === 'FAILED' ||
-                result?.data?.tmhStripeAddPayment?.message ===
-                  'No stripe customer ID'
-              ) {
+
+                dispatch({
+                  type: GEActionType.NAVIGATE_TO_COMPLETED,
+                  payload: { status: 'Success' },
+                });
+              } else {
                 setIsLoading(false);
                 setErrorMessage(
                   "We're sorry, something went wrong.. Please contact support."
@@ -418,14 +471,6 @@ export default function GiveExperience() {
             style={{ height: '115vh', width: '100%', border: 'none' }} // TODO : STYLING
           ></iframe>
         ) : null}
-        <button
-          style={{ visibility: 'hidden' }}
-          onClick={() => console.log(state)}
-          className="GENextButton"
-          type="button"
-        >
-          Check State
-        </button>
       </div>
     </Elements>
   );

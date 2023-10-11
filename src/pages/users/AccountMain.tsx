@@ -11,18 +11,27 @@ import ProfilePage from './ProfilePage/ProfilePage';
 import { UserContext } from 'components/Auth/UserContext';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-import { Auth } from 'aws-amplify';
+import { Auth } from '@aws-amplify/auth';
+import { API, GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import AdminWrapper from './AdminWrapper';
+import {
+  GEContext,
+  GEProvider,
+} from 'components/RenderRouter/GiveComponents/GEContext';
+import { GEActionType } from 'components/RenderRouter/GiveComponents/GETypes';
+import * as queries from '../../graphql/queries';
+import { GetTMHUserQuery } from 'API';
 let env = 'unknown';
 if (window.location === undefined) env = 'mobile';
 else if (window.location.hostname === 'localhost') env = 'dev';
 else if (window.location.hostname.includes('beta')) env = 'beta';
 else if (window.location.hostname.includes('dev')) env = 'dev';
 else env = 'prod';
-export default function AccountMain(): JSX.Element {
+function AccountMainContent(): JSX.Element {
   const history = useHistory();
   const [open, setOpen] = useState(false);
   const { userState, userActions } = useContext(UserContext);
+  const { state, dispatch } = useContext(GEContext);
   const [stripePromise] = useState(() =>
     loadStripe(
       env == 'beta'
@@ -73,6 +82,33 @@ export default function AccountMain(): JSX.Element {
       clearInterval(interval);
     };
   }, [userState?.authState]);
+  useEffect(() => {
+    (async () => {
+      try {
+        const user = await Auth.currentAuthenticatedUser();
+        dispatch({
+          type: GEActionType.SET_USER,
+          payload: user,
+        });
+        const userData = (await API.graphql({
+          query: queries.getTMHUser,
+          variables: { id: user.username },
+          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+        })) as GraphQLResult<GetTMHUserQuery>;
+        const userInfo = userData?.data?.getTMHUser;
+        if (userInfo && state?.billingDetails?.user) {
+          dispatch({
+            type: GEActionType.SET_BILLING_DETAILS,
+            payload: {
+              user: userInfo,
+            },
+          });
+        }
+      } catch (error) {
+        console.error({ error });
+      }
+    })();
+  }, []);
   if (!userState || userState.authState !== 'signedIn') {
     return <div>Loading...</div>;
   } else
@@ -115,4 +151,12 @@ export default function AccountMain(): JSX.Element {
         </Elements>
       </div>
     );
+}
+
+export default function AccountMain() {
+  return (
+    <GEProvider>
+      <AccountMainContent />
+    </GEProvider>
+  );
 }

@@ -599,19 +599,19 @@
       "dependsOn": [
         {
           "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "themeetinghousetmhShared"
+        },
+        {
+          "attributes": [
             "GraphQLAPIIdOutput",
             "GraphQLAPIEndpointOutput",
             "GraphQLAPIKeyOutput"
           ],
           "category": "api",
           "resourceName": "themeetinghouse"
-        },
-        {
-          "attributes": [
-            "Arn"
-          ],
-          "category": "function",
-          "resourceName": "themeetinghousetmhShared"
         }
       ],
       "providerPlugin": "awscloudformation",

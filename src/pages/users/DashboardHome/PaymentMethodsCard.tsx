@@ -43,28 +43,30 @@ export default function PaymentMethodsCard(): JSX.Element {
         </div>
       ) : (
         <div className="cardContainer">
-          <div className="paymentCard">
-            <img
-              alt="Checked"
-              className="checkIcon"
-              src="/static/svg/Check.svg"
-            />
-            <img
-              width={46}
-              style={{ marginTop: -12, marginBottom: 24 }}
-              src={`/static/svg/${card.brand}.svg`}
-            />
-            <p style={{ textAlign: 'left', marginBottom: 0 }}>
-              •••• •••• •••• {card?.last4}
-            </p>
-            <p style={{ textAlign: 'left' }}>
-              Exp{' '}
-              {`${
-                card?.exp_month < 10 ? `0${card?.exp_month}` : card?.exp_month
-              } `}
-              /{card?.exp_year}
-            </p>
-          </div>
+          {card ? (
+            <div className="paymentCard">
+              <img
+                alt="Checked"
+                className="checkIcon"
+                src="/static/svg/Check.svg"
+              />
+              <img
+                width={46}
+                style={{ marginTop: -12, marginBottom: 24 }}
+                src={`/static/svg/${card?.brand}.svg`}
+              />
+              <p style={{ textAlign: 'left', marginBottom: 0 }}>
+                •••• •••• •••• {card?.last4}
+              </p>
+              <p style={{ textAlign: 'left' }}>
+                Exp{' '}
+                {`${
+                  card?.exp_month < 10 ? `0${card?.exp_month}` : card?.exp_month
+                } `}
+                /{card?.exp_year}
+              </p>
+            </div>
+          ) : null}
           <div
             onClick={() => history.push('/account/payments')}
             className="paymentCard grey"

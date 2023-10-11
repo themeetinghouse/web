@@ -229,7 +229,7 @@ export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
         <button
           onClick={addNewPaymentMethod}
           style={{ width: '100%' }}
-          disabled={!isCardFormValid()}
+          disabled={!isCardFormValid() || addingCard}
           className={`SubmitNewCardButton${
             !isCardFormValid() ? ' disabled' : ''
           }`}

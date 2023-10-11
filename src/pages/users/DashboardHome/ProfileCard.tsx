@@ -33,78 +33,74 @@ export default function ProfileCard(): JSX.Element {
         </div>
       ) : (
         <>
-          <img
-            alt="User Profile"
-            className="profilePicture"
-            src="/static/svg/Profile.svg"
-          ></img>
-          {userData.given_name && userData.family_name && (
-            <h3>
-              {userData.given_name} {userData.family_name}
+          <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+            <h3 style={{ marginBottom: 36 }}>
+              {userData?.given_name} {userData?.family_name}
             </h3>
-          )}
-          {userData.email && (
-            <>
-              <span>Email</span>
-              <p style={{ overflowWrap: 'anywhere' }}>{userData.email}</p>
-            </>
-          )}
-          {userData.phone && (
-            <>
-              <span>Mobile</span>
-              <p>{userData.phone}</p>
-            </>
-          )}
-
-          <div className="AddressContainer">
+            {userData.email && (
+              <>
+                <span>Email</span>
+                <p style={{ overflowWrap: 'anywhere' }}>{userData.email}</p>
+              </>
+            )}
+            {userData.phone && (
+              <>
+                <span>Mobile</span>
+                <p>{userData.phone}</p>
+              </>
+            )}
             {userData.billingAddress?.line1 ||
             userData.billingAddress?.line2 ||
             userData.billingAddress?.postal_code ||
             userData.billingAddress?.city ||
             userData.billingAddress?.state ||
             userData.billingAddress?.country ? (
-              <span>Address</span>
+              <div className="AddressContainer">
+                <span>Address</span>
+
+                {userData.billingAddress?.line1 ? (
+                  <p>{userData.billingAddress?.line1}</p>
+                ) : null}
+                {userData.billingAddress?.postal_code && (
+                  <p>{userData.billingAddress?.postal_code}</p>
+                )}
+                {userData.billingAddress?.city ||
+                  (userData.billingAddress?.state && (
+                    <p>
+                      {userData.billingAddress?.city}{' '}
+                      {userData.billingAddress?.state}
+                    </p>
+                  ))}
+                {userData.billingAddress?.country && (
+                  <p>{userData.billingAddress?.country}</p>
+                )}
+              </div>
+            ) : null}
+            {[...new Set(userGroups)].length ? (
+              <p
+                style={{
+                  overflowWrap: 'anywhere',
+                  marginBottom: 0,
+                  fontWeight: 700,
+                  color: '#212529',
+                }}
+              >
+                Groups:
+              </p>
             ) : null}
 
-            {userData.billingAddress?.line1 ? (
-              <p>{userData.billingAddress?.line1}</p>
-            ) : null}
-            {userData.billingAddress?.postal_code && (
-              <p>{userData.billingAddress?.postal_code}</p>
-            )}
-            {userData.billingAddress?.city ||
-              (userData.billingAddress?.state && (
-                <p>
-                  {userData.billingAddress?.city}{' '}
-                  {userData.billingAddress?.state}
-                </p>
-              ))}
-            {userData.billingAddress?.country && (
-              <p>{userData.billingAddress?.country}</p>
-            )}
+            <p
+              style={{
+                overflowWrap: 'anywhere',
+                fontSize: 12,
+                color: '#212529',
+              }}
+            >
+              {[...new Set(userGroups)]
+                ?.filter((group) => group !== 'Participant')
+                ?.map((a) => ` ${a},`)}
+            </p>
           </div>
-          <p
-            style={{
-              overflowWrap: 'anywhere',
-              marginBottom: 0,
-              fontWeight: 700,
-              color: '#212529',
-            }}
-          >
-            Groups:
-          </p>
-
-          <p
-            style={{
-              overflowWrap: 'anywhere',
-              fontSize: 12,
-              color: '#212529',
-            }}
-          >
-            {[...new Set(userGroups)]
-              ?.filter((group) => group !== 'Participant')
-              ?.map((a) => ` ${a},`)}
-          </p>
           <ClickableText style={{ display: 'block' }} to={'/account/profile'}>
             <img
               alt="Edit Icon"
@@ -114,7 +110,6 @@ export default function ProfileCard(): JSX.Element {
             ></img>
             Edit
           </ClickableText>
-          <div style={{ flex: 1 }}></div>
           <LinkButton
             onClick={async () => {
               await Auth.signOut();

@@ -153,10 +153,10 @@ export default class TMHStripe {
     const stripe = new Stripe(await this.getSecret('stripeSecret'), {
       apiVersion: '2020-08-27',
     });
-    const customerResult = await stripe.paymentMethods.list({
-      customer: stripeCustomerID,
-      type: type,
-    });
+    const customerResult = await stripe.customers.listPaymentMethods(
+      stripeCustomerID,
+      { type: 'card' }
+    );
     return customerResult;
   }
   static async getPaymentMethod(
