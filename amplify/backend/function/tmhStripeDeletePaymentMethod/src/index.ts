@@ -11,15 +11,23 @@ import TMHStripe from '../../themeetinghousetmhShared/lib/nodejs/TMHStripe';
 export const handler = async (event) => {
   // TODO implement
   const paymentMethodId = event.arguments.paymentMethodId;
+  console.log({ paymentMethodId });
 
-  const user = await TMHDB.getUser(event.identity.username);
-  if (user.stripeCustomerID) {
-    if (
-      (await TMHStripe.getPaymentMethod(paymentMethodId)).customer ==
-      user.stripeCustomerID
-    )
-      return TMHStripe.detatchPaymentMethod(paymentMethodId);
+  try {
+    const user = await TMHDB.getUser(event.identity.username);
+    if (user.stripeCustomerID) {
+      if (
+        (await TMHStripe.getPaymentMethod(paymentMethodId)).customer ==
+        user.stripeCustomerID
+      ) {
+        const result = await TMHStripe.detatchPaymentMethod(paymentMethodId);
+        return true;
+      }
+      return false;
+    }
+    return false;
+  } catch (error) {
+    console.log({ error });
+    return false;
   }
-
-  return false;
 };

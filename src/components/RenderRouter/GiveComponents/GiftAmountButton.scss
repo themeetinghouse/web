@@ -11,6 +11,24 @@
     background-color: black;
     border-color: black;
     color: white;
+    input {
+      color: white;
+    }
+    input::placeholder {
+      color: white;
+      opacity: 0.5;
+    }
+  }
+  input {
+    background-color: tomato;
+    flex: 1;
+    font-size: 24px;
+    max-width: 6ch;
+    display: flex;
+    text-align: center;
+    border: none;
+    outline: none;
+    background-color: transparent;
   }
 }
 

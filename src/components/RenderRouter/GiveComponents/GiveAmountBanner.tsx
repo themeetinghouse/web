@@ -1,7 +1,7 @@
 import './GiveAmountBanner.scss';
 type GiveAmountBannerProps = {
   goBack: () => void;
-  amount: number;
+  amount: string;
   recurring?: string;
 };
 export default function GiveAmountBanner(props: GiveAmountBannerProps) {

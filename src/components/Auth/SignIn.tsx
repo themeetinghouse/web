@@ -1,11 +1,10 @@
 import { Auth } from 'aws-amplify';
 import * as Sentry from '@sentry/browser';
 import React from 'react';
-import { AuthStateData } from './AuthStateData';
-import { UserActions, UserContext } from './UserContext';
-import MyAccountNav from 'pages/users/MyAccountNav/MyAccountNav';
 import { Spinner } from 'reactstrap';
 import './AuthPages.scss';
+import { useHistory } from 'react-router-dom';
+import { useUser } from 'pages/users/Auth/UserContext';
 
 type SignInProps = {
   navigation?: any;
@@ -20,6 +19,8 @@ type SignInState = {
 };
 
 export default function SignIn(props: SignInProps) {
+  const history = useHistory();
+  const { dispatch } = useUser();
   const [state, setState] = React.useState<SignInState>({
     pass: '',
     user: props.route?.params?.email ?? '',
@@ -27,7 +28,6 @@ export default function SignIn(props: SignInProps) {
     fromVerified: props.route?.params?.fromVerified ?? false,
     isLoading: false,
   });
-  const { userActions, userState } = React.useContext(UserContext);
   const refreshSession = async (): Promise<void> => {
     try {
       const cognitoUser = await Auth.currentAuthenticatedUser();
@@ -38,7 +38,7 @@ export default function SignIn(props: SignInProps) {
             currentSession.getRefreshToken(),
             (err: any) => {
               if (err) throw err;
-              changeAuthState(userActions, 'signedIn');
+              history.push('/account'); //changeAuthState(userActions, 'signedIn');
             }
           );
           console.log('Successfully refreshed session');
@@ -46,10 +46,10 @@ export default function SignIn(props: SignInProps) {
           console.error({ error });
         }
       } else {
-        changeAuthState(userActions, 'signedIn');
+        history.push('/account'); //changeAuthState(userActions, 'signedIn');
       }
     } catch (error) {
-      changeAuthState(userActions, 'signIn');
+      history.push('/account/signin'); //changeAuthState(userActions, 'signedIn');changeAuthState(userActions, 'signIn');
       console.log(error);
     }
   };
@@ -75,19 +75,19 @@ export default function SignIn(props: SignInProps) {
     };
     attemptToRefresh();
   }, []);
-  const changeAuthState = async (
-    action: UserActions,
-    state: string,
-    data?: AuthStateData
-  ) => {
-    setState((prev) => ({
-      ...prev,
-      pass: '',
-      user: '',
-      authError: '',
-    }));
-    if (action.onStateChange) await action.onStateChange(state, data ?? null);
-  };
+  // const changeAuthState = async (
+  //   action: UserActions,
+  //   state: string,
+  //   data?: AuthStateData
+  // ) => {
+  //   setState((prev) => ({
+  //     ...prev,
+  //     pass: '',
+  //     user: '',
+  //     authError: '',
+  //   }));
+  //   if (action.onStateChange) await action.onStateChange(state, data ?? null);
+  // };
   const validateLogin = (): boolean => {
     if (!/^\S*$/.test(state.user)) {
       setState((prev) => ({
@@ -106,7 +106,7 @@ export default function SignIn(props: SignInProps) {
     }
     return true;
   };
-  const handleSignIn = async (actions: UserActions) => {
+  const handleSignIn = async () => {
     if (validateLogin()) {
       try {
         setState((prev) => ({ ...prev, isLoading: true }));
@@ -115,9 +115,11 @@ export default function SignIn(props: SignInProps) {
         await Auth.signIn(state.user.toLowerCase(), state.pass).then(
           async (user) => {
             if (user.challengeName == 'NEW_PASSWORD_REQUIRED') {
-              await changeAuthState(actions, 'requireNewPassword', user);
+              history.push('/account/requirenewpassword');
             } else {
-              await changeAuthState(actions, 'signedIn');
+              dispatch({ type: 'SET_COGNITO_USER', payload: user });
+              history.push('/account');
+              //await changeAuthState(actions, 'signedIn');
             }
           }
         );
@@ -132,18 +134,8 @@ export default function SignIn(props: SignInProps) {
     }
   };
 
-  if (!userState) return null;
-  const showSignInForm =
-    userState.authState === 'signIn' ||
-    userState.authState === 'signedOut' ||
-    userState.authState === 'signedUp';
-  return showSignInForm ? (
+  return (
     <div style={{ minHeight: '100vh' }} className="SignInPageContainer">
-      <MyAccountNav
-        navigationItems={[]}
-        toggle={() => null}
-        open={false}
-      ></MyAccountNav>
       <div className="SignInContent">
         <form className="SignInForm">
           <p className="SignInHeader">The Meeting House Account Portal</p>
@@ -179,7 +171,8 @@ export default function SignIn(props: SignInProps) {
               className="SignInButton white"
               disabled={state.isLoading}
               onClick={async () => {
-                await changeAuthState(userActions, 'signUp', undefined);
+                history.push('/account/signup');
+                //await changeAuthState(userActions, 'signUp', undefined);
               }}
             >
               Create an Account
@@ -188,9 +181,7 @@ export default function SignIn(props: SignInProps) {
               type="button"
               className="SignInButton"
               disabled={state.isLoading}
-              onClick={async () => {
-                await handleSignIn(userActions);
-              }}
+              onClick={handleSignIn}
             >
               {state.isLoading ? (
                 <>
@@ -212,7 +203,8 @@ export default function SignIn(props: SignInProps) {
             }}
             disabled={state.isLoading}
             onClick={async () => {
-              await changeAuthState(userActions, 'forgotPassword');
+              history.push('/account/forgotpassword');
+              //await changeAuthState(userActions, 'forgotPassword');
             }}
           >
             Forgot password?
@@ -235,7 +227,5 @@ export default function SignIn(props: SignInProps) {
         </form>
       </div>
     </div>
-  ) : (
-    <div>Loading...</div>
   );
 }

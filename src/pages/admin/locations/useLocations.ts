@@ -3,7 +3,7 @@ import DataLoader from '../../../components/RenderRouter/DataLoader';
 import { useState, useEffect } from 'react';
 import { API, Auth } from 'aws-amplify';
 import { GraphQLResult } from '@aws-amplify/api';
-import { tMHPersonByEmail } from 'graphql/queries';
+import { TMHPersonByEmail } from 'graphql/queries';
 // import moment from 'moment';
 // import API, { GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 // import * as mutations from '../../../graphql/mutations';
@@ -138,7 +138,7 @@ export default function useLocations() {
         if (groups.includes('LocationManager')) {
           console.log('getting user', user1.username);
           const currentTMHPerson = (await API.graphql({
-            query: tMHPersonByEmail,
+            query: TMHPersonByEmail,
             variables: { email: user1.username },
           })) as GraphQLResult<TMHPersonByEmailQuery>;
           const currentPersonData =

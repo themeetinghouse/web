@@ -177,13 +177,22 @@ export default class SignUp extends React.Component<Props, State> {
                   <div className="SignInContent">
                     <div className="SignInForm">
                       <div>
-                        <p
+                        <span
                           className="SignInHeader"
+                          style={{ display: 'block' }}
                           //accessibilityRole="header"
                         >
-                          Create your account
-                        </p>
-                        <div>
+                          Create your TMH account
+                        </span>
+                        <span>Create an account to manage your donations</span>
+                        <div
+                          style={{
+                            marginTop: 40,
+                            display: 'flex',
+                            flexDirection: 'row',
+                            gap: 20,
+                          }}
+                        >
                           <input
                             className="SignInInput"
                             // accessibilityLabel="First Name"
@@ -220,7 +229,13 @@ export default class SignUp extends React.Component<Props, State> {
                             }
                           ></input>
                         </div>
-                        <div>
+                        <div
+                          style={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            gap: 20,
+                          }}
+                        >
                           <input
                             className="SignInInput"
                             // textContentType="newPassword"
@@ -305,13 +320,20 @@ export default class SignUp extends React.Component<Props, State> {
                             className="SignInButton"
                             onClick={() => this.signUp(userActions)}
                           >
-                            {this.state.sendingData ? (
-                              <img src="activity-indicator.gif" />
-                            ) : (
-                              'Continue'
-                            )}
+                            {this.state.sendingData
+                              ? 'Submitting...'
+                              : 'Continue'}
                           </button>
                         </div>
+                        {this.state.authError ? (
+                          <div
+                            // accessibilityLiveRegion={'assertive'}
+                            // accessibilityRole="alert"
+                            style={{ color: 'tomato', marginBottom: 20 }}
+                          >
+                            {this.state.authError}
+                          </div>
+                        ) : null}
                         <button
                           style={{
                             backgroundColor: 'white',
@@ -334,15 +356,6 @@ export default class SignUp extends React.Component<Props, State> {
                         >
                           Confirm a code
                         </button>
-                        <div
-                        // accessibilityLiveRegion={'assertive'}
-                        // accessibilityRole="alert"
-                        >
-                          {this.state.authError ? (
-                            <img src="/static/svg/Announcement.svg" />
-                          ) : null}
-                          {this.state.authError}
-                        </div>
                       </div>
                     </div>
                   </div>

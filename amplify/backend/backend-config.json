@@ -42,6 +42,20 @@
       "providerPlugin": "awscloudformation",
       "service": "API Gateway"
     },
+    "stripeAPI": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "tmhStripeAPI"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
     "themeetinghouse": {
       "dependsOn": [
         {
@@ -479,7 +493,7 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
-    "tmhStripeAddCustomer": {
+    "tmhStripeAPI": {
       "build": true,
       "dependsOn": [
         {
@@ -497,6 +511,29 @@
           ],
           "category": "function",
           "resourceName": "themeetinghousetmhShared"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "tmhStripeAddCustomer": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "themeetinghousetmhShared"
+        },
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "themeetinghouse"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -599,6 +636,29 @@
       "dependsOn": [
         {
           "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "themeetinghousetmhShared"
+        },
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "themeetinghouse"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "tmhStripeListCustomerTransactions": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
             "GraphQLAPIIdOutput",
             "GraphQLAPIEndpointOutput",
             "GraphQLAPIKeyOutput"
@@ -640,7 +700,67 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
+    "tmhStripeListProducts": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "themeetinghousetmhShared"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "tmhStripeListSubscriptions": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "themeetinghouse"
+        },
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "themeetinghousetmhShared"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "tmhStripePauseSubscription": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "themeetinghouse"
+        },
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "themeetinghousetmhShared"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "tmhStripeResumeSubscription": {
       "build": true,
       "dependsOn": [
         {
@@ -1292,6 +1412,46 @@
         }
       ]
     },
+    "AMPLIFY_function_tmhStripeAPI_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeAPI"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeAPI_identityPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeAPI"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeAPI_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeAPI"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeAPI_userPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeAPI"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeAPI_userPoolWebClientId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeAPI"
+        }
+      ]
+    },
     "AMPLIFY_function_tmhStripeAddCustomer_deploymentBucketName": {
       "usedBy": [
         {
@@ -1532,6 +1692,46 @@
         }
       ]
     },
+    "AMPLIFY_function_tmhStripeListCustomerTransactions_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeListCustomerTransactions"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeListCustomerTransactions_identityPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeListCustomerTransactions"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeListCustomerTransactions_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeListCustomerTransactions"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeListCustomerTransactions_userPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeListCustomerTransactions"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeListCustomerTransactions_userPoolWebClientId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeListCustomerTransactions"
+        }
+      ]
+    },
     "AMPLIFY_function_tmhStripeListPaymentMethods_deploymentBucketName": {
       "usedBy": [
         {
@@ -1572,6 +1772,22 @@
         }
       ]
     },
+    "AMPLIFY_function_tmhStripeListProducts_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeListProducts"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeListProducts_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeListProducts"
+        }
+      ]
+    },
     "AMPLIFY_function_tmhStripeListSubscriptions_deploymentBucketName": {
       "usedBy": [
         {
@@ -1609,6 +1825,86 @@
         {
           "category": "function",
           "resourceName": "tmhStripeListSubscriptions"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripePauseSubscription_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripePauseSubscription"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripePauseSubscription_identityPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripePauseSubscription"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripePauseSubscription_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripePauseSubscription"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripePauseSubscription_userPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripePauseSubscription"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripePauseSubscription_userPoolWebClientId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripePauseSubscription"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeResumeSubscription_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeResumeSubscription"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeResumeSubscription_identityPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeResumeSubscription"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeResumeSubscription_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeResumeSubscription"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeResumeSubscription_userPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeResumeSubscription"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhStripeResumeSubscription_userPoolWebClientId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhStripeResumeSubscription"
         }
       ]
     },

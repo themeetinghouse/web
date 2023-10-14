@@ -12,6 +12,7 @@ export const getBiblePassage = /* GraphQL */ `
         content
         reference
         copyright
+        __typename
       }
       meta {
         fums
@@ -19,7 +20,9 @@ export const getBiblePassage = /* GraphQL */ `
         fumsJsInclude
         fumsJs
         fumsNoScript
+        __typename
       }
+      __typename
     }
   }
 `;
@@ -31,6 +34,7 @@ export const getYoutubeVideoSearch = /* GraphQL */ `
       pageInfo {
         totalResults
         resultsPerPage
+        __typename
       }
       nextPageToken
       items {
@@ -47,33 +51,41 @@ export const getYoutubeVideoSearch = /* GraphQL */ `
               url
               width
               height
+              __typename
             }
             medium {
               url
               width
               height
+              __typename
             }
             high {
               url
               width
               height
+              __typename
             }
             standard {
               url
               width
               height
+              __typename
             }
             maxres {
               url
               width
               height
+              __typename
             }
+            __typename
           }
           channelTitle
           localized {
             title
             description
+            __typename
           }
+          __typename
         }
         contentDetails {
           videoId
@@ -154,12 +166,15 @@ export const getYoutubeVideoSearch = /* GraphQL */ `
             smsaRating
             tvpgRating
             ytRating
+            __typename
           }
           regionRestriction {
             allowed
             blocked
+            __typename
           }
           hasCustomThumbnail
+          __typename
         }
         status {
           uploadStatus
@@ -167,6 +182,7 @@ export const getYoutubeVideoSearch = /* GraphQL */ `
           license
           embeddable
           publicStatsViewable
+          __typename
         }
         statistics {
           viewCount
@@ -174,8 +190,11 @@ export const getYoutubeVideoSearch = /* GraphQL */ `
           dislikeCount
           favoriteCount
           commentCount
+          __typename
         }
+        __typename
       }
+      __typename
     }
   }
 `;
@@ -187,6 +206,7 @@ export const getYoutubePlaylistItems = /* GraphQL */ `
       pageInfo {
         totalResults
         resultsPerPage
+        __typename
       }
       nextPageToken
       items {
@@ -203,33 +223,41 @@ export const getYoutubePlaylistItems = /* GraphQL */ `
               url
               width
               height
+              __typename
             }
             medium {
               url
               width
               height
+              __typename
             }
             high {
               url
               width
               height
+              __typename
             }
             standard {
               url
               width
               height
+              __typename
             }
             maxres {
               url
               width
               height
+              __typename
             }
+            __typename
           }
           channelTitle
           localized {
             title
             description
+            __typename
           }
+          __typename
         }
         contentDetails {
           videoId
@@ -310,12 +338,15 @@ export const getYoutubePlaylistItems = /* GraphQL */ `
             smsaRating
             tvpgRating
             ytRating
+            __typename
           }
           regionRestriction {
             allowed
             blocked
+            __typename
           }
           hasCustomThumbnail
+          __typename
         }
         status {
           uploadStatus
@@ -323,6 +354,7 @@ export const getYoutubePlaylistItems = /* GraphQL */ `
           license
           embeddable
           publicStatsViewable
+          __typename
         }
         statistics {
           viewCount
@@ -330,8 +362,11 @@ export const getYoutubePlaylistItems = /* GraphQL */ `
           dislikeCount
           favoriteCount
           commentCount
+          __typename
         }
+        __typename
       }
+      __typename
     }
   }
 `;
@@ -344,6 +379,7 @@ export const getYoutubePlaylist = /* GraphQL */ `
       pageInfo {
         totalResults
         resultsPerPage
+        __typename
       }
       items {
         kind
@@ -359,35 +395,45 @@ export const getYoutubePlaylist = /* GraphQL */ `
               url
               width
               height
+              __typename
             }
             medium {
               url
               width
               height
+              __typename
             }
             high {
               url
               width
               height
+              __typename
             }
             standard {
               url
               width
               height
+              __typename
             }
             maxres {
               url
               width
               height
+              __typename
             }
+            __typename
           }
           channelTitle
           localized {
             title
             description
+            __typename
           }
+          __typename
         }
+        __typename
       }
+      __typename
     }
   }
 `;
@@ -399,6 +445,7 @@ export const getYoutubeVideoContentDetails = /* GraphQL */ `
       pageInfo {
         totalResults
         resultsPerPage
+        __typename
       }
       nextPageToken
       items {
@@ -415,33 +462,41 @@ export const getYoutubeVideoContentDetails = /* GraphQL */ `
               url
               width
               height
+              __typename
             }
             medium {
               url
               width
               height
+              __typename
             }
             high {
               url
               width
               height
+              __typename
             }
             standard {
               url
               width
               height
+              __typename
             }
             maxres {
               url
               width
               height
+              __typename
             }
+            __typename
           }
           channelTitle
           localized {
             title
             description
+            __typename
           }
+          __typename
         }
         contentDetails {
           videoId
@@ -522,12 +577,15 @@ export const getYoutubeVideoContentDetails = /* GraphQL */ `
             smsaRating
             tvpgRating
             ytRating
+            __typename
           }
           regionRestriction {
             allowed
             blocked
+            __typename
           }
           hasCustomThumbnail
+          __typename
         }
         status {
           uploadStatus
@@ -535,6 +593,7 @@ export const getYoutubeVideoContentDetails = /* GraphQL */ `
           license
           embeddable
           publicStatsViewable
+          __typename
         }
         statistics {
           viewCount
@@ -542,8 +601,11 @@ export const getYoutubeVideoContentDetails = /* GraphQL */ `
           dislikeCount
           favoriteCount
           commentCount
+          __typename
         }
+        __typename
       }
+      __typename
     }
   }
 `;
@@ -555,6 +617,7 @@ export const getYoutubeVideoStatistics = /* GraphQL */ `
       pageInfo {
         totalResults
         resultsPerPage
+        __typename
       }
       nextPageToken
       items {
@@ -571,33 +634,41 @@ export const getYoutubeVideoStatistics = /* GraphQL */ `
               url
               width
               height
+              __typename
             }
             medium {
               url
               width
               height
+              __typename
             }
             high {
               url
               width
               height
+              __typename
             }
             standard {
               url
               width
               height
+              __typename
             }
             maxres {
               url
               width
               height
+              __typename
             }
+            __typename
           }
           channelTitle
           localized {
             title
             description
+            __typename
           }
+          __typename
         }
         contentDetails {
           videoId
@@ -678,12 +749,15 @@ export const getYoutubeVideoStatistics = /* GraphQL */ `
             smsaRating
             tvpgRating
             ytRating
+            __typename
           }
           regionRestriction {
             allowed
             blocked
+            __typename
           }
           hasCustomThumbnail
+          __typename
         }
         status {
           uploadStatus
@@ -691,6 +765,7 @@ export const getYoutubeVideoStatistics = /* GraphQL */ `
           license
           embeddable
           publicStatsViewable
+          __typename
         }
         statistics {
           viewCount
@@ -698,8 +773,11 @@ export const getYoutubeVideoStatistics = /* GraphQL */ `
           dislikeCount
           favoriteCount
           commentCount
+          __typename
         }
+        __typename
       }
+      __typename
     }
   }
 `;
@@ -725,8 +803,11 @@ export const getYoutubeCaptionlist = /* GraphQL */ `
           isDraft
           isAutoSynced
           status
+          __typename
         }
+        __typename
       }
+      __typename
     }
   }
 `;
@@ -748,8 +829,11 @@ export const downloadYoutubeCaption = /* GraphQL */ `
           dur
           start
           content
+          __typename
         }
+        __typename
       }
+      __typename
     }
   }
 `;
@@ -766,6 +850,7 @@ export const getTakenoteSeries = /* GraphQL */ `
       endDate
       sermonCommentCount
       homeChurchCommentCount
+      __typename
     }
   }
 `;
@@ -785,6 +870,7 @@ export const getTakenoteSermon = /* GraphQL */ `
         kind
         label
         url
+        __typename
       }
       public
       series_FK
@@ -792,6 +878,7 @@ export const getTakenoteSermon = /* GraphQL */ `
       quoteNoteCount
       homeChurchNoteCount
       sermonCommentCount
+      __typename
     }
   }
 `;
@@ -805,7 +892,9 @@ export const getTakenoteSermonVerses = /* GraphQL */ `
         content
         sermons_FK
         notes_FK
+        __typename
       }
+      __typename
     }
   }
 `;
@@ -819,8 +908,10 @@ export const getTakenoteLocations = /* GraphQL */ `
       location {
         longitude
         latitude
+        __typename
       }
       state
+      __typename
     }
   }
 `;
@@ -844,8 +935,10 @@ export const getFBEvents = /* GraphQL */ `
             state
             street
             zip
+            __typename
           }
           id
+          __typename
         }
         start_time
         id
@@ -865,8 +958,10 @@ export const getFBEvents = /* GraphQL */ `
               state
               street
               zip
+              __typename
             }
             id
+            __typename
           }
           id
           ticket_uri
@@ -875,24 +970,32 @@ export const getFBEvents = /* GraphQL */ `
             offset_x
             offset_y
             source
+            __typename
           }
+          __typename
         }
         cover {
           id
           offset_x
           offset_y
           source
+          __typename
         }
         picture {
           url
+          __typename
         }
+        __typename
       }
       paging {
         cursors {
           before
           after
+          __typename
         }
+        __typename
       }
+      __typename
     }
   }
 `;
@@ -915,8 +1018,10 @@ export const getFBEvent = /* GraphQL */ `
           state
           street
           zip
+          __typename
         }
         id
+        __typename
       }
       start_time
       id
@@ -936,8 +1041,10 @@ export const getFBEvent = /* GraphQL */ `
             state
             street
             zip
+            __typename
           }
           id
+          __typename
         }
         id
         ticket_uri
@@ -946,17 +1053,22 @@ export const getFBEvent = /* GraphQL */ `
           offset_x
           offset_y
           source
+          __typename
         }
+        __typename
       }
       cover {
         id
         offset_x
         offset_y
         source
+        __typename
       }
       picture {
         url
+        __typename
       }
+      __typename
     }
   }
 `;
@@ -974,13 +1086,17 @@ export const getInstaPhotos = /* GraphQL */ `
         timestamp
         permalink
         shortcode
+        __typename
       }
       paging {
         cursors {
           before
           after
+          __typename
         }
+        __typename
       }
+      __typename
     }
   }
 `;
@@ -994,6 +1110,7 @@ export const getTakenoteNotes = /* GraphQL */ `
         position
         timecode
         sermons_FK
+        __typename
       }
       sermonNotes {
         id
@@ -1002,6 +1119,7 @@ export const getTakenoteNotes = /* GraphQL */ `
         position
         timecode
         sermons_FK
+        __typename
       }
       sermonVerses {
         id
@@ -1010,6 +1128,7 @@ export const getTakenoteNotes = /* GraphQL */ `
         content
         sermons_FK
         notes_FK
+        __typename
       }
       homeChurchVerses {
         id
@@ -1018,7 +1137,9 @@ export const getTakenoteNotes = /* GraphQL */ `
         content
         sermons_FK
         notes_FK
+        __typename
       }
+      __typename
     }
   }
 `;
@@ -1055,8 +1176,10 @@ export const fuzzySearchVideos = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               episodeTitle
               originalEpisodeTitle
@@ -1067,12 +1190,15 @@ export const fuzzySearchVideos = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -1082,22 +1208,27 @@ export const fuzzySearchVideos = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               customPlaylistIDs
               customPlaylists {
@@ -1107,8 +1238,10 @@ export const fuzzySearchVideos = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               publishedDate
               recordedDate
@@ -1132,6 +1265,7 @@ export const fuzzySearchVideos = /* GraphQL */ `
                   title
                   description
                   channelTitle
+                  __typename
                 }
                 contentDetails {
                   videoId
@@ -1143,6 +1277,7 @@ export const fuzzySearchVideos = /* GraphQL */ `
                   licensedContent
                   projection
                   hasCustomThumbnail
+                  __typename
                 }
                 status {
                   uploadStatus
@@ -1150,7 +1285,9 @@ export const fuzzySearchVideos = /* GraphQL */ `
                   license
                   embeddable
                   publicStatsViewable
+                  __typename
                 }
+                __typename
               }
               videoTypes
               notesURL
@@ -1160,6 +1297,7 @@ export const fuzzySearchVideos = /* GraphQL */ `
               move
               createdAt
               updatedAt
+              __typename
             }
             speakerVideosVideoId
             speaker {
@@ -1174,18 +1312,23 @@ export const fuzzySearchVideos = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               hidden
               createdAt
               updatedAt
+              __typename
             }
             videoPublishedDate
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         episodeTitle
         originalEpisodeTitle
@@ -1207,8 +1350,10 @@ export const fuzzySearchVideos = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               episodeTitle
               originalEpisodeTitle
@@ -1219,12 +1364,15 @@ export const fuzzySearchVideos = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -1234,22 +1382,27 @@ export const fuzzySearchVideos = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               customPlaylistIDs
               customPlaylists {
@@ -1259,8 +1412,10 @@ export const fuzzySearchVideos = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               publishedDate
               recordedDate
@@ -1284,6 +1439,7 @@ export const fuzzySearchVideos = /* GraphQL */ `
                   title
                   description
                   channelTitle
+                  __typename
                 }
                 contentDetails {
                   videoId
@@ -1295,6 +1451,7 @@ export const fuzzySearchVideos = /* GraphQL */ `
                   licensedContent
                   projection
                   hasCustomThumbnail
+                  __typename
                 }
                 status {
                   uploadStatus
@@ -1302,7 +1459,9 @@ export const fuzzySearchVideos = /* GraphQL */ `
                   license
                   embeddable
                   publicStatsViewable
+                  __typename
                 }
+                __typename
               }
               videoTypes
               notesURL
@@ -1312,8 +1471,10 @@ export const fuzzySearchVideos = /* GraphQL */ `
               move
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           blogs {
             items {
@@ -1330,19 +1491,24 @@ export const fuzzySearchVideos = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               series {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -1352,22 +1518,27 @@ export const fuzzySearchVideos = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               blogSeriesId
               blogSeriesIndex
@@ -1378,8 +1549,10 @@ export const fuzzySearchVideos = /* GraphQL */ `
                   blogPostID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogStatus
               description
@@ -1392,19 +1565,24 @@ export const fuzzySearchVideos = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           blogPosts {
             items {
@@ -1420,6 +1598,7 @@ export const fuzzySearchVideos = /* GraphQL */ `
                 expirationDate
                 videoSeries {
                   nextToken
+                  __typename
                 }
                 series {
                   id
@@ -1432,11 +1611,13 @@ export const fuzzySearchVideos = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogSeriesId
                 blogSeriesIndex
                 blogSeries {
                   nextToken
+                  __typename
                 }
                 blogStatus
                 description
@@ -1449,28 +1630,35 @@ export const fuzzySearchVideos = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               videoSeries {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -1480,27 +1668,34 @@ export const fuzzySearchVideos = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           seriesType
           title
@@ -1510,14 +1705,17 @@ export const fuzzySearchVideos = /* GraphQL */ `
           squareImage {
             src
             alt
+            __typename
           }
           bannerImage {
             src
             alt
+            __typename
           }
           babyHeroImage {
             src
             alt
+            __typename
           }
           startDate
           endDate
@@ -1536,12 +1734,15 @@ export const fuzzySearchVideos = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -1551,22 +1752,27 @@ export const fuzzySearchVideos = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               pdf
               topics
@@ -1583,16 +1789,21 @@ export const fuzzySearchVideos = /* GraphQL */ `
                   noteId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           createdAt
           updatedAt
+          __typename
         }
         customPlaylistIDs
         customPlaylists {
@@ -1609,8 +1820,10 @@ export const fuzzySearchVideos = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -1618,6 +1831,7 @@ export const fuzzySearchVideos = /* GraphQL */ `
               thumbnailDescription
               createdAt
               updatedAt
+              __typename
             }
             video {
               id
@@ -1631,8 +1845,10 @@ export const fuzzySearchVideos = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               episodeTitle
               originalEpisodeTitle
@@ -1643,12 +1859,15 @@ export const fuzzySearchVideos = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -1658,22 +1877,27 @@ export const fuzzySearchVideos = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               customPlaylistIDs
               customPlaylists {
@@ -1683,8 +1907,10 @@ export const fuzzySearchVideos = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               publishedDate
               recordedDate
@@ -1708,6 +1934,7 @@ export const fuzzySearchVideos = /* GraphQL */ `
                   title
                   description
                   channelTitle
+                  __typename
                 }
                 contentDetails {
                   videoId
@@ -1719,6 +1946,7 @@ export const fuzzySearchVideos = /* GraphQL */ `
                   licensedContent
                   projection
                   hasCustomThumbnail
+                  __typename
                 }
                 status {
                   uploadStatus
@@ -1726,7 +1954,9 @@ export const fuzzySearchVideos = /* GraphQL */ `
                   license
                   embeddable
                   publicStatsViewable
+                  __typename
                 }
+                __typename
               }
               videoTypes
               notesURL
@@ -1736,11 +1966,14 @@ export const fuzzySearchVideos = /* GraphQL */ `
               move
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         publishedDate
         recordedDate
@@ -1768,33 +2001,41 @@ export const fuzzySearchVideos = /* GraphQL */ `
                 url
                 width
                 height
+                __typename
               }
               medium {
                 url
                 width
                 height
+                __typename
               }
               high {
                 url
                 width
                 height
+                __typename
               }
               standard {
                 url
                 width
                 height
+                __typename
               }
               maxres {
                 url
                 width
                 height
+                __typename
               }
+              __typename
             }
             channelTitle
             localized {
               title
               description
+              __typename
             }
+            __typename
           }
           contentDetails {
             videoId
@@ -1875,12 +2116,15 @@ export const fuzzySearchVideos = /* GraphQL */ `
               smsaRating
               tvpgRating
               ytRating
+              __typename
             }
             regionRestriction {
               allowed
               blocked
+              __typename
             }
             hasCustomThumbnail
+            __typename
           }
           status {
             uploadStatus
@@ -1888,7 +2132,9 @@ export const fuzzySearchVideos = /* GraphQL */ `
             license
             embeddable
             publicStatsViewable
+            __typename
           }
+          __typename
         }
         videoTypes
         notesURL
@@ -1898,8 +2144,10 @@ export const fuzzySearchVideos = /* GraphQL */ `
         move
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -1938,8 +2186,10 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               episodeTitle
               originalEpisodeTitle
@@ -1950,12 +2200,15 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -1965,22 +2218,27 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               customPlaylistIDs
               customPlaylists {
@@ -1990,8 +2248,10 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               publishedDate
               recordedDate
@@ -2015,6 +2275,7 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                   title
                   description
                   channelTitle
+                  __typename
                 }
                 contentDetails {
                   videoId
@@ -2026,6 +2287,7 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                   licensedContent
                   projection
                   hasCustomThumbnail
+                  __typename
                 }
                 status {
                   uploadStatus
@@ -2033,7 +2295,9 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                   license
                   embeddable
                   publicStatsViewable
+                  __typename
                 }
+                __typename
               }
               videoTypes
               notesURL
@@ -2043,6 +2307,7 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
               move
               createdAt
               updatedAt
+              __typename
             }
             speakerVideosVideoId
             speaker {
@@ -2057,18 +2322,23 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               hidden
               createdAt
               updatedAt
+              __typename
             }
             videoPublishedDate
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         episodeTitle
         originalEpisodeTitle
@@ -2090,8 +2360,10 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               episodeTitle
               originalEpisodeTitle
@@ -2102,12 +2374,15 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -2117,22 +2392,27 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               customPlaylistIDs
               customPlaylists {
@@ -2142,8 +2422,10 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               publishedDate
               recordedDate
@@ -2167,6 +2449,7 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                   title
                   description
                   channelTitle
+                  __typename
                 }
                 contentDetails {
                   videoId
@@ -2178,6 +2461,7 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                   licensedContent
                   projection
                   hasCustomThumbnail
+                  __typename
                 }
                 status {
                   uploadStatus
@@ -2185,7 +2469,9 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                   license
                   embeddable
                   publicStatsViewable
+                  __typename
                 }
+                __typename
               }
               videoTypes
               notesURL
@@ -2195,8 +2481,10 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
               move
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           blogs {
             items {
@@ -2213,19 +2501,24 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               series {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -2235,22 +2528,27 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               blogSeriesId
               blogSeriesIndex
@@ -2261,8 +2559,10 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                   blogPostID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogStatus
               description
@@ -2275,19 +2575,24 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           blogPosts {
             items {
@@ -2303,6 +2608,7 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                 expirationDate
                 videoSeries {
                   nextToken
+                  __typename
                 }
                 series {
                   id
@@ -2315,11 +2621,13 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogSeriesId
                 blogSeriesIndex
                 blogSeries {
                   nextToken
+                  __typename
                 }
                 blogStatus
                 description
@@ -2332,28 +2640,35 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               videoSeries {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -2363,27 +2678,34 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           seriesType
           title
@@ -2393,14 +2715,17 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
           squareImage {
             src
             alt
+            __typename
           }
           bannerImage {
             src
             alt
+            __typename
           }
           babyHeroImage {
             src
             alt
+            __typename
           }
           startDate
           endDate
@@ -2419,12 +2744,15 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -2434,22 +2762,27 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               pdf
               topics
@@ -2466,16 +2799,21 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                   noteId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           createdAt
           updatedAt
+          __typename
         }
         customPlaylistIDs
         customPlaylists {
@@ -2492,8 +2830,10 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -2501,6 +2841,7 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
               thumbnailDescription
               createdAt
               updatedAt
+              __typename
             }
             video {
               id
@@ -2514,8 +2855,10 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               episodeTitle
               originalEpisodeTitle
@@ -2526,12 +2869,15 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -2541,22 +2887,27 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               customPlaylistIDs
               customPlaylists {
@@ -2566,8 +2917,10 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               publishedDate
               recordedDate
@@ -2591,6 +2944,7 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                   title
                   description
                   channelTitle
+                  __typename
                 }
                 contentDetails {
                   videoId
@@ -2602,6 +2956,7 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                   licensedContent
                   projection
                   hasCustomThumbnail
+                  __typename
                 }
                 status {
                   uploadStatus
@@ -2609,7 +2964,9 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                   license
                   embeddable
                   publicStatsViewable
+                  __typename
                 }
+                __typename
               }
               videoTypes
               notesURL
@@ -2619,11 +2976,14 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
               move
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         publishedDate
         recordedDate
@@ -2651,33 +3011,41 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
                 url
                 width
                 height
+                __typename
               }
               medium {
                 url
                 width
                 height
+                __typename
               }
               high {
                 url
                 width
                 height
+                __typename
               }
               standard {
                 url
                 width
                 height
+                __typename
               }
               maxres {
                 url
                 width
                 height
+                __typename
               }
+              __typename
             }
             channelTitle
             localized {
               title
               description
+              __typename
             }
+            __typename
           }
           contentDetails {
             videoId
@@ -2758,12 +3126,15 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
               smsaRating
               tvpgRating
               ytRating
+              __typename
             }
             regionRestriction {
               allowed
               blocked
+              __typename
             }
             hasCustomThumbnail
+            __typename
           }
           status {
             uploadStatus
@@ -2771,7 +3142,9 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
             license
             embeddable
             publicStatsViewable
+            __typename
           }
+          __typename
         }
         videoTypes
         notesURL
@@ -2781,12 +3154,14 @@ export const fuzzySearchVideosByType = /* GraphQL */ `
         move
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
-export const f1ListActivities = /* GraphQL */ `
+export const F1ListActivities = /* GraphQL */ `
   query F1ListActivities($page: String) {
     F1ListActivities(page: $page) {
       id
@@ -2806,10 +3181,11 @@ export const f1ListActivities = /* GraphQL */ `
       autoAssignmentOption
       pagerEnabled
       webEnabled
+      __typename
     }
   }
 `;
-export const f1ListAssignments = /* GraphQL */ `
+export const F1ListAssignments = /* GraphQL */ `
   query F1ListAssignments($itemId: String, $page: String) {
     F1ListAssignments(itemId: $itemId, page: $page) {
       id
@@ -2819,34 +3195,41 @@ export const f1ListAssignments = /* GraphQL */ `
         name
         id
         uri
+        __typename
       }
       person {
         id
         uri
+        __typename
       }
       activity {
         name
         id
         uri
+        __typename
       }
       schedule {
         id
         uri
+        __typename
       }
       roster {
         id
         uri
+        __typename
       }
       rosterFolder {
         id
         uri
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
-export const f1ListGroupTypes = /* GraphQL */ `
+export const F1ListGroupTypes = /* GraphQL */ `
   query F1ListGroupTypes {
     F1ListGroupTypes {
       groupTypes {
@@ -2856,12 +3239,15 @@ export const f1ListGroupTypes = /* GraphQL */ `
           description
           isWebEnabled
           isSearchable
+          __typename
         }
+        __typename
       }
+      __typename
     }
   }
 `;
-export const f1ListGroups = /* GraphQL */ `
+export const F1ListGroups = /* GraphQL */ `
   query F1ListGroups($itemId: String) {
     F1ListGroups(itemId: $itemId) {
       groups {
@@ -2878,23 +3264,28 @@ export const f1ListGroups = /* GraphQL */ `
           churchCampus {
             id
             name
+            __typename
           }
           groupType {
             id
             name
+            __typename
           }
           groupURL
           gender {
             name
+            __typename
           }
           maritalStatus {
             name
+            __typename
           }
           startAgeRange
           endAgeRange
           dateRangeType {
             id
             name
+            __typename
           }
           leadersCount
           membersCount
@@ -2902,6 +3293,7 @@ export const f1ListGroups = /* GraphQL */ `
           event {
             id
             name
+            __typename
           }
           createdDate
           lastUpdatedDate
@@ -2909,6 +3301,7 @@ export const f1ListGroups = /* GraphQL */ `
           timeZone {
             id
             name
+            __typename
           }
           location {
             id
@@ -2931,9 +3324,11 @@ export const f1ListGroups = /* GraphQL */ `
               longitude
               createdDate
               lastUpdatedDate
+              __typename
             }
             createdDate
             lastUpdatedDate
+            __typename
           }
           schedule {
             id
@@ -2946,6 +3341,7 @@ export const f1ListGroups = /* GraphQL */ `
             endDate
             recurrenceType {
               name
+              __typename
             }
             recurrences {
               recurrence {
@@ -2958,26 +3354,34 @@ export const f1ListGroups = /* GraphQL */ `
                   occurOnThursday
                   occurOnFriday
                   occurOnSaturday
+                  __typename
                 }
                 recurrenceMonthly {
                   recurrenceFrequency
                   recurrenceOffset
                   monthDay
                   monthWeekDay
+                  __typename
                 }
+                __typename
               }
+              __typename
             }
             createdDate
             createByPerson
             lastUpdatedDate
             lastUpdatedByPerson
+            __typename
           }
+          __typename
         }
+        __typename
       }
+      __typename
     }
   }
 `;
-export const f1ListEventSchedules = /* GraphQL */ `
+export const F1ListEventSchedules = /* GraphQL */ `
   query F1ListEventSchedules($itemId: [String]) {
     F1ListEventSchedules(itemId: $itemId) {
       id
@@ -2994,6 +3398,7 @@ export const f1ListEventSchedules = /* GraphQL */ `
             endDate
             recurrenceType {
               name
+              __typename
             }
             recurrences {
               recurrence {
@@ -3006,26 +3411,34 @@ export const f1ListEventSchedules = /* GraphQL */ `
                   occurOnThursday
                   occurOnFriday
                   occurOnSaturday
+                  __typename
                 }
                 recurrenceMonthly {
                   recurrenceFrequency
                   recurrenceOffset
                   monthDay
                   monthWeekDay
+                  __typename
                 }
+                __typename
               }
+              __typename
             }
             createdDate
             createByPerson
             lastUpdatedDate
             lastUpdatedByPerson
+            __typename
           }
+          __typename
         }
+        __typename
       }
+      __typename
     }
   }
 `;
-export const f1ListTimezones = /* GraphQL */ `
+export const F1ListTimezones = /* GraphQL */ `
   query F1ListTimezones($itemId: [String]) {
     F1ListTimezones(itemId: $itemId) {
       id
@@ -3033,8 +3446,11 @@ export const f1ListTimezones = /* GraphQL */ `
         timeZone {
           id
           name
+          __typename
         }
+        __typename
       }
+      __typename
     }
   }
 `;
@@ -3053,6 +3469,7 @@ export const emailHomeChurch = /* GraphQL */ `
     ) {
       err
       data
+      __typename
     }
   }
 `;
@@ -3061,6 +3478,7 @@ export const askQuestion = /* GraphQL */ `
     askQuestion(email: $email, body: $body) {
       err
       data
+      __typename
     }
   }
 `;
@@ -3080,6 +3498,7 @@ export const generatePdf = /* GraphQL */ `
       userId: $userId
     ) {
       objectKey
+      __typename
     }
   }
 `;
@@ -3098,50 +3517,64 @@ export const tmhPinpointListSegments = /* GraphQL */ `
             Channel {
               DimensionType
               Values
+              __typename
             }
             Platform {
               DimensionType
               Values
+              __typename
             }
             DeviceType {
               DimensionType
               Values
+              __typename
             }
             AppVersion {
               DimensionType
               Values
+              __typename
             }
             Make {
               DimensionType
               Values
+              __typename
             }
             Model {
               DimensionType
               Values
+              __typename
             }
+            __typename
           }
           Location {
             Country {
               DimensionType
               Values
+              __typename
             }
             GPSPoint {
               Coordinates {
                 Latitude
                 Longitude
+                __typename
               }
               RangeInKilometers
+              __typename
             }
+            __typename
           }
           Behavior {
             Recency {
               RecencyType
               Duration
+              __typename
             }
+            __typename
           }
           Attributes
           Metrics
           UserAttributes
+          __typename
         }
         SegmentGroups {
           Include
@@ -3152,53 +3585,69 @@ export const tmhPinpointListSegments = /* GraphQL */ `
                 Channel {
                   DimensionType
                   Values
+                  __typename
                 }
                 Platform {
                   DimensionType
                   Values
+                  __typename
                 }
                 DeviceType {
                   DimensionType
                   Values
+                  __typename
                 }
                 AppVersion {
                   DimensionType
                   Values
+                  __typename
                 }
                 Make {
                   DimensionType
                   Values
+                  __typename
                 }
                 Model {
                   DimensionType
                   Values
+                  __typename
                 }
+                __typename
               }
               Location {
                 Country {
                   DimensionType
                   Values
+                  __typename
                 }
                 GPSPoint {
                   RangeInKilometers
+                  __typename
                 }
+                __typename
               }
               Behavior {
                 Recency {
                   RecencyType
                   Duration
+                  __typename
                 }
+                __typename
               }
               Attributes
               Metrics
               UserAttributes
+              __typename
             }
             SourceType
             SourceSegments {
               Id
               Version
+              __typename
             }
+            __typename
           }
+          __typename
         }
         Id
         ApplicationId
@@ -3213,11 +3662,14 @@ export const tmhPinpointListSegments = /* GraphQL */ `
           ExternalId
           Format
           ChannelCounts
+          __typename
         }
         Arn
         tags
+        __typename
       }
       NextToken
+      __typename
     }
   }
 `;
@@ -3271,24 +3723,32 @@ export const tmhF1SearchContributionReceipts = /* GraphQL */ `
             id
             name
             fundTypeID
+            __typename
           }
           subFund {
             id
             name
+            __typename
           }
           account {
             id
+            __typename
           }
           contributionType {
             id
             name
+            __typename
           }
           contributionSubType {
             id
             name
+            __typename
           }
+          __typename
         }
+        __typename
       }
+      __typename
     }
   }
 `;
@@ -3311,39 +3771,17 @@ export const tmhStripeAddCustomer = /* GraphQL */ `
       orgName: $orgName
       billingAddress: $billingAddress
     ) {
-      customer {
-        id
-        object
-        address
-        balance
-        created
-        currency
-        default_source
-        delinquent
-        description
-        discount
-        email
-        invoice_prefix
-        invoice_settings {
-          custom_fields
-          default_payment_method
-          footer
-        }
-        livemode
-        metadata
-        name
-        next_invoice_sequence
-        phone
-        preferred_locales
-        shipping
-        tax_exempt
-      }
+      message
+      __typename
     }
   }
 `;
 export const tmhStripeAttachPaymentMethod = /* GraphQL */ `
   query TmhStripeAttachPaymentMethod($id: String, $idempotency: String) {
-    tmhStripeAttachPaymentMethod(id: $id, idempotency: $idempotency)
+    tmhStripeAttachPaymentMethod(id: $id, idempotency: $idempotency) {
+      message
+      __typename
+    }
   }
 `;
 export const tmhStripeListPaymentMethods = /* GraphQL */ `
@@ -3359,6 +3797,7 @@ export const tmhStripeListPaymentMethods = /* GraphQL */ `
           exp_month
           funding
           country
+          __typename
         }
         billing_details {
           email
@@ -3371,130 +3810,159 @@ export const tmhStripeListPaymentMethods = /* GraphQL */ `
             line2
             postal_code
             state
+            __typename
           }
+          __typename
         }
+        __typename
       }
+      __typename
     }
   }
 `;
 export const tmhStripeListSubscriptions = /* GraphQL */ `
   query TmhStripeListSubscriptions($starting_after: String) {
     tmhStripeListSubscriptions(starting_after: $starting_after) {
-      data {
+      subscriptions {
         id
-        default_source
-        items {
-          data {
-            id
-            price
-            plan {
-              id
-              interval
-              interval_count
-              active
-              amount
-              number_decimal
-              currency
-              product
-            }
-          }
-        }
-        next_pending_invoice_item_invoice
-        start_date
+        unit_amount
+        name
+        interval
+        interval_count
+        current_period_end
+        isPaused
+        billing_cycle_anchor
         status
+        cardBrand
+        cardLast4
+        cardExpiry
+        paymentID
+        __typename
       }
       has_more
+      __typename
     }
   }
 `;
 export const tmhStripeDeleteSubscription = /* GraphQL */ `
   query TmhStripeDeleteSubscription($subscriptionId: String) {
-    tmhStripeDeleteSubscription(subscriptionId: $subscriptionId)
+    tmhStripeDeleteSubscription(subscriptionId: $subscriptionId) {
+      message
+      __typename
+    }
   }
 `;
 export const tmhStripeAddSubscription = /* GraphQL */ `
   query TmhStripeAddSubscription(
     $idempotency: String
-    $amount: String
+    $amount: Int
     $fund: String
     $frequency: String
+    $paymentMethodId: String
+    $startDate: Int
   ) {
     tmhStripeAddSubscription(
       idempotency: $idempotency
       amount: $amount
       fund: $fund
       frequency: $frequency
+      paymentMethodId: $paymentMethodId
+      startDate: $startDate
     ) {
-      data {
-        id
-        type
-        card {
-          brand
-          last4
-          exp_year
-          exp_month
-          funding
-          country
-        }
-        billing_details {
-          email
-          name
-          phone
-          address {
-            city
-            country
-            line1
-            line2
-            postal_code
-            state
-          }
-        }
-      }
+      message
+      __typename
     }
   }
 `;
 export const tmhStripeAddPayment = /* GraphQL */ `
   query TmhStripeAddPayment(
     $idempotency: String
-    $amount: String
+    $amount: Int
     $fund: String
+    $paymentMethodId: String
   ) {
     tmhStripeAddPayment(
       idempotency: $idempotency
       amount: $amount
       fund: $fund
+      paymentMethodId: $paymentMethodId
     ) {
-      data {
-        id
-        type
-        card {
-          brand
-          last4
-          exp_year
-          exp_month
-          funding
-          country
-        }
-        billing_details {
-          email
-          name
-          phone
-          address {
-            city
-            country
-            line1
-            line2
-            postal_code
-            state
-          }
-        }
-      }
+      message
+      __typename
     }
   }
 `;
 export const tmhStripeDeletePaymentMethod = /* GraphQL */ `
   query TmhStripeDeletePaymentMethod($paymentMethodId: String) {
     tmhStripeDeletePaymentMethod(paymentMethodId: $paymentMethodId)
+  }
+`;
+export const tmhStripeListProducts = /* GraphQL */ `
+  query TmhStripeListProducts {
+    tmhStripeListProducts {
+      products {
+        id
+        object
+        active
+        attributes
+        created
+        default_price
+        description
+        features
+        images
+        livemode
+        metadata
+        name
+        package_dimensions
+        shippable
+        statement_descriptor
+        tax_code
+        type
+        unit_label
+        updated
+        url
+        __typename
+      }
+      error
+      __typename
+    }
+  }
+`;
+export const tmhStripeListCustomerTransactions = /* GraphQL */ `
+  query TmhStripeListCustomerTransactions {
+    tmhStripeListCustomerTransactions {
+      transactions {
+        transactionNumber
+        date
+        currency
+        amount
+        fund {
+          name
+          id
+          __typename
+        }
+        paymentMethod
+        __typename
+      }
+      error
+      __typename
+    }
+  }
+`;
+export const tmhStripePauseSubscription = /* GraphQL */ `
+  query TmhStripePauseSubscription($subscriptionID: String) {
+    tmhStripePauseSubscription(subscriptionID: $subscriptionID) {
+      message
+      __typename
+    }
+  }
+`;
+export const tmhStripeResumeSubscription = /* GraphQL */ `
+  query TmhStripeResumeSubscription($subscriptionID: String) {
+    tmhStripeResumeSubscription(subscriptionID: $subscriptionID) {
+      message
+      __typename
+    }
   }
 `;
 export const getF1Assignments = /* GraphQL */ `
@@ -3507,30 +3975,37 @@ export const getF1Assignments = /* GraphQL */ `
         name
         id
         uri
+        __typename
       }
       person {
         id
         uri
+        __typename
       }
       activity {
         name
         id
         uri
+        __typename
       }
       schedule {
         id
         uri
+        __typename
       }
       roster {
         id
         uri
+        __typename
       }
       rosterFolder {
         id
         uri
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -3549,32 +4024,40 @@ export const listF1Assignments = /* GraphQL */ `
           name
           id
           uri
+          __typename
         }
         person {
           id
           uri
+          __typename
         }
         activity {
           name
           id
           uri
+          __typename
         }
         schedule {
           id
           uri
+          __typename
         }
         roster {
           id
           uri
+          __typename
         }
         rosterFolder {
           id
           uri
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -3603,32 +4086,40 @@ export const getAssignmentsByPersonId = /* GraphQL */ `
           name
           id
           uri
+          __typename
         }
         person {
           id
           uri
+          __typename
         }
         activity {
           name
           id
           uri
+          __typename
         }
         schedule {
           id
           uri
+          __typename
         }
         roster {
           id
           uri
+          __typename
         }
         rosterFolder {
           id
           uri
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -3656,6 +4147,7 @@ export const getHomeChurchInfo = /* GraphQL */ `
       createdAt
       updatedAt
       owner
+      __typename
     }
   }
 `;
@@ -3688,8 +4180,10 @@ export const listHomeChurchInfos = /* GraphQL */ `
         createdAt
         updatedAt
         owner
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -3708,23 +4202,28 @@ export const getF1ListGroup2 = /* GraphQL */ `
       churchCampus {
         id
         name
+        __typename
       }
       groupType {
         id
         name
+        __typename
       }
       groupURL
       gender {
         name
+        __typename
       }
       maritalStatus {
         name
+        __typename
       }
       startAgeRange
       endAgeRange
       dateRangeType {
         id
         name
+        __typename
       }
       leadersCount
       membersCount
@@ -3732,6 +4231,7 @@ export const getF1ListGroup2 = /* GraphQL */ `
       event {
         id
         name
+        __typename
       }
       createdDate
       lastUpdatedDate
@@ -3739,6 +4239,7 @@ export const getF1ListGroup2 = /* GraphQL */ `
       timeZone {
         id
         name
+        __typename
       }
       location {
         id
@@ -3761,9 +4262,11 @@ export const getF1ListGroup2 = /* GraphQL */ `
           longitude
           createdDate
           lastUpdatedDate
+          __typename
         }
         createdDate
         lastUpdatedDate
+        __typename
       }
       schedule {
         id
@@ -3776,6 +4279,7 @@ export const getF1ListGroup2 = /* GraphQL */ `
         endDate
         recurrenceType {
           name
+          __typename
         }
         recurrences {
           recurrence {
@@ -3788,22 +4292,28 @@ export const getF1ListGroup2 = /* GraphQL */ `
               occurOnThursday
               occurOnFriday
               occurOnSaturday
+              __typename
             }
             recurrenceMonthly {
               recurrenceFrequency
               recurrenceOffset
               monthDay
               monthWeekDay
+              __typename
             }
+            __typename
           }
+          __typename
         }
         createdDate
         createByPerson
         lastUpdatedDate
         lastUpdatedByPerson
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -3827,23 +4337,28 @@ export const listF1ListGroup2s = /* GraphQL */ `
         churchCampus {
           id
           name
+          __typename
         }
         groupType {
           id
           name
+          __typename
         }
         groupURL
         gender {
           name
+          __typename
         }
         maritalStatus {
           name
+          __typename
         }
         startAgeRange
         endAgeRange
         dateRangeType {
           id
           name
+          __typename
         }
         leadersCount
         membersCount
@@ -3851,6 +4366,7 @@ export const listF1ListGroup2s = /* GraphQL */ `
         event {
           id
           name
+          __typename
         }
         createdDate
         lastUpdatedDate
@@ -3858,6 +4374,7 @@ export const listF1ListGroup2s = /* GraphQL */ `
         timeZone {
           id
           name
+          __typename
         }
         location {
           id
@@ -3880,9 +4397,11 @@ export const listF1ListGroup2s = /* GraphQL */ `
             longitude
             createdDate
             lastUpdatedDate
+            __typename
           }
           createdDate
           lastUpdatedDate
+          __typename
         }
         schedule {
           id
@@ -3895,6 +4414,7 @@ export const listF1ListGroup2s = /* GraphQL */ `
           endDate
           recurrenceType {
             name
+            __typename
           }
           recurrences {
             recurrence {
@@ -3907,24 +4427,31 @@ export const listF1ListGroup2s = /* GraphQL */ `
                 occurOnThursday
                 occurOnFriday
                 occurOnSaturday
+                __typename
               }
               recurrenceMonthly {
                 recurrenceFrequency
                 recurrenceOffset
                 monthDay
                 monthWeekDay
+                __typename
               }
+              __typename
             }
+            __typename
           }
           createdDate
           createByPerson
           lastUpdatedDate
           lastUpdatedByPerson
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -3958,23 +4485,28 @@ export const searchF1ListGroup2s = /* GraphQL */ `
         churchCampus {
           id
           name
+          __typename
         }
         groupType {
           id
           name
+          __typename
         }
         groupURL
         gender {
           name
+          __typename
         }
         maritalStatus {
           name
+          __typename
         }
         startAgeRange
         endAgeRange
         dateRangeType {
           id
           name
+          __typename
         }
         leadersCount
         membersCount
@@ -3982,6 +4514,7 @@ export const searchF1ListGroup2s = /* GraphQL */ `
         event {
           id
           name
+          __typename
         }
         createdDate
         lastUpdatedDate
@@ -3989,6 +4522,7 @@ export const searchF1ListGroup2s = /* GraphQL */ `
         timeZone {
           id
           name
+          __typename
         }
         location {
           id
@@ -4011,9 +4545,11 @@ export const searchF1ListGroup2s = /* GraphQL */ `
             longitude
             createdDate
             lastUpdatedDate
+            __typename
           }
           createdDate
           lastUpdatedDate
+          __typename
         }
         schedule {
           id
@@ -4026,6 +4562,7 @@ export const searchF1ListGroup2s = /* GraphQL */ `
           endDate
           recurrenceType {
             name
+            __typename
           }
           recurrences {
             recurrence {
@@ -4038,22 +4575,28 @@ export const searchF1ListGroup2s = /* GraphQL */ `
                 occurOnThursday
                 occurOnFriday
                 occurOnSaturday
+                __typename
               }
               recurrenceMonthly {
                 recurrenceFrequency
                 recurrenceOffset
                 monthDay
                 monthWeekDay
+                __typename
               }
+              __typename
             }
+            __typename
           }
           createdDate
           createByPerson
           lastUpdatedDate
           lastUpdatedByPerson
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
       total
@@ -4067,10 +4610,13 @@ export const searchF1ListGroup2s = /* GraphQL */ `
             buckets {
               key
               doc_count
+              __typename
             }
           }
         }
+        __typename
       }
+      __typename
     }
   }
 `;
@@ -4102,6 +4648,7 @@ export const getTNSeries = /* GraphQL */ `
           kind
           label
           url
+          __typename
         }
         public
         series_FK
@@ -4131,6 +4678,7 @@ export const getTNSeries = /* GraphQL */ `
               kind
               label
               url
+              __typename
             }
             public
             series_FK
@@ -4160,6 +4708,7 @@ export const getTNSeries = /* GraphQL */ `
                   kind
                   label
                   url
+                  __typename
                 }
                 public
                 series_FK
@@ -4177,6 +4726,7 @@ export const getTNSeries = /* GraphQL */ `
                   homeChurchCommentCount
                   createdAt
                   updatedAt
+                  __typename
                 }
                 sermonNoteCount
                 quoteNoteCount
@@ -4184,9 +4734,11 @@ export const getTNSeries = /* GraphQL */ `
                 sermonCommentCount
                 createdAt
                 updatedAt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             sermonNoteCount
             quoteNoteCount
@@ -4194,9 +4746,11 @@ export const getTNSeries = /* GraphQL */ `
             sermonCommentCount
             createdAt
             updatedAt
+            __typename
           }
           createdAt
           updatedAt
+          __typename
         }
         sermonNoteCount
         quoteNoteCount
@@ -4204,9 +4758,11 @@ export const getTNSeries = /* GraphQL */ `
         sermonCommentCount
         createdAt
         updatedAt
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -4251,6 +4807,7 @@ export const listTNSeries = /* GraphQL */ `
             kind
             label
             url
+            __typename
           }
           public
           series_FK
@@ -4280,6 +4837,7 @@ export const listTNSeries = /* GraphQL */ `
                 kind
                 label
                 url
+                __typename
               }
               public
               series_FK
@@ -4311,9 +4869,11 @@ export const listTNSeries = /* GraphQL */ `
                   sermonCommentCount
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               sermonNoteCount
               quoteNoteCount
@@ -4321,9 +4881,11 @@ export const listTNSeries = /* GraphQL */ `
               sermonCommentCount
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           sermonNoteCount
           quoteNoteCount
@@ -4331,11 +4893,14 @@ export const listTNSeries = /* GraphQL */ `
           sermonCommentCount
           createdAt
           updatedAt
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -4380,6 +4945,7 @@ export const getTNSeriesByIdent = /* GraphQL */ `
             kind
             label
             url
+            __typename
           }
           public
           series_FK
@@ -4409,6 +4975,7 @@ export const getTNSeriesByIdent = /* GraphQL */ `
                 kind
                 label
                 url
+                __typename
               }
               public
               series_FK
@@ -4440,9 +5007,11 @@ export const getTNSeriesByIdent = /* GraphQL */ `
                   sermonCommentCount
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               sermonNoteCount
               quoteNoteCount
@@ -4450,9 +5019,11 @@ export const getTNSeriesByIdent = /* GraphQL */ `
               sermonCommentCount
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           sermonNoteCount
           quoteNoteCount
@@ -4460,11 +5031,14 @@ export const getTNSeriesByIdent = /* GraphQL */ `
           sermonCommentCount
           createdAt
           updatedAt
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -4484,6 +5058,7 @@ export const getTNSermon = /* GraphQL */ `
         kind
         label
         url
+        __typename
       }
       public
       series_FK
@@ -4513,6 +5088,7 @@ export const getTNSermon = /* GraphQL */ `
             kind
             label
             url
+            __typename
           }
           public
           series_FK
@@ -4542,6 +5118,7 @@ export const getTNSermon = /* GraphQL */ `
                 kind
                 label
                 url
+                __typename
               }
               public
               series_FK
@@ -4573,9 +5150,11 @@ export const getTNSermon = /* GraphQL */ `
                   sermonCommentCount
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               sermonNoteCount
               quoteNoteCount
@@ -4583,9 +5162,11 @@ export const getTNSermon = /* GraphQL */ `
               sermonCommentCount
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           sermonNoteCount
           quoteNoteCount
@@ -4593,9 +5174,11 @@ export const getTNSermon = /* GraphQL */ `
           sermonCommentCount
           createdAt
           updatedAt
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       sermonNoteCount
       quoteNoteCount
@@ -4603,6 +5186,7 @@ export const getTNSermon = /* GraphQL */ `
       sermonCommentCount
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -4635,6 +5219,7 @@ export const listTNSermons = /* GraphQL */ `
           kind
           label
           url
+          __typename
         }
         public
         series_FK
@@ -4664,6 +5249,7 @@ export const listTNSermons = /* GraphQL */ `
               kind
               label
               url
+              __typename
             }
             public
             series_FK
@@ -4693,6 +5279,7 @@ export const listTNSermons = /* GraphQL */ `
                   kind
                   label
                   url
+                  __typename
                 }
                 public
                 series_FK
@@ -4710,6 +5297,7 @@ export const listTNSermons = /* GraphQL */ `
                   homeChurchCommentCount
                   createdAt
                   updatedAt
+                  __typename
                 }
                 sermonNoteCount
                 quoteNoteCount
@@ -4717,9 +5305,11 @@ export const listTNSermons = /* GraphQL */ `
                 sermonCommentCount
                 createdAt
                 updatedAt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             sermonNoteCount
             quoteNoteCount
@@ -4727,9 +5317,11 @@ export const listTNSermons = /* GraphQL */ `
             sermonCommentCount
             createdAt
             updatedAt
+            __typename
           }
           createdAt
           updatedAt
+          __typename
         }
         sermonNoteCount
         quoteNoteCount
@@ -4737,8 +5329,10 @@ export const listTNSermons = /* GraphQL */ `
         sermonCommentCount
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -4771,6 +5365,7 @@ export const getTNSermonByIdent = /* GraphQL */ `
           kind
           label
           url
+          __typename
         }
         public
         series_FK
@@ -4800,6 +5395,7 @@ export const getTNSermonByIdent = /* GraphQL */ `
               kind
               label
               url
+              __typename
             }
             public
             series_FK
@@ -4829,6 +5425,7 @@ export const getTNSermonByIdent = /* GraphQL */ `
                   kind
                   label
                   url
+                  __typename
                 }
                 public
                 series_FK
@@ -4846,6 +5443,7 @@ export const getTNSermonByIdent = /* GraphQL */ `
                   homeChurchCommentCount
                   createdAt
                   updatedAt
+                  __typename
                 }
                 sermonNoteCount
                 quoteNoteCount
@@ -4853,9 +5451,11 @@ export const getTNSermonByIdent = /* GraphQL */ `
                 sermonCommentCount
                 createdAt
                 updatedAt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             sermonNoteCount
             quoteNoteCount
@@ -4863,9 +5463,11 @@ export const getTNSermonByIdent = /* GraphQL */ `
             sermonCommentCount
             createdAt
             updatedAt
+            __typename
           }
           createdAt
           updatedAt
+          __typename
         }
         sermonNoteCount
         quoteNoteCount
@@ -4873,8 +5475,10 @@ export const getTNSermonByIdent = /* GraphQL */ `
         sermonCommentCount
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -4897,22 +5501,27 @@ export const getLivestream = /* GraphQL */ `
         title
         link
         linkType
+        __typename
       }
       zoom {
         title
         link
+        __typename
       }
       livestreamSections {
         title
         links {
           title
           link
+          __typename
         }
+        __typename
       }
       titles
       homepageLink
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -4940,24 +5549,30 @@ export const listLivestreams = /* GraphQL */ `
           title
           link
           linkType
+          __typename
         }
         zoom {
           title
           link
+          __typename
         }
         livestreamSections {
           title
           links {
             title
             link
+            __typename
           }
+          __typename
         }
         titles
         homepageLink
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -4968,6 +5583,7 @@ export const getRedirect = /* GraphQL */ `
       to
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -4983,8 +5599,10 @@ export const listRedirects = /* GraphQL */ `
         to
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -5003,6 +5621,7 @@ export const getAnnouncement = /* GraphQL */ `
       callToActionTitle
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -5026,8 +5645,10 @@ export const listAnnouncements = /* GraphQL */ `
         callToActionTitle
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -5061,8 +5682,10 @@ export const listAnnouncementsByParishByDate = /* GraphQL */ `
         callToActionTitle
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -5114,6 +5737,7 @@ export const getSpeaker = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 speakerVideosVideoId
                 speaker {
@@ -5123,12 +5747,15 @@ export const getSpeaker = /* GraphQL */ `
                   hidden
                   createdAt
                   updatedAt
+                  __typename
                 }
                 videoPublishedDate
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             episodeTitle
             originalEpisodeTitle
@@ -5168,8 +5795,10 @@ export const getSpeaker = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -5191,8 +5820,10 @@ export const getSpeaker = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -5201,8 +5832,10 @@ export const getSpeaker = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -5212,14 +5845,17 @@ export const getSpeaker = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -5239,11 +5875,14 @@ export const getSpeaker = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             customPlaylistIDs
             customPlaylists {
@@ -5259,6 +5898,7 @@ export const getSpeaker = /* GraphQL */ `
                   thumbnailDescription
                   createdAt
                   updatedAt
+                  __typename
                 }
                 video {
                   id
@@ -5290,11 +5930,14 @@ export const getSpeaker = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             publishedDate
             recordedDate
@@ -5317,11 +5960,16 @@ export const getSpeaker = /* GraphQL */ `
                 channelId
                 title
                 description
+                thumbnails {
+                  __typename
+                }
                 channelTitle
                 localized {
                   title
                   description
+                  __typename
                 }
+                __typename
               }
               contentDetails {
                 videoId
@@ -5402,12 +6050,15 @@ export const getSpeaker = /* GraphQL */ `
                   smsaRating
                   tvpgRating
                   ytRating
+                  __typename
                 }
                 regionRestriction {
                   allowed
                   blocked
+                  __typename
                 }
                 hasCustomThumbnail
+                __typename
               }
               status {
                 uploadStatus
@@ -5415,7 +6066,9 @@ export const getSpeaker = /* GraphQL */ `
                 license
                 embeddable
                 publicStatsViewable
+                __typename
               }
+              __typename
             }
             videoTypes
             notesURL
@@ -5425,6 +6078,7 @@ export const getSpeaker = /* GraphQL */ `
             move
             createdAt
             updatedAt
+            __typename
           }
           speakerVideosVideoId
           speaker {
@@ -5465,6 +6119,7 @@ export const getSpeaker = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 speakerVideosVideoId
                 speaker {
@@ -5474,26 +6129,33 @@ export const getSpeaker = /* GraphQL */ `
                   hidden
                   createdAt
                   updatedAt
+                  __typename
                 }
                 videoPublishedDate
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             hidden
             createdAt
             updatedAt
+            __typename
           }
           videoPublishedDate
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       hidden
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -5532,8 +6194,10 @@ export const listSpeakers = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               episodeTitle
               originalEpisodeTitle
@@ -5544,12 +6208,15 @@ export const listSpeakers = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -5559,22 +6226,27 @@ export const listSpeakers = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               customPlaylistIDs
               customPlaylists {
@@ -5584,8 +6256,10 @@ export const listSpeakers = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               publishedDate
               recordedDate
@@ -5609,6 +6283,7 @@ export const listSpeakers = /* GraphQL */ `
                   title
                   description
                   channelTitle
+                  __typename
                 }
                 contentDetails {
                   videoId
@@ -5620,6 +6295,7 @@ export const listSpeakers = /* GraphQL */ `
                   licensedContent
                   projection
                   hasCustomThumbnail
+                  __typename
                 }
                 status {
                   uploadStatus
@@ -5627,7 +6303,9 @@ export const listSpeakers = /* GraphQL */ `
                   license
                   embeddable
                   publicStatsViewable
+                  __typename
                 }
+                __typename
               }
               videoTypes
               notesURL
@@ -5637,6 +6315,7 @@ export const listSpeakers = /* GraphQL */ `
               move
               createdAt
               updatedAt
+              __typename
             }
             speakerVideosVideoId
             speaker {
@@ -5651,24 +6330,31 @@ export const listSpeakers = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               hidden
               createdAt
               updatedAt
+              __typename
             }
             videoPublishedDate
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         hidden
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -5697,8 +6383,10 @@ export const getSpeakerVideos = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               episodeTitle
               originalEpisodeTitle
@@ -5709,12 +6397,15 @@ export const getSpeakerVideos = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -5724,22 +6415,27 @@ export const getSpeakerVideos = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               customPlaylistIDs
               customPlaylists {
@@ -5749,8 +6445,10 @@ export const getSpeakerVideos = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               publishedDate
               recordedDate
@@ -5774,6 +6472,7 @@ export const getSpeakerVideos = /* GraphQL */ `
                   title
                   description
                   channelTitle
+                  __typename
                 }
                 contentDetails {
                   videoId
@@ -5785,6 +6484,7 @@ export const getSpeakerVideos = /* GraphQL */ `
                   licensedContent
                   projection
                   hasCustomThumbnail
+                  __typename
                 }
                 status {
                   uploadStatus
@@ -5792,7 +6492,9 @@ export const getSpeakerVideos = /* GraphQL */ `
                   license
                   embeddable
                   publicStatsViewable
+                  __typename
                 }
+                __typename
               }
               videoTypes
               notesURL
@@ -5802,6 +6504,7 @@ export const getSpeakerVideos = /* GraphQL */ `
               move
               createdAt
               updatedAt
+              __typename
             }
             speakerVideosVideoId
             speaker {
@@ -5816,18 +6519,23 @@ export const getSpeakerVideos = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               hidden
               createdAt
               updatedAt
+              __typename
             }
             videoPublishedDate
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         episodeTitle
         originalEpisodeTitle
@@ -5849,8 +6557,10 @@ export const getSpeakerVideos = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               episodeTitle
               originalEpisodeTitle
@@ -5861,12 +6571,15 @@ export const getSpeakerVideos = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -5876,22 +6589,27 @@ export const getSpeakerVideos = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               customPlaylistIDs
               customPlaylists {
@@ -5901,8 +6619,10 @@ export const getSpeakerVideos = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               publishedDate
               recordedDate
@@ -5926,6 +6646,7 @@ export const getSpeakerVideos = /* GraphQL */ `
                   title
                   description
                   channelTitle
+                  __typename
                 }
                 contentDetails {
                   videoId
@@ -5937,6 +6658,7 @@ export const getSpeakerVideos = /* GraphQL */ `
                   licensedContent
                   projection
                   hasCustomThumbnail
+                  __typename
                 }
                 status {
                   uploadStatus
@@ -5944,7 +6666,9 @@ export const getSpeakerVideos = /* GraphQL */ `
                   license
                   embeddable
                   publicStatsViewable
+                  __typename
                 }
+                __typename
               }
               videoTypes
               notesURL
@@ -5954,8 +6678,10 @@ export const getSpeakerVideos = /* GraphQL */ `
               move
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           blogs {
             items {
@@ -5972,19 +6698,24 @@ export const getSpeakerVideos = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               series {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -5994,22 +6725,27 @@ export const getSpeakerVideos = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               blogSeriesId
               blogSeriesIndex
@@ -6020,8 +6756,10 @@ export const getSpeakerVideos = /* GraphQL */ `
                   blogPostID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogStatus
               description
@@ -6034,19 +6772,24 @@ export const getSpeakerVideos = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           blogPosts {
             items {
@@ -6062,6 +6805,7 @@ export const getSpeakerVideos = /* GraphQL */ `
                 expirationDate
                 videoSeries {
                   nextToken
+                  __typename
                 }
                 series {
                   id
@@ -6074,11 +6818,13 @@ export const getSpeakerVideos = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogSeriesId
                 blogSeriesIndex
                 blogSeries {
                   nextToken
+                  __typename
                 }
                 blogStatus
                 description
@@ -6091,28 +6837,35 @@ export const getSpeakerVideos = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               videoSeries {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -6122,27 +6875,34 @@ export const getSpeakerVideos = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           seriesType
           title
@@ -6152,14 +6912,17 @@ export const getSpeakerVideos = /* GraphQL */ `
           squareImage {
             src
             alt
+            __typename
           }
           bannerImage {
             src
             alt
+            __typename
           }
           babyHeroImage {
             src
             alt
+            __typename
           }
           startDate
           endDate
@@ -6178,12 +6941,15 @@ export const getSpeakerVideos = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -6193,22 +6959,27 @@ export const getSpeakerVideos = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               pdf
               topics
@@ -6225,16 +6996,21 @@ export const getSpeakerVideos = /* GraphQL */ `
                   noteId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           createdAt
           updatedAt
+          __typename
         }
         customPlaylistIDs
         customPlaylists {
@@ -6251,8 +7027,10 @@ export const getSpeakerVideos = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -6260,6 +7038,7 @@ export const getSpeakerVideos = /* GraphQL */ `
               thumbnailDescription
               createdAt
               updatedAt
+              __typename
             }
             video {
               id
@@ -6273,8 +7052,10 @@ export const getSpeakerVideos = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               episodeTitle
               originalEpisodeTitle
@@ -6285,12 +7066,15 @@ export const getSpeakerVideos = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -6300,22 +7084,27 @@ export const getSpeakerVideos = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               customPlaylistIDs
               customPlaylists {
@@ -6325,8 +7114,10 @@ export const getSpeakerVideos = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               publishedDate
               recordedDate
@@ -6350,6 +7141,7 @@ export const getSpeakerVideos = /* GraphQL */ `
                   title
                   description
                   channelTitle
+                  __typename
                 }
                 contentDetails {
                   videoId
@@ -6361,6 +7153,7 @@ export const getSpeakerVideos = /* GraphQL */ `
                   licensedContent
                   projection
                   hasCustomThumbnail
+                  __typename
                 }
                 status {
                   uploadStatus
@@ -6368,7 +7161,9 @@ export const getSpeakerVideos = /* GraphQL */ `
                   license
                   embeddable
                   publicStatsViewable
+                  __typename
                 }
+                __typename
               }
               videoTypes
               notesURL
@@ -6378,11 +7173,14 @@ export const getSpeakerVideos = /* GraphQL */ `
               move
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         publishedDate
         recordedDate
@@ -6410,33 +7208,41 @@ export const getSpeakerVideos = /* GraphQL */ `
                 url
                 width
                 height
+                __typename
               }
               medium {
                 url
                 width
                 height
+                __typename
               }
               high {
                 url
                 width
                 height
+                __typename
               }
               standard {
                 url
                 width
                 height
+                __typename
               }
               maxres {
                 url
                 width
                 height
+                __typename
               }
+              __typename
             }
             channelTitle
             localized {
               title
               description
+              __typename
             }
+            __typename
           }
           contentDetails {
             videoId
@@ -6517,12 +7323,15 @@ export const getSpeakerVideos = /* GraphQL */ `
               smsaRating
               tvpgRating
               ytRating
+              __typename
             }
             regionRestriction {
               allowed
               blocked
+              __typename
             }
             hasCustomThumbnail
+            __typename
           }
           status {
             uploadStatus
@@ -6530,7 +7339,9 @@ export const getSpeakerVideos = /* GraphQL */ `
             license
             embeddable
             publicStatsViewable
+            __typename
           }
+          __typename
         }
         videoTypes
         notesURL
@@ -6540,6 +7351,7 @@ export const getSpeakerVideos = /* GraphQL */ `
         move
         createdAt
         updatedAt
+        __typename
       }
       speakerVideosVideoId
       speaker {
@@ -6562,8 +7374,10 @@ export const getSpeakerVideos = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               episodeTitle
               originalEpisodeTitle
@@ -6574,12 +7388,15 @@ export const getSpeakerVideos = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -6589,22 +7406,27 @@ export const getSpeakerVideos = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               customPlaylistIDs
               customPlaylists {
@@ -6614,8 +7436,10 @@ export const getSpeakerVideos = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               publishedDate
               recordedDate
@@ -6639,6 +7463,7 @@ export const getSpeakerVideos = /* GraphQL */ `
                   title
                   description
                   channelTitle
+                  __typename
                 }
                 contentDetails {
                   videoId
@@ -6650,6 +7475,7 @@ export const getSpeakerVideos = /* GraphQL */ `
                   licensedContent
                   projection
                   hasCustomThumbnail
+                  __typename
                 }
                 status {
                   uploadStatus
@@ -6657,7 +7483,9 @@ export const getSpeakerVideos = /* GraphQL */ `
                   license
                   embeddable
                   publicStatsViewable
+                  __typename
                 }
+                __typename
               }
               videoTypes
               notesURL
@@ -6667,6 +7495,7 @@ export const getSpeakerVideos = /* GraphQL */ `
               move
               createdAt
               updatedAt
+              __typename
             }
             speakerVideosVideoId
             speaker {
@@ -6681,26 +7510,33 @@ export const getSpeakerVideos = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               hidden
               createdAt
               updatedAt
+              __typename
             }
             videoPublishedDate
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         hidden
         createdAt
         updatedAt
+        __typename
       }
       videoPublishedDate
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -6736,6 +7572,7 @@ export const listSpeakerVideos = /* GraphQL */ `
                 createdDate
                 speakers {
                   nextToken
+                  __typename
                 }
                 episodeTitle
                 originalEpisodeTitle
@@ -6753,10 +7590,12 @@ export const listSpeakerVideos = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 customPlaylistIDs
                 customPlaylists {
                   nextToken
+                  __typename
                 }
                 publishedDate
                 recordedDate
@@ -6774,6 +7613,7 @@ export const listSpeakerVideos = /* GraphQL */ `
                   id
                   kind
                   etag
+                  __typename
                 }
                 videoTypes
                 notesURL
@@ -6783,6 +7623,7 @@ export const listSpeakerVideos = /* GraphQL */ `
                 move
                 createdAt
                 updatedAt
+                __typename
               }
               speakerVideosVideoId
               speaker {
@@ -6791,16 +7632,20 @@ export const listSpeakerVideos = /* GraphQL */ `
                 image
                 videos {
                   nextToken
+                  __typename
                 }
                 hidden
                 createdAt
                 updatedAt
+                __typename
               }
               videoPublishedDate
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           episodeTitle
           originalEpisodeTitle
@@ -6816,6 +7661,7 @@ export const listSpeakerVideos = /* GraphQL */ `
                 createdDate
                 speakers {
                   nextToken
+                  __typename
                 }
                 episodeTitle
                 originalEpisodeTitle
@@ -6833,10 +7679,12 @@ export const listSpeakerVideos = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 customPlaylistIDs
                 customPlaylists {
                   nextToken
+                  __typename
                 }
                 publishedDate
                 recordedDate
@@ -6854,6 +7702,7 @@ export const listSpeakerVideos = /* GraphQL */ `
                   id
                   kind
                   etag
+                  __typename
                 }
                 videoTypes
                 notesURL
@@ -6863,8 +7712,10 @@ export const listSpeakerVideos = /* GraphQL */ `
                 move
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             blogs {
               items {
@@ -6876,6 +7727,7 @@ export const listSpeakerVideos = /* GraphQL */ `
                 expirationDate
                 videoSeries {
                   nextToken
+                  __typename
                 }
                 series {
                   id
@@ -6888,11 +7740,13 @@ export const listSpeakerVideos = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogSeriesId
                 blogSeriesIndex
                 blogSeries {
                   nextToken
+                  __typename
                 }
                 blogStatus
                 description
@@ -6905,19 +7759,24 @@ export const listSpeakerVideos = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             blogPosts {
               items {
@@ -6943,6 +7802,7 @@ export const listSpeakerVideos = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 videoSeries {
                   id
@@ -6955,11 +7815,14 @@ export const listSpeakerVideos = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             seriesType
             title
@@ -6969,14 +7832,17 @@ export const listSpeakerVideos = /* GraphQL */ `
             squareImage {
               src
               alt
+              __typename
             }
             bannerImage {
               src
               alt
+              __typename
             }
             babyHeroImage {
               src
               alt
+              __typename
             }
             startDate
             endDate
@@ -7002,20 +7868,25 @@ export const listSpeakerVideos = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 pdf
                 topics
                 tags
                 verses {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           customPlaylistIDs
           customPlaylists {
@@ -7027,6 +7898,7 @@ export const listSpeakerVideos = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -7034,6 +7906,7 @@ export const listSpeakerVideos = /* GraphQL */ `
                 thumbnailDescription
                 createdAt
                 updatedAt
+                __typename
               }
               video {
                 id
@@ -7041,6 +7914,7 @@ export const listSpeakerVideos = /* GraphQL */ `
                 createdDate
                 speakers {
                   nextToken
+                  __typename
                 }
                 episodeTitle
                 originalEpisodeTitle
@@ -7058,10 +7932,12 @@ export const listSpeakerVideos = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 customPlaylistIDs
                 customPlaylists {
                   nextToken
+                  __typename
                 }
                 publishedDate
                 recordedDate
@@ -7079,6 +7955,7 @@ export const listSpeakerVideos = /* GraphQL */ `
                   id
                   kind
                   etag
+                  __typename
                 }
                 videoTypes
                 notesURL
@@ -7088,11 +7965,14 @@ export const listSpeakerVideos = /* GraphQL */ `
                 move
                 createdAt
                 updatedAt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           publishedDate
           recordedDate
@@ -7120,33 +8000,41 @@ export const listSpeakerVideos = /* GraphQL */ `
                   url
                   width
                   height
+                  __typename
                 }
                 medium {
                   url
                   width
                   height
+                  __typename
                 }
                 high {
                   url
                   width
                   height
+                  __typename
                 }
                 standard {
                   url
                   width
                   height
+                  __typename
                 }
                 maxres {
                   url
                   width
                   height
+                  __typename
                 }
+                __typename
               }
               channelTitle
               localized {
                 title
                 description
+                __typename
               }
+              __typename
             }
             contentDetails {
               videoId
@@ -7227,12 +8115,15 @@ export const listSpeakerVideos = /* GraphQL */ `
                 smsaRating
                 tvpgRating
                 ytRating
+                __typename
               }
               regionRestriction {
                 allowed
                 blocked
+                __typename
               }
               hasCustomThumbnail
+              __typename
             }
             status {
               uploadStatus
@@ -7240,7 +8131,9 @@ export const listSpeakerVideos = /* GraphQL */ `
               license
               embeddable
               publicStatsViewable
+              __typename
             }
+            __typename
           }
           videoTypes
           notesURL
@@ -7250,6 +8143,7 @@ export const listSpeakerVideos = /* GraphQL */ `
           move
           createdAt
           updatedAt
+          __typename
         }
         speakerVideosVideoId
         speaker {
@@ -7266,6 +8160,7 @@ export const listSpeakerVideos = /* GraphQL */ `
                 createdDate
                 speakers {
                   nextToken
+                  __typename
                 }
                 episodeTitle
                 originalEpisodeTitle
@@ -7283,10 +8178,12 @@ export const listSpeakerVideos = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 customPlaylistIDs
                 customPlaylists {
                   nextToken
+                  __typename
                 }
                 publishedDate
                 recordedDate
@@ -7304,6 +8201,7 @@ export const listSpeakerVideos = /* GraphQL */ `
                   id
                   kind
                   etag
+                  __typename
                 }
                 videoTypes
                 notesURL
@@ -7313,6 +8211,7 @@ export const listSpeakerVideos = /* GraphQL */ `
                 move
                 createdAt
                 updatedAt
+                __typename
               }
               speakerVideosVideoId
               speaker {
@@ -7321,26 +8220,33 @@ export const listSpeakerVideos = /* GraphQL */ `
                 image
                 videos {
                   nextToken
+                  __typename
                 }
                 hidden
                 createdAt
                 updatedAt
+                __typename
               }
               videoPublishedDate
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           hidden
           createdAt
           updatedAt
+          __typename
         }
         videoPublishedDate
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -7363,6 +8269,7 @@ export const getSeries = /* GraphQL */ `
                 createdDate
                 speakers {
                   nextToken
+                  __typename
                 }
                 episodeTitle
                 originalEpisodeTitle
@@ -7380,10 +8287,12 @@ export const getSeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 customPlaylistIDs
                 customPlaylists {
                   nextToken
+                  __typename
                 }
                 publishedDate
                 recordedDate
@@ -7401,6 +8310,7 @@ export const getSeries = /* GraphQL */ `
                   id
                   kind
                   etag
+                  __typename
                 }
                 videoTypes
                 notesURL
@@ -7410,6 +8320,7 @@ export const getSeries = /* GraphQL */ `
                 move
                 createdAt
                 updatedAt
+                __typename
               }
               speakerVideosVideoId
               speaker {
@@ -7418,16 +8329,20 @@ export const getSeries = /* GraphQL */ `
                 image
                 videos {
                   nextToken
+                  __typename
                 }
                 hidden
                 createdAt
                 updatedAt
+                __typename
               }
               videoPublishedDate
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           episodeTitle
           originalEpisodeTitle
@@ -7443,6 +8358,7 @@ export const getSeries = /* GraphQL */ `
                 createdDate
                 speakers {
                   nextToken
+                  __typename
                 }
                 episodeTitle
                 originalEpisodeTitle
@@ -7460,10 +8376,12 @@ export const getSeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 customPlaylistIDs
                 customPlaylists {
                   nextToken
+                  __typename
                 }
                 publishedDate
                 recordedDate
@@ -7481,6 +8399,7 @@ export const getSeries = /* GraphQL */ `
                   id
                   kind
                   etag
+                  __typename
                 }
                 videoTypes
                 notesURL
@@ -7490,8 +8409,10 @@ export const getSeries = /* GraphQL */ `
                 move
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             blogs {
               items {
@@ -7503,6 +8424,7 @@ export const getSeries = /* GraphQL */ `
                 expirationDate
                 videoSeries {
                   nextToken
+                  __typename
                 }
                 series {
                   id
@@ -7515,11 +8437,13 @@ export const getSeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogSeriesId
                 blogSeriesIndex
                 blogSeries {
                   nextToken
+                  __typename
                 }
                 blogStatus
                 description
@@ -7532,19 +8456,24 @@ export const getSeries = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             blogPosts {
               items {
@@ -7570,6 +8499,7 @@ export const getSeries = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 videoSeries {
                   id
@@ -7582,11 +8512,14 @@ export const getSeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             seriesType
             title
@@ -7596,14 +8529,17 @@ export const getSeries = /* GraphQL */ `
             squareImage {
               src
               alt
+              __typename
             }
             bannerImage {
               src
               alt
+              __typename
             }
             babyHeroImage {
               src
               alt
+              __typename
             }
             startDate
             endDate
@@ -7629,20 +8565,25 @@ export const getSeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 pdf
                 topics
                 tags
                 verses {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           customPlaylistIDs
           customPlaylists {
@@ -7654,6 +8595,7 @@ export const getSeries = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -7661,6 +8603,7 @@ export const getSeries = /* GraphQL */ `
                 thumbnailDescription
                 createdAt
                 updatedAt
+                __typename
               }
               video {
                 id
@@ -7668,6 +8611,7 @@ export const getSeries = /* GraphQL */ `
                 createdDate
                 speakers {
                   nextToken
+                  __typename
                 }
                 episodeTitle
                 originalEpisodeTitle
@@ -7685,10 +8629,12 @@ export const getSeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 customPlaylistIDs
                 customPlaylists {
                   nextToken
+                  __typename
                 }
                 publishedDate
                 recordedDate
@@ -7706,6 +8652,7 @@ export const getSeries = /* GraphQL */ `
                   id
                   kind
                   etag
+                  __typename
                 }
                 videoTypes
                 notesURL
@@ -7715,11 +8662,14 @@ export const getSeries = /* GraphQL */ `
                 move
                 createdAt
                 updatedAt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           publishedDate
           recordedDate
@@ -7747,33 +8697,41 @@ export const getSeries = /* GraphQL */ `
                   url
                   width
                   height
+                  __typename
                 }
                 medium {
                   url
                   width
                   height
+                  __typename
                 }
                 high {
                   url
                   width
                   height
+                  __typename
                 }
                 standard {
                   url
                   width
                   height
+                  __typename
                 }
                 maxres {
                   url
                   width
                   height
+                  __typename
                 }
+                __typename
               }
               channelTitle
               localized {
                 title
                 description
+                __typename
               }
+              __typename
             }
             contentDetails {
               videoId
@@ -7854,12 +8812,15 @@ export const getSeries = /* GraphQL */ `
                 smsaRating
                 tvpgRating
                 ytRating
+                __typename
               }
               regionRestriction {
                 allowed
                 blocked
+                __typename
               }
               hasCustomThumbnail
+              __typename
             }
             status {
               uploadStatus
@@ -7867,7 +8828,9 @@ export const getSeries = /* GraphQL */ `
               license
               embeddable
               publicStatsViewable
+              __typename
             }
+            __typename
           }
           videoTypes
           notesURL
@@ -7877,8 +8840,10 @@ export const getSeries = /* GraphQL */ `
           move
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       blogs {
         items {
@@ -7902,6 +8867,7 @@ export const getSeries = /* GraphQL */ `
                 expirationDate
                 videoSeries {
                   nextToken
+                  __typename
                 }
                 series {
                   id
@@ -7914,11 +8880,13 @@ export const getSeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogSeriesId
                 blogSeriesIndex
                 blogSeries {
                   nextToken
+                  __typename
                 }
                 blogStatus
                 description
@@ -7931,28 +8899,35 @@ export const getSeries = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               videoSeries {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -7962,27 +8937,34 @@ export const getSeries = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           series {
             id
@@ -7993,6 +8975,7 @@ export const getSeries = /* GraphQL */ `
                 createdDate
                 speakers {
                   nextToken
+                  __typename
                 }
                 episodeTitle
                 originalEpisodeTitle
@@ -8010,10 +8993,12 @@ export const getSeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 customPlaylistIDs
                 customPlaylists {
                   nextToken
+                  __typename
                 }
                 publishedDate
                 recordedDate
@@ -8031,6 +9016,7 @@ export const getSeries = /* GraphQL */ `
                   id
                   kind
                   etag
+                  __typename
                 }
                 videoTypes
                 notesURL
@@ -8040,8 +9026,10 @@ export const getSeries = /* GraphQL */ `
                 move
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             blogs {
               items {
@@ -8053,6 +9041,7 @@ export const getSeries = /* GraphQL */ `
                 expirationDate
                 videoSeries {
                   nextToken
+                  __typename
                 }
                 series {
                   id
@@ -8065,11 +9054,13 @@ export const getSeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogSeriesId
                 blogSeriesIndex
                 blogSeries {
                   nextToken
+                  __typename
                 }
                 blogStatus
                 description
@@ -8082,19 +9073,24 @@ export const getSeries = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             blogPosts {
               items {
@@ -8120,6 +9116,7 @@ export const getSeries = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 videoSeries {
                   id
@@ -8132,11 +9129,14 @@ export const getSeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             seriesType
             title
@@ -8146,14 +9146,17 @@ export const getSeries = /* GraphQL */ `
             squareImage {
               src
               alt
+              __typename
             }
             bannerImage {
               src
               alt
+              __typename
             }
             babyHeroImage {
               src
               alt
+              __typename
             }
             startDate
             endDate
@@ -8179,20 +9182,25 @@ export const getSeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 pdf
                 topics
                 tags
                 verses {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           blogSeriesId
           blogSeriesIndex
@@ -8205,6 +9213,7 @@ export const getSeries = /* GraphQL */ `
                 id
                 blogs {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -8215,6 +9224,7 @@ export const getSeries = /* GraphQL */ `
                 endDate
                 createdAt
                 updatedAt
+                __typename
               }
               blogPost {
                 id
@@ -8225,6 +9235,7 @@ export const getSeries = /* GraphQL */ `
                 expirationDate
                 videoSeries {
                   nextToken
+                  __typename
                 }
                 series {
                   id
@@ -8237,11 +9248,13 @@ export const getSeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogSeriesId
                 blogSeriesIndex
                 blogSeries {
                   nextToken
+                  __typename
                 }
                 blogStatus
                 description
@@ -8254,22 +9267,28 @@ export const getSeries = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           blogStatus
           description
@@ -8282,19 +9301,24 @@ export const getSeries = /* GraphQL */ `
           squareImage {
             src
             alt
+            __typename
           }
           bannerImage {
             src
             alt
+            __typename
           }
           babyHeroImage {
             src
             alt
+            __typename
           }
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       blogPosts {
         items {
@@ -8332,6 +9356,7 @@ export const getSeries = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 videoSeries {
                   id
@@ -8344,11 +9369,14 @@ export const getSeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             series {
               id
@@ -8383,8 +9411,10 @@ export const getSeries = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -8406,8 +9436,10 @@ export const getSeries = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -8416,8 +9448,10 @@ export const getSeries = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -8427,14 +9461,17 @@ export const getSeries = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -8454,11 +9491,14 @@ export const getSeries = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             blogSeriesId
             blogSeriesIndex
@@ -8478,6 +9518,7 @@ export const getSeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogPost {
                   id
@@ -8498,11 +9539,14 @@ export const getSeries = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             blogStatus
             description
@@ -8515,17 +9559,21 @@ export const getSeries = /* GraphQL */ `
             squareImage {
               src
               alt
+              __typename
             }
             bannerImage {
               src
               alt
+              __typename
             }
             babyHeroImage {
               src
               alt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           videoSeries {
             id
@@ -8536,6 +9584,7 @@ export const getSeries = /* GraphQL */ `
                 createdDate
                 speakers {
                   nextToken
+                  __typename
                 }
                 episodeTitle
                 originalEpisodeTitle
@@ -8553,10 +9602,12 @@ export const getSeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 customPlaylistIDs
                 customPlaylists {
                   nextToken
+                  __typename
                 }
                 publishedDate
                 recordedDate
@@ -8574,6 +9625,7 @@ export const getSeries = /* GraphQL */ `
                   id
                   kind
                   etag
+                  __typename
                 }
                 videoTypes
                 notesURL
@@ -8583,8 +9635,10 @@ export const getSeries = /* GraphQL */ `
                 move
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             blogs {
               items {
@@ -8596,6 +9650,7 @@ export const getSeries = /* GraphQL */ `
                 expirationDate
                 videoSeries {
                   nextToken
+                  __typename
                 }
                 series {
                   id
@@ -8608,11 +9663,13 @@ export const getSeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogSeriesId
                 blogSeriesIndex
                 blogSeries {
                   nextToken
+                  __typename
                 }
                 blogStatus
                 description
@@ -8625,19 +9682,24 @@ export const getSeries = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             blogPosts {
               items {
@@ -8663,6 +9725,7 @@ export const getSeries = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 videoSeries {
                   id
@@ -8675,11 +9738,14 @@ export const getSeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             seriesType
             title
@@ -8689,14 +9755,17 @@ export const getSeries = /* GraphQL */ `
             squareImage {
               src
               alt
+              __typename
             }
             bannerImage {
               src
               alt
+              __typename
             }
             babyHeroImage {
               src
               alt
+              __typename
             }
             startDate
             endDate
@@ -8722,25 +9791,32 @@ export const getSeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 pdf
                 topics
                 tags
                 verses {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       seriesType
       title
@@ -8750,14 +9826,17 @@ export const getSeries = /* GraphQL */ `
       squareImage {
         src
         alt
+        __typename
       }
       bannerImage {
         src
         alt
+        __typename
       }
       babyHeroImage {
         src
         alt
+        __typename
       }
       startDate
       endDate
@@ -8781,6 +9860,7 @@ export const getSeries = /* GraphQL */ `
                 createdDate
                 speakers {
                   nextToken
+                  __typename
                 }
                 episodeTitle
                 originalEpisodeTitle
@@ -8798,10 +9878,12 @@ export const getSeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 customPlaylistIDs
                 customPlaylists {
                   nextToken
+                  __typename
                 }
                 publishedDate
                 recordedDate
@@ -8819,6 +9901,7 @@ export const getSeries = /* GraphQL */ `
                   id
                   kind
                   etag
+                  __typename
                 }
                 videoTypes
                 notesURL
@@ -8828,8 +9911,10 @@ export const getSeries = /* GraphQL */ `
                 move
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             blogs {
               items {
@@ -8841,6 +9926,7 @@ export const getSeries = /* GraphQL */ `
                 expirationDate
                 videoSeries {
                   nextToken
+                  __typename
                 }
                 series {
                   id
@@ -8853,11 +9939,13 @@ export const getSeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogSeriesId
                 blogSeriesIndex
                 blogSeries {
                   nextToken
+                  __typename
                 }
                 blogStatus
                 description
@@ -8870,19 +9958,24 @@ export const getSeries = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             blogPosts {
               items {
@@ -8908,6 +10001,7 @@ export const getSeries = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 videoSeries {
                   id
@@ -8920,11 +10014,14 @@ export const getSeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             seriesType
             title
@@ -8934,14 +10031,17 @@ export const getSeries = /* GraphQL */ `
             squareImage {
               src
               alt
+              __typename
             }
             bannerImage {
               src
               alt
+              __typename
             }
             babyHeroImage {
               src
               alt
+              __typename
             }
             startDate
             endDate
@@ -8967,20 +10067,25 @@ export const getSeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 pdf
                 topics
                 tags
                 verses {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           pdf
           topics
@@ -9016,28 +10121,36 @@ export const getSeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 pdf
                 topics
                 tags
                 verses {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -9089,6 +10202,7 @@ export const listSeries = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 speakerVideosVideoId
                 speaker {
@@ -9098,12 +10212,15 @@ export const listSeries = /* GraphQL */ `
                   hidden
                   createdAt
                   updatedAt
+                  __typename
                 }
                 videoPublishedDate
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             episodeTitle
             originalEpisodeTitle
@@ -9143,8 +10260,10 @@ export const listSeries = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -9166,8 +10285,10 @@ export const listSeries = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -9176,8 +10297,10 @@ export const listSeries = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -9187,14 +10310,17 @@ export const listSeries = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -9214,11 +10340,14 @@ export const listSeries = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             customPlaylistIDs
             customPlaylists {
@@ -9234,6 +10363,7 @@ export const listSeries = /* GraphQL */ `
                   thumbnailDescription
                   createdAt
                   updatedAt
+                  __typename
                 }
                 video {
                   id
@@ -9265,11 +10395,14 @@ export const listSeries = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             publishedDate
             recordedDate
@@ -9292,11 +10425,16 @@ export const listSeries = /* GraphQL */ `
                 channelId
                 title
                 description
+                thumbnails {
+                  __typename
+                }
                 channelTitle
                 localized {
                   title
                   description
+                  __typename
                 }
+                __typename
               }
               contentDetails {
                 videoId
@@ -9377,12 +10515,15 @@ export const listSeries = /* GraphQL */ `
                   smsaRating
                   tvpgRating
                   ytRating
+                  __typename
                 }
                 regionRestriction {
                   allowed
                   blocked
+                  __typename
                 }
                 hasCustomThumbnail
+                __typename
               }
               status {
                 uploadStatus
@@ -9390,7 +10531,9 @@ export const listSeries = /* GraphQL */ `
                 license
                 embeddable
                 publicStatsViewable
+                __typename
               }
+              __typename
             }
             videoTypes
             notesURL
@@ -9400,8 +10543,10 @@ export const listSeries = /* GraphQL */ `
             move
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         blogs {
           items {
@@ -9435,6 +10580,7 @@ export const listSeries = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 videoSeries {
                   id
@@ -9447,11 +10593,14 @@ export const listSeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             series {
               id
@@ -9486,8 +10635,10 @@ export const listSeries = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -9509,8 +10660,10 @@ export const listSeries = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -9519,8 +10672,10 @@ export const listSeries = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -9530,14 +10685,17 @@ export const listSeries = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -9557,11 +10715,14 @@ export const listSeries = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             blogSeriesId
             blogSeriesIndex
@@ -9581,6 +10742,7 @@ export const listSeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogPost {
                   id
@@ -9601,11 +10763,14 @@ export const listSeries = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             blogStatus
             description
@@ -9618,19 +10783,24 @@ export const listSeries = /* GraphQL */ `
             squareImage {
               src
               alt
+              __typename
             }
             bannerImage {
               src
               alt
+              __typename
             }
             babyHeroImage {
               src
               alt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         blogPosts {
           items {
@@ -9651,19 +10821,24 @@ export const listSeries = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               series {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -9673,22 +10848,27 @@ export const listSeries = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               blogSeriesId
               blogSeriesIndex
@@ -9699,8 +10879,10 @@ export const listSeries = /* GraphQL */ `
                   blogPostID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogStatus
               description
@@ -9713,17 +10895,21 @@ export const listSeries = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             videoSeries {
               id
@@ -9758,8 +10944,10 @@ export const listSeries = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -9781,8 +10969,10 @@ export const listSeries = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -9791,8 +10981,10 @@ export const listSeries = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -9802,14 +10994,17 @@ export const listSeries = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -9829,16 +11024,21 @@ export const listSeries = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         seriesType
         title
@@ -9848,14 +11048,17 @@ export const listSeries = /* GraphQL */ `
         squareImage {
           src
           alt
+          __typename
         }
         bannerImage {
           src
           alt
+          __typename
         }
         babyHeroImage {
           src
           alt
+          __typename
         }
         startDate
         endDate
@@ -9903,8 +11106,10 @@ export const listSeries = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -9926,8 +11131,10 @@ export const listSeries = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -9936,8 +11143,10 @@ export const listSeries = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -9947,14 +11156,17 @@ export const listSeries = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -9974,11 +11186,14 @@ export const listSeries = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             pdf
             topics
@@ -10008,21 +11223,28 @@ export const listSeries = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -10084,6 +11306,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 speakerVideosVideoId
                 speaker {
@@ -10093,12 +11316,15 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   hidden
                   createdAt
                   updatedAt
+                  __typename
                 }
                 videoPublishedDate
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             episodeTitle
             originalEpisodeTitle
@@ -10138,8 +11364,10 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -10161,8 +11389,10 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -10171,8 +11401,10 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -10182,14 +11414,17 @@ export const getSeriesBySeriesType = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -10209,11 +11444,14 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             customPlaylistIDs
             customPlaylists {
@@ -10229,6 +11467,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   thumbnailDescription
                   createdAt
                   updatedAt
+                  __typename
                 }
                 video {
                   id
@@ -10260,11 +11499,14 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             publishedDate
             recordedDate
@@ -10287,11 +11529,16 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                 channelId
                 title
                 description
+                thumbnails {
+                  __typename
+                }
                 channelTitle
                 localized {
                   title
                   description
+                  __typename
                 }
+                __typename
               }
               contentDetails {
                 videoId
@@ -10372,12 +11619,15 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   smsaRating
                   tvpgRating
                   ytRating
+                  __typename
                 }
                 regionRestriction {
                   allowed
                   blocked
+                  __typename
                 }
                 hasCustomThumbnail
+                __typename
               }
               status {
                 uploadStatus
@@ -10385,7 +11635,9 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                 license
                 embeddable
                 publicStatsViewable
+                __typename
               }
+              __typename
             }
             videoTypes
             notesURL
@@ -10395,8 +11647,10 @@ export const getSeriesBySeriesType = /* GraphQL */ `
             move
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         blogs {
           items {
@@ -10430,6 +11684,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 videoSeries {
                   id
@@ -10442,11 +11697,14 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             series {
               id
@@ -10481,8 +11739,10 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -10504,8 +11764,10 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -10514,8 +11776,10 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -10525,14 +11789,17 @@ export const getSeriesBySeriesType = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -10552,11 +11819,14 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             blogSeriesId
             blogSeriesIndex
@@ -10576,6 +11846,7 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogPost {
                   id
@@ -10596,11 +11867,14 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             blogStatus
             description
@@ -10613,19 +11887,24 @@ export const getSeriesBySeriesType = /* GraphQL */ `
             squareImage {
               src
               alt
+              __typename
             }
             bannerImage {
               src
               alt
+              __typename
             }
             babyHeroImage {
               src
               alt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         blogPosts {
           items {
@@ -10646,19 +11925,24 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               series {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -10668,22 +11952,27 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               blogSeriesId
               blogSeriesIndex
@@ -10694,8 +11983,10 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   blogPostID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogStatus
               description
@@ -10708,17 +11999,21 @@ export const getSeriesBySeriesType = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             videoSeries {
               id
@@ -10753,8 +12048,10 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -10776,8 +12073,10 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -10786,8 +12085,10 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -10797,14 +12098,17 @@ export const getSeriesBySeriesType = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -10824,16 +12128,21 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         seriesType
         title
@@ -10843,14 +12152,17 @@ export const getSeriesBySeriesType = /* GraphQL */ `
         squareImage {
           src
           alt
+          __typename
         }
         bannerImage {
           src
           alt
+          __typename
         }
         babyHeroImage {
           src
           alt
+          __typename
         }
         startDate
         endDate
@@ -10898,8 +12210,10 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -10921,8 +12235,10 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -10931,8 +12247,10 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -10942,14 +12260,17 @@ export const getSeriesBySeriesType = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -10969,11 +12290,14 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             pdf
             topics
@@ -11003,21 +12327,28 @@ export const getSeriesBySeriesType = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -11079,6 +12410,7 @@ export const searchSeries = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 speakerVideosVideoId
                 speaker {
@@ -11088,12 +12420,15 @@ export const searchSeries = /* GraphQL */ `
                   hidden
                   createdAt
                   updatedAt
+                  __typename
                 }
                 videoPublishedDate
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             episodeTitle
             originalEpisodeTitle
@@ -11133,8 +12468,10 @@ export const searchSeries = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -11156,8 +12493,10 @@ export const searchSeries = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -11166,8 +12505,10 @@ export const searchSeries = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -11177,14 +12518,17 @@ export const searchSeries = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -11204,11 +12548,14 @@ export const searchSeries = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             customPlaylistIDs
             customPlaylists {
@@ -11224,6 +12571,7 @@ export const searchSeries = /* GraphQL */ `
                   thumbnailDescription
                   createdAt
                   updatedAt
+                  __typename
                 }
                 video {
                   id
@@ -11255,11 +12603,14 @@ export const searchSeries = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             publishedDate
             recordedDate
@@ -11282,11 +12633,16 @@ export const searchSeries = /* GraphQL */ `
                 channelId
                 title
                 description
+                thumbnails {
+                  __typename
+                }
                 channelTitle
                 localized {
                   title
                   description
+                  __typename
                 }
+                __typename
               }
               contentDetails {
                 videoId
@@ -11367,12 +12723,15 @@ export const searchSeries = /* GraphQL */ `
                   smsaRating
                   tvpgRating
                   ytRating
+                  __typename
                 }
                 regionRestriction {
                   allowed
                   blocked
+                  __typename
                 }
                 hasCustomThumbnail
+                __typename
               }
               status {
                 uploadStatus
@@ -11380,7 +12739,9 @@ export const searchSeries = /* GraphQL */ `
                 license
                 embeddable
                 publicStatsViewable
+                __typename
               }
+              __typename
             }
             videoTypes
             notesURL
@@ -11390,8 +12751,10 @@ export const searchSeries = /* GraphQL */ `
             move
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         blogs {
           items {
@@ -11425,6 +12788,7 @@ export const searchSeries = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 videoSeries {
                   id
@@ -11437,11 +12801,14 @@ export const searchSeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             series {
               id
@@ -11476,8 +12843,10 @@ export const searchSeries = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -11499,8 +12868,10 @@ export const searchSeries = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -11509,8 +12880,10 @@ export const searchSeries = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -11520,14 +12893,17 @@ export const searchSeries = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -11547,11 +12923,14 @@ export const searchSeries = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             blogSeriesId
             blogSeriesIndex
@@ -11571,6 +12950,7 @@ export const searchSeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogPost {
                   id
@@ -11591,11 +12971,14 @@ export const searchSeries = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             blogStatus
             description
@@ -11608,19 +12991,24 @@ export const searchSeries = /* GraphQL */ `
             squareImage {
               src
               alt
+              __typename
             }
             bannerImage {
               src
               alt
+              __typename
             }
             babyHeroImage {
               src
               alt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         blogPosts {
           items {
@@ -11641,19 +13029,24 @@ export const searchSeries = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               series {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -11663,22 +13056,27 @@ export const searchSeries = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               blogSeriesId
               blogSeriesIndex
@@ -11689,8 +13087,10 @@ export const searchSeries = /* GraphQL */ `
                   blogPostID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogStatus
               description
@@ -11703,17 +13103,21 @@ export const searchSeries = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             videoSeries {
               id
@@ -11748,8 +13152,10 @@ export const searchSeries = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -11771,8 +13177,10 @@ export const searchSeries = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -11781,8 +13189,10 @@ export const searchSeries = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -11792,14 +13202,17 @@ export const searchSeries = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -11819,16 +13232,21 @@ export const searchSeries = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         seriesType
         title
@@ -11838,14 +13256,17 @@ export const searchSeries = /* GraphQL */ `
         squareImage {
           src
           alt
+          __typename
         }
         bannerImage {
           src
           alt
+          __typename
         }
         babyHeroImage {
           src
           alt
+          __typename
         }
         startDate
         endDate
@@ -11893,8 +13314,10 @@ export const searchSeries = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -11916,8 +13339,10 @@ export const searchSeries = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -11926,8 +13351,10 @@ export const searchSeries = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -11937,14 +13364,17 @@ export const searchSeries = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -11964,11 +13394,14 @@ export const searchSeries = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             pdf
             topics
@@ -11998,19 +13431,25 @@ export const searchSeries = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
       total
@@ -12024,10 +13463,13 @@ export const searchSeries = /* GraphQL */ `
             buckets {
               key
               doc_count
+              __typename
             }
           }
         }
+        __typename
       }
+      __typename
     }
   }
 `;
@@ -12055,6 +13497,7 @@ export const getCustomPlaylist = /* GraphQL */ `
                   thumbnailDescription
                   createdAt
                   updatedAt
+                  __typename
                 }
                 video {
                   id
@@ -12086,11 +13529,14 @@ export const getCustomPlaylist = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             seriesType
             title
@@ -12098,6 +13544,7 @@ export const getCustomPlaylist = /* GraphQL */ `
             thumbnailDescription
             createdAt
             updatedAt
+            __typename
           }
           video {
             id
@@ -12137,6 +13584,7 @@ export const getCustomPlaylist = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 speakerVideosVideoId
                 speaker {
@@ -12146,12 +13594,15 @@ export const getCustomPlaylist = /* GraphQL */ `
                   hidden
                   createdAt
                   updatedAt
+                  __typename
                 }
                 videoPublishedDate
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             episodeTitle
             originalEpisodeTitle
@@ -12191,8 +13642,10 @@ export const getCustomPlaylist = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -12214,8 +13667,10 @@ export const getCustomPlaylist = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -12224,8 +13679,10 @@ export const getCustomPlaylist = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -12235,14 +13692,17 @@ export const getCustomPlaylist = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -12262,11 +13722,14 @@ export const getCustomPlaylist = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             customPlaylistIDs
             customPlaylists {
@@ -12282,6 +13745,7 @@ export const getCustomPlaylist = /* GraphQL */ `
                   thumbnailDescription
                   createdAt
                   updatedAt
+                  __typename
                 }
                 video {
                   id
@@ -12313,11 +13777,14 @@ export const getCustomPlaylist = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             publishedDate
             recordedDate
@@ -12340,11 +13807,16 @@ export const getCustomPlaylist = /* GraphQL */ `
                 channelId
                 title
                 description
+                thumbnails {
+                  __typename
+                }
                 channelTitle
                 localized {
                   title
                   description
+                  __typename
                 }
+                __typename
               }
               contentDetails {
                 videoId
@@ -12425,12 +13897,15 @@ export const getCustomPlaylist = /* GraphQL */ `
                   smsaRating
                   tvpgRating
                   ytRating
+                  __typename
                 }
                 regionRestriction {
                   allowed
                   blocked
+                  __typename
                 }
                 hasCustomThumbnail
+                __typename
               }
               status {
                 uploadStatus
@@ -12438,7 +13913,9 @@ export const getCustomPlaylist = /* GraphQL */ `
                 license
                 embeddable
                 publicStatsViewable
+                __typename
               }
+              __typename
             }
             videoTypes
             notesURL
@@ -12448,11 +13925,14 @@ export const getCustomPlaylist = /* GraphQL */ `
             move
             createdAt
             updatedAt
+            __typename
           }
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       seriesType
       title
@@ -12460,6 +13940,7 @@ export const getCustomPlaylist = /* GraphQL */ `
       thumbnailDescription
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -12486,8 +13967,10 @@ export const listCustomPlaylists = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -12495,6 +13978,7 @@ export const listCustomPlaylists = /* GraphQL */ `
               thumbnailDescription
               createdAt
               updatedAt
+              __typename
             }
             video {
               id
@@ -12508,8 +13992,10 @@ export const listCustomPlaylists = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               episodeTitle
               originalEpisodeTitle
@@ -12520,12 +14006,15 @@ export const listCustomPlaylists = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -12535,22 +14024,27 @@ export const listCustomPlaylists = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               customPlaylistIDs
               customPlaylists {
@@ -12560,8 +14054,10 @@ export const listCustomPlaylists = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               publishedDate
               recordedDate
@@ -12585,6 +14081,7 @@ export const listCustomPlaylists = /* GraphQL */ `
                   title
                   description
                   channelTitle
+                  __typename
                 }
                 contentDetails {
                   videoId
@@ -12596,6 +14093,7 @@ export const listCustomPlaylists = /* GraphQL */ `
                   licensedContent
                   projection
                   hasCustomThumbnail
+                  __typename
                 }
                 status {
                   uploadStatus
@@ -12603,7 +14101,9 @@ export const listCustomPlaylists = /* GraphQL */ `
                   license
                   embeddable
                   publicStatsViewable
+                  __typename
                 }
+                __typename
               }
               videoTypes
               notesURL
@@ -12613,11 +14113,14 @@ export const listCustomPlaylists = /* GraphQL */ `
               move
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         seriesType
         title
@@ -12625,8 +14128,10 @@ export const listCustomPlaylists = /* GraphQL */ `
         thumbnailDescription
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -12663,8 +14168,10 @@ export const searchCustomPlaylists = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -12672,6 +14179,7 @@ export const searchCustomPlaylists = /* GraphQL */ `
               thumbnailDescription
               createdAt
               updatedAt
+              __typename
             }
             video {
               id
@@ -12685,8 +14193,10 @@ export const searchCustomPlaylists = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               episodeTitle
               originalEpisodeTitle
@@ -12697,12 +14207,15 @@ export const searchCustomPlaylists = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -12712,22 +14225,27 @@ export const searchCustomPlaylists = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               customPlaylistIDs
               customPlaylists {
@@ -12737,8 +14255,10 @@ export const searchCustomPlaylists = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               publishedDate
               recordedDate
@@ -12762,6 +14282,7 @@ export const searchCustomPlaylists = /* GraphQL */ `
                   title
                   description
                   channelTitle
+                  __typename
                 }
                 contentDetails {
                   videoId
@@ -12773,6 +14294,7 @@ export const searchCustomPlaylists = /* GraphQL */ `
                   licensedContent
                   projection
                   hasCustomThumbnail
+                  __typename
                 }
                 status {
                   uploadStatus
@@ -12780,7 +14302,9 @@ export const searchCustomPlaylists = /* GraphQL */ `
                   license
                   embeddable
                   publicStatsViewable
+                  __typename
                 }
+                __typename
               }
               videoTypes
               notesURL
@@ -12790,11 +14314,14 @@ export const searchCustomPlaylists = /* GraphQL */ `
               move
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         seriesType
         title
@@ -12802,6 +14329,7 @@ export const searchCustomPlaylists = /* GraphQL */ `
         thumbnailDescription
         createdAt
         updatedAt
+        __typename
       }
       nextToken
       total
@@ -12815,10 +14343,13 @@ export const searchCustomPlaylists = /* GraphQL */ `
             buckets {
               key
               doc_count
+              __typename
             }
           }
         }
+        __typename
       }
+      __typename
     }
   }
 `;
@@ -12870,6 +14401,7 @@ export const getVideo = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 speakerVideosVideoId
                 speaker {
@@ -12879,12 +14411,15 @@ export const getVideo = /* GraphQL */ `
                   hidden
                   createdAt
                   updatedAt
+                  __typename
                 }
                 videoPublishedDate
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             episodeTitle
             originalEpisodeTitle
@@ -12924,8 +14459,10 @@ export const getVideo = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -12947,8 +14484,10 @@ export const getVideo = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -12957,8 +14496,10 @@ export const getVideo = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -12968,14 +14509,17 @@ export const getVideo = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -12995,11 +14539,14 @@ export const getVideo = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             customPlaylistIDs
             customPlaylists {
@@ -13015,6 +14562,7 @@ export const getVideo = /* GraphQL */ `
                   thumbnailDescription
                   createdAt
                   updatedAt
+                  __typename
                 }
                 video {
                   id
@@ -13046,11 +14594,14 @@ export const getVideo = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             publishedDate
             recordedDate
@@ -13073,11 +14624,16 @@ export const getVideo = /* GraphQL */ `
                 channelId
                 title
                 description
+                thumbnails {
+                  __typename
+                }
                 channelTitle
                 localized {
                   title
                   description
+                  __typename
                 }
+                __typename
               }
               contentDetails {
                 videoId
@@ -13158,12 +14714,15 @@ export const getVideo = /* GraphQL */ `
                   smsaRating
                   tvpgRating
                   ytRating
+                  __typename
                 }
                 regionRestriction {
                   allowed
                   blocked
+                  __typename
                 }
                 hasCustomThumbnail
+                __typename
               }
               status {
                 uploadStatus
@@ -13171,7 +14730,9 @@ export const getVideo = /* GraphQL */ `
                 license
                 embeddable
                 publicStatsViewable
+                __typename
               }
+              __typename
             }
             videoTypes
             notesURL
@@ -13181,6 +14742,7 @@ export const getVideo = /* GraphQL */ `
             move
             createdAt
             updatedAt
+            __typename
           }
           speakerVideosVideoId
           speaker {
@@ -13221,6 +14783,7 @@ export const getVideo = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 speakerVideosVideoId
                 speaker {
@@ -13230,22 +14793,28 @@ export const getVideo = /* GraphQL */ `
                   hidden
                   createdAt
                   updatedAt
+                  __typename
                 }
                 videoPublishedDate
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             hidden
             createdAt
             updatedAt
+            __typename
           }
           videoPublishedDate
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       episodeTitle
       originalEpisodeTitle
@@ -13293,6 +14862,7 @@ export const getVideo = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 speakerVideosVideoId
                 speaker {
@@ -13302,12 +14872,15 @@ export const getVideo = /* GraphQL */ `
                   hidden
                   createdAt
                   updatedAt
+                  __typename
                 }
                 videoPublishedDate
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             episodeTitle
             originalEpisodeTitle
@@ -13347,8 +14920,10 @@ export const getVideo = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -13370,8 +14945,10 @@ export const getVideo = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -13380,8 +14957,10 @@ export const getVideo = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -13391,14 +14970,17 @@ export const getVideo = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -13418,11 +15000,14 @@ export const getVideo = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             customPlaylistIDs
             customPlaylists {
@@ -13438,6 +15023,7 @@ export const getVideo = /* GraphQL */ `
                   thumbnailDescription
                   createdAt
                   updatedAt
+                  __typename
                 }
                 video {
                   id
@@ -13469,11 +15055,14 @@ export const getVideo = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             publishedDate
             recordedDate
@@ -13496,11 +15085,16 @@ export const getVideo = /* GraphQL */ `
                 channelId
                 title
                 description
+                thumbnails {
+                  __typename
+                }
                 channelTitle
                 localized {
                   title
                   description
+                  __typename
                 }
+                __typename
               }
               contentDetails {
                 videoId
@@ -13581,12 +15175,15 @@ export const getVideo = /* GraphQL */ `
                   smsaRating
                   tvpgRating
                   ytRating
+                  __typename
                 }
                 regionRestriction {
                   allowed
                   blocked
+                  __typename
                 }
                 hasCustomThumbnail
+                __typename
               }
               status {
                 uploadStatus
@@ -13594,7 +15191,9 @@ export const getVideo = /* GraphQL */ `
                 license
                 embeddable
                 publicStatsViewable
+                __typename
               }
+              __typename
             }
             videoTypes
             notesURL
@@ -13604,8 +15203,10 @@ export const getVideo = /* GraphQL */ `
             move
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         blogs {
           items {
@@ -13639,6 +15240,7 @@ export const getVideo = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 videoSeries {
                   id
@@ -13651,11 +15253,14 @@ export const getVideo = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             series {
               id
@@ -13690,8 +15295,10 @@ export const getVideo = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -13713,8 +15320,10 @@ export const getVideo = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -13723,8 +15332,10 @@ export const getVideo = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -13734,14 +15345,17 @@ export const getVideo = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -13761,11 +15375,14 @@ export const getVideo = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             blogSeriesId
             blogSeriesIndex
@@ -13785,6 +15402,7 @@ export const getVideo = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogPost {
                   id
@@ -13805,11 +15423,14 @@ export const getVideo = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             blogStatus
             description
@@ -13822,19 +15443,24 @@ export const getVideo = /* GraphQL */ `
             squareImage {
               src
               alt
+              __typename
             }
             bannerImage {
               src
               alt
+              __typename
             }
             babyHeroImage {
               src
               alt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         blogPosts {
           items {
@@ -13855,19 +15481,24 @@ export const getVideo = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               series {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -13877,22 +15508,27 @@ export const getVideo = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               blogSeriesId
               blogSeriesIndex
@@ -13903,8 +15539,10 @@ export const getVideo = /* GraphQL */ `
                   blogPostID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogStatus
               description
@@ -13917,17 +15555,21 @@ export const getVideo = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             videoSeries {
               id
@@ -13962,8 +15604,10 @@ export const getVideo = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -13985,8 +15629,10 @@ export const getVideo = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -13995,8 +15641,10 @@ export const getVideo = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -14006,14 +15654,17 @@ export const getVideo = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -14033,16 +15684,21 @@ export const getVideo = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         seriesType
         title
@@ -14052,14 +15708,17 @@ export const getVideo = /* GraphQL */ `
         squareImage {
           src
           alt
+          __typename
         }
         bannerImage {
           src
           alt
+          __typename
         }
         babyHeroImage {
           src
           alt
+          __typename
         }
         startDate
         endDate
@@ -14107,8 +15766,10 @@ export const getVideo = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -14130,8 +15791,10 @@ export const getVideo = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -14140,8 +15803,10 @@ export const getVideo = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -14151,14 +15816,17 @@ export const getVideo = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -14178,11 +15846,14 @@ export const getVideo = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             pdf
             topics
@@ -14212,19 +15883,25 @@ export const getVideo = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       customPlaylistIDs
       customPlaylists {
@@ -14247,6 +15924,7 @@ export const getVideo = /* GraphQL */ `
                   thumbnailDescription
                   createdAt
                   updatedAt
+                  __typename
                 }
                 video {
                   id
@@ -14278,11 +15956,14 @@ export const getVideo = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             seriesType
             title
@@ -14290,6 +15971,7 @@ export const getVideo = /* GraphQL */ `
             thumbnailDescription
             createdAt
             updatedAt
+            __typename
           }
           video {
             id
@@ -14329,6 +16011,7 @@ export const getVideo = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 speakerVideosVideoId
                 speaker {
@@ -14338,12 +16021,15 @@ export const getVideo = /* GraphQL */ `
                   hidden
                   createdAt
                   updatedAt
+                  __typename
                 }
                 videoPublishedDate
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             episodeTitle
             originalEpisodeTitle
@@ -14383,8 +16069,10 @@ export const getVideo = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -14406,8 +16094,10 @@ export const getVideo = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -14416,8 +16106,10 @@ export const getVideo = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -14427,14 +16119,17 @@ export const getVideo = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -14454,11 +16149,14 @@ export const getVideo = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             customPlaylistIDs
             customPlaylists {
@@ -14474,6 +16172,7 @@ export const getVideo = /* GraphQL */ `
                   thumbnailDescription
                   createdAt
                   updatedAt
+                  __typename
                 }
                 video {
                   id
@@ -14505,11 +16204,14 @@ export const getVideo = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             publishedDate
             recordedDate
@@ -14532,11 +16234,16 @@ export const getVideo = /* GraphQL */ `
                 channelId
                 title
                 description
+                thumbnails {
+                  __typename
+                }
                 channelTitle
                 localized {
                   title
                   description
+                  __typename
                 }
+                __typename
               }
               contentDetails {
                 videoId
@@ -14617,12 +16324,15 @@ export const getVideo = /* GraphQL */ `
                   smsaRating
                   tvpgRating
                   ytRating
+                  __typename
                 }
                 regionRestriction {
                   allowed
                   blocked
+                  __typename
                 }
                 hasCustomThumbnail
+                __typename
               }
               status {
                 uploadStatus
@@ -14630,7 +16340,9 @@ export const getVideo = /* GraphQL */ `
                 license
                 embeddable
                 publicStatsViewable
+                __typename
               }
+              __typename
             }
             videoTypes
             notesURL
@@ -14640,11 +16352,14 @@ export const getVideo = /* GraphQL */ `
             move
             createdAt
             updatedAt
+            __typename
           }
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       publishedDate
       recordedDate
@@ -14672,33 +16387,41 @@ export const getVideo = /* GraphQL */ `
               url
               width
               height
+              __typename
             }
             medium {
               url
               width
               height
+              __typename
             }
             high {
               url
               width
               height
+              __typename
             }
             standard {
               url
               width
               height
+              __typename
             }
             maxres {
               url
               width
               height
+              __typename
             }
+            __typename
           }
           channelTitle
           localized {
             title
             description
+            __typename
           }
+          __typename
         }
         contentDetails {
           videoId
@@ -14779,12 +16502,15 @@ export const getVideo = /* GraphQL */ `
             smsaRating
             tvpgRating
             ytRating
+            __typename
           }
           regionRestriction {
             allowed
             blocked
+            __typename
           }
           hasCustomThumbnail
+          __typename
         }
         status {
           uploadStatus
@@ -14792,7 +16518,9 @@ export const getVideo = /* GraphQL */ `
           license
           embeddable
           publicStatsViewable
+          __typename
         }
+        __typename
       }
       videoTypes
       notesURL
@@ -14802,6 +16530,7 @@ export const getVideo = /* GraphQL */ `
       move
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -14832,8 +16561,10 @@ export const listVideos = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               episodeTitle
               originalEpisodeTitle
@@ -14844,12 +16575,15 @@ export const listVideos = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -14859,22 +16593,27 @@ export const listVideos = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               customPlaylistIDs
               customPlaylists {
@@ -14884,8 +16623,10 @@ export const listVideos = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               publishedDate
               recordedDate
@@ -14909,6 +16650,7 @@ export const listVideos = /* GraphQL */ `
                   title
                   description
                   channelTitle
+                  __typename
                 }
                 contentDetails {
                   videoId
@@ -14920,6 +16662,7 @@ export const listVideos = /* GraphQL */ `
                   licensedContent
                   projection
                   hasCustomThumbnail
+                  __typename
                 }
                 status {
                   uploadStatus
@@ -14927,7 +16670,9 @@ export const listVideos = /* GraphQL */ `
                   license
                   embeddable
                   publicStatsViewable
+                  __typename
                 }
+                __typename
               }
               videoTypes
               notesURL
@@ -14937,6 +16682,7 @@ export const listVideos = /* GraphQL */ `
               move
               createdAt
               updatedAt
+              __typename
             }
             speakerVideosVideoId
             speaker {
@@ -14951,18 +16697,23 @@ export const listVideos = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               hidden
               createdAt
               updatedAt
+              __typename
             }
             videoPublishedDate
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         episodeTitle
         originalEpisodeTitle
@@ -14984,8 +16735,10 @@ export const listVideos = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               episodeTitle
               originalEpisodeTitle
@@ -14996,12 +16749,15 @@ export const listVideos = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -15011,22 +16767,27 @@ export const listVideos = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               customPlaylistIDs
               customPlaylists {
@@ -15036,8 +16797,10 @@ export const listVideos = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               publishedDate
               recordedDate
@@ -15061,6 +16824,7 @@ export const listVideos = /* GraphQL */ `
                   title
                   description
                   channelTitle
+                  __typename
                 }
                 contentDetails {
                   videoId
@@ -15072,6 +16836,7 @@ export const listVideos = /* GraphQL */ `
                   licensedContent
                   projection
                   hasCustomThumbnail
+                  __typename
                 }
                 status {
                   uploadStatus
@@ -15079,7 +16844,9 @@ export const listVideos = /* GraphQL */ `
                   license
                   embeddable
                   publicStatsViewable
+                  __typename
                 }
+                __typename
               }
               videoTypes
               notesURL
@@ -15089,8 +16856,10 @@ export const listVideos = /* GraphQL */ `
               move
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           blogs {
             items {
@@ -15107,19 +16876,24 @@ export const listVideos = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               series {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -15129,22 +16903,27 @@ export const listVideos = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               blogSeriesId
               blogSeriesIndex
@@ -15155,8 +16934,10 @@ export const listVideos = /* GraphQL */ `
                   blogPostID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogStatus
               description
@@ -15169,19 +16950,24 @@ export const listVideos = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           blogPosts {
             items {
@@ -15197,6 +16983,7 @@ export const listVideos = /* GraphQL */ `
                 expirationDate
                 videoSeries {
                   nextToken
+                  __typename
                 }
                 series {
                   id
@@ -15209,11 +16996,13 @@ export const listVideos = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogSeriesId
                 blogSeriesIndex
                 blogSeries {
                   nextToken
+                  __typename
                 }
                 blogStatus
                 description
@@ -15226,28 +17015,35 @@ export const listVideos = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               videoSeries {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -15257,27 +17053,34 @@ export const listVideos = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           seriesType
           title
@@ -15287,14 +17090,17 @@ export const listVideos = /* GraphQL */ `
           squareImage {
             src
             alt
+            __typename
           }
           bannerImage {
             src
             alt
+            __typename
           }
           babyHeroImage {
             src
             alt
+            __typename
           }
           startDate
           endDate
@@ -15313,12 +17119,15 @@ export const listVideos = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -15328,22 +17137,27 @@ export const listVideos = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               pdf
               topics
@@ -15360,16 +17174,21 @@ export const listVideos = /* GraphQL */ `
                   noteId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           createdAt
           updatedAt
+          __typename
         }
         customPlaylistIDs
         customPlaylists {
@@ -15386,8 +17205,10 @@ export const listVideos = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -15395,6 +17216,7 @@ export const listVideos = /* GraphQL */ `
               thumbnailDescription
               createdAt
               updatedAt
+              __typename
             }
             video {
               id
@@ -15408,8 +17230,10 @@ export const listVideos = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               episodeTitle
               originalEpisodeTitle
@@ -15420,12 +17244,15 @@ export const listVideos = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -15435,22 +17262,27 @@ export const listVideos = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               customPlaylistIDs
               customPlaylists {
@@ -15460,8 +17292,10 @@ export const listVideos = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               publishedDate
               recordedDate
@@ -15485,6 +17319,7 @@ export const listVideos = /* GraphQL */ `
                   title
                   description
                   channelTitle
+                  __typename
                 }
                 contentDetails {
                   videoId
@@ -15496,6 +17331,7 @@ export const listVideos = /* GraphQL */ `
                   licensedContent
                   projection
                   hasCustomThumbnail
+                  __typename
                 }
                 status {
                   uploadStatus
@@ -15503,7 +17339,9 @@ export const listVideos = /* GraphQL */ `
                   license
                   embeddable
                   publicStatsViewable
+                  __typename
                 }
+                __typename
               }
               videoTypes
               notesURL
@@ -15513,11 +17351,14 @@ export const listVideos = /* GraphQL */ `
               move
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         publishedDate
         recordedDate
@@ -15545,33 +17386,41 @@ export const listVideos = /* GraphQL */ `
                 url
                 width
                 height
+                __typename
               }
               medium {
                 url
                 width
                 height
+                __typename
               }
               high {
                 url
                 width
                 height
+                __typename
               }
               standard {
                 url
                 width
                 height
+                __typename
               }
               maxres {
                 url
                 width
                 height
+                __typename
               }
+              __typename
             }
             channelTitle
             localized {
               title
               description
+              __typename
             }
+            __typename
           }
           contentDetails {
             videoId
@@ -15652,12 +17501,15 @@ export const listVideos = /* GraphQL */ `
               smsaRating
               tvpgRating
               ytRating
+              __typename
             }
             regionRestriction {
               allowed
               blocked
+              __typename
             }
             hasCustomThumbnail
+            __typename
           }
           status {
             uploadStatus
@@ -15665,7 +17517,9 @@ export const listVideos = /* GraphQL */ `
             license
             embeddable
             publicStatsViewable
+            __typename
           }
+          __typename
         }
         videoTypes
         notesURL
@@ -15675,8 +17529,10 @@ export const listVideos = /* GraphQL */ `
         move
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -15715,8 +17571,10 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               episodeTitle
               originalEpisodeTitle
@@ -15727,12 +17585,15 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -15742,22 +17603,27 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               customPlaylistIDs
               customPlaylists {
@@ -15767,8 +17633,10 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               publishedDate
               recordedDate
@@ -15792,6 +17660,7 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                   title
                   description
                   channelTitle
+                  __typename
                 }
                 contentDetails {
                   videoId
@@ -15803,6 +17672,7 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                   licensedContent
                   projection
                   hasCustomThumbnail
+                  __typename
                 }
                 status {
                   uploadStatus
@@ -15810,7 +17680,9 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                   license
                   embeddable
                   publicStatsViewable
+                  __typename
                 }
+                __typename
               }
               videoTypes
               notesURL
@@ -15820,6 +17692,7 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
               move
               createdAt
               updatedAt
+              __typename
             }
             speakerVideosVideoId
             speaker {
@@ -15834,18 +17707,23 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               hidden
               createdAt
               updatedAt
+              __typename
             }
             videoPublishedDate
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         episodeTitle
         originalEpisodeTitle
@@ -15867,8 +17745,10 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               episodeTitle
               originalEpisodeTitle
@@ -15879,12 +17759,15 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -15894,22 +17777,27 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               customPlaylistIDs
               customPlaylists {
@@ -15919,8 +17807,10 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               publishedDate
               recordedDate
@@ -15944,6 +17834,7 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                   title
                   description
                   channelTitle
+                  __typename
                 }
                 contentDetails {
                   videoId
@@ -15955,6 +17846,7 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                   licensedContent
                   projection
                   hasCustomThumbnail
+                  __typename
                 }
                 status {
                   uploadStatus
@@ -15962,7 +17854,9 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                   license
                   embeddable
                   publicStatsViewable
+                  __typename
                 }
+                __typename
               }
               videoTypes
               notesURL
@@ -15972,8 +17866,10 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
               move
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           blogs {
             items {
@@ -15990,19 +17886,24 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               series {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -16012,22 +17913,27 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               blogSeriesId
               blogSeriesIndex
@@ -16038,8 +17944,10 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                   blogPostID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogStatus
               description
@@ -16052,19 +17960,24 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           blogPosts {
             items {
@@ -16080,6 +17993,7 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                 expirationDate
                 videoSeries {
                   nextToken
+                  __typename
                 }
                 series {
                   id
@@ -16092,11 +18006,13 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogSeriesId
                 blogSeriesIndex
                 blogSeries {
                   nextToken
+                  __typename
                 }
                 blogStatus
                 description
@@ -16109,28 +18025,35 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               videoSeries {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -16140,27 +18063,34 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           seriesType
           title
@@ -16170,14 +18100,17 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
           squareImage {
             src
             alt
+            __typename
           }
           bannerImage {
             src
             alt
+            __typename
           }
           babyHeroImage {
             src
             alt
+            __typename
           }
           startDate
           endDate
@@ -16196,12 +18129,15 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -16211,22 +18147,27 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               pdf
               topics
@@ -16243,16 +18184,21 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                   noteId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           createdAt
           updatedAt
+          __typename
         }
         customPlaylistIDs
         customPlaylists {
@@ -16269,8 +18215,10 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -16278,6 +18226,7 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
               thumbnailDescription
               createdAt
               updatedAt
+              __typename
             }
             video {
               id
@@ -16291,8 +18240,10 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               episodeTitle
               originalEpisodeTitle
@@ -16303,12 +18254,15 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -16318,22 +18272,27 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               customPlaylistIDs
               customPlaylists {
@@ -16343,8 +18302,10 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               publishedDate
               recordedDate
@@ -16368,6 +18329,7 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                   title
                   description
                   channelTitle
+                  __typename
                 }
                 contentDetails {
                   videoId
@@ -16379,6 +18341,7 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                   licensedContent
                   projection
                   hasCustomThumbnail
+                  __typename
                 }
                 status {
                   uploadStatus
@@ -16386,7 +18349,9 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                   license
                   embeddable
                   publicStatsViewable
+                  __typename
                 }
+                __typename
               }
               videoTypes
               notesURL
@@ -16396,11 +18361,14 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
               move
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         publishedDate
         recordedDate
@@ -16428,33 +18396,41 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
                 url
                 width
                 height
+                __typename
               }
               medium {
                 url
                 width
                 height
+                __typename
               }
               high {
                 url
                 width
                 height
+                __typename
               }
               standard {
                 url
                 width
                 height
+                __typename
               }
               maxres {
                 url
                 width
                 height
+                __typename
               }
+              __typename
             }
             channelTitle
             localized {
               title
               description
+              __typename
             }
+            __typename
           }
           contentDetails {
             videoId
@@ -16535,12 +18511,15 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
               smsaRating
               tvpgRating
               ytRating
+              __typename
             }
             regionRestriction {
               allowed
               blocked
+              __typename
             }
             hasCustomThumbnail
+            __typename
           }
           status {
             uploadStatus
@@ -16548,7 +18527,9 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
             license
             embeddable
             publicStatsViewable
+            __typename
           }
+          __typename
         }
         videoTypes
         notesURL
@@ -16558,8 +18539,10 @@ export const getVideoByYoutubeIdent = /* GraphQL */ `
         move
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -16600,8 +18583,10 @@ export const getVideoByVideoType = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               episodeTitle
               originalEpisodeTitle
@@ -16612,12 +18597,15 @@ export const getVideoByVideoType = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -16627,22 +18615,27 @@ export const getVideoByVideoType = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               customPlaylistIDs
               customPlaylists {
@@ -16652,8 +18645,10 @@ export const getVideoByVideoType = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               publishedDate
               recordedDate
@@ -16677,6 +18672,7 @@ export const getVideoByVideoType = /* GraphQL */ `
                   title
                   description
                   channelTitle
+                  __typename
                 }
                 contentDetails {
                   videoId
@@ -16688,6 +18684,7 @@ export const getVideoByVideoType = /* GraphQL */ `
                   licensedContent
                   projection
                   hasCustomThumbnail
+                  __typename
                 }
                 status {
                   uploadStatus
@@ -16695,7 +18692,9 @@ export const getVideoByVideoType = /* GraphQL */ `
                   license
                   embeddable
                   publicStatsViewable
+                  __typename
                 }
+                __typename
               }
               videoTypes
               notesURL
@@ -16705,6 +18704,7 @@ export const getVideoByVideoType = /* GraphQL */ `
               move
               createdAt
               updatedAt
+              __typename
             }
             speakerVideosVideoId
             speaker {
@@ -16719,18 +18719,23 @@ export const getVideoByVideoType = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               hidden
               createdAt
               updatedAt
+              __typename
             }
             videoPublishedDate
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         episodeTitle
         originalEpisodeTitle
@@ -16752,8 +18757,10 @@ export const getVideoByVideoType = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               episodeTitle
               originalEpisodeTitle
@@ -16764,12 +18771,15 @@ export const getVideoByVideoType = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -16779,22 +18789,27 @@ export const getVideoByVideoType = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               customPlaylistIDs
               customPlaylists {
@@ -16804,8 +18819,10 @@ export const getVideoByVideoType = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               publishedDate
               recordedDate
@@ -16829,6 +18846,7 @@ export const getVideoByVideoType = /* GraphQL */ `
                   title
                   description
                   channelTitle
+                  __typename
                 }
                 contentDetails {
                   videoId
@@ -16840,6 +18858,7 @@ export const getVideoByVideoType = /* GraphQL */ `
                   licensedContent
                   projection
                   hasCustomThumbnail
+                  __typename
                 }
                 status {
                   uploadStatus
@@ -16847,7 +18866,9 @@ export const getVideoByVideoType = /* GraphQL */ `
                   license
                   embeddable
                   publicStatsViewable
+                  __typename
                 }
+                __typename
               }
               videoTypes
               notesURL
@@ -16857,8 +18878,10 @@ export const getVideoByVideoType = /* GraphQL */ `
               move
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           blogs {
             items {
@@ -16875,19 +18898,24 @@ export const getVideoByVideoType = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               series {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -16897,22 +18925,27 @@ export const getVideoByVideoType = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               blogSeriesId
               blogSeriesIndex
@@ -16923,8 +18956,10 @@ export const getVideoByVideoType = /* GraphQL */ `
                   blogPostID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogStatus
               description
@@ -16937,19 +18972,24 @@ export const getVideoByVideoType = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           blogPosts {
             items {
@@ -16965,6 +19005,7 @@ export const getVideoByVideoType = /* GraphQL */ `
                 expirationDate
                 videoSeries {
                   nextToken
+                  __typename
                 }
                 series {
                   id
@@ -16977,11 +19018,13 @@ export const getVideoByVideoType = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogSeriesId
                 blogSeriesIndex
                 blogSeries {
                   nextToken
+                  __typename
                 }
                 blogStatus
                 description
@@ -16994,28 +19037,35 @@ export const getVideoByVideoType = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               videoSeries {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -17025,27 +19075,34 @@ export const getVideoByVideoType = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           seriesType
           title
@@ -17055,14 +19112,17 @@ export const getVideoByVideoType = /* GraphQL */ `
           squareImage {
             src
             alt
+            __typename
           }
           bannerImage {
             src
             alt
+            __typename
           }
           babyHeroImage {
             src
             alt
+            __typename
           }
           startDate
           endDate
@@ -17081,12 +19141,15 @@ export const getVideoByVideoType = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -17096,22 +19159,27 @@ export const getVideoByVideoType = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               pdf
               topics
@@ -17128,16 +19196,21 @@ export const getVideoByVideoType = /* GraphQL */ `
                   noteId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           createdAt
           updatedAt
+          __typename
         }
         customPlaylistIDs
         customPlaylists {
@@ -17154,8 +19227,10 @@ export const getVideoByVideoType = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -17163,6 +19238,7 @@ export const getVideoByVideoType = /* GraphQL */ `
               thumbnailDescription
               createdAt
               updatedAt
+              __typename
             }
             video {
               id
@@ -17176,8 +19252,10 @@ export const getVideoByVideoType = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               episodeTitle
               originalEpisodeTitle
@@ -17188,12 +19266,15 @@ export const getVideoByVideoType = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -17203,22 +19284,27 @@ export const getVideoByVideoType = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               customPlaylistIDs
               customPlaylists {
@@ -17228,8 +19314,10 @@ export const getVideoByVideoType = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               publishedDate
               recordedDate
@@ -17253,6 +19341,7 @@ export const getVideoByVideoType = /* GraphQL */ `
                   title
                   description
                   channelTitle
+                  __typename
                 }
                 contentDetails {
                   videoId
@@ -17264,6 +19353,7 @@ export const getVideoByVideoType = /* GraphQL */ `
                   licensedContent
                   projection
                   hasCustomThumbnail
+                  __typename
                 }
                 status {
                   uploadStatus
@@ -17271,7 +19361,9 @@ export const getVideoByVideoType = /* GraphQL */ `
                   license
                   embeddable
                   publicStatsViewable
+                  __typename
                 }
+                __typename
               }
               videoTypes
               notesURL
@@ -17281,11 +19373,14 @@ export const getVideoByVideoType = /* GraphQL */ `
               move
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         publishedDate
         recordedDate
@@ -17313,33 +19408,41 @@ export const getVideoByVideoType = /* GraphQL */ `
                 url
                 width
                 height
+                __typename
               }
               medium {
                 url
                 width
                 height
+                __typename
               }
               high {
                 url
                 width
                 height
+                __typename
               }
               standard {
                 url
                 width
                 height
+                __typename
               }
               maxres {
                 url
                 width
                 height
+                __typename
               }
+              __typename
             }
             channelTitle
             localized {
               title
               description
+              __typename
             }
+            __typename
           }
           contentDetails {
             videoId
@@ -17420,12 +19523,15 @@ export const getVideoByVideoType = /* GraphQL */ `
               smsaRating
               tvpgRating
               ytRating
+              __typename
             }
             regionRestriction {
               allowed
               blocked
+              __typename
             }
             hasCustomThumbnail
+            __typename
           }
           status {
             uploadStatus
@@ -17433,7 +19539,9 @@ export const getVideoByVideoType = /* GraphQL */ `
             license
             embeddable
             publicStatsViewable
+            __typename
           }
+          __typename
         }
         videoTypes
         notesURL
@@ -17443,8 +19551,10 @@ export const getVideoByVideoType = /* GraphQL */ `
         move
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -17485,8 +19595,10 @@ export const searchVideos = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               episodeTitle
               originalEpisodeTitle
@@ -17497,12 +19609,15 @@ export const searchVideos = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -17512,22 +19627,27 @@ export const searchVideos = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               customPlaylistIDs
               customPlaylists {
@@ -17537,8 +19657,10 @@ export const searchVideos = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               publishedDate
               recordedDate
@@ -17562,6 +19684,7 @@ export const searchVideos = /* GraphQL */ `
                   title
                   description
                   channelTitle
+                  __typename
                 }
                 contentDetails {
                   videoId
@@ -17573,6 +19696,7 @@ export const searchVideos = /* GraphQL */ `
                   licensedContent
                   projection
                   hasCustomThumbnail
+                  __typename
                 }
                 status {
                   uploadStatus
@@ -17580,7 +19704,9 @@ export const searchVideos = /* GraphQL */ `
                   license
                   embeddable
                   publicStatsViewable
+                  __typename
                 }
+                __typename
               }
               videoTypes
               notesURL
@@ -17590,6 +19716,7 @@ export const searchVideos = /* GraphQL */ `
               move
               createdAt
               updatedAt
+              __typename
             }
             speakerVideosVideoId
             speaker {
@@ -17604,18 +19731,23 @@ export const searchVideos = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               hidden
               createdAt
               updatedAt
+              __typename
             }
             videoPublishedDate
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         episodeTitle
         originalEpisodeTitle
@@ -17637,8 +19769,10 @@ export const searchVideos = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               episodeTitle
               originalEpisodeTitle
@@ -17649,12 +19783,15 @@ export const searchVideos = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -17664,22 +19801,27 @@ export const searchVideos = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               customPlaylistIDs
               customPlaylists {
@@ -17689,8 +19831,10 @@ export const searchVideos = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               publishedDate
               recordedDate
@@ -17714,6 +19858,7 @@ export const searchVideos = /* GraphQL */ `
                   title
                   description
                   channelTitle
+                  __typename
                 }
                 contentDetails {
                   videoId
@@ -17725,6 +19870,7 @@ export const searchVideos = /* GraphQL */ `
                   licensedContent
                   projection
                   hasCustomThumbnail
+                  __typename
                 }
                 status {
                   uploadStatus
@@ -17732,7 +19878,9 @@ export const searchVideos = /* GraphQL */ `
                   license
                   embeddable
                   publicStatsViewable
+                  __typename
                 }
+                __typename
               }
               videoTypes
               notesURL
@@ -17742,8 +19890,10 @@ export const searchVideos = /* GraphQL */ `
               move
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           blogs {
             items {
@@ -17760,19 +19910,24 @@ export const searchVideos = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               series {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -17782,22 +19937,27 @@ export const searchVideos = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               blogSeriesId
               blogSeriesIndex
@@ -17808,8 +19968,10 @@ export const searchVideos = /* GraphQL */ `
                   blogPostID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogStatus
               description
@@ -17822,19 +19984,24 @@ export const searchVideos = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           blogPosts {
             items {
@@ -17850,6 +20017,7 @@ export const searchVideos = /* GraphQL */ `
                 expirationDate
                 videoSeries {
                   nextToken
+                  __typename
                 }
                 series {
                   id
@@ -17862,11 +20030,13 @@ export const searchVideos = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogSeriesId
                 blogSeriesIndex
                 blogSeries {
                   nextToken
+                  __typename
                 }
                 blogStatus
                 description
@@ -17879,28 +20049,35 @@ export const searchVideos = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               videoSeries {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -17910,27 +20087,34 @@ export const searchVideos = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           seriesType
           title
@@ -17940,14 +20124,17 @@ export const searchVideos = /* GraphQL */ `
           squareImage {
             src
             alt
+            __typename
           }
           bannerImage {
             src
             alt
+            __typename
           }
           babyHeroImage {
             src
             alt
+            __typename
           }
           startDate
           endDate
@@ -17966,12 +20153,15 @@ export const searchVideos = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -17981,22 +20171,27 @@ export const searchVideos = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               pdf
               topics
@@ -18013,16 +20208,21 @@ export const searchVideos = /* GraphQL */ `
                   noteId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           createdAt
           updatedAt
+          __typename
         }
         customPlaylistIDs
         customPlaylists {
@@ -18039,8 +20239,10 @@ export const searchVideos = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -18048,6 +20250,7 @@ export const searchVideos = /* GraphQL */ `
               thumbnailDescription
               createdAt
               updatedAt
+              __typename
             }
             video {
               id
@@ -18061,8 +20264,10 @@ export const searchVideos = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               episodeTitle
               originalEpisodeTitle
@@ -18073,12 +20278,15 @@ export const searchVideos = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -18088,22 +20296,27 @@ export const searchVideos = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               customPlaylistIDs
               customPlaylists {
@@ -18113,8 +20326,10 @@ export const searchVideos = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               publishedDate
               recordedDate
@@ -18138,6 +20353,7 @@ export const searchVideos = /* GraphQL */ `
                   title
                   description
                   channelTitle
+                  __typename
                 }
                 contentDetails {
                   videoId
@@ -18149,6 +20365,7 @@ export const searchVideos = /* GraphQL */ `
                   licensedContent
                   projection
                   hasCustomThumbnail
+                  __typename
                 }
                 status {
                   uploadStatus
@@ -18156,7 +20373,9 @@ export const searchVideos = /* GraphQL */ `
                   license
                   embeddable
                   publicStatsViewable
+                  __typename
                 }
+                __typename
               }
               videoTypes
               notesURL
@@ -18166,11 +20385,14 @@ export const searchVideos = /* GraphQL */ `
               move
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         publishedDate
         recordedDate
@@ -18198,33 +20420,41 @@ export const searchVideos = /* GraphQL */ `
                 url
                 width
                 height
+                __typename
               }
               medium {
                 url
                 width
                 height
+                __typename
               }
               high {
                 url
                 width
                 height
+                __typename
               }
               standard {
                 url
                 width
                 height
+                __typename
               }
               maxres {
                 url
                 width
                 height
+                __typename
               }
+              __typename
             }
             channelTitle
             localized {
               title
               description
+              __typename
             }
+            __typename
           }
           contentDetails {
             videoId
@@ -18305,12 +20535,15 @@ export const searchVideos = /* GraphQL */ `
               smsaRating
               tvpgRating
               ytRating
+              __typename
             }
             regionRestriction {
               allowed
               blocked
+              __typename
             }
             hasCustomThumbnail
+            __typename
           }
           status {
             uploadStatus
@@ -18318,7 +20551,9 @@ export const searchVideos = /* GraphQL */ `
             license
             embeddable
             publicStatsViewable
+            __typename
           }
+          __typename
         }
         videoTypes
         notesURL
@@ -18328,6 +20563,7 @@ export const searchVideos = /* GraphQL */ `
         move
         createdAt
         updatedAt
+        __typename
       }
       nextToken
       total
@@ -18341,10 +20577,13 @@ export const searchVideos = /* GraphQL */ `
             buckets {
               key
               doc_count
+              __typename
             }
           }
         }
+        __typename
       }
+      __typename
     }
   }
 `;
@@ -18375,6 +20614,7 @@ export const getBlogSeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogPost {
                   id
@@ -18395,11 +20635,14 @@ export const getBlogSeries = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             seriesType
             title
@@ -18410,6 +20653,7 @@ export const getBlogSeries = /* GraphQL */ `
             endDate
             createdAt
             updatedAt
+            __typename
           }
           blogPost {
             id
@@ -18442,6 +20686,7 @@ export const getBlogSeries = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 videoSeries {
                   id
@@ -18454,11 +20699,14 @@ export const getBlogSeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             series {
               id
@@ -18493,8 +20741,10 @@ export const getBlogSeries = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -18516,8 +20766,10 @@ export const getBlogSeries = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -18526,8 +20778,10 @@ export const getBlogSeries = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -18537,14 +20791,17 @@ export const getBlogSeries = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -18564,11 +20821,14 @@ export const getBlogSeries = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             blogSeriesId
             blogSeriesIndex
@@ -18588,6 +20848,7 @@ export const getBlogSeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogPost {
                   id
@@ -18608,11 +20869,14 @@ export const getBlogSeries = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             blogStatus
             description
@@ -18625,22 +20889,28 @@ export const getBlogSeries = /* GraphQL */ `
             squareImage {
               src
               alt
+              __typename
             }
             bannerImage {
               src
               alt
+              __typename
             }
             babyHeroImage {
               src
               alt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       seriesType
       title
@@ -18651,6 +20921,7 @@ export const getBlogSeries = /* GraphQL */ `
       endDate
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -18677,8 +20948,10 @@ export const listBlogSeries = /* GraphQL */ `
                   blogPostID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -18689,6 +20962,7 @@ export const listBlogSeries = /* GraphQL */ `
               endDate
               createdAt
               updatedAt
+              __typename
             }
             blogPost {
               id
@@ -18704,19 +20978,24 @@ export const listBlogSeries = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               series {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -18726,22 +21005,27 @@ export const listBlogSeries = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               blogSeriesId
               blogSeriesIndex
@@ -18752,8 +21036,10 @@ export const listBlogSeries = /* GraphQL */ `
                   blogPostID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogStatus
               description
@@ -18766,22 +21052,28 @@ export const listBlogSeries = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         seriesType
         title
@@ -18792,8 +21084,10 @@ export const listBlogSeries = /* GraphQL */ `
         endDate
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -18830,8 +21124,10 @@ export const searchBlogSeries = /* GraphQL */ `
                   blogPostID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -18842,6 +21138,7 @@ export const searchBlogSeries = /* GraphQL */ `
               endDate
               createdAt
               updatedAt
+              __typename
             }
             blogPost {
               id
@@ -18857,19 +21154,24 @@ export const searchBlogSeries = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               series {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -18879,22 +21181,27 @@ export const searchBlogSeries = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               blogSeriesId
               blogSeriesIndex
@@ -18905,8 +21212,10 @@ export const searchBlogSeries = /* GraphQL */ `
                   blogPostID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogStatus
               description
@@ -18919,22 +21228,28 @@ export const searchBlogSeries = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         seriesType
         title
@@ -18945,6 +21260,7 @@ export const searchBlogSeries = /* GraphQL */ `
         endDate
         createdAt
         updatedAt
+        __typename
       }
       nextToken
       total
@@ -18958,10 +21274,13 @@ export const searchBlogSeries = /* GraphQL */ `
             buckets {
               key
               doc_count
+              __typename
             }
           }
         }
+        __typename
       }
+      __typename
     }
   }
 `;
@@ -18997,6 +21316,7 @@ export const blogBridgeBySeries = /* GraphQL */ `
                 id
                 blogs {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -19007,6 +21327,7 @@ export const blogBridgeBySeries = /* GraphQL */ `
                 endDate
                 createdAt
                 updatedAt
+                __typename
               }
               blogPost {
                 id
@@ -19017,6 +21338,7 @@ export const blogBridgeBySeries = /* GraphQL */ `
                 expirationDate
                 videoSeries {
                   nextToken
+                  __typename
                 }
                 series {
                   id
@@ -19029,11 +21351,13 @@ export const blogBridgeBySeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogSeriesId
                 blogSeriesIndex
                 blogSeries {
                   nextToken
+                  __typename
                 }
                 blogStatus
                 description
@@ -19046,22 +21370,28 @@ export const blogBridgeBySeries = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           seriesType
           title
@@ -19072,6 +21402,7 @@ export const blogBridgeBySeries = /* GraphQL */ `
           endDate
           createdAt
           updatedAt
+          __typename
         }
         blogPost {
           id
@@ -19094,6 +21425,7 @@ export const blogBridgeBySeries = /* GraphQL */ `
                 expirationDate
                 videoSeries {
                   nextToken
+                  __typename
                 }
                 series {
                   id
@@ -19106,11 +21438,13 @@ export const blogBridgeBySeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogSeriesId
                 blogSeriesIndex
                 blogSeries {
                   nextToken
+                  __typename
                 }
                 blogStatus
                 description
@@ -19123,28 +21457,35 @@ export const blogBridgeBySeries = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               videoSeries {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -19154,27 +21495,34 @@ export const blogBridgeBySeries = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           series {
             id
@@ -19185,6 +21533,7 @@ export const blogBridgeBySeries = /* GraphQL */ `
                 createdDate
                 speakers {
                   nextToken
+                  __typename
                 }
                 episodeTitle
                 originalEpisodeTitle
@@ -19202,10 +21551,12 @@ export const blogBridgeBySeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 customPlaylistIDs
                 customPlaylists {
                   nextToken
+                  __typename
                 }
                 publishedDate
                 recordedDate
@@ -19223,6 +21574,7 @@ export const blogBridgeBySeries = /* GraphQL */ `
                   id
                   kind
                   etag
+                  __typename
                 }
                 videoTypes
                 notesURL
@@ -19232,8 +21584,10 @@ export const blogBridgeBySeries = /* GraphQL */ `
                 move
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             blogs {
               items {
@@ -19245,6 +21599,7 @@ export const blogBridgeBySeries = /* GraphQL */ `
                 expirationDate
                 videoSeries {
                   nextToken
+                  __typename
                 }
                 series {
                   id
@@ -19257,11 +21612,13 @@ export const blogBridgeBySeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogSeriesId
                 blogSeriesIndex
                 blogSeries {
                   nextToken
+                  __typename
                 }
                 blogStatus
                 description
@@ -19274,19 +21631,24 @@ export const blogBridgeBySeries = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             blogPosts {
               items {
@@ -19312,6 +21674,7 @@ export const blogBridgeBySeries = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 videoSeries {
                   id
@@ -19324,11 +21687,14 @@ export const blogBridgeBySeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             seriesType
             title
@@ -19338,14 +21704,17 @@ export const blogBridgeBySeries = /* GraphQL */ `
             squareImage {
               src
               alt
+              __typename
             }
             bannerImage {
               src
               alt
+              __typename
             }
             babyHeroImage {
               src
               alt
+              __typename
             }
             startDate
             endDate
@@ -19371,20 +21740,25 @@ export const blogBridgeBySeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 pdf
                 topics
                 tags
                 verses {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           blogSeriesId
           blogSeriesIndex
@@ -19397,6 +21771,7 @@ export const blogBridgeBySeries = /* GraphQL */ `
                 id
                 blogs {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -19407,6 +21782,7 @@ export const blogBridgeBySeries = /* GraphQL */ `
                 endDate
                 createdAt
                 updatedAt
+                __typename
               }
               blogPost {
                 id
@@ -19417,6 +21793,7 @@ export const blogBridgeBySeries = /* GraphQL */ `
                 expirationDate
                 videoSeries {
                   nextToken
+                  __typename
                 }
                 series {
                   id
@@ -19429,11 +21806,13 @@ export const blogBridgeBySeries = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogSeriesId
                 blogSeriesIndex
                 blogSeries {
                   nextToken
+                  __typename
                 }
                 blogStatus
                 description
@@ -19446,22 +21825,28 @@ export const blogBridgeBySeries = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           blogStatus
           description
@@ -19474,22 +21859,28 @@ export const blogBridgeBySeries = /* GraphQL */ `
           squareImage {
             src
             alt
+            __typename
           }
           bannerImage {
             src
             alt
+            __typename
           }
           babyHeroImage {
             src
             alt
+            __typename
           }
           createdAt
           updatedAt
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -19525,6 +21916,7 @@ export const blogBridgeByPost = /* GraphQL */ `
                 id
                 blogs {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -19535,6 +21927,7 @@ export const blogBridgeByPost = /* GraphQL */ `
                 endDate
                 createdAt
                 updatedAt
+                __typename
               }
               blogPost {
                 id
@@ -19545,6 +21938,7 @@ export const blogBridgeByPost = /* GraphQL */ `
                 expirationDate
                 videoSeries {
                   nextToken
+                  __typename
                 }
                 series {
                   id
@@ -19557,11 +21951,13 @@ export const blogBridgeByPost = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogSeriesId
                 blogSeriesIndex
                 blogSeries {
                   nextToken
+                  __typename
                 }
                 blogStatus
                 description
@@ -19574,22 +21970,28 @@ export const blogBridgeByPost = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           seriesType
           title
@@ -19600,6 +22002,7 @@ export const blogBridgeByPost = /* GraphQL */ `
           endDate
           createdAt
           updatedAt
+          __typename
         }
         blogPost {
           id
@@ -19622,6 +22025,7 @@ export const blogBridgeByPost = /* GraphQL */ `
                 expirationDate
                 videoSeries {
                   nextToken
+                  __typename
                 }
                 series {
                   id
@@ -19634,11 +22038,13 @@ export const blogBridgeByPost = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogSeriesId
                 blogSeriesIndex
                 blogSeries {
                   nextToken
+                  __typename
                 }
                 blogStatus
                 description
@@ -19651,28 +22057,35 @@ export const blogBridgeByPost = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               videoSeries {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -19682,27 +22095,34 @@ export const blogBridgeByPost = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           series {
             id
@@ -19713,6 +22133,7 @@ export const blogBridgeByPost = /* GraphQL */ `
                 createdDate
                 speakers {
                   nextToken
+                  __typename
                 }
                 episodeTitle
                 originalEpisodeTitle
@@ -19730,10 +22151,12 @@ export const blogBridgeByPost = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 customPlaylistIDs
                 customPlaylists {
                   nextToken
+                  __typename
                 }
                 publishedDate
                 recordedDate
@@ -19751,6 +22174,7 @@ export const blogBridgeByPost = /* GraphQL */ `
                   id
                   kind
                   etag
+                  __typename
                 }
                 videoTypes
                 notesURL
@@ -19760,8 +22184,10 @@ export const blogBridgeByPost = /* GraphQL */ `
                 move
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             blogs {
               items {
@@ -19773,6 +22199,7 @@ export const blogBridgeByPost = /* GraphQL */ `
                 expirationDate
                 videoSeries {
                   nextToken
+                  __typename
                 }
                 series {
                   id
@@ -19785,11 +22212,13 @@ export const blogBridgeByPost = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogSeriesId
                 blogSeriesIndex
                 blogSeries {
                   nextToken
+                  __typename
                 }
                 blogStatus
                 description
@@ -19802,19 +22231,24 @@ export const blogBridgeByPost = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             blogPosts {
               items {
@@ -19840,6 +22274,7 @@ export const blogBridgeByPost = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 videoSeries {
                   id
@@ -19852,11 +22287,14 @@ export const blogBridgeByPost = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             seriesType
             title
@@ -19866,14 +22304,17 @@ export const blogBridgeByPost = /* GraphQL */ `
             squareImage {
               src
               alt
+              __typename
             }
             bannerImage {
               src
               alt
+              __typename
             }
             babyHeroImage {
               src
               alt
+              __typename
             }
             startDate
             endDate
@@ -19899,20 +22340,25 @@ export const blogBridgeByPost = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 pdf
                 topics
                 tags
                 verses {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           blogSeriesId
           blogSeriesIndex
@@ -19925,6 +22371,7 @@ export const blogBridgeByPost = /* GraphQL */ `
                 id
                 blogs {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -19935,6 +22382,7 @@ export const blogBridgeByPost = /* GraphQL */ `
                 endDate
                 createdAt
                 updatedAt
+                __typename
               }
               blogPost {
                 id
@@ -19945,6 +22393,7 @@ export const blogBridgeByPost = /* GraphQL */ `
                 expirationDate
                 videoSeries {
                   nextToken
+                  __typename
                 }
                 series {
                   id
@@ -19957,11 +22406,13 @@ export const blogBridgeByPost = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogSeriesId
                 blogSeriesIndex
                 blogSeries {
                   nextToken
+                  __typename
                 }
                 blogStatus
                 description
@@ -19974,22 +22425,28 @@ export const blogBridgeByPost = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           blogStatus
           description
@@ -20002,22 +22459,28 @@ export const blogBridgeByPost = /* GraphQL */ `
           squareImage {
             src
             alt
+            __typename
           }
           bannerImage {
             src
             alt
+            __typename
           }
           babyHeroImage {
             src
             alt
+            __typename
           }
           createdAt
           updatedAt
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -20066,6 +22529,7 @@ export const getBlog = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 videoSeries {
                   id
@@ -20078,11 +22542,14 @@ export const getBlog = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             series {
               id
@@ -20117,8 +22584,10 @@ export const getBlog = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -20140,8 +22609,10 @@ export const getBlog = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -20150,8 +22621,10 @@ export const getBlog = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -20161,14 +22634,17 @@ export const getBlog = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -20188,11 +22664,14 @@ export const getBlog = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             blogSeriesId
             blogSeriesIndex
@@ -20212,6 +22691,7 @@ export const getBlog = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogPost {
                   id
@@ -20232,11 +22712,14 @@ export const getBlog = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             blogStatus
             description
@@ -20249,17 +22732,21 @@ export const getBlog = /* GraphQL */ `
             squareImage {
               src
               alt
+              __typename
             }
             bannerImage {
               src
               alt
+              __typename
             }
             babyHeroImage {
               src
               alt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           videoSeries {
             id
@@ -20270,6 +22757,7 @@ export const getBlog = /* GraphQL */ `
                 createdDate
                 speakers {
                   nextToken
+                  __typename
                 }
                 episodeTitle
                 originalEpisodeTitle
@@ -20287,10 +22775,12 @@ export const getBlog = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 customPlaylistIDs
                 customPlaylists {
                   nextToken
+                  __typename
                 }
                 publishedDate
                 recordedDate
@@ -20308,6 +22798,7 @@ export const getBlog = /* GraphQL */ `
                   id
                   kind
                   etag
+                  __typename
                 }
                 videoTypes
                 notesURL
@@ -20317,8 +22808,10 @@ export const getBlog = /* GraphQL */ `
                 move
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             blogs {
               items {
@@ -20330,6 +22823,7 @@ export const getBlog = /* GraphQL */ `
                 expirationDate
                 videoSeries {
                   nextToken
+                  __typename
                 }
                 series {
                   id
@@ -20342,11 +22836,13 @@ export const getBlog = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogSeriesId
                 blogSeriesIndex
                 blogSeries {
                   nextToken
+                  __typename
                 }
                 blogStatus
                 description
@@ -20359,19 +22855,24 @@ export const getBlog = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             blogPosts {
               items {
@@ -20397,6 +22898,7 @@ export const getBlog = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 videoSeries {
                   id
@@ -20409,11 +22911,14 @@ export const getBlog = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             seriesType
             title
@@ -20423,14 +22928,17 @@ export const getBlog = /* GraphQL */ `
             squareImage {
               src
               alt
+              __typename
             }
             bannerImage {
               src
               alt
+              __typename
             }
             babyHeroImage {
               src
               alt
+              __typename
             }
             startDate
             endDate
@@ -20456,25 +22964,32 @@ export const getBlog = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 pdf
                 topics
                 tags
                 verses {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       series {
         id
@@ -20517,6 +23032,7 @@ export const getBlog = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 speakerVideosVideoId
                 speaker {
@@ -20526,12 +23042,15 @@ export const getBlog = /* GraphQL */ `
                   hidden
                   createdAt
                   updatedAt
+                  __typename
                 }
                 videoPublishedDate
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             episodeTitle
             originalEpisodeTitle
@@ -20571,8 +23090,10 @@ export const getBlog = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -20594,8 +23115,10 @@ export const getBlog = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -20604,8 +23127,10 @@ export const getBlog = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -20615,14 +23140,17 @@ export const getBlog = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -20642,11 +23170,14 @@ export const getBlog = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             customPlaylistIDs
             customPlaylists {
@@ -20662,6 +23193,7 @@ export const getBlog = /* GraphQL */ `
                   thumbnailDescription
                   createdAt
                   updatedAt
+                  __typename
                 }
                 video {
                   id
@@ -20693,11 +23225,14 @@ export const getBlog = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             publishedDate
             recordedDate
@@ -20720,11 +23255,16 @@ export const getBlog = /* GraphQL */ `
                 channelId
                 title
                 description
+                thumbnails {
+                  __typename
+                }
                 channelTitle
                 localized {
                   title
                   description
+                  __typename
                 }
+                __typename
               }
               contentDetails {
                 videoId
@@ -20805,12 +23345,15 @@ export const getBlog = /* GraphQL */ `
                   smsaRating
                   tvpgRating
                   ytRating
+                  __typename
                 }
                 regionRestriction {
                   allowed
                   blocked
+                  __typename
                 }
                 hasCustomThumbnail
+                __typename
               }
               status {
                 uploadStatus
@@ -20818,7 +23361,9 @@ export const getBlog = /* GraphQL */ `
                 license
                 embeddable
                 publicStatsViewable
+                __typename
               }
+              __typename
             }
             videoTypes
             notesURL
@@ -20828,8 +23373,10 @@ export const getBlog = /* GraphQL */ `
             move
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         blogs {
           items {
@@ -20863,6 +23410,7 @@ export const getBlog = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 videoSeries {
                   id
@@ -20875,11 +23423,14 @@ export const getBlog = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             series {
               id
@@ -20914,8 +23465,10 @@ export const getBlog = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -20937,8 +23490,10 @@ export const getBlog = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -20947,8 +23502,10 @@ export const getBlog = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -20958,14 +23515,17 @@ export const getBlog = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -20985,11 +23545,14 @@ export const getBlog = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             blogSeriesId
             blogSeriesIndex
@@ -21009,6 +23572,7 @@ export const getBlog = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogPost {
                   id
@@ -21029,11 +23593,14 @@ export const getBlog = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             blogStatus
             description
@@ -21046,19 +23613,24 @@ export const getBlog = /* GraphQL */ `
             squareImage {
               src
               alt
+              __typename
             }
             bannerImage {
               src
               alt
+              __typename
             }
             babyHeroImage {
               src
               alt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         blogPosts {
           items {
@@ -21079,19 +23651,24 @@ export const getBlog = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               series {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -21101,22 +23678,27 @@ export const getBlog = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               blogSeriesId
               blogSeriesIndex
@@ -21127,8 +23709,10 @@ export const getBlog = /* GraphQL */ `
                   blogPostID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogStatus
               description
@@ -21141,17 +23725,21 @@ export const getBlog = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             videoSeries {
               id
@@ -21186,8 +23774,10 @@ export const getBlog = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -21209,8 +23799,10 @@ export const getBlog = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -21219,8 +23811,10 @@ export const getBlog = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -21230,14 +23824,17 @@ export const getBlog = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -21257,16 +23854,21 @@ export const getBlog = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         seriesType
         title
@@ -21276,14 +23878,17 @@ export const getBlog = /* GraphQL */ `
         squareImage {
           src
           alt
+          __typename
         }
         bannerImage {
           src
           alt
+          __typename
         }
         babyHeroImage {
           src
           alt
+          __typename
         }
         startDate
         endDate
@@ -21331,8 +23936,10 @@ export const getBlog = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -21354,8 +23961,10 @@ export const getBlog = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -21364,8 +23973,10 @@ export const getBlog = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -21375,14 +23986,17 @@ export const getBlog = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -21402,11 +24016,14 @@ export const getBlog = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             pdf
             topics
@@ -21436,19 +24053,25 @@ export const getBlog = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       blogSeriesId
       blogSeriesIndex
@@ -21475,6 +24098,7 @@ export const getBlog = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogPost {
                   id
@@ -21495,11 +24119,14 @@ export const getBlog = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             seriesType
             title
@@ -21510,6 +24137,7 @@ export const getBlog = /* GraphQL */ `
             endDate
             createdAt
             updatedAt
+            __typename
           }
           blogPost {
             id
@@ -21542,6 +24170,7 @@ export const getBlog = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 videoSeries {
                   id
@@ -21554,11 +24183,14 @@ export const getBlog = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             series {
               id
@@ -21593,8 +24225,10 @@ export const getBlog = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -21616,8 +24250,10 @@ export const getBlog = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -21626,8 +24262,10 @@ export const getBlog = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -21637,14 +24275,17 @@ export const getBlog = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -21664,11 +24305,14 @@ export const getBlog = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             blogSeriesId
             blogSeriesIndex
@@ -21688,6 +24332,7 @@ export const getBlog = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogPost {
                   id
@@ -21708,11 +24353,14 @@ export const getBlog = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             blogStatus
             description
@@ -21725,22 +24373,28 @@ export const getBlog = /* GraphQL */ `
             squareImage {
               src
               alt
+              __typename
             }
             bannerImage {
               src
               alt
+              __typename
             }
             babyHeroImage {
               src
               alt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       blogStatus
       description
@@ -21753,17 +24407,21 @@ export const getBlog = /* GraphQL */ `
       squareImage {
         src
         alt
+        __typename
       }
       bannerImage {
         src
         alt
+        __typename
       }
       babyHeroImage {
         src
         alt
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -21800,19 +24458,24 @@ export const listBlogs = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               series {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -21822,22 +24485,27 @@ export const listBlogs = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               blogSeriesId
               blogSeriesIndex
@@ -21848,8 +24516,10 @@ export const listBlogs = /* GraphQL */ `
                   blogPostID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogStatus
               description
@@ -21862,17 +24532,21 @@ export const listBlogs = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             videoSeries {
               id
@@ -21907,8 +24581,10 @@ export const listBlogs = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -21930,8 +24606,10 @@ export const listBlogs = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -21940,8 +24618,10 @@ export const listBlogs = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -21951,14 +24631,17 @@ export const listBlogs = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -21978,16 +24661,21 @@ export const listBlogs = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         series {
           id
@@ -22004,8 +24692,10 @@ export const listBlogs = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               episodeTitle
               originalEpisodeTitle
@@ -22016,12 +24706,15 @@ export const listBlogs = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -22031,22 +24724,27 @@ export const listBlogs = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               customPlaylistIDs
               customPlaylists {
@@ -22056,8 +24754,10 @@ export const listBlogs = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               publishedDate
               recordedDate
@@ -22081,6 +24781,7 @@ export const listBlogs = /* GraphQL */ `
                   title
                   description
                   channelTitle
+                  __typename
                 }
                 contentDetails {
                   videoId
@@ -22092,6 +24793,7 @@ export const listBlogs = /* GraphQL */ `
                   licensedContent
                   projection
                   hasCustomThumbnail
+                  __typename
                 }
                 status {
                   uploadStatus
@@ -22099,7 +24801,9 @@ export const listBlogs = /* GraphQL */ `
                   license
                   embeddable
                   publicStatsViewable
+                  __typename
                 }
+                __typename
               }
               videoTypes
               notesURL
@@ -22109,8 +24813,10 @@ export const listBlogs = /* GraphQL */ `
               move
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           blogs {
             items {
@@ -22127,19 +24833,24 @@ export const listBlogs = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               series {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -22149,22 +24860,27 @@ export const listBlogs = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               blogSeriesId
               blogSeriesIndex
@@ -22175,8 +24891,10 @@ export const listBlogs = /* GraphQL */ `
                   blogPostID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogStatus
               description
@@ -22189,19 +24907,24 @@ export const listBlogs = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           blogPosts {
             items {
@@ -22217,6 +24940,7 @@ export const listBlogs = /* GraphQL */ `
                 expirationDate
                 videoSeries {
                   nextToken
+                  __typename
                 }
                 series {
                   id
@@ -22229,11 +24953,13 @@ export const listBlogs = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogSeriesId
                 blogSeriesIndex
                 blogSeries {
                   nextToken
+                  __typename
                 }
                 blogStatus
                 description
@@ -22246,28 +24972,35 @@ export const listBlogs = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               videoSeries {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -22277,27 +25010,34 @@ export const listBlogs = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           seriesType
           title
@@ -22307,14 +25047,17 @@ export const listBlogs = /* GraphQL */ `
           squareImage {
             src
             alt
+            __typename
           }
           bannerImage {
             src
             alt
+            __typename
           }
           babyHeroImage {
             src
             alt
+            __typename
           }
           startDate
           endDate
@@ -22333,12 +25076,15 @@ export const listBlogs = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -22348,22 +25094,27 @@ export const listBlogs = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               pdf
               topics
@@ -22380,16 +25131,21 @@ export const listBlogs = /* GraphQL */ `
                   noteId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           createdAt
           updatedAt
+          __typename
         }
         blogSeriesId
         blogSeriesIndex
@@ -22407,8 +25163,10 @@ export const listBlogs = /* GraphQL */ `
                   blogPostID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -22419,6 +25177,7 @@ export const listBlogs = /* GraphQL */ `
               endDate
               createdAt
               updatedAt
+              __typename
             }
             blogPost {
               id
@@ -22434,19 +25193,24 @@ export const listBlogs = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               series {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -22456,22 +25220,27 @@ export const listBlogs = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               blogSeriesId
               blogSeriesIndex
@@ -22482,8 +25251,10 @@ export const listBlogs = /* GraphQL */ `
                   blogPostID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogStatus
               description
@@ -22496,22 +25267,28 @@ export const listBlogs = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         blogStatus
         description
@@ -22524,19 +25301,24 @@ export const listBlogs = /* GraphQL */ `
         squareImage {
           src
           alt
+          __typename
         }
         bannerImage {
           src
           alt
+          __typename
         }
         babyHeroImage {
           src
           alt
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -22583,19 +25365,24 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               series {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -22605,22 +25392,27 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               blogSeriesId
               blogSeriesIndex
@@ -22631,8 +25423,10 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                   blogPostID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogStatus
               description
@@ -22645,17 +25439,21 @@ export const getBlogByBlogStatus = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             videoSeries {
               id
@@ -22690,8 +25488,10 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -22713,8 +25513,10 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -22723,8 +25525,10 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -22734,14 +25538,17 @@ export const getBlogByBlogStatus = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -22761,16 +25568,21 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         series {
           id
@@ -22787,8 +25599,10 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               episodeTitle
               originalEpisodeTitle
@@ -22799,12 +25613,15 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -22814,22 +25631,27 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               customPlaylistIDs
               customPlaylists {
@@ -22839,8 +25661,10 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               publishedDate
               recordedDate
@@ -22864,6 +25688,7 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                   title
                   description
                   channelTitle
+                  __typename
                 }
                 contentDetails {
                   videoId
@@ -22875,6 +25700,7 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                   licensedContent
                   projection
                   hasCustomThumbnail
+                  __typename
                 }
                 status {
                   uploadStatus
@@ -22882,7 +25708,9 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                   license
                   embeddable
                   publicStatsViewable
+                  __typename
                 }
+                __typename
               }
               videoTypes
               notesURL
@@ -22892,8 +25720,10 @@ export const getBlogByBlogStatus = /* GraphQL */ `
               move
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           blogs {
             items {
@@ -22910,19 +25740,24 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               series {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -22932,22 +25767,27 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               blogSeriesId
               blogSeriesIndex
@@ -22958,8 +25798,10 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                   blogPostID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogStatus
               description
@@ -22972,19 +25814,24 @@ export const getBlogByBlogStatus = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           blogPosts {
             items {
@@ -23000,6 +25847,7 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                 expirationDate
                 videoSeries {
                   nextToken
+                  __typename
                 }
                 series {
                   id
@@ -23012,11 +25860,13 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogSeriesId
                 blogSeriesIndex
                 blogSeries {
                   nextToken
+                  __typename
                 }
                 blogStatus
                 description
@@ -23029,28 +25879,35 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               videoSeries {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -23060,27 +25917,34 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           seriesType
           title
@@ -23090,14 +25954,17 @@ export const getBlogByBlogStatus = /* GraphQL */ `
           squareImage {
             src
             alt
+            __typename
           }
           bannerImage {
             src
             alt
+            __typename
           }
           babyHeroImage {
             src
             alt
+            __typename
           }
           startDate
           endDate
@@ -23116,12 +25983,15 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -23131,22 +26001,27 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               pdf
               topics
@@ -23163,16 +26038,21 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                   noteId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           createdAt
           updatedAt
+          __typename
         }
         blogSeriesId
         blogSeriesIndex
@@ -23190,8 +26070,10 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                   blogPostID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -23202,6 +26084,7 @@ export const getBlogByBlogStatus = /* GraphQL */ `
               endDate
               createdAt
               updatedAt
+              __typename
             }
             blogPost {
               id
@@ -23217,19 +26100,24 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               series {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -23239,22 +26127,27 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               blogSeriesId
               blogSeriesIndex
@@ -23265,8 +26158,10 @@ export const getBlogByBlogStatus = /* GraphQL */ `
                   blogPostID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogStatus
               description
@@ -23279,22 +26174,28 @@ export const getBlogByBlogStatus = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         blogStatus
         description
@@ -23307,19 +26208,24 @@ export const getBlogByBlogStatus = /* GraphQL */ `
         squareImage {
           src
           alt
+          __typename
         }
         bannerImage {
           src
           alt
+          __typename
         }
         babyHeroImage {
           src
           alt
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -23366,19 +26272,24 @@ export const searchBlogs = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               series {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -23388,22 +26299,27 @@ export const searchBlogs = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               blogSeriesId
               blogSeriesIndex
@@ -23414,8 +26330,10 @@ export const searchBlogs = /* GraphQL */ `
                   blogPostID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogStatus
               description
@@ -23428,17 +26346,21 @@ export const searchBlogs = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             videoSeries {
               id
@@ -23473,8 +26395,10 @@ export const searchBlogs = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -23496,8 +26420,10 @@ export const searchBlogs = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -23506,8 +26432,10 @@ export const searchBlogs = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -23517,14 +26445,17 @@ export const searchBlogs = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -23544,16 +26475,21 @@ export const searchBlogs = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         series {
           id
@@ -23570,8 +26506,10 @@ export const searchBlogs = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               episodeTitle
               originalEpisodeTitle
@@ -23582,12 +26520,15 @@ export const searchBlogs = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -23597,22 +26538,27 @@ export const searchBlogs = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               customPlaylistIDs
               customPlaylists {
@@ -23622,8 +26568,10 @@ export const searchBlogs = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               publishedDate
               recordedDate
@@ -23647,6 +26595,7 @@ export const searchBlogs = /* GraphQL */ `
                   title
                   description
                   channelTitle
+                  __typename
                 }
                 contentDetails {
                   videoId
@@ -23658,6 +26607,7 @@ export const searchBlogs = /* GraphQL */ `
                   licensedContent
                   projection
                   hasCustomThumbnail
+                  __typename
                 }
                 status {
                   uploadStatus
@@ -23665,7 +26615,9 @@ export const searchBlogs = /* GraphQL */ `
                   license
                   embeddable
                   publicStatsViewable
+                  __typename
                 }
+                __typename
               }
               videoTypes
               notesURL
@@ -23675,8 +26627,10 @@ export const searchBlogs = /* GraphQL */ `
               move
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           blogs {
             items {
@@ -23693,19 +26647,24 @@ export const searchBlogs = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               series {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -23715,22 +26674,27 @@ export const searchBlogs = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               blogSeriesId
               blogSeriesIndex
@@ -23741,8 +26705,10 @@ export const searchBlogs = /* GraphQL */ `
                   blogPostID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogStatus
               description
@@ -23755,19 +26721,24 @@ export const searchBlogs = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           blogPosts {
             items {
@@ -23783,6 +26754,7 @@ export const searchBlogs = /* GraphQL */ `
                 expirationDate
                 videoSeries {
                   nextToken
+                  __typename
                 }
                 series {
                   id
@@ -23795,11 +26767,13 @@ export const searchBlogs = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogSeriesId
                 blogSeriesIndex
                 blogSeries {
                   nextToken
+                  __typename
                 }
                 blogStatus
                 description
@@ -23812,28 +26786,35 @@ export const searchBlogs = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               videoSeries {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -23843,27 +26824,34 @@ export const searchBlogs = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           seriesType
           title
@@ -23873,14 +26861,17 @@ export const searchBlogs = /* GraphQL */ `
           squareImage {
             src
             alt
+            __typename
           }
           bannerImage {
             src
             alt
+            __typename
           }
           babyHeroImage {
             src
             alt
+            __typename
           }
           startDate
           endDate
@@ -23899,12 +26890,15 @@ export const searchBlogs = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -23914,22 +26908,27 @@ export const searchBlogs = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               pdf
               topics
@@ -23946,16 +26945,21 @@ export const searchBlogs = /* GraphQL */ `
                   noteId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           createdAt
           updatedAt
+          __typename
         }
         blogSeriesId
         blogSeriesIndex
@@ -23973,8 +26977,10 @@ export const searchBlogs = /* GraphQL */ `
                   blogPostID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -23985,6 +26991,7 @@ export const searchBlogs = /* GraphQL */ `
               endDate
               createdAt
               updatedAt
+              __typename
             }
             blogPost {
               id
@@ -24000,19 +27007,24 @@ export const searchBlogs = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               series {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -24022,22 +27034,27 @@ export const searchBlogs = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               blogSeriesId
               blogSeriesIndex
@@ -24048,8 +27065,10 @@ export const searchBlogs = /* GraphQL */ `
                   blogPostID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogStatus
               description
@@ -24062,22 +27081,28 @@ export const searchBlogs = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         blogStatus
         description
@@ -24090,17 +27115,21 @@ export const searchBlogs = /* GraphQL */ `
         squareImage {
           src
           alt
+          __typename
         }
         bannerImage {
           src
           alt
+          __typename
         }
         babyHeroImage {
           src
           alt
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
       total
@@ -24114,10 +27143,13 @@ export const searchBlogs = /* GraphQL */ `
             buckets {
               key
               doc_count
+              __typename
             }
           }
         }
+        __typename
       }
+      __typename
     }
   }
 `;
@@ -24130,11 +27162,13 @@ export const getInstagram = /* GraphQL */ `
         src
         config_width
         config_height
+        __typename
       }
       altText
       timestamp
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -24152,13 +27186,16 @@ export const listInstagrams = /* GraphQL */ `
           src
           config_width
           config_height
+          __typename
         }
         altText
         timestamp
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -24186,13 +27223,16 @@ export const getInstagramByLocation = /* GraphQL */ `
           src
           config_width
           config_height
+          __typename
         }
         altText
         timestamp
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -24232,8 +27272,10 @@ export const getVerse = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               episodeTitle
               originalEpisodeTitle
@@ -24244,12 +27286,15 @@ export const getVerse = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -24259,22 +27304,27 @@ export const getVerse = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               customPlaylistIDs
               customPlaylists {
@@ -24284,8 +27334,10 @@ export const getVerse = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               publishedDate
               recordedDate
@@ -24309,6 +27361,7 @@ export const getVerse = /* GraphQL */ `
                   title
                   description
                   channelTitle
+                  __typename
                 }
                 contentDetails {
                   videoId
@@ -24320,6 +27373,7 @@ export const getVerse = /* GraphQL */ `
                   licensedContent
                   projection
                   hasCustomThumbnail
+                  __typename
                 }
                 status {
                   uploadStatus
@@ -24327,7 +27381,9 @@ export const getVerse = /* GraphQL */ `
                   license
                   embeddable
                   publicStatsViewable
+                  __typename
                 }
+                __typename
               }
               videoTypes
               notesURL
@@ -24337,8 +27393,10 @@ export const getVerse = /* GraphQL */ `
               move
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           blogs {
             items {
@@ -24355,19 +27413,24 @@ export const getVerse = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               series {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -24377,22 +27440,27 @@ export const getVerse = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               blogSeriesId
               blogSeriesIndex
@@ -24403,8 +27471,10 @@ export const getVerse = /* GraphQL */ `
                   blogPostID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogStatus
               description
@@ -24417,19 +27487,24 @@ export const getVerse = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           blogPosts {
             items {
@@ -24445,6 +27520,7 @@ export const getVerse = /* GraphQL */ `
                 expirationDate
                 videoSeries {
                   nextToken
+                  __typename
                 }
                 series {
                   id
@@ -24457,11 +27533,13 @@ export const getVerse = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogSeriesId
                 blogSeriesIndex
                 blogSeries {
                   nextToken
+                  __typename
                 }
                 blogStatus
                 description
@@ -24474,28 +27552,35 @@ export const getVerse = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               videoSeries {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -24505,27 +27590,34 @@ export const getVerse = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           seriesType
           title
@@ -24535,14 +27627,17 @@ export const getVerse = /* GraphQL */ `
           squareImage {
             src
             alt
+            __typename
           }
           bannerImage {
             src
             alt
+            __typename
           }
           babyHeroImage {
             src
             alt
+            __typename
           }
           startDate
           endDate
@@ -24561,12 +27656,15 @@ export const getVerse = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -24576,22 +27674,27 @@ export const getVerse = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               pdf
               topics
@@ -24608,16 +27711,21 @@ export const getVerse = /* GraphQL */ `
                   noteId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           createdAt
           updatedAt
+          __typename
         }
         pdf
         topics
@@ -24646,12 +27754,15 @@ export const getVerse = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -24661,22 +27772,27 @@ export const getVerse = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               pdf
               topics
@@ -24693,22 +27809,29 @@ export const getVerse = /* GraphQL */ `
                   noteId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -24747,6 +27870,7 @@ export const listVerses = /* GraphQL */ `
                 createdDate
                 speakers {
                   nextToken
+                  __typename
                 }
                 episodeTitle
                 originalEpisodeTitle
@@ -24764,10 +27888,12 @@ export const listVerses = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 customPlaylistIDs
                 customPlaylists {
                   nextToken
+                  __typename
                 }
                 publishedDate
                 recordedDate
@@ -24785,6 +27911,7 @@ export const listVerses = /* GraphQL */ `
                   id
                   kind
                   etag
+                  __typename
                 }
                 videoTypes
                 notesURL
@@ -24794,8 +27921,10 @@ export const listVerses = /* GraphQL */ `
                 move
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             blogs {
               items {
@@ -24807,6 +27936,7 @@ export const listVerses = /* GraphQL */ `
                 expirationDate
                 videoSeries {
                   nextToken
+                  __typename
                 }
                 series {
                   id
@@ -24819,11 +27949,13 @@ export const listVerses = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogSeriesId
                 blogSeriesIndex
                 blogSeries {
                   nextToken
+                  __typename
                 }
                 blogStatus
                 description
@@ -24836,19 +27968,24 @@ export const listVerses = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             blogPosts {
               items {
@@ -24874,6 +28011,7 @@ export const listVerses = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 videoSeries {
                   id
@@ -24886,11 +28024,14 @@ export const listVerses = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             seriesType
             title
@@ -24900,14 +28041,17 @@ export const listVerses = /* GraphQL */ `
             squareImage {
               src
               alt
+              __typename
             }
             bannerImage {
               src
               alt
+              __typename
             }
             babyHeroImage {
               src
               alt
+              __typename
             }
             startDate
             endDate
@@ -24933,20 +28077,25 @@ export const listVerses = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 pdf
                 topics
                 tags
                 verses {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           pdf
           topics
@@ -24982,28 +28131,36 @@ export const listVerses = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 pdf
                 topics
                 tags
                 verses {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           createdAt
           updatedAt
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -25060,6 +28217,7 @@ export const getNotes = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 speakerVideosVideoId
                 speaker {
@@ -25069,12 +28227,15 @@ export const getNotes = /* GraphQL */ `
                   hidden
                   createdAt
                   updatedAt
+                  __typename
                 }
                 videoPublishedDate
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             episodeTitle
             originalEpisodeTitle
@@ -25114,8 +28275,10 @@ export const getNotes = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -25137,8 +28300,10 @@ export const getNotes = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -25147,8 +28312,10 @@ export const getNotes = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -25158,14 +28325,17 @@ export const getNotes = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -25185,11 +28355,14 @@ export const getNotes = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             customPlaylistIDs
             customPlaylists {
@@ -25205,6 +28378,7 @@ export const getNotes = /* GraphQL */ `
                   thumbnailDescription
                   createdAt
                   updatedAt
+                  __typename
                 }
                 video {
                   id
@@ -25236,11 +28410,14 @@ export const getNotes = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             publishedDate
             recordedDate
@@ -25263,11 +28440,16 @@ export const getNotes = /* GraphQL */ `
                 channelId
                 title
                 description
+                thumbnails {
+                  __typename
+                }
                 channelTitle
                 localized {
                   title
                   description
+                  __typename
                 }
+                __typename
               }
               contentDetails {
                 videoId
@@ -25348,12 +28530,15 @@ export const getNotes = /* GraphQL */ `
                   smsaRating
                   tvpgRating
                   ytRating
+                  __typename
                 }
                 regionRestriction {
                   allowed
                   blocked
+                  __typename
                 }
                 hasCustomThumbnail
+                __typename
               }
               status {
                 uploadStatus
@@ -25361,7 +28546,9 @@ export const getNotes = /* GraphQL */ `
                 license
                 embeddable
                 publicStatsViewable
+                __typename
               }
+              __typename
             }
             videoTypes
             notesURL
@@ -25371,8 +28558,10 @@ export const getNotes = /* GraphQL */ `
             move
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         blogs {
           items {
@@ -25406,6 +28595,7 @@ export const getNotes = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 videoSeries {
                   id
@@ -25418,11 +28608,14 @@ export const getNotes = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             series {
               id
@@ -25457,8 +28650,10 @@ export const getNotes = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -25480,8 +28675,10 @@ export const getNotes = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -25490,8 +28687,10 @@ export const getNotes = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -25501,14 +28700,17 @@ export const getNotes = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -25528,11 +28730,14 @@ export const getNotes = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             blogSeriesId
             blogSeriesIndex
@@ -25552,6 +28757,7 @@ export const getNotes = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogPost {
                   id
@@ -25572,11 +28778,14 @@ export const getNotes = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             blogStatus
             description
@@ -25589,19 +28798,24 @@ export const getNotes = /* GraphQL */ `
             squareImage {
               src
               alt
+              __typename
             }
             bannerImage {
               src
               alt
+              __typename
             }
             babyHeroImage {
               src
               alt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         blogPosts {
           items {
@@ -25622,19 +28836,24 @@ export const getNotes = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               series {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -25644,22 +28863,27 @@ export const getNotes = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               blogSeriesId
               blogSeriesIndex
@@ -25670,8 +28894,10 @@ export const getNotes = /* GraphQL */ `
                   blogPostID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogStatus
               description
@@ -25684,17 +28910,21 @@ export const getNotes = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             videoSeries {
               id
@@ -25729,8 +28959,10 @@ export const getNotes = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -25752,8 +28984,10 @@ export const getNotes = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -25762,8 +28996,10 @@ export const getNotes = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -25773,14 +29009,17 @@ export const getNotes = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -25800,16 +29039,21 @@ export const getNotes = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         seriesType
         title
@@ -25819,14 +29063,17 @@ export const getNotes = /* GraphQL */ `
         squareImage {
           src
           alt
+          __typename
         }
         bannerImage {
           src
           alt
+          __typename
         }
         babyHeroImage {
           src
           alt
+          __typename
         }
         startDate
         endDate
@@ -25874,8 +29121,10 @@ export const getNotes = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -25897,8 +29146,10 @@ export const getNotes = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -25907,8 +29158,10 @@ export const getNotes = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -25918,14 +29171,17 @@ export const getNotes = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -25945,11 +29201,14 @@ export const getNotes = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             pdf
             topics
@@ -25979,19 +29238,25 @@ export const getNotes = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       pdf
       topics
@@ -26049,8 +29314,10 @@ export const getNotes = /* GraphQL */ `
                   move
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogs {
                 items {
@@ -26072,8 +29339,10 @@ export const getNotes = /* GraphQL */ `
                   hiddenMainIndex
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogPosts {
                 items {
@@ -26082,8 +29351,10 @@ export const getNotes = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               seriesType
               title
@@ -26093,14 +29364,17 @@ export const getNotes = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               startDate
               endDate
@@ -26120,11 +29394,14 @@ export const getNotes = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             pdf
             topics
@@ -26154,22 +29431,29 @@ export const getNotes = /* GraphQL */ `
                   tags
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -26205,8 +29489,10 @@ export const listNotes = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               episodeTitle
               originalEpisodeTitle
@@ -26217,12 +29503,15 @@ export const listNotes = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -26232,22 +29521,27 @@ export const listNotes = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               customPlaylistIDs
               customPlaylists {
@@ -26257,8 +29551,10 @@ export const listNotes = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               publishedDate
               recordedDate
@@ -26282,6 +29578,7 @@ export const listNotes = /* GraphQL */ `
                   title
                   description
                   channelTitle
+                  __typename
                 }
                 contentDetails {
                   videoId
@@ -26293,6 +29590,7 @@ export const listNotes = /* GraphQL */ `
                   licensedContent
                   projection
                   hasCustomThumbnail
+                  __typename
                 }
                 status {
                   uploadStatus
@@ -26300,7 +29598,9 @@ export const listNotes = /* GraphQL */ `
                   license
                   embeddable
                   publicStatsViewable
+                  __typename
                 }
+                __typename
               }
               videoTypes
               notesURL
@@ -26310,8 +29610,10 @@ export const listNotes = /* GraphQL */ `
               move
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           blogs {
             items {
@@ -26328,19 +29630,24 @@ export const listNotes = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               series {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -26350,22 +29657,27 @@ export const listNotes = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               blogSeriesId
               blogSeriesIndex
@@ -26376,8 +29688,10 @@ export const listNotes = /* GraphQL */ `
                   blogPostID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogStatus
               description
@@ -26390,19 +29704,24 @@ export const listNotes = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           blogPosts {
             items {
@@ -26418,6 +29737,7 @@ export const listNotes = /* GraphQL */ `
                 expirationDate
                 videoSeries {
                   nextToken
+                  __typename
                 }
                 series {
                   id
@@ -26430,11 +29750,13 @@ export const listNotes = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogSeriesId
                 blogSeriesIndex
                 blogSeries {
                   nextToken
+                  __typename
                 }
                 blogStatus
                 description
@@ -26447,28 +29769,35 @@ export const listNotes = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               videoSeries {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -26478,27 +29807,34 @@ export const listNotes = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           seriesType
           title
@@ -26508,14 +29844,17 @@ export const listNotes = /* GraphQL */ `
           squareImage {
             src
             alt
+            __typename
           }
           bannerImage {
             src
             alt
+            __typename
           }
           babyHeroImage {
             src
             alt
+            __typename
           }
           startDate
           endDate
@@ -26534,12 +29873,15 @@ export const listNotes = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -26549,22 +29891,27 @@ export const listNotes = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               pdf
               topics
@@ -26581,16 +29928,21 @@ export const listNotes = /* GraphQL */ `
                   noteId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           createdAt
           updatedAt
+          __typename
         }
         pdf
         topics
@@ -26619,12 +29971,15 @@ export const listNotes = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -26634,22 +29989,27 @@ export const listNotes = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               pdf
               topics
@@ -26666,21 +30026,28 @@ export const listNotes = /* GraphQL */ `
                   noteId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -26726,8 +30093,10 @@ export const searchNotes = /* GraphQL */ `
                   videoPublishedDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               episodeTitle
               originalEpisodeTitle
@@ -26738,12 +30107,15 @@ export const searchNotes = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -26753,22 +30125,27 @@ export const searchNotes = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               customPlaylistIDs
               customPlaylists {
@@ -26778,8 +30155,10 @@ export const searchNotes = /* GraphQL */ `
                   customPlaylistID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               publishedDate
               recordedDate
@@ -26803,6 +30182,7 @@ export const searchNotes = /* GraphQL */ `
                   title
                   description
                   channelTitle
+                  __typename
                 }
                 contentDetails {
                   videoId
@@ -26814,6 +30194,7 @@ export const searchNotes = /* GraphQL */ `
                   licensedContent
                   projection
                   hasCustomThumbnail
+                  __typename
                 }
                 status {
                   uploadStatus
@@ -26821,7 +30202,9 @@ export const searchNotes = /* GraphQL */ `
                   license
                   embeddable
                   publicStatsViewable
+                  __typename
                 }
+                __typename
               }
               videoTypes
               notesURL
@@ -26831,8 +30214,10 @@ export const searchNotes = /* GraphQL */ `
               move
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           blogs {
             items {
@@ -26849,19 +30234,24 @@ export const searchNotes = /* GraphQL */ `
                   blogId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               series {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -26871,22 +30261,27 @@ export const searchNotes = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               blogSeriesId
               blogSeriesIndex
@@ -26897,8 +30292,10 @@ export const searchNotes = /* GraphQL */ `
                   blogPostID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               blogStatus
               description
@@ -26911,19 +30308,24 @@ export const searchNotes = /* GraphQL */ `
               squareImage {
                 src
                 alt
+                __typename
               }
               bannerImage {
                 src
                 alt
+                __typename
               }
               babyHeroImage {
                 src
                 alt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           blogPosts {
             items {
@@ -26939,6 +30341,7 @@ export const searchNotes = /* GraphQL */ `
                 expirationDate
                 videoSeries {
                   nextToken
+                  __typename
                 }
                 series {
                   id
@@ -26951,11 +30354,13 @@ export const searchNotes = /* GraphQL */ `
                   endDate
                   createdAt
                   updatedAt
+                  __typename
                 }
                 blogSeriesId
                 blogSeriesIndex
                 blogSeries {
                   nextToken
+                  __typename
                 }
                 blogStatus
                 description
@@ -26968,28 +30373,35 @@ export const searchNotes = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               videoSeries {
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -26999,27 +30411,34 @@ export const searchNotes = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           seriesType
           title
@@ -27029,14 +30448,17 @@ export const searchNotes = /* GraphQL */ `
           squareImage {
             src
             alt
+            __typename
           }
           bannerImage {
             src
             alt
+            __typename
           }
           babyHeroImage {
             src
             alt
+            __typename
           }
           startDate
           endDate
@@ -27055,12 +30477,15 @@ export const searchNotes = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -27070,22 +30495,27 @@ export const searchNotes = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               pdf
               topics
@@ -27102,16 +30532,21 @@ export const searchNotes = /* GraphQL */ `
                   noteId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           createdAt
           updatedAt
+          __typename
         }
         pdf
         topics
@@ -27140,12 +30575,15 @@ export const searchNotes = /* GraphQL */ `
                 id
                 videos {
                   nextToken
+                  __typename
                 }
                 blogs {
                   nextToken
+                  __typename
                 }
                 blogPosts {
                   nextToken
+                  __typename
                 }
                 seriesType
                 title
@@ -27155,22 +30593,27 @@ export const searchNotes = /* GraphQL */ `
                 squareImage {
                   src
                   alt
+                  __typename
                 }
                 bannerImage {
                   src
                   alt
+                  __typename
                 }
                 babyHeroImage {
                   src
                   alt
+                  __typename
                 }
                 startDate
                 endDate
                 notes {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               pdf
               topics
@@ -27187,19 +30630,25 @@ export const searchNotes = /* GraphQL */ `
                   noteId
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
       total
@@ -27213,10 +30662,13 @@ export const searchNotes = /* GraphQL */ `
             buckets {
               key
               doc_count
+              __typename
             }
           }
         }
+        __typename
       }
+      __typename
     }
   }
 `;
@@ -27237,6 +30689,7 @@ export const getComment = /* GraphQL */ `
       owner
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -27262,8 +30715,10 @@ export const listComments = /* GraphQL */ `
         owner
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -27299,8 +30754,10 @@ export const getCommentsByOwner = /* GraphQL */ `
         owner
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -27336,6 +30793,7 @@ export const searchComments = /* GraphQL */ `
         owner
         createdAt
         updatedAt
+        __typename
       }
       nextToken
       total
@@ -27349,10 +30807,13 @@ export const searchComments = /* GraphQL */ `
             buckets {
               key
               doc_count
+              __typename
             }
           }
         }
+        __typename
       }
+      __typename
     }
   }
 `;
@@ -27372,6 +30833,7 @@ export const getWebPage = /* GraphQL */ `
           showSearch
           showFooter
           showMenu
+          __typename
         }
         content {
           type
@@ -27379,6 +30841,7 @@ export const getWebPage = /* GraphQL */ `
           image1 {
             src
             alt
+            __typename
           }
           header1
           header2
@@ -27398,12 +30861,16 @@ export const getWebPage = /* GraphQL */ `
             imageSrc
             imageAlt
             navigateTo
+            __typename
           }
           showLocationSearch
+          __typename
         }
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -27428,6 +30895,7 @@ export const listWebPages = /* GraphQL */ `
             showSearch
             showFooter
             showMenu
+            __typename
           }
           content {
             type
@@ -27435,6 +30903,7 @@ export const listWebPages = /* GraphQL */ `
             image1 {
               src
               alt
+              __typename
             }
             header1
             header2
@@ -27454,14 +30923,19 @@ export const listWebPages = /* GraphQL */ `
               imageSrc
               imageAlt
               navigateTo
+              __typename
             }
             showLocationSearch
+            __typename
           }
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -27496,6 +30970,7 @@ export const searchWebPages = /* GraphQL */ `
             showSearch
             showFooter
             showMenu
+            __typename
           }
           content {
             type
@@ -27503,6 +30978,7 @@ export const searchWebPages = /* GraphQL */ `
             image1 {
               src
               alt
+              __typename
             }
             header1
             header2
@@ -27522,12 +30998,16 @@ export const searchWebPages = /* GraphQL */ `
               imageSrc
               imageAlt
               navigateTo
+              __typename
             }
             showLocationSearch
+            __typename
           }
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
       total
@@ -27541,10 +31021,13 @@ export const searchWebPages = /* GraphQL */ `
             buckets {
               key
               doc_count
+              __typename
             }
           }
         }
+        __typename
       }
+      __typename
     }
   }
 `;
@@ -27566,6 +31049,7 @@ export const getTMHUser = /* GraphQL */ `
         line2
         postal_code
         state
+        __typename
       }
       profileImage {
         userId
@@ -27573,12 +31057,15 @@ export const getTMHUser = /* GraphQL */ `
         filenameMedium
         filenameLarge
         filenameUpload
+        __typename
       }
       joined
       f1PersonId
       f1HouseholdId
+      total
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -27605,6 +31092,7 @@ export const listTMHUsers = /* GraphQL */ `
           line2
           postal_code
           state
+          __typename
         }
         profileImage {
           userId
@@ -27612,14 +31100,18 @@ export const listTMHUsers = /* GraphQL */ `
           filenameMedium
           filenameLarge
           filenameUpload
+          __typename
         }
         joined
         f1PersonId
         f1HouseholdId
+        total
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -27643,6 +31135,7 @@ export const getTMHSite = /* GraphQL */ `
                   id
                   createdAt
                   updatedAt
+                  __typename
                 }
                 tMHPerson {
                   id
@@ -27660,14 +31153,18 @@ export const getTMHSite = /* GraphQL */ `
                   isOverseer
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           tMHPerson {
             id
@@ -27687,6 +31184,7 @@ export const getTMHSite = /* GraphQL */ `
                   id
                   createdAt
                   updatedAt
+                  __typename
                 }
                 tMHPerson {
                   id
@@ -27704,11 +31202,14 @@ export const getTMHSite = /* GraphQL */ `
                   isOverseer
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             position
             isTeacher
@@ -27717,14 +31218,18 @@ export const getTMHSite = /* GraphQL */ `
             isOverseer
             createdAt
             updatedAt
+            __typename
           }
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -27751,11 +31256,14 @@ export const listTMHSites = /* GraphQL */ `
                   tMHPersonID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             tMHPerson {
               id
@@ -27773,8 +31281,10 @@ export const listTMHSites = /* GraphQL */ `
                   tMHPersonID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               position
               isTeacher
@@ -27783,16 +31293,21 @@ export const listTMHSites = /* GraphQL */ `
               isOverseer
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -27823,6 +31338,7 @@ export const getTMHPerson = /* GraphQL */ `
                   id
                   createdAt
                   updatedAt
+                  __typename
                 }
                 tMHPerson {
                   id
@@ -27840,14 +31356,18 @@ export const getTMHPerson = /* GraphQL */ `
                   isOverseer
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           tMHPerson {
             id
@@ -27867,6 +31387,7 @@ export const getTMHPerson = /* GraphQL */ `
                   id
                   createdAt
                   updatedAt
+                  __typename
                 }
                 tMHPerson {
                   id
@@ -27884,11 +31405,14 @@ export const getTMHPerson = /* GraphQL */ `
                   isOverseer
                   createdAt
                   updatedAt
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               nextToken
+              __typename
             }
             position
             isTeacher
@@ -27897,11 +31421,14 @@ export const getTMHPerson = /* GraphQL */ `
             isOverseer
             createdAt
             updatedAt
+            __typename
           }
           createdAt
           updatedAt
+          __typename
         }
         nextToken
+        __typename
       }
       position
       isTeacher
@@ -27910,6 +31437,7 @@ export const getTMHPerson = /* GraphQL */ `
       isOverseer
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -27943,11 +31471,14 @@ export const listTMHPeople = /* GraphQL */ `
                   tMHPersonID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             tMHPerson {
               id
@@ -27965,8 +31496,10 @@ export const listTMHPeople = /* GraphQL */ `
                   tMHPersonID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               position
               isTeacher
@@ -27975,11 +31508,14 @@ export const listTMHPeople = /* GraphQL */ `
               isOverseer
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         position
         isTeacher
@@ -27988,12 +31524,14 @@ export const listTMHPeople = /* GraphQL */ `
         isOverseer
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
-export const tMHPersonByEmail = /* GraphQL */ `
+export const TMHPersonByEmail = /* GraphQL */ `
   query TMHPersonByEmail(
     $email: AWSEmail!
     $sortDirection: ModelSortDirection
@@ -28031,11 +31569,14 @@ export const tMHPersonByEmail = /* GraphQL */ `
                   tMHPersonID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             tMHPerson {
               id
@@ -28053,8 +31594,10 @@ export const tMHPersonByEmail = /* GraphQL */ `
                   tMHPersonID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               position
               isTeacher
@@ -28063,11 +31606,14 @@ export const tMHPersonByEmail = /* GraphQL */ `
               isOverseer
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         position
         isTeacher
@@ -28076,12 +31622,14 @@ export const tMHPersonByEmail = /* GraphQL */ `
         isOverseer
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
-export const tMHPersonByIsTeacher = /* GraphQL */ `
+export const TMHPersonByIsTeacher = /* GraphQL */ `
   query TMHPersonByIsTeacher(
     $isTeacher: String!
     $sortDirection: ModelSortDirection
@@ -28119,11 +31667,14 @@ export const tMHPersonByIsTeacher = /* GraphQL */ `
                   tMHPersonID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             tMHPerson {
               id
@@ -28141,8 +31692,10 @@ export const tMHPersonByIsTeacher = /* GraphQL */ `
                   tMHPersonID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               position
               isTeacher
@@ -28151,11 +31704,14 @@ export const tMHPersonByIsTeacher = /* GraphQL */ `
               isOverseer
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         position
         isTeacher
@@ -28164,12 +31720,14 @@ export const tMHPersonByIsTeacher = /* GraphQL */ `
         isOverseer
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
-export const tMHPersonByIsStaff = /* GraphQL */ `
+export const TMHPersonByIsStaff = /* GraphQL */ `
   query TMHPersonByIsStaff(
     $isStaff: String!
     $sortDirection: ModelSortDirection
@@ -28207,11 +31765,14 @@ export const tMHPersonByIsStaff = /* GraphQL */ `
                   tMHPersonID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             tMHPerson {
               id
@@ -28229,8 +31790,10 @@ export const tMHPersonByIsStaff = /* GraphQL */ `
                   tMHPersonID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               position
               isTeacher
@@ -28239,11 +31802,14 @@ export const tMHPersonByIsStaff = /* GraphQL */ `
               isOverseer
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         position
         isTeacher
@@ -28252,12 +31818,14 @@ export const tMHPersonByIsStaff = /* GraphQL */ `
         isOverseer
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
-export const tMHPersonByIsCoordinator = /* GraphQL */ `
+export const TMHPersonByIsCoordinator = /* GraphQL */ `
   query TMHPersonByIsCoordinator(
     $isCoordinator: String!
     $sortDirection: ModelSortDirection
@@ -28295,11 +31863,14 @@ export const tMHPersonByIsCoordinator = /* GraphQL */ `
                   tMHPersonID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             tMHPerson {
               id
@@ -28317,8 +31888,10 @@ export const tMHPersonByIsCoordinator = /* GraphQL */ `
                   tMHPersonID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               position
               isTeacher
@@ -28327,11 +31900,14 @@ export const tMHPersonByIsCoordinator = /* GraphQL */ `
               isOverseer
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         position
         isTeacher
@@ -28340,12 +31916,14 @@ export const tMHPersonByIsCoordinator = /* GraphQL */ `
         isOverseer
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
-export const tMHPersonByIsOverseer = /* GraphQL */ `
+export const TMHPersonByIsOverseer = /* GraphQL */ `
   query TMHPersonByIsOverseer(
     $isOverseer: String!
     $sortDirection: ModelSortDirection
@@ -28383,11 +31961,14 @@ export const tMHPersonByIsOverseer = /* GraphQL */ `
                   tMHPersonID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             tMHPerson {
               id
@@ -28405,8 +31986,10 @@ export const tMHPersonByIsOverseer = /* GraphQL */ `
                   tMHPersonID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               position
               isTeacher
@@ -28415,11 +31998,14 @@ export const tMHPersonByIsOverseer = /* GraphQL */ `
               isOverseer
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         position
         isTeacher
@@ -28428,8 +32014,10 @@ export const tMHPersonByIsOverseer = /* GraphQL */ `
         isOverseer
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -28473,11 +32061,14 @@ export const searchTMHPeople = /* GraphQL */ `
                   tMHPersonID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             tMHPerson {
               id
@@ -28495,8 +32086,10 @@ export const searchTMHPeople = /* GraphQL */ `
                   tMHPersonID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               position
               isTeacher
@@ -28505,11 +32098,14 @@ export const searchTMHPeople = /* GraphQL */ `
               isOverseer
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         position
         isTeacher
@@ -28518,6 +32114,7 @@ export const searchTMHPeople = /* GraphQL */ `
         isOverseer
         createdAt
         updatedAt
+        __typename
       }
       nextToken
       total
@@ -28531,10 +32128,13 @@ export const searchTMHPeople = /* GraphQL */ `
             buckets {
               key
               doc_count
+              __typename
             }
           }
         }
+        __typename
       }
+      __typename
     }
   }
 `;
@@ -28552,6 +32152,7 @@ export const getTMHLocation = /* GraphQL */ `
         email
         phone
         extension
+        __typename
       }
       meetings {
         date
@@ -28571,7 +32172,9 @@ export const getTMHLocation = /* GraphQL */ `
           zip
           country
           url
+          __typename
         }
+        __typename
       }
       youth {
         name
@@ -28588,6 +32191,7 @@ export const getTMHLocation = /* GraphQL */ `
           zip
           country
           url
+          __typename
         }
         time
         facebookLink
@@ -28597,22 +32201,27 @@ export const getTMHLocation = /* GraphQL */ `
           email
           phone
           extension
+          __typename
         }
+        __typename
       }
       socials {
         facebook {
           name
           pageId
           link
+          __typename
         }
         instagram {
           name
           username
           pageId
           link
+          __typename
         }
         discord
         twitter
+        __typename
       }
       location {
         name
@@ -28625,6 +32234,7 @@ export const getTMHLocation = /* GraphQL */ `
         zip
         country
         url
+        __typename
       }
       pastors {
         id
@@ -28649,11 +32259,14 @@ export const getTMHLocation = /* GraphQL */ `
                   tMHPersonID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             tMHPerson {
               id
@@ -28671,8 +32284,10 @@ export const getTMHLocation = /* GraphQL */ `
                   tMHPersonID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               position
               isTeacher
@@ -28681,11 +32296,14 @@ export const getTMHLocation = /* GraphQL */ `
               isOverseer
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         position
         isTeacher
@@ -28694,6 +32312,7 @@ export const getTMHLocation = /* GraphQL */ `
         isOverseer
         createdAt
         updatedAt
+        __typename
       }
       pastorEmail
       staff {
@@ -28719,11 +32338,14 @@ export const getTMHLocation = /* GraphQL */ `
                   tMHPersonID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             tMHPerson {
               id
@@ -28741,8 +32363,10 @@ export const getTMHLocation = /* GraphQL */ `
                   tMHPersonID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               position
               isTeacher
@@ -28751,11 +32375,14 @@ export const getTMHLocation = /* GraphQL */ `
               isOverseer
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         position
         isTeacher
@@ -28764,12 +32391,14 @@ export const getTMHLocation = /* GraphQL */ `
         isOverseer
         createdAt
         updatedAt
+        __typename
       }
       showInLocationMap
       showInLocationList
       locationType
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -28792,6 +32421,7 @@ export const listTMHLocations = /* GraphQL */ `
           email
           phone
           extension
+          __typename
         }
         meetings {
           date
@@ -28811,7 +32441,9 @@ export const listTMHLocations = /* GraphQL */ `
             zip
             country
             url
+            __typename
           }
+          __typename
         }
         youth {
           name
@@ -28828,6 +32460,7 @@ export const listTMHLocations = /* GraphQL */ `
             zip
             country
             url
+            __typename
           }
           time
           facebookLink
@@ -28837,22 +32470,27 @@ export const listTMHLocations = /* GraphQL */ `
             email
             phone
             extension
+            __typename
           }
+          __typename
         }
         socials {
           facebook {
             name
             pageId
             link
+            __typename
           }
           instagram {
             name
             username
             pageId
             link
+            __typename
           }
           discord
           twitter
+          __typename
         }
         location {
           name
@@ -28865,6 +32503,7 @@ export const listTMHLocations = /* GraphQL */ `
           zip
           country
           url
+          __typename
         }
         pastors {
           id
@@ -28884,9 +32523,11 @@ export const listTMHLocations = /* GraphQL */ `
                 id
                 tmhPeople {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               tMHPerson {
                 id
@@ -28899,6 +32540,7 @@ export const listTMHLocations = /* GraphQL */ `
                 sites
                 tmhSites {
                   nextToken
+                  __typename
                 }
                 position
                 isTeacher
@@ -28907,11 +32549,14 @@ export const listTMHLocations = /* GraphQL */ `
                 isOverseer
                 createdAt
                 updatedAt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           position
           isTeacher
@@ -28920,6 +32565,7 @@ export const listTMHLocations = /* GraphQL */ `
           isOverseer
           createdAt
           updatedAt
+          __typename
         }
         pastorEmail
         staff {
@@ -28940,9 +32586,11 @@ export const listTMHLocations = /* GraphQL */ `
                 id
                 tmhPeople {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               tMHPerson {
                 id
@@ -28955,6 +32603,7 @@ export const listTMHLocations = /* GraphQL */ `
                 sites
                 tmhSites {
                   nextToken
+                  __typename
                 }
                 position
                 isTeacher
@@ -28963,11 +32612,14 @@ export const listTMHLocations = /* GraphQL */ `
                 isOverseer
                 createdAt
                 updatedAt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           position
           isTeacher
@@ -28976,14 +32628,17 @@ export const listTMHLocations = /* GraphQL */ `
           isOverseer
           createdAt
           updatedAt
+          __typename
         }
         showInLocationMap
         showInLocationList
         locationType
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -29009,11 +32664,14 @@ export const getSitePerson = /* GraphQL */ `
                   tMHPersonID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             tMHPerson {
               id
@@ -29031,8 +32689,10 @@ export const getSitePerson = /* GraphQL */ `
                   tMHPersonID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               position
               isTeacher
@@ -29041,14 +32701,18 @@ export const getSitePerson = /* GraphQL */ `
               isOverseer
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       tMHPerson {
         id
@@ -29073,11 +32737,14 @@ export const getSitePerson = /* GraphQL */ `
                   tMHPersonID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             tMHPerson {
               id
@@ -29095,8 +32762,10 @@ export const getSitePerson = /* GraphQL */ `
                   tMHPersonID
                   createdAt
                   updatedAt
+                  __typename
                 }
                 nextToken
+                __typename
               }
               position
               isTeacher
@@ -29105,11 +32774,14 @@ export const getSitePerson = /* GraphQL */ `
               isOverseer
               createdAt
               updatedAt
+              __typename
             }
             createdAt
             updatedAt
+            __typename
           }
           nextToken
+          __typename
         }
         position
         isTeacher
@@ -29118,9 +32790,11 @@ export const getSitePerson = /* GraphQL */ `
         isOverseer
         createdAt
         updatedAt
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -29146,9 +32820,11 @@ export const listSitePeople = /* GraphQL */ `
                 id
                 tmhPeople {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               tMHPerson {
                 id
@@ -29161,6 +32837,7 @@ export const listSitePeople = /* GraphQL */ `
                 sites
                 tmhSites {
                   nextToken
+                  __typename
                 }
                 position
                 isTeacher
@@ -29169,14 +32846,18 @@ export const listSitePeople = /* GraphQL */ `
                 isOverseer
                 createdAt
                 updatedAt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           createdAt
           updatedAt
+          __typename
         }
         tMHPerson {
           id
@@ -29196,9 +32877,11 @@ export const listSitePeople = /* GraphQL */ `
                 id
                 tmhPeople {
                   nextToken
+                  __typename
                 }
                 createdAt
                 updatedAt
+                __typename
               }
               tMHPerson {
                 id
@@ -29211,6 +32894,7 @@ export const listSitePeople = /* GraphQL */ `
                 sites
                 tmhSites {
                   nextToken
+                  __typename
                 }
                 position
                 isTeacher
@@ -29219,11 +32903,14 @@ export const listSitePeople = /* GraphQL */ `
                 isOverseer
                 createdAt
                 updatedAt
+                __typename
               }
               createdAt
               updatedAt
+              __typename
             }
             nextToken
+            __typename
           }
           position
           isTeacher
@@ -29232,11 +32919,14 @@ export const listSitePeople = /* GraphQL */ `
           isOverseer
           createdAt
           updatedAt
+          __typename
         }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;

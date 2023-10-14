@@ -981,7 +981,7 @@ export default class DataLoader {
     let returnData: TMHPerson[] = [];
     try {
       const response = (await API.graphql({
-        query: queries.tMHPersonByIsStaff,
+        query: queries.TMHPersonByIsStaff,
         variables: { isStaff: 'true' },
         authMode: GRAPHQL_AUTH_MODE.API_KEY,
       })) as GraphQLResult<TMHPersonByIsStaffQuery>;
@@ -995,7 +995,7 @@ export default class DataLoader {
     if (query.filterField === 'sites') {
       try {
         const response = (await API.graphql({
-          query: queries.tMHPersonByIsCoordinator,
+          query: queries.TMHPersonByIsCoordinator,
           variables: { isCoordinator: 'true' },
           authMode: GRAPHQL_AUTH_MODE.API_KEY,
         })) as GraphQLResult<TMHPersonByIsCoordinatorQuery>;
@@ -1072,7 +1072,7 @@ export default class DataLoader {
     let overseers: TMHPerson[] = [];
     try {
       const response = (await API.graphql({
-        query: queries.tMHPersonByIsOverseer,
+        query: queries.TMHPersonByIsOverseer,
         variables: { isOverseer: 'true' },
         authMode: GRAPHQL_AUTH_MODE.API_KEY,
       })) as GraphQLResult<TMHPersonByIsOverseerQuery>;

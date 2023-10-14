@@ -8,28 +8,29 @@
   }
 }
 .SignInContent {
-  padding: 48px;
+  padding: 32px 64px;
   margin: auto;
   margin-top: -12vh;
   width: 50vw;
   background-color: white;
+  @media (max-width: 1100px) {
+    padding: 32px 24px;
+    width: 60vw;
+  }
   @media (max-width: 767px) {
     padding: 24px;
     margin: 0;
     width: 100%;
     height: calc(100vh - 74px);
   }
+  @media (min-width: 1600px) {
+    width: 40vw;
+  }
 }
 .SignInForm {
   text-align: left;
   display: flex;
   flex-direction: column;
-  margin-left: 4.944vw;
-  margin-right: 4.944vw;
-  @media (min-width: 1600px) {
-    margin-left: 7.944vw;
-    margin-right: 7.944vw;
-  }
 }
 .SignInHeader {
   font-size: 2.522vw;
@@ -64,6 +65,8 @@
   display: flex;
   justify-content: center;
   flex-direction: row;
+  margin-top: 20px;
+  margin-bottom: 20px;
   :nth-child(even) {
     margin-left: 16px;
   }

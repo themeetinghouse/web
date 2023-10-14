@@ -3,16 +3,33 @@ export enum GEActionType {
   NAVIGATE_GIVE_NOW = 'NAVIGATE_GIVE_NOW',
   NAVIGATE_ONLINE_BANKING = 'NAVIGATE_ONLINE_BANKING',
   NAVIGATE_TO_PAYMENT_INFO = 'NAVIGATE_TO_PAYMENT_INFO',
+  NAVIGATE_TO_PAYMENT_CARD = 'NAVIGATE_TO_PAYMENT_CARD',
+  NAVIGATE_TO_AUTH = 'NAVIGATE_TO_AUTH',
   NAVIGATE_TO_REQUEST_ACCOUNT = 'NAVIGATE_TO_REQUEST_ACCOUNT',
   NAVIGATE_TO_PREAUTHORIZED_WITHDRAWAL = 'NAVIGATE_TO_PREAUTHORIZED_WITHDRAWAL',
+  NAVIGATE_TO_RECURRING_GIFT = 'NAVIGATE_TO_RECURRING_GIFT',
   NAVIGATE_TO_COMPLETED = 'NAVIGATE_TO_COMPLETED',
   UPDATE_FORM_DATA = 'UPDATE_FORM_DATA',
+  SET_GIFT_TYPE = 'SET_GIFT_TYPE',
+  SET_USER = 'SET_USER',
+  SET_FREQUENCY = 'SET_FREQUENCY',
+  SET_FUND = 'SET_FUND',
+  SET_BILLING_DETAILS = 'SET_BILLING_DETAILS',
+  SET_PAYMENT_METHOD_ID = 'SET_PAYMENT_METHOD_ID',
+  NAVIGATE_TO_CREATE_ACCOUNT = 'NAVIGATE_TO_CREATE_ACCOUNT',
+  SET_AMOUNT = 'SET_AMOUNT',
+  SET_START_DATE = 'SET_START_DATE',
+  SET_INITIAL_STATE = 'SET_INITIAL_STATE',
 }
 
 export enum GEPage {
   GIVE_NOW = 'GIVE_NOW',
+  RECURRING_GIFT = 'RECURRING_GIFT',
   COMPLETED = 'COMPLETED',
+  CREATE_ACCOUNT = 'CREATE_ACCOUNT',
+  AUTH = 'AUTH',
   PAYMENT_INFO = 'PAYMENT_INFO',
+  PAYMENT_CARD = 'PAYMENT_CARD',
   ONLINE_BANKING = 'ONLINE_BANKING',
   REQUEST_ACCOUNT = 'REQUEST_ACCOUNT',
   PREAUTHORIZED_WITHDRAWAL = 'PREAUTHORIZED_WITHDRAWAL',
@@ -20,9 +37,27 @@ export enum GEPage {
 
 export type GEState = {
   currentPage?: GEPage | null;
-  content?: any;
-  status?: boolean;
+  user?: any;
+  content: GEGiveData;
+  status?: string;
+  errorMessage?: string;
   formData?: any;
+  billingDetails?: any;
+  selectedPaymentMethodId?: string;
+};
+
+type GEFund = {
+  id: string;
+  name: string;
+};
+
+type GEGiveData = {
+  amount: string;
+  frequency: string;
+  fund: GEFund;
+  giftType: string;
+  startDate: number;
+  selectedPaymentMethodId?: string;
 };
 
 export type GEAction = {

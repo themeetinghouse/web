@@ -1,7 +1,9 @@
+import { set } from 'date-fns';
 import Stripe from 'stripe';
 export default class TMHStripe {
   static async getSecret(name: string) {
     try {
+      console.log('Loading Secret ', name);
       var AWS = require('aws-sdk'),
         region = 'us-east-1',
         secretName = 'tmhweb/' + process.env.ENV + '/secrets',
@@ -22,8 +24,7 @@ export default class TMHStripe {
         let buff = new Buffer(data.SecretBinary, 'base64');
         decodedBinarySecret = buff.toString('ascii');
       }
-      console.log('Loading Secret Done');
-
+      console.log('Loading Secret Done!');
       return secret[name];
     } catch (e) {
       console.log({ error: e });
@@ -41,6 +42,108 @@ export default class TMHStripe {
       idempotencyKey: idempotency + 'CC',
     });
     return customerResult;
+  }
+
+  static async listCustomerTransactions(
+    stripeCustomerID: string
+  ): Promise<Stripe.Response<Stripe.ApiList<Stripe.Invoice>>> {
+    const stripe = new Stripe(await this.getSecret('stripeSecret'), {
+      apiVersion: '2020-08-27',
+    });
+    const customerInvoices = await stripe.invoices.list({
+      customer: stripeCustomerID,
+      expand: ['data.charge'],
+      status: 'paid',
+      limit: 100,
+    });
+    return customerInvoices;
+  }
+  static async pauseSubscription(
+    subscriptionId: string
+  ): Promise<Stripe.Response<Stripe.Subscription>> {
+    const stripe = new Stripe(await this.getSecret('stripeSecret'), {
+      apiVersion: '2020-08-27',
+    });
+
+    const subscriptionResult = await stripe.subscriptions.update(
+      subscriptionId,
+      {
+        pause_collection: { behavior: 'void' },
+      }
+    );
+    return subscriptionResult;
+  }
+  static async resumeSubscription(
+    subscriptionId: string
+  ): Promise<Stripe.Response<Stripe.Subscription>> {
+    const stripe = new Stripe(await this.getSecret('stripeSecret'), {
+      apiVersion: '2020-08-27',
+    });
+
+    const subscriptionResult = await stripe.subscriptions.update(
+      subscriptionId,
+      {
+        pause_collection: null,
+      }
+    );
+    return subscriptionResult;
+  }
+  static async constructEvent(
+    body: Buffer,
+    signature: string
+  ): Promise<Stripe.Event> {
+    const stripe = new Stripe(await this.getSecret('stripeSecret'), {
+      apiVersion: '2020-08-27',
+    });
+
+    const eventResult = await stripe.webhooks.constructEvent(
+      body,
+      signature,
+      await this.getSecret('stripeWebhookSecret')
+    );
+    return eventResult;
+  }
+  static async setCustomerDefaultPaymentMethod(
+    stripeCustomerID: string,
+    paymentMethodId: string,
+    idempotency: string
+  ): Promise<Stripe.Response<Stripe.Customer>> {
+    const stripe = new Stripe(await this.getSecret('stripeSecret'), {
+      apiVersion: '2020-08-27',
+    });
+    console.log({ stripeCustomerID, paymentMethodId });
+    const customerResult = await stripe.customers.update(stripeCustomerID, {
+      invoice_settings: { default_payment_method: paymentMethodId },
+    });
+    return customerResult;
+  }
+
+  static async finalizeInvoice(
+    invoiceId: string,
+    idempotency: string
+  ): Promise<Stripe.Response<Stripe.Invoice>> {
+    const stripe = new Stripe(await this.getSecret('stripeSecret'), {
+      apiVersion: '2020-08-27',
+    });
+    const invoiceResult = await stripe.invoices.finalizeInvoice(invoiceId, {
+      idempotencyKey: idempotency + 'CC',
+    });
+    console.log({ invoiceResult });
+    return invoiceResult;
+  }
+  static async payInvoice(
+    invoiceId: string,
+    idempotency: string
+  ): Promise<Stripe.Response<Stripe.Invoice>> {
+    const stripe = new Stripe(await this.getSecret('stripeSecret'), {
+      apiVersion: '2020-08-27',
+    });
+    console.log({ invoiceId });
+    const invoiceResult = await stripe.invoices.pay(invoiceId, {
+      idempotencyKey: idempotency + 'CC',
+    });
+    console.log({ invoiceResult });
+    return invoiceResult;
   }
   static async updateCustomer(
     stripeCustomerID: string,
@@ -94,10 +197,10 @@ export default class TMHStripe {
     const stripe = new Stripe(await this.getSecret('stripeSecret'), {
       apiVersion: '2020-08-27',
     });
-    const customerResult = await stripe.paymentMethods.list({
-      customer: stripeCustomerID,
-      type: type,
-    });
+    const customerResult = await stripe.customers.listPaymentMethods(
+      stripeCustomerID,
+      { type: 'card' }
+    );
     return customerResult;
   }
   static async getPaymentMethod(
@@ -143,6 +246,14 @@ export default class TMHStripe {
       idempotencyKey: idempotency + 'CC',
     });
     return subscriptionResult;
+  }
+  static async listProducts(): Promise<Stripe.Product[]> {
+    const stripe = new Stripe(await this.getSecret('stripeSecret'), {
+      apiVersion: '2020-08-27',
+    });
+    const productsList = await stripe.products.list();
+    const products = productsList.data;
+    return products;
   }
   static async createPayment(
     payment: Stripe.PaymentIntentCreateParams,

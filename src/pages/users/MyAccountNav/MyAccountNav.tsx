@@ -10,6 +10,7 @@ import {
   UncontrolledDropdown,
 } from 'reactstrap';
 import { Auth } from 'aws-amplify';
+import { useUser } from '../Auth/UserContext';
 
 type NavItem = {
   label: string;
@@ -22,12 +23,14 @@ interface Props {
   toggle: () => void;
   navigationItems: NavItems;
 }
+
 export default function MyAccountNav({
   open,
   toggle,
   navigationItems,
 }: Props): JSX.Element {
   const history = useHistory();
+  const { state } = useUser();
   const [navItems, setNavItems] = useState<NavItems>(navigationItems);
   const [userGroups, setUserGroups] = useState<any>([]);
   useEffect(() => {
@@ -60,8 +63,8 @@ export default function MyAccountNav({
         console.log(err);
       }
     };
-    if (navigationItems.length) fetchNavItems(); // only fetches if there are items already in the nav, preferred for nav in auth flow
-  }, []);
+    if (navigationItems.length) fetchNavItems();
+  }, [userGroups, navigationItems]);
 
   const { pathname } = useLocation();
   const { url } = useRouteMatch();
@@ -102,6 +105,7 @@ export default function MyAccountNav({
       </div>
       <nav className={open ? 'MyAccountNav' : 'MyAccountNav hide'}>
         {navItems
+          .filter((item) => state.isProfileComplete)
           .filter((item) => {
             return (
               item.label !== 'Admin' ||

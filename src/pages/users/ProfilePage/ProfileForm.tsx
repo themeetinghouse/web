@@ -13,7 +13,6 @@ export default function ProfileForm(props: Props): JSX.Element {
   const provinces = provinceList();
 
   const { uploadRef, form, isFromGive, setForm } = props;
-
   return (
     <div className="LeftContainer">
       <input
@@ -46,7 +45,7 @@ export default function ProfileForm(props: Props): JSX.Element {
           <input
             name="firstname"
             className="ProfileInput"
-            data-testID="FirstName"
+            data-testid="FirstName"
             value={form?.given_name}
             onChange={(e) => setForm({ ...form, given_name: e.target.value })}
           ></input>
@@ -56,7 +55,7 @@ export default function ProfileForm(props: Props): JSX.Element {
           <input
             name="lastname"
             className="ProfileInput"
-            data-testID="LastName"
+            data-testid="LastName"
             value={form?.family_name}
             onChange={(e) => setForm({ ...form, family_name: e.target.value })}
           ></input>
@@ -65,14 +64,14 @@ export default function ProfileForm(props: Props): JSX.Element {
       <label>Email</label>
       <input
         className="ProfileInput"
-        data-testID="Email"
+        data-testid="Email"
         name="email"
         value={form?.email ?? ''}
         onChange={(e) => setForm({ ...form, email: e.target.value })}
       ></input>
       <label>Mobile</label>
       <input
-        data-testID="Mobile"
+        data-testid="Mobile"
         name="phone"
         className="ProfileInput"
         value={form?.phone ?? ''}
@@ -80,7 +79,7 @@ export default function ProfileForm(props: Props): JSX.Element {
       ></input>
       <label>Stress Address</label>
       <input
-        data-testID="Address"
+        data-testid="Address"
         className="ProfileInput"
         name="address"
         value={form?.billingAddress?.line1 ?? ''}
@@ -97,7 +96,7 @@ export default function ProfileForm(props: Props): JSX.Element {
       ></input>
       <label>City</label>
       <input
-        data-testID="City"
+        data-testid="City"
         className="ProfileInput"
         name="city"
         value={form?.billingAddress?.city ?? ''}
@@ -117,7 +116,8 @@ export default function ProfileForm(props: Props): JSX.Element {
           <label htmlFor="country-select">Country</label>
           <select
             name="country"
-            data-testID="Country"
+            data-testid="Country"
+            value={form?.billingAddress?.country ?? ''}
             id="country-select"
             className="ProfileInput"
             onChange={(e) =>
@@ -134,10 +134,12 @@ export default function ProfileForm(props: Props): JSX.Element {
             <option value={''} defaultValue="">
               Select a country
             </option>
-            {countries.map((country) => {
+            {Object.keys(countries).map((country) => {
+              const countryName = countries[country as keyof typeof countries];
+              const countryCode = country;
               return (
-                <option value={country} key={country}>
-                  {country}
+                <option value={countryCode} key={countryCode}>
+                  {countryName}
                 </option>
               );
             })}
@@ -146,12 +148,12 @@ export default function ProfileForm(props: Props): JSX.Element {
         <div className="LocationItem">
           <label htmlFor="province-select">Province/State</label>
           {!(
-            form?.billingAddress?.country === 'Canada' ||
-            form?.billingAddress?.country === 'United States of America (the)'
+            form?.billingAddress?.country === 'CA' ||
+            form?.billingAddress?.country === 'US'
           ) ? (
             <input
               name="province"
-              data-testID="Province"
+              data-testid="Province"
               id="province-select"
               className="ProfileInput"
               value={form?.billingAddress?.state ?? ''}
@@ -168,8 +170,9 @@ export default function ProfileForm(props: Props): JSX.Element {
             ></input>
           ) : (
             <select
-              data-testID="Province"
+              data-testid="Province"
               name="province"
+              value={form?.billingAddress?.state ?? ''}
               id="province-select"
               className="ProfileInput"
               onChange={(e) =>
@@ -183,8 +186,8 @@ export default function ProfileForm(props: Props): JSX.Element {
                 })
               }
             >
-              <option selected>Select a province/state</option>
-              {form.billingAddress?.country === 'Canada'
+              <option>Select a province/state</option>
+              {form.billingAddress?.country === 'CA'
                 ? provinces.map((province) => {
                     return (
                       <option value={province} key={province}>
@@ -192,11 +195,10 @@ export default function ProfileForm(props: Props): JSX.Element {
                       </option>
                     );
                   })
-                : form.billingAddress?.country ===
-                  'United States of America (the)'
-                ? states.map((state, index) => {
+                : form.billingAddress?.country === 'US'
+                ? states.map((state) => {
                     return (
-                      <option selected={index === 0} value={state} key={state}>
+                      <option value={state} key={state}>
                         {state}
                       </option>
                     );
@@ -209,7 +211,7 @@ export default function ProfileForm(props: Props): JSX.Element {
           <label>Postal Code/Zip Code</label>
           <input
             name="postalcode"
-            data-testID="PostalCode"
+            data-testid="PostalCode"
             className="ProfileInput"
             value={form?.billingAddress?.postal_code ?? ''}
             onChange={(e) =>

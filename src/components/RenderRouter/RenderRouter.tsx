@@ -129,6 +129,7 @@ export function RenderItem({
     case 'payment':
       return <PaymentItem key={index} content={item} />;
     case 'give2':
+      console.log('give2');
       return (
         <GEProvider>
           <NewGiveItem content={item} />

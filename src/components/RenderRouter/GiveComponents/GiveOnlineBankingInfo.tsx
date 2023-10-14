@@ -9,7 +9,7 @@ export default function GiveOnlineBankingInfo(props: GiveOnlineBankingInfo) {
   // TODO: STYLING
   const { content, dispatch } = props;
   return (
-    <div>
+    <div style={{ height: 400 }}>
       <h1
         style={{
           fontSize: 24,

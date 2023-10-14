@@ -4,16 +4,16 @@ import ReactGA from 'react-ga';
 import { Link } from 'components/Link/Link';
 import { GEContext } from './GiveComponents/GEContext';
 import GiveExperience from './GiveComponents/GiveExperience';
-import { GEActionType, GEPage } from './GiveComponents/GETypes';
+//import { GEActionType, GEPage } from './GiveComponents/GETypes';
 
 interface Props {
   content: any;
 }
 // name tbd
 export default function NewGiveItem(props: Props): JSX.Element {
-  const { dispatch, state } = useContext(GEContext);
+  const { state } = useContext(GEContext);
   const renderGiveOtherWays = () => {
-    const links = props.content.extendedFamilyLinks;
+    const links = props.content.extendedFamilyLinks ?? [];
     return (
       <div className="GiveExtendedContainer">
         <div className="GiveItemOtherWays">
@@ -49,7 +49,7 @@ export default function NewGiveItem(props: Props): JSX.Element {
   const renderGiveButtons = () => {
     return (
       <div className="GEButtonContainer">
-        <button
+        {/* <button
           className={`GEButton ${
             state.currentPage !== GEPage.ONLINE_BANKING ? 'GEButtonWhite' : ''
           }`}
@@ -59,8 +59,8 @@ export default function NewGiveItem(props: Props): JSX.Element {
           }}
         >
           Give Now
-        </button>
-        <button
+        </button> */}
+        {/* <button
           className={`GEButton ${
             state.currentPage === GEPage.ONLINE_BANKING ? 'GEButtonWhite' : ''
           }`}
@@ -73,19 +73,19 @@ export default function NewGiveItem(props: Props): JSX.Element {
           }}
         >
           Online Banking
-        </button>
+        </button> */}
         <Link
           style={{
             color: 'white',
-            width: 260,
+
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
             fontSize: 12,
           }}
-          to="/signin"
+          to="/account/signin"
         >
-          Login to manage your giving
+          {state.user ? 'Click here to ' : 'Login to '}manage your giving
         </Link>
       </div>
     );

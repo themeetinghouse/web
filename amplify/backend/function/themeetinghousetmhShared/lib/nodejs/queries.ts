@@ -1,27 +1,15 @@
 /* tslint:disable */
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
-export const getTmhUser = /* GraphQL */ `
-  query GetTmhUser($id: ID!) {
+export const getTMHUser = /* GraphQL */ `
+  query GetTMHUser($id: ID!) {
     getTMHUser(id: $id) {
       id
       given_name
       family_name
-      owner
-      profileImage {
-        userId
-        filenameSmall
-        filenameMedium
-        filenameLarge
-        filenameUpload
-      }
-      joined
-      f1PersonId
-      f1HouseholdId
-      createdAt
-      updatedAt
       email
       phone
+      owner
       stripeCustomerID
       stripeSubscriptionID
       billingAddress {
@@ -31,7 +19,23 @@ export const getTmhUser = /* GraphQL */ `
         line2
         postal_code
         state
+        __typename
       }
+      profileImage {
+        userId
+        filenameSmall
+        filenameMedium
+        filenameLarge
+        filenameUpload
+        __typename
+      }
+      joined
+      f1PersonId
+      f1HouseholdId
+      total
+      createdAt
+      updatedAt
+      __typename
     }
   }
 `;

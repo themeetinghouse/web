@@ -33,13 +33,66 @@ type Query {
   tmhF1SyncGroupPermissions: Boolean @function(name: "tmhF1SyncGroupPermissions-${env}") @aws_cognito_user_pools
   tmhF1SearchContributionReceipts(pageId: String): F1SearchContributionReceiptsType @function(name: "tmhF1SearchContributionReceipts-${env}") @aws_cognito_user_pools
   tmhStripeAddCustomer(idempotency: String, phone: String, email: String, firstName: String, lastName: String, orgName: String, billingAddress: StripeAddressInput): StripeCustomerData @function(name: "tmhStripeAddCustomer-${env}") @aws_cognito_user_pools
-  tmhStripeAttachPaymentMethod(id: String, idempotency: String): Boolean @function(name: "tmhStripeAddPaymentMethod-${env}") @aws_cognito_user_pools
+  tmhStripeAttachPaymentMethod(id: String, idempotency: String): StripeAddPaymentMethodResponse @function(name: "tmhStripeAddPaymentMethod-${env}") @aws_cognito_user_pools
   tmhStripeListPaymentMethods(pageId: String): StripePaymentMethodsData @function(name: "tmhStripeListPaymentMethods-${env}") @aws_cognito_user_pools
   tmhStripeListSubscriptions(starting_after: String): StripeSubscriptionsListData @function(name: "tmhStripeListSubscriptions-${env}") @aws_cognito_user_pools
-  tmhStripeDeleteSubscription(subscriptionId: String): Boolean @function(name: "tmhStripeDeleteSubscription-${env}") @aws_cognito_user_pools
-  tmhStripeAddSubscription(idempotency: String, amount: String, fund: String, frequency: String): StripePaymentMethodsData @function(name: "tmhStripeAddSubscription-${env}") @aws_cognito_user_pools
-  tmhStripeAddPayment(idempotency: String, amount: String, fund: String): StripePaymentMethodsData @function(name: "tmhStripeAddPayment-${env}") @aws_cognito_user_pools
+  tmhStripeDeleteSubscription(subscriptionId: String): StripeRemovePaymentResponse @function(name: "tmhStripeDeleteSubscription-${env}") @aws_cognito_user_pools
+  tmhStripeAddSubscription(idempotency: String, amount: Int, fund: String, frequency: String, paymentMethodId: String, startDate: Int): StripeAddPaymentResponse @function(name: "tmhStripeAddSubscription-${env}") @aws_cognito_user_pools
+  tmhStripeAddPayment(idempotency: String, amount: Int, fund: String, paymentMethodId: String): StripeAddPaymentResponse @function(name: "tmhStripeAddPayment-${env}") @aws_cognito_user_pools
   tmhStripeDeletePaymentMethod(paymentMethodId: String): Boolean @function(name: "tmhStripeDeletePaymentMethod-${env}") @aws_cognito_user_pools
+  tmhStripeListProducts: StripeProductsData @function(name: "tmhStripeListProducts-${env}")
+  tmhStripeListCustomerTransactions: StripeListTransactionsData @function(name: "tmhStripeListCustomerTransactions-${env}") @aws_cognito_user_pools
+  tmhStripePauseSubscription(subscriptionID: String): StripeSubscriptionUpdateResponse @function(name: "tmhStripePauseSubscription-${env}") @aws_cognito_user_pools
+  tmhStripeResumeSubscription(subscriptionID: String): StripeSubscriptionUpdateResponse @function(name: "tmhStripeResumeSubscription-${env}") @aws_cognito_user_pools
+}
+type TransformedStripeSubscription @aws_cognito_user_pools {
+  id: String
+  unit_amount: Float
+  name: String
+  interval: String
+  interval_count: Int
+  current_period_end: Int
+  isPaused: Boolean
+  billing_cycle_anchor: Int
+  status: String
+  cardBrand: String
+  cardLast4: String
+  cardExpiry: String
+  paymentID: String
+}
+type StripeFundData @aws_cognito_user_pools {
+  name: String
+  id: String
+}
+
+type StripeTransaction @aws_cognito_user_pools {
+  transactionNumber: String
+  date: AWSTimestamp
+  currency: String
+  amount: Float
+  fund: StripeFundData
+  paymentMethod: String
+}
+
+type StripeListTransactionsData @aws_cognito_user_pools { 
+  transactions: [StripeTransaction]
+  error: String
+}
+type StripeSubscriptionUpdateResponse @aws_cognito_user_pools {
+  message: String
+}
+type StripeAddPaymentMethodResponse @aws_cognito_user_pools {
+  message: String
+}
+type StripeRemovePaymentResponse @aws_cognito_user_pools {
+  message: String
+}
+type StripeAddPaymentResponse @aws_cognito_user_pools { 
+  message: String
+}
+type StripeProductsData {
+  products: [StripeProduct]
+  error: String
 }
 
 enum PinpointRecencyType {
@@ -249,12 +302,12 @@ input StripeAddressInput {
   state: String
 }
 
-type StripeCustomerData {
-  customer: StripeCustomer
+type StripeCustomerData @aws_cognito_user_pools {
+  message: String
 }
 
 type StripeSubscriptionsListData @aws_cognito_user_pools {
-  data: [StripeSubscriptionsList]
+  subscriptions: [TransformedStripeSubscription]
   has_more: Boolean
 }
 
@@ -322,6 +375,29 @@ type StripePaymentMethod @aws_cognito_user_pools {
   type: String
   card: StripeCard
   billing_details: StripeBillingDetails
+}
+
+type StripeProduct { 
+  id: String
+  object: String
+  active: Boolean
+  attributes: [String]
+	created: Float
+	default_price: String
+	description: String
+	features: [String]
+	images: [String]
+	livemode: Boolean
+	metadata: [String]
+	name: String
+	package_dimensions: String
+	shippable: String
+	statement_descriptor: String
+	tax_code: String
+	type: String
+	unit_label: String
+	updated: Float
+	url: String
 }
 
 type StripeCustomer {
@@ -1538,6 +1614,7 @@ type TMHUser @model @auth(rules: [{allow: groups, groups: ["Admin"], provider: u
   joined: String
   f1PersonId: String @auth(rules: [{allow: owner, ownerField: "owner", operations: [read]}, {allow: groups, groups: ["PaymentService"]}])
   f1HouseholdId: String @auth(rules: [{allow: owner, ownerField: "owner", operations: [read]}, {allow: groups, groups: ["PaymentService"]}])
+  total: Float @auth(rules: [{allow: owner, ownerField: "owner", operations: [read]}, {allow: groups, groups: ["PaymentService", "Admin"], operations: [create, update, delete, read]}])
 }
 
 type TMHSite @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Admin", "LocationManager"], provider: userPools}]){
@@ -1664,4 +1741,4 @@ type Address {
   line2: String
   postal_code: String
   state: String
-}              
+}               

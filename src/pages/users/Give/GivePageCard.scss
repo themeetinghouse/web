@@ -53,6 +53,7 @@
   .GiveButtonContainer {
     display: flex;
     flex-direction: row;
+    margin-top: 40px;
     .ManageRecurringButton {
       flex: 1;
       @media (max-width: 768px) {

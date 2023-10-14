@@ -1,19 +1,16 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
 //import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 //import { Spinner } from 'reactstrap';
 import { LinkButton } from '../../../components/Link/Link';
 import './TotalGivingCard.scss';
+import { Spinner } from 'reactstrap';
+import { useUser } from '../Auth/UserContext';
 export default function TotalGivingCard(): JSX.Element {
   const history = useHistory();
-  //  const [total, setTotal] = useState(0);
-  //  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    setTimeout(() => {
-      //      setTotal(200);
-      //      setIsLoading(false);
-    }, 700);
-  }, []);
+  const [isLoading] = useState(false);
+  const { state } = useUser();
+  const { tmhUserData } = state;
   return (
     <div style={{ textAlign: 'center' }} className="First-Column">
       <h3
@@ -29,9 +26,9 @@ export default function TotalGivingCard(): JSX.Element {
       <br />
       <br />
       <br />
-      {/*
-      <h4 style={{ marginBottom: 41, fontWeight: 700, fontSize: 14 }}>
-        January 1, 2021 - Today
+
+      <h4 style={{ marginBottom: 20, fontWeight: 700, fontSize: 14 }}>
+        My Total Giving{/*January 1, 2021 - Today*/}
       </h4>
       {isLoading ? (
         <div
@@ -52,9 +49,9 @@ export default function TotalGivingCard(): JSX.Element {
             fontSize: 48,
           }}
         >
-          ${total ?? 0}
+          ${tmhUserData?.total ?? 0}
         </p>
-        )*/}
+      )}
       <LinkButton
         style={{
           margin: 'auto',

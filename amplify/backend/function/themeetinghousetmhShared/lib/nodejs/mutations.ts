@@ -2,27 +2,18 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createTmhUser = /* GraphQL */ `
-  mutation CreateTmhUser($input: CreateTMHUserInput!) {
-    createTMHUser(input: $input) {
+export const createTMHUser = /* GraphQL */ `
+  mutation CreateTMHUser(
+    $input: CreateTMHUserInput!
+    $condition: ModelTMHUserConditionInput
+  ) {
+    createTMHUser(input: $input, condition: $condition) {
       id
       given_name
       family_name
-      owner
-      profileImage {
-        userId
-        filenameSmall
-        filenameMedium
-        filenameLarge
-        filenameUpload
-      }
-      joined
-      f1PersonId
-      f1HouseholdId
-      createdAt
-      updatedAt
       email
       phone
+      owner
       stripeCustomerID
       stripeSubscriptionID
       billingAddress {
@@ -32,29 +23,38 @@ export const createTmhUser = /* GraphQL */ `
         line2
         postal_code
         state
+        __typename
       }
+      profileImage {
+        userId
+        filenameSmall
+        filenameMedium
+        filenameLarge
+        filenameUpload
+        __typename
+      }
+      joined
+      f1PersonId
+      f1HouseholdId
+      total
+      createdAt
+      updatedAt
+      __typename
     }
   }
 `;
-export const updateTmhUser = /* GraphQL */ `
-  mutation UpdateTmhUser($input: UpdateTMHUserInput!) {
-    updateTMHUser(input: $input) {
+export const updateTMHUser = /* GraphQL */ `
+  mutation UpdateTMHUser(
+    $input: UpdateTMHUserInput!
+    $condition: ModelTMHUserConditionInput
+  ) {
+    updateTMHUser(input: $input, condition: $condition) {
       id
       given_name
       family_name
-      owner
-      profileImage {
-        userId
-        filenameSmall
-        filenameMedium
-        filenameLarge
-        filenameUpload
-      }
-      joined
-      createdAt
-      updatedAt
       email
       phone
+      owner
       stripeCustomerID
       stripeSubscriptionID
       billingAddress {
@@ -64,9 +64,23 @@ export const updateTmhUser = /* GraphQL */ `
         line2
         postal_code
         state
+        __typename
       }
+      profileImage {
+        userId
+        filenameSmall
+        filenameMedium
+        filenameLarge
+        filenameUpload
+        __typename
+      }
+      joined
       f1PersonId
       f1HouseholdId
+      total
+      createdAt
+      updatedAt
+      __typename
     }
   }
 `;

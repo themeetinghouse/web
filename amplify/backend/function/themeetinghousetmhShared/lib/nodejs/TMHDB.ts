@@ -331,7 +331,7 @@ export default class TMHDB {
       if (login != null) return login;
       console.log({ 'Starting getUser': id });
       const json: any = await API.graphql({
-        query: queries.getTmhUser,
+        query: queries.getTMHUser,
         variables: {
           id: id,
         },
@@ -353,7 +353,7 @@ export default class TMHDB {
     try {
       console.log('Done Auth');
       var queryA = {
-        query: mutations.updateTmhUser,
+        query: mutations.updateTMHUser,
         variables: {
           input: {
             id: id,
