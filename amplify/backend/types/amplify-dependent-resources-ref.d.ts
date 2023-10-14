@@ -17,6 +17,11 @@ export type AmplifyDependentResourcesAttributes = {
       ApiName: 'string';
       RootUrl: 'string';
     };
+    stripeAPI: {
+      ApiId: 'string';
+      ApiName: 'string';
+      RootUrl: 'string';
+    };
     themeetinghouse: {
       GraphQLAPIEndpointOutput: 'string';
       GraphQLAPIIdOutput: 'string';
@@ -211,6 +216,13 @@ export type AmplifyDependentResourcesAttributes = {
       Name: 'string';
       Region: 'string';
     };
+    tmhStripeAPI: {
+      Arn: 'string';
+      LambdaExecutionRole: 'string';
+      LambdaExecutionRoleArn: 'string';
+      Name: 'string';
+      Region: 'string';
+    };
     tmhStripeAddCustomer: {
       Arn: 'string';
       LambdaExecutionRole: 'string';
@@ -275,6 +287,20 @@ export type AmplifyDependentResourcesAttributes = {
       Region: 'string';
     };
     tmhStripeListSubscriptions: {
+      Arn: 'string';
+      LambdaExecutionRole: 'string';
+      LambdaExecutionRoleArn: 'string';
+      Name: 'string';
+      Region: 'string';
+    };
+    tmhStripePauseSubscription: {
+      Arn: 'string';
+      LambdaExecutionRole: 'string';
+      LambdaExecutionRoleArn: 'string';
+      Name: 'string';
+      Region: 'string';
+    };
+    tmhStripeResumeSubscription: {
       Arn: 'string';
       LambdaExecutionRole: 'string';
       LambdaExecutionRoleArn: 'string';

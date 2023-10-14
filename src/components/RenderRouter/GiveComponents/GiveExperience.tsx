@@ -23,7 +23,7 @@ import {
   UpdateTMHUserMutation,
 } from 'API';
 import { v4 as uuidv4 } from 'uuid';
-import PaymentsCard from './PaymentCard';
+import PaymentCard from 'pages/users/PaymentMethods/PaymentCards';
 import { getTMHUserForGiveNow } from 'graphql-custom/customQueries';
 import { updateTMHUser } from 'graphql/mutations';
 import GiveAuthManager from './GiveExperienceLogin/GiveAuthManager';
@@ -88,11 +88,24 @@ const PageOne = () => {
           <input
             min={today}
             data-testid="StartDate"
-            value={moment(state.content.startDate * 1000).format('YYYY-MM-DD')}
+            value={moment.unix(state.content.startDate).format('YYYY-MM-DD')} // Convert Unix timestamp to 'YYYY-MM-DD' format
             onChange={(e) => {
+              const selectedDateStr = e.target.value;
+              const selectedDate = moment(selectedDateStr, 'YYYY-MM-DD');
+              const currentDate = moment();
+              selectedDate.set({
+                hour: currentDate.hours(),
+                minute: currentDate.minutes(),
+                second: currentDate.seconds(),
+              });
+              if (selectedDate.isBefore(currentDate)) {
+                const difference = currentDate.diff(selectedDate, 'seconds');
+                selectedDate.add(difference, 'seconds');
+              }
+              const unixTimestamp = selectedDate.unix();
               dispatch({
                 type: GEActionType.SET_START_DATE,
-                payload: new Date(e.target.value).valueOf() / 1000,
+                payload: unixTimestamp,
               });
             }}
             className="GiveInput"
@@ -139,7 +152,7 @@ const makePayment = async ({
   startingDate,
 }: {
   fundID: string;
-  amount: any;
+  amount: string;
   paymentMethodId?: string;
   selection?: string;
   frequency?: string;
@@ -161,10 +174,8 @@ const makePayment = async ({
   if (paymentMethodId) {
     variables['paymentMethodId'] = paymentMethodId;
   }
-  console.log('Making a payment to ', fundID, ' for ', amount);
   try {
     if (selection == 'Recurring') {
-      console.log({ frequency, amount, fundID, startingDate });
       const tmhStripeAddSubscription = (await API.graphql({
         query: queries.tmhStripeAddSubscription,
         variables: {
@@ -204,6 +215,21 @@ const PageThree = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { state, dispatch } = useContext(GEContext);
   const [userData, setUserData] = useState<TMHUser>();
+  const [errorMessages, setErrorMessages] = useState<string[]>([]);
+  const hasFormErrors = (): string[] => {
+    const errors: string[] = [];
+    if (!form?.given_name) errors.push('First Name is required');
+    if (!form?.family_name) errors.push('Last Name is required');
+    if (!form?.email) errors.push('Email is required');
+    if (!form?.phone) errors.push('Phone is required');
+    if (!form?.billingAddress?.line1) errors.push('Address is required');
+    if (!form?.billingAddress?.city) errors.push('City is required');
+    if (!form?.billingAddress?.state) errors.push('State is required');
+    if (!form?.billingAddress?.postal_code)
+      errors.push('Postal Code is required');
+    if (!form?.billingAddress?.country) errors.push('Country is required');
+    return errors;
+  };
   const loadUserData = useCallback(async () => {
     console.log('Loading user data');
     try {
@@ -238,7 +264,11 @@ const PageThree = () => {
     loadUserData();
   }, [loadUserData]);
   const handleSubmit = async () => {
-    console.log({ form });
+    const errors = hasFormErrors();
+    if (errors.length) {
+      setErrorMessages(errors);
+      return;
+    } else setErrorMessages([]);
     const tempNewUser = {
       billingAddress: {
         line1: form?.billingAddress?.line1,
@@ -295,9 +325,25 @@ const PageThree = () => {
   useEffect(() => {
     console.log({ user: state.user });
   }, [state.user]);
+  const determineRecurring = () => {
+    if (state.content.giftType === 'Recurring') {
+      switch (state.content.frequency) {
+        case 'Every week':
+          return 'per week';
+        case 'Every 2 weeks':
+          return 'every 2 weeks';
+        case 'Every month':
+          return 'per month';
+        default:
+          undefined;
+      }
+    }
+    return undefined;
+  };
   return (
     <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 60 }}>
       <GiveAmountBanner
+        recurring={determineRecurring()}
         goBack={() => dispatch({ type: GEActionType.NAVIGATE_GIVE_NOW })}
         amount={state.content.amount}
       ></GiveAmountBanner>
@@ -306,6 +352,15 @@ const PageThree = () => {
         isFromGive={true}
         form={form}
       ></ProfileForm>
+      <div style={{ flex: 1, paddingLeft: 8 }}>
+        {errorMessages.map((errorText) => {
+          return (
+            <span key={errorText} style={{ color: 'tomato', display: 'block' }}>
+              {errorText}
+            </span>
+          );
+        })}
+      </div>
       <div
         style={{
           display: 'flex',
@@ -357,13 +412,29 @@ const PageFour = () => {
     };
     loadUserData();
   }, [state.user]);
+  const determineRecurring = () => {
+    if (state.content.giftType === 'Recurring') {
+      switch (state.content.frequency) {
+        case 'Every week':
+          return 'per week';
+        case 'Every 2 weeks':
+          return 'every 2 weeks';
+        case 'Every month':
+          return 'per month';
+        default:
+          undefined;
+      }
+    }
+    return undefined;
+  };
   return (
     <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 60 }}>
       <GiveAmountBanner
+        recurring={determineRecurring()}
         goBack={() => dispatch({ type: GEActionType.NAVIGATE_GIVE_NOW })}
         amount={state.content.amount}
       ></GiveAmountBanner>
-      <PaymentsCard />
+      <PaymentCard />
       <div
         style={{
           display: 'flex',
@@ -380,7 +451,7 @@ const PageFour = () => {
               console.log({ state });
               const paymentParams: any = {};
               paymentParams.fundID = state?.content?.fund?.id;
-              paymentParams.amount = state?.content?.amount;
+              paymentParams.amount = parseFloat(state?.content?.amount);
               paymentParams.paymentMethodId =
                 state?.content?.selectedPaymentMethodId;
               paymentParams.selection = state?.content?.giftType;
@@ -404,8 +475,13 @@ const PageFour = () => {
               }
             }}
             className="GENextButton"
+            style={{ width: 'unset', padding: '0px 24px' }}
           >
-            {isLoading ? 'Donating...' : 'Donate'}
+            {isLoading
+              ? 'Loading...'
+              : state.content.giftType === 'Recurring'
+              ? 'Set up recurring giving'
+              : 'Give now'}
           </button>
         ) : null}
       </div>

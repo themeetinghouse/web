@@ -21,11 +21,39 @@ export const handler = async (event) => {
     return { message: 'Unable to validate donation details.' };
   try {
     const user = await TMHDB.getUser(event.identity.username);
-
-    // get customer payment methods
-    // if the payment method belongs to the customer
-    // then we will proceed.
-    // otherwise we will decline the request and return a message with the error.
+    const isAmountValid =
+      amount &&
+      RegExp('^[0-9]*.?[0-9]*$').test(amount) &&
+      typeof amount === 'number' &&
+      amount > 0 &&
+      amount <= 999999;
+    if (!isAmountValid) {
+      console.log('Amount invalid', amount);
+      return { message: 'Amount is not a valid number.' };
+    }
+    const isFundValid = fund && typeof fund === 'string' && fund.length > 0;
+    if (!isFundValid) {
+      console.log('Fund invalid', fund);
+      return { message: 'Fund is not a valid string.' };
+    }
+    const isPaymentMethodIdValid =
+      paymentMethodId &&
+      typeof paymentMethodId === 'string' &&
+      paymentMethodId.length > 0;
+    if (!isPaymentMethodIdValid) {
+      console.log('Payment method invalid', paymentMethodId);
+      return { message: 'Payment method is not a valid string.' };
+    }
+    const isUserValid =
+      user &&
+      typeof user === 'object' &&
+      user.stripeCustomerID &&
+      typeof user.stripeCustomerID === 'string' &&
+      user.stripeCustomerID.length > 0;
+    if (!isUserValid) {
+      console.log('User invalid', user);
+      return { message: 'User is not a valid object.' };
+    }
 
     const paymentMethods = await TMHStripe.listPaymentMethods(
       user.stripeCustomerID,

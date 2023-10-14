@@ -10,7 +10,7 @@ import GiveSelect from './GiveSelect';
 import { TmhStripeAddPaymentQuery, TmhStripeAddSubscriptionQuery } from 'API';
 import { GEContext } from 'components/RenderRouter/GiveComponents/GEContext';
 import { GEActionType } from 'components/RenderRouter/GiveComponents/GETypes';
-import PaymentsCard from '../PaymentMethods/PaymentCard';
+import PaymentCards from '../PaymentMethods/PaymentCards';
 
 export type CardInfo = {
   cardNumber: string;
@@ -25,12 +25,10 @@ export default function GivePageCard() {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const validateAmount = () => {
-    console.log({ validating: state.content });
     if (
       state.content?.fund?.name === '' ||
       state.content?.fund?.name === 'Please make a selection'
     ) {
-      console.log('fund name is empty');
       return false;
     }
 
@@ -51,7 +49,6 @@ export default function GivePageCard() {
       return false;
     }
     const amount = parseFloat(state.content?.amount);
-    console.log({ amount });
     if (amount && amount > 0) {
       return true;
     } else {
@@ -94,6 +91,9 @@ export default function GivePageCard() {
             type: GEActionType.NAVIGATE_TO_COMPLETED,
             payload: { status: 'complete', amount: state.content?.amount },
           });
+          dispatch({
+            type: GEActionType.SET_INITIAL_STATE,
+          });
         } else {
           setErrorMessage(
             result || 'There was an error processing your payment.'
@@ -118,6 +118,9 @@ export default function GivePageCard() {
           dispatch({
             type: GEActionType.NAVIGATE_TO_COMPLETED,
             payload: { status: 'complete', amount: state.content?.amount },
+          });
+          dispatch({
+            type: GEActionType.SET_INITIAL_STATE,
           });
         } else {
           setErrorMessage(
@@ -160,7 +163,7 @@ export default function GivePageCard() {
         <input
           data-testid="Amount"
           type="text"
-          placeholder="20"
+          placeholder="0"
           value={state.content?.amount}
           onChange={(e) => {
             const value = e.target.value;
@@ -204,17 +207,30 @@ export default function GivePageCard() {
             <option value="Every week">Every week</option>
             <option value="Every 2 weeks">Every 2 weeks</option>
             <option value="Every month">Every month</option>
-            <option value={`1st & 15th monthly`}>{'1st & 15th monthly'}</option>
+            {/*<option value={`1st & 15th monthly`}>{'1st & 15th monthly'}</option>*/}
           </select>
-          <label htmlFor="date">Starting</label>
+          <label htmlFor="date">Starting {state.content.startDate}</label>
           <input
             min={today}
             data-testid="StartDate"
-            value={moment(state.content.startDate * 1000).format('YYYY-MM-DD')}
+            value={moment.unix(state.content.startDate).format('YYYY-MM-DD')} // Convert Unix timestamp to 'YYYY-MM-DD' format
             onChange={(e) => {
+              const selectedDateStr = e.target.value;
+              const selectedDate = moment(selectedDateStr, 'YYYY-MM-DD');
+              const currentDate = moment();
+              selectedDate.set({
+                hour: currentDate.hours(),
+                minute: currentDate.minutes(),
+                second: currentDate.seconds(),
+              });
+              if (selectedDate.isBefore(currentDate)) {
+                const difference = currentDate.diff(selectedDate, 'seconds');
+                selectedDate.add(difference, 'seconds');
+              }
+              const unixTimestamp = selectedDate.unix();
               dispatch({
                 type: GEActionType.SET_START_DATE,
-                payload: new Date(e.target.value).valueOf() / 1000,
+                payload: unixTimestamp,
               });
             }}
             className="GiveInput"
@@ -224,7 +240,7 @@ export default function GivePageCard() {
         </>
       ) : null}
       <div>
-        <PaymentsCard />
+        <PaymentCards />
       </div>
       <div className="GiveButtonContainer">
         <div className="ManageRecurringButton">

@@ -6,33 +6,26 @@ import {
   UpdateTMHUserInput,
   UpdateTMHUserMutation,
 } from 'API';
-import { useCallback, useContext, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Spinner } from 'reactstrap';
 import { v4 as uuidv4 } from 'uuid';
-import * as mutations from '../../../graphql/mutations';
+import * as mutations from '../../../graphql-custom/customMutations';
 import * as queries from '../../../graphql/queries';
 import ProfileForm from './ProfileForm';
 import './ProfilePage.scss';
-import { RouteComponentProps, useHistory } from 'react-router-dom';
-import { GEContext } from 'components/RenderRouter/GiveComponents/GEContext';
+import { useHistory } from 'react-router-dom';
 import { getTMHUserForGiveNow } from 'graphql-custom/customQueries';
-import { GEActionType } from 'components/RenderRouter/GiveComponents/GETypes';
+import { useUser } from '../Auth/UserContext';
 type ProfilePageProps = {
   isLoading?: boolean;
 };
 
 export default function ProfilePage(props: ProfilePageProps) {
-  const history = useHistory() as RouteComponentProps['history'] & {
-    location: RouteComponentProps['history']['location'] & {
-      state: { previousLocation?: string };
-    };
-  };
-  console.log({ history });
+  const history = useHistory();
   const [isUpdating, setIsUpdating] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [, setUserData] = useState<TMHUser>();
-  const { state, dispatch } = useContext(GEContext);
-  console.log({ stateInProfile: state });
+  const { state: userState, dispatch: userDispatch } = useUser();
 
   const uploadRef = useRef<any>(null);
   const [form, setForm] = useState<any>();
@@ -70,11 +63,11 @@ export default function ProfilePage(props: ProfilePageProps) {
     if (errors.length) {
       setErrorMessages(errors);
       return;
-    }
+    } else setErrorMessages([]);
     try {
       setIsUpdating(true);
       const temp = {
-        id: form?.id,
+        id: userState.user?.username,
         given_name: form?.given_name,
         family_name: form?.family_name,
         email: form?.email,
@@ -96,13 +89,26 @@ export default function ProfilePage(props: ProfilePageProps) {
         variables: { input: temp },
       })) as GraphQLResult<UpdateTMHUserMutation>;
       console.log({ updateUser: updateTmhUser });
+      const getUser = (await API.graphql({
+        query: getTMHUserForGiveNow,
+        variables: { id: userState.user.username },
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      })) as GraphQLResult<GetTMHUserQuery>;
       await updateUser();
-      dispatch({
-        type: GEActionType.SET_BILLING_DETAILS,
-        payload: { user: updateTmhUser.data?.updateTMHUser },
+      const previousProfileIsComplete = userState.isProfileComplete;
+
+      userDispatch({
+        type: 'SET_USER',
+        payload: {
+          tmhUserData: getUser.data?.getTMHUser,
+          user: userState.user,
+          isProfileComplete: true,
+        },
       });
-      if (history.location.state?.previousLocation) {
-        history.push(history.location.state.previousLocation);
+      if (previousProfileIsComplete) {
+        history.goBack();
+      } else {
+        history.push('/account');
       }
     } catch (e: any) {
       console.log({ errorUpdateUser: e });
@@ -113,36 +119,41 @@ export default function ProfilePage(props: ProfilePageProps) {
   };
   const loadUserData = useCallback(async () => {
     console.log('Loading user data');
-    if (!state.user) return;
+    if (!userState.tmhUserData?.id) return;
     try {
       setIsLoading(true);
       const TMHUser = (await API.graphql({
         query: getTMHUserForGiveNow,
-        variables: { id: state.user.username },
+        variables: { id: userState.user.username },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       })) as GraphQLResult<GetTMHUserQuery>;
       console.log({ TMHUser });
+      const TMHUserData = TMHUser.data?.getTMHUser;
+      if (!TMHUserData) {
+        console.log('No user data');
+        // create user
+        return;
+      }
       setForm({
-        phone: TMHUser.data?.getTMHUser?.phone,
-        given_name: TMHUser.data?.getTMHUser?.given_name ?? '',
-        family_name: TMHUser.data?.getTMHUser?.family_name ?? '',
-        email: TMHUser.data?.getTMHUser?.email,
+        phone: TMHUserData?.phone,
+        given_name: TMHUserData?.given_name ?? '',
+        family_name: TMHUserData?.family_name ?? '',
+        email: TMHUserData?.email,
         billingAddress: {
-          line1: TMHUser.data?.getTMHUser?.billingAddress?.line1 ?? '',
-          city: TMHUser.data?.getTMHUser?.billingAddress?.city ?? '',
-          state: TMHUser.data?.getTMHUser?.billingAddress?.state ?? '',
-          postal_code:
-            TMHUser.data?.getTMHUser?.billingAddress?.postal_code ?? '',
-          country: TMHUser.data?.getTMHUser?.billingAddress?.country ?? '',
+          line1: TMHUserData?.billingAddress?.line1 ?? '',
+          city: TMHUserData?.billingAddress?.city ?? '',
+          state: TMHUserData?.billingAddress?.state ?? '',
+          postal_code: TMHUserData?.billingAddress?.postal_code ?? '',
+          country: TMHUserData?.billingAddress?.country ?? '',
         },
       });
-      setUserData(TMHUser.data?.getTMHUser as TMHUser);
+      setUserData(TMHUserData as TMHUser);
     } catch (error) {
       console.log({ error });
     } finally {
       setIsLoading(false);
     }
-  }, [state.user?.username]);
+  }, [userState.user.username]);
   useEffect(() => {
     loadUserData();
   }, [loadUserData]);
@@ -180,10 +191,8 @@ export default function ProfilePage(props: ProfilePageProps) {
               className="ProfileButton"
             >
               {isUpdating || props.isLoading ? (
-                <>
-                  <Spinner></Spinner> Updating
-                </>
-              ) : history.location?.state?.previousLocation ? (
+                <>Updating...</>
+              ) : !userState.isProfileComplete ? (
                 'Complete your profile'
               ) : (
                 'Update'

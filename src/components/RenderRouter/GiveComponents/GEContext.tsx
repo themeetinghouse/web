@@ -1,6 +1,7 @@
 import React, { createContext, Dispatch, useReducer } from 'react';
 import giveExperienceReducer from './GEReducer';
 import { GEAction, GEPage, GEState } from './GETypes';
+import moment from 'moment';
 
 const initialState = {
   currentPage: GEPage.GIVE_NOW,
@@ -10,12 +11,14 @@ const initialState = {
       id: '',
       name: '',
     },
-    startDate: Date.now() / 1000,
+    startDate: moment().unix(),
     selectedPaymentMethodId: '',
     frequency: 'Every month',
     giftType: 'Give once',
   },
   user: null,
+  billingDetails: null,
+  errorMessage: '',
 };
 
 const GEContext = createContext<{

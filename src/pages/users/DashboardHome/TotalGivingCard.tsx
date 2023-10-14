@@ -1,38 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 //import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 //import { Spinner } from 'reactstrap';
 import { LinkButton } from '../../../components/Link/Link';
 import './TotalGivingCard.scss';
 import { Spinner } from 'reactstrap';
-import { getTMHUser } from 'graphql/queries';
-import { API, GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api';
-import { Auth } from '@aws-amplify/auth';
-import { GetTMHUserQuery } from 'API';
+import { useUser } from '../Auth/UserContext';
 export default function TotalGivingCard(): JSX.Element {
   const history = useHistory();
-  const [total, setTotal] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    (async () => {
-      try {
-        setIsLoading(true);
-        const user = await Auth.currentAuthenticatedUser();
-        if (!user) return;
-        const total = (await API.graphql({
-          query: getTMHUser,
-          variables: { id: user.username },
-          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-        })) as GraphQLResult<GetTMHUserQuery>;
-        console.log({ total });
-        setTotal(total.data?.getTMHUser?.total ?? 0);
-      } catch (error) {
-        console.log({ error });
-      } finally {
-        setIsLoading(false);
-      }
-    })();
-  }, []);
+  const [isLoading] = useState(false);
+  const { state } = useUser();
+  const { tmhUserData } = state;
   return (
     <div style={{ textAlign: 'center' }} className="First-Column">
       <h3
@@ -71,7 +49,7 @@ export default function TotalGivingCard(): JSX.Element {
             fontSize: 48,
           }}
         >
-          ${total ?? 0}
+          ${tmhUserData?.total ?? 0}
         </p>
       )}
       <LinkButton

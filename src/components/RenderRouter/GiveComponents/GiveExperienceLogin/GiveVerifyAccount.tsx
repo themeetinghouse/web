@@ -104,9 +104,6 @@ export default function GiveVerifyAccount(props: {
           Enter your verification code to sign in
         </span>
       </div>
-      <button onClick={() => console.log({ user })} type="button">
-        Check
-      </button>
       <form>
         <label>Email</label>
         <input
@@ -149,33 +146,66 @@ export default function GiveVerifyAccount(props: {
             marginTop: 4,
           }}
         />
+        <span
+          style={
+            errorMessage === 'Code sent'
+              ? { color: 'green' }
+              : { color: 'tomato' }
+          }
+        >
+          {errorMessage}
+        </span>
         <div
           style={{
             display: 'flex',
             flexDirection: 'row',
           }}
         >
-          <span style={{ flex: 1 }}>
-            Already have an account? Click{' '}
-            <span
+          <span style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+            <button
+              type="button"
+              onClick={async () => {
+                try {
+                  if (!user.email) throw new Error('Please enter your email');
+                  await Auth.resendSignUp(user.email.toLowerCase());
+                  setErrorMessage('Code resent');
+                } catch (error: any) {
+                  setErrorMessage(error.message);
+                }
+              }}
               style={{
+                display: 'flex',
+                backgroundColor: 'transparent',
+
+                padding: 0,
+                border: 'none',
                 textDecoration: 'underline',
               }}
             >
-              <button
-                type="button"
-                onClick={() => props?.setPage('login')}
+              Resend code
+            </button>
+            <span>
+              Already have an account? Click{' '}
+              <span
                 style={{
-                  display: 'inline',
-                  backgroundColor: 'none',
-                  padding: 0,
-                  border: 'none',
+                  textDecoration: 'underline',
                 }}
               >
-                here
-              </button>
-            </span>{' '}
-            to sign in
+                <button
+                  type="button"
+                  onClick={() => props?.setPage('login')}
+                  style={{
+                    display: 'inline',
+                    backgroundColor: 'none',
+                    padding: 0,
+                    border: 'none',
+                  }}
+                >
+                  here
+                </button>
+              </span>{' '}
+              to sign in
+            </span>
           </span>
           <button
             disabled={isLoading}

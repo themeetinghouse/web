@@ -37,11 +37,13 @@ type Query {
   tmhStripeListPaymentMethods(pageId: String): StripePaymentMethodsData @function(name: "tmhStripeListPaymentMethods-${env}") @aws_cognito_user_pools
   tmhStripeListSubscriptions(starting_after: String): StripeSubscriptionsListData @function(name: "tmhStripeListSubscriptions-${env}") @aws_cognito_user_pools
   tmhStripeDeleteSubscription(subscriptionId: String): StripeRemovePaymentResponse @function(name: "tmhStripeDeleteSubscription-${env}") @aws_cognito_user_pools
-  tmhStripeAddSubscription(idempotency: String, amount: String, fund: String, frequency: String, paymentMethodId: String, startDate: Int): StripeAddPaymentResponse @function(name: "tmhStripeAddSubscription-${env}") @aws_cognito_user_pools
-  tmhStripeAddPayment(idempotency: String, amount: String, fund: String, paymentMethodId: String): StripeAddPaymentResponse @function(name: "tmhStripeAddPayment-${env}") @aws_cognito_user_pools
+  tmhStripeAddSubscription(idempotency: String, amount: Int, fund: String, frequency: String, paymentMethodId: String, startDate: Int): StripeAddPaymentResponse @function(name: "tmhStripeAddSubscription-${env}") @aws_cognito_user_pools
+  tmhStripeAddPayment(idempotency: String, amount: Int, fund: String, paymentMethodId: String): StripeAddPaymentResponse @function(name: "tmhStripeAddPayment-${env}") @aws_cognito_user_pools
   tmhStripeDeletePaymentMethod(paymentMethodId: String): Boolean @function(name: "tmhStripeDeletePaymentMethod-${env}") @aws_cognito_user_pools
   tmhStripeListProducts: StripeProductsData @function(name: "tmhStripeListProducts-${env}")
   tmhStripeListCustomerTransactions: StripeListTransactionsData @function(name: "tmhStripeListCustomerTransactions-${env}") @aws_cognito_user_pools
+  tmhStripePauseSubscription(subscriptionID: String): StripeSubscriptionUpdateResponse @function(name: "tmhStripePauseSubscription-${env}") @aws_cognito_user_pools
+  tmhStripeResumeSubscription(subscriptionID: String): StripeSubscriptionUpdateResponse @function(name: "tmhStripeResumeSubscription-${env}") @aws_cognito_user_pools
 }
 type TransformedStripeSubscription @aws_cognito_user_pools {
   id: String
@@ -50,6 +52,7 @@ type TransformedStripeSubscription @aws_cognito_user_pools {
   interval: String
   interval_count: Int
   current_period_end: Int
+  isPaused: Boolean
   billing_cycle_anchor: Int
   status: String
   cardBrand: String
@@ -75,7 +78,9 @@ type StripeListTransactionsData @aws_cognito_user_pools {
   transactions: [StripeTransaction]
   error: String
 }
-
+type StripeSubscriptionUpdateResponse @aws_cognito_user_pools {
+  message: String
+}
 type StripeAddPaymentMethodResponse @aws_cognito_user_pools {
   message: String
 }

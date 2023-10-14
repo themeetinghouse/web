@@ -11,7 +11,6 @@ import TMHDB from '../../themeetinghousetmhShared/lib/nodejs/TMHDB';
 import TMHStripe from '../../themeetinghousetmhShared/lib/nodejs/TMHStripe';
 export const handler = async (event) => {
   // TODO implement
-  const idempotency = event.arguments.idempotency;
   try {
     const user = await TMHDB.getUser(event.identity.username);
     console.log({ user });
@@ -60,6 +59,7 @@ export const handler = async (event) => {
           name: fund,
           interval: frequency,
           interval_count: frequency_interval,
+          isPaused: Boolean(subscription?.pause_collection),
           billing_cycle_anchor: startDate,
           current_period_end: nextPayment,
           cardBrand: cardBrand,
@@ -71,12 +71,18 @@ export const handler = async (event) => {
         console.log({ subObject });
         return subObject;
       });
-      return { subscriptions };
+      return { subscriptions, has_more: userSubscriptions.has_more };
     }
-
-    return null;
+    console.log("User doesn't have a stripe customer ID");
+    return {
+      subscriptions: [],
+      has_more: false,
+    };
   } catch (error) {
     console.log({ error });
-    return null;
+    return {
+      subscriptions: [],
+      has_more: false,
+    };
   }
 };

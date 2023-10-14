@@ -44,6 +44,11 @@ const awsmobile = {
             "name": "AdminQueries",
             "endpoint": "https://903cegfkk8.execute-api.us-east-1.amazonaws.com/prodnew",
             "region": "us-east-1"
+        },
+        {
+            "name": "stripeAPI",
+            "endpoint": "https://upud6cyeo4.execute-api.us-east-1.amazonaws.com/prodnew",
+            "region": "us-east-1"
         }
     ],
     "aws_content_delivery_bucket": "heeetingouse-20190312104205-hostingbucket-prodnew",

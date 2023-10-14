@@ -1,29 +1,18 @@
 import { Auth } from 'aws-amplify';
-import { UserContext } from 'components/Auth/UserContext';
-import { useContext, useEffect } from 'react';
 import { Spinner } from 'reactstrap';
 import {
   Link as ClickableText,
   LinkButton,
 } from '../../../components/Link/Link';
 import './ProfileCard.scss';
+import { useUser } from '../Auth/UserContext';
 
 export default function ProfileCard(): JSX.Element {
-  const UserConsumer = useContext(UserContext);
-  //const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    UserConsumer.userActions
-      .getCurrentUserProfile()
-      .then((ok) => {
-        console.log({ 'UserConsumer.userState': UserConsumer.userState });
-      })
-      .catch((error) => console.error({ error }));
-  }, []);
-  const userData = UserConsumer.userState?.user;
-  const userGroups = UserConsumer?.userState?.groups ?? [];
+  const { state, dispatch } = useUser();
+  const { user, tmhUserData } = state;
   return (
     <div className="Profile-Card">
-      {userData == null ? (
+      {!user || !tmhUserData ? (
         <div style={{ margin: 'auto', textAlign: 'center' }}>
           <p>
             <b>Loading profile data..</b>
@@ -35,48 +24,48 @@ export default function ProfileCard(): JSX.Element {
         <>
           <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
             <h3 style={{ marginBottom: 36 }}>
-              {userData?.given_name} {userData?.family_name}
+              {tmhUserData?.given_name} {tmhUserData?.family_name}
             </h3>
-            {userData.email && (
+            {tmhUserData.email && (
               <>
                 <span>Email</span>
-                <p style={{ overflowWrap: 'anywhere' }}>{userData.email}</p>
+                <p style={{ overflowWrap: 'anywhere' }}>{tmhUserData.email}</p>
               </>
             )}
-            {userData.phone && (
+            {tmhUserData.phone && (
               <>
                 <span>Mobile</span>
-                <p>{userData.phone}</p>
+                <p>{tmhUserData.phone}</p>
               </>
             )}
-            {userData.billingAddress?.line1 ||
-            userData.billingAddress?.line2 ||
-            userData.billingAddress?.postal_code ||
-            userData.billingAddress?.city ||
-            userData.billingAddress?.state ||
-            userData.billingAddress?.country ? (
+            {tmhUserData.billingAddress?.line1 ||
+            tmhUserData.billingAddress?.line2 ||
+            tmhUserData.billingAddress?.postal_code ||
+            tmhUserData.billingAddress?.city ||
+            tmhUserData.billingAddress?.state ||
+            tmhUserData.billingAddress?.country ? (
               <div className="AddressContainer">
                 <span>Address</span>
 
-                {userData.billingAddress?.line1 ? (
-                  <p>{userData.billingAddress?.line1}</p>
+                {tmhUserData.billingAddress?.line1 ? (
+                  <p>{tmhUserData.billingAddress?.line1}</p>
                 ) : null}
-                {userData.billingAddress?.postal_code && (
-                  <p>{userData.billingAddress?.postal_code}</p>
+                {tmhUserData.billingAddress?.postal_code && (
+                  <p>{tmhUserData.billingAddress?.postal_code}</p>
                 )}
-                {userData.billingAddress?.city ||
-                  (userData.billingAddress?.state && (
+                {tmhUserData.billingAddress?.city ||
+                  (tmhUserData.billingAddress?.state && (
                     <p>
-                      {userData.billingAddress?.city}{' '}
-                      {userData.billingAddress?.state}
+                      {tmhUserData.billingAddress?.city}{' '}
+                      {tmhUserData.billingAddress?.state}
                     </p>
                   ))}
-                {userData.billingAddress?.country && (
-                  <p>{userData.billingAddress?.country}</p>
+                {tmhUserData.billingAddress?.country && (
+                  <p>{tmhUserData.billingAddress?.country}</p>
                 )}
               </div>
             ) : null}
-            {[...new Set(userGroups)].length ? (
+            {[...new Set()].length ? (
               <p
                 style={{
                   overflowWrap: 'anywhere',
@@ -96,7 +85,7 @@ export default function ProfileCard(): JSX.Element {
                 color: '#212529',
               }}
             >
-              {[...new Set(userGroups)]
+              {[...new Set()]
                 ?.filter((group) => group !== 'Participant')
                 ?.map((a) => ` ${a},`)}
             </p>
@@ -113,7 +102,16 @@ export default function ProfileCard(): JSX.Element {
           <LinkButton
             onClick={async () => {
               await Auth.signOut();
+              dispatch({
+                type: 'SET_USER',
+                payload: {
+                  isProfileComplete: false,
+                  tmhUserData: null,
+                  user: null,
+                },
+              });
             }}
+            type="button"
             style={{
               marginTop: 30,
               marginRight: 0,
@@ -127,7 +125,7 @@ export default function ProfileCard(): JSX.Element {
               borderWidth: 4,
               borderColor: 'black',
             }}
-            to={'/signin'}
+            to={'/account/signin'}
           >
             Logout
           </LinkButton>

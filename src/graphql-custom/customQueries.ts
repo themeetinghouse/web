@@ -200,6 +200,7 @@ export const getTMHUserForGiveNow = /* GraphQL */ `
         postal_code
         state
       }
+      total
       joined
       f1PersonId
       f1HouseholdId

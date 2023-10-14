@@ -10,31 +10,45 @@ import Stripe from 'stripe';
 import TMHDB from '../../themeetinghousetmhShared/lib/nodejs/TMHDB';
 import TMHStripe from '../../themeetinghousetmhShared/lib/nodejs/TMHStripe';
 export const handler = async (event) => {
-  // TODO implement
-  // validate all fields here just in case! return error if any are missing
   const idempotency = event.arguments.idempotency;
   const amount = event.arguments.amount;
   const fund = event.arguments.fund;
   const paymentMethodId = event.arguments.paymentMethodId;
   const user = await TMHDB.getUser(event.identity.username);
-  // validate that amount is a number
-  // validate that fund is a string
-  // validate that paymentMethodId is a string
-  // validate that user is an object
-  // validate that user.stripeCustomerID is a string
-  // validate that idempotency is a string
-  // validate that amount is greater than 0
-  // validate that fund is a valid fund
-  // validate that paymentMethodId is a valid payment method
-  // validate that user.stripeCustomerID is a valid customer
-  // validate that idempotency is unique
-  // validate that the user has a stripe customer id
-  // validate that the user has a valid payment method
-  const isAmountValid = RegExp('^[0-9]*$').test(amount);
+
+  const isAmountValid =
+    amount &&
+    RegExp('^[0-9]*.?[0-9]*$').test(amount) &&
+    typeof amount === 'number' &&
+    amount > 0 &&
+    amount <= 999999;
   if (!isAmountValid) {
+    console.log('Amount invalid', amount);
     return { message: 'Amount is not a valid number.' };
   }
-
+  const isFundValid = fund && typeof fund === 'string' && fund.length > 0;
+  if (!isFundValid) {
+    console.log('Fund invalid', fund);
+    return { message: 'Fund is not a valid string.' };
+  }
+  const isPaymentMethodIdValid =
+    paymentMethodId &&
+    typeof paymentMethodId === 'string' &&
+    paymentMethodId.length > 0;
+  if (!isPaymentMethodIdValid) {
+    console.log('Payment method invalid', paymentMethodId);
+    return { message: 'Payment method is not a valid string.' };
+  }
+  const isUserValid =
+    user &&
+    typeof user === 'object' &&
+    user.stripeCustomerID &&
+    typeof user.stripeCustomerID === 'string' &&
+    user.stripeCustomerID.length > 0;
+  if (!isUserValid) {
+    console.log('User invalid', user);
+    return { message: 'User is not a valid object.' };
+  }
   console.log({ paymentMethodId });
   // get customer payment methods
   // if the payment method belongs to the customer
@@ -99,15 +113,6 @@ export const handler = async (event) => {
         idempotency + '4'
       );
       console.log({ paidInvoice });
-      const userTotal = user.total ? user.total : 0;
-      let sum =
-        parseFloat(userTotal.toString()) + parseFloat(amount.toString());
-      const updatedUser = await TMHDB.updateUser(
-        event.identity.username,
-        'total',
-        sum
-      );
-      console.log({ updatedUser });
       return { message: 'SUCCESS' };
     } catch (error) {
       console.log({ error });

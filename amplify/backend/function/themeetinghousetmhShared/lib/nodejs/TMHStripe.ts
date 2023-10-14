@@ -58,7 +58,51 @@ export default class TMHStripe {
     });
     return customerInvoices;
   }
+  static async pauseSubscription(
+    subscriptionId: string
+  ): Promise<Stripe.Response<Stripe.Subscription>> {
+    const stripe = new Stripe(await this.getSecret('stripeSecret'), {
+      apiVersion: '2020-08-27',
+    });
 
+    const subscriptionResult = await stripe.subscriptions.update(
+      subscriptionId,
+      {
+        pause_collection: { behavior: 'void' },
+      }
+    );
+    return subscriptionResult;
+  }
+  static async resumeSubscription(
+    subscriptionId: string
+  ): Promise<Stripe.Response<Stripe.Subscription>> {
+    const stripe = new Stripe(await this.getSecret('stripeSecret'), {
+      apiVersion: '2020-08-27',
+    });
+
+    const subscriptionResult = await stripe.subscriptions.update(
+      subscriptionId,
+      {
+        pause_collection: null,
+      }
+    );
+    return subscriptionResult;
+  }
+  static async constructEvent(
+    body: Buffer,
+    signature: string
+  ): Promise<Stripe.Event> {
+    const stripe = new Stripe(await this.getSecret('stripeSecret'), {
+      apiVersion: '2020-08-27',
+    });
+
+    const eventResult = await stripe.webhooks.constructEvent(
+      body,
+      signature,
+      await this.getSecret('stripeWebhookSecret')
+    );
+    return eventResult;
+  }
   static async setCustomerDefaultPaymentMethod(
     stripeCustomerID: string,
     paymentMethodId: string,

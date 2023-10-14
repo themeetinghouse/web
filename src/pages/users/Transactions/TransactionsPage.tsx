@@ -1,30 +1,24 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Spinner } from 'reactstrap';
 import { isMobile } from 'react-device-detect';
 import './TransactionsPage.scss';
 import TransactionsPaginate from './TransactionsPaginate';
 import TransactionCollapsibleItem from './TransactionCollapsibleItem';
-import { UserContext } from 'components/Auth/UserContext';
 import moment from 'moment';
 import API, { GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api';
 import { tmhStripeListCustomerTransactions } from 'graphql/queries';
 import { TmhStripeListCustomerTransactionsQuery } from 'API';
+import { useUser } from '../Auth/UserContext';
 
 export default function TransactionsPage(): JSX.Element {
+  const { state } = useUser();
   const [paginationIndex, setPaginationIndex] = useState(0);
   const [transactions, setTransactions] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const UserConsumer = useContext(UserContext);
-  useEffect(() => {
-    UserConsumer.userActions.getReceipts();
-  }, []);
   useEffect(
     function fetchUserTransactionsFromStripe() {
       (async () => {
-        console.clear();
-
-        const user = UserConsumer.userState?.user;
-        if (!user?.stripeCustomerID) {
+        if (!state.tmhUserData?.stripeCustomerID) {
           console.log('NO USER');
           return;
         } else {
@@ -47,7 +41,7 @@ export default function TransactionsPage(): JSX.Element {
         }
       })();
     },
-    [UserConsumer.userState?.user]
+    [state.tmhUserData]
   );
   const tableHeaders = [
     'Transaction No.',
@@ -127,10 +121,8 @@ export default function TransactionsPage(): JSX.Element {
                         return (
                           <tr className="TransactionTableRow" key={x?.id}>
                             <td>{x?.transactionNumber}</td>
-                            <td>
-                              {moment(x?.date * 1000).format('YYYY-MM-DD')}
-                            </td>
-                            <td>{moment(x?.date * 1000).format('HH:mm')}</td>
+                            <td>{moment(x?.date * 1000).format('ll')}</td>
+                            <td>{moment(x?.date * 1000).format('hh:mm A')}</td>
                             <td>
                               {x?.currency}
                               {' $'}

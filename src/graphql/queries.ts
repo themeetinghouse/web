@@ -3830,6 +3830,7 @@ export const tmhStripeListSubscriptions = /* GraphQL */ `
         interval
         interval_count
         current_period_end
+        isPaused
         billing_cycle_anchor
         status
         cardBrand
@@ -3854,7 +3855,7 @@ export const tmhStripeDeleteSubscription = /* GraphQL */ `
 export const tmhStripeAddSubscription = /* GraphQL */ `
   query TmhStripeAddSubscription(
     $idempotency: String
-    $amount: String
+    $amount: Int
     $fund: String
     $frequency: String
     $paymentMethodId: String
@@ -3876,7 +3877,7 @@ export const tmhStripeAddSubscription = /* GraphQL */ `
 export const tmhStripeAddPayment = /* GraphQL */ `
   query TmhStripeAddPayment(
     $idempotency: String
-    $amount: String
+    $amount: Int
     $fund: String
     $paymentMethodId: String
   ) {
@@ -3944,6 +3945,22 @@ export const tmhStripeListCustomerTransactions = /* GraphQL */ `
         __typename
       }
       error
+      __typename
+    }
+  }
+`;
+export const tmhStripePauseSubscription = /* GraphQL */ `
+  query TmhStripePauseSubscription($subscriptionID: String) {
+    tmhStripePauseSubscription(subscriptionID: $subscriptionID) {
+      message
+      __typename
+    }
+  }
+`;
+export const tmhStripeResumeSubscription = /* GraphQL */ `
+  query TmhStripeResumeSubscription($subscriptionID: String) {
+    tmhStripeResumeSubscription(subscriptionID: $subscriptionID) {
+      message
       __typename
     }
   }

@@ -4,6 +4,22 @@ export default function giveExperienceReducer(
   action: GEAction
 ): GEState {
   switch (action.type) {
+    case GEActionType.SET_INITIAL_STATE:
+      return {
+        ...state,
+        content: {
+          amount: state.content.amount,
+          fund: {
+            id: '',
+            name: '',
+          },
+          startDate: Date.now() / 1000,
+          selectedPaymentMethodId: '',
+          frequency: 'Every month',
+          giftType: 'Give once',
+        },
+        errorMessage: '',
+      };
     case GEActionType.NAVIGATE_TO_COMPLETED:
       return {
         ...state,

@@ -14,29 +14,46 @@ import {
   StripeCardExpiryElementChangeEvent,
   StripeCardNumberElementChangeEvent,
 } from '@stripe/stripe-js';
-import {
-  GEActionType,
-  GEPage,
-} from 'components/RenderRouter/GiveComponents/GETypes';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { Spinner } from 'reactstrap';
 import { CardInfo } from '../Give/GivePageCard';
 import './PaymentCard.scss';
 import API, { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
-import { GetTMHUserQuery, TmhStripeAttachPaymentMethodQuery } from 'API';
+import { TmhStripeAttachPaymentMethodQuery } from 'API';
+import { useUser } from '../Auth/UserContext';
 import { GEContext } from 'components/RenderRouter/GiveComponents/GEContext';
-import { useHistory } from 'react-router-dom';
-import { Auth } from '@aws-amplify/auth';
+import { GEActionType } from 'components/RenderRouter/GiveComponents/GETypes';
 
 type AddPaymentMethodCardProps = {
   closeCard: (card?: CardInfo) => void;
   isLoading?: boolean;
 };
+
+const CARD_ELEMENT_OPTIONS = {
+  classes: { base: 'NewCardInput' },
+  style: {
+    base: {
+      color: 'black',
+      fontFamily: '"Graphik Web", Helvetica, sans-serif',
+      fontSmoothing: 'antialiased',
+      fontSize: '16px',
+      '::placeholder': {
+        color: '#aab7c4',
+      },
+    },
+    invalid: {
+      color: 'red',
+      iconColor: '#fa755a',
+    },
+  },
+};
+
 export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
-  const history = useHistory();
-  const { state, dispatch } = useContext(GEContext);
   const { closeCard } = props;
   const [addingCard, setAddingCard] = useState(false);
+  const { state } = useUser();
+  const { dispatch } = useContext(GEContext);
+
   const [stripeValidation, setStripeValidation] = useState({
     cardNumber: false,
     expiryDate: false,
@@ -58,24 +75,6 @@ export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
       setStripeValidation({ ...stripeValidation, [name]: false });
     }
     console.log(stripeValidation);
-  };
-  const CARD_ELEMENT_OPTIONS = {
-    classes: { base: 'NewCardInput' },
-    style: {
-      base: {
-        color: 'black',
-        fontFamily: '"Graphik Web", Helvetica, sans-serif',
-        fontSmoothing: 'antialiased',
-        fontSize: '16px',
-        '::placeholder': {
-          color: '#aab7c4',
-        },
-      },
-      invalid: {
-        color: 'red',
-        iconColor: '#fa755a',
-      },
-    },
   };
   const isCardFormValid = (): boolean => {
     console.log(
@@ -124,36 +123,36 @@ export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
     }
     const fullName =
       cardDataForm?.nameOnCard ||
-      state?.billingDetails?.user?.given_name +
-        ' ' +
-        state?.billingDetails?.user?.family_name;
+      state?.tmhUserData?.given_name + ' ' + state?.tmhUserData?.family_name;
     const elNumber = elements.getElement(CardNumberElement);
     if (elNumber == null) return;
-    console.log({ state });
-    // adding credit card here breaks because user doesnt have billing details in the
-    // account portal flow!
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: 'card',
       card: elNumber,
       billing_details: {
         name: fullName,
-        email: state?.billingDetails?.user?.email,
-        phone: state?.billingDetails?.user?.phone,
+        email: state?.tmhUserData?.email ?? '',
+        phone: state?.tmhUserData?.phone ?? '',
         address: {
-          city: state?.billingDetails?.user?.billingAddress?.city,
-          country: state?.billingDetails?.user?.billingAddress?.country,
-          line1: state?.billingDetails?.user?.billingAddress?.line1,
-          postal_code: state?.billingDetails?.user?.billingAddress?.postal_code,
-          state: state?.billingDetails.user?.billingAddress?.state,
+          city: state?.tmhUserData?.billingAddress?.city ?? '',
+          country: state?.tmhUserData?.billingAddress?.country ?? '',
+          line1: state?.tmhUserData?.billingAddress?.line1 ?? '',
+          postal_code: state?.tmhUserData?.billingAddress?.postal_code ?? '',
+          state: state?.tmhUserData?.billingAddress?.state ?? '',
         },
       },
     });
     if (error) {
-      console.log('[error]', error);
+      //console.log('[error]', error);
     } else {
-      console.log('[PaymentMethod]', paymentMethod);
       if (paymentMethod == null) return;
-      await stripeAttachPaymentMethod(paymentMethod.id);
+      const success = await stripeAttachPaymentMethod(paymentMethod.id);
+      if (success) {
+        dispatch({
+          type: GEActionType.SET_PAYMENT_METHOD_ID,
+          payload: paymentMethod.id,
+        });
+      }
     }
   };
   const addNewPaymentMethod = async () => {
@@ -162,48 +161,7 @@ export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
     setAddingCard(false);
     closeCard(cardDataForm);
   };
-  const isProfileComplete =
-    state?.billingDetails &&
-    state?.billingDetails?.user?.email &&
-    state?.billingDetails?.user?.phone &&
-    state?.billingDetails?.user?.billingAddress &&
-    state?.billingDetails?.user?.billingAddress?.country &&
-    state?.billingDetails?.user?.billingAddress?.line1 &&
-    state?.billingDetails?.user?.billingAddress?.city &&
-    state?.billingDetails?.user?.billingAddress?.postal_code &&
-    state?.billingDetails?.user?.billingAddress?.state &&
-    state?.billingDetails?.user?.given_name &&
-    state?.billingDetails?.user?.family_name;
-  useEffect(() => {
-    (async () => {
-      console.log({ state });
-      if (!state?.billingDetails) {
-        try {
-          console.log({ state });
-          //navigate to profile page with callback
-          const user = await Auth.currentAuthenticatedUser();
-          if (!user) return;
-          dispatch({
-            type: GEActionType.SET_USER,
-            payload: user,
-          });
-          const userData = (await API.graphql({
-            query: queries.getTMHUser,
-            variables: { id: user.username },
-            authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-          })) as GraphQLResult<GetTMHUserQuery>;
-          console.log({ userData });
-          if (!isProfileComplete) {
-            history.push('/account/profile', {
-              previousLocation: `${history.location.pathname}`,
-            });
-          }
-        } catch (error) {
-          console.error({ error });
-        }
-      }
-    })();
-  }, [isProfileComplete]);
+  console.log({ state });
   return (
     <>
       <div className="SecurePaymentContainer">
@@ -213,7 +171,7 @@ export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
         />
       </div>
       <div className="AddNewCardContainer">
-        {isProfileComplete ? (
+        {state.isProfileComplete ? (
           <>
             <div
               style={{
@@ -223,9 +181,7 @@ export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
               }}
             >
               <h3 style={{ flex: 1, fontWeight: 300 }}>
-                {state?.currentPage === GEPage?.PAYMENT_INFO
-                  ? 'Credit card information'
-                  : 'New credit card information'}
+                Credit card information
               </h3>
               <img src={`/static/svg/Secure-Payment.svg`} />
             </div>
@@ -308,7 +264,7 @@ export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
             </span>{' '}
           </>
         ) : (
-          <span>You must first fill out your profile before proceeding. </span>
+          <span>xYou must first fill out your profile before proceeding. </span>
         )}
       </div>
     </>

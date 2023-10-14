@@ -1,8 +1,6 @@
-import { render } from 'react-dom';
-import { Router } from 'react-router-dom';
+import ReactDOM from 'react-dom';
 import * as Sentry from '@sentry/browser';
 import App from './App';
-import { createBrowserHistory, History } from 'history';
 import { CookiesProvider } from 'react-cookie';
 import { version } from './version';
 import ErrorBoundry from './components/ErrorBoundry';
@@ -23,16 +21,12 @@ Sentry.init({
     'TypeError: Cancelled',
   ],
 });
-
-const history: History = createBrowserHistory();
-
-render(
-  <Router history={history}>
-    <CookiesProvider>
-      <ErrorBoundry>
-        <App />
-      </ErrorBoundry>
-    </CookiesProvider>
-  </Router>,
-  document.querySelector('#root')
+const rootElement = document.getElementById('root');
+ReactDOM.render(
+  <CookiesProvider>
+    <ErrorBoundry>
+      <App />
+    </ErrorBoundry>
+  </CookiesProvider>,
+  rootElement
 );

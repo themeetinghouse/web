@@ -9,6 +9,17 @@ export const createSpeakerVideosCustom = /* GraphQL */ `
   }
 `;
 
+export const updateTMHUser = /* GraphQL */ `
+  mutation UpdateTMHUser(
+    $input: UpdateTMHUserInput!
+    $condition: ModelTMHUserConditionInput
+  ) {
+    updateTMHUser(input: $input, condition: $condition) {
+      id
+    }
+  }
+`;
+
 export const updateSpeaker = /* GraphQL */ `
   mutation UpdateSpeaker($input: UpdateSpeakerInput!) {
     updateSpeaker(input: $input) {

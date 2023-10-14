@@ -69,19 +69,22 @@ h1 {
 .Payments-ItemContainer {
   margin-bottom: 30px;
   display: flex;
-  flex-direction: row;
-  padding: 38px 29px 28px 32px;
+  flex-direction: column;
+  flex: 1;
+  padding: 32px 29px 28px 32px;
   border: 2px solid #c8c8c8;
   background-color: white;
   min-height: 230px;
   @media (max-width: 920px) {
     flex-direction: column;
+    min-height: 230px;
   }
 }
 .CardImageContainer {
   display: flex;
   flex-direction: column;
   min-width: 68px;
+  margin-right: 16px;
   @media (max-width: 920px) {
     img {
       width: 46px;
@@ -89,30 +92,11 @@ h1 {
     }
   }
 }
-.CardInfoContainer {
-  @media (max-width: 920px) {
-    margin-top: -40px;
-  }
-
-  flex: 1;
-  margin-left: 67px;
-  display: flex;
-  flex-direction: column;
-}
 .CardButtonContainer {
   justify-content: flex-end;
   flex-direction: row;
+  flex: 1;
   display: flex;
-  :last-child {
-    margin-left: 14px;
-  }
-  @media (max-width: 920px) {
-    flex-direction: column-reverse;
-    :last-child {
-      margin-left: unset;
-    }
-    margin-left: -67px;
-  }
 }
 
 .CardButton {
@@ -125,6 +109,7 @@ h1 {
   width: 117px;
   margin-bottom: 8px;
   height: 56px;
+  align-self: flex-end;
   &.white {
     background-color: white;
     border: 4px solid black;
@@ -137,7 +122,10 @@ h1 {
       border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   }
   @media (max-width: 920px) {
-    width: 100%;
+    align-self: unset;
+    flex: 1;
+    margin-top: 20px;
+    width: unset;
   }
 }
 

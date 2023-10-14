@@ -4,10 +4,11 @@ import { Spinner } from 'reactstrap';
 import './GiveManageRecurringCard.scss';
 import API, { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import * as queries from '../../../../src/graphql/queries';
-import { v4 as uuidv4 } from 'uuid';
 import {
   TmhStripeDeleteSubscriptionQuery,
   TmhStripeListSubscriptionsQuery,
+  TmhStripePauseSubscriptionQuery,
+  TmhStripeResumeSubscriptionQuery,
   TransformedStripeSubscription,
 } from 'API';
 import moment from 'moment';
@@ -29,7 +30,6 @@ export default function GiveManageRecurringCard(): JSX.Element {
       const tmhStripeListSubscriptions = (await API.graphql({
         query: queries.tmhStripeListSubscriptions,
         variables: {
-          idempotency: uuidv4(),
           starting_after: '',
         },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
@@ -140,10 +140,11 @@ const GiveRecurringCard = ({
   >;
 }) => {
   const startDate = giving?.billing_cycle_anchor ?? 0;
-  const startingDate = moment(startDate * 1000).format('lll');
+  const startingDate = moment(startDate * 1000).format('ll');
   const nextDate = giving?.current_period_end ?? 0;
-  const nextPaymentDate = moment(nextDate * 1000).format('lll');
+  const nextPaymentDate = moment(nextDate * 1000).format('ll');
   const [isDeleting, setIsDeleting] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const deleteSubscription = async (giving: any) => {
     try {
       setIsDeleting(true);
@@ -166,9 +167,72 @@ const GiveRecurringCard = ({
     }
     return;
   };
+  const pauseSubscription = async () => {
+    try {
+      if (!giving?.id) return;
+      setIsLoading(true);
+      const pauseSub = (await API.graphql({
+        query: queries.tmhStripePauseSubscription,
+        variables: {
+          subscriptionID: giving?.id,
+        },
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      })) as GraphQLResult<TmhStripePauseSubscriptionQuery>;
+      console.log({ pauseSub });
+      if (pauseSub.data?.tmhStripePauseSubscription?.message === 'SUCCESS') {
+        setGivings((prev) =>
+          prev?.map((givingItem) => {
+            if (givingItem?.id === giving?.id) {
+              return {
+                ...givingItem,
+                isPaused: true,
+              };
+            }
+            return givingItem;
+          })
+        );
+      }
+    } catch (error) {
+      console.error({ error });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  const resumeSubscription = async () => {
+    try {
+      if (!giving?.id) return;
+      setIsLoading(true);
+      const resumeSub = (await API.graphql({
+        query: queries.tmhStripeResumeSubscription,
+        variables: {
+          subscriptionID: giving?.id,
+        },
+        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+      })) as GraphQLResult<TmhStripeResumeSubscriptionQuery>;
+      console.log({ resumeSub });
+      if (resumeSub.data?.tmhStripeResumeSubscription?.message === 'SUCCESS') {
+        setGivings((prev) =>
+          prev?.map((givingItem) => {
+            if (givingItem?.id === giving?.id) {
+              return {
+                ...givingItem,
+                isPaused: false,
+              };
+            }
+            return givingItem;
+          })
+        );
+      }
+    } catch (error) {
+      console.error({ error });
+    } finally {
+      setIsLoading(false);
+    }
+  };
   const isTrial = giving?.status === 'trialing';
   const hasCard = giving?.cardLast4;
   const isActive = giving?.status === 'active';
+  console.log({ giving });
   return (
     <div key={giving?.id} className="PaymentMethodCard">
       <p className="PaymentMethodCardHeader">
@@ -177,7 +241,34 @@ const GiveRecurringCard = ({
       <p className="PaymentMethodCardLabel">Fund</p>
       <p>{giving?.name}</p>
       <p className="PaymentMethodCardLabel">Next payment</p>
-      <p>{nextPaymentDate}</p>
+      <div style={{ display: 'flex' }}>
+        <p style={{ flex: 1 }}>{nextPaymentDate}</p>
+        <button
+          disabled={isLoading || isDeleting}
+          style={{
+            backgroundColor: 'transparent',
+            border: 'none',
+            cursor: 'pointer',
+            padding: 0,
+            textDecoration: 'underline',
+            textUnderlineOffset: 6,
+            color: '#000000',
+            marginBottom: 16,
+            alignSelf: 'flex-end',
+          }}
+          type="button"
+          onClick={giving?.isPaused ? resumeSubscription : pauseSubscription}
+        >
+          {isLoading ? (
+            <Spinner size="sm" />
+          ) : giving?.isPaused ? (
+            'Resume'
+          ) : (
+            'Pause'
+          )}
+        </button>
+      </div>
+
       <p className="PaymentMethodCardLabel">Frequency:</p>
       <p>
         Every {giving.interval_count === 1 ? '' : giving.interval_count}{' '}
@@ -242,6 +333,8 @@ const GiveRecurringCard = ({
       ) : null}
       <div className="PaymentMethodCardButtonContainer">
         <button
+          type="button"
+          disabled={isDeleting || isLoading}
           onClick={() => deleteSubscription(giving)}
           className="PaymentMethodCardButton white"
         >
