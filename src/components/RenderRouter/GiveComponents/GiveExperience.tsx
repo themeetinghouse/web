@@ -5,8 +5,6 @@ import GiveToggleButton from 'pages/users/Give/GiveToggleButton';
 import GiftAmountButton from './GiftAmountButton';
 import GiveSelect from 'pages/users/Give/GiveSelect';
 import './GiveExperience.scss';
-import { loadStripe } from '@stripe/stripe-js';
-import { Elements } from '@stripe/react-stripe-js';
 import ProfileForm from 'pages/users/ProfilePage/ProfileForm';
 import { useEffect } from 'react';
 import GiveAmountBanner from './GiveAmountBanner';
@@ -29,12 +27,6 @@ import { updateTMHUser } from 'graphql/mutations';
 import GiveAuthManager from './GiveExperienceLogin/GiveAuthManager';
 import moment from 'moment';
 
-let env = 'unknown';
-if (window.location === undefined) env = 'mobile';
-else if (window.location.hostname === 'localhost') env = 'dev';
-else if (window.location.hostname.includes('beta')) env = 'beta';
-else if (window.location.hostname.includes('dev')) env = 'dev';
-else env = 'prod';
 const PageOne = () => {
   const { dispatch, state } = useContext(GEContext);
   const [error, setError] = useState('');
@@ -501,53 +493,44 @@ const CompletionPage = () => {
   );
 };
 export default function GiveExperience() {
-  const [stripePromise] = useState(() =>
-    loadStripe(
-      env == 'beta'
-        ? 'pk_live_51HAcOAIlbu4bS03qno9sD7TKwDEp6QxFG4NcJ0hPmNsgVaotP9dn1yzlWv8X0lT7EN0F5stRW3WdfJ8NUyxucOfg00TILPz7wA'
-        : 'pk_test_51HAcOAIlbu4bS03qE6aactYWmVDkD3scHYRNRWSFhZHIontFxTcf8eWb9ZzYAR9aIBug7Xr9xuyXFXzgTz5MMeJg00VDuFFRTk'
-    )
-  );
   const { state, dispatch } = useContext(GEContext);
 
   return (
-    <Elements stripe={stripePromise}>
-      <div className="GiveContentContainer">
-        {state.currentPage === GEPage.GIVE_NOW ? (
-          <PageOne></PageOne>
-        ) : state.currentPage === GEPage.AUTH ? (
-          <GiveAuthManager />
-        ) : state.currentPage === GEPage.PAYMENT_INFO ? (
-          <PageThree />
-        ) : state.currentPage === GEPage.PAYMENT_CARD ? (
-          <PageFour />
-        ) : state.currentPage === GEPage.COMPLETED ? (
-          <CompletionPage></CompletionPage>
-        ) : state.currentPage === GEPage.ONLINE_BANKING ? (
-          <GiveOnlineBankingInfo
-            dispatch={dispatch}
-            content={state.content}
-          ></GiveOnlineBankingInfo>
-        ) : state.currentPage === GEPage.REQUEST_ACCOUNT ? (
-          <iframe
-            src={'https://meeting.formstack.com/forms/request_account_number'}
-            title="The Meeting House - Forms"
-            scrolling="yes"
-            className="GiveFormId"
-            style={{ minHeight: '115vh', width: '100%', border: 'none' }} // TODO : STYLING
-          ></iframe>
-        ) : state.currentPage === GEPage.PREAUTHORIZED_WITHDRAWAL ? (
-          <iframe
-            src={
-              'https://meeting.formstack.com/forms/preauthorized_withdrawal_form'
-            }
-            title="The Meeting House - Forms"
-            scrolling="yes"
-            className="GiveFormId"
-            style={{ height: '115vh', width: '100%', border: 'none' }} // TODO : STYLING
-          ></iframe>
-        ) : null}
-      </div>
-    </Elements>
+    <div className="GiveContentContainer">
+      {state.currentPage === GEPage.GIVE_NOW ? (
+        <PageOne></PageOne>
+      ) : state.currentPage === GEPage.AUTH ? (
+        <GiveAuthManager />
+      ) : state.currentPage === GEPage.PAYMENT_INFO ? (
+        <PageThree />
+      ) : state.currentPage === GEPage.PAYMENT_CARD ? (
+        <PageFour />
+      ) : state.currentPage === GEPage.COMPLETED ? (
+        <CompletionPage></CompletionPage>
+      ) : state.currentPage === GEPage.ONLINE_BANKING ? (
+        <GiveOnlineBankingInfo
+          dispatch={dispatch}
+          content={state.content}
+        ></GiveOnlineBankingInfo>
+      ) : state.currentPage === GEPage.REQUEST_ACCOUNT ? (
+        <iframe
+          src={'https://meeting.formstack.com/forms/request_account_number'}
+          title="The Meeting House - Forms"
+          scrolling="yes"
+          className="GiveFormId"
+          style={{ minHeight: '115vh', width: '100%', border: 'none' }} // TODO : STYLING
+        ></iframe>
+      ) : state.currentPage === GEPage.PREAUTHORIZED_WITHDRAWAL ? (
+        <iframe
+          src={
+            'https://meeting.formstack.com/forms/preauthorized_withdrawal_form'
+          }
+          title="The Meeting House - Forms"
+          scrolling="yes"
+          className="GiveFormId"
+          style={{ height: '115vh', width: '100%', border: 'none' }} // TODO : STYLING
+        ></iframe>
+      ) : null}
+    </div>
   );
 }
