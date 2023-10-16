@@ -1,7 +1,7 @@
 import React from 'react';
 import './BlogPreview.scss';
 import { Dropdown, DropdownToggle } from 'reactstrap';
-import ReactHtmlParser from 'react-html-parser';
+import parse from 'html-react-parser';
 import { convertToRaw } from 'draft-js';
 import draftToHtml from 'draftjs-to-html';
 import format from 'date-fns/format';
@@ -77,7 +77,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
               </div>
             ) : null}
             <div className="ShareButtonDesktop">{this.shareButton()}</div>
-            <div className="body">{ReactHtmlParser(this.getMarkup())}</div>
+            <div className="body">{parse(this.getMarkup())}</div>
           </div>
         </>
       );
@@ -90,14 +90,12 @@ export default class VideoPlayer extends React.Component<Props, State> {
           </div>
           <div className="blog-content">
             <h1 className="blog-h1">{this.state.data.title}</h1>
-            <div className="body">
-              {ReactHtmlParser(this.getNotesMarkup('notes'))}
-            </div>
+            <div className="body">{parse(this.getNotesMarkup('notes'))}</div>
             <div
               style={{ borderBottom: 'black 1px solid', width: '48.33vw' }}
             ></div>
             <div className="body">
-              {ReactHtmlParser(this.getNotesMarkup('questions'))}
+              {parse(this.getNotesMarkup('questions'))}
             </div>
           </div>
         </>

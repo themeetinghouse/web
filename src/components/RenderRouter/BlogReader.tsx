@@ -6,7 +6,7 @@ import {
   DropdownItem,
   Fade,
 } from 'reactstrap';
-import ReactHtmlParser from 'react-html-parser';
+import parse from 'html-react-parser';
 import { LinkButton } from 'components/Link/Link';
 import {
   FacebookShareButton,
@@ -225,7 +225,7 @@ export default function BlogReader({ data, style }: Props) {
             </div>
             <ShareButton className="ShareButtonDesktop" />
             <div data-testid="blog-body" id="blog-body" className="blog-body">
-              {ReactHtmlParser(data.content ?? '')}
+              {parse(data.content ?? '')}
             </div>
             <ShareButton className="ShareButtonMobile" />
           </div>
@@ -311,13 +311,11 @@ export default function BlogReader({ data, style }: Props) {
             <h1 className="blog-h1">{data.title}</h1>
             <DownloadButton className="ShareButtonDesktop" pdf={data.pdf} />
             <div className={data.questions ? 'notes-body' : 'blog-body'}>
-              {ReactHtmlParser(data.content ?? '')}
+              {parse(data.content ?? '')}
             </div>
             {data.questions ? <div className="notes-line" /> : null}
             {data.questions ? (
-              <div className="questions-body">
-                {ReactHtmlParser(data.questions)}
-              </div>
+              <div className="questions-body">{parse(data.questions)}</div>
             ) : null}
             <DownloadButton className="ShareButtonMobile" pdf={data.pdf} />
           </div>
