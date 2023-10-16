@@ -142,7 +142,20 @@ export default function LocationsModalGeneral({
               />
             </div>
           </label>
+          <label>
+            <div style={{ display: 'flex', flexDirection: 'row' }}>
+              Show In Location Map
+              <input
+                onChange={handleChange}
+                className={styles['LocationsModalCheckbox']}
+                name="showInLocationMap"
+                checked={Boolean(newLocData?.showInLocationMap)}
+                type="checkbox"
+              />
+            </div>
+          </label>
         </div>
+
         <div
           style={{
             flex: 1,
@@ -190,7 +203,27 @@ export default function LocationsModalGeneral({
               type="text"
             />
           </label>
+          <label>
+            <div style={{ display: 'flex', flexDirection: 'row' }}>
+              Pastor Email
+              <TMHTooltip
+                tooltipText={`Enter the pastor's email. This will be used on the locations page "Contact Pastor" button, and the all locations map/list page.`}
+              >
+                <span style={{ marginLeft: 4 }}>ⓘ</span>
+              </TMHTooltip>
+            </div>
+            <span style={{ fontSize: 9, fontWeight: 400 }}>
+              Enter the pastor&apos;s email
+            </span>
 
+            <input
+              onChange={handleChange}
+              placeholder="i.e. someone@themeetinghouse.com"
+              name={'pastorEmail'}
+              value={newLocData?.pastorEmail ?? ''}
+              type="text"
+            />
+          </label>
           <label>
             <div style={{ display: 'flex', flexDirection: 'row' }}>
               Home Church Group ID
@@ -252,18 +285,6 @@ export default function LocationsModalGeneral({
               />
             </label>
           </div>
-          <label>
-            <div style={{ display: 'flex', flexDirection: 'row' }}>
-              Show In Location Map
-              <input
-                onChange={handleChange}
-                className={styles['LocationsModalCheckbox']}
-                name="showInLocationMap"
-                checked={Boolean(newLocData?.showInLocationMap)}
-                type="checkbox"
-              />
-            </div>
-          </label>
         </div>
       </div>
     </div>
