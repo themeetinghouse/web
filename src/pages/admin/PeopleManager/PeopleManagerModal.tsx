@@ -235,7 +235,7 @@ function TMHSites({
           flexDirection: 'row',
         }}
       >
-        Sites:
+        Teams:
       </div>
       <CreatableSelect
         isDisabled={isLoading}
