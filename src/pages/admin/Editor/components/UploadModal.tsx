@@ -18,7 +18,7 @@ export default function UploadModal({
   contentType: string;
   onUpload?: (newFileKey: string) => any;
 }) {
-  const [file, setFile] = React.useState<File | null>(null);
+  const [file, setFile] = React.useState<File>();
   const [resultMessage, setResultMessage] = React.useState('');
   const [showOverwriteMessage, setShowOverwriteMessage] = React.useState(false);
   const [isSaving, setIsSaving] = React.useState(false);
@@ -27,7 +27,7 @@ export default function UploadModal({
     setResultMessage('');
     setShowOverwriteMessage(false);
     setIsSaving(false);
-    setFile(null);
+    setFile(undefined);
     setShowUploadModal(false);
   };
 
@@ -113,9 +113,10 @@ export default function UploadModal({
           <TMHInput
             type="file"
             accept={'image/*,.pdf'}
+            value={file}
             onChange={(event) => {
               const file = event?.target?.files?.[0];
-              console.log({ file: file });
+              if (!file) return;
               if (file) setFile(file);
             }}
           />
