@@ -1,7 +1,7 @@
 import { NavLink as RSNavLink } from 'reactstrap';
 import { NavLink as RRNavLink } from 'react-router-dom';
-import React, { useEffect } from 'react';
-import { flipElementColor } from './navUtils';
+import { useEffect } from 'react';
+import useAndUpdateNavColor from './useAndUpdateNavColor';
 
 type RSNavLinkWrapperProps = {
   item: any;
@@ -10,26 +10,10 @@ type RSNavLinkWrapperProps = {
 };
 export default function RSNavLinkWrapper(props: RSNavLinkWrapperProps) {
   const { item, className, expand } = props;
-  const [color, setColor] = React.useState('#1A1A1A');
-  flipElementColor(
-    item.location,
-    '#FFFFFF',
-    '#1A1A1A',
-    color,
-    setColor,
-    ['oneImageBlackBox', 'partialNoFooter', 'divPartial', 'partialConnect'],
-    15
-  );
+  const { color, forceCheck } = useAndUpdateNavColor('#1A1A1A', item.location);
+
   useEffect(() => {
-    flipElementColor(
-      item.location,
-      '#FFFFFF',
-      '#1A1A1A',
-      color,
-      setColor,
-      ['oneImageBlackBox', 'partialNoFooter', 'divPartial', 'partialConnect'],
-      15
-    );
+    forceCheck();
   }, [expand]);
 
   return (

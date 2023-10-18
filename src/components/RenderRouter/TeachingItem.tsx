@@ -1,5 +1,5 @@
 import React, { EventHandler, SyntheticEvent } from 'react';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps, useHistory } from 'react-router-dom';
 import { withCookies } from 'react-cookie';
 import './TeachingItem.scss';
 import * as customQueries from '../../graphql-custom/customQueries';
@@ -10,9 +10,12 @@ import { Button } from 'reactstrap';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import FadeImage from 'components/ScaledImage/FadeImage';
 
-interface Props extends RouteComponentProps {
+interface Props {
   content: any;
   cookies: any;
+}
+interface TeachingItemProps extends Props {
+  history: RouteComponentProps['history'];
 }
 interface State {
   content: any;
@@ -21,8 +24,8 @@ interface State {
   teachingId: any;
   overlayData: any;
 }
-class TeachingItem extends React.Component<Props, State> {
-  constructor(props: Props) {
+class TeachingItem extends React.Component<TeachingItemProps, State> {
+  constructor(props: TeachingItemProps) {
     super(props);
     const { cookies } = props;
     if (cookies.get(this.props.content.group) == null)
@@ -376,5 +379,9 @@ class TeachingItem extends React.Component<Props, State> {
     } else return null;
   }
 }
+function TeachingItemWrapper(props: Props) {
+  const history = useHistory();
+  return <TeachingItem {...props} history={history} />;
+}
 
-export default withCookies(withRouter(TeachingItem));
+export default withCookies(TeachingItemWrapper);

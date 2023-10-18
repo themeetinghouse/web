@@ -22,51 +22,51 @@ class Admin extends React.Component {
     return (
       <div>
         <Switch>
-          <Route
-            path="/account/admin/import-video"
-            render={() => <ImportVideo />}
-          />
-          <Route
-            path="/account/admin/move-video"
-            render={() => <MoveVideo />}
-          />
-          <Route
-            path="/account/admin/create-blog"
-            render={() => <CreateBlog />}
-          />
-          <Route
-            path="/account/admin/create-notes"
-            render={() => <CreateNotes />}
-          />
-          <Route path="/account/admin/livestream" render={() => <AddLive />} />
-          <Route path="/account/admin/videos" render={() => <VideoManager />} />
-          <Route
-            path="/account/admin/permissions"
-            render={() => <PermissionsManager />}
-          />
-          <Route path="/account/admin/instagram" render={() => <GetInsta />} />
-          <Route path="/account/admin/editor" render={() => <Editor />} />
-          <Route
-            path="/account/admin/clearCache"
-            render={() => <ClearCache />}
-          />
-          <Route
-            path="/account/admin/announcements"
-            render={() => <Announcements />}
-          />
-          <Route
-            path="/account/admin/homechurches"
-            render={() => <HomeChurch />}
-          />
-          <Route
-            path="/account/admin/locations"
-            render={() => <LocationsManager />}
-          />
-          <Route path="/account/admin/redirects" render={() => <Redirect />} />
-          <Route
-            path="/account/admin/people"
-            render={() => <PeopleManager />}
-          />
+          <Route path="/account/admin/import-video">
+            <ImportVideo />
+          </Route>
+          <Route path="/account/admin/move-video">
+            <MoveVideo />
+          </Route>
+          <Route path="/account/admin/create-blog">
+            <CreateBlog />
+          </Route>
+          <Route path="/account/admin/create-notes">
+            <CreateNotes />
+          </Route>
+          <Route path="/account/admin/livestream">
+            <AddLive />
+          </Route>
+          <Route path="/account/admin/videos">
+            <VideoManager />
+          </Route>
+          <Route path="/account/admin/permissions">
+            <PermissionsManager />
+          </Route>
+          <Route path="/account/admin/instagram">
+            <GetInsta />
+          </Route>
+          <Route path="/account/admin/editor">
+            <Editor />
+          </Route>
+          <Route path="/account/admin/clearCache">
+            <ClearCache />
+          </Route>
+          <Route path="/account/admin/announcements">
+            <Announcements />
+          </Route>
+          <Route path="/account/admin/homechurches">
+            <HomeChurch />
+          </Route>
+          <Route path="/account/admin/locations">
+            <LocationsManager />
+          </Route>
+          <Route path="/account/admin/redirects">
+            <Redirect />
+          </Route>
+          <Route path="/account/admin/people">
+            <PeopleManager />
+          </Route>
         </Switch>
       </div>
     );

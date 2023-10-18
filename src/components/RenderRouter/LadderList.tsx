@@ -1,8 +1,7 @@
 import React, { ReactNode } from 'react';
-import { RouteComponentProps, withRouter } from 'react-router-dom';
 import './LadderList.scss';
 
-interface Props extends RouteComponentProps {
+interface Props {
   darkMode?: boolean;
   children?: (JSX.Element | null)[];
 }
@@ -42,4 +41,4 @@ class LadderList extends React.Component<Props, State> {
   }
 }
 
-export default withRouter(LadderList);
+export default LadderList;

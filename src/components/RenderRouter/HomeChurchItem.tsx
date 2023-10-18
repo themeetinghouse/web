@@ -21,7 +21,7 @@ import moment from 'moment-timezone';
 import React, { CSSProperties } from 'react';
 import AddToCalendar, { Event } from '../AddToCalendar/AddToCalendar';
 import { isMobile } from 'react-device-detect';
-import { RouteComponentProps, withRouter } from 'react-router-dom';
+import { RouteComponentProps, useHistory } from 'react-router-dom';
 import Select from 'react-select';
 import { Spinner } from 'reactstrap';
 import DataLoader, { LocationData } from './DataLoader';
@@ -34,10 +34,12 @@ const HOME_CHURCH_PIN_URL = '/static/svg/HomeChurchPin.svg';
 const HOME_CHURCH_PIN_SELECTED_URL = '/static/svg/HomeChurchPin-selected.svg';
 const CURRENT_LOCATION_URL = '/static/svg/CurrentLocation.svg';
 const DEFAULT_LAT_LNG = { lng: -79.685926, lat: 43.511459 };
-interface Props extends RouteComponentProps, IProvidedProps {
+interface Props extends IProvidedProps {
   content: HomeChurchItemContent;
 }
-
+interface HomeChurchItemProps extends Props {
+  history: RouteComponentProps['history'];
+}
 interface State {
   selectedPlace: F1Group | null;
   selectedPlaceMarker?: google.maps.Marker;
@@ -88,13 +90,13 @@ function latLngOfGroup(g: F1Group): google.maps.LatLngLiteral {
   };
 }
 
-export class ContentItem extends React.Component<Props, State> {
+export class ContentItem extends React.Component<HomeChurchItemProps, State> {
   selectControlDay: any | null = null;
   selectControlLocation: any | null = null;
   homeChurchListScrollContainer: HTMLDivElement | null = null;
   map: google.maps.Map | undefined;
 
-  constructor(props: Props) {
+  constructor(props: HomeChurchItemProps) {
     super(props);
     this.state = {
       selectedPlace: null,
@@ -886,6 +888,11 @@ export class ContentItem extends React.Component<Props, State> {
   }
 }
 
+function HomeChurchItemWrapper(props: Props) {
+  const history = useHistory();
+  return <ContentItem {...props} history={history} />;
+}
+
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyDXxLzyv5pYsIPl3XnVX5ONklXvs48zjn0',
-})(withRouter(ContentItem));
+})(HomeChurchItemWrapper);

@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Button } from 'reactstrap';
-import { flipElementColor } from './navUtils';
+import useAndUpdateNavColor from './useAndUpdateNavColor';
 type ExpandButtonProps = {
   setExpand: () => void;
   shouldExpand: boolean | undefined;
@@ -10,27 +10,11 @@ type ExpandButtonProps = {
 
 export default function ExpandButton(props: ExpandButtonProps) {
   const { setExpand, shouldExpand, item, expand } = props;
-  const [color, setColor] = useState('#1A1A1A');
-  flipElementColor(
-    `${item}+`,
-    '#FFFFFF',
-    '#1A1A1A',
-    color,
-    setColor,
-    ['oneImageBlackBox', 'partialNoFooter', 'divPartial', 'partialConnect'],
-    15
-  );
+  const { color, forceCheck } = useAndUpdateNavColor('#1A1A1A', `${item}+`);
+
   useEffect(() => {
-    flipElementColor(
-      `${item}+`,
-      '#FFFFFF',
-      '#1A1A1A',
-      color,
-      setColor,
-      ['oneImageBlackBox', 'partialNoFooter', 'divPartial', 'partialConnect'],
-      15
-    );
-  }, [expand]);
+    forceCheck();
+  }, [expand, forceCheck]);
   return (
     <Button
       id={`${item}+`}

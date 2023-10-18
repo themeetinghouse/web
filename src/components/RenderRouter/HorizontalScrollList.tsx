@@ -1,8 +1,7 @@
 import React, { ReactNode } from 'react';
-import { RouteComponentProps, withRouter } from 'react-router-dom';
 import './HorizontalScrollList.scss';
 
-interface Props extends RouteComponentProps {
+interface Props {
   darkMode?: boolean;
   children: (Element | null)[] | ReactNode;
   isItemWholePage?: boolean;
@@ -263,4 +262,4 @@ class HorizontalScrollList extends React.Component<Props, State> {
   }
 }
 
-export default withRouter(HorizontalScrollList);
+export default HorizontalScrollList;

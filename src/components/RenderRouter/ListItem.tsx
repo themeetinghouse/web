@@ -1,5 +1,5 @@
 import React, { CSSProperties } from 'react';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps, useHistory, useParams } from 'react-router-dom';
 import VideoOverlay from '../VideoOverlay/VideoOverlay';
 import DataLoader, {
   PeopleData,
@@ -32,7 +32,6 @@ import format from 'date-fns/format';
 import { ScaledImage, BlogImage } from 'components/ScaledImage';
 import { fallbackToImage } from 'components/ScaledImage/ScaledImage';
 import { Link, ArrowLink } from 'components/Link/Link';
-import { RouteParams } from '../../pages/HomePage';
 import moment from 'moment';
 import { ModelSortDirection, TMHPerson } from 'API';
 import { Margin } from '../types';
@@ -112,10 +111,17 @@ function ListItemLink({
     </Link>
   );
 }
-interface Props extends RouteComponentProps<RouteParams> {
+interface Props {
   content: any;
   data: any;
   pageConfig: any;
+}
+interface ListItemProps extends Props {
+  history: RouteComponentProps['history'];
+  params?: {
+    playlist?: string;
+    blog?: string;
+  };
 }
 interface State {
   content: DataQuery & {
@@ -166,7 +172,7 @@ type ListData =
 
 const hideEpisodeNumbers = ['adult-sunday-shortcut', 'kidmax-live'];
 
-class ListItem extends React.Component<Props, State> {
+class ListItem extends React.Component<ListItemProps, State> {
   videoOverlayClose() {
     this.setState({
       overlayData: null,
@@ -223,7 +229,7 @@ class ListItem extends React.Component<Props, State> {
       );
   }
 
-  constructor(props: Props) {
+  constructor(props: ListItemProps) {
     super(props);
 
     this.state = {
@@ -234,7 +240,7 @@ class ListItem extends React.Component<Props, State> {
       overlayData: null,
       showMoreVideos: false,
       windowWidth: window.innerWidth,
-      randomPlaylistId: this.props?.match?.params?.playlist ?? '',
+      randomPlaylistId: props?.params?.playlist ?? '',
       blogNextToken: null,
       selectedFilter: 'All',
     };
@@ -358,7 +364,7 @@ class ListItem extends React.Component<Props, State> {
             });
             break;
           case 'same-playlist':
-            const playlist = this.props?.match?.params?.playlist ?? '';
+            const playlist = this.props?.params?.playlist ?? '';
             data = await DataLoader.getVideosCustomPlaylistById(playlist);
             break;
           case 'popular':
@@ -384,11 +390,11 @@ class ListItem extends React.Component<Props, State> {
             );
             return;
           case 'similar':
-            const postId = this.props?.match?.params?.blog ?? '';
+            const postId = this.props?.params?.blog ?? '';
             await DataLoader.getSimilarBlogs(query, postId, dataLoaded);
             return;
           case 'series':
-            const blogPostId = this.props?.match?.params?.blog ?? '';
+            const blogPostId = this.props?.params?.blog ?? '';
             await DataLoader.getBlogsInSeries(query, blogPostId, dataLoaded);
             return;
         }
@@ -1337,9 +1343,8 @@ class ListItem extends React.Component<Props, State> {
         }
         if (this.state.content.selector === 'series') {
           const indexOfCurrentBlog =
-            dateChecked.find(
-              (blog) => blog?.id === this.props?.match?.params?.blog
-            )?.blogSeriesIndex ?? 0;
+            dateChecked.find((blog) => blog?.id === this.props?.params?.blog)
+              ?.blogSeriesIndex ?? 0;
           const indexInArray = indexOfCurrentBlog - 1;
 
           const blogsInSeries = dateChecked.sort((a, b) => {
@@ -1433,7 +1438,7 @@ class ListItem extends React.Component<Props, State> {
                     (logoColor === 'white' ? ' w' : ' b')
                   }
                 >
-                  {this.props?.match?.params?.playlist}
+                  {this.props?.params?.playlist}
                 </h2>
                 <div className="WatchPageContainer">
                   {videoData.map((item: any, index: any) => {
@@ -2035,4 +2040,8 @@ class ListItem extends React.Component<Props, State> {
   }
 }
 
-export default withRouter(ListItem);
+export default function WrapperListItem(props: Props) {
+  const history = useHistory();
+  const params = useParams();
+  return <ListItem {...props} history={history} params={params} />;
+}

@@ -1,9 +1,7 @@
-import { useState } from 'react';
 import './menu.scss';
-import { flipElementColor } from './navUtils';
 
 type TMHLogoProps = {
-  logoColor: string;
+  color: string;
   offset: boolean;
   showLogoText: boolean;
 };
@@ -16,26 +14,8 @@ const show = {
   transition: 'all 0.2s ease-in-out',
 };
 
-const determineColor = (logoColor: string) => {
-  if (logoColor === 'white') return '#FFFFFF';
-  if (logoColor === 'black') return '#1A1A1A';
-  return '#FFFFFF';
-};
-
 export default function TMHLogo(props: TMHLogoProps) {
-  const { logoColor, offset, showLogoText } = props;
-  const [color, setColor] = useState(determineColor(logoColor));
-  if (determineColor(color) !== determineColor(logoColor)) {
-    flipElementColor(
-      'tmhlogo',
-      '#FFFFFF',
-      '#1A1A1A',
-      color,
-      setColor,
-      ['oneImageBlackBox', 'partialNoFooter', 'divPartial', 'partialConnect'],
-      30
-    );
-  }
+  const { color, offset, showLogoText } = props;
   return (
     <div id="tmhlogo" className="logoContainer">
       {showLogoText ? (

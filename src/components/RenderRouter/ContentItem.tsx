@@ -1,6 +1,5 @@
 import { CSSProperties, useEffect, useState } from 'react';
 import { PieChart } from 'react-minimal-pie-chart';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { ScaledImage } from 'components/ScaledImage';
 import { Link, LinkButton } from 'components/Link/Link';
 import { ItemImage } from '../types';
@@ -115,7 +114,7 @@ interface ContentType extends LocationQuery {
   calendar?: Event;
 }
 
-interface Props extends RouteComponentProps {
+interface Props {
   content: ContentType;
   nextItem: number;
 }
@@ -717,4 +716,4 @@ function ContentItem({ content, nextItem }: Props) {
       return null;
   }
 }
-export default withRouter(ContentItem);
+export default ContentItem;

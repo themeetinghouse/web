@@ -6,7 +6,6 @@ import TMHCarousel from 'components/TMHCarousel/TMHCarousel';
 import moment from 'moment';
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { RouteComponentProps, withRouter } from 'react-router-dom';
 import AppPromo from '../AppPromo/AppPromo';
 import BlogItem from './BlogItem';
 import ContentItem from './ContentItem';
@@ -46,7 +45,7 @@ const VideoPlayerLiveLeadersDay = React.lazy(
 );
 const SearchResult = React.lazy(() => import('./SearchResult'));
 
-interface Props extends RouteComponentProps {
+interface Props {
   content: any;
   data: any;
 }
@@ -318,4 +317,4 @@ class RenderRouter extends React.Component<Props, State> {
     );
   }
 }
-export default withRouter(RenderRouter);
+export default RenderRouter;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps, useHistory } from 'react-router-dom';
 import './WeatherItem.scss';
 import moment from 'moment';
 
@@ -16,12 +16,15 @@ interface Content {
   }>;
 }
 
-interface Props extends RouteComponentProps {
+interface Props {
   content: Content;
   data: any;
 }
-class HeroItem extends React.Component<Props> {
-  constructor(props: Props) {
+interface WeatherItemProps extends Props {
+  history: RouteComponentProps['history'];
+}
+class HeroItem extends React.Component<WeatherItemProps> {
+  constructor(props: WeatherItemProps) {
     super(props);
   }
 
@@ -123,5 +126,9 @@ class HeroItem extends React.Component<Props> {
     } else return null;
   }
 }
+function WeatherItemWrapper(props: Props) {
+  const history = useHistory();
+  return <HeroItem {...props} history={history} />;
+}
 
-export default withRouter(HeroItem);
+export default WeatherItemWrapper;

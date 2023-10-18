@@ -1,6 +1,6 @@
 import React, { EventHandler, SyntheticEvent, CSSProperties } from 'react';
 import { Button } from 'reactstrap';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps, useHistory } from 'react-router-dom';
 import AddToCalendar, { Event } from '../AddToCalendar/AddToCalendar';
 import './HeroItem.scss';
 import Select from 'react-select';
@@ -136,9 +136,12 @@ function HeroImage({
     />
   );
 }
-interface Props extends RouteComponentProps {
+interface Props {
   content: LocationQuery;
   data: any;
+}
+interface HeroItemProps extends Props {
+  history: RouteComponentProps['history'];
 }
 interface State {
   content: any;
@@ -146,8 +149,8 @@ interface State {
   arrowOpacity: any;
   currentLocation: TMHLocation | null;
 }
-class HeroItem extends React.Component<Props, State> {
-  constructor(props: Props) {
+class HeroItem extends React.Component<HeroItemProps, State> {
+  constructor(props: HeroItemProps) {
     super(props);
     this.state = {
       content: props.content,
@@ -1102,4 +1105,7 @@ class HeroItem extends React.Component<Props, State> {
   }
 }
 
-export default withRouter(HeroItem);
+export default function HeroItemWrapper(props: any) {
+  const history = useHistory();
+  return <HeroItem {...props} history={history} />;
+}

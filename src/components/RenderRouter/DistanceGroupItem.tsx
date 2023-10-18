@@ -5,15 +5,17 @@ import {
   Marker,
   Map,
 } from 'google-maps-react';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps, useHistory } from 'react-router-dom';
 
 import './DistanceGroupItem.scss';
 import { DistanceGroupItemContent } from 'components/types';
 
-interface Props extends RouteComponentProps, IProvidedProps {
+interface Props extends IProvidedProps {
   content: DistanceGroupItemContent;
 }
-
+interface DistanceGroupItemProps extends Props {
+  history: RouteComponentProps['history'];
+}
 interface State {
   listData: DistanceGroup[];
 }
@@ -50,8 +52,11 @@ interface DistanceGroup {
   facebookLink: string;
 }
 
-export class DistanceGroupItem extends React.Component<Props, State> {
-  constructor(props: Props) {
+export class DistanceGroupItem extends React.Component<
+  DistanceGroupItemProps,
+  State
+> {
+  constructor(props: DistanceGroupItemProps) {
     super(props);
     console.log(props);
     this.state = {
@@ -166,6 +171,11 @@ export class DistanceGroupItem extends React.Component<Props, State> {
   }
 }
 
+function DistanceGroupItemWrapper(props: Props) {
+  const history = useHistory();
+  return <DistanceGroupItem {...props} history={history} />;
+}
+
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyDXxLzyv5pYsIPl3XnVX5ONklXvs48zjn0',
-})(withRouter(DistanceGroupItem));
+})(DistanceGroupItemWrapper);

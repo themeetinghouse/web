@@ -11,12 +11,16 @@ const AccountMain = lazy(() => import('./pages/users/AccountMain'));
 export default function App() {
   console.log('App');
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div></div>}>
       <Elements stripe={stripePromise}>
         <Router>
           <Switch>
-            <Route path="/account" component={AccountMain} />
-            <Route path="*" render={(props) => <HomePage {...props} />} />
+            <Route path="/account">
+              <AccountMain />
+            </Route>
+            <Route path="*">
+              <HomePage />
+            </Route>
           </Switch>
         </Router>
       </Elements>
