@@ -370,6 +370,178 @@ export const getYoutubePlaylistItems = /* GraphQL */ `
     }
   }
 `;
+export const getYoutubeVideo = /* GraphQL */ `
+  query GetYoutubeVideo($videoID: String) {
+    getYoutubeVideo(videoID: $videoID) {
+      kind
+      etag
+      pageInfo {
+        totalResults
+        resultsPerPage
+        __typename
+      }
+      nextPageToken
+      items {
+        id
+        kind
+        etag
+        snippet {
+          publishedAt
+          channelId
+          title
+          description
+          thumbnails {
+            default {
+              url
+              width
+              height
+              __typename
+            }
+            medium {
+              url
+              width
+              height
+              __typename
+            }
+            high {
+              url
+              width
+              height
+              __typename
+            }
+            standard {
+              url
+              width
+              height
+              __typename
+            }
+            maxres {
+              url
+              width
+              height
+              __typename
+            }
+            __typename
+          }
+          channelTitle
+          localized {
+            title
+            description
+            __typename
+          }
+          __typename
+        }
+        contentDetails {
+          videoId
+          videoPublishedAt
+          duration
+          dimension
+          definition
+          caption
+          licensedContent
+          projection
+          contentRating {
+            acbRating
+            agcomRating
+            anatelRating
+            bbfcRating
+            bfvcRating
+            bmukkRating
+            catvRating
+            catvfrRating
+            cbfcRating
+            cccRating
+            cceRating
+            chfilmRating
+            chvrsRating
+            cicfRating
+            cnaRating
+            cncRating
+            csaRating
+            cscfRating
+            czfilmRating
+            djctqRating
+            djctqRatingReasons
+            ecbmctRating
+            eefilmRating
+            egfilmRating
+            eirinRating
+            fcbmRating
+            fcoRating
+            fmocRating
+            fpbRating
+            fpbRatingReasons
+            fskRating
+            grfilmRating
+            icaaRating
+            ifcoRating
+            ilfilmRating
+            incaaRating
+            kfcbRating
+            kijkwijzerRating
+            kmrbRating
+            lsfRating
+            mccaaRating
+            mccypRating
+            mcstRating
+            mdaRating
+            medietilsynetRating
+            mekuRating
+            mibacRating
+            mocRating
+            moctwRating
+            mpaaRating
+            mpaatRating
+            mtrcbRating
+            nbcRating
+            nbcplRating
+            nfrcRating
+            nfvcbRating
+            nkclvRating
+            oflcRating
+            pefilmRating
+            rcnofRating
+            resorteviolenciaRating
+            rtcRating
+            rteRating
+            russiaRating
+            skfilmRating
+            smaisRating
+            smsaRating
+            tvpgRating
+            ytRating
+            __typename
+          }
+          regionRestriction {
+            allowed
+            blocked
+            __typename
+          }
+          hasCustomThumbnail
+          __typename
+        }
+        status {
+          uploadStatus
+          privacyStatus
+          license
+          embeddable
+          publicStatsViewable
+          __typename
+        }
+        statistics {
+          viewCount
+          likeCount
+          dislikeCount
+          favoriteCount
+          commentCount
+          __typename
+        }
+        __typename
+      }
+      __typename
+    }
+  }
+`;
 export const getYoutubePlaylist = /* GraphQL */ `
   query GetYoutubePlaylist($nextPageToken: String) {
     getYoutubePlaylist(nextPageToken: $nextPageToken) {

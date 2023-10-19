@@ -2,6 +2,7 @@ type Query {
   getBiblePassage(bibleId: String, passage: String): BibleResponse @function(name: "getBiblePassage-${env}")
   getYoutubeVideoSearch(videoId: String): YoutubePlaylistItems!
   getYoutubePlaylistItems(playlistId: String, pageToken: String): YoutubePlaylistItems!
+  getYoutubeVideo(videoID: String): YoutubePlaylistItems!
   getYoutubePlaylist(nextPageToken: String): YoutubePlayList!
   getYoutubeVideoContentDetails(videoId: String): YoutubePlaylistItems!
   getYoutubeVideoStatistics(videoId: String): YoutubePlaylistItems!
