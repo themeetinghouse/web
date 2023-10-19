@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as adminQueries from './queries';
 import * as customQueries from '../../graphql-custom/customQueries';
 import * as mutations from '../../graphql/mutations';
 import * as customMutations from '../../graphql-custom/customMutations';
-import { API } from '@aws-amplify/api';
 import './import-video.scss';
 import { v4 as uuidv4 } from 'uuid';
-import ImportYoutube from '../../components/ImportYoutube/ImportYoutube';
+//import ImportYoutube from '../../components/ImportYoutube/ImportYoutube';
 import { EmptyProps } from '../../utils';
 import { Modal, Spinner } from 'reactstrap';
-import { DeleteCustomPlaylistMutation } from 'API';
-import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
+import {
+  CreateVideoMutation,
+  DeleteCustomPlaylistMutation,
+  GetVideoQuery,
+  GetYoutubeVideoQuery,
+  Video,
+} from 'API';
+import { GraphQLResult, GRAPHQL_AUTH_MODE, API } from '@aws-amplify/api';
 import moment from 'moment';
+import LocationsTMHButton from './locations/LocationsTMHButton';
 interface State {
   nextToken: string | undefined | null;
   getVideoQueryId: any;
@@ -20,6 +26,7 @@ interface State {
   selectedSpeaker: any;
   speakerWarning: string;
   selectedVideoType: any;
+  showAddYTVideoModal: boolean;
   selectedVideo: any;
   videoList: any;
   seriesList: any;
@@ -58,6 +65,7 @@ class Index extends React.Component<EmptyProps, State> {
       speakerWarning: '',
       hiddenSpeaker: false,
       showAddSeries: false,
+      showAddYTVideoModal: false,
       showAddSpeaker: false,
       showManageSpeaker: false,
       showAddCustomPlaylist: false,
@@ -109,18 +117,23 @@ class Index extends React.Component<EmptyProps, State> {
     this.listSeries(null);
     this.listCustomPlaylists(null);
   }
+  addNewVideoToBeginning(newVideo: Video) {
+    this.setState({ videoList: [newVideo, ...this.state.videoList] }, () => {
+      this.handleVideoSelection(newVideo);
+    });
+  }
   componentDidMount() {
     this.getVideos(null);
     this.getSpeakers();
   }
-  async importYoutube() {
-    this.setState({ getVideosState: 'Importing' });
-    const z = new ImportYoutube();
-    await z.reloadPlaylists();
-    setTimeout(() => {
-      this.setState({ getVideosState: 'Done' });
-    }, 4000);
-  }
+  // async importYoutube() {
+  //   this.setState({ getVideosState: 'Importing' });
+  //   const z = new ImportYoutube();
+  //   await z.reloadPlaylists();
+  //   setTimeout(() => {
+  //     this.setState({ getVideosState: 'Done' });
+  //   }, 4000);
+  // }
 
   async getPlaylistTypes(): Promise<void> {
     try {
@@ -307,6 +320,9 @@ class Index extends React.Component<EmptyProps, State> {
       }
     }
   }
+  showAddNewModal() {
+    this.setState({ showAddYTVideoModal: true });
+  }
   componentDidUpdate(prevProps: EmptyProps, prevState: State) {
     if (this.state.selectedVideoType !== prevState.selectedVideoType)
       this.getVideos(null);
@@ -348,7 +364,8 @@ class Index extends React.Component<EmptyProps, State> {
               </span>
             ) : null}
           </span>
-          {this.state.getVideosState === 'Loading Videos' ? (
+          {this.state.getVideosState === 'Loading Videos' ||
+          this.state.getVideosState === 'Deleting' ? (
             <Spinner
               style={{ alignSelf: 'center', marginRight: 16 }}
               size="sm"
@@ -361,7 +378,7 @@ class Index extends React.Component<EmptyProps, State> {
             }
             className="adminButton"
             style={{ height: 38, marginTop: 4 }}
-            onClick={() => this.importYoutube()}
+            onClick={() => this.showAddNewModal()}
           >
             <img
               width={17}
@@ -374,7 +391,7 @@ class Index extends React.Component<EmptyProps, State> {
             />
             {this.state.getVideosState === 'Importing'
               ? 'Importing...'
-              : 'Import Videos'}
+              : 'Import'}
           </button>
           <div style={{ display: 'flex', flexDirection: 'row' }}>
             <select
@@ -776,6 +793,7 @@ class Index extends React.Component<EmptyProps, State> {
   async delete() {
     if (this.state.toDeleteVideo) {
       try {
+        this.setState({ getVideosState: 'Deleting' });
         const deleteVideo: any = await API.graphql({
           query: mutations.deleteVideo,
           variables: { input: { id: this.state.toDeleteVideo } },
@@ -786,14 +804,34 @@ class Index extends React.Component<EmptyProps, State> {
         this.setState({
           toDeleteVideo: '',
           showError: `Deleted: ${deleteVideo.data.deleteVideo.id}`,
+
+          selectedVideo: null,
+          toSaveVideo: null,
+          addToPlaylists: [],
+          removeFromPlaylists: [],
+          selectedPlaylist: '',
+
+          getVideosState: 'Done',
           showDeleteVideo: false,
+          videoList: this.state.videoList.filter(
+            (item: any) => item.id !== this.state.toDeleteVideo
+          ),
         });
       } catch (e: any) {
         if (e.data && e.data.deleteVideo) {
           this.setState({
             toDeleteVideo: '',
             showError: `Deleted: ${e.data.deleteVideo.id}`,
+            getVideosState: 'Done',
             showDeleteVideo: false,
+            videoList: this.state.videoList.filter(
+              (item: any) => item.id !== this.state.toDeleteVideo
+            ),
+            selectedVideo: null,
+            toSaveVideo: null,
+            addToPlaylists: [],
+            removeFromPlaylists: [],
+            selectedPlaylist: '',
           });
         }
         console.error(e);
@@ -1211,31 +1249,55 @@ class Index extends React.Component<EmptyProps, State> {
   renderDeleteVideo() {
     return (
       <Modal isOpen={this.state.showDeleteVideo}>
-        <div>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            this.delete();
+          }}
+          style={{
+            padding: 16,
+            display: 'flex',
+            flexDirection: 'column',
+            rowGap: 20,
+          }}
+        >
           <div>
             Are you sure you want to delete video id: {this.state.toDeleteVideo}
           </div>
-          <button
-            style={{ background: 'orange' }}
-            onClick={() => this.delete()}
-          >
-            Confirm
-          </button>
-          <button
-            style={{ background: 'grey' }}
-            onClick={() => {
-              this.setState({ showDeleteVideo: false, toDeleteVideo: '' });
-            }}
-          >
-            Cancel
-          </button>
-        </div>
+          <div style={{ gap: 8, marginBottom: 4, display: 'flex' }}>
+            <LocationsTMHButton
+              type="submit"
+              disabled={this.state.getVideosState !== 'Done'}
+            >
+              Delete
+            </LocationsTMHButton>
+            <LocationsTMHButton
+              outline
+              disabled={this.state.getVideosState !== 'Done'}
+              onClick={() => {
+                this.setState({ showDeleteVideo: false, toDeleteVideo: '' });
+              }}
+            >
+              Cancel
+            </LocationsTMHButton>
+          </div>
+        </form>
       </Modal>
     );
   }
   render() {
     return (
       <div>
+        <AddYoutubeVideoModal
+          showAddModal={this.state.showAddYTVideoModal}
+          toggle={() => {
+            this.setState({
+              showAddYTVideoModal: !this.state.showAddYTVideoModal,
+            });
+          }}
+          addVideo={(newVideo: Video) => this.addNewVideoToBeginning(newVideo)}
+        />
         {this.renderHeader()}
         {this.renderVideos()}
         {this.renderVideoEditor()}
@@ -1246,3 +1308,139 @@ class Index extends React.Component<EmptyProps, State> {
   }
 }
 export default Index;
+
+function AddYoutubeVideoModal({
+  addVideo,
+  showAddModal,
+  toggle,
+}: {
+  addVideo: (video: Video) => void;
+  showAddModal: boolean;
+  toggle: () => void;
+}) {
+  const [videoID, setVideoID] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    setVideoID(e.target.value);
+  };
+  const getVideo = async () => {
+    if (!videoID) return;
+    console.log('Fetching ', { videoID });
+    if (!videoID) return;
+    try {
+      setIsLoading(true);
+      const youtubeVideo = (await API.graphql({
+        query: customQueries.getYoutubeVideo,
+        variables: { videoID: videoID },
+        authMode: GRAPHQL_AUTH_MODE.API_KEY,
+      })) as GraphQLResult<GetYoutubeVideoQuery>;
+      if (youtubeVideo.data?.getYoutubeVideo?.items?.length) {
+        const pulledVideo = youtubeVideo.data?.getYoutubeVideo.items?.[0];
+        const duration = Math.round(
+          moment.duration(pulledVideo?.contentDetails?.duration).as('minutes')
+        ).toString();
+        const inputData = {
+          id: videoID,
+          YoutubeIdent: videoID,
+          Youtube: pulledVideo,
+          length: duration,
+        };
+        console.log({ inputData });
+        const existingVideo = (await API.graphql({
+          query: customQueries.getVideoForImport,
+          variables: { id: videoID },
+          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+        })) as GraphQLResult<GetVideoQuery>;
+        if (existingVideo.data?.getVideo) {
+          setErrorMessage(
+            `Video already exists. ${
+              existingVideo.data?.getVideo.videoTypes
+                ? `videoTypes: ${existingVideo.data?.getVideo.videoTypes}.`
+                : ''
+            }`
+          );
+          setIsLoading(false);
+          return;
+        }
+        const createVideo = (await API.graphql({
+          query: mutations.createVideo,
+          variables: {
+            input: inputData,
+          },
+          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+        })) as GraphQLResult<CreateVideoMutation>;
+        console.log({ createVideo });
+        if (createVideo.data?.createVideo) {
+          setVideoID('');
+          addVideo(createVideo.data.createVideo as Video);
+          setIsLoading(false);
+          toggle();
+        } else {
+          setErrorMessage('Sorry, we were unable to create the video.');
+          setIsLoading(false);
+          console.error({ createVideo });
+        }
+      } else {
+        setErrorMessage('Sorry, we were unable to find the video. ');
+        setIsLoading(false);
+        console.error({ youtubeVideo });
+      }
+    } catch (error: any) {
+      console.error({ error });
+      setErrorMessage(error.message || 'An error occurred while adding video.');
+      setIsLoading(false);
+    }
+  };
+  return (
+    <Modal
+      isOpen={showAddModal}
+      toggle={() => {
+        toggle();
+      }}
+      unmountOnClose={true}
+    >
+      <form
+        style={{
+          padding: 16,
+          display: 'flex',
+          flexDirection: 'column',
+          rowGap: 20,
+        }}
+        onSubmit={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          getVideo();
+        }}
+      >
+        <h4>ManualYoutube Video Import</h4>
+        <label>
+          Youtube Video ID:{' '}
+          <span style={{ fontWeight: '400', fontSize: 12, marginBottom: 2 }}>
+            This should the ID of the video from youtube
+          </span>
+          <input
+            placeholder="2sjCeJ7Iwsc"
+            name="videoID"
+            type="text"
+            value={videoID ?? ''}
+            onChange={handleChange}
+          />
+        </label>
+        {errorMessage ? (
+          <span style={{ color: 'tomato' }}>{errorMessage}</span>
+        ) : null}
+        <div style={{ gap: 8, marginBottom: 4, display: 'flex' }}>
+          <LocationsTMHButton type="submit">
+            {isLoading ? <Spinner size="sm" /> : 'Save'}
+          </LocationsTMHButton>
+          <LocationsTMHButton outline onClick={toggle}>
+            Cancel
+          </LocationsTMHButton>
+        </div>
+      </form>
+    </Modal>
+  );
+}
