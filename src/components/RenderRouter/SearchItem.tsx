@@ -1,6 +1,6 @@
 import { GraphQLResult } from '@aws-amplify/api';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './SearchItem.scss';
 
 import API from '@aws-amplify/api';
@@ -42,6 +42,7 @@ type SearchItemProps = {
   content: any;
 };
 export default function SearchItem(props: SearchItemProps) {
+  const navigate = useNavigate();
   const [searchString, setSearchString] = useState('');
 
   const [isLoading, setIsLoading] = useState(false);
@@ -481,11 +482,8 @@ export default function SearchItem(props: SearchItemProps) {
       `/static/photos/blogs/${style}/` + title.replace(/\?|[']/g, '') + '.jpg'
     );
   };
-  const history = useHistory();
   const navigateTo = (location: any) => {
-    history.push(location, 'as');
-    const unblock = history.block('Are you sure you want to leave this page?');
-    unblock();
+    navigate(location, { state: 'as' });
   };
   const openVideo = (item: any) => {
     // console.log("opening", item);
@@ -501,11 +499,11 @@ export default function SearchItem(props: SearchItemProps) {
   };
   const openSeries = (item: any) => {
     // console.log("opening", item);
-    history.push('/videos/' + item.id);
+    navigate('/videos/' + item.id);
   };
   const openBlog = (item: any) => {
     // console.log("opening", item);
-    history.push('/posts/' + item.id);
+    navigate('/posts/' + item.id);
   };
   const renderBlog = (item: any) => {
     if (item.episodeTitle !== null)

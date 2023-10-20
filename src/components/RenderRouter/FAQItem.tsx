@@ -1,7 +1,7 @@
 import React from 'react';
 import { Collapse } from 'reactstrap';
 import './FAQItem.scss';
-import { RouteComponentProps, useHistory } from 'react-router-dom';
+import { useNavigate, NavigateFunction } from 'react-router-dom';
 import { ScaledImage } from 'components/ScaledImage';
 import { ItemImage } from 'components/types';
 import { Link, LinkButton } from 'components/Link/Link';
@@ -11,7 +11,7 @@ interface Props {
 }
 
 interface FAQItemProps extends Props {
-  history: RouteComponentProps['history'];
+  navigate: NavigateFunction;
 }
 interface State {
   content: any;
@@ -187,6 +187,6 @@ class ContentItem extends React.Component<FAQItemProps, State> {
   }
 }
 export default function ContentItemWrapper(props: Props) {
-  const history = useHistory();
-  return <ContentItem {...props} history={history} />;
+  const navigate = useNavigate();
+  return <ContentItem {...props} navigate={navigate} />;
 }

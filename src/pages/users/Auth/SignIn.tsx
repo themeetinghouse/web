@@ -3,7 +3,7 @@ import * as Sentry from '@sentry/browser';
 import React from 'react';
 import { Spinner } from 'reactstrap';
 import './AuthPages.scss';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 //import { useUser } from './UserContext';
 
 type SignInProps = {
@@ -19,7 +19,7 @@ type SignInState = {
 };
 
 export default function SignIn(props: SignInProps) {
-  const history = useHistory();
+  const navigate = useNavigate();
   //const { dispatch } = useUser();
   const [state, setState] = React.useState<SignInState>({
     pass: '',
@@ -101,7 +101,7 @@ export default function SignIn(props: SignInProps) {
         Sentry.setTag('User Email', state.user?.toLowerCase());
         const user = await Auth.signIn(state.user.toLowerCase(), state.pass);
         if (user.challengeName == 'NEW_PASSWORD_REQUIRED') {
-          history.push('/account/requirenewpassword');
+          navigate('/account/requirenewpassword');
         }
       } catch (err: any) {
         setState((prev) => ({ ...prev, authError: err.message }));
@@ -151,7 +151,7 @@ export default function SignIn(props: SignInProps) {
               className="SignInButton white"
               disabled={state.isLoading}
               onClick={async () => {
-                history.push('/account/signup');
+                navigate('/account/signup');
               }}
             >
               Create an Account
@@ -182,7 +182,7 @@ export default function SignIn(props: SignInProps) {
             }}
             disabled={state.isLoading}
             onClick={async () => {
-              history.push('/account/forgotpassword');
+              navigate('/account/forgotpassword');
             }}
           >
             Forgot password?

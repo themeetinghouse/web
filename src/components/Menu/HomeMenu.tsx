@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+﻿import React, { useEffect, useState } from 'react';
 import {
   Collapse,
   Navbar,
@@ -14,12 +14,12 @@ import moment from 'moment-timezone';
 
 import { Link } from 'components/Link/Link';
 
-import RSNavLinkWrapper from './RSNavLinkWrapper';
+import NavLinkWrapper from './NavLinkWrapper';
 import TMHLogo from './TMHLogo';
 import ExpandButton from './ExpandButton';
 import YellowAnnouncement from 'components/AnnouncementBar/YellowAnnouncement';
 import { useEditorPageContext } from 'pages/admin/Editor/contexts/EditorPageContext';
-import { useHistory } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import useHandleNavSize from './useHandleNavSize';
 import useFetchNavItems from './useFetchNavItems';
 import useAndUpdateNavColor from './useAndUpdateNavColor';
@@ -59,6 +59,7 @@ function HomeMenuContainer(props: { children: any }) {
 }
 
 export default function HomeMenu(props: Props) {
+  const location = useLocation();
   const { pageConfig } = props;
 
   const { position } = useHandleNavSize();
@@ -80,12 +81,14 @@ export default function HomeMenu(props: Props) {
     (moment.tz('America/Toronto').isoWeekday() === 1 &&
       moment.tz('America/Toronto').hour() <= 12);
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const toggle = () => {
     setIsOpen(!isOpen);
   };
-
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location]);
   return !isSearch ? (
     <HomeMenuContainer>
       <AnnouncementBar
@@ -99,7 +102,7 @@ export default function HomeMenu(props: Props) {
             if (pageConfig.showYellowBar.action.includes('http')) {
               window.open(pageConfig.showYellowBar.action, '_blank');
             } else {
-              history.push(pageConfig.showYellowBar.action);
+              navigate(pageConfig.showYellowBar.action);
             }
           }}
         />
@@ -108,9 +111,15 @@ export default function HomeMenu(props: Props) {
       <div>
         <div
           className={
-            color === 'white' ? 'navbar-custom white' : 'navbar-custom'
+            color === '#FFFFFF'
+              ? `navbar-custom ${
+                  location.pathname.includes('give') ? 'white' : 'black'
+                }`
+              : 'navbar-custom'
           }
-          style={{ zIndex: pageConfig.isModal ? 'unset' : 1000 }}
+          style={{
+            zIndex: pageConfig.isModal ? 'unset' : 1000,
+          }}
           id="navbar"
         >
           <NavbarBrand tag={Link} className="brand" to="/">
@@ -186,7 +195,7 @@ export default function HomeMenu(props: Props) {
                             }}
                             key={item.location}
                           >
-                            <RSNavLinkWrapper
+                            <NavLinkWrapper
                               expand={expandParentNavItem}
                               className="bigNav"
                               item={item}
@@ -211,7 +220,7 @@ export default function HomeMenu(props: Props) {
                                     i.name === 'Notes' ? showNotes : true
                                   )
                                   .map((item2) => (
-                                    <RSNavLinkWrapper
+                                    <NavLinkWrapper
                                       expand={expandParentNavItem}
                                       key={item2?.location}
                                       className="smallNav"

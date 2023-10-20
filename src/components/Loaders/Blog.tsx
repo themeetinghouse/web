@@ -9,9 +9,9 @@ import {
   Storage,
 } from 'aws-amplify';
 import { ReactElement, useEffect, useState } from 'react';
-import { useHistory, useRouteMatch } from 'react-router-dom';
 import { getBlog } from '../../graphql-custom/customQueries';
 import RenderRouter from '../RenderRouter/RenderRouter';
+import { useNavigate, useParams } from 'react-router-dom';
 Analytics.addPluggable(new AmazonPersonalizeProvider());
 Analytics.configure({
   AmazonPersonalize: {
@@ -26,18 +26,19 @@ export default function Blog(): ReactElement | null {
   );
   const [content, setContent] = useState(null);
 
-  const match = useRouteMatch<{ blog: string }>();
-  const history = useHistory();
+  const params = useParams();
+  const navigate = useNavigate();
   // Configure the plugin after adding it to the Analytics module
 
   useEffect(() => {
     Auth.currentCredentials().then((a) => {
+      if (!params.blog) return;
       Analytics.record(
         {
           name: 'Interactions',
           attributes: {
             user_id: a.identityId,
-            itemId: match.params.blog,
+            itemId: params.blog,
             TIMESTAMP: Date.now().toString(),
           },
         },
@@ -50,7 +51,6 @@ export default function Blog(): ReactElement | null {
           console.log({ PersonalizeError: e });
         });
     });
-    console.log('RECORDING PERSONALIZE');
     Analytics.record({
       name: 'pageVisit',
       attributes: { page: 'blog-post' },
@@ -69,13 +69,14 @@ export default function Blog(): ReactElement | null {
 
   useEffect(() => {
     const load = async () => {
+      if (!params.blog) return;
       try {
         const json = await (API.graphql({
           query: getBlog,
-          variables: { id: match.params.blog },
+          variables: { id: params.blog },
           authMode: GRAPHQL_AUTH_MODE.API_KEY,
         }) as Promise<GraphQLResult<GetBlogQuery>>);
-        if (!json.data?.getBlog) history.replace('/not-found');
+        if (!json.data?.getBlog) navigate('/not-found', { replace: true });
         else setData(json.data?.getBlog);
       } catch (e) {
         console.error(e);
@@ -85,11 +86,11 @@ export default function Blog(): ReactElement | null {
         }).catch((e: any) => {
           console.log({ e: e });
         });
-        history.replace('/not-found');
+        navigate('/not-found', { replace: true });
       }
     };
     load();
-  }, [match.params.blog, history]);
+  }, [params.blog]);
 
   if (!data || !content) {
     return null;

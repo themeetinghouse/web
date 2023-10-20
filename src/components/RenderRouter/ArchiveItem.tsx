@@ -1,5 +1,5 @@
 import React, { EventHandler, SyntheticEvent } from 'react';
-import { RouteComponentProps, useHistory } from 'react-router-dom';
+import { NavigateFunction, useNavigate } from 'react-router-dom';
 import './ArchiveItem.scss';
 import DataLoader, {
   VideoByVideoTypeData,
@@ -16,7 +16,7 @@ interface Props {
   pageConfig: any;
 }
 interface ArchiveItemClass extends Props {
-  history: RouteComponentProps['history'];
+  navigate: NavigateFunction;
 }
 interface State {
   listData: listData[] | null;
@@ -60,7 +60,7 @@ class ArchiveItem extends React.Component<ArchiveItemClass, State> {
         loadSeriesByType().then(() => {
           if (this.state.listData?.length === 0) {
             //no data returned
-            this.props.history.replace('/not-found');
+            this.props.navigate('/not-found', { replace: true });
           } else {
             console.log(this.state.listData);
           }
@@ -73,7 +73,7 @@ class ArchiveItem extends React.Component<ArchiveItemClass, State> {
         loadVideos().then(() => {
           if (this.state.listData?.length === 0) {
             //no data returned
-            this.props.history.replace('/not-found');
+            this.props.navigate('/not-found', { replace: true });
           } else {
             console.log(this.state.listData);
           }
@@ -131,7 +131,7 @@ class ArchiveItem extends React.Component<ArchiveItemClass, State> {
     });
     if (data.series == null)
       console.error({ 'You need to create a series for:': data });
-    else this.props.history.push('/videos/' + data.series.id + '/' + data.id);
+    else this.props.navigate('/videos/' + data.series.id + '/' + data.id);
   }
 
   showYears(start: string | null | undefined, end: string | null | undefined) {
@@ -358,8 +358,8 @@ class ArchiveItem extends React.Component<ArchiveItemClass, State> {
 }
 
 function ArchiveItemWrapper(props: Props) {
-  const history = useHistory();
-  return <ArchiveItem {...props} history={history} />;
+  const navigate = useNavigate();
+  return <ArchiveItem {...props} navigate={navigate} />;
 }
 
 export default ArchiveItemWrapper;

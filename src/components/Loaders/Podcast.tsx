@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import { useHistory, useRouteMatch } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import VideoOverlay from '../../components/VideoOverlay/VideoOverlay';
 import { Storage } from 'aws-amplify';
 export default function Podcast() {
-  const match = useRouteMatch<{ pod?: string }>();
+  const params = useParams<{ pod?: string }>();
   const [content, setContent] = useState<Record<string, unknown>>();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchPageData() {
@@ -24,9 +24,9 @@ export default function Podcast() {
 
   return (
     <VideoOverlay
-      onClose={() => history.goBack()}
+      onClose={() => navigate(-1)}
       content={content}
-      data={match.params.pod}
+      data={params.pod}
     />
   );
 }

@@ -1,13 +1,13 @@
 import { useState } from 'react';
 //import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 //import { Spinner } from 'reactstrap';
 import { LinkButton } from '../../../components/Link/Link';
 import './TotalGivingCard.scss';
 import { Spinner } from 'reactstrap';
 import { useUser } from '../Auth/UserContext';
 export default function TotalGivingCard(): JSX.Element {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [isLoading] = useState(false);
   const { state } = useUser();
   const { tmhUserData } = state;
@@ -82,7 +82,7 @@ export default function TotalGivingCard(): JSX.Element {
       </p>
       <button
         onClick={() =>
-          history.push('/account/give', { showNewRecurringPage: true })
+          navigate('/account/give', { state: { showNewRecurringPage: true } })
         }
         className="AddRecurringButton white"
       >
@@ -97,7 +97,7 @@ export default function TotalGivingCard(): JSX.Element {
             borderBottom: '1px solid black',
           }}
           onClick={() =>
-            history.push('/account/give', { showActiveRecurringPage: true })
+            navigate('/account/give', { state: { showNewRecurringPage: true } })
           }
         >
           Manage my recurring giving

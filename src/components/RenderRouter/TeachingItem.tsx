@@ -1,5 +1,5 @@
 import React, { EventHandler, SyntheticEvent } from 'react';
-import { RouteComponentProps, useHistory } from 'react-router-dom';
+import { useNavigate, NavigateFunction } from 'react-router-dom';
 import { withCookies } from 'react-cookie';
 import './TeachingItem.scss';
 import * as customQueries from '../../graphql-custom/customQueries';
@@ -15,7 +15,7 @@ interface Props {
   cookies: any;
 }
 interface TeachingItemProps extends Props {
-  history: RouteComponentProps['history'];
+  navigate: NavigateFunction;
 }
 interface State {
   content: any;
@@ -195,7 +195,7 @@ class TeachingItem extends React.Component<TeachingItemProps, State> {
       overlayData: data,
     });
     if (data.series) {
-      this.props.history.push(`/videos/${data.series.id}/${data.id}`);
+      this.props.navigate(`/videos/${data.series.id}/${data.id}`);
     }
   }
   setSelection(selection: string) {
@@ -253,6 +253,7 @@ class TeachingItem extends React.Component<TeachingItemProps, State> {
         this.props.content.options.length === 0 ? (
           <div className="teaching">
             <h1 className="teaching-h1">{this.props.content.header1}</h1>
+            <div className="teaching-mostrecent">Most recent</div>
             <div className="teaching-blackbox">
               <div className="teachingdiv">
                 {this.state.listData[this.state.teachingId].publishedDate}
@@ -322,7 +323,6 @@ class TeachingItem extends React.Component<TeachingItemProps, State> {
                 ) : null}
               </div>
               <div>
-                a
                 <FadeImage
                   className="teaching-image-desktop"
                   onClick={() =>
@@ -347,7 +347,7 @@ class TeachingItem extends React.Component<TeachingItemProps, State> {
                 } series`}
               />
             </div>
-            <div className="teaching-mostrecent">Most recent</div>
+
             <div className="teaching-options">
               {this.props.content.options.map((item: any, index: any) => {
                 return (
@@ -380,8 +380,8 @@ class TeachingItem extends React.Component<TeachingItemProps, State> {
   }
 }
 function TeachingItemWrapper(props: Props) {
-  const history = useHistory();
-  return <TeachingItem {...props} history={history} />;
+  const navigate = useNavigate();
+  return <TeachingItem {...props} navigate={navigate} />;
 }
 
 export default withCookies(TeachingItemWrapper);

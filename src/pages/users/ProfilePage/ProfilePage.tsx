@@ -13,7 +13,7 @@ import * as mutations from '../../../graphql-custom/customMutations';
 import * as queries from '../../../graphql/queries';
 import ProfileForm from './ProfileForm';
 import './ProfilePage.scss';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { getTMHUserForGiveNow } from 'graphql-custom/customQueries';
 import { useUser } from '../Auth/UserContext';
 type ProfilePageProps = {
@@ -21,7 +21,7 @@ type ProfilePageProps = {
 };
 
 export default function ProfilePage(props: ProfilePageProps) {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [isUpdating, setIsUpdating] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [, setUserData] = useState<TMHUser>();
@@ -106,9 +106,9 @@ export default function ProfilePage(props: ProfilePageProps) {
         },
       });
       if (previousProfileIsComplete) {
-        history.goBack();
+        navigate(-1);
       } else {
-        history.push('/account');
+        navigate('/account');
       }
     } catch (e: any) {
       console.log({ errorUpdateUser: e });

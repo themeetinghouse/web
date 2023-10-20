@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './TeachingSearch.scss';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { API, graphqlOperation } from 'aws-amplify';
 import * as customQueries from '../../graphql-custom/customQueries';
 import {
@@ -24,7 +24,7 @@ type Videos = NonNullable<
 type Blogs = NonNullable<NonNullable<SearchBlogsQuery['searchBlogs']>['items']>;
 
 export default function TeachingSearch(props: Props) {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [videos, setVideos] = useState<Videos>([]);
   const [blogs, setBlogs] = useState<Blogs>([]);
   const [currentInput, setCurrentInput] = useState('');
@@ -120,7 +120,7 @@ export default function TeachingSearch(props: Props) {
 
   function openVideo(item: Videos[0]) {
     if (item && item?.series) {
-      history.push('/videos/' + item.series.id + '/' + item.id, 'as');
+      navigate('/videos/' + item.series.id + '/' + item.id, { state: 'as' });
     }
   }
 

@@ -10,7 +10,7 @@ import {
 import moment from 'moment';
 import React, { ChangeEvent } from 'react';
 import AddToCalendar, { Event } from '../AddToCalendar/AddToCalendar';
-import { RouteComponentProps, useHistory } from 'react-router-dom';
+import { useNavigate, NavigateFunction } from 'react-router-dom';
 import { Input } from 'reactstrap';
 import './SundayMorningItem.scss';
 import { LinkButton } from 'components/Link/Link';
@@ -22,7 +22,7 @@ interface Props extends IProvidedProps {
 }
 
 interface SundayMorningItemProps extends Props {
-  history: RouteComponentProps['history'];
+  navigate: NavigateFunction;
 }
 interface State {
   selectedPlace: TMHLocation | null;
@@ -723,8 +723,8 @@ export class SundayMorningItem extends React.Component<
 }
 
 function SundayMorningWrapper(props: Props) {
-  const history = useHistory();
-  return <SundayMorningItem {...props} history={history} />;
+  const navigate = useNavigate();
+  return <SundayMorningItem {...props} navigate={navigate} />;
 }
 
 export default GoogleApiWrapper({

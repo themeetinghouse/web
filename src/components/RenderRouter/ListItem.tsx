@@ -1,5 +1,5 @@
 import React, { CSSProperties } from 'react';
-import { RouteComponentProps, useHistory, useParams } from 'react-router-dom';
+import { useNavigate, NavigateFunction, useParams } from 'react-router-dom';
 import VideoOverlay from '../VideoOverlay/VideoOverlay';
 import DataLoader, {
   PeopleData,
@@ -117,7 +117,7 @@ interface Props {
   pageConfig: any;
 }
 interface ListItemProps extends Props {
-  history: RouteComponentProps['history'];
+  navigate: NavigateFunction;
   params?: {
     playlist?: string;
     blog?: string;
@@ -209,7 +209,7 @@ class ListItem extends React.Component<ListItemProps, State> {
     });
     if (data.series == null)
       console.log({ 'You need to create a series for:': data });
-    else this.props.history.push('/videos/' + data.series.id + '/' + data.id);
+    else this.props.navigate('/videos/' + data.series.id + '/' + data.id);
   }
 
   handlePlaylistClick(data: any, clickedOnFullPlaylist?: boolean) {
@@ -219,7 +219,7 @@ class ListItem extends React.Component<ListItemProps, State> {
     if (data.series === null && !clickedOnFullPlaylist)
       console.log({ 'You need to create a series for:': data });
     else
-      this.props.history.push(
+      this.props.navigate(
         '/playlist/' +
           (clickedOnFullPlaylist
             ? data.customPlaylistID
@@ -1284,7 +1284,6 @@ class ListItem extends React.Component<ListItemProps, State> {
           if (a?.publishedDate && b?.publishedDate) {
             if (a.publishedDate === b.publishedDate) {
               if (a.blogSeriesIndex && b.blogSeriesIndex) {
-                console.log('there is index');
                 return b.blogSeriesIndex - a.blogSeriesIndex;
               }
             }
@@ -2041,7 +2040,7 @@ class ListItem extends React.Component<ListItemProps, State> {
 }
 
 export default function WrapperListItem(props: Props) {
-  const history = useHistory();
+  const navigate = useNavigate();
   const params = useParams();
-  return <ListItem {...props} history={history} params={params} />;
+  return <ListItem {...props} navigate={navigate} params={params} />;
 }

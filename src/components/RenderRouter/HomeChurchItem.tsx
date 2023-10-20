@@ -21,7 +21,7 @@ import moment from 'moment-timezone';
 import React, { CSSProperties } from 'react';
 import AddToCalendar, { Event } from '../AddToCalendar/AddToCalendar';
 import { isMobile } from 'react-device-detect';
-import { RouteComponentProps, useHistory } from 'react-router-dom';
+import { useNavigate, NavigateFunction } from 'react-router-dom';
 import Select from 'react-select';
 import { Spinner } from 'reactstrap';
 import DataLoader, { LocationData } from './DataLoader';
@@ -38,7 +38,7 @@ interface Props extends IProvidedProps {
   content: HomeChurchItemContent;
 }
 interface HomeChurchItemProps extends Props {
-  history: RouteComponentProps['history'];
+  navigate: NavigateFunction;
 }
 interface State {
   selectedPlace: F1Group | null;
@@ -889,8 +889,8 @@ export class ContentItem extends React.Component<HomeChurchItemProps, State> {
 }
 
 function HomeChurchItemWrapper(props: Props) {
-  const history = useHistory();
-  return <ContentItem {...props} history={history} />;
+  const navigate = useNavigate();
+  return <ContentItem {...props} navigate={navigate} />;
 }
 
 export default GoogleApiWrapper({

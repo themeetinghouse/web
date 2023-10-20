@@ -1,10 +1,10 @@
 import { Auth } from 'aws-amplify';
 import { useState } from 'react';
 import * as Sentry from '@sentry/browser';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './AuthPages.scss';
 export default function SignUp() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [state, setState] = useState({
     user: {
       first: '',
@@ -41,7 +41,7 @@ export default function SignUp() {
             phone_number: state.user.code + state.user.phone,
             email: state.user.email.toLowerCase(),
           },
-        }).then(async () => history.push('/account/confirmsignup'));
+        }).then(async () => navigate('/account/confirmsignup'));
       } catch (e: any) {
         setState((prev) => ({
           ...prev,
@@ -177,7 +177,7 @@ export default function SignUp() {
               <button
                 className="SignInButton white"
                 onClick={async () => {
-                  history.push('/signin');
+                  navigate('/signin');
                 }}
               >
                 Back
@@ -199,7 +199,7 @@ export default function SignUp() {
                 width: '13ch',
                 textAlign: 'left',
               }}
-              onClick={async () => history.push('/account/confirmsignup')}
+              onClick={async () => navigate('/account/confirmsignup')}
             >
               Confirm a code
             </button>

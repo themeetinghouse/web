@@ -1,6 +1,6 @@
 import React, { EventHandler, SyntheticEvent, CSSProperties } from 'react';
 import { Button } from 'reactstrap';
-import { RouteComponentProps, useHistory } from 'react-router-dom';
+import { NavigateFunction, useNavigate } from 'react-router-dom';
 import AddToCalendar, { Event } from '../AddToCalendar/AddToCalendar';
 import './HeroItem.scss';
 import Select from 'react-select';
@@ -63,7 +63,6 @@ function RenderLink({
       }
     })();
   }, [link1Action]);
-  console.log('newButton', { link1Action });
   return (
     <Link className={linkClass} to={link} aria-label={link1AriaLabel}>
       {link1Text}
@@ -141,7 +140,7 @@ interface Props {
   data: any;
 }
 interface HeroItemProps extends Props {
-  history: RouteComponentProps['history'];
+  navigate: NavigateFunction;
 }
 interface State {
   content: any;
@@ -162,7 +161,6 @@ class HeroItem extends React.Component<HeroItemProps, State> {
     this.setData = this.setData.bind(this);
   }
   async componentDidUpdate(prevProps: Props) {
-    console.log({ prevProps });
     if (prevProps.content !== this.props.content) {
       this.setState({ content: this.props.content });
     }
@@ -263,16 +261,16 @@ class HeroItem extends React.Component<HeroItemProps, State> {
   }
 
   locationChange(item: any) {
-    this.props.history.push('/communities/' + item.value);
+    this.props.navigate('/communities/' + item.value);
   }
   navigate() {
-    this.props.history.push('spirituality', 'as');
+    this.props.navigate('spirituality');
   }
   navigateTo(location: string) {
     if (location.includes('.')) {
       window.location.href = location;
     } else {
-      this.props.history.push(location, 'as');
+      this.props.navigate(location);
     }
   }
   smoothScrollTo(endX: any, endY: any, duration: any) {
@@ -481,7 +479,6 @@ class HeroItem extends React.Component<HeroItemProps, State> {
       (loc) => loc.id == this.state.content.filterValue
     )[0];
     if (this.state.content.style === 'full') {
-      console.log({ content: this.state.content });
       return (
         <div className="headerItem heroItem">
           <div
@@ -1105,7 +1102,7 @@ class HeroItem extends React.Component<HeroItemProps, State> {
   }
 }
 
-export default function HeroItemWrapper(props: any) {
-  const history = useHistory();
-  return <HeroItem {...props} history={history} />;
+export default function HeroItemWrapper(props: Props) {
+  const navigate = useNavigate();
+  return <HeroItem {...props} navigate={navigate} />;
 }

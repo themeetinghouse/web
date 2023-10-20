@@ -15,7 +15,7 @@ import { Auth } from '@aws-amplify/auth';
 import { API, GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api';
 import { getTMHUserForGiveNow } from 'graphql-custom/customQueries';
 import { Hub } from 'aws-amplify';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 import * as mutations from 'graphql/mutations';
 type UserState = {
@@ -39,7 +39,7 @@ const UserContext = createContext<{
 });
 
 const UserProvider = ({ children }: { children: React.ReactNode }) => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [state, dispatch] = useReducer(userReducer, initialState);
   const [isInitialLoading, setIsInitialLoading] = React.useState(true);
   const getAndSetUser = useCallback(async () => {
@@ -129,9 +129,11 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
           console.log('user signed in');
           await getAndSetUser();
           if (state.isProfileComplete) {
-            history.push('/account');
+            console.log('navigating to /');
+            navigate('/account');
           } else {
-            if (state.tmhUserData) history.push('/account/profile');
+            if (state.tmhUserData) navigate('account/profile');
+            else console.log('incomplete');
           }
           break;
         case 'signUp':
@@ -149,7 +151,7 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
     };
     Hub.listen('auth', listenerFunc);
     return () => Hub.remove('auth', listenerFunc);
-  }, [state.isProfileComplete]);
+  }, [state.isProfileComplete, state.tmhUserData]);
   console.log({ state });
   if (isInitialLoading) return <div>Loading...</div>;
   return (

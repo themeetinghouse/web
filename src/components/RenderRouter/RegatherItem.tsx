@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Modal, ModalBody } from 'reactstrap';
 import { isMobileOnly } from 'react-device-detect';
 import './RegatherItem.scss';
@@ -10,7 +10,7 @@ interface Props {
 export default function RegatherItem(props: Props): JSX.Element {
   const { content } = props;
   const formRef = useRef<HTMLIFrameElement>(null);
-  const history = useHistory();
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(!isMobileOnly);
   const [formUrl, setFormUrl] = useState('');
 
@@ -82,7 +82,7 @@ export default function RegatherItem(props: Props): JSX.Element {
             return (
               <button
                 key={contentItem}
-                onClick={action ? () => history.push(action) : () => openForm()}
+                onClick={action ? () => navigate(action) : () => openForm()}
                 className={`RegatherButton ${type}`}
               >
                 {text}
@@ -140,7 +140,7 @@ export default function RegatherItem(props: Props): JSX.Element {
             className={`GenericModalBody white`}
           >
             <img
-              onClick={() => history.push('/')}
+              onClick={() => navigate('/')}
               style={{
                 height: '10.4vw',
                 position: 'absolute',

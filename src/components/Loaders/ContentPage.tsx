@@ -1,14 +1,13 @@
-import Analytics from '@aws-amplify/analytics';
+import { Analytics } from '@aws-amplify/analytics';
 import React, { ReactElement, useEffect, useState } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import GenericModalPage from '../RenderRouter/GenericModalPage';
 import DataLoader from '../RenderRouter/DataLoader';
 import { Storage } from 'aws-amplify';
 const RenderRouter = React.lazy(() => import('../RenderRouter/RenderRouter'));
-const VideoOverlay = React.lazy(() => import('../VideoOverlay/VideoOverlay'));
 
 export default function ContentPage(): ReactElement | null {
-  const history = useHistory();
+  const navigate = useNavigate();
   const location = useLocation();
 
   const [content, setContent] = useState<any>(null);
@@ -16,9 +15,8 @@ export default function ContentPage(): ReactElement | null {
   let site = window.location.hostname.split('.')[0];
   if (site == 'www' || site == 'themeetinghouse' || site === 'localhost')
     site = 'homepage';
-  console.log({ site: site });
   const jsonFile = location.pathname.slice(1) || site || 'homepage';
-  console.log({ jsonFile });
+  console.log({ pages });
   useEffect(() => {
     Analytics.record({
       name: 'pageVisit',
@@ -61,6 +59,7 @@ export default function ContentPage(): ReactElement | null {
             [jsonFile]: content,
             ...pages,
           });
+          return;
         } catch (error) {
           console.log('error');
           if (window.location.href.includes('communities')) {
@@ -149,53 +148,31 @@ export default function ContentPage(): ReactElement | null {
             [jsonFile]: content,
             ...pages,
           });
+          return;
         }
       }
-
-      Analytics.record({
-        name: 'error',
-        attributes: { page: jsonFile },
-      }).catch((e: any) => {
-        console.log({ e: e });
-      });
-      const response = await fetch(errorUrl);
-      const notFoundPageContent = await response.json();
-      setContent(notFoundPageContent);
     })();
   }, [jsonFile, pages]);
   if (!content) {
     return null;
   }
   if (content.page.pageConfig.weatherAlert && location.pathname === '/') {
-    history.push('/weather');
+    navigate('/weather');
   }
-  const {
-    showGenericModalPage,
-    isPopup = false,
-    navigateOnPopupClose,
-  } = content.page.pageConfig ?? {};
-  console.log(window.location.href);
-  if (showGenericModalPage && isPopup) {
-    return (
-      <GenericModalPage
-        onClose={() => {
-          if (navigateOnPopupClose) {
-            history.push(navigateOnPopupClose);
-          } else {
-            history.goBack();
-          }
-        }}
-        content={content}
-        data={{ id: undefined }}
-      ></GenericModalPage>
-    );
-  }
-  return isPopup ? (
-    <VideoOverlay
-      onClose={() => history.push(navigateOnPopupClose)}
+  const { showGenericModalPage, isPopup, navigateOnPopupClose } =
+    content.page.pageConfig ?? {};
+  return showGenericModalPage || isPopup ? (
+    <GenericModalPage
+      onClose={() => {
+        if (navigateOnPopupClose) {
+          navigate(navigateOnPopupClose);
+        } else {
+          navigate(-1);
+        }
+      }}
       content={content}
       data={{ id: undefined }}
-    ></VideoOverlay>
+    ></GenericModalPage>
   ) : (
     <RenderRouter data={null} content={content}></RenderRouter>
   );

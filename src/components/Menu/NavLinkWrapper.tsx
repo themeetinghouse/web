@@ -1,14 +1,13 @@
-import { NavLink as RSNavLink } from 'reactstrap';
-import { NavLink as RRNavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useEffect } from 'react';
 import useAndUpdateNavColor from './useAndUpdateNavColor';
 
-type RSNavLinkWrapperProps = {
+type NavLinkWrapperProps = {
   item: any;
   className: string;
   expand: any;
 };
-export default function RSNavLinkWrapper(props: RSNavLinkWrapperProps) {
+export default function NavLinkWrapper(props: NavLinkWrapperProps) {
   const { item, className, expand } = props;
   const { color, forceCheck } = useAndUpdateNavColor('#1A1A1A', item.location);
 
@@ -17,20 +16,20 @@ export default function RSNavLinkWrapper(props: RSNavLinkWrapperProps) {
   }, [expand]);
 
   return (
-    <RSNavLink
-      tag={RRNavLink}
+    <NavLink
       id={item.location}
       className={className}
-      activeStyle={{ fontWeight: 'bold' }}
-      style={{
+      style={({ isActive }) => ({
+        fontWeight: isActive ? 'bold' : 'normal',
         display: className === 'bigNav' ? 'inline-block' : 'block',
         color: color ?? '#1A1A1A',
         transition: 'all 0.2s ease-in-out',
-      }}
+        textDecoration: 'none',
+      })}
       key={item.location}
       to={{ pathname: item.location }}
     >
       {item.name}
-    </RSNavLink>
+    </NavLink>
   );
 }

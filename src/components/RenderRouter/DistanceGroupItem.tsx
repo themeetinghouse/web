@@ -5,7 +5,7 @@ import {
   Marker,
   Map,
 } from 'google-maps-react';
-import { RouteComponentProps, useHistory } from 'react-router-dom';
+import { useNavigate, NavigateFunction } from 'react-router-dom';
 
 import './DistanceGroupItem.scss';
 import { DistanceGroupItemContent } from 'components/types';
@@ -14,7 +14,7 @@ interface Props extends IProvidedProps {
   content: DistanceGroupItemContent;
 }
 interface DistanceGroupItemProps extends Props {
-  history: RouteComponentProps['history'];
+  navigate: NavigateFunction;
 }
 interface State {
   listData: DistanceGroup[];
@@ -74,11 +74,7 @@ export class DistanceGroupItem extends React.Component<
       .catch((e: any) => console.log(e));
   }
   navigate(to: string) {
-    this.props.history.push(to, 'as');
-    const unblock = this.props.history.block(
-      'Are you sure you want to leave this page?'
-    );
-    unblock();
+    this.props.navigate(to, { state: 'as' });
   }
 
   render() {
@@ -172,8 +168,8 @@ export class DistanceGroupItem extends React.Component<
 }
 
 function DistanceGroupItemWrapper(props: Props) {
-  const history = useHistory();
-  return <DistanceGroupItem {...props} history={history} />;
+  const navigate = useNavigate();
+  return <DistanceGroupItem {...props} navigate={navigate} />;
 }
 
 export default GoogleApiWrapper({

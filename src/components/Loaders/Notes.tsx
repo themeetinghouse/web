@@ -2,7 +2,7 @@ import { Analytics, API, Storage } from 'aws-amplify';
 import RenderRouter from 'components/RenderRouter/RenderRouter';
 import moment from 'moment-timezone';
 import { useEffect, useState } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { getNotesCustom } from '../../graphql-custom/customQueries';
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 
@@ -19,10 +19,6 @@ type GetCustomNotes = {
 
 type NoteData = GetCustomNotes['getNotes'];
 
-interface Params {
-  date?: string;
-}
-
 function getLastSunday() {
   const lastSunday = moment().tz('America/Toronto');
   if (lastSunday.isoWeekday() < 7) {
@@ -34,9 +30,8 @@ function getLastSunday() {
 export default function Notes() {
   const [noteData, setNoteData] = useState<NoteData>();
   const [content, setContent] = useState<Record<string, unknown>>();
-  const { date } = useParams<Params>();
-  const history = useHistory();
-
+  const { date } = useParams<{ date: string }>();
+  const navigate = useNavigate();
   const lastSunday = getLastSunday();
 
   useEffect(() => {
@@ -72,11 +67,11 @@ export default function Notes() {
       }).catch((e: any) => {
         console.log(e);
       });
-      history.replace('/not-found');
+      navigate('/not-found', { replace: true });
     }
 
     fetchNoteData(date);
-  }, [date, lastSunday, history]);
+  }, [date, lastSunday]);
 
   useEffect(() => {
     async function fetchPageData() {
