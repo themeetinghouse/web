@@ -15,6 +15,7 @@ import HeroItem from './HeroItem';
 import ListItem from './ListItem';
 import RenderRouterItemWrapper from './RenderRouterItemWrapper';
 import EditorToolbar from 'pages/admin/Editor/EditorToolbar';
+import Tags from './OgTags';
 const CombinedMap = React.lazy(() => import('./CombinedMap'));
 const SimpleItem = React.lazy(() => import('./SimpleItem'));
 const SearchItem = React.lazy(() => import('./SearchItem'));
@@ -266,6 +267,8 @@ class RenderRouter extends React.Component<Props, State> {
         return <TeachingSearch key={index} content={item} />;
       case 'podcast-player':
         return <PodcastPlayer key={index} data={this.props.data} />;
+      case 'og-tags':
+        return <Tags key={index} content={item}></Tags>;
       default:
         return null;
     }

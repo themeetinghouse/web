@@ -1,60 +1,38 @@
-import React from 'react';
 import { Helmet } from 'react-helmet';
 import { tmhImageUrl } from 'components/ScaledImage/ScaledImage';
 
-interface Props {
-  content: any;
-}
-interface State {
-  content: any;
-}
-class Tags extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      content: props.content,
-    };
-  }
+const Tags = ({ content }: any) => {
+  const imageUrl = tmhImageUrl(1920, content.image).split(' ')[0];
+  return (
+    <Helmet>
+      {content.url ? <meta property="og:url" content={content.url} /> : null}
+      {content.title ? (
+        <meta property="og:title" content={content.title} />
+      ) : null}
+      {content.description ? (
+        <meta property="og:description" content={content.description} />
+      ) : null}
+      <meta property="og:type" content="website" />
+      <meta property="fb:app_id" content="579712102531269" />
 
-  ogImage() {
-    try {
-      const imageUrl = tmhImageUrl(1920, this.state.content.image).split(
-        ' '
-      )[0];
-      return (
-        <Helmet>
-          <meta property="og:url" content={this.state.content.url} />
-          <meta property="og:title" content={this.state.content.title} />
-          <meta
-            property="og:description"
-            content={this.state.content.description}
-          />
-          <meta property="og:type" content="website" />
-          <meta property="fb:app_id" content="579712102531269" />
-          <meta property="og:image" content={imageUrl} />
-          <meta property="og:image:secure_url" content={imageUrl} />
-          <meta property="og:image:type" content="image/jpeg" />
+      {imageUrl ? <meta property="og:image" content={imageUrl} /> : null}
+      {imageUrl ? (
+        <meta property="og:image:secure_url" content={imageUrl} />
+      ) : null}
+      <meta property="og:image:type" content="image/jpeg" />
 
-          <meta property="twitter:title" content={this.state.content.title} />
-          <meta property="twitter:creator" content="@TheMeetingHouse" />
-          <meta property="twitter:image" content={imageUrl} />
-          <meta
-            property="twitter:description"
-            content={this.state.content.description}
-          />
-          <meta property="twitter:url" content={this.state.content.url} />
-          <meta property="twitter:card" content="summary" />
-        </Helmet>
-      );
-    } catch (e) {
-      console.error(e);
-      return null;
-    }
-  }
-
-  render() {
-    return this.ogImage();
-  }
-}
+      <meta property="twitter:title" content={content.title} />
+      <meta property="twitter:creator" content="@TheMeetingHouse" />
+      {imageUrl ? <meta property="twitter:image" content={imageUrl} /> : null}
+      {content.description ? (
+        <meta property="twitter:description" content={content.description} />
+      ) : null}
+      {content.url ? (
+        <meta property="twitter:url" content={content.url} />
+      ) : null}
+      <meta property="twitter:card" content="summary" />
+    </Helmet>
+  );
+};
 
 export default Tags;
