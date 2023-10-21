@@ -4,31 +4,49 @@ import { Spinner } from 'reactstrap';
 import './RecentTransactionsCard.scss';
 
 import moment from 'moment';
-import { tmhStripeListCustomerTransactions } from 'graphql/queries';
+import * as queries from '../../../../src/graphql/queries';
 import { API, GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import { TmhStripeListCustomerTransactionsQuery } from 'API';
 
 export default function RecentTransactionsCard(): JSX.Element {
   const [isLoading, setIsLoading] = useState(true);
   const [transactions, setTransactions] = useState<any[]>([]);
+
   useEffect(() => {
+    let mounted = true;
+    let tmhStripeListCustomerTransactions:
+      | Promise<GraphQLResult<TmhStripeListCustomerTransactionsQuery>>
+      | undefined;
     (async () => {
       try {
-        setIsLoading(true);
-        const response = (await API.graphql({
-          query: tmhStripeListCustomerTransactions,
+        if (mounted) {
+          setIsLoading(true);
+        }
+
+        tmhStripeListCustomerTransactions = API.graphql({
+          query: queries.tmhStripeListCustomerTransactions,
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-        })) as GraphQLResult<TmhStripeListCustomerTransactionsQuery>;
-        setTransactions(
-          response.data?.tmhStripeListCustomerTransactions?.transactions ?? []
-        );
-        console.log({ response });
+        }) as Promise<GraphQLResult<TmhStripeListCustomerTransactionsQuery>>;
+        const response = await tmhStripeListCustomerTransactions;
+        if (mounted) {
+          setTransactions(
+            response.data?.tmhStripeListCustomerTransactions?.transactions ?? []
+          );
+          console.log({ response });
+        }
       } catch (error) {
         console.log({ failedToFetchTransactions: error });
       } finally {
-        setIsLoading(false);
+        if (mounted) {
+          setIsLoading(false);
+        }
       }
     })();
+    return () => {
+      mounted = false;
+      if (tmhStripeListCustomerTransactions)
+        API.cancel(tmhStripeListCustomerTransactions);
+    };
   }, []);
   return (
     <div className="Recent-Trans">

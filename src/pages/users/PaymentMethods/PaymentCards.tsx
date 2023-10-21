@@ -14,7 +14,7 @@ import {
 } from 'API';
 import { GEContext } from 'components/RenderRouter/GiveComponents/GEContext';
 import { GEActionType } from 'components/RenderRouter/GiveComponents/GETypes';
-import { useHistory } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 type PaymentMethods = NonNullable<
   NonNullable<
@@ -22,7 +22,7 @@ type PaymentMethods = NonNullable<
   >['tmhStripeListPaymentMethods']
 >['data'];
 export default function PaymentCard() {
-  const history = useHistory();
+  const location = useLocation();
   const { state, dispatch } = useContext(GEContext);
   const [isInitialLoading, setIsInitialLoading] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
@@ -115,7 +115,7 @@ export default function PaymentCard() {
                 }
                 className="AddNewCardButton"
                 style={
-                  history.location.pathname.includes('/account')
+                  location.pathname.includes('/account')
                     ? {}
                     : { backgroundColor: 'transparent' }
                 }
@@ -128,7 +128,7 @@ export default function PaymentCard() {
                 onClick={() => setShowCardForm(true)}
                 className={`AddNewCardButton`}
                 style={
-                  history.location.pathname.includes('/account')
+                  location.pathname.includes('/account')
                     ? {}
                     : { backgroundColor: 'transparent' }
                 }
@@ -137,7 +137,7 @@ export default function PaymentCard() {
                 Card
               </button>
             )
-          ) : history.location.pathname.includes('/account') ? (
+          ) : location.pathname.includes('/account') ? (
             <PaymentAddMethodPortal
               isLoading={isLoading}
               closeCard={async () => {
@@ -168,8 +168,8 @@ const CardCard = ({
   listPaymentMethods: () => Promise<any>;
   closeCard: () => void;
 }) => {
-  const history = useHistory();
   const [isLoading, setIsLoading] = useState(false);
+  const location = useLocation();
   const { state, dispatch } = useContext(GEContext);
   const checkForExistingSubscriptions = async (paymentID: string) => {
     // if any subscriptions have this payment method
@@ -227,8 +227,7 @@ const CardCard = ({
       setIsLoading(false);
     }
   };
-  const showRemoveButton =
-    history.location?.pathname?.includes?.('account/payments');
+  const showRemoveButton = location.pathname?.includes?.('account/payments');
   return (
     <div className="Payments-ItemContainer">
       <div style={{ display: 'flex', flexDirection: 'row' }}>

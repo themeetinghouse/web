@@ -1,6 +1,6 @@
 import React, { EventHandler, SyntheticEvent, CSSProperties } from 'react';
 import { Button } from 'reactstrap';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { NavigateFunction, useNavigate } from 'react-router-dom';
 import AddToCalendar, { Event } from '../AddToCalendar/AddToCalendar';
 import './HeroItem.scss';
 import Select from 'react-select';
@@ -63,7 +63,6 @@ function RenderLink({
       }
     })();
   }, [link1Action]);
-  console.log('newButton', { link1Action });
   return (
     <Link className={linkClass} to={link} aria-label={link1AriaLabel}>
       {link1Text}
@@ -136,9 +135,12 @@ function HeroImage({
     />
   );
 }
-interface Props extends RouteComponentProps {
+interface Props {
   content: LocationQuery;
   data: any;
+}
+interface HeroItemProps extends Props {
+  navigate: NavigateFunction;
 }
 interface State {
   content: any;
@@ -146,8 +148,8 @@ interface State {
   arrowOpacity: any;
   currentLocation: TMHLocation | null;
 }
-class HeroItem extends React.Component<Props, State> {
-  constructor(props: Props) {
+class HeroItem extends React.Component<HeroItemProps, State> {
+  constructor(props: HeroItemProps) {
     super(props);
     this.state = {
       content: props.content,
@@ -159,7 +161,6 @@ class HeroItem extends React.Component<Props, State> {
     this.setData = this.setData.bind(this);
   }
   async componentDidUpdate(prevProps: Props) {
-    console.log({ prevProps });
     if (prevProps.content !== this.props.content) {
       this.setState({ content: this.props.content });
     }
@@ -260,16 +261,16 @@ class HeroItem extends React.Component<Props, State> {
   }
 
   locationChange(item: any) {
-    this.props.history.push('/communities/' + item.value);
+    this.props.navigate('/communities/' + item.value);
   }
   navigate() {
-    this.props.history.push('spirituality', 'as');
+    this.props.navigate('spirituality');
   }
   navigateTo(location: string) {
     if (location.includes('.')) {
       window.location.href = location;
     } else {
-      this.props.history.push(location, 'as');
+      this.props.navigate(location);
     }
   }
   smoothScrollTo(endX: any, endY: any, duration: any) {
@@ -478,7 +479,6 @@ class HeroItem extends React.Component<Props, State> {
       (loc) => loc.id == this.state.content.filterValue
     )[0];
     if (this.state.content.style === 'full') {
-      console.log({ content: this.state.content });
       return (
         <div className="headerItem heroItem">
           <div
@@ -1102,4 +1102,7 @@ class HeroItem extends React.Component<Props, State> {
   }
 }
 
-export default withRouter(HeroItem);
+export default function HeroItemWrapper(props: Props) {
+  const navigate = useNavigate();
+  return <HeroItem {...props} navigate={navigate} />;
+}

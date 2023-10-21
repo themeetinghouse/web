@@ -10,17 +10,20 @@ import {
 import moment from 'moment';
 import React, { ChangeEvent } from 'react';
 import AddToCalendar, { Event } from '../AddToCalendar/AddToCalendar';
-import { RouteComponentProps, withRouter } from 'react-router-dom';
+import { useNavigate, NavigateFunction } from 'react-router-dom';
 import { Input } from 'reactstrap';
 import './SundayMorningItem.scss';
 import { LinkButton } from 'components/Link/Link';
 import DataLoader from './DataLoader';
 import { TMHLocation, TMHLocationMeeting } from 'API';
 
-interface Props extends RouteComponentProps, IProvidedProps {
+interface Props extends IProvidedProps {
   content: SundayMorningItemContent;
 }
 
+interface SundayMorningItemProps extends Props {
+  navigate: NavigateFunction;
+}
 interface State {
   selectedPlace: TMHLocation | null;
   selectedPlaceMarker?: google.maps.Marker;
@@ -71,11 +74,14 @@ function getNextMeetingDate(meeting: TMHLocationMeeting) {
   );
   return { startingDateTime, endingDateTime };
 }
-export class SundayMorningItem extends React.Component<Props, State> {
+export class SundayMorningItem extends React.Component<
+  SundayMorningItemProps,
+  State
+> {
   siteListScrollContainer: HTMLDivElement | null = null;
   map: google.maps.Map | undefined;
 
-  constructor(props: Props) {
+  constructor(props: SundayMorningItemProps) {
     super(props);
     this.state = {
       selectedPlace: null,
@@ -716,6 +722,11 @@ export class SundayMorningItem extends React.Component<Props, State> {
   }
 }
 
+function SundayMorningWrapper(props: Props) {
+  const navigate = useNavigate();
+  return <SundayMorningItem {...props} navigate={navigate} />;
+}
+
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyDXxLzyv5pYsIPl3XnVX5ONklXvs48zjn0',
-})(withRouter(SundayMorningItem));
+})(SundayMorningWrapper);

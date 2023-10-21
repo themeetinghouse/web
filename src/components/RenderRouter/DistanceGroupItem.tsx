@@ -5,15 +5,17 @@ import {
   Marker,
   Map,
 } from 'google-maps-react';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { useNavigate, NavigateFunction } from 'react-router-dom';
 
 import './DistanceGroupItem.scss';
 import { DistanceGroupItemContent } from 'components/types';
 
-interface Props extends RouteComponentProps, IProvidedProps {
+interface Props extends IProvidedProps {
   content: DistanceGroupItemContent;
 }
-
+interface DistanceGroupItemProps extends Props {
+  navigate: NavigateFunction;
+}
 interface State {
   listData: DistanceGroup[];
 }
@@ -50,8 +52,11 @@ interface DistanceGroup {
   facebookLink: string;
 }
 
-export class DistanceGroupItem extends React.Component<Props, State> {
-  constructor(props: Props) {
+export class DistanceGroupItem extends React.Component<
+  DistanceGroupItemProps,
+  State
+> {
+  constructor(props: DistanceGroupItemProps) {
     super(props);
     console.log(props);
     this.state = {
@@ -69,11 +74,7 @@ export class DistanceGroupItem extends React.Component<Props, State> {
       .catch((e: any) => console.log(e));
   }
   navigate(to: string) {
-    this.props.history.push(to, 'as');
-    const unblock = this.props.history.block(
-      'Are you sure you want to leave this page?'
-    );
-    unblock();
+    this.props.navigate(to, { state: 'as' });
   }
 
   render() {
@@ -166,6 +167,11 @@ export class DistanceGroupItem extends React.Component<Props, State> {
   }
 }
 
+function DistanceGroupItemWrapper(props: Props) {
+  const navigate = useNavigate();
+  return <DistanceGroupItem {...props} navigate={navigate} />;
+}
+
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyDXxLzyv5pYsIPl3XnVX5ONklXvs48zjn0',
-})(withRouter(DistanceGroupItem));
+})(DistanceGroupItemWrapper);

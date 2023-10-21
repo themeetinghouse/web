@@ -1,5 +1,5 @@
 import React, { CSSProperties } from 'react';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { useNavigate, NavigateFunction, useParams } from 'react-router-dom';
 import VideoOverlay from '../VideoOverlay/VideoOverlay';
 import DataLoader, {
   PeopleData,
@@ -32,7 +32,6 @@ import format from 'date-fns/format';
 import { ScaledImage, BlogImage } from 'components/ScaledImage';
 import { fallbackToImage } from 'components/ScaledImage/ScaledImage';
 import { Link, ArrowLink } from 'components/Link/Link';
-import { RouteParams } from '../../pages/HomePage';
 import moment from 'moment';
 import { ModelSortDirection, TMHPerson } from 'API';
 import { Margin } from '../types';
@@ -112,10 +111,17 @@ function ListItemLink({
     </Link>
   );
 }
-interface Props extends RouteComponentProps<RouteParams> {
+interface Props {
   content: any;
   data: any;
   pageConfig: any;
+}
+interface ListItemProps extends Props {
+  navigate: NavigateFunction;
+  params?: {
+    playlist?: string;
+    blog?: string;
+  };
 }
 interface State {
   content: DataQuery & {
@@ -166,7 +172,7 @@ type ListData =
 
 const hideEpisodeNumbers = ['adult-sunday-shortcut', 'kidmax-live'];
 
-class ListItem extends React.Component<Props, State> {
+class ListItem extends React.Component<ListItemProps, State> {
   videoOverlayClose() {
     this.setState({
       overlayData: null,
@@ -203,7 +209,7 @@ class ListItem extends React.Component<Props, State> {
     });
     if (data.series == null)
       console.log({ 'You need to create a series for:': data });
-    else this.props.history.push('/videos/' + data.series.id + '/' + data.id);
+    else this.props.navigate('/videos/' + data.series.id + '/' + data.id);
   }
 
   handlePlaylistClick(data: any, clickedOnFullPlaylist?: boolean) {
@@ -213,7 +219,7 @@ class ListItem extends React.Component<Props, State> {
     if (data.series === null && !clickedOnFullPlaylist)
       console.log({ 'You need to create a series for:': data });
     else
-      this.props.history.push(
+      this.props.navigate(
         '/playlist/' +
           (clickedOnFullPlaylist
             ? data.customPlaylistID
@@ -223,7 +229,7 @@ class ListItem extends React.Component<Props, State> {
       );
   }
 
-  constructor(props: Props) {
+  constructor(props: ListItemProps) {
     super(props);
 
     this.state = {
@@ -234,7 +240,7 @@ class ListItem extends React.Component<Props, State> {
       overlayData: null,
       showMoreVideos: false,
       windowWidth: window.innerWidth,
-      randomPlaylistId: this.props?.match?.params?.playlist ?? '',
+      randomPlaylistId: props?.params?.playlist ?? '',
       blogNextToken: null,
       selectedFilter: 'All',
     };
@@ -358,7 +364,7 @@ class ListItem extends React.Component<Props, State> {
             });
             break;
           case 'same-playlist':
-            const playlist = this.props?.match?.params?.playlist ?? '';
+            const playlist = this.props?.params?.playlist ?? '';
             data = await DataLoader.getVideosCustomPlaylistById(playlist);
             break;
           case 'popular':
@@ -384,11 +390,11 @@ class ListItem extends React.Component<Props, State> {
             );
             return;
           case 'similar':
-            const postId = this.props?.match?.params?.blog ?? '';
+            const postId = this.props?.params?.blog ?? '';
             await DataLoader.getSimilarBlogs(query, postId, dataLoaded);
             return;
           case 'series':
-            const blogPostId = this.props?.match?.params?.blog ?? '';
+            const blogPostId = this.props?.params?.blog ?? '';
             await DataLoader.getBlogsInSeries(query, blogPostId, dataLoaded);
             return;
         }
@@ -1278,7 +1284,6 @@ class ListItem extends React.Component<Props, State> {
           if (a?.publishedDate && b?.publishedDate) {
             if (a.publishedDate === b.publishedDate) {
               if (a.blogSeriesIndex && b.blogSeriesIndex) {
-                console.log('there is index');
                 return b.blogSeriesIndex - a.blogSeriesIndex;
               }
             }
@@ -1337,9 +1342,8 @@ class ListItem extends React.Component<Props, State> {
         }
         if (this.state.content.selector === 'series') {
           const indexOfCurrentBlog =
-            dateChecked.find(
-              (blog) => blog?.id === this.props?.match?.params?.blog
-            )?.blogSeriesIndex ?? 0;
+            dateChecked.find((blog) => blog?.id === this.props?.params?.blog)
+              ?.blogSeriesIndex ?? 0;
           const indexInArray = indexOfCurrentBlog - 1;
 
           const blogsInSeries = dateChecked.sort((a, b) => {
@@ -1433,7 +1437,7 @@ class ListItem extends React.Component<Props, State> {
                     (logoColor === 'white' ? ' w' : ' b')
                   }
                 >
-                  {this.props?.match?.params?.playlist}
+                  {this.props?.params?.playlist}
                 </h2>
                 <div className="WatchPageContainer">
                   {videoData.map((item: any, index: any) => {
@@ -2035,4 +2039,8 @@ class ListItem extends React.Component<Props, State> {
   }
 }
 
-export default withRouter(ListItem);
+export default function WrapperListItem(props: Props) {
+  const navigate = useNavigate();
+  const params = useParams();
+  return <ListItem {...props} navigate={navigate} params={params} />;
+}

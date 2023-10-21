@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { useNavigate, NavigateFunction } from 'react-router-dom';
 import './WeatherItem.scss';
 import moment from 'moment';
 
@@ -16,12 +16,15 @@ interface Content {
   }>;
 }
 
-interface Props extends RouteComponentProps {
+interface Props {
   content: Content;
   data: any;
 }
-class HeroItem extends React.Component<Props> {
-  constructor(props: Props) {
+interface WeatherItemProps extends Props {
+  navigate: NavigateFunction;
+}
+class HeroItem extends React.Component<WeatherItemProps> {
+  constructor(props: WeatherItemProps) {
     super(props);
   }
 
@@ -47,7 +50,7 @@ class HeroItem extends React.Component<Props> {
     this.navigateTo(item.value);
   }
   navigateTo(location: any) {
-    this.props.history.push(location, 'as');
+    this.props.navigate(location, { state: 'as' });
   }
   smoothScrollTo(endX: any, endY: any, duration: any) {
     const startX = window.scrollX || window.pageXOffset,
@@ -123,5 +126,9 @@ class HeroItem extends React.Component<Props> {
     } else return null;
   }
 }
+function WeatherItemWrapper(props: Props) {
+  const navigate = useNavigate();
+  return <HeroItem {...props} navigate={navigate} />;
+}
 
-export default withRouter(HeroItem);
+export default WeatherItemWrapper;

@@ -1,5 +1,5 @@
 import React, { lazy } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { ClearCache } from './ClearCache';
 const VideoManager = lazy(() => import('./VideoManager/videos'));
 const ImportVideo = lazy(() => import('../../pages/admin/import-video'));
@@ -21,53 +21,32 @@ class Admin extends React.Component {
   render() {
     return (
       <div>
-        <Switch>
-          <Route
-            path="/account/admin/import-video"
-            render={() => <ImportVideo />}
-          />
-          <Route
-            path="/account/admin/move-video"
-            render={() => <MoveVideo />}
-          />
-          <Route
-            path="/account/admin/create-blog"
-            render={() => <CreateBlog />}
-          />
-          <Route
-            path="/account/admin/create-notes"
-            render={() => <CreateNotes />}
-          />
-          <Route path="/account/admin/livestream" render={() => <AddLive />} />
-          <Route path="/account/admin/videos" render={() => <VideoManager />} />
+        <Routes>
+          <Route path="/account/admin/import-video" element={<ImportVideo />} />
+          <Route path="/account/admin/move-video" element={<MoveVideo />} />
+          <Route path="/account/admin/create-blog" element={<CreateBlog />} />
+          <Route path="/account/admin/create-notes" element={<CreateNotes />} />
+          <Route path="/account/admin/livestream" element={<AddLive />} />
+          <Route path="/account/admin/videos" element={<VideoManager />} />
           <Route
             path="/account/admin/permissions"
-            render={() => <PermissionsManager />}
+            element={<PermissionsManager />}
           />
-          <Route path="/account/admin/instagram" render={() => <GetInsta />} />
-          <Route path="/account/admin/editor" render={() => <Editor />} />
-          <Route
-            path="/account/admin/clearCache"
-            render={() => <ClearCache />}
-          />
+          <Route path="/account/admin/instagram" element={<GetInsta />} />
+          <Route path="/account/admin/editor" element={<Editor />} />
+          <Route path="/account/admin/clearCache" element={<ClearCache />} />
           <Route
             path="/account/admin/announcements"
-            render={() => <Announcements />}
+            element={<Announcements />}
           />
-          <Route
-            path="/account/admin/homechurches"
-            render={() => <HomeChurch />}
-          />
+          <Route path="/account/admin/homechurches" element={<HomeChurch />} />
           <Route
             path="/account/admin/locations"
-            render={() => <LocationsManager />}
+            element={<LocationsManager />}
           />
-          <Route path="/account/admin/redirects" render={() => <Redirect />} />
-          <Route
-            path="/account/admin/people"
-            render={() => <PeopleManager />}
-          />
-        </Switch>
+          <Route path="/account/admin/redirects" element={<Redirect />} />
+          <Route path="/account/admin/people" element={<PeopleManager />} />
+        </Routes>
       </div>
     );
   }

@@ -1,5 +1,5 @@
 import React, { EventHandler, SyntheticEvent } from 'react';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { useNavigate, NavigateFunction } from 'react-router-dom';
 import { withCookies } from 'react-cookie';
 import './TeachingItem.scss';
 import * as customQueries from '../../graphql-custom/customQueries';
@@ -10,9 +10,12 @@ import { Button } from 'reactstrap';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import FadeImage from 'components/ScaledImage/FadeImage';
 
-interface Props extends RouteComponentProps {
+interface Props {
   content: any;
   cookies: any;
+}
+interface TeachingItemProps extends Props {
+  navigate: NavigateFunction;
 }
 interface State {
   content: any;
@@ -21,8 +24,8 @@ interface State {
   teachingId: any;
   overlayData: any;
 }
-class TeachingItem extends React.Component<Props, State> {
-  constructor(props: Props) {
+class TeachingItem extends React.Component<TeachingItemProps, State> {
+  constructor(props: TeachingItemProps) {
     super(props);
     const { cookies } = props;
     if (cookies.get(this.props.content.group) == null)
@@ -192,7 +195,7 @@ class TeachingItem extends React.Component<Props, State> {
       overlayData: data,
     });
     if (data.series) {
-      this.props.history.push(`/videos/${data.series.id}/${data.id}`);
+      this.props.navigate(`/videos/${data.series.id}/${data.id}`);
     }
   }
   setSelection(selection: string) {
@@ -250,6 +253,7 @@ class TeachingItem extends React.Component<Props, State> {
         this.props.content.options.length === 0 ? (
           <div className="teaching">
             <h1 className="teaching-h1">{this.props.content.header1}</h1>
+            <div className="teaching-mostrecent">Most recent</div>
             <div className="teaching-blackbox">
               <div className="teachingdiv">
                 {this.state.listData[this.state.teachingId].publishedDate}
@@ -319,7 +323,6 @@ class TeachingItem extends React.Component<Props, State> {
                 ) : null}
               </div>
               <div>
-                a
                 <FadeImage
                   className="teaching-image-desktop"
                   onClick={() =>
@@ -344,7 +347,7 @@ class TeachingItem extends React.Component<Props, State> {
                 } series`}
               />
             </div>
-            <div className="teaching-mostrecent">Most recent</div>
+
             <div className="teaching-options">
               {this.props.content.options.map((item: any, index: any) => {
                 return (
@@ -376,5 +379,9 @@ class TeachingItem extends React.Component<Props, State> {
     } else return null;
   }
 }
+function TeachingItemWrapper(props: Props) {
+  const navigate = useNavigate();
+  return <TeachingItem {...props} navigate={navigate} />;
+}
 
-export default withCookies(withRouter(TeachingItem));
+export default withCookies(TeachingItemWrapper);

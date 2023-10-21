@@ -35,7 +35,6 @@ export default function EditorPages() {
   const { state, dispatch } = useEditorPageContext();
   const { currentPage, content } = state;
   const containerRef = React.useRef<HTMLDivElement>(null);
-  console.log({ content });
   const numberOfComponents = useMemo(() => {
     return content?.page?.content?.length;
   }, [content?.page?.content?.length]);

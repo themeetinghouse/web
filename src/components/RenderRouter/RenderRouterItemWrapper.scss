@@ -7,5 +7,6 @@
 @media (max-width: 767px) {
   .RenderRouterItemWrapper {
     scroll-margin-top: calc(19.2vw + -1px); // header height
+    margin-top: 19.2vw;
   }
 }

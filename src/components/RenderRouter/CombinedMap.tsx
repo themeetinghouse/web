@@ -12,7 +12,6 @@ import {
   Polygon,
 } from 'google-maps-react';
 import { useEffect, useState } from 'react';
-import { RouteComponentProps, withRouter } from 'react-router-dom';
 import DataLoader, {
   CompassionData,
   LocationData,
@@ -27,7 +26,7 @@ const HOME_CHURCH_PIN_SELECTED_URL = '/static/svg/HomeChurchPin-selected.svg';
 const CURRENT_LOCATION_URL = '/static/svg/CurrentLocation.svg';
 const DEFAULT_LAT_LNG = { lng: -79.685926, lat: 43.511459 };
 
-interface Props extends RouteComponentProps, IProvidedProps {
+interface Props extends IProvidedProps {
   content: HomeChurchItemContent;
 }
 
@@ -432,4 +431,4 @@ export function ContentItem(props: Props) {
 
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyDXxLzyv5pYsIPl3XnVX5ONklXvs48zjn0',
-})(withRouter(ContentItem));
+})(ContentItem);

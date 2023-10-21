@@ -4,7 +4,7 @@ import { Link } from 'components/Link/Link';
 import ShareDropdown from 'components/Share/ShareDropdown';
 import moment from 'moment';
 import { useEffect, useState } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import DataLoader from './DataLoader';
 import './EventPage.scss';
 
@@ -105,8 +105,8 @@ const CTAContainer = ({
 };
 
 export default function EventPage(): JSX.Element {
-  const location = useLocation<any>();
-  const history = useHistory();
+  const location = useLocation();
+  const navigate = useNavigate();
   const [event, setEvent] = useState(location?.state?.event);
   const [isLoading, setIsLoading] = useState(!Boolean(location?.state?.event));
   useEffect(
@@ -123,12 +123,12 @@ export default function EventPage(): JSX.Element {
             );
             setEvent(data);
           } catch (err) {
-            history.push('/');
+            navigate('/');
           } finally {
             setIsLoading(false);
           }
         } else {
-          history.push('/');
+          navigate('/');
         }
       };
       load();

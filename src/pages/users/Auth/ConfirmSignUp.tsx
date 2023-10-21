@@ -2,10 +2,10 @@ import { useState } from 'react';
 import * as Sentry from '@sentry/browser';
 import { Auth } from 'aws-amplify';
 import { Spinner } from 'reactstrap';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './AuthPages.scss';
 export default function ConfirmSignUp() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [state, setState] = useState({
     email: '',
     code: '',
@@ -18,7 +18,7 @@ export default function ConfirmSignUp() {
       Sentry.setUser({ email: state.email.toLowerCase() });
       await Auth.confirmSignUp(state.email.toLowerCase(), state.code).then(
         async () => {
-          history.push('/account/signin');
+          navigate('/account/signin');
         }
       );
     } catch (e: any) {
@@ -60,7 +60,7 @@ export default function ConfirmSignUp() {
                   className="SignInButton white"
                   data-testid="myConfirmSignup-back"
                   onClick={async () => {
-                    history.push('/account/signin');
+                    navigate('/account/signin');
                   }}
                 >
                   Back

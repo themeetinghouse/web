@@ -46,7 +46,7 @@ export default class VideoPlayer extends React.Component<Props, State> {
     else document.body.style.overflow = 'auto';
     if (this.props.data !== prevProps.data) {
       if (this.props.data === null) {
-        this.setState({ content: null });
+        console.log('data is null');
       } else if (this.props.isPlaylist) {
         playlistPageContent.then((myJson) => {
           this.setState({ content: myJson });

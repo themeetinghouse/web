@@ -1,6 +1,5 @@
 import { CSSProperties, useEffect, useState } from 'react';
 import { PieChart } from 'react-minimal-pie-chart';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { ScaledImage } from 'components/ScaledImage';
 import { Link, LinkButton } from 'components/Link/Link';
 import { ItemImage } from '../types';
@@ -55,7 +54,6 @@ function ContentImage({
     src: '',
     alt: '',
   });
-  console.log({ image1 });
   React.useEffect(() => {
     if (image?.src?.includes('editor')) {
       const imageKey = image.src[0] === '/' ? image.src.slice(1) : image.src;
@@ -74,7 +72,6 @@ function ContentImage({
     }
   }, [image]);
   if (!image1.src) return null;
-  console.log({ testImage: image1 });
 
   return (
     <FadeImage
@@ -115,7 +112,7 @@ interface ContentType extends LocationQuery {
   calendar?: Event;
 }
 
-interface Props extends RouteComponentProps {
+interface Props {
   content: ContentType;
   nextItem: number;
 }
@@ -292,7 +289,6 @@ function ContentItem({ content, nextItem }: Props) {
   const image1 = content.image1?.length
     ? content.image1[Math.floor(Math.random() * content.image1.length)]
     : undefined;
-  console.log('selectedImage', content.image1);
   const heroBreakpoints = {
     320: 320,
     480: 480,
@@ -717,4 +713,4 @@ function ContentItem({ content, nextItem }: Props) {
       return null;
   }
 }
-export default withRouter(ContentItem);
+export default ContentItem;

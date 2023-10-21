@@ -1,27 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactGA from 'react-ga';
-import {
-  Route,
-  Switch,
-  withRouter,
-  Redirect,
-  RouteComponentProps,
-} from 'react-router-dom';
+import { Route, Navigate, useLocation, Routes } from 'react-router-dom';
 import { captureException } from '@sentry/browser';
 import { getRedirect, Redirect as RedirectType } from './getRedirects';
 import '../custom.scss';
+
 const ContentPage = React.lazy(() => import('components/Loaders/ContentPage'));
 const Videos = React.lazy(() => import('../components/Loaders/Videos'));
 const Blog = React.lazy(() => import('../components/Loaders/Blog'));
 const Notes = React.lazy(() => import('../components/Loaders/Notes'));
 const Archive = React.lazy(() => import('../components/Loaders/Archive'));
 const Podcast = React.lazy(() => import('../components/Loaders/Podcast'));
-
-if (window.location.hostname === 'localhost')
-  ReactGA.initialize('UA-4554612-19');
-else if (window.location.hostname.includes('beta'))
-  ReactGA.initialize('UA-4554612-19');
-else ReactGA.initialize('UA-4554612-3');
 
 export interface RouteParams {
   id?: string;
@@ -33,88 +22,104 @@ export interface RouteParams {
   pod?: string;
 }
 
-interface State {
-  redirect?: RedirectType;
+if (window.location.hostname === 'localhost') {
+  ReactGA.initialize('UA-4554612-19');
+} else if (window.location.hostname.includes('beta')) {
+  ReactGA.initialize('UA-4554612-19');
+} else {
+  ReactGA.initialize('UA-4554612-3');
+}
+interface ApiError {
+  errors: string[];
 }
 
-class HomePage extends React.Component<RouteComponentProps, State> {
-  private unregisterGAListener: (() => void) | null = null;
+export default function HomePage() {
+  const location = useLocation();
+  const [redirect, setRedirect] = React.useState<RedirectType | undefined>(
+    undefined
+  );
 
-  constructor(props: RouteComponentProps) {
-    super(props);
-    this.state = {};
-  }
-
-  componentDidMount() {
-    if (window.location.pathname.slice(1) != '')
-      getRedirect(window.location.pathname.slice(1))
-        .then(({ data }) => {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (location.pathname.slice(1) !== '') {
+          const { data } = await getRedirect(location.pathname.slice(1));
           if (data?.getRedirect?.id && data?.getRedirect?.to) {
-            this.setState({ redirect: data.getRedirect });
+            setRedirect(data.getRedirect);
           } else {
-            // set non-null state as we want the rest of the app to load
-            this.setState({ redirect: { id: '', to: '' } as RedirectType });
+            setRedirect({ id: '', to: '' } as RedirectType);
           }
-        })
-        .catch((e: any) => {
-          if (e.errors) captureException(e.errors);
-          else captureException(e);
-          // set non-null state as we want the rest of the app to load
-          this.setState({ redirect: { id: '', to: '' } as RedirectType });
-        });
-    else this.setState({ redirect: { id: '', to: '' } as RedirectType });
-    this.unregisterGAListener = this.props.history.listen((location: any) => {
-      ReactGA.pageview(location.pathname + location.search);
-    });
+        } else {
+          setRedirect({ id: '', to: '' } as RedirectType);
+        }
+      } catch (e: unknown) {
+        const APIError = e as ApiError;
+        if (APIError.errors) {
+          captureException(APIError.errors);
+        } else {
+          captureException(e);
+        }
+        setRedirect({ id: '', to: '' } as RedirectType);
+      }
+    };
+    fetchData();
+  }, [location.pathname]);
+  useEffect(() => {
+    ReactGA.pageview(location.pathname + location.search);
+    const scrollOptions = {
+      top: 0,
+      left: 0,
+      behavior: 'instant',
+    };
+    window.scrollTo(scrollOptions as any);
+  }, [location.pathname]);
+  const externalRedirectRegex = new RegExp(/https?:|\.pdf/);
+
+  if (!redirect) {
+    return null;
   }
-
-  componentWillUnmount() {
-    this.unregisterGAListener?.();
-  }
-
-  render() {
-    const { redirect } = this.state;
-    const externalRedirectRegex = new RegExp(/https?:|\.pdf/);
-
-    if (!redirect) {
-      return null;
-    }
-
-    return (
-      <Switch location={this.props.location}>
-        {redirect.id.length > 0 && redirect.to.length > 0 ? (
-          externalRedirectRegex.test(redirect.to) ? (
-            <Route
-              exact
-              path={'/' + redirect.id}
-              render={() => {
-                window.location.href = redirect.to;
-                return null;
-              }}
-            />
+  const redirectExists = redirect && redirect.to && redirect.to.length > 0;
+  const isExternalRedirect = externalRedirectRegex.test(redirect.to);
+  return (
+    <Routes>
+      <Route
+        path="*"
+        element={
+          redirectExists ? (
+            isExternalRedirect ? (
+              <ExternalRedirect url={redirect.to}></ExternalRedirect>
+            ) : (
+              <Navigate to={redirect.to} replace />
+            )
           ) : (
-            <Redirect exact from={'/' + redirect.id} to={redirect.to} />
+            <ContentPage />
           )
-        ) : null}
-        <Route
-          path={['/videos/:series/:episode', '/videos/:series']}
-          component={Videos}
-        />
-        <Route
-          path="/playlist/:playlist/:episode"
-          component={() => <Videos isPlaylist />}
-        />
-        <Route path="/posts/:blog" component={Blog} />
-        <Route path="/notes/:date?" component={Notes} />
-        <Route
-          path="/archive/:archiveType(series|video)/:subclass"
-          component={Archive}
-        />
-        <Route path="/podcast/:pod" component={Podcast} />
-        <Route component={ContentPage} />
-      </Switch>
-    );
-  }
+        }
+      />
+      <Route path={'/videos/:series/:episode'} element={<Videos />} />
+
+      <Route path={'/videos/:series'} element={<Videos />} />
+
+      <Route
+        path="/playlist/:playlist/:episode"
+        element={<Videos isPlaylist />}
+      />
+
+      <Route path="/posts/:blog" element={<Blog />} />
+
+      <Route path="/notes/:date?" element={<Notes />} />
+
+      <Route
+        path="/archive/:archiveType(series|video)/:subclass"
+        element={<Archive />}
+      />
+
+      <Route path="/podcast/:pod" element={<Podcast />} />
+    </Routes>
+  );
 }
 
-export default withRouter(HomePage);
+function ExternalRedirect({ url }: { url: string }) {
+  window.location.href = url;
+  return null;
+}

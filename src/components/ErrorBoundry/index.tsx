@@ -18,23 +18,22 @@ export default class ErrorBoundary extends React.Component<EmptyProps, State> {
     ) {
       window.location.reload();
     } else {
+      console.log({ error });
       this.setState({ error });
       Sentry.captureException(error);
     }
   }
   render() {
     if (this.state.error) {
-      /* return (
-                 <div
-                     className="snap"
-                     onClick={() => Sentry.lastEventId() && Sentry.showReportDialog()}
-                 >
-    
-                     <p>We're sorry — something's gone wrong.</p>
-                     <p>Our team has been notified, but click here fill out a report.</p>
-                 </div>
-             );*/
-      return null;
+      return (
+        <div
+          className="snap"
+          onClick={() => Sentry.lastEventId() && Sentry.showReportDialog()}
+        >
+          <p>We&apos;re sorry — something&apos;s gone wrong.</p>
+          <p>Our team has been notified.</p>
+        </div>
+      );
     } else {
       //when there's not an error, render children untouched
       return this.props.children;

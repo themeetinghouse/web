@@ -1,13 +1,17 @@
 import React from 'react';
 import { Collapse } from 'reactstrap';
 import './FAQItem.scss';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { useNavigate, NavigateFunction } from 'react-router-dom';
 import { ScaledImage } from 'components/ScaledImage';
 import { ItemImage } from 'components/types';
 import { Link, LinkButton } from 'components/Link/Link';
 import { Storage } from 'aws-amplify';
-interface Props extends RouteComponentProps {
+interface Props {
   content: any;
+}
+
+interface FAQItemProps extends Props {
+  navigate: NavigateFunction;
 }
 interface State {
   content: any;
@@ -47,8 +51,8 @@ function IsLinkFromStorage({
     </div>
   ) : null;
 }
-class ContentItem extends React.Component<Props, State> {
-  constructor(props: Props) {
+class ContentItem extends React.Component<FAQItemProps, State> {
+  constructor(props: FAQItemProps) {
     super(props);
     this.state = {
       content: props.content,
@@ -182,4 +186,7 @@ class ContentItem extends React.Component<Props, State> {
     );
   }
 }
-export default withRouter(ContentItem);
+export default function ContentItemWrapper(props: Props) {
+  const navigate = useNavigate();
+  return <ContentItem {...props} navigate={navigate} />;
+}

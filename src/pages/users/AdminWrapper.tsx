@@ -1,10 +1,10 @@
-import Admin from 'pages/admin';
+import { Outlet } from 'react-router-dom';
 import './AdminWrapper.scss';
 export default function AdminWrapper() {
   return (
     <div className="AdminPageContainer">
       <div className="AdminPage ">
-        <Admin></Admin>
+        <Outlet></Outlet>
       </div>
     </div>
   );

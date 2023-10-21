@@ -1,10 +1,10 @@
 import { Auth } from '@aws-amplify/auth';
 import { useState } from 'react';
 import { useUser } from './UserContext';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './AuthPages.scss';
 export default function RequireNewPassword() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const { state: userState } = useUser();
   const [state, setState] = useState({
     phone: '',
@@ -32,7 +32,7 @@ export default function RequireNewPassword() {
         phone_number: state.code + state.phone,
       })
         .then(async () => {
-          history.push('/account/');
+          navigate('/account/');
         })
         .catch((e: any) => {
           console.log({ Error: e });
@@ -49,7 +49,7 @@ export default function RequireNewPassword() {
       <div>
         <div
           onClick={async () => {
-            history.push('/account/signin');
+            navigate('/account/signin');
           }}
         >
           <div>

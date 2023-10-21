@@ -1,5 +1,5 @@
 import React, { EventHandler, SyntheticEvent } from 'react';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { NavigateFunction, useNavigate } from 'react-router-dom';
 import './ArchiveItem.scss';
 import DataLoader, {
   VideoByVideoTypeData,
@@ -10,10 +10,13 @@ import format from 'date-fns/format';
 
 type listData = SeriesByTypeData | VideoByVideoTypeData;
 
-interface Props extends RouteComponentProps {
+interface Props {
   content: any;
   data: any;
   pageConfig: any;
+}
+interface ArchiveItemClass extends Props {
+  navigate: NavigateFunction;
 }
 interface State {
   listData: listData[] | null;
@@ -23,8 +26,8 @@ interface State {
   yearOptions: string[];
   currentNextToken: string | null;
 }
-class ArchiveItem extends React.Component<Props, State> {
-  constructor(props: Props) {
+class ArchiveItem extends React.Component<ArchiveItemClass, State> {
+  constructor(props: ArchiveItemClass) {
     super(props);
     this.state = {
       listData: [],
@@ -57,7 +60,7 @@ class ArchiveItem extends React.Component<Props, State> {
         loadSeriesByType().then(() => {
           if (this.state.listData?.length === 0) {
             //no data returned
-            this.props.history.replace('/not-found');
+            this.props.navigate('/not-found', { replace: true });
           } else {
             console.log(this.state.listData);
           }
@@ -70,7 +73,7 @@ class ArchiveItem extends React.Component<Props, State> {
         loadVideos().then(() => {
           if (this.state.listData?.length === 0) {
             //no data returned
-            this.props.history.replace('/not-found');
+            this.props.navigate('/not-found', { replace: true });
           } else {
             console.log(this.state.listData);
           }
@@ -128,7 +131,7 @@ class ArchiveItem extends React.Component<Props, State> {
     });
     if (data.series == null)
       console.error({ 'You need to create a series for:': data });
-    else this.props.history.push('/videos/' + data.series.id + '/' + data.id);
+    else this.props.navigate('/videos/' + data.series.id + '/' + data.id);
   }
 
   showYears(start: string | null | undefined, end: string | null | undefined) {
@@ -354,4 +357,9 @@ class ArchiveItem extends React.Component<Props, State> {
   }
 }
 
-export default withRouter(ArchiveItem);
+function ArchiveItemWrapper(props: Props) {
+  const navigate = useNavigate();
+  return <ArchiveItem {...props} navigate={navigate} />;
+}
+
+export default ArchiveItemWrapper;

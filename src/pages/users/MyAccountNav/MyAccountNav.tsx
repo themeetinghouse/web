@@ -1,5 +1,5 @@
 import './MyAccountNav.scss';
-import { Link, useHistory, useLocation, useRouteMatch } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import HamburgerMenu from 'react-hamburger-menu';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -29,7 +29,7 @@ export default function MyAccountNav({
   toggle,
   navigationItems,
 }: Props): JSX.Element {
-  const history = useHistory();
+  const navigate = useNavigate();
   const { state } = useUser();
   const [navItems, setNavItems] = useState<NavItems>(navigationItems);
   const [userGroups, setUserGroups] = useState<any>([]);
@@ -67,7 +67,7 @@ export default function MyAccountNav({
   }, [userGroups, navigationItems]);
 
   const { pathname } = useLocation();
-  const { url } = useRouteMatch();
+  console.log({ pathname });
   console.log({ navItems });
   const isAdmin = userGroups?.includes('Admin');
   const isLocationManager = userGroups?.includes('LocationManager') || isAdmin;
@@ -97,7 +97,7 @@ export default function MyAccountNav({
     >
       <div className="MyAccountTMHLogoContainer">
         <img
-          onClick={() => history.push('/')}
+          onClick={() => navigate('/')}
           alt="The Meeting House, Home"
           className="MyAccountTMHLogo"
           src="/static/logos/tmh-logo-userportal.svg"
@@ -124,92 +124,68 @@ export default function MyAccountNav({
                 </DropdownToggle>
                 <DropdownMenu right>
                   {isGlobalContentManager ? (
-                    <DropdownItem
-                      onClick={() => history.push('/account/admin/livestream')}
-                    >
+                    <DropdownItem onClick={() => navigate(`admin/livestream`)}>
                       Livestream
                     </DropdownItem>
                   ) : null}
                   {isNotesManager ? (
                     <DropdownItem
-                      onClick={() =>
-                        history.push('/account/admin/create-notes')
-                      }
+                      onClick={() => navigate(`admin/create-notes`)}
                     >
                       Notes
                     </DropdownItem>
                   ) : null}
                   {isBlogsManager ? (
-                    <DropdownItem
-                      onClick={() => history.push('/account/admin/create-blog')}
-                    >
+                    <DropdownItem onClick={() => navigate(`admin/create-blog`)}>
                       Blogs
                     </DropdownItem>
                   ) : null}
                   {isGlobalContentManager ? (
-                    <DropdownItem
-                      onClick={() => history.push('/account/admin/videos')}
-                    >
+                    <DropdownItem onClick={() => navigate(`admin/videos`)}>
                       Media
                     </DropdownItem>
                   ) : null}
                   {isLocationManager ? (
                     <DropdownItem
-                      onClick={() =>
-                        history.push('/account/admin/announcements')
-                      }
+                      onClick={() => navigate(`admin/announcements`)}
                     >
                       Announcements
                     </DropdownItem>
                   ) : null}
                   {isLocationManager ? (
                     <DropdownItem
-                      onClick={() =>
-                        history.push('/account/admin/homechurches')
-                      }
+                      onClick={() => navigate(`admin/homechurches`)}
                     >
                       Homechurches
                     </DropdownItem>
                   ) : null}
                   {isAdmin ? (
-                    <DropdownItem
-                      onClick={() => history.push('/account/admin/redirects')}
-                    >
+                    <DropdownItem onClick={() => navigate(`admin/redirects`)}>
                       URL Redirects
                     </DropdownItem>
                   ) : null}
                   {isLocationManager ? (
-                    <DropdownItem
-                      onClick={() => history.push('/account/admin/locations')}
-                    >
+                    <DropdownItem onClick={() => navigate(`admin/locations`)}>
                       Locations
                     </DropdownItem>
                   ) : null}
                   {isAdmin ? (
-                    <DropdownItem
-                      onClick={() => history.push('/account/admin/permissions')}
-                    >
+                    <DropdownItem onClick={() => navigate(`admin/permissions`)}>
                       User Permissions
                     </DropdownItem>
                   ) : null}
                   {isLocationManager ? (
-                    <DropdownItem
-                      onClick={() => history.push('/account/admin/people')}
-                    >
+                    <DropdownItem onClick={() => navigate(`admin/people`)}>
                       People
                     </DropdownItem>
                   ) : null}
                   {isGlobalContentManager || isEditorManager ? (
-                    <DropdownItem
-                      onClick={() => history.push('/account/admin/editor')}
-                    >
+                    <DropdownItem onClick={() => navigate(`admin/editor`)}>
                       Web Editor
                     </DropdownItem>
                   ) : null}
                   {isAdmin ? (
-                    <DropdownItem
-                      onClick={() => history.push('/account/admin/clearCache')}
-                    >
+                    <DropdownItem onClick={() => navigate(`admin/clearCache`)}>
                       Clear Cache
                     </DropdownItem>
                   ) : null}
@@ -224,7 +200,7 @@ export default function MyAccountNav({
                     ? 'navItem active'
                     : 'navItem'
                 }
-                to={`${url}${link !== '/' ? link : ''}`}
+                to={`${link !== '/' ? link : ''}`}
               >
                 {label}
               </Link>
@@ -235,7 +211,7 @@ export default function MyAccountNav({
         <img
           aria-label="Close"
           className="CloseButton"
-          onClick={() => history.push('/')}
+          onClick={() => navigate('/')}
           src="/static/svg/Close-Cancel-White.svg"
         />
       ) : null}

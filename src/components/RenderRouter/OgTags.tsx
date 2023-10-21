@@ -1,9 +1,8 @@
 import React from 'react';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { tmhImageUrl } from 'components/ScaledImage/ScaledImage';
 
-interface Props extends RouteComponentProps {
+interface Props {
   content: any;
 }
 interface State {
@@ -58,4 +57,4 @@ class Tags extends React.Component<Props, State> {
   }
 }
 
-export default withRouter(Tags);
+export default Tags;

@@ -3,9 +3,9 @@ import { useState } from 'react';
 import * as Sentry from '@sentry/browser';
 import { Spinner } from 'reactstrap';
 import './AuthPages.scss';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 export default function ForgotPassword() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [state, setState] = useState({
     email: '',
     authError: '',
@@ -50,7 +50,7 @@ export default function ForgotPassword() {
         state.code,
         state.newPass
       ).then(async () => {
-        history.push('/account/signin');
+        navigate('/account/signin');
       });
     } catch (e: any) {
       setState((prev) => ({ ...prev, authError: e.message, resetting: false }));
@@ -78,7 +78,7 @@ export default function ForgotPassword() {
                 <button
                   className="SignInButton white"
                   onClick={async () => {
-                    history.push('/account/signin');
+                    navigate('/account/signin');
                   }}
                 >
                   Back
@@ -149,7 +149,7 @@ export default function ForgotPassword() {
                 <button
                   className="SignInButton white"
                   onClick={async () => {
-                    history.push('/account/signin');
+                    navigate('/account/signin');
                   }}
                 >
                   Back

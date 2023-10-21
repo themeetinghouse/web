@@ -546,6 +546,17 @@
   }
   .navbar-custom.white {
     position: fixed;
+    background: #1a1a1a !important;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    z-index: 1030;
+    padding: 2vw 0 2vw 0 !important;
+    top: 0vh;
+    height: 19.2vw;
+  }
+  .navbar-custom.black {
+    position: fixed;
     background: #000000 !important;
     left: 0;
     right: 0;

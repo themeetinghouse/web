@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import HamburgerMenu from 'react-hamburger-menu';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './HorizMenu.scss';
 import { Storage } from 'aws-amplify';
 
@@ -20,7 +20,7 @@ export default function HorizMenu({
   toggle,
   navigationItems,
 }: Props): JSX.Element {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [navItems, setNavItems] = useState<NavItems>();
   useEffect(() => {
     const fetchNavItems = async () => {
@@ -53,7 +53,7 @@ export default function HorizMenu({
     >
       <div className="MyAccountTMHLogoContainer">
         <img
-          onClick={() => history.push('/')}
+          onClick={() => navigate('/')}
           alt="The Meeting House, Home"
           className="MyAccountTMHLogo"
           src="/static/logos/tmh-logo-userportal.svg"

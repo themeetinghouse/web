@@ -276,10 +276,11 @@ a.teachingButton {
 @media (max-width: 767px) {
   .teaching-h1 {
     position: relative;
-    top: 3vw;
-    font-size: 3vw;
+    margin-left: 5vw;
+    margin-top: calc(19.2vw + 56px);
     font-weight: bold;
     font-family: Graphik Web;
+    margin-bottom: 40px;
     color: theme.$onyxblacktext;
   }
 
@@ -367,9 +368,7 @@ a.teachingButton {
   }
 
   .teaching-mostrecent {
-    position: absolute;
-    left: 5vw;
-    top: 10vw;
+    margin-left: 5vw;
     font-family: Graphik Web;
     color: #646469;
   }
