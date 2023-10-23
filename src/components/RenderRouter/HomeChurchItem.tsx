@@ -2,6 +2,7 @@ import {
   F1ListEventSchedulesQuery,
   F1ListGroupsQuery,
   ListHomeChurchInfosQuery,
+  TMHLocation,
 } from 'API';
 import API from '@aws-amplify/api';
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
@@ -24,7 +25,7 @@ import { isMobile } from 'react-device-detect';
 import { useNavigate, NavigateFunction } from 'react-router-dom';
 import Select from 'react-select';
 import { Spinner } from 'reactstrap';
-import DataLoader, { LocationData } from './DataLoader';
+import DataLoader from './DataLoader';
 import './HomeChurchItem.scss';
 
 const MAP_BUTTON = '/static/svg/Map, Generic.svg';
@@ -47,7 +48,7 @@ interface State {
   locationsLoaded: string[];
   allLocationsLoaded: boolean;
   mapBounds: google.maps.LatLngBounds | null;
-  locations: LocationData[];
+  locations: TMHLocation[];
   groups: any[];
   groupsExtra: any[];
   currentLatLng: google.maps.LatLngLiteral;

@@ -1,4 +1,4 @@
-import { F1ListGroup2, ListHomeChurchInfosQuery } from 'API';
+import { F1ListGroup2, ListHomeChurchInfosQuery, TMHLocation } from 'API';
 import API from '@aws-amplify/api';
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import * as queries from '../../graphql/queries';
@@ -12,11 +12,7 @@ import {
   Polygon,
 } from 'google-maps-react';
 import { useEffect, useState } from 'react';
-import DataLoader, {
-  CompassionData,
-  LocationData,
-  RegionData,
-} from './DataLoader';
+import DataLoader, { CompassionData, RegionData } from './DataLoader';
 import './CombinedMap.scss';
 const SITE_PIN_URL = '/static/svg/SiteLocationPin.svg';
 const SITE_PIN_SELECTED_URL = '/static/svg/SiteLocationPin-selected.svg';
@@ -36,7 +32,7 @@ export function ContentItem(props: Props) {
   const [activeMarker, setActiveMarker] = useState<any>({});
   const [selectedPlace2Type, setSelectedPlace2Type] = useState<string>('');
   const [selectedPlace2, setSelectedPlace2] = useState<
-    CompassionData | LocationData | F1ListGroup2 | undefined
+    CompassionData | TMHLocation | F1ListGroup2 | undefined
   >(undefined);
   const [homeChurchVisible, setHomeChurchVisible] = useState<boolean>(true);
   const [compassionVisible, setCompassionVisible] = useState<boolean>(true);
@@ -46,7 +42,7 @@ export function ContentItem(props: Props) {
   // const [locationsLoaded, setLocationsLoaded] = useState([]);
   const [, setAllLocationsLoaded] = useState(false);
   const [mapBounds] = useState(null);
-  const [locations, setLocations] = useState<LocationData[]>([]);
+  const [locations, setLocations] = useState<TMHLocation[]>([]);
   const [regions, setRegions] = useState<RegionData[]>([]);
   const [compassion, setCompassion] = useState<CompassionData[]>([]);
 
@@ -222,13 +218,13 @@ export function ContentItem(props: Props) {
     } else if (selectedPlace2Type == '') {
       return null;
     } else if (selectedPlace2Type == 'Sunday') {
-      const sunday = selectedPlace2 as LocationData;
+      const sunday = selectedPlace2 as TMHLocation;
       return (
         <div>
           <div>Community Site</div>
           <div>{sunday?.name}</div>
-          <div>{sunday?.location?.address}</div>
-          <div>{sunday?.serviceTimeDescription}</div>
+          <div>{sunday?.location?.address1}</div>
+          {/*<div>{sunday?.serviceTimeDescription}</div>*/}
         </div>
       );
     } else if (selectedPlace2Type == 'Compassion') {
@@ -393,8 +389,8 @@ export function ContentItem(props: Props) {
                         selectedPlace ? SITE_PIN_SELECTED_URL : SITE_PIN_URL
                       }
                       position={{
-                        lat: location.location.latitude,
-                        lng: location.location.longitude,
+                        lat: location?.location?.latitude ?? 0,
+                        lng: location?.location?.longitude ?? 0,
                       }}
                     />
                   );
