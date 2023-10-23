@@ -6,7 +6,7 @@ import * as customQueries from '../../graphql-custom/customQueries';
 import * as queries from '../../graphql/queries';
 import * as mutations from '../../graphql/mutations';
 import API, { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
-import Storage from '@aws-amplify/storage';
+import { Storage } from '@aws-amplify/storage';
 import { Modal, Spinner } from 'reactstrap';
 import { v4 as uuidv4 } from 'uuid';
 import draftToHtml from 'draftjs-to-html';
@@ -526,6 +526,7 @@ class Index extends React.Component<EmptyProps, State> {
         await Storage.put(filepath, image, {
           contentType: 'image/*',
           acl: 'public-read',
+          cacheControl: 'max-age=604800',
         });
 
         this.updateBlogField(size, {
@@ -1461,6 +1462,7 @@ class Index extends React.Component<EmptyProps, State> {
                 await Storage.put(filepath, file, {
                   contentType: 'image/*',
                   acl: 'public-read',
+                  cacheControl: 'max-age=604800',
                 });
                 const download = S3_BUCKET + filepath;
                 return { data: { link: download } };

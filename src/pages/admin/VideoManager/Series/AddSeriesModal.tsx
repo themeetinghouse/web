@@ -37,6 +37,7 @@ const uploadToS3 = async (
     )}-${new Date().getTime()}.${extension}`;
     const result = await Storage.put(key, file, {
       acl: 'public-read',
+      cacheControl: 'max-age=604800',
     });
     console.log({ result });
     if (!result) return '';
