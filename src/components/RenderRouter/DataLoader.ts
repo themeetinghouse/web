@@ -1112,17 +1112,14 @@ export default class DataLoader {
     const data: RegionData[] = await response.json();
     return data;
   }
-  static async getLocations(query: LocationQuery): Promise<LocationData[]> {
-    let response;
-    if (query.alternate === 'christmas')
-      response = await fetch('/static/data/christmas.json');
-    else if (query.alternate === 'easter')
-      response = await fetch('/static/data/easter.json');
-    else if (query.alternate === 'youth')
-      response = await fetch('/static/data/youth.json');
-    else response = await fetch('/static/data/locations.json');
-    const data: LocationData[] = await response.json();
-    return data
+  static async getLocations(query: LocationQuery): Promise<TMHLocation[]> {
+    const data = (await API.graphql({
+      query: queries.listTMHLocations,
+      authMode: GRAPHQL_AUTH_MODE.API_KEY,
+    })) as GraphQLResult<ListTMHLocationsQuery>;
+    const locations =
+      (data.data?.listTMHLocations?.items as TMHLocation[]) ?? [];
+    return locations
       .filter((location) => {
         if (!query.filterField) {
           return true;
