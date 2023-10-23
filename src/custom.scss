@@ -1,6 +1,8 @@
 @use '~bootstrap/scss/bootstrap';
 @use 'theme';
-
+a {
+  color: unset;
+}
 html {
   scroll-behavior: smooth;
 }
