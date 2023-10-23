@@ -845,6 +845,7 @@ class Index extends React.Component<EmptyProps, State> {
           await Storage.put(filepath, file, {
             contentType: 'image/*',
             acl: 'public-read',
+            cacheControl: 'max-age=604800',
           });
           const download =
             'https://themeetinghouse-usercontent221608-prodnew.s3.amazonaws.com/public/' +

@@ -58,10 +58,9 @@ function ContentImage({
   React.useEffect(() => {
     if (image?.src?.includes('editor')) {
       const imageKey = image.src[0] === '/' ? image.src.slice(1) : image.src;
-      Storage.get(imageKey, { expires: 604800 }).then(async (url) => {
-        console.log({ url });
+      Storage.get(imageKey).then(async (url) => {
         setImage1({
-          src: url,
+          src: url?.split('?')?.[0],
           alt: image.alt,
         });
       });

@@ -30,6 +30,7 @@ const ImageModal = (props: Props) => {
         await Storage.put(filepath, image, {
           contentType: 'image/*',
           acl: 'public-read',
+          cacheControl: 'max-age=604800',
         });
       }
     } catch (e) {

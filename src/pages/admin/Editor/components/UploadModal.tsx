@@ -1,7 +1,7 @@
 import { Modal } from 'reactstrap';
 import LocationsTMHButton from '../../locations/LocationsTMHButton';
 import React from 'react';
-import { Storage } from 'aws-amplify';
+import { S3ProviderPutConfig, Storage } from '@aws-amplify/storage';
 //import { EditorContext } from './EditorContext';
 import TMHInput from './TMHInput';
 
@@ -59,6 +59,12 @@ export default function UploadModal({
     try {
       setIsSaving(true);
       console.log('Saving new file', file?.name);
+      const options: S3ProviderPutConfig = {
+        contentType,
+        acl: 'public-read',
+      };
+      if (uploadLocation?.includes('images'))
+        options.cacheControl = 'max-age=604800';
       const result = await Storage.put(`${uploadLocation}${file.name}`, file, {
         contentType,
         acl: 'public-read',

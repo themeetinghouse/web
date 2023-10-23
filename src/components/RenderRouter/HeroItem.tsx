@@ -99,7 +99,7 @@ function HeroImage({
       Storage.get(imageKey, { expires: 3600 }).then(async (url) => {
         console.log({ url });
         setImage1({
-          src: url,
+          src: url?.split('?')?.[0],
           alt: image.alt,
         });
       });
