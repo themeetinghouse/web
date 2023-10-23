@@ -4,11 +4,12 @@ import { ScaledImage } from 'components/ScaledImage';
 import { Link, LinkButton } from 'components/Link/Link';
 import { ItemImage } from '../types';
 import './ContentItem.scss';
-import DataLoader, { LocationData, LocationQuery } from './DataLoader';
+import DataLoader, { LocationQuery } from './DataLoader';
 import AddToCalendar, { Event } from '../AddToCalendar/AddToCalendar';
 import FadeImage from 'components/ScaledImage/FadeImage';
 import React from 'react';
 import { Storage } from 'aws-amplify';
+import { TMHLocation } from 'API';
 
 type ContentList = Array<
   | {
@@ -57,7 +58,7 @@ function ContentImage({
   React.useEffect(() => {
     if (image?.src?.includes('editor')) {
       const imageKey = image.src[0] === '/' ? image.src.slice(1) : image.src;
-      Storage.get(imageKey).then(async (url) => {
+      Storage.get(imageKey, { expires: 604800 }).then(async (url) => {
         console.log({ url });
         setImage1({
           src: url,
@@ -200,7 +201,7 @@ function ContentLink({
 }
 
 function ContentItem({ content, nextItem }: Props) {
-  const [data, setData] = useState<LocationData[]>();
+  const [data, setData] = useState<TMHLocation[]>();
 
   const [currentImage, setCurrentImage] = useState(0);
   useEffect(() => {
@@ -524,27 +525,27 @@ function ContentItem({ content, nextItem }: Props) {
     case 'youth':
       return data ? (
         <div className="ContentItem greyTwoText">
-          <div className="greyTwoTextH1">{data[0].youth.age}</div>
+          <div className="greyTwoTextH1">{data?.[0]?.youth?.age}</div>
           <div className="greyTwoTextText">
-            <div className="greyTwoTextJustText">{data[0].youth.time}</div>
+            <div className="greyTwoTextJustText">{data?.[0]?.youth?.time}</div>
             <div className="greyTwoTextJustText">
-              <a href={data[0].youth.location.googleMapLink}>
-                {data[0].youth.location.name}
+              <a href={data[0]?.youth?.location?.url ?? ''}>
+                {data?.[0]?.youth?.location?.name}
               </a>
               <div style={{ color: 'red' }}>
                 Currently online due to Covid - email for details
               </div>
             </div>
             <div className="greyTwoTextJustText">
-              <a href={'mailto:' + data[0].youth.mainContact.email}>
-                {data[0].youth.mainContact.name}
+              <a href={'mailto:' + data?.[0]?.youth?.contact?.email}>
+                {data?.[0]?.youth?.contact?.name}
               </a>{' '}
-              | {data[0].youth.mainContact.phone}
+              | {data?.[0]?.youth?.contact?.phone}
             </div>
 
             <div className="greyTwoTextJustText">
               <div style={{ flexDirection: 'row' }}>
-                <a href={data[0].youth.facebook}>
+                <a href={data?.[0]?.youth?.facebookLink ?? ''}>
                   <img
                     className="FooterSocialImg"
                     src="/static/svg/Facebook.svg"
@@ -554,7 +555,7 @@ function ContentItem({ content, nextItem }: Props) {
                   />
                 </a>
 
-                <a href={data[0].youth.instagram}>
+                <a href={data?.[0]?.youth?.instagramLink ?? ''}>
                   <img
                     className="FooterSocialImg"
                     src="/static/svg/Instagram.svg"

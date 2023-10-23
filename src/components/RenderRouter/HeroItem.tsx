@@ -9,7 +9,7 @@ import moment from 'moment';
 import { ScaledImage } from 'components/ScaledImage';
 import { Link, LinkButton } from 'components/Link/Link';
 import { TMHLocation, TMHLocationMeeting } from 'API';
-import { Storage } from 'aws-amplify';
+import { Auth, Storage } from 'aws-amplify';
 import FadeImage from 'components/ScaledImage/FadeImage';
 function RenderLinkButton({
   buttonInfo,
@@ -81,16 +81,29 @@ function HeroImage({
     alt: '',
   });
   React.useEffect(() => {
+    console.log('yep');
+    const sess = Auth.currentSession();
+    sess
+      .then((a) => {
+        console.log({ a });
+      })
+      .catch((e) => {
+        console.error({ e });
+      });
+
     const image =
       content.image1[Math.floor(Math.random() * content.image1.length)];
     if (image?.src?.includes('editor')) {
+      console.log('isEditor');
       const imageKey = image.src[0] === '/' ? image.src.slice(1) : image.src;
-      Storage.get(imageKey).then(async (url) => {
+      Storage.get(imageKey, { expires: 3600 }).then(async (url) => {
+        console.log({ url });
         setImage1({
           src: url,
           alt: image.alt,
         });
       });
+      console.log;
     } else {
       setImage1({
         src: image.src,
