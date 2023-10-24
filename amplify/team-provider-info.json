@@ -730,6 +730,10 @@
           "userPoolWebClientId": "4r6fjaifitufbsl1qcju0f9jbt",
           "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
           "s3Key": "amplify-builds/tmhStripeAPI-593167537739496d6747-build.zip"
+        },
+        "tmhHandleScheduledPages": {
+          "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
+          "s3Key": "amplify-builds/tmhHandleScheduledPages-3441667635732f647344-build.zip"
         }
       },
       "notifications": {

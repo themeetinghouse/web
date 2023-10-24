@@ -18,6 +18,7 @@ export enum EditorPage {
   FOOTER_SETTINGS_PAGE = 'FOOTER_SETTINGS_PAGE',
   DRAFT_PAGE = 'DRAFT_PAGE',
   BACKUP_PAGE = 'BACKUP_PAGE',
+  SCHEDULED_PAGE = 'SCHEDULED_PAGE',
   TEMPLATE_PAGE = 'TEMPLATE_PAGE',
   PDF_FILES_PAGE = 'PDF_FILES_PAGE',
   IMAGE_FILES_PAGE = 'IMAGE_FILES_PAGE',
@@ -28,6 +29,7 @@ export type EditorPageState = {
   currentPage?: EditorPage | null;
   isDraft: boolean;
   isBackup: boolean;
+  isScheduled: boolean;
   isSaved: boolean;
   editIndex?: number | null;
   showAddComponentModal: boolean; // gallery
@@ -47,6 +49,7 @@ const initialState = {
   content: null,
   isDraft: false,
   isBackup: false,
+  isScheduled: false,
   isSaved: false,
   editIndex: null,
   showAddComponentModal: false, // gallery

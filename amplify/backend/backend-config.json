@@ -436,6 +436,20 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
+    "tmhHandleScheduledPages": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "BucketName"
+          ],
+          "category": "storage",
+          "resourceName": "tmhusercontent"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "tmhMetadataFacebook": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -1345,6 +1359,22 @@
         {
           "category": "function",
           "resourceName": "tmhF1SyncGroupPermissions"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhHandleScheduledPages_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhHandleScheduledPages"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhHandleScheduledPages_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhHandleScheduledPages"
         }
       ]
     },
