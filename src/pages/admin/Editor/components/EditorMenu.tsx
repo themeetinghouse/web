@@ -1,18 +1,22 @@
 import React from 'react';
 import { Modal } from 'reactstrap';
 import { RenderEditorList } from '../PageConfigEditor';
-import { Storage } from 'aws-amplify';
+import { Storage } from '@aws-amplify/storage';
 import styles from './EditorMenu.module.scss';
+import Datetime from 'react-datetime';
 import LocationsTMHButton from '../../locations/LocationsTMHButton';
 import { RenderItem } from 'components/RenderRouter/RenderRouter';
 import TransactionPaginate from 'pages/users/Transactions/TransactionsPaginate';
 import TemplatesModal from '../TemplatesModal';
+
 //import TMHModal from './TMHModal';
 import {
   EditorPage,
   EditorPageActionType,
   useEditorPageContext,
 } from '../contexts/EditorPageContext';
+import moment from 'moment';
+import 'react-datetime/css/react-datetime.css';
 
 const SubNavTree = () => {
   const { state, dispatch } = useEditorPageContext();
@@ -45,6 +49,7 @@ const SubNavTree = () => {
         <AddComponentModal />
         <PageSettingsModal />
         <SaveModal />
+        <SaveAsScheduled />
         <SaveAsTemplateModal />
         <SaveAsDraftModal />
       </div>
@@ -55,13 +60,14 @@ export default function EditorMenu() {
   const { state, dispatch } = useEditorPageContext();
 
   //const [modalOpen, setModalOpen] = React.useState(false);
-  const { currentPage, isBackup, isDraft } = state;
+  const { currentPage, isBackup, isDraft, isScheduled } = state;
   const pageDirectoryActive =
     currentPage === EditorPage.PUBLIC_PAGE ||
     currentPage === EditorPage.BACKUP_PAGE ||
     currentPage === EditorPage.DRAFT_PAGE ||
     currentPage === EditorPage.EDIT_PAGE ||
-    currentPage === EditorPage.TEMPLATE_PAGE;
+    currentPage === EditorPage.TEMPLATE_PAGE ||
+    currentPage === EditorPage.SCHEDULED_PAGE;
   const globalSettingsActive =
     currentPage === EditorPage.NAVIGATION_SETTINGS_PAGE ||
     currentPage === EditorPage.GLOBAL_SETTINGS_PAGE ||
@@ -118,7 +124,10 @@ export default function EditorMenu() {
               <span style={{ flex: 1 }}>Public</span>
               <img src="/static/svg/Notes.svg" width={20} height={20} />
             </button>
-            {currentPage === EditorPage.EDIT_PAGE && !isBackup && !isDraft ? (
+            {currentPage === EditorPage.EDIT_PAGE &&
+            !isBackup &&
+            !isDraft &&
+            !isScheduled ? (
               <SubNavTree />
             ) : null}
 
@@ -149,6 +158,31 @@ export default function EditorMenu() {
               />
             </button>
             {currentPage === EditorPage.EDIT_PAGE && isBackup ? (
+              <SubNavTree />
+            ) : null}
+            <button
+              type="button"
+              style={
+                currentPage === EditorPage.EDIT_PAGE && isScheduled
+                  ? { fontWeight: 600, paddingLeft: 20 }
+                  : { paddingLeft: 20 }
+              }
+              className={`${styles['MenuItem']} ${
+                currentPage === EditorPage.SCHEDULED_PAGE
+                  ? styles['MenuActiveItem']
+                  : ''
+              }`}
+              onClick={() =>
+                dispatch({
+                  type: EditorPageActionType.NAVIGATE_TO,
+                  payload: EditorPage.SCHEDULED_PAGE,
+                })
+              }
+            >
+              <span style={{ flex: 1 }}>Scheduled</span>
+              <img src="/static/svg/Clock-Time.svg" width={20} height={20} />
+            </button>
+            {currentPage === EditorPage.EDIT_PAGE && isScheduled ? (
               <SubNavTree />
             ) : null}
             <button
@@ -611,6 +645,228 @@ function SaveAsDraftModal() {
     </div>
   );
 }
+
+function SaveAsScheduled() {
+  const [resultMessage, setResultMessage] = React.useState('');
+  const [showOverwriteMessage, setShowOverwriteMessage] = React.useState(false);
+  const [isSaving, setIsSaving] = React.useState(false);
+  const [scheduledTime, setScheduledTime] = React.useState(
+    moment().add('1', 'hours')
+  );
+  const { state, dispatch } = useEditorPageContext();
+  const { content } = state;
+  const [saveModalVisible, setSaveModalVisible] = React.useState(false);
+  const clearSaveModal = () => {
+    setScheduledTime(moment().add('1', 'hours'));
+    setResultMessage('');
+    setShowOverwriteMessage(false);
+    setIsSaving(false);
+    setSaveModalVisible(false);
+  };
+
+  const checkFileExists = async (fileName: string): Promise<string | null> => {
+    try {
+      const path = 'scheduled/' + fileName + '.json';
+      const result = await Storage.get(path, { download: true });
+      console.log({ result });
+      if (result.Body instanceof Blob) {
+        const data = await new Response(result.Body).json();
+        return data;
+      } else {
+        throw new Error('The result body is not of type Blob');
+      }
+    } catch (e) {
+      return null;
+    }
+  };
+
+  const handleSaveFile = async (fileName: string, json: any) => {
+    const exists = await checkFileExists(fileName);
+    console.log({ exists });
+    if (exists) {
+      setShowOverwriteMessage(true);
+    } else {
+      await saveFile(fileName, json);
+      setResultMessage('Successfully saved!');
+    }
+  };
+
+  const saveFile = async (fileName: string, json: any) => {
+    try {
+      setIsSaving(true);
+      console.log('Saving new file', json);
+      const selectedDate = moment(scheduledTime);
+      const unixTimestamp = selectedDate.unix();
+      await Storage.put(`scheduled/${fileName}.json`, json, {
+        contentType: 'application/json',
+        acl: 'public-read',
+        metadata: {
+          'publish-time': `${unixTimestamp}`,
+        },
+      });
+      const newEditModeObject: any = {};
+      newEditModeObject.isBackup = false;
+      newEditModeObject.isDraft = false;
+
+      dispatch({
+        type: EditorPageActionType.SET_EDIT_MODE,
+        payload: newEditModeObject,
+      });
+      dispatch({
+        type: EditorPageActionType.UPDATE_SAVED_STATUS,
+        payload: true,
+      });
+      setResultMessage('Successfully saved!');
+    } catch (e) {
+      console.log({ e: e });
+      setResultMessage('An error occurred. Please try again later.');
+    } finally {
+      setIsSaving(false);
+    }
+  };
+  return (
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        flex: 1,
+      }}
+    >
+      <button
+        className={styles['MenuItem']}
+        style={{ paddingLeft: 60 }}
+        onClick={() => {
+          setSaveModalVisible(true);
+        }}
+      >
+        <span style={{ flex: 1 }}>Schedule this change</span>
+        <img src="/static/svg/Register.svg" width={20} height={20} />
+      </button>
+      <Modal isOpen={saveModalVisible} style={{ zIndex: 100000 }}>
+        <div
+          style={{
+            margin: 16,
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+        >
+          {!Boolean(resultMessage || showOverwriteMessage) ? (
+            <>
+              <span
+                style={{
+                  marginTop: 20,
+                  marginBottom: 4,
+                  fontSize: 20,
+                  fontWeight: '600',
+                }}
+              >
+                When do you want this page to go live?
+              </span>
+
+              <Datetime
+                dateFormat="ll"
+                value={scheduledTime}
+                isValidDate={(current) => {
+                  return current.isAfter(moment().subtract('24', 'hours'));
+                }}
+                onChange={(e) => {
+                  setScheduledTime(moment(e));
+                }}
+              />
+            </>
+          ) : null}
+          <span
+            style={{
+              marginTop: 20,
+              marginBottom: 20,
+            }}
+          >
+            {resultMessage ? (
+              <b>{resultMessage}</b>
+            ) : showOverwriteMessage ? (
+              <span>
+                <p style={{ fontSize: 20, fontWeight: '600' }}>
+                  Are you sure you want to overwrite:
+                  <b
+                    style={{
+                      color: 'tomato',
+                    }}
+                  >
+                    {' '}
+                    {content.page.name}
+                  </b>
+                  ?
+                </p>
+
+                <p>
+                  A publish has been previously scheduled. If you wish to
+                  proceed, previous changes will be lost.
+                </p>
+                <p>
+                  Your new changes will be published sometime between{' '}
+                  {moment(scheduledTime).format('llll')} -{' '}
+                  {moment(scheduledTime).add(15, 'minutes').format('LT')}
+                </p>
+              </span>
+            ) : !resultMessage && !showOverwriteMessage ? (
+              <span>
+                <p>
+                  Are you sure you want to schedule changes to:{' '}
+                  <b> {content.page.name}</b>
+                </p>
+                <p>
+                  Publish will occur sometime between{' '}
+                  {moment(scheduledTime).format('llll')} -{' '}
+                  {moment(scheduledTime).add(15, 'minutes').format('LT')}
+                </p>
+              </span>
+            ) : null}
+          </span>
+
+          <div
+            style={{
+              marginTop: 40,
+              columnGap: 8,
+              display: 'flex',
+              justifyContent: 'flex-end',
+            }}
+          >
+            {resultMessage ? (
+              <>
+                <LocationsTMHButton onClick={clearSaveModal} outline>
+                  Dismiss
+                </LocationsTMHButton>
+              </>
+            ) : showOverwriteMessage ? (
+              <>
+                <LocationsTMHButton
+                  onClick={() => saveFile(content.page.name, content)}
+                >
+                  {isSaving ? 'Saving...' : 'Yes'}
+                </LocationsTMHButton>
+                <LocationsTMHButton onClick={clearSaveModal} outline>
+                  No
+                </LocationsTMHButton>
+              </>
+            ) : (
+              <>
+                <LocationsTMHButton
+                  onClick={() => handleSaveFile(content.page.name, content)}
+                >
+                  {isSaving ? 'Saving...' : 'Save'}
+                </LocationsTMHButton>
+                <LocationsTMHButton onClick={clearSaveModal} outline>
+                  Dismiss
+                </LocationsTMHButton>
+              </>
+            )}
+          </div>
+        </div>
+      </Modal>
+    </div>
+  );
+}
+
 function SaveModal() {
   const [resultMessage, setResultMessage] = React.useState('');
   const [showOverwriteMessage, setShowOverwriteMessage] = React.useState(false);
@@ -675,6 +931,10 @@ function SaveModal() {
       dispatch({
         type: EditorPageActionType.UPDATE_SAVED_STATUS,
         payload: true,
+      });
+      dispatch({
+        type: EditorPageActionType.NAVIGATE_TO,
+        payload: EditorPage.SCHEDULED_PAGE,
       });
       setResultMessage('Successfully saved!');
     } catch (e) {

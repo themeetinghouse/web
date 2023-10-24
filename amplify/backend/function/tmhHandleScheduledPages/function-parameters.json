@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "storage": {
+      "tmhusercontent": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}

@@ -187,6 +187,14 @@ export type AmplifyDependentResourcesAttributes = {
       Name: 'string';
       Region: 'string';
     };
+    tmhHandleScheduledPages: {
+      Arn: 'string';
+      CloudWatchEventRule: 'string';
+      LambdaExecutionRole: 'string';
+      LambdaExecutionRoleArn: 'string';
+      Name: 'string';
+      Region: 'string';
+    };
     tmhMetadataFacebook: {
       Arn: 'string';
       LambdaExecutionRole: 'string';

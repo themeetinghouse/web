@@ -20,6 +20,7 @@ import IgnorePages from './utils/IgnorePages.json';
 import ImageFilesPage from './pages/ImageFilesPage';
 import PageSettingsModal from './PageSettingsModal';
 import PageComponentEditor from './PageComponentEditor';
+import pageNameHelper from './utils/pageNameHelper';
 
 async function deletePage(filename: string) {
   try {
@@ -60,7 +61,9 @@ export default function EditorPages() {
   const [draftContent, setDraftContent] = React.useState<
     S3ProviderListOutputItem[]
   >([]);
-
+  const [scheduledContent, setScheduledContent] = React.useState<
+    S3ProviderListOutputItem[]
+  >([]);
   const [isLoading, setIsLoading] = React.useState(false);
   React.useEffect(() => {
     const updateLoadContent = async () => {
@@ -69,9 +72,27 @@ export default function EditorPages() {
         const content = await Storage.list('savedContent/');
         const drafts = await Storage.list('editor/drafts/');
         const backup = await Storage.list('editor/backups/');
-        setDraftContent(drafts.sort(sortAlphabetically));
-        setBackupContent(backup.sort(sortAlphabetically));
-        setLoadContent(content.sort(sortAlphabetically));
+        const scheduled = await Storage.list('scheduled/');
+        setScheduledContent(
+          scheduled
+            .sort(sortAlphabetically)
+            .filter((item) => !(item.size === 0 && item?.key?.endsWith('/')))
+        );
+        setDraftContent(
+          drafts
+            .sort(sortAlphabetically)
+            .filter((item) => !(item.size === 0 && item?.key?.endsWith('/')))
+        );
+        setBackupContent(
+          backup
+            .sort(sortAlphabetically)
+            .filter((item) => !(item.size === 0 && item?.key?.endsWith('/')))
+        );
+        setLoadContent(
+          content
+            .sort(sortAlphabetically)
+            .filter((item) => !(item.size === 0 && item?.key?.endsWith('/')))
+        );
       } catch (error) {
         console.log({ error });
       } finally {
@@ -123,6 +144,13 @@ export default function EditorPages() {
           console.log('filtered content', filteredContent);
           setLoadContent(filteredContent);
         }
+        if (currentPage === EditorPage.SCHEDULED_PAGE) {
+          const filteredContent = scheduledContent.filter((cont) => {
+            return cont.key !== contentKeyToDelete;
+          });
+          console.log('filtered content', filteredContent);
+          setScheduledContent(filteredContent);
+        }
         setContentKeyToDelete(null);
         return true;
       }
@@ -135,8 +163,9 @@ export default function EditorPages() {
       ? backupContent
       : currentPage === EditorPage.DRAFT_PAGE
       ? draftContent
+      : currentPage === EditorPage.SCHEDULED_PAGE
+      ? scheduledContent
       : loadContent;
-  console.log({ currentPage });
   if (currentPage === EditorPage.PDF_FILES_PAGE) return <PDFFilesPage />;
   if (currentPage === EditorPage.IMAGE_FILES_PAGE) return <ImageFilesPage />;
   if (currentPage === EditorPage.ENTER_PAGE_SETTINGS_PAGE)
@@ -183,6 +212,7 @@ export default function EditorPages() {
       {currentPage === EditorPage.PUBLIC_PAGE ||
       currentPage === EditorPage.DRAFT_PAGE ||
       currentPage === EditorPage.BACKUP_PAGE ||
+      currentPage === EditorPage.SCHEDULED_PAGE ||
       currentPage === EditorPage.TEMPLATE_PAGE ? (
         <>
           <div style={{ flex: 1 }} className={styles['PageList']}>
@@ -242,7 +272,8 @@ export default function EditorPages() {
                                 ?.replace('savedContent/', '')
                                 ?.replace('backups/', '')
                                 ?.replace('drafts/', '')
-                                ?.replace('editor/', '') ?? '';
+                                ?.replace('editor/', '')
+                                ?.replace('scheduled/', '') ?? '';
                             return (
                               item.key && IgnorePages.indexOf(pageTitle) === -1
                             );
@@ -257,7 +288,8 @@ export default function EditorPages() {
                                       ?.replace('savedContent/', '')
                                       ?.replace('backups/', '')
                                       ?.replace('drafts/', '')
-                                      ?.replace('editor/', '')}
+                                      ?.replace('editor/', '')
+                                      ?.replace('scheduled/', '') ?? ''}
                                   </span>
                                 </td>
                                 <td style={{ textAlign: 'right' }}>
@@ -292,12 +324,31 @@ export default function EditorPages() {
                                     onClick={async () => {
                                       await loadFile(item.key ?? 'unknown');
                                       const editModeObj: any = {};
-                                      if (currentPage === EditorPage.DRAFT_PAGE)
+                                      if (
+                                        currentPage === EditorPage.DRAFT_PAGE
+                                      ) {
                                         editModeObj['isDraft'] = true;
+                                        editModeObj['isBackup'] = false;
+                                        editModeObj['isScheduled'] = false;
+                                      }
+
                                       if (
                                         currentPage === EditorPage.BACKUP_PAGE
-                                      )
+                                      ) {
                                         editModeObj['isBackup'] = true;
+                                        editModeObj['isDraft'] = false;
+                                        editModeObj['isScheduled'] = false;
+                                      }
+
+                                      if (
+                                        currentPage ===
+                                        EditorPage.SCHEDULED_PAGE
+                                      ) {
+                                        editModeObj['isScheduled'] = true;
+                                        editModeObj['isDraft'] = false;
+                                        editModeObj['isBackup'] = false;
+                                      }
+
                                       dispatch({
                                         type: EditorPageActionType.SET_EDIT_MODE,
                                         payload: {
@@ -356,8 +407,8 @@ export default function EditorPages() {
                       flexDirection: 'column',
                     }}
                   >
-                    You don&apos;t have any {currentPage.replace('s', '')} pages
-                    yet!
+                    You don&apos;t have any {pageNameHelper(currentPage)} pages
+                    yet.
                     {currentPage !== EditorPage.BACKUP_PAGE ? (
                       <div>
                         <LocationsTMHButton
