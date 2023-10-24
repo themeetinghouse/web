@@ -1890,7 +1890,7 @@ class ListItem extends React.Component<ListItemProps, State> {
         this.state.content.class === 'instagram'
       ) {
         //This renders the instagram div and iterate tiles
-        return (
+        return this.state.listData.length ? (
           <div className="ListItem horizontal">
             <div className="InstagramGridRectangle" />
             <div className="ListInstagramContainer">
@@ -1916,6 +1916,8 @@ class ListItem extends React.Component<ListItemProps, State> {
               Go to Instagram
             </a>
           </div>
+        ) : (
+          <></>
         );
       } else if (
         this.state.content.style === 'imageList' ||
@@ -2026,7 +2028,13 @@ class ListItem extends React.Component<ListItemProps, State> {
         } else {
           if (this.state.content.class === 'events') {
             return (
-              <div className="ListItemH1">There are no upcoming events.</div>
+              <div className="ListItem ladder" style={{ marginBottom: 120 }}>
+                <div className="ListItemDiv1">
+                  <div className="ListItemH1">
+                    There are no upcoming events.
+                  </div>
+                </div>
+              </div>
             );
           }
         }
