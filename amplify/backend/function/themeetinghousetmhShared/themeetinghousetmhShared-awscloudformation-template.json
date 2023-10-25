@@ -23,20 +23,16 @@
     "LambdaLayerVersion79558ba4": {
       "Type": "AWS::Lambda::LayerVersion",
       "Properties": {
-        "CompatibleRuntimes": {
-          "Ref": "runtimes"
-        },
+        "CompatibleRuntimes": [
+          "nodejs14.x"
+        ],
         "Content": {
           "S3Bucket": {
             "Ref": "deploymentBucketName"
           },
-          "S3Key": {
-            "Ref": "s3Key"
-          }
+          "S3Key": "amplify-builds/themeetinghousetmhShared-LambdaLayerVersion79558ba4-build.zip"
         },
-        "Description": {
-          "Ref": "description"
-        },
+        "Description": "Updated layer version 2023-10-13T23:00:00.795Z",
         "LayerName": {
           "Fn::Sub": [
             "themeetinghousetmhShared-${env}",
@@ -55,9 +51,7 @@
       "Type": "AWS::Lambda::LayerVersionPermission",
       "Properties": {
         "Action": "lambda:GetLayerVersion",
-        "LayerVersionArn": {
-          "Ref": "LambdaLayerVersion79558ba4"
-        },
+        "LayerVersionArn": "arn:aws:lambda:us-east-1:536749583917:layer:themeetinghousetmhShared-prodnew:25",
         "Principal": {
           "Ref": "AWS::AccountId"
         }

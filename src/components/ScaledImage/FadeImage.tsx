@@ -28,7 +28,7 @@ export default function FadeImage({
     if (imageSrc) setUri(imageSrc);
   }, [imageSrc]);
   // catches external images
-  if (!imageSrc.includes('/static/photos/series/baby-hero/')) {
+  if (!imageSrc?.includes('/static/photos/series/baby-hero/')) {
     return (
       <img
         onError={(e) => setUri(fallbackSrc)}

@@ -78,6 +78,7 @@ export const updateVideo = /* GraphQL */ `
   mutation UpdateVideo($input: UpdateVideoInput!) {
     updateVideo(input: $input) {
       id
+      videoTypes
     }
   }
 `;

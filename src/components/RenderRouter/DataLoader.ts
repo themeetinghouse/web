@@ -661,7 +661,6 @@ export default class DataLoader {
       variables: {
         filter: {
           and: [
-            { episodeTitle: { matchPhrase: searchTerm } },
             // there has to be a better way to do this
             { videoTypes: { ne: 'hidden' } },
             { videoTypes: { ne: 'hidden-adult-sunday' } },
@@ -678,8 +677,16 @@ export default class DataLoader {
             { videoTypes: { ne: 'hidden-HC102' } },
             { videoTypes: { ne: 'hidden-ky-srhigh' } },
             { videoTypes: { ne: 'unlisted' } },
+            { publishedDate: { gt: '2022' } },
+            {
+              or: [
+                { episodeTitle: { matchPhrase: searchTerm } },
+                { seriesTitle: { matchPhrase: searchTerm } },
+              ],
+            },
           ],
         },
+        limit: 50,
       },
       authMode: GRAPHQL_AUTH_MODE.API_KEY,
     }) as Promise<GraphQLResult<SearchVideosQuery>>;
