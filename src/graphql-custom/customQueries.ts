@@ -1,3 +1,57 @@
+export const listNotes = /* GraphQL */ `
+  query ListNotes(
+    $filter: ModelNotesFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listNotes(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        title
+        episodeDescription
+        series {
+          bannerImage {
+            src
+            alt
+          }
+        }
+        pdf
+      }
+      nextToken
+    }
+  }
+`;
+export const getNotes = /* GraphQL */ `
+  query GetNotes($id: ID!) {
+    getNotes(id: $id) {
+      id
+      title
+      content
+      questions
+      jsonContent
+      jsonQuestions
+      episodeDescription
+      episodeNumber
+      seriesId
+      pdf
+      topics
+      series {
+        bannerImage {
+          src
+          alt
+        }
+        babyHeroImage {
+          src
+          alt
+        }
+      }
+      tags
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
 export const getYoutubeVideo = /* GraphQL */ `
   query GetYoutubeVideo($videoID: String) {
     getYoutubeVideo(videoID: $videoID) {

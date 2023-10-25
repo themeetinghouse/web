@@ -195,6 +195,13 @@ export type AmplifyDependentResourcesAttributes = {
       Name: 'string';
       Region: 'string';
     };
+    tmhLogLivestreams: {
+      Arn: 'string';
+      LambdaExecutionRole: 'string';
+      LambdaExecutionRoleArn: 'string';
+      Name: 'string';
+      Region: 'string';
+    };
     tmhMetadataFacebook: {
       Arn: 'string';
       LambdaExecutionRole: 'string';

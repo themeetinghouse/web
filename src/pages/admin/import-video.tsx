@@ -609,7 +609,22 @@ class Index extends React.Component<EmptyProps, State> {
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
         });
         console.log({ 'Success queries.updateVideo: ': updateVideo });
-        this.setState({ showError: 'Saved' });
+
+        const videoType = updateVideo.data?.updateVideo?.videoTypes;
+        if (updateVideo.data.updateVideo.videoTypes) {
+          if (videoType && videoType !== this.state.selectedVideoType) {
+            this.setState({
+              videoList: this.state.videoList.filter(
+                (item: any) => item.id !== this.state.toSaveVideo.id
+              ),
+              showError: 'Saved',
+            });
+          } else {
+            this.setState({ showError: 'Saved' });
+          }
+        } else {
+          this.setState({ showError: 'Saved' });
+        }
       } catch (e: any) {
         if (!e.errors[0].message.includes('access'))
           this.setState({ showError: e.errors[0].message });
@@ -1415,7 +1430,7 @@ function AddYoutubeVideoModal({
           getVideo();
         }}
       >
-        <h4>ManualYoutube Video Import</h4>
+        <h4>Manual Youtube Video Import</h4>
         <label>
           Youtube Video ID:{' '}
           <span style={{ fontWeight: '400', fontSize: 12, marginBottom: 2 }}>

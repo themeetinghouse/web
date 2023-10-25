@@ -18,7 +18,7 @@ import EditorToolbar from 'pages/admin/Editor/EditorToolbar';
 import Tags from './OgTags';
 const CombinedMap = React.lazy(() => import('./CombinedMap'));
 const SimpleItem = React.lazy(() => import('./SimpleItem'));
-const SearchItem = React.lazy(() => import('./SearchItem'));
+const SearchItem = React.lazy(() => import('./SearchPage/SearchItem'));
 const IFrameItem = React.lazy(() => import('./IFrameItem'));
 const WeatherItem = React.lazy(() => import('./WeatherItem'));
 const FAQItem = React.lazy(() => import('./FAQItem'));

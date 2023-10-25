@@ -9,7 +9,7 @@ import moment from 'moment';
 import { ScaledImage } from 'components/ScaledImage';
 import { Link, LinkButton } from 'components/Link/Link';
 import { TMHLocation, TMHLocationMeeting } from 'API';
-import { Auth, Storage } from 'aws-amplify';
+import { Storage } from 'aws-amplify';
 import FadeImage from 'components/ScaledImage/FadeImage';
 function RenderLinkButton({
   buttonInfo,
@@ -81,16 +81,6 @@ function HeroImage({
     alt: '',
   });
   React.useEffect(() => {
-    console.log('yep');
-    const sess = Auth.currentSession();
-    sess
-      .then((a) => {
-        console.log({ a });
-      })
-      .catch((e) => {
-        console.error({ e });
-      });
-
     const image =
       content.image1[Math.floor(Math.random() * content.image1.length)];
     if (image?.src?.includes('editor')) {
@@ -181,7 +171,7 @@ class HeroItem extends React.Component<HeroItemProps, State> {
       const query = this.props.content;
       if (query.class === 'locations' || query.class === 'region') {
         if (query.style === 'locationPage') {
-          console.log('location', query);
+          console.debug('location', query);
           if (!query.filterValue) return;
           const data = await DataLoader.getTMHLocation(query.filterValue);
           if (data.data?.getTMHLocation) {
@@ -190,7 +180,7 @@ class HeroItem extends React.Component<HeroItemProps, State> {
             });
           }
         } else {
-          console.log('REGION');
+          console.debug('REGION');
           const data = await DataLoader.listTMHLocations();
           this.setData(data as TMHLocation[]);
         }
@@ -210,7 +200,7 @@ class HeroItem extends React.Component<HeroItemProps, State> {
           });
         }
       } else {
-        console.log('REGION');
+        console.debug('REGION');
         const data = await DataLoader.listTMHLocations();
         this.setData(data as TMHLocation[]);
       }

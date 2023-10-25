@@ -450,6 +450,21 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
+    "tmhLogLivestreams": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput"
+          ],
+          "category": "api",
+          "resourceName": "themeetinghouse"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "tmhMetadataFacebook": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -855,6 +870,14 @@
         {
           "category": "analytics",
           "resourceName": "Pinpoint"
+        }
+      ]
+    },
+    "AMPLIFY_api_themeetinghouse_OpenSearchInstanceType": {
+      "usedBy": [
+        {
+          "category": "api",
+          "resourceName": "themeetinghouse"
         }
       ]
     },
@@ -1375,6 +1398,22 @@
         {
           "category": "function",
           "resourceName": "tmhHandleScheduledPages"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhLogLivestreams_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhLogLivestreams"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhLogLivestreams_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhLogLivestreams"
         }
       ]
     },

@@ -16,7 +16,7 @@ export default function ContentPage(): ReactElement | null {
   if (site == 'www' || site == 'themeetinghouse' || site === 'localhost')
     site = 'homepage';
   const jsonFile = location.pathname.slice(1) || site || 'homepage';
-  console.log({ pages });
+  console.debug({ pages });
   useEffect(() => {
     Analytics.record({
       name: 'pageVisit',
