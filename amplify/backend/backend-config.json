@@ -307,6 +307,29 @@
       "providerPlugin": "awscloudformation",
       "service": "LambdaLayer"
     },
+    "tmhCheckForSundayLivestream": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "themeetinghouse"
+        },
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "themeetinghousetmhShared"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "tmhClearCache": {
       "build": true,
       "dependsOn": [
@@ -1158,6 +1181,46 @@
         {
           "category": "function",
           "resourceName": "themeetinghousetmhShared"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhCheckForSundayLivestream_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhCheckForSundayLivestream"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhCheckForSundayLivestream_identityPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhCheckForSundayLivestream"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhCheckForSundayLivestream_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhCheckForSundayLivestream"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhCheckForSundayLivestream_userPoolId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhCheckForSundayLivestream"
+        }
+      ]
+    },
+    "AMPLIFY_function_tmhCheckForSundayLivestream_userPoolWebClientId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "tmhCheckForSundayLivestream"
         }
       ]
     },

@@ -81,6 +81,51 @@ export const listTmhUsers = /* GraphQL */ `
   }
 `;
 
+export const listLivestreams = /* GraphQL */ `
+  query ListLivestreams(
+    $filter: ModelLivestreamFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listLivestreams(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        date
+        startTime
+        videoStartTime
+        endTime
+        prerollYoutubeId
+        liveYoutubeId
+        liveVimeoId
+        showChat
+        showKids
+        eventTitle
+        externalEventUrl
+        menu {
+          title
+          link
+          linkType
+        }
+        zoom {
+          title
+          link
+        }
+        livestreamSections {
+          title
+          links {
+            title
+            link
+          }
+        }
+        titles
+        homepageLink
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const f1ListGroupTypes = /* GraphQL */ `
   query F1ListGroupTypes {
     F1ListGroupTypes {
