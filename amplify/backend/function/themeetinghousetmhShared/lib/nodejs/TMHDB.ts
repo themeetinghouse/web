@@ -1,4 +1,4 @@
-import { API, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
+import { API, GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api';
 import Amplify from '@aws-amplify/core';
 import * as queries from './queries';
 import * as mutations from './mutations';
@@ -57,7 +57,19 @@ export default class TMHDB {
       return { statusCode: '402', error: { message: error.message } };
     }
   }
-
+  static async listLivestreams(date: string) {
+    try {
+      const livestreams = (await API.graphql({
+        query: queries.listLivestreams,
+        variables: { filter: { date: { eq: date } } },
+        authMode: 'API_KEY',
+      })) as GraphQLResult<any>;
+      return livestreams?.data?.listLivestreams?.items ?? [];
+    } catch (error) {
+      console.error({ failedToListLivestreams: error });
+      return [];
+    }
+  }
   static async getRetryableGraphQLOperationPromise(query, args, retry) {
     if (args.itemId.length == 0) return Promise.resolve(null);
     if (!retry) retry = 5;

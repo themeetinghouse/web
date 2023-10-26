@@ -143,6 +143,14 @@ export type AmplifyDependentResourcesAttributes = {
     themeetinghousetmhShared: {
       Arn: 'string';
     };
+    tmhCheckForSundayLivestream: {
+      Arn: 'string';
+      CloudWatchEventRule: 'string';
+      LambdaExecutionRole: 'string';
+      LambdaExecutionRoleArn: 'string';
+      Name: 'string';
+      Region: 'string';
+    };
     tmhClearCache: {
       Arn: 'string';
       LambdaExecutionRole: 'string';

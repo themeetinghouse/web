@@ -44,6 +44,7 @@ const RegatherItem = React.lazy(() => import('./RegatherItem'));
 const VideoPlayerLiveLeadersDay = React.lazy(
   () => import('./VideoPlayerLive_leadersday')
 );
+const VideoPLayerLiveTest = React.lazy(() => import('./VideoPlayerLiveTest'));
 const SearchResult = React.lazy(() => import('./SearchResult'));
 
 interface Props {
@@ -92,6 +93,8 @@ export function RenderItem({
       return <BlogReader data={data} key={index} style={item.style} />;
     case 'liveVideoPlayer':
       return <VideoPlayerLive key={index} content={item} />;
+    case 'liveVideoPlayerTest':
+      return <VideoPLayerLiveTest key={index} content={item} />;
     case 'liveVideoPlayer2':
       return <VideoPlayerLiveLeadersDay key={index} content={item} />;
     case 'horizontal-list':
@@ -201,6 +204,8 @@ class RenderRouter extends React.Component<Props, State> {
         );
       case 'liveVideoPlayer':
         return <VideoPlayerLive key={index} content={item} />;
+      case 'liveVideoPlayerTest':
+        return <VideoPLayerLiveTest key={index} content={item} />;
       case 'liveVideoPlayer2':
         return <VideoPlayerLiveLeadersDay key={index} content={item} />;
       case 'horizontal-list':
