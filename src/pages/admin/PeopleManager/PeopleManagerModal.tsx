@@ -1,15 +1,9 @@
-import {
-  CreateTMHSiteMutation,
-  SitePerson,
-  TMHPerson,
-  TMHSite,
-  UpdateTMHPersonInput,
-} from 'API';
+import { TMHPerson, UpdateTMHPersonInput } from 'API';
 import React from 'react';
 import { API } from 'aws-amplify';
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import * as mutations from '../../../graphql/mutations';
-import * as customQueries from '../../../graphql-custom/customQueries';
+import * as customMutations from '../../../graphql-custom/customMutations';
 
 import { Modal, Spinner } from 'reactstrap';
 import {
@@ -20,13 +14,13 @@ import {
 } from 'API';
 import { Storage } from 'aws-amplify';
 import './PeopleManager.scss';
-import CreatableSelect from 'react-select/creatable';
-import { MultiValue } from 'react-select';
+import TMHSitesDropdown from './TMHSitesDropdown';
 
 type EditModalProps = {
   selectedUser: TMHPerson | null;
   showModal: boolean;
   updateCallback: (updatedPerson: TMHPerson, type?: string) => void;
+  setSelectedUser: React.Dispatch<React.SetStateAction<TMHPerson | null>>;
   closeModal: () => void;
 };
 
@@ -42,7 +36,7 @@ const ProfileImage = ({
   const [uri, setUri] = React.useState(url);
   const uploadRef = React.useRef<any>(null);
   return (
-    <div style={{ position: 'relative' }}>
+    <div style={{ position: 'relative', alignSelf: 'center' }}>
       <img
         onError={() => {
           setUri('/static/svg/Profile.svg');
@@ -84,219 +78,49 @@ const ProfileImage = ({
   );
 };
 
-function TMHSites({
-  userData,
-  setUserData,
-}: {
-  userData: any;
-  setUserData: any;
-}) {
-  const userId = userData?.id;
-  const [sites, setSites] = React.useState<TMHSite[]>([]);
-  const [userSites, setUserSites] = React.useState<TMHSite[]>([]);
-  const [isLoading, setIsLoading] = React.useState(false);
-  React.useEffect(() => {
-    (async () => {
-      try {
-        const sites = (await API.graphql({
-          query: customQueries.listTMHSites,
-          authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-        })) as GraphQLResult<{ listTMHSites: { items: TMHSite[] } }>;
-        const siteItems = sites.data?.listTMHSites?.items ?? [];
-        setSites(siteItems);
-        const siteIds = userData?.tmhSites.map(
-          (site: SitePerson) => site?.tMHSiteID
-        );
-        console.log({ sites });
-        const newUserSites =
-          siteItems.filter((site) => siteIds?.includes(site?.id)) ?? [];
-        setUserSites(newUserSites);
-      } catch (error: any) {
-        console.error({ 'failed to load sites': error });
-        const siteItems = error?.data?.listTMHSites?.items ?? [];
-        setSites(siteItems);
-        const siteIds = userData?.tmhSites.map(
-          (site: SitePerson) => site?.tMHSiteID
-        );
-        console.log({ sites });
-        const newUserSites =
-          siteItems.filter((site: any) => siteIds?.includes(site?.id)) ?? [];
-        setUserSites(newUserSites);
-      }
-    })();
-  }, []);
-  const createSitePerson = async (siteId: string) => {
-    try {
-      console.log(`creating site person for ${siteId}`);
-      const updatedPerson = (await API.graphql({
-        query: mutations.createSitePerson,
-        variables: {
-          input: {
-            tMHSiteID: siteId,
-            tMHPersonID: userId,
-          },
-        },
-        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-      })) as GraphQLResult<UpdateTMHPersonMutation>;
-      console.log({ updatedPerson });
-    } catch (error) {
-      console.log({ error });
-    }
-  };
-  const removeSitePerson = async (sitePersonID: string) => {
-    try {
-      console.log(`removing site person for ${sitePersonID}`);
-      const removeSitePerson = (await API.graphql({
-        query: mutations.deleteSitePerson,
-        variables: {
-          input: {
-            id: sitePersonID,
-          },
-        },
-        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-      })) as GraphQLResult<UpdateTMHPersonMutation>;
-      console.log({ removeSitePerson });
-    } catch (error) {
-      console.log({ error });
-    }
-  };
-  const createTmhSite = async (siteName: string) => {
-    setIsLoading(true);
-    try {
-      const newSite = (await API.graphql({
-        query: mutations.createTMHSite,
-        variables: {
-          input: {
-            id: siteName,
-          },
-        },
-        authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
-      })) as GraphQLResult<CreateTMHSiteMutation>;
-      console.log({ newSite });
-      if (newSite?.data?.createTMHSite) {
-        try {
-          await createSitePerson(newSite.data.createTMHSite.id);
-          setUserSites([...userSites, newSite.data.createTMHSite]);
-        } catch (error) {
-          console.log('Something went wrong...');
-        } finally {
-          setSites([...sites, newSite.data.createTMHSite]);
-        }
-      }
-    } catch (error) {
-      console.log('An error occurred while creating a new site');
-    } finally {
-      setIsLoading(false);
-    }
-  };
-  const handleSelectOnChange = async (
-    newValue: MultiValue<{
-      value: string;
-      label: string;
-    }>
-  ) => {
-    if (!newValue) return;
-    const reducedNewValue = newValue.map((item) => item.value);
-    const newSite = sites.filter((site) => reducedNewValue.includes(site.id));
-    if (!newSite) return;
-    const tempOldSites = userSites.map((site) => site.id);
-    const tempNewSites = newSite.map((site) => site.id);
-    const removed = tempOldSites.filter((site) => !tempNewSites.includes(site));
-    const added = tempNewSites.filter((site) => !tempOldSites.includes(site));
-    const handleRemoved = async () => {
-      const existingSitePersonID = userData?.tmhSites?.find(
-        (sitePerson: SitePerson) => sitePerson.tMHSiteID === removed[0]
-      );
-      if (existingSitePersonID)
-        await removeSitePerson(existingSitePersonID?.id);
+const isValidName = (name: string | undefined | null): boolean => {
+  if (!name) return false;
+  const regex = /^[a-zA-Z\s\-]+$/; // Allows alphabets, spaces, and hyphens
+  return regex.test(name);
+};
 
-      setIsLoading(false);
-    };
-    const handleAdded = async () => {
-      const addedSiteID = added[0];
-      if (addedSiteID) await createSitePerson(addedSiteID);
-    };
-    setIsLoading(true);
-    await handleRemoved();
-    await handleAdded();
-    setIsLoading(false);
-    setUserSites(newSite);
-  };
-  console.log({ userData });
-  return (
-    <label
-      onClick={(e) => {
-        e.preventDefault();
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-        }}
-      >
-        Teams:
-      </div>
-      <CreatableSelect
-        isDisabled={isLoading}
-        allowCreateWhileLoading={false}
-        formatCreateLabel={(inputValue) => `Add new site "${inputValue}"`}
-        isMulti
-        styles={{
-          control: (provided: any) => ({
-            ...provided,
-            display: 'flex',
-            flex: 1,
-            marginTop: 4,
-          }),
-          container: (provided: any) => ({
-            ...provided,
-            display: 'flex',
-            flex: 1,
-          }),
-        }}
-        value={[
-          ...userSites.map((site) => ({ value: site?.id, label: site?.id })),
-        ]}
-        onCreateOption={createTmhSite}
-        isLoading={isLoading}
-        loadingMessage={() => 'Loading...'}
-        onChange={handleSelectOnChange}
-        placeholder="Select Site/Enter Site"
-        options={sites.map((item: any) => ({
-          label: item.id,
-          value: item.id,
-        }))}
-      ></CreatableSelect>
-    </label>
-  );
-}
+export const validateTMHPerson = (
+  person: TMHPerson | null | undefined
+): string[] => {
+  const errors: string[] = [];
 
+  if (!person) {
+    errors.push('An unknown error occurred. Please try again later.');
+    return errors;
+  }
+
+  if (!isValidName(person.firstName)) {
+    errors.push('First name must be entered.');
+  }
+
+  if (!isValidName(person.lastName)) {
+    errors.push('Last name must be entered.');
+  }
+  if (!person.position) {
+    errors.push('Position must be entered.');
+  }
+  return errors;
+};
+const determineInputStyle = (error: string[], key: string) => {
+  return error.includes(key) ? { outline: '2px solid tomato' } : {};
+};
 export default function PeopleManagerModal({
   selectedUser,
+  setSelectedUser,
   showModal,
   updateCallback,
   closeModal,
 }: EditModalProps) {
-  console.log({ selectedUser });
-  const [userData, setUserData] = React.useState<
-    UpdateTMHPersonInput & { tmhSites: SitePerson[] }
-  >({
-    id: selectedUser?.id ?? '',
-    firstName: selectedUser?.firstName ?? '',
-    lastName: selectedUser?.lastName ?? '',
-    email: selectedUser?.email ?? '',
-    phone: selectedUser?.phone ?? '',
-    image: selectedUser?.image ?? '',
-    isStaff: selectedUser?.isStaff ?? 'false',
-    isCoordinator: selectedUser?.isCoordinator ?? 'false',
-    isOverseer: selectedUser?.isOverseer ?? 'false',
-    isTeacher: selectedUser?.isTeacher ?? 'false',
-    extension: selectedUser?.extension ?? '',
-    position: selectedUser?.position ?? '',
-    sites: selectedUser?.sites ?? [],
-    tmhSites: (selectedUser?.tmhSites?.items as SitePerson[]) ?? [],
-  });
+  const [userData, setUserData] = React.useState<TMHPerson | null>(
+    selectedUser
+  );
+  const [created, setCreated] = React.useState(false);
+  const [error, setError] = React.useState<string[]>([]);
   const [isLoading, setIsLoading] = React.useState(false);
   const [isDeleting, setIsDeleting] = React.useState(false);
   const [file, setFile] = React.useState<any>(null);
@@ -306,13 +130,12 @@ export default function PeopleManagerModal({
   ) => {
     try {
       setIsLoading(true);
-
       let s3Result = null;
       if (file) s3Result = await uploadToS3(fullName);
       if (s3Result) propsToUpdate.image = s3Result;
       console.log({ propsToUpdate });
       const updatedPerson = (await API.graphql({
-        query: mutations.updateTMHPerson,
+        query: customMutations.updateTMHPerson,
         variables: {
           input: propsToUpdate,
         },
@@ -336,7 +159,7 @@ export default function PeopleManagerModal({
     try {
       setIsDeleting(true);
       const deletedTMHPerson = (await API.graphql({
-        query: mutations.deleteTMHPerson,
+        query: customMutations.deleteTMHPerson,
         variables: {
           input: {
             id: userID,
@@ -347,22 +170,26 @@ export default function PeopleManagerModal({
       if (deletedTMHPerson?.data?.deleteTMHPerson?.image) {
         // delete from s3
       }
+      console.log({ deletedTMHPerson });
       updateCallback(
         deletedTMHPerson?.data?.deleteTMHPerson as TMHPerson,
         'delete'
       );
-    } catch (error) {
-      console.log({ error });
+    } catch (error: unknown) {
+      const e = error as { errors: any[]; data: { deleteTMHPerson?: any } };
+      console.log({ e });
+      if (e?.data?.deleteTMHPerson)
+        updateCallback(e?.data?.deleteTMHPerson as TMHPerson, 'delete');
+      else {
+        console.log('An error occurred while deleting a user');
+        setError(e.errors.map((error) => error.message));
+      }
     } finally {
       setIsDeleting(false);
     }
   };
-  const createTMHPerson = async (
-    newUser: CreateTMHPersonInput & { tmhSites: any }
-  ) => {
+  const createTMHPerson = async (newUser: TMHPerson) => {
     setIsLoading(true);
-    delete newUser.id;
-    delete newUser.tmhSites;
     if (!newUser.firstName && !newUser.lastName) return;
     const fullName = `${newUser.firstName}_${newUser.lastName}`;
     const fieldsThatExist = Object.keys(newUser).filter(
@@ -388,74 +215,72 @@ export default function PeopleManagerModal({
       console.log({ newTMHPerson });
       if (newTMHPerson?.data?.createTMHPerson) {
         const newData = newTMHPerson?.data?.createTMHPerson;
-        updateCallback(newData as TMHPerson);
+        setUserData(newData);
+        setCreated(true);
+        updateCallback(newData);
       }
       console.log({ newTMHPerson });
-    } catch (error) {
-      console.log({ error });
+    } catch (error: unknown) {
+      const e = error as Error;
+      console.log({ e });
+      console.log(e.message || 'An error occurred while creating a new user');
     } finally {
       setIsLoading(false);
     }
   };
-
   const handleSaveTMHPerson = async () => {
     console.log('saving', selectedUser);
-    if (!selectedUser) {
-      console.log('theres no user. creating...');
-      try {
-        await createTMHPerson(userData);
-      } catch (e) {
-        console.log('failed to create person');
-      }
+    const validationErrors = validateTMHPerson(userData);
+    if (validationErrors.length) {
+      setError(validationErrors);
+      return;
+    }
+    if (created) {
+      if (userData) updateCallback(userData);
       clearFields();
       closeModal();
       return;
     }
-    const fieldsToUpdate = Object.keys(userData)
-      .filter((key) => key !== 'tmhSites')
-      .filter(
-        (key) =>
-          userData[key as keyof UpdateTMHPersonInput] !== '' &&
-          selectedUser[key as keyof UpdateTMHPersonInput] !== ''
-      )
-      .filter((key) => {
+    if (!userData) return;
+
+    if (!selectedUser) {
+      await createTMHPerson(userData);
+    } else {
+      const fieldsToUpdate = Object.keys(userData).filter((key) => {
+        const typedKey = key as keyof UpdateTMHPersonInput;
         return (
-          userData[key as keyof UpdateTMHPersonInput] !==
-          selectedUser[key as keyof UpdateTMHPersonInput]
+          key !== 'tmhSites' &&
+          userData[typedKey] !== '' &&
+          selectedUser[typedKey] !== '' &&
+          userData[typedKey] !== selectedUser[typedKey]
         );
       }) as Array<keyof UpdateTMHPersonInput>;
-    console.log({ fieldsToUpdate });
+      console.log({ fieldsToUpdate });
 
-    if (file) fieldsToUpdate.push('image');
-    if (!fieldsToUpdate.length) return;
-    const newValues: any = { id: userData.id };
-    for (const key of fieldsToUpdate) {
-      if (key) newValues[key] = userData[key as keyof UpdateTMHPersonInput];
+      if (file) fieldsToUpdate.push('image');
+      if (!fieldsToUpdate.length) {
+        clearFields();
+        closeModal();
+        return;
+      }
+      const newValues: any = { id: userData?.id };
+      for (const key of fieldsToUpdate) {
+        if (key) newValues[key] = userData[key as keyof UpdateTMHPersonInput];
+      }
+      console.log({ newValues });
+      await updateTMHPerson(
+        newValues,
+        `${userData?.firstName}_${userData?.lastName}`
+      );
+      clearFields();
+      closeModal();
     }
-    console.log({ newValues });
-    await updateTMHPerson(
-      newValues,
-      `${userData.firstName}_${userData.lastName}`
-    );
-    clearFields();
-    closeModal();
   };
   const clearFields = () => {
-    setUserData({
-      id: '',
-      firstName: '',
-      lastName: '',
-      isCoordinator: 'false',
-      isOverseer: 'false',
-      isStaff: 'false',
-      isTeacher: 'false',
-      image: '',
-      email: '',
-      phone: '',
-      position: '',
-      extension: '',
-      tmhSites: [],
-    });
+    setCreated(false);
+    setError([]);
+    setSelectedUser(null);
+    setUserData(null);
   };
   const uploadToS3 = async (fullName: string) => {
     const S3_BUCKET =
@@ -484,18 +309,38 @@ export default function PeopleManagerModal({
     }
   };
   const updateValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.name === 'position' && event.target.value) {
+      setError((prev) => [
+        ...prev.filter((str) => str !== 'Position must be entered.'),
+      ]);
+    } else if (event.target.name === 'firstName' && event.target.value) {
+      setError((prev) => [
+        ...prev.filter((str) => str !== 'First name must be entered.'),
+      ]);
+    } else if (event.target.name === 'lastName' && event.target.value) {
+      setError((prev) => [
+        ...prev.filter((str) => str !== 'Last name must be entered.'),
+      ]);
+    }
     event.persist();
-    setUserData((prev) => ({
-      ...prev,
-      [event.target.name]: event.target.value,
-    }));
+    setUserData(
+      (prev) =>
+        ({
+          ...prev,
+          [event.target.name]: event.target.value,
+        } as TMHPerson)
+    );
   };
   const updateCheckBox = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.persist();
-    setUserData((prev) => ({
-      ...prev,
-      [event.target.name]: event.target.checked.toString(),
-    }));
+    const value = event.target.checked.toString() ?? '';
+    setUserData(
+      (prev) =>
+        ({
+          ...prev,
+          [event.target.name]: value,
+        } as TMHPerson)
+    );
   };
   return (
     <Modal size="md" isOpen={showModal}>
@@ -507,119 +352,181 @@ export default function PeopleManagerModal({
           handleSaveTMHPerson();
         }}
       >
-        <ProfileImage setFile={setFile} large url={userData?.image ?? ''} />
-        <label>
-          <span>First Name</span>
-
-          <input
-            onChange={updateValue}
-            value={userData?.firstName ?? ''}
-            name="firstName"
-            placeholder="First Name"
-            type="text"
-          />
-        </label>
-        <label>
-          <span>Last Name</span>
-
-          <input
-            onChange={updateValue}
-            type="text"
-            name="lastName"
-            value={userData?.lastName ?? ''}
-            placeholder="Last Name"
-          />
-        </label>
-
-        <label>
-          <span>Position</span>
-
-          <input
-            onChange={updateValue}
-            name="position"
-            value={userData?.position ?? ''}
-            type="text"
-            placeholder="Position"
-          />
-        </label>
-        <label>
-          <span>Phone</span>
-
-          <input
-            onChange={updateValue}
-            name="phone"
-            value={userData?.phone ?? ''}
-            type="text"
-            placeholder="Phone"
-          />
-        </label>
-        <label>
-          <span>Extension</span>
-
-          <input
-            onChange={updateValue}
-            value={userData?.extension ?? ''}
-            type="text"
-            name="extension"
-            placeholder="Extension"
-            style={{
-              display: 'block',
-              fontSize: 12,
+        {created ? (
+          <TMHSitesDropdown
+            passIsLoading={setIsLoading}
+            userData={{
+              ...userData,
+              tmhSites: userData?.tmhSites?.items ?? [],
             }}
+            setUserData={setUserData}
+            callback={(data) => updateCallback(data)}
           />
-        </label>
-        <label>
-          <span>Email</span>
+        ) : (
+          <>
+            <ProfileImage setFile={setFile} large url={userData?.image ?? ''} />
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                width: '100%',
+                gap: 8,
+                marginTop: 60,
+              }}
+            >
+              <label>
+                <span>
+                  First Name {!userData?.firstName ? <strong>*</strong> : null}
+                </span>
 
-          <input
-            onChange={updateValue}
-            value={userData?.email ?? ''}
-            name="email"
-            type="text"
-            placeholder="Email"
-          />
-        </label>
-        <TMHSites userData={userData} setUserData={setUserData} />
-        <label htmlFor="isCoordinator" style={{ flexDirection: 'row' }}>
-          <input
-            name={'isCoordinator'}
-            style={{ marginRight: 8, scale: 1.2 }}
-            checked={userData?.isCoordinator === 'true'}
-            onChange={updateCheckBox}
-            type="checkbox"
-          />
-          Coordinator
-        </label>
-        <label htmlFor="isStaff" style={{ flexDirection: 'row' }}>
-          <input
-            name={'isStaff'}
-            style={{ marginRight: 8, scale: 1.2 }}
-            checked={userData?.isStaff === 'true'}
-            onChange={updateCheckBox}
-            type="checkbox"
-          />
-          Staff
-        </label>
-        <label htmlFor="isTeacher" style={{ flexDirection: 'row' }}>
-          <input
-            name={'isTeacher'}
-            style={{ marginRight: 8, scale: 1.2 }}
-            checked={userData?.isTeacher === 'true'}
-            onChange={updateCheckBox}
-            type="checkbox"
-          />
-          Teacher
-        </label>
-        <label htmlFor="isOverseer" style={{ flexDirection: 'row' }}>
-          <input
-            style={{ marginRight: 8, scale: 1.2 }}
-            name={'isOverseer'}
-            checked={userData?.isOverseer === 'true'}
-            onChange={updateCheckBox}
-            type="checkbox"
-          />
-          Overseer
-        </label>
+                <input
+                  onChange={updateValue}
+                  value={userData?.firstName ?? ''}
+                  name="firstName"
+                  placeholder="First Name"
+                  style={determineInputStyle(
+                    error,
+                    'First name must be entered.'
+                  )}
+                  type="text"
+                />
+              </label>
+              <label>
+                <span>
+                  Last Name {!userData?.lastName ? <strong>*</strong> : null}
+                </span>
+
+                <input
+                  onChange={updateValue}
+                  type="text"
+                  name="lastName"
+                  value={userData?.lastName ?? ''}
+                  style={determineInputStyle(
+                    error,
+                    'Last name must be entered.'
+                  )}
+                  placeholder="Last Name"
+                />
+              </label>
+            </div>
+            <label>
+              <span>
+                Position {!userData?.position ? <strong>*</strong> : null}
+              </span>
+
+              <input
+                onChange={updateValue}
+                name="position"
+                value={userData?.position ?? ''}
+                style={determineInputStyle(error, 'Position must be entered.')}
+                type="text"
+                placeholder="Position"
+              />
+            </label>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                width: '100%',
+                gap: 8,
+              }}
+            >
+              <label>
+                <span>Phone</span>
+
+                <input
+                  onChange={updateValue}
+                  name="phone"
+                  value={userData?.phone ?? ''}
+                  type="text"
+                  placeholder="Phone"
+                />
+              </label>
+              <label>
+                <span>Extension</span>
+
+                <input
+                  onChange={updateValue}
+                  value={userData?.extension ?? ''}
+                  type="text"
+                  name="extension"
+                  placeholder="Extension"
+                />
+              </label>
+            </div>
+
+            <label>
+              <span>Email</span>
+
+              <input
+                onChange={updateValue}
+                value={userData?.email ?? ''}
+                name="email"
+                type="text"
+                placeholder="Email"
+              />
+            </label>
+            {userData?.id ? (
+              <TMHSitesDropdown
+                passIsLoading={setIsLoading}
+                userData={{
+                  ...userData,
+                  tmhSites: userData?.tmhSites?.items ?? [],
+                }}
+                callback={(data) => updateCallback(data)}
+                setUserData={setUserData}
+              />
+            ) : null}
+            <label htmlFor="isCoordinator" style={{ flexDirection: 'row' }}>
+              <input
+                name={'isCoordinator'}
+                style={{ marginRight: 8, scale: 1.2 }}
+                checked={userData?.isCoordinator === 'true'}
+                onChange={updateCheckBox}
+                type="checkbox"
+              />
+              Coordinator
+            </label>
+            <label htmlFor="isStaff" style={{ flexDirection: 'row' }}>
+              <input
+                name={'isStaff'}
+                style={{ marginRight: 8, scale: 1.2 }}
+                checked={userData?.isStaff === 'true'}
+                onChange={updateCheckBox}
+                type="checkbox"
+              />
+              Staff
+            </label>
+            <label htmlFor="isTeacher" style={{ flexDirection: 'row' }}>
+              <input
+                name={'isTeacher'}
+                style={{ marginRight: 8, scale: 1.2 }}
+                checked={userData?.isTeacher === 'true'}
+                onChange={updateCheckBox}
+                type="checkbox"
+              />
+              Teacher
+            </label>
+            <label htmlFor="isOverseer" style={{ flexDirection: 'row' }}>
+              <input
+                style={{ marginRight: 8, scale: 1.2 }}
+                name={'isOverseer'}
+                checked={userData?.isOverseer === 'true'}
+                onChange={updateCheckBox}
+                type="checkbox"
+              />
+              Overseer
+            </label>
+          </>
+        )}
+        <div>
+          {error.map((errorMessage) => (
+            <p key={errorMessage} style={{ color: 'tomato' }}>
+              {errorMessage}
+            </p>
+          ))}
+        </div>
+
         <div
           style={{
             marginTop: 16,
@@ -627,7 +534,7 @@ export default function PeopleManagerModal({
             flex: 1,
           }}
         >
-          {selectedUser ? (
+          {selectedUser && userData?.id ? (
             <button
               className="SaveButton"
               type="button"
@@ -637,11 +544,11 @@ export default function PeopleManagerModal({
                 if (
                   confirm(
                     `Are you sure you want to delete ${
-                      selectedUser?.firstName + ' ' + selectedUser?.lastName
+                      userData?.firstName + ' ' + userData?.lastName
                     }`
                   )
                 ) {
-                  await deleteTMHPerson(selectedUser.id);
+                  await deleteTMHPerson(userData.id);
                   clearFields();
                   closeModal();
                 }
@@ -657,20 +564,33 @@ export default function PeopleManagerModal({
               )}
             </button>
           ) : null}
-          <button
-            type="submit"
-            disabled={isLoading || isDeleting}
-            className="SaveButton"
-          >
-            {isLoading ? (
-              <>
-                <Spinner type="grow" size="sm" />
-                <span> Saving</span>
-              </>
-            ) : (
-              'Save'
-            )}
-          </button>
+          {userData?.id || created ? (
+            <button
+              type="submit"
+              disabled={isLoading || isDeleting}
+              className="SaveButton"
+            >
+              {isLoading ? (
+                <>
+                  <Spinner type="grow" size="sm" />
+                  <span>Saving</span>
+                </>
+              ) : (
+                'Save'
+              )}
+            </button>
+          ) : (
+            <button type="submit" disabled={isLoading} className="SaveButton">
+              {isLoading ? (
+                <>
+                  <Spinner type="grow" size="sm" />
+                  <span>Next</span>
+                </>
+              ) : (
+                'Next'
+              )}
+            </button>
+          )}
           <button
             type="button"
             className="SaveButton white"

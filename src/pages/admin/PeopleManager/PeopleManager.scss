@@ -37,7 +37,7 @@ input[type='reset'] {
   flex: 1;
   font-weight: bold;
   color: #fff;
-  font-size: 16;
+  font-size: 16px;
   border: 3px solid #1a1a1a;
   padding: 8px 8px;
   line-height: 24px;
@@ -101,11 +101,12 @@ label {
 }
 
 .PersonModalContentContainer {
-  padding: 30px 16px;
+  padding: 32px 32px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
   label {
     display: flex;
     flex: 1;
@@ -114,6 +115,14 @@ label {
     font-weight: 700;
     input {
       font-size: 12px;
+      margin-top: 4px;
+      margin-bottom: 8px;
+      padding: 8px 16px;
+      border: 1px solid #cccccc;
+      border-radius: 4px;
+    }
+    input:focus {
+      outline-color: #c8c8c8;
     }
     &.row {
       flex-direction: row;
