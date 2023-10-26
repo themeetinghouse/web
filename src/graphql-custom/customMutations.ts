@@ -9,6 +9,42 @@ export const createSpeakerVideosCustom = /* GraphQL */ `
   }
 `;
 
+export const createTMHSite = /* GraphQL */ `
+  mutation CreateTMHSite(
+    $input: CreateTMHSiteInput!
+    $condition: ModelTMHSiteConditionInput
+  ) {
+    createTMHSite(input: $input, condition: $condition) {
+      id
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+
+export const deleteSitePerson = /* GraphQL */ `
+  mutation DeleteSitePerson(
+    $input: DeleteSitePersonInput!
+    $condition: ModelSitePersonConditionInput
+  ) {
+    deleteSitePerson(input: $input, condition: $condition) {
+      id
+    }
+  }
+`;
+
+export const createSitePerson = /* GraphQL */ `
+  mutation CreateSitePerson(
+    $input: CreateSitePersonInput!
+    $condition: ModelSitePersonConditionInput
+  ) {
+    createSitePerson(input: $input, condition: $condition) {
+      id
+    }
+  }
+`;
+
 export const updateTMHUser = /* GraphQL */ `
   mutation UpdateTMHUser(
     $input: UpdateTMHUserInput!
@@ -74,11 +110,52 @@ export const updateSpeakerVideos = /* GraphQL */ `
     }
   }
 `;
+
+export const updateTMHPerson = /* GraphQL */ `
+  mutation UpdateTMHPerson(
+    $input: UpdateTMHPersonInput!
+    $condition: ModelTMHPersonConditionInput
+  ) {
+    updateTMHPerson(input: $input, condition: $condition) {
+      id
+      email
+      firstName
+      lastName
+      image
+      phone
+      extension
+      sites
+      tmhSites {
+        items {
+          id
+          tMHSiteID
+          tMHPersonID
+        }
+      }
+      position
+      isTeacher
+      isStaff
+      isCoordinator
+      isOverseer
+    }
+  }
+`;
 export const updateVideo = /* GraphQL */ `
   mutation UpdateVideo($input: UpdateVideoInput!) {
     updateVideo(input: $input) {
       id
       videoTypes
+    }
+  }
+`;
+
+export const deleteTMHPerson = /* GraphQL */ `
+  mutation DeleteTMHPerson(
+    $input: DeleteTMHPersonInput!
+    $condition: ModelTMHPersonConditionInput
+  ) {
+    deleteTMHPerson(input: $input, condition: $condition) {
+      id
     }
   }
 `;

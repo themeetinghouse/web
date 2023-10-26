@@ -21,6 +21,61 @@ export const listNotes = /* GraphQL */ `
     }
   }
 `;
+
+export const listTMHPeople = /* GraphQL */ `
+  query ListTMHPeople(
+    $filter: ModelTMHPersonFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listTMHPeople(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        email
+        firstName
+        lastName
+        image
+        phone
+        extension
+        sites
+        tmhSites {
+          items {
+            id
+            tMHSiteID
+            tMHPersonID
+          }
+        }
+        position
+        isTeacher
+        isStaff
+        isCoordinator
+        isOverseer
+      }
+      nextToken
+    }
+  }
+`;
+export const getTMHPerson = /* GraphQL */ `
+  query GetTMHPerson($id: ID!) {
+    getTMHPerson(id: $id) {
+      id
+      tmhSites {
+        items {
+          id
+          tMHSiteID
+          tMHPersonID
+          tMHSite {
+            id
+            createdAt
+            updatedAt
+            __typename
+          }
+        }
+        nextToken
+      }
+    }
+  }
+`;
 export const getNotes = /* GraphQL */ `
   query GetNotes($id: ID!) {
     getNotes(id: $id) {

@@ -1,4 +1,5 @@
 import * as queries from '../../../graphql/queries';
+import * as customQueries from '../../../graphql-custom/customQueries';
 import React from 'react';
 import './PeopleManager.scss';
 import { API, Auth } from 'aws-amplify';
@@ -6,9 +7,10 @@ import { GraphQLResult } from '@aws-amplify/api';
 import { ListTMHPeopleQuery, TMHPerson, TMHPersonByEmailQuery } from 'API';
 
 import PersonCard from './PersonCard';
-import PeopleManagerModal from './PeopleManagerModal';
+//import PeopleManagerModal from './PeopleManagerModal';
 import { Spinner } from 'reactstrap';
 import DataLoader from 'components/RenderRouter/DataLoader';
+import PeopleManagerModalNew from './PeopleManagerModal';
 const loadStaff = async ({
   setIsLoading,
   setPeopleData,
@@ -24,7 +26,7 @@ const loadStaff = async ({
 
   try {
     const { data } = (await API.graphql({
-      query: queries.listTMHPeople,
+      query: customQueries.listTMHPeople,
       variables: { limit: 500 },
     })) as GraphQLResult<ListTMHPeopleQuery>;
     console.log({ groups });
@@ -87,7 +89,7 @@ const loadStaff = async ({
   }
 };
 export default function PeopleManager() {
-  const [disableButtons, setDisableButtons] = React.useState(false);
+  const [disableButtons] = React.useState(false);
   const [peopleData, setPeopleData] = React.useState<TMHPerson[]>([]);
   const [searchTerm, setSearchTerm] = React.useState('');
   const [isLoading, setIsLoading] = React.useState(false);
@@ -98,8 +100,7 @@ export default function PeopleManager() {
   const [filterType, setFilterType] = React.useState('All');
   const [error, setError] = React.useState('');
   const closeModal = () => {
-    loadStaff({ setIsLoading: setDisableButtons, setPeopleData, setError });
-    setSelectedUser(null);
+    //loadStaff({ setIsLoading: setDisableButtons, setPeopleData, setError });
     setShowModal(false);
   };
   const openModal = (user: TMHPerson) => {
@@ -111,56 +112,63 @@ export default function PeopleManager() {
   }, []);
   const updatePeopleDataCallback = (newValue: TMHPerson, type?: string) => {
     console.log('updatePeopleDataCallback', newValue);
-    let newTempArr = peopleData;
-    const updatedPersonIndex = newTempArr.findIndex(
+
+    const updatedPersonIndex = peopleData.findIndex(
       (person) => person?.id === newValue?.id
     );
-    if (updatedPersonIndex === -1) newTempArr.push(newValue);
-    else {
-      if (type === 'delete')
-        newTempArr = newTempArr.filter(
-          (tmhPerson) => tmhPerson?.id !== newValue?.id
-        );
-      else newTempArr[updatedPersonIndex] = newValue;
+
+    // If the person is not in the current array and type is not 'delete'
+    if (updatedPersonIndex === -1 && type !== 'delete') {
+      setPeopleData([...peopleData, newValue]);
+      return;
     }
-    setPeopleData(newTempArr);
+
+    // If the type is 'delete'
+    if (type === 'delete') {
+      const filteredArray = peopleData.filter(
+        (tmhPerson) => tmhPerson?.id !== newValue?.id
+      );
+      setPeopleData(filteredArray);
+      return;
+    }
+
+    // Otherwise, update the existing person
+    const newArray = [...peopleData];
+    newArray[updatedPersonIndex] = newValue;
+    setPeopleData(newArray);
   };
+
+  const roleFilters: Record<string, (person: TMHPerson) => boolean> = {
+    All: () => true,
+    Coordinators: (person) => person?.isCoordinator === 'true',
+    Staff: (person) => person?.isStaff === 'true',
+    Teachers: (person) => person?.isTeacher === 'true',
+    Overseers: (person) => person?.isOverseer === 'true',
+  };
+
+  const searchTermFilter = (person: TMHPerson) => {
+    const terms = searchTerm.toLocaleLowerCase()?.trim().split(' ');
+
+    if (!terms.length) return true;
+
+    return terms.some(
+      (term) =>
+        person.firstName?.toLowerCase().includes(term) ||
+        person.lastName?.toLowerCase().includes(term)
+    );
+  };
+
+  const nameSort = (a: TMHPerson, b: TMHPerson) => {
+    const AfirstName = a?.firstName?.toLowerCase();
+    const BfirstName = b?.firstName?.toLowerCase();
+    if (AfirstName && BfirstName) return AfirstName.localeCompare(BfirstName);
+    return 0;
+  };
+
   const filteredPeeps = peopleData
-    .filter((person) => {
-      if (filterType === 'All') return true;
-      else if (
-        filterType === 'Coordinators' &&
-        person?.isCoordinator === 'true'
-      )
-        return true;
-      else if (filterType === 'Staff' && person?.isStaff === 'true')
-        return true;
-      else if (filterType === 'Teachers' && person?.isTeacher === 'true')
-        return true;
-      else if (filterType === 'Overseers' && person?.isOverseer === 'true')
-        return true;
-      else return false;
-    })
-    .filter((person) => {
-      const term = searchTerm.toLocaleLowerCase()?.trim().split(' ');
-      let exists = false;
-      if (!term.length) return true;
-      term.forEach((term) => {
-        if (person.firstName?.toLowerCase().includes(term)) {
-          exists = true;
-        }
-        if (person.lastName?.toLowerCase().includes(term)) {
-          exists = true;
-        }
-      });
-      return exists;
-    })
-    .sort((a, b) => {
-      const AfirstName = a?.firstName?.toLowerCase();
-      const BfirstName = b?.firstName?.toLowerCase();
-      if (AfirstName && BfirstName) return AfirstName.localeCompare(BfirstName);
-      return 0;
-    });
+    .filter(roleFilters[filterType])
+    .filter(searchTermFilter)
+    .sort(nameSort);
   return (
     <div className="PeopleManagerContainer">
       <div
@@ -277,7 +285,8 @@ export default function PeopleManager() {
         </div>
       ) : null}
       {showModal ? (
-        <PeopleManagerModal
+        <PeopleManagerModalNew
+          setSelectedUser={setSelectedUser}
           updateCallback={updatePeopleDataCallback}
           closeModal={closeModal}
           showModal={showModal}
