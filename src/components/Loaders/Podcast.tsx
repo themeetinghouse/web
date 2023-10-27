@@ -9,12 +9,16 @@ export default function Podcast() {
 
   useEffect(() => {
     async function fetchPageData() {
-      const podcastPlayerURL = await Storage.get(
-        'savedContent/podcast-player.json'
-      );
-      const response = await fetch(podcastPlayerURL);
-      const json = await response.json();
-      setContent(json);
+      try {
+        const podcastPlayerURL = await Storage.get(
+          'savedContent/podcast-player.json'
+        );
+        const response = await fetch(podcastPlayerURL);
+        const json = await response.json();
+        setContent(json);
+      } catch (error) {
+        console.error({ error });
+      }
     }
 
     fetchPageData();

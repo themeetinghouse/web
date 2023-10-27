@@ -19,24 +19,28 @@ const AnnouncementBar = ({ showLive, setShowBar }: Props) => {
   const [liveEvents, setLiveEvents] = useState<LiveEvents>([]);
   useEffect(() => {
     const loadLiveEvents = async () => {
-      const today = moment.tz('America/Toronto').format('YYYY-MM-DD');
-      const { data } = (await API.graphql({
-        query: queries.listLivestreams,
-        variables: { filter: { date: { eq: today } } },
-        authMode: GRAPHQL_AUTH_MODE.API_KEY,
-      })) as GraphQLResult<ListLivestreamsQuery>;
-      setLiveEvents(
-        data?.listLivestreams?.items
-          ?.sort((a, b) =>
-            (a?.startTime ?? '').localeCompare(b?.startTime ?? '')
-          )
-          .sort((a, b) =>
-            (a?.eventTitle ?? '').localeCompare(b?.eventTitle ?? '')
-          )
-          .sort((a, b) =>
-            (a?.videoStartTime ?? '').localeCompare(b?.videoStartTime ?? '')
-          ) ?? []
-      );
+      try {
+        const today = moment.tz('America/Toronto').format('YYYY-MM-DD');
+        const { data } = (await API.graphql({
+          query: queries.listLivestreams,
+          variables: { filter: { date: { eq: today } } },
+          authMode: GRAPHQL_AUTH_MODE.API_KEY,
+        })) as GraphQLResult<ListLivestreamsQuery>;
+        setLiveEvents(
+          data?.listLivestreams?.items
+            ?.sort((a, b) =>
+              (a?.startTime ?? '').localeCompare(b?.startTime ?? '')
+            )
+            .sort((a, b) =>
+              (a?.eventTitle ?? '').localeCompare(b?.eventTitle ?? '')
+            )
+            .sort((a, b) =>
+              (a?.videoStartTime ?? '').localeCompare(b?.videoStartTime ?? '')
+            ) ?? []
+        );
+      } catch (e) {
+        console.error(e);
+      }
     };
     loadLiveEvents();
   }, []);

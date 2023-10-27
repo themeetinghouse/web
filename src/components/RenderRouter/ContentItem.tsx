@@ -175,11 +175,15 @@ function ContentLink({
   const [link, setLink] = React.useState(item.navigateTo);
   React.useEffect(() => {
     (async () => {
-      if (item.navigateTo.includes('editor/pdfs')) {
-        const newLink = await Storage.get(item.navigateTo);
-        setLink(newLink);
-      } else {
-        setLink(item.navigateTo);
+      try {
+        if (item.navigateTo.includes('editor/pdfs')) {
+          const newLink = await Storage.get(item.navigateTo);
+          setLink(newLink);
+        } else {
+          setLink(item.navigateTo);
+        }
+      } catch (e) {
+        console.error({ e });
       }
     })();
   }, [item.navigateTo]);
@@ -205,10 +209,14 @@ function ContentItem({ content, nextItem }: Props) {
   const [currentImage, setCurrentImage] = useState(0);
   useEffect(() => {
     const loadLocations = async () => {
-      if (content.style === 'youth') {
-        const query = content as LocationQuery;
-        const data = await DataLoader.getLocations(query);
-        setData(data);
+      try {
+        if (content.style === 'youth') {
+          const query = content as LocationQuery;
+          const data = await DataLoader.getLocations(query);
+          setData(data);
+        }
+      } catch (error) {
+        console.error({ error });
       }
     };
     loadLocations();

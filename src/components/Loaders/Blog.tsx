@@ -59,11 +59,14 @@ export default function Blog(): ReactElement | null {
     });
 
     (async () => {
-      const blogPostUrl = await Storage.get('savedContent/blog-post.json');
-
-      const response = await fetch(blogPostUrl);
-      const myJson = await response.json();
-      setContent(myJson);
+      try {
+        const blogPostUrl = await Storage.get('savedContent/blog-post.json');
+        const response = await fetch(blogPostUrl);
+        const myJson = await response.json();
+        setContent(myJson);
+      } catch (error) {
+        console.error(error);
+      }
     })();
   }, []);
 

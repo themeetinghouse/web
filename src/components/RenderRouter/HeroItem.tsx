@@ -22,11 +22,15 @@ function RenderLinkButton({
   const [link, setLink] = React.useState(buttonInfo.action);
   React.useEffect(() => {
     (async () => {
-      if (buttonInfo.action.includes('editor/pdfs')) {
-        const newLink = await Storage.get(buttonInfo.action);
-        setLink(newLink);
-      } else {
-        setLink(buttonInfo.action);
+      try {
+        if (buttonInfo.action.includes('editor/pdfs')) {
+          const newLink = await Storage.get(buttonInfo.action);
+          setLink(newLink);
+        } else {
+          setLink(buttonInfo.action);
+        }
+      } catch (error) {
+        console.error(error);
       }
     })();
   }, [buttonInfo.action]);
@@ -174,7 +178,7 @@ class HeroItem extends React.Component<HeroItemProps, State> {
           console.debug('location', query);
           if (!query.filterValue) return;
           const data = await DataLoader.getTMHLocation(query.filterValue);
-          if (data.data?.getTMHLocation) {
+          if (data?.data?.getTMHLocation) {
             this.setState({
               currentLocation: data.data.getTMHLocation as TMHLocation,
             });
@@ -194,7 +198,7 @@ class HeroItem extends React.Component<HeroItemProps, State> {
         console.log('location', query);
         if (!query.filterValue) return;
         const data = await DataLoader.getTMHLocation(query.filterValue);
-        if (data.data?.getTMHLocation) {
+        if (data?.data?.getTMHLocation) {
           this.setState({
             currentLocation: data.data.getTMHLocation as TMHLocation,
           });

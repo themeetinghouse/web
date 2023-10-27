@@ -30,8 +30,11 @@ export default class ErrorBoundary extends React.Component<EmptyProps, State> {
           className="snap"
           onClick={() => Sentry.lastEventId() && Sentry.showReportDialog()}
         >
-          <p>We&apos;re sorry — something&apos;s gone wrong.</p>
+          <p>We&apos;re sorry. something&apos;s gone wrong.</p>
           <p>Our team has been notified.</p>
+          <p>
+            Click <a href="/">here</a> to go to the homepage.
+          </p>
         </div>
       );
     } else {
