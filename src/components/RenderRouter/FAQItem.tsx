@@ -29,11 +29,15 @@ function IsLinkFromStorage({
   const [link, setLink] = React.useState('');
   React.useEffect(() => {
     (async () => {
-      if (item.navigateTo.includes('editor/pdfs')) {
-        const newLink = await Storage.get(item.navigateTo);
-        setLink(newLink);
-      } else {
-        setLink(item.navigateTo.action);
+      try {
+        if (item.navigateTo.includes('editor/pdfs')) {
+          const newLink = await Storage.get(item.navigateTo);
+          setLink(newLink);
+        } else {
+          setLink(item.navigateTo.action);
+        }
+      } catch (error) {
+        console.error(error);
       }
     })();
   }, [item.navigateTo]);

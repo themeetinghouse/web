@@ -354,18 +354,22 @@ export default class DataLoader {
 
   static async getTMHLocation(
     locationID: string
-  ): Promise<GraphQLResult<GetTMHLocationQuery>> {
-    const variables: GetTMHLocationQueryVariables = {
-      id: locationID,
-    };
-    const getTMHLocation = API.graphql({
-      query: queries.getTMHLocation,
-      variables: variables,
-      authMode: GRAPHQL_AUTH_MODE.API_KEY,
-    }) as Promise<GraphQLResult<GetTMHLocationQuery>>;
-    return getTMHLocation;
+  ): Promise<GraphQLResult<GetTMHLocationQuery> | null> {
+    try {
+      const variables: GetTMHLocationQueryVariables = {
+        id: locationID,
+      };
+      const getTMHLocation = API.graphql({
+        query: queries.getTMHLocation,
+        variables: variables,
+        authMode: GRAPHQL_AUTH_MODE.API_KEY,
+      }) as Promise<GraphQLResult<GetTMHLocationQuery>>;
+      return getTMHLocation;
+    } catch (error) {
+      console.error({ error });
+      return null;
+    }
   }
-
   static async getVideos(
     query: VideoSeriesQuery,
     dataLoaded: OnDataListener<VideoByVideoTypeData[]>,
@@ -617,10 +621,11 @@ export default class DataLoader {
         vars.filter?.or?.push({ tags: { match: tag } });
       });
       console.log({ searchingOptions: vars });
-      const searchBlogs = API.graphql(
-        graphqlOperation(customQueries.searchBlogs, vars)
-      ) as Promise<GraphQLResult<SearchBlogsQuery>>;
+
       try {
+        const searchBlogs = API.graphql(
+          graphqlOperation(customQueries.searchBlogs, vars)
+        ) as Promise<GraphQLResult<SearchBlogsQuery>>;
         const json = await searchBlogs;
         console.debug('Success customQueries.searchBlogs: ' + json);
         console.debug(json);
@@ -639,14 +644,15 @@ export default class DataLoader {
         return [{ lastName: { matchPhrase: name.toLowerCase() } }];
       }),
     ].flat();
-    const searchTMHPeople = API.graphql({
-      query: queries.searchTMHPeople,
-      variables: {
-        filter: { or: or },
-      },
-      authMode: GRAPHQL_AUTH_MODE.API_KEY,
-    }) as Promise<GraphQLResult<SearchTMHPeopleQuery>>;
+
     try {
+      const searchTMHPeople = API.graphql({
+        query: queries.searchTMHPeople,
+        variables: {
+          filter: { or: or },
+        },
+        authMode: GRAPHQL_AUTH_MODE.API_KEY,
+      }) as Promise<GraphQLResult<SearchTMHPeopleQuery>>;
       const json = await searchTMHPeople;
       console.debug('Success customQueries.searchTMHPeople: ' + json);
       console.debug(json);
@@ -713,10 +719,11 @@ export default class DataLoader {
       limit: query.loadPer,
       filter: { hiddenMainIndex: { ne: true } },
     };
-    const getBlogByBlogStatus = API.graphql(
-      graphqlOperation(customQueries.getBlogByBlogStatus, vars)
-    ) as Promise<GraphQLResult<GetBlogByBlogStatusQuery>>;
+
     try {
+      const getBlogByBlogStatus = API.graphql(
+        graphqlOperation(customQueries.getBlogByBlogStatus, vars)
+      ) as Promise<GraphQLResult<GetBlogByBlogStatusQuery>>;
       const json = await getBlogByBlogStatus;
       console.debug('Success queries.getBlogByBlogStatus: ' + json);
       console.debug(json);
@@ -766,12 +773,13 @@ export default class DataLoader {
       seriesType: query.subclass,
       startDate: { lt: 'a' },
     };
-    const getSeriesBySeriesType = API.graphql({
-      query: customQueries.getSeriesBySeriesType,
-      variables,
-      authMode: GRAPHQL_AUTH_MODE.API_KEY,
-    }) as Promise<GraphQLResult<GetSeriesBySeriesTypeQuery>>;
+
     try {
+      const getSeriesBySeriesType = API.graphql({
+        query: customQueries.getSeriesBySeriesType,
+        variables,
+        authMode: GRAPHQL_AUTH_MODE.API_KEY,
+      }) as Promise<GraphQLResult<GetSeriesBySeriesTypeQuery>>;
       const json = await getSeriesBySeriesType;
       console.debug({ 'Success queries.getSeriesBySeriesType': json });
       dataLoaded(json?.data?.getSeriesBySeriesType?.items ?? []);
@@ -847,12 +855,13 @@ export default class DataLoader {
       nextToken: nextToken,
       limit: 100,
     };
-    const listCustomPlaylists = API.graphql({
-      query: queries.listF1ListGroup2s,
-      variables,
-      authMode: GRAPHQL_AUTH_MODE.API_KEY,
-    }) as Promise<GraphQLResult<ListF1ListGroup2sQuery>>;
+
     try {
+      const listCustomPlaylists = API.graphql({
+        query: queries.listF1ListGroup2s,
+        variables,
+        authMode: GRAPHQL_AUTH_MODE.API_KEY,
+      }) as Promise<GraphQLResult<ListF1ListGroup2sQuery>>;
       const json = await listCustomPlaylists;
       console.debug({ 'Success queries.listF1ListGroup2s': json });
       dataLoaded(json?.data?.listF1ListGroup2s?.items ?? []);
@@ -929,12 +938,13 @@ export default class DataLoader {
     const variables: GetFBEventsQueryVariables = {
       pageId: eventId,
     };
-    const getFbEvents = API.graphql({
-      query: queries.getFBEvents,
-      variables,
-      authMode: GRAPHQL_AUTH_MODE.API_KEY,
-    }) as Promise<GraphQLResult<GetFBEventsQuery>>;
+
     try {
+      const getFbEvents = API.graphql({
+        query: queries.getFBEvents,
+        variables,
+        authMode: GRAPHQL_AUTH_MODE.API_KEY,
+      }) as Promise<GraphQLResult<GetFBEventsQuery>>;
       const json = await getFbEvents;
       console.debug('Success queries.getFBEvents: ' + json);
       console.debug(json);
@@ -1021,25 +1031,25 @@ export default class DataLoader {
 
   static async loadInsta(query: InstaQuery): Promise<InstaData> {
     console.log({ query });
-    const location = await this.getTMHLocation(query.filterValue);
-    console.log({ igs: location.data?.getTMHLocation?.socials?.instagram });
-    console.log({ location });
-    let id = '17841400321603203';
-
-    if (location?.data?.getTMHLocation?.socials?.instagram?.[0]?.pageId) {
-      id = location.data.getTMHLocation.socials.instagram[0].pageId;
-    }
-    console.log({ instaId: id });
-    const variables: GetInstaPhotosQueryVariables = {
-      pageId: id,
-    };
-    const getInsta = API.graphql({
-      query: queries.getInstaPhotos,
-      variables,
-      authMode: GRAPHQL_AUTH_MODE.API_KEY,
-    }) as Promise<GraphQLResult<GetInstaPhotosQuery>>;
 
     try {
+      const location = await this.getTMHLocation(query.filterValue);
+      console.log({ igs: location?.data?.getTMHLocation?.socials?.instagram });
+      console.log({ location });
+      let id = '17841400321603203';
+
+      if (location?.data?.getTMHLocation?.socials?.instagram?.[0]?.pageId) {
+        id = location.data.getTMHLocation.socials.instagram[0].pageId;
+      }
+      console.log({ instaId: id });
+      const variables: GetInstaPhotosQueryVariables = {
+        pageId: id,
+      };
+      const getInsta = API.graphql({
+        query: queries.getInstaPhotos,
+        variables,
+        authMode: GRAPHQL_AUTH_MODE.API_KEY,
+      }) as Promise<GraphQLResult<GetInstaPhotosQuery>>;
       const json = await getInsta;
 
       if (!json?.data?.getInstaPhotos?.data) {
@@ -1062,7 +1072,7 @@ export default class DataLoader {
       return {
         data: photos,
         link:
-          location.data?.getTMHLocation?.socials?.instagram?.[0]?.link ??
+          location?.data?.getTMHLocation?.socials?.instagram?.[0]?.link ??
           'https://www.instagram.com/themeetinghouse/',
       };
     } catch (e) {
@@ -1107,39 +1117,60 @@ export default class DataLoader {
     }
   }
   static async loadEvent(eventId: string): Promise<EventData> {
-    const event = await this.getEvent(eventId);
-    return event;
+    try {
+      const event = await this.getEvent(eventId);
+      return event;
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
   }
   static async loadCompassion(): Promise<CompassionData[]> {
-    const response = await fetch('/static/data/compassion.json');
-    return response.json();
+    try {
+      const response = await fetch('/static/data/compassion.json');
+      return response.json();
+    } catch (error) {
+      console.log(error);
+      return [];
+    }
   }
   static async getRegions(): Promise<RegionData[]> {
-    const response = await fetch('/static/data/regions.json');
-    const data: RegionData[] = await response.json();
-    return data;
+    try {
+      const response = await fetch('/static/data/regions.json');
+      const data: RegionData[] = await response.json();
+      return data;
+    } catch (error) {
+      console.log(error);
+      return [];
+    }
   }
   static async getLocations(query: LocationQuery): Promise<TMHLocation[]> {
-    const data = (await API.graphql({
-      query: queries.listTMHLocations,
-      authMode: GRAPHQL_AUTH_MODE.API_KEY,
-    })) as GraphQLResult<ListTMHLocationsQuery>;
-    const locations =
-      (data.data?.listTMHLocations?.items as TMHLocation[]) ?? [];
-    return locations
-      .filter((location) => {
-        if (!query.filterField) {
-          return true;
-        }
+    try {
+      const data = (await API.graphql({
+        query: queries.listTMHLocations,
+        authMode: GRAPHQL_AUTH_MODE.API_KEY,
+      })) as GraphQLResult<ListTMHLocationsQuery>;
+      const locations =
+        (data.data?.listTMHLocations?.items as TMHLocation[]) ?? [];
+      return locations
+        .filter((location) => {
+          if (!query.filterField) {
+            return true;
+          }
 
-        if (Array.isArray(query.filterValue)) {
-          return query.filterValue.includes(
-            location[query.filterField as 'id']
-          );
-        } else return location[query.filterField as 'id'] === query.filterValue;
-      })
-      .sort((a, b) => {
-        return a.name == 'Global' ? -1 : a.name?.localeCompare(b.name);
-      });
+          if (Array.isArray(query.filterValue)) {
+            return query.filterValue.includes(
+              location[query.filterField as 'id']
+            );
+          } else
+            return location[query.filterField as 'id'] === query.filterValue;
+        })
+        .sort((a, b) => {
+          return a.name == 'Global' ? -1 : a.name?.localeCompare(b.name);
+        });
+    } catch (error) {
+      console.error({ error });
+      return [];
+    }
   }
 }

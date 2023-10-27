@@ -45,7 +45,7 @@ export default function HomePage() {
         if (location.pathname.slice(1) !== '') {
           const { data } = await getRedirect(location.pathname.slice(1));
           if (data?.getRedirect?.id && data?.getRedirect?.to) {
-            setRedirect(data.getRedirect);
+            setRedirect(data?.getRedirect);
           } else {
             setRedirect({ id: '', to: '' } as RedirectType);
           }

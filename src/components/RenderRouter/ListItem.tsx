@@ -57,12 +57,22 @@ export function ListImage({
   React.useEffect(() => {
     if (image?.src?.includes('editor')) {
       const imageKey = image.src[0] === '/' ? image.src.slice(1) : image.src;
-      Storage.get(imageKey).then(async (url) => {
-        setImage1({
-          src: url?.split('?')?.[0],
-          alt: image.alt,
+      Storage.get(imageKey)
+        .then(async (url) => {
+          setImage1({
+            src: url?.split('?')?.[0],
+            alt: image.alt,
+          });
+        })
+        .catch((e) => {
+          console.error(e);
+          if (fallbackImageUrl) {
+            setImage1({
+              src: fallbackImageUrl,
+              alt: image.alt,
+            });
+          }
         });
-      });
     } else {
       setImage1({
         src: image.src,
@@ -401,7 +411,9 @@ class ListItem extends React.Component<ListItemProps, State> {
       case 'user-defined':
         return;
       default:
-        console.error(`unknown list data type ${this.state.content.class}`);
+        console.error(`unknown list data type ${this.state.content.class}`, {
+          content: this.state.content,
+        });
         return;
     }
     this.setData(data);

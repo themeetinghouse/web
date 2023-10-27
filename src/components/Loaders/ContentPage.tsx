@@ -78,7 +78,7 @@ export default function ContentPage(): ReactElement | null {
               return;
             }
             const TMHLocationData = await DataLoader.getTMHLocation(locationId);
-            if (!TMHLocationData.data?.getTMHLocation) {
+            if (!TMHLocationData?.data?.getTMHLocation) {
               const response3 = await fetch(errorUrl);
               content = await response3.json();
               setPages({
