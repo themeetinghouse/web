@@ -141,13 +141,30 @@ export default function LocationsModalYouth({
                 <span style={{ marginLeft: 4 }}>ⓘ</span>
               </TMHTooltip>
             </div>
-            <span style={{ fontSize: 9, fontWeight: 400 }}>Location</span>
 
             <input
               onChange={handleChangeLocation}
               placeholder="Immanuel CRC Church"
               name="name"
               value={newLocData?.youth?.location?.name?.toString()}
+              type="text"
+            />
+          </label>
+          <label>
+            <div style={{ display: 'flex', flexDirection: 'row' }}>
+              Location Latitude
+              <TMHTooltip tooltipText={'Set the name for the location'}>
+                <span style={{ marginLeft: 4 }}>ⓘ</span>
+              </TMHTooltip>
+            </div>
+            <span style={{ fontSize: 9, fontWeight: 400 }}>
+              This is needed in order to display the location on the map
+            </span>
+            <input
+              onChange={handleChangeLocation}
+              placeholder="43.5111777"
+              name="latitude"
+              value={newLocData?.youth?.location?.latitude?.toString()}
               type="text"
             />
           </label>
@@ -232,15 +249,30 @@ export default function LocationsModalYouth({
                 <span style={{ marginLeft: 4 }}>ⓘ</span>
               </TMHTooltip>
             </div>
-            <span style={{ fontSize: 9, fontWeight: 400 }}>
-              Set the time for the meeting
-            </span>
 
             <input
               onChange={handleChangeLocation}
               placeholder="2626 Mayfield Road, Caledon"
               name="address1"
               value={newLocData?.youth?.location?.address1?.toString()}
+              type="text"
+            />
+          </label>
+          <label>
+            <div style={{ display: 'flex', flexDirection: 'row' }}>
+              Location Longitude
+              <TMHTooltip tooltipText={'Set the name for the location'}>
+                <span style={{ marginLeft: 4 }}>ⓘ</span>
+              </TMHTooltip>
+            </div>
+            <span style={{ fontSize: 9, fontWeight: 400 }}>
+              This is needed in order to display the location on the map
+            </span>
+            <input
+              onChange={handleChangeLocation}
+              placeholder="-79.687309"
+              name="longitude"
+              value={newLocData?.youth?.location?.longitude?.toString()}
               type="text"
             />
           </label>
