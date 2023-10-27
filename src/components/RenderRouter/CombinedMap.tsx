@@ -9,11 +9,11 @@ import {
   IProvidedProps,
   Map,
   Marker,
-  Polygon,
 } from 'google-maps-react';
-import { useEffect, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import DataLoader, { CompassionData, RegionData } from './DataLoader';
 import './CombinedMap.scss';
+import { useLocation } from 'react-router-dom';
 const SITE_PIN_URL = '/static/svg/SiteLocationPin.svg';
 const SITE_PIN_SELECTED_URL = '/static/svg/SiteLocationPin-selected.svg';
 
@@ -27,7 +27,9 @@ interface Props extends IProvidedProps {
 }
 
 export function ContentItem(props: Props) {
+  const mapRef = useRef<HTMLElement | null>(null);
   // let map: google.maps.Map | undefined;
+  const location = useLocation();
   const [showingInfoWindow, setShowingInfoWindow] = useState<boolean>(false);
   const [activeMarker, setActiveMarker] = useState<any>({});
   const [selectedPlace2Type, setSelectedPlace2Type] = useState<string>('');
@@ -40,32 +42,43 @@ export function ContentItem(props: Props) {
   const [selectedPlace] = useState(null);
   //const [locationFilter, setLocationFilter] = useState(null);
   // const [locationsLoaded, setLocationsLoaded] = useState([]);
-  const [, setAllLocationsLoaded] = useState(false);
-  const [mapBounds] = useState(null);
+  const [allLocationsLoaded, setAllLocationsLoaded] = useState(false);
   const [locations, setLocations] = useState<TMHLocation[]>([]);
   const [regions, setRegions] = useState<RegionData[]>([]);
   const [compassion, setCompassion] = useState<CompassionData[]>([]);
-
+  const [currentLocation, setCurrentLocation] = useState<TMHLocation | null>(
+    null
+  );
   const [groups, setGroups] = useState<(F1ListGroup2 | null)[]>([]);
+  const [locationsLoaded, setLocationsLoaded] = useState(false);
+  const [compassionLoaded, setCompassionLoaded] = useState(false);
   const [groupsExtra, setGroupsExtra] = useState<any[]>([]);
-
+  const [mapBounds, setMapBounds] = useState<google.maps.LatLngBounds>();
   const [currentLatLng, setCurrentLatLng] = useState(DEFAULT_LAT_LNG);
   //const [showContactModal, setShowContactModal] = useState(false);
   //const [activePill, setActivePill] = useState(undefined);
   //const [mapSelected, setMapSelected] = useState(true);
   //const [selectedDay, setSelectedDay] = useState({ value: 'all' });
   //const [contactHomeChurchId, setContactHomeChurchId] = useState(null);
-
   useEffect(() => {
     DataLoader.getLocations({ class: 'locations' }).then((locationsRet) => {
       console.log(
         'HomeChurchItem.constructor(): Got locations: %o',
         locationsRet
       );
+      if (location.pathname.includes('communities')) {
+        const locationID = location.pathname.split('/').at(-1);
+        const selectedLoc = locationsRet.find((loc) => {
+          return loc.id === locationID;
+        });
+        setCurrentLocation(selectedLoc as TMHLocation);
+      }
       setLocations(locationsRet);
+      setLocationsLoaded(true);
     });
     DataLoader.loadCompassion().then((compassion) => {
       setCompassion(compassion);
+      setCompassionLoaded(true);
     });
     DataLoader.getRegions().then((locationsRet) => {
       setRegions(locationsRet);
@@ -253,10 +266,71 @@ export function ContentItem(props: Props) {
       );
     }
   };
+  useEffect(() => {
+    if (!props.google) return;
+    if (allLocationsLoaded && compassionLoaded && locationsLoaded) {
+      const bounds = new props.google.maps.LatLngBounds();
+      const homeChurchMarkers = groups
+        .filter((loc) => {
+          if (currentLocation) {
+            return loc?.groupType?.id === currentLocation.homeChurchGroupID;
+          } else {
+            return true;
+          }
+        })
+        .map((group) => ({
+          lat: Number(group?.location?.address?.latitude),
+          lng: Number(group?.location?.address?.longitude),
+        }));
+      const locationMarkers = locations
+        .filter((loc) =>
+          currentLocation ? loc.id === currentLocation.id : true
+        )
+        .map((location) => ({
+          lat: location?.location?.latitude ?? 0,
+          lng: location?.location?.longitude ?? 0,
+        }));
+      const compassionMarkers = compassion
+        .filter((compassion) => {
+          if (currentLocation) {
+            return false;
+          } else {
+            return true;
+          }
+        })
+        .map((compassion) => ({
+          lat: compassion?.location?.latitude ?? 0,
+          lng: compassion.location?.longitude ?? 0,
+        }));
+      const combinedMarkers = [
+        ...locationMarkers,
+        ...homeChurchMarkers,
+        ...compassionMarkers,
+      ];
+
+      combinedMarkers.forEach((marker) => {
+        bounds.extend(new props.google.maps.LatLng(marker.lat, marker.lng));
+      });
+      setMapBounds(bounds);
+    }
+  }, [
+    allLocationsLoaded,
+    locationsLoaded,
+    compassionLoaded,
+    compassion,
+    groups,
+    locations,
+    regions,
+    props.google,
+    currentLocation,
+  ]);
+
   return (
     <div className="CombinedMapItem">
       <div className="CombinedMapItemDiv1">
-        <h1 className="CombinedMapH1">{props.content.header1}</h1>
+        <h1 className="CombinedMapH1">
+          {currentLocation ? currentLocation.name : props.content.header1}
+        </h1>
 
         <div className="CombinedMapItemMap">
           <div
@@ -315,6 +389,7 @@ export function ContentItem(props: Props) {
           </div>
 
           <Map
+            ref={mapRef as React.RefObject<any>}
             onClick={onMapClicked}
             google={props.google}
             zoom={initalZoom}
@@ -322,7 +397,7 @@ export function ContentItem(props: Props) {
             zoomControl={false}
             fullscreenControl={false}
             initialCenter={inititalCenter}
-            bounds={mapBounds ?? undefined}
+            bounds={mapBounds}
             mapTypeControl={false}
             onReady={(mapProps, map2) => {
               // map = map2;
@@ -338,7 +413,7 @@ export function ContentItem(props: Props) {
               {renderInfoWindowContent()}
             </InfoWindow>
 
-            {regions.map((z, index) => {
+            {/* {regions.map((z, index) => {
               return (
                 <Polygon
                   key={'poly' + index}
@@ -347,7 +422,7 @@ export function ContentItem(props: Props) {
                   paths={z.outline}
                 />
               );
-            })}
+            })} */}
 
             <Marker
               key="current"
@@ -355,68 +430,92 @@ export function ContentItem(props: Props) {
               position={{ ...currentLatLng }}
             ></Marker>
             {compassionVisible
-              ? compassion.map((compassion, index) => {
-                  return (
-                    <Marker
-                      onClick={(a, b, c) => {
-                        onMarkerClickCompassion(a, b, compassion);
-                      }}
-                      key={'comp' + compassion.id + index}
-                      anchorPoint={new google.maps.Point(0, 0)}
-                      icon={
-                        selectedPlace
-                          ? HOME_CHURCH_PIN_SELECTED_URL
-                          : HOME_CHURCH_PIN_URL
-                      }
-                      position={{
-                        lat: compassion?.location?.latitude,
-                        lng: compassion?.location?.longitude,
-                      }}
-                    ></Marker>
-                  );
-                })
+              ? compassion
+                  .filter((compassion) => {
+                    if (currentLocation) {
+                      return false;
+                    } else {
+                      return true;
+                    }
+                  })
+                  .map((compassion, index) => {
+                    return (
+                      <Marker
+                        onClick={(a, b, c) => {
+                          onMarkerClickCompassion(a, b, compassion);
+                        }}
+                        key={'comp' + compassion.id + index}
+                        anchorPoint={new google.maps.Point(0, 0)}
+                        icon={
+                          selectedPlace
+                            ? HOME_CHURCH_PIN_SELECTED_URL
+                            : HOME_CHURCH_PIN_URL
+                        }
+                        position={{
+                          lat: compassion?.location?.latitude,
+                          lng: compassion?.location?.longitude,
+                        }}
+                      ></Marker>
+                    );
+                  })
               : null}
             {sundayVisible
-              ? locations.map((location, index) => {
-                  return (
-                    <Marker
-                      onClick={(a, b, c) => {
-                        onMarkerClickSunday(a, b, location);
-                      }}
-                      key={'loc' + location.id + index}
-                      anchorPoint={new google.maps.Point(0, 0)}
-                      icon={
-                        selectedPlace ? SITE_PIN_SELECTED_URL : SITE_PIN_URL
-                      }
-                      position={{
-                        lat: location?.location?.latitude ?? 0,
-                        lng: location?.location?.longitude ?? 0,
-                      }}
-                    />
-                  );
-                })
+              ? locations
+                  .filter((loc) =>
+                    currentLocation ? loc.id === currentLocation.id : true
+                  )
+                  .map((location, index) => {
+                    console.log({ location });
+                    return (
+                      <Marker
+                        onClick={(a, b, c) => {
+                          onMarkerClickSunday(a, b, location);
+                        }}
+                        key={'loc' + location.id + index}
+                        anchorPoint={new google.maps.Point(0, 0)}
+                        icon={
+                          selectedPlace ? SITE_PIN_SELECTED_URL : SITE_PIN_URL
+                        }
+                        position={{
+                          lat: location?.location?.latitude ?? 0,
+                          lng: location?.location?.longitude ?? 0,
+                        }}
+                      />
+                    );
+                  })
               : null}
             {homeChurchVisible
-              ? groups.map((location, index) => {
-                  return (
-                    <Marker
-                      onClick={(a, b, c) => {
-                        onMarkerClickHomeChurch(a, b, location);
-                      }}
-                      key={'group' + location?.id ?? 'a' + index}
-                      anchorPoint={new google.maps.Point(0, 0)}
-                      icon={
-                        selectedPlace
-                          ? HOME_CHURCH_PIN_SELECTED_URL
-                          : HOME_CHURCH_PIN_URL
-                      }
-                      position={{
-                        lat: Number(location?.location?.address?.latitude),
-                        lng: Number(location?.location?.address?.longitude),
-                      }}
-                    />
-                  );
-                })
+              ? groups
+                  .filter((loc) => {
+                    if (currentLocation) {
+                      return (
+                        loc?.groupType?.id === currentLocation.homeChurchGroupID
+                      );
+                    } else {
+                      return true;
+                    }
+                  })
+                  .map((location, index) => {
+                    console.log({ location });
+                    return (
+                      <Marker
+                        onClick={(a, b, c) => {
+                          onMarkerClickHomeChurch(a, b, location);
+                        }}
+                        key={'group' + location?.id ?? 'a' + index}
+                        anchorPoint={new google.maps.Point(0, 0)}
+                        icon={
+                          selectedPlace
+                            ? HOME_CHURCH_PIN_SELECTED_URL
+                            : HOME_CHURCH_PIN_URL
+                        }
+                        position={{
+                          lat: Number(location?.location?.address?.latitude),
+                          lng: Number(location?.location?.address?.longitude),
+                        }}
+                      />
+                    );
+                  })
               : null}
           </Map>
         </div>
