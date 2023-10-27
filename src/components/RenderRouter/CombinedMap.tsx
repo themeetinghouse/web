@@ -23,6 +23,10 @@ const SITE_PIN_SELECTED_URL = '/static/svg/SiteLocationPin-selected.svg';
 
 const HOME_CHURCH_PIN_URL = '/static/svg/HomeChurchPin.svg';
 const HOME_CHURCH_PIN_SELECTED_URL = '/static/svg/HomeChurchPin-selected.svg';
+
+const YOUTH_PIN_URL = '/static/svg/YouthPin.svg';
+const YOUTH_PIN_SELECTED_URL = '/static/svg/YouthPin-selected.svg';
+
 const CURRENT_LOCATION_URL = '/static/svg/CurrentLocation.svg';
 const DEFAULT_LAT_LNG = { lng: -79.685926, lat: 43.511459 };
 
@@ -82,14 +86,22 @@ export function ContentItem(props: Props) {
   const [activeMarker, setActiveMarker] = useState<any>({});
   const [selectedPlace2Type, setSelectedPlace2Type] = useState<string>('');
   const [selectedPlace2, setSelectedPlace2] = useState<
-    CompassionData | TMHLocation | F1ListGroup2 | undefined
+    | CompassionData
+    | TMHLocation
+    | F1ListGroup2
+    | TMHLocation['youth']
+    | undefined
   >(undefined);
   const [homeChurchVisible, setHomeChurchVisible] = useState<boolean>(true);
   const [compassionVisible, setCompassionVisible] = useState<boolean>(true);
   const [sundayVisible, setSundayVisible] = useState<boolean>(true);
+  const [youthVisible, setYouthVisible] = useState<boolean>(true);
   const [selectedPlace] = useState(null);
   //const [locationFilter, setLocationFilter] = useState(null);
   // const [locationsLoaded, setLocationsLoaded] = useState([]);
+  const [youthLocations, setYouthLocations] = useState<TMHLocation['youth'][]>(
+    []
+  );
   const [allLocationsLoaded, setAllLocationsLoaded] = useState(false);
   const [locations, setLocations] = useState<TMHLocation[]>([]);
   const [regions, setRegions] = useState<RegionData[]>([]);
@@ -114,13 +126,32 @@ export function ContentItem(props: Props) {
         'HomeChurchItem.constructor(): Got locations: %o',
         locationsRet
       );
+
+      let youthLocs: TMHLocation['youth'][];
+
       if (location.pathname.includes('communities')) {
         const locationID = location.pathname.split('/').at(-1);
-        const selectedLoc = locationsRet.find((loc) => {
-          return loc.id === locationID;
-        });
+        const selectedLoc = locationsRet.find((loc) => loc.id === locationID);
+
         setCurrentLocation(selectedLoc as TMHLocation);
+
+        youthLocs =
+          selectedLoc?.youth &&
+          selectedLoc.youth.location?.latitude &&
+          selectedLoc.location?.longitude
+            ? [selectedLoc.youth]
+            : [];
+      } else {
+        youthLocs = locationsRet
+          .filter(
+            (location) =>
+              location.youth?.location?.latitude &&
+              location.youth?.location?.longitude
+          )
+          .map((location) => location.youth);
       }
+
+      setYouthLocations(youthLocs);
       setLocations(locationsRet);
       setLocationsLoaded(true);
     });
@@ -229,6 +260,14 @@ export function ContentItem(props: Props) {
           });
     });
   };
+  const onMarkerClickYouth = (props: any, marker: any, e: any) => {
+    setSelectedPlace2Type('');
+    setSelectedPlace2(e);
+    setSelectedPlace2Type('Youth');
+    setActiveMarker(marker);
+    setShowingInfoWindow(true);
+    console.log(props, marker, e);
+  };
   const onMarkerClickSunday = (props: any, marker: any, e: any) => {
     setSelectedPlace2Type('');
     setSelectedPlace2(e);
@@ -274,6 +313,7 @@ export function ContentItem(props: Props) {
   };
 
   const renderInfoWindowContent = () => {
+    console.log({ selectedPlace });
     if (selectedPlace2 == undefined) {
       return <></>;
     } else if (selectedPlace2Type == '') {
@@ -316,6 +356,25 @@ export function ContentItem(props: Props) {
             <a href={compassion?.website}>
               <img style={{ width: '10vw' }} src={compassion.image} />
             </a>
+          </div>
+        </div>
+      );
+    } else if (selectedPlace2Type == 'Youth') {
+      const selectedPlaceData = selectedPlace2 as TMHLocation['youth'];
+      return (
+        <div>
+          <div className="CombinedMapItemMapInfoWindowDiv1">
+            {selectedPlaceData?.location?.name}
+          </div>
+          <div className="CombinedMapItemMapInfoWindowDiv3">
+            {selectedPlaceData?.description}
+          </div>
+          <div className="CombinedMapItemMapInfoWindowAddress">
+            {selectedPlaceData?.location?.address1}
+          </div>
+
+          <div className="CombinedMapItemMapInfoWindowTimeOfDay">
+            {selectedPlaceData?.time}
           </div>
         </div>
       );
@@ -380,6 +439,17 @@ export function ContentItem(props: Props) {
           lat: location?.location?.latitude ?? 0,
           lng: location?.location?.longitude ?? 0,
         }));
+      const youthMarkers = youthLocations
+        .filter(
+          (youthLocWithLatLng) =>
+            youthLocWithLatLng?.location?.latitude &&
+            youthLocWithLatLng?.location?.longitude
+        )
+        .map((youthLocation) => ({
+          lat: Number(youthLocation?.location?.latitude),
+          lng: Number(youthLocation?.location?.longitude),
+        }));
+
       const compassionMarkers = compassion
         .filter((compassion) => {
           if (currentLocation) {
@@ -396,6 +466,7 @@ export function ContentItem(props: Props) {
         ...locationMarkers,
         ...homeChurchMarkers,
         ...compassionMarkers,
+        ...youthMarkers,
       ];
 
       combinedMarkers.forEach((marker) => {
@@ -408,6 +479,7 @@ export function ContentItem(props: Props) {
     locationsLoaded,
     compassionLoaded,
     compassion,
+    youthLocations,
     groups,
     locations,
     regions,
@@ -471,6 +543,17 @@ export function ContentItem(props: Props) {
                 height={16}
               />{' '}
               Home Church
+            </div>
+            <div
+              style={{ cursor: 'pointer' }}
+              onClick={() => setYouthVisible(!youthVisible)}
+            >
+              <img
+                src={youthVisible ? YOUTH_PIN_URL : YOUTH_PIN_SELECTED_URL}
+                width={16}
+                height={16}
+              />{' '}
+              Youth Location
             </div>
             {!currentLocation ? (
               <div
@@ -618,6 +701,26 @@ export function ContentItem(props: Props) {
                       />
                     );
                   })
+              : null}
+            {youthVisible
+              ? youthLocations.map((youthLocation, index) => {
+                  return (
+                    <Marker
+                      onClick={(a, b, c) => {
+                        onMarkerClickYouth(a, b, youthLocation);
+                      }}
+                      key={'youth' + location?.hash ?? 'a' + index}
+                      anchorPoint={new google.maps.Point(0, 0)}
+                      icon={
+                        selectedPlace ? YOUTH_PIN_SELECTED_URL : YOUTH_PIN_URL
+                      }
+                      position={{
+                        lat: Number(youthLocation?.location?.latitude),
+                        lng: Number(youthLocation?.location?.longitude),
+                      }}
+                    />
+                  );
+                })
               : null}
           </Map>
         </div>
