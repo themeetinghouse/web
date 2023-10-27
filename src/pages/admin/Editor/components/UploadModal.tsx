@@ -118,7 +118,7 @@ export default function UploadModal({
         ) : (
           <TMHInput
             type="file"
-            accept={'image/*,.pdf'}
+            accept={contentType}
             value={file}
             onChange={(event) => {
               const file = event?.target?.files?.[0];
