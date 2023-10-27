@@ -14,6 +14,10 @@ import { useRef, useEffect, useState } from 'react';
 import DataLoader, { CompassionData, RegionData } from './DataLoader';
 import './CombinedMap.scss';
 import { useLocation } from 'react-router-dom';
+import Badge from 'components/Badge/Badge';
+import { F1Group } from './HomeChurchItem';
+import moment from 'moment';
+import { getNextMeetingDate } from './SundayMorningItem';
 const SITE_PIN_URL = '/static/svg/SiteLocationPin.svg';
 const SITE_PIN_SELECTED_URL = '/static/svg/SiteLocationPin-selected.svg';
 
@@ -22,6 +26,50 @@ const HOME_CHURCH_PIN_SELECTED_URL = '/static/svg/HomeChurchPin-selected.svg';
 const CURRENT_LOCATION_URL = '/static/svg/CurrentLocation.svg';
 const DEFAULT_LAT_LNG = { lng: -79.685926, lat: 43.511459 };
 
+function getAdjustedTime(group: F1Group) {
+  let dayOfWeek = 0;
+  for (const dayNum of [0, 1, 2, 3, 4, 5, 6]) {
+    const recurrenceWeekly = group.schedule?.recurrences?.recurrence
+      ?.recurrenceWeekly as Record<string, string> | undefined | null;
+    if (
+      recurrenceWeekly &&
+      recurrenceWeekly['occurOn' + moment().day(dayNum).format('dddd')]
+    ) {
+      dayOfWeek = dayNum;
+      break;
+    }
+  }
+  const eventStartTime = moment
+    .tz('America/Toronto')
+    .isoWeekday(dayOfWeek)
+    .set({
+      hour: moment(group.schedule?.startTime).get('hour'),
+      minute: moment(group.schedule?.startTime).get('minute'),
+      second: moment(group.schedule?.startTime).get('second'),
+    });
+  const hasDatePassed = moment() > eventStartTime;
+  if (hasDatePassed) return eventStartTime.add(7, 'days');
+  return eventStartTime;
+}
+function getDayOfWeek(item: F1Group['schedule']) {
+  if (item?.recurrences?.recurrence?.recurrenceWeekly)
+    if (item.recurrences.recurrence.recurrenceWeekly.occurOnSunday)
+      return 'Sunday';
+    else if (item.recurrences.recurrence.recurrenceWeekly.occurOnMonday)
+      return 'Monday';
+    else if (item.recurrences.recurrence.recurrenceWeekly.occurOnTuesday)
+      return 'Tuesday';
+    else if (item.recurrences.recurrence.recurrenceWeekly.occurOnWednesday)
+      return 'Wednesday';
+    else if (item.recurrences.recurrence.recurrenceWeekly.occurOnThursday)
+      return 'Thursday';
+    else if (item.recurrences.recurrence.recurrenceWeekly.occurOnFriday)
+      return 'Friday';
+    else if (item.recurrences.recurrence.recurrenceWeekly.occurOnSaturday)
+      return 'Saturday';
+    else return moment(item.startDate).format('dddd');
+  else return moment(item?.startDate).format('dddd');
+}
 interface Props extends IProvidedProps {
   content: HomeChurchItemContent;
 }
@@ -227,23 +275,40 @@ export function ContentItem(props: Props) {
 
   const renderInfoWindowContent = () => {
     if (selectedPlace2 == undefined) {
-      return null;
+      return <></>;
     } else if (selectedPlace2Type == '') {
-      return null;
+      return <></>;
     } else if (selectedPlace2Type == 'Sunday') {
       const sunday = selectedPlace2 as TMHLocation;
       return (
         <div>
-          <div>Community Site</div>
-          <div>{sunday?.name}</div>
-          <div>{sunday?.location?.address1}</div>
-          {/*<div>{sunday?.serviceTimeDescription}</div>*/}
+          <div className="CombinedMapItemMapInfoWindowDiv1">{sunday.name}</div>
+          <div className="CombinedMapItemMapInfoWindowAddress">
+            {sunday.location?.address1 ?? sunday.location?.name}
+          </div>
+          <div className="CombinedMapItemMapInfoWindowTimeOfDay">
+            {sunday.meetings?.map((meeting) => {
+              if (!meeting) return <></>;
+              const nextMeetingDate = getNextMeetingDate(meeting);
+              return (
+                <div key={meeting.startTime}>
+                  {meeting?.frequency === 'WEEKLY'
+                    ? `Every ${nextMeetingDate.startingDateTime.format(
+                        'dddd h:mm a'
+                      )}`
+                    : `Meets on ${nextMeetingDate.startingDateTime.format(
+                        'LLLL'
+                      )}`}
+                </div>
+              );
+            })}
+          </div>
         </div>
       );
     } else if (selectedPlace2Type == 'Compassion') {
       const compassion = selectedPlace2 as CompassionData;
       return (
-        <div>
+        <div className="HomeChurchItem">
           <div>Compassion Partner</div>
           <div>{compassion?.name}</div>
           <div>{compassion?.location?.address}</div>
@@ -258,10 +323,35 @@ export function ContentItem(props: Props) {
       const homechurch = selectedPlace2 as F1ListGroup2;
       return (
         <div>
-          <div>HomeChurch</div>
-          <div>{homechurch.name}</div>
+          <div className="CombinedMapItemMapInfoWindowDiv1">
+            {homechurch.name}
+          </div>
+          <div className="CombinedMapItemMapInfoWindowDiv2">
+            <Badge>{homechurch.churchCampus?.name}</Badge>
+          </div>
 
-          <div>{homechurch.description}</div>
+          <div className="CombinedMapItemMapInfoWindowDiv3">
+            {homechurch.description}
+          </div>
+          <div className="CombinedMapItemMapInfoWindowDayOfWeek">
+            <div className="CombinedMapItemMapInfoWindowDayOfWeek">
+              {getDayOfWeek(homechurch.schedule)}{' '}
+              {Number(
+                homechurch?.schedule?.recurrences?.recurrence?.recurrenceWeekly
+                  ?.recurrenceFrequency ?? 0
+              ) > 1
+                ? '(every ' +
+                  homechurch.schedule?.recurrences?.recurrence?.recurrenceWeekly
+                    ?.recurrenceFrequency +
+                  ' weeks)'
+                : null}
+            </div>
+          </div>
+          <div className="CombinedMapItemMapInfoWindowTimeOfDay">
+            {moment
+              .tz(getAdjustedTime(homechurch as any), moment.tz.guess())
+              .format('h:mm a z')}
+          </div>
         </div>
       );
     }
@@ -325,13 +415,18 @@ export function ContentItem(props: Props) {
     currentLocation,
   ]);
 
+  const mapOptions = {
+    zoomControlOptions: {
+      position: window.google.maps.ControlPosition.LEFT_BOTTOM, // or any other position
+    },
+    streetViewControlOptions: {
+      position: window.google.maps.ControlPosition.LEFT_BOTTOM, // or any other position
+    },
+  };
   return (
     <div className="CombinedMapItem">
       <div className="CombinedMapItemDiv1">
-        <h1 className="CombinedMapH1">
-          {currentLocation ? currentLocation.name : props.content.header1}
-        </h1>
-
+        <h1 className="CombinedMapH1">{props.content.header1}</h1>
         <div className="CombinedMapItemMap">
           <div
             id="legend"
@@ -342,9 +437,15 @@ export function ContentItem(props: Props) {
               backgroundColor: '#ffffff',
               margin: 10,
               padding: 5,
+              gap: 8,
+              display: 'flex',
+              flexDirection: 'column',
+              opacity: 0.9,
+              width: 180,
+              marginRight: 30,
             }}
           >
-            <div style={{ fontWeight: 'bold', marginBottom: 5 }}>LEGEND</div>
+            <div style={{ fontWeight: 'bold' }}>LEGEND</div>
             <div
               style={{ cursor: 'pointer' }}
               onClick={() => setSundayVisible(!sundayVisible)}
@@ -371,30 +472,33 @@ export function ContentItem(props: Props) {
               />{' '}
               Home Church
             </div>
-            <div
-              style={{ cursor: 'pointer' }}
-              onClick={() => setCompassionVisible(!compassionVisible)}
-            >
-              <img
-                src={
-                  compassionVisible
-                    ? HOME_CHURCH_PIN_URL
-                    : HOME_CHURCH_PIN_SELECTED_URL
-                }
-                width={16}
-                height={16}
-              />{' '}
-              Compassion Partner
-            </div>
+            {!currentLocation ? (
+              <div
+                style={{ cursor: 'pointer' }}
+                onClick={() => setCompassionVisible(!compassionVisible)}
+              >
+                <img
+                  src={
+                    compassionVisible
+                      ? HOME_CHURCH_PIN_URL
+                      : HOME_CHURCH_PIN_SELECTED_URL
+                  }
+                  width={16}
+                  height={16}
+                />{' '}
+                Compassion Partner
+              </div>
+            ) : null}
           </div>
 
           <Map
+            style={{ width: '100%', height: '100%', left: 0 }}
             ref={mapRef as React.RefObject<any>}
             onClick={onMapClicked}
             google={props.google}
+            streetViewControlOptions={mapOptions.streetViewControlOptions}
+            zoomControlOptions={mapOptions.zoomControlOptions}
             zoom={initalZoom}
-            streetViewControl={false}
-            zoomControl={false}
             fullscreenControl={false}
             initialCenter={inititalCenter}
             bounds={mapBounds}
@@ -465,7 +569,6 @@ export function ContentItem(props: Props) {
                     currentLocation ? loc.id === currentLocation.id : true
                   )
                   .map((location, index) => {
-                    console.log({ location });
                     return (
                       <Marker
                         onClick={(a, b, c) => {
@@ -496,7 +599,6 @@ export function ContentItem(props: Props) {
                     }
                   })
                   .map((location, index) => {
-                    console.log({ location });
                     return (
                       <Marker
                         onClick={(a, b, c) => {

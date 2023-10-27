@@ -41,7 +41,7 @@ const SITE_PIN_URL = '/static/svg/SiteLocationPin.svg';
 const SITE_PIN_SELECTED_URL = '/static/svg/SiteLocationPin-selected.svg';
 const CURRENT_LOCATION_URL = '/static/svg/CurrentLocation.svg';
 const DEFAULT_LAT_LNG = { lng: -79.685926, lat: 43.511459 };
-function getNextMeetingDate(meeting: TMHLocationMeeting) {
+export function getNextMeetingDate(meeting: TMHLocationMeeting) {
   const now = moment();
   const past = moment(meeting?.date, 'YYYY-MM-DD');
   const daysSinceLastMeeting = now.diff(past, 'days');
