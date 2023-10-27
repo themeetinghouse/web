@@ -85,6 +85,7 @@ export default function ImageFilesPage() {
                 <thead>
                   <tr>
                     <th>Page Title</th>
+                    <th>Size</th>
                     <th style={{ textAlign: 'right', paddingRight: 8 }}>
                       Actions
                     </th>
@@ -104,6 +105,13 @@ export default function ImageFilesPage() {
                                 ?.replace('editor/', '')
                                 ?.replace('images/', '')}
                             </span>
+                          </td>
+                          <td>
+                            {item.size < 1048576
+                              ? `Size: ${Math.floor(item.size / 1024)} KB`
+                              : `Size: ${(item.size / (1024 * 1024)).toFixed(
+                                  2
+                                )} MB`}
                           </td>
                           <td style={{ textAlign: 'right' }}>
                             <button
@@ -163,7 +171,7 @@ export default function ImageFilesPage() {
           )}
           <UploadModal
             uploadLocation="editor/images/"
-            contentType="image/*"
+            contentType="image/jpeg"
             showUploadModal={showUploadModal}
             setShowUploadModal={setShowUploadModal}
           />

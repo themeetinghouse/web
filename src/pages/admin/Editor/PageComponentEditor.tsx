@@ -258,7 +258,7 @@ function AddImageComponent({
             setSelectedImage(newKey);
           }}
           uploadLocation="editor/images/"
-          contentType="image/*"
+          contentType="image/jpeg"
           showUploadModal={showUploadModal}
           setShowUploadModal={setShowUploadModal}
         />
