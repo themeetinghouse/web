@@ -1155,7 +1155,6 @@ class ListItem extends React.Component<ListItemProps, State> {
                 (site) => site?.tMHSiteID ?? ''
               );
               person.sites = siteNamesFromPersonTmhSites;
-              console.log({ filterValue: this.props.content.filterValue });
 
               return person?.sites?.includes(this.props.content.filterValue);
             }

@@ -11,6 +11,12 @@
     align-items: flex-start;
   }
 }
+.gm-ui-hover-effect {
+  filter: invert(1) !important;
+  transform: scale(2) !important;
+  margin-top: 16px !important;
+  margin-right: 16px !important;
+}
 
 .CombinedMapFormItemContainer {
   height: 149px;
@@ -40,6 +46,12 @@
   }
 }
 
+.CombinedMapItemMapInfoWindowAddress {
+  font-family: Graphik Web;
+  font-size: 12px;
+  line-height: 18px;
+  margin-bottom: 16px;
+}
 .gm-style .gm-style-iw {
   background-color: #1a1a1a;
   color: white;
@@ -48,7 +60,7 @@
 
 .gm-style .gm-style-iw-d {
   overflow: hidden !important;
-  padding: 16px;
+  padding: 4px 16px 16px;
 }
 
 .ListButton {
@@ -208,13 +220,13 @@
     width: 80vw;
   }
   .CombinedMapItemDiv2 {
-    position: absolute;
+    //position: absolute;
     left: 40vw;
     width: 40vw;
     height: 88vh;
   }
   .CombinedMapItemDiv3 {
-    position: absolute;
+    //position: absolute;
     left: 0vw;
     width: 40vw;
     height: 88vh;
@@ -246,6 +258,7 @@
     margin-bottom: 0.5vw;
   }
   .CombinedMapH1 {
+    margin-bottom: 40px;
     font-size: 48px;
     font-family: Graphik Web;
     font-weight: bold;
@@ -309,13 +322,13 @@
     width: 80vw;
   }
   .CombinedMapItemDiv2 {
-    position: absolute;
+    //position: absolute;
     left: 40vw;
     width: 40vw;
     height: 88vh;
   }
   .CombinedMapItemDiv3 {
-    position: absolute;
+    //position: absolute;
     left: 0vw;
     width: 40vw;
     height: 100vh;
@@ -392,7 +405,7 @@
     display: inline;
   }
   .CombinedMapFormItemContainer {
-    position: absolute;
+    //position: absolute;
     top: 25vw;
     width: 100%;
     .LocationSelect {
@@ -427,7 +440,7 @@
     }
   }
   .LoadingContainer {
-    position: absolute;
+    //position: absolute;
     top: 35vw;
     margin-left: -5vw;
     padding-left: 15px;

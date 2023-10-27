@@ -72,7 +72,7 @@ type F1Schedule = NonNullable<
   >['schedule']
 >[0];
 
-type F1Group = NonNullable<
+export type F1Group = NonNullable<
   NonNullable<
     NonNullable<
       NonNullable<
@@ -652,9 +652,11 @@ export class ContentItem extends React.Component<HomeChurchItemProps, State> {
                       </div>
                       <div className="HomeChurchItemMapInfoWindowDayOfWeek">
                         {this.getDayOfWeek(this.state.selectedPlace.schedule)}{' '}
-                        {(this.state.selectedPlace.schedule?.recurrences
-                          ?.recurrence?.recurrenceWeekly?.recurrenceFrequency ??
-                          0) > 1
+                        {Number(
+                          this.state.selectedPlace.schedule?.recurrences
+                            ?.recurrence?.recurrenceWeekly
+                            ?.recurrenceFrequency ?? 0
+                        ) > 1
                           ? '(every ' +
                             this.state.selectedPlace.schedule?.recurrences
                               ?.recurrence?.recurrenceWeekly
@@ -662,6 +664,7 @@ export class ContentItem extends React.Component<HomeChurchItemProps, State> {
                             ' weeks)'
                           : null}
                       </div>
+
                       <div className="HomeChurchItemMapInfoWindowTimeOfDay">
                         {moment
                           .tz(
