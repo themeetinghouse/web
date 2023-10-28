@@ -212,7 +212,6 @@ export default function homechurch(): JSX.Element {
           );
           const locations = await DataLoader.loadLocations();
           const filteredLocs = locations.filter((location) => {
-            console.log({ location }, { personSites });
             return personSites?.includes(location.abbreviation ?? '');
           });
           const usersManagedLocation = filteredLocs[0];
@@ -220,10 +219,6 @@ export default function homechurch(): JSX.Element {
             setLocation(usersManagedLocation);
             setHomeChurch(
               injectedF1HomeChurchData.filter((hm) => {
-                console.log(
-                  { hm },
-                  { locationHMID: usersManagedLocation.homeChurchGroupID }
-                );
                 return (
                   hm.F1ItemData?.groupType?.id ===
                   usersManagedLocation.homeChurchGroupID
@@ -465,7 +460,6 @@ export default function homechurch(): JSX.Element {
                 {shownHomeChurches
                   .slice(page, page + 10)
                   ?.map((hm, index: number) => {
-                    console.log({ hm });
                     return (
                       <tr
                         key={index}

@@ -12,9 +12,11 @@ import {
   GetBlogByBlogStatusQuery,
   GetBlogByBlogStatusQueryVariables,
   GetBlogSeriesQuery,
+  GetTMHLocationQuery,
   GetVideoQuery,
   GetVideoQueryVariables,
   ModelSortDirection,
+  TMHLocation,
 } from 'API';
 import { Link, LinkButton } from 'components/Link/Link';
 import { BlogImage } from 'components/ScaledImage';
@@ -23,6 +25,7 @@ import moment from 'moment';
 import './BlogItem.scss';
 import HorizontalScrollList from './HorizontalScrollList';
 import { BlogData } from './DataLoader';
+import { getTMHLocation } from 'graphql/queries';
 
 // Helper components
 interface BlogPreviewTextProps {
@@ -111,6 +114,7 @@ const BlogItem = ({ content }: Props) => {
     BlogSeriesPost[] | Blog[] | VideoSeriesBlog[]
   >([]);
   const [sliceIndex, setSliceIndex] = useState(3);
+  const [, setCurrentLocation] = useState<TMHLocation | null>(null);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const params = useParams<{ episode: string }>();
   useEffect(() => {
@@ -119,6 +123,27 @@ const BlogItem = ({ content }: Props) => {
         await fetchBlogSeries();
       } else if (content.style === 'watch-page') {
         await fetchBlogsByVideo();
+      } else if (content.style === 'location-page') {
+        const locationId = location.pathname.split('/').at(-1)?.toLowerCase();
+        const getLocation = async (locationID: string) => {
+          try {
+            const response = (await API.graphql({
+              query: getTMHLocation,
+              variables: { id: locationID },
+              authMode: GRAPHQL_AUTH_MODE.API_KEY,
+            })) as GraphQLResult<GetTMHLocationQuery>;
+            setCurrentLocation(response.data?.getTMHLocation as TMHLocation);
+            return response.data?.getTMHLocation;
+          } catch (error) {
+            console.log({ error });
+          }
+        };
+        if (locationId) {
+          const location = await getLocation(locationId);
+          if (location?.abbreviation) {
+            await fetchBlogSeries(location.abbreviation);
+          }
+        }
       } else {
         await fetchBlogsByStatus();
       }
@@ -253,39 +278,35 @@ const BlogItem = ({ content }: Props) => {
       console.error(e);
     }
   };
-
-  const fetchBlogSeries = async (): Promise<void> => {
+  const fetchBlogSeries = async (blogId?: string): Promise<void> => {
     const { blogSeries: id, status } = content;
-
+    const ID = blogId || id;
     try {
-      const today = moment();
       const json = (await API.graphql({
         query: getBlogSeries,
-        variables: { id },
+        variables: { id: ID },
         authMode: GRAPHQL_AUTH_MODE.API_KEY,
       })) as GraphQLResult<GetBlogSeriesQuery>;
-
       if (json.data?.getBlogSeries?.blogs?.items) {
         const series = json.data.getBlogSeries.blogs.items;
-
-        if (series.length > 0) {
-          const publishedOnly = series.map((item) => {
+        const currentDate = moment().format('YYYY-MM-DD');
+        const onlyAfterPublishedDate = series
+          .filter((blog) => {
+            if (!blog?.blogPost?.publishedDate) return false;
+            if (blog.blogPost.blogStatus !== status) return false;
             if (
-              item?.blogPost?.publishedDate &&
-              moment(
-                item?.blogPost?.publishedDate,
-                'YYYY-MM-DD'
-              ).isSameOrBefore(today) &&
-              (item?.blogPost?.expirationDate === 'none' ||
-                moment(item?.blogPost?.expirationDate, 'YYYY-MM-DD').isAfter(
-                  today
-                )) &&
-              item?.blogPost.blogStatus === status
+              blog.blogPost.expirationDate !== 'none' &&
+              moment(blog.blogPost.expirationDate, 'YYYY-MM-DD').isAfter(
+                currentDate
+              )
             ) {
-              return item?.blogPost;
+              return false;
             }
-          });
-          sortAndSetBlogs(publishedOnly.filter(Boolean));
+            return true;
+          })
+          .map((blog) => blog?.blogPost);
+        if (series.length > 0) {
+          sortAndSetBlogs(onlyAfterPublishedDate.filter(Boolean));
         }
       }
     } catch (e) {
@@ -398,13 +419,16 @@ const BlogItem = ({ content }: Props) => {
         2560: 2560,
       };
 
-  if (style === 'multiImage') {
+  if (style === 'multiImage' || style === 'location-page') {
     const imageType = isDesktop ? 'banner' : 'square';
-    console.log();
     return blogs.length > 0 ? (
       <div className="blog-item">
         <div className="blog multiImage">
-          <h2 className="tmh-header2 blog-multiImage-h2 b">{header1}</h2>
+          {style === 'location-page' ? (
+            <h2 className="tmh-header1 blog-multiImage-h2 b">Blog</h2>
+          ) : (
+            <h2 className="tmh-header2 blog-multiImage-h2 b">{header1}</h2>
+          )}
 
           {blogs.slice(0, limit).map((item, index) => {
             return (
@@ -577,7 +601,6 @@ const BlogItem = ({ content }: Props) => {
       </div>
     ) : null;
   }
-
   return null;
 };
 

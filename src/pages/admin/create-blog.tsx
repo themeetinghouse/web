@@ -35,7 +35,12 @@ import {
   ImageInput,
   CreateBlogToVideoSeriesInput,
   DeleteBlogToVideoSeriesInput,
+  TMHPersonByEmailQuery,
+  ListBlogSeriesQueryVariables,
+  ListBlogsQueryVariables,
 } from 'API';
+import DataLoader from 'components/RenderRouter/DataLoader';
+import { Auth } from 'aws-amplify';
 
 const S3_BUCKET =
   'https://themeetinghouse-usercontent221608-prodnew.s3.amazonaws.com/public/';
@@ -89,7 +94,7 @@ interface State {
   currentTag: string;
   currentBlogSeries: string;
   showAlert: string;
-
+  locationAbbr: string;
   showPreview: boolean;
   editMode: boolean;
   showEditModal: boolean;
@@ -100,7 +105,7 @@ interface State {
   understand: string;
   deleteBlogSeries: string;
   understandBlogSeries: string;
-
+  errorMessage: string;
   customId: string;
 
   blogSeriesFilterList: string[] | null;
@@ -122,6 +127,7 @@ class Index extends React.Component<EmptyProps, State> {
     this.state = {
       isLoading: false,
       showConfirmDelete: false,
+      errorMessage: '',
       blogObject: {
         id: '',
         author: '',
@@ -153,7 +159,7 @@ class Index extends React.Component<EmptyProps, State> {
       disableCalendar: true,
       publishDate: new Date(),
       expireDate: new Date(),
-
+      locationAbbr: '',
       videoSeriesList: [],
       blogPostsList: [],
       blogSeriesList: [],
@@ -193,12 +199,94 @@ class Index extends React.Component<EmptyProps, State> {
       selectedVideoSeriesId: '',
     };
   }
+
+  async fetchLocations(): Promise<string | null | undefined> {
+    try {
+      const user = await Auth.currentAuthenticatedUser();
+      const groups =
+        user.signInUserSession.accessToken.payload['cognito:groups'];
+      if (groups.includes('Admin')) {
+        return null;
+      }
+      const data = await DataLoader.loadLocations();
+
+      if (data) {
+        if (groups.includes('Bloggers')) {
+          const currentTMHPerson = (await API.graphql({
+            query: queries.TMHPersonByEmail,
+            variables: { email: user.username },
+          })) as GraphQLResult<TMHPersonByEmailQuery>;
+          const currentPersonData =
+            currentTMHPerson.data?.TMHPersonByEmail?.items ?? [];
+          const currentPerson = currentPersonData[0];
+          if (currentPerson) {
+            const personSites = currentPerson.tmhSites?.items.map(
+              (site) => site?.tMHSite?.id
+            );
+            const filteredLocs = data.filter((location) => {
+              return personSites?.includes(location.abbreviation ?? '');
+            });
+            if (!filteredLocs.length)
+              this.setState({
+                errorMessage:
+                  'You are not currently assigned to a location. Please contact an admin to be assigned to a location.',
+              });
+            const abbr = filteredLocs[0].abbreviation;
+            return abbr;
+          } else {
+            this.setState({
+              errorMessage:
+                'You are not currently assigned to a location. Please contact an admin to be assigned to a location.',
+            });
+            return null;
+          }
+        } else {
+          this.setState({
+            errorMessage:
+              'You are not currently assigned to a location. Please contact an admin to be assigned to a location.',
+          });
+          return null;
+        }
+      } else {
+        this.setState({
+          errorMessage:
+            'You are not currently assigned to a location. Please contact an admin to be assigned to a location.',
+        });
+        return null;
+      }
+    } catch (error1) {
+      console.error({ error1 });
+      return null;
+    }
+  }
   async componentDidMount() {
     this.setState({ isLoading: true }, async () => {
-      await this.listSeries();
-      await this.listBlogs();
-      await this.listBlogSeries();
-      this.setState({ isLoading: false });
+      const abbrv = await this.fetchLocations();
+
+      if (abbrv) {
+        this.updateBlogField('hiddenMainIndex', true);
+
+        await this.listSeries();
+        await this.listBlogs('', abbrv);
+        await this.listBlogSeries('', abbrv);
+        if (this.state.blogSeriesList.length === 0) {
+          this.setState({
+            errorMessage:
+              'There are no blog series for your location. Please contact an admin to create a blog series.',
+          });
+        }
+        this.setState({
+          isLoading: false,
+          currentBlogSeries: abbrv,
+          selectedBlogSeries: [abbrv],
+          locationAbbr: abbrv,
+        });
+      } else {
+        await this.listSeries();
+        await this.listBlogs();
+        await this.listBlogSeries();
+        this.setState({ isLoading: false });
+      }
     });
   }
   // QUERY FUNCTIONS
@@ -229,8 +317,8 @@ class Index extends React.Component<EmptyProps, State> {
       });
       if (listSeries?.data?.listSeries?.nextToken)
         this.listSeries(listSeries.data.listSeries.nextToken);
-    } catch (e) {
-      console.error(e);
+    } catch (error2) {
+      console.error({ error2 });
     }
   }
 
@@ -252,36 +340,54 @@ class Index extends React.Component<EmptyProps, State> {
     });
   };
 
-  async listBlogs(nextToken?: string) {
+  async listBlogs(nextToken?: string, abbr?: string | null) {
+    console.log('Listing blogs');
+    const variables: ListBlogsQueryVariables = {
+      limit: 200,
+    };
+    if (nextToken) variables.nextToken = nextToken;
+    if (abbr) variables.filter = { blogSeriesId: { eq: abbr } };
     try {
       const listBlogs = (await API.graphql({
         query: queries.listBlogs,
-        variables: { nextToken, sortDirection: 'DESC', limit: 200 },
+        variables,
         authMode: GRAPHQL_AUTH_MODE.API_KEY,
       })) as GraphQLResult<ListBlogsQuery>;
 
       console.log({ 'Success queries.listBlogs: ': listBlogs.data });
       this.setBlogPosts(listBlogs?.data?.listBlogs?.items);
       if (listBlogs?.data?.listBlogs?.nextToken) {
-        this.listBlogs(listBlogs.data.listBlogs.nextToken);
+        this.listBlogs(listBlogs.data.listBlogs.nextToken, abbr);
       }
-    } catch (e: any) {
-      if (e.data?.listBlogs?.items) {
-        console.log({ 'Success queries.listBlogs: ': e.data });
-        this.setBlogPosts(e.data.listBlogs.items);
-        if (e.data.listBlogs.nextToken) {
-          this.listBlogs(e.data.listBlogs.nextToken);
+    } catch (error3: any) {
+      if (error3.data?.listBlogs?.items) {
+        console.log({ 'Success queries.listBlogs: ': error3.data });
+        this.setBlogPosts(error3.data.listBlogs.items);
+        if (error3.data.listBlogs.nextToken) {
+          this.listBlogs(error3.data.listBlogs.nextToken, abbr);
         }
       }
-      console.error(e);
+      console.error({ error3 });
     }
   }
 
-  async listBlogSeries(nextToken?: string) {
+  async listBlogSeries(nextToken?: string, abbr?: string | null) {
+    const variables: ListBlogSeriesQueryVariables = {
+      limit: 200,
+    };
+    if (nextToken) {
+      variables.nextToken = nextToken;
+    }
+    if (abbr) {
+      variables.filter = {
+        id: { eq: abbr },
+      };
+    }
+    console.log('Only fetching for', abbr);
     try {
       const listBlogSeries = (await API.graphql({
         query: queries.listBlogSeries,
-        variables: { nextToken: nextToken, sortDirection: 'DESC', limit: 200 },
+        variables,
         authMode: GRAPHQL_AUTH_MODE.API_KEY,
       })) as GraphQLResult<ListBlogSeriesQuery>;
 
@@ -303,8 +409,8 @@ class Index extends React.Component<EmptyProps, State> {
       });
       if (listBlogSeries?.data?.listBlogSeries?.nextToken)
         this.listBlogSeries(listBlogSeries.data.listBlogSeries.nextToken);
-    } catch (e) {
-      console.error(e);
+    } catch (error4) {
+      console.error({ error4 });
     }
   }
 
@@ -339,17 +445,17 @@ class Index extends React.Component<EmptyProps, State> {
         showAlert: `⚠️ Deleted: ${deleteBlog?.data?.deleteBlog?.id}`,
       });
       return true;
-    } catch (e: any) {
-      if (e.data?.deleteBlog) {
+    } catch (error5: any) {
+      console.log({ error5 });
+      if (error5.data?.deleteBlog) {
         this.setState({
           delete: '',
           understand: '',
-          showAlert: `⚠️ Deleted: ${e.data.deleteBlog.id}`,
+          showAlert: `⚠️ Deleted: ${error5.data.deleteBlog.id}`,
         });
         return true;
       }
       return false;
-      console.error(e);
     }
   }
 
@@ -369,15 +475,15 @@ class Index extends React.Component<EmptyProps, State> {
           understandBlogSeries: '',
           showAlert: `⚠️ Deleted: ${deleteBlogSeries?.data?.deleteBlogSeries?.id} `,
         });
-      } catch (e: any) {
-        if (e.data?.deleteBlogSeries) {
+      } catch (error6: any) {
+        if (error6.data?.deleteBlogSeries) {
           this.setState({
             deleteBlogSeries: '',
             understandBlogSeries: '',
-            showAlert: `⚠️ Deleted: ${e.data.deleteBlogSeries.id}`,
+            showAlert: `⚠️ Deleted: ${error6.data.deleteBlogSeries.id}`,
           });
         }
-        console.error(e);
+        console.error({ error6 });
       }
     } else {
       this.setState({ showAlert: '⚠️ You must type the confirmation message' });
@@ -461,7 +567,6 @@ class Index extends React.Component<EmptyProps, State> {
     }
 
     await this.writeVideoSeriesConnections();
-
     const { added, deleted } = await this.writeBridges(
       this.state.selectedBlogSeries,
       this.state.deselectedBlogSeries
@@ -488,11 +593,13 @@ class Index extends React.Component<EmptyProps, State> {
         showAlert: `✅ Saved: ${updateBlog?.data?.updateBlog?.id}`,
       });
       console.log({ 'Success mutations.updateBlog: ': updateBlog });
-    } catch (e: any) {
-      if (e.data?.updateBlog) {
-        this.setState({ showAlert: `✅ Saved: ${e.data?.updateBlog?.id}` });
+    } catch (error7: any) {
+      if (error7.data?.updateBlog) {
+        this.setState({
+          showAlert: `✅ Saved: ${error7.data?.updateBlog?.id}`,
+        });
       }
-      console.error(e);
+      console.error({ error7 });
       try {
         const createBlog = (await API.graphql({
           query: mutations.createBlog,
@@ -503,11 +610,13 @@ class Index extends React.Component<EmptyProps, State> {
           showAlert: `✅ Created: ${createBlog?.data?.createBlog?.id}`,
         });
         console.log({ 'Success mutations.createBlog: ': createBlog });
-      } catch (e: any) {
-        if (e.data?.createBlog) {
-          this.setState({ showAlert: `✅ Created: ${e.data?.createBlog?.id}` });
+      } catch (error8: any) {
+        if (error8.data?.createBlog) {
+          this.setState({
+            showAlert: `✅ Created: ${error8.data?.createBlog?.id}`,
+          });
         }
-        console.error(e);
+        console.error({ error8 });
       }
     }
   }
@@ -523,14 +632,14 @@ class Index extends React.Component<EmptyProps, State> {
 
       if (image) {
         const filepath = 'bloguploads/' + uuidv4() + image?.name;
-        await Storage.put(filepath, image, {
+        const result = await Storage.put(filepath, image, {
           contentType: 'image/*',
           acl: 'public-read',
           cacheControl: 'max-age=604800',
         });
-
+        console.log(`${S3_BUCKET}${result.key}`);
         this.updateBlogField(size, {
-          src: S3_BUCKET + filepath,
+          src: `${S3_BUCKET}${result.key}`,
           alt: this.state.blogObject[size]?.alt ?? '',
         });
       }
@@ -667,20 +776,24 @@ class Index extends React.Component<EmptyProps, State> {
         this.setState({
           showAlert: `✅ Created blog series: ${saveBlogSeries?.data?.createBlogSeries?.id}`,
         });
-      } catch (e: any) {
-        if (e.data?.createBlogSeries)
+      } catch (error9: any) {
+        if (error9.data?.createBlogSeries)
           this.setState({
-            showAlert: `✅ Created blog series: ${e.data?.createBlogSeries?.id}`,
+            showAlert: `✅ Created blog series: ${error9.data?.createBlogSeries?.id}`,
           });
-        console.error(e);
+        console.error({ error9 });
       }
     }
   }
 
   updateBlogSeries(value: string) {
-    this.setState({
-      newBlogSeries: { title: value, id: value },
-    });
+    console.log(
+      { updatingBlogSeries: value },
+      { previous: this.state.newBlogSeries }
+    );
+    this.setState((prevState) => ({
+      newBlogSeries: { ...prevState.newBlogSeries, title: value, id: value },
+    }));
   }
 
   updateBlogField(
@@ -751,16 +864,26 @@ class Index extends React.Component<EmptyProps, State> {
     }
   }
 
-  handleAddBridge() {
-    if (this.state.currentBlogSeries) {
-      this.setState({
-        selectedBlogSeries: this.state.selectedBlogSeries.concat(
-          this.state.currentBlogSeries
-        ),
-        deselectedBlogSeries: this.state.deselectedBlogSeries.filter(
-          (elem) => elem !== this.state.currentBlogSeries
-        ),
-      });
+  handleAddBridge(forcedSeries?: string) {
+    if (this.state.currentBlogSeries || forcedSeries) {
+      if (forcedSeries) {
+        this.setState({
+          selectedBlogSeries:
+            this.state.selectedBlogSeries.concat(forcedSeries),
+          deselectedBlogSeries: this.state.deselectedBlogSeries.filter(
+            (elem) => elem !== this.state.currentBlogSeries
+          ),
+        });
+      } else {
+        this.setState({
+          selectedBlogSeries: this.state.selectedBlogSeries.concat(
+            this.state.currentBlogSeries
+          ),
+          deselectedBlogSeries: this.state.deselectedBlogSeries.filter(
+            (elem) => elem !== this.state.currentBlogSeries
+          ),
+        });
+      }
     }
   }
 
@@ -834,8 +957,8 @@ class Index extends React.Component<EmptyProps, State> {
           console.log({
             'Success mutations.createBlogToVideoSeries': json,
           });
-        } catch (e) {
-          console.error(e);
+        } catch (error10) {
+          console.error({ error10 });
         }
       }
 
@@ -853,8 +976,8 @@ class Index extends React.Component<EmptyProps, State> {
           console.log({
             'Success mutations.deleteBlogToVideoSeries': json,
           });
-        } catch (e) {
-          console.error(e);
+        } catch (error11) {
+          console.error({ error11 });
         }
       }
     }
@@ -933,44 +1056,53 @@ class Index extends React.Component<EmptyProps, State> {
           ))}
         </div>
         <br />
-
-        <b style={{ marginRight: 16 }}>Add to Blog Series</b>
-        <button
-          className="toolbar-button"
-          onClick={() => this.handleAddBridge()}
-        >
-          Select
-        </button>
-        <button
-          className="toolbar-button black"
-          onClick={() => this.handleDeleteBridge()}
-        >
-          Clear
-        </button>
-        <button
-          className="toolbar-button"
-          onClick={() => this.setState({ newBlogSeriesModal: true })}
-        >
-          New Blog Series
-        </button>
-        <select
-          className="blogInput"
-          onChange={(event) =>
-            this.setState({ currentBlogSeries: event.target.value })
-          }
-        >
-          <option key="null" value="null">
-            None Selected
-          </option>
-          {this.state.blogSeriesList.map((item) => {
-            return (
-              <option key={item?.id} value={item?.id}>
-                {item?.title}
+        {!this.state.locationAbbr && !this.state.isLoading ? (
+          <>
+            <b style={{ marginRight: 16 }}>Add to Blog Series</b>
+            <button
+              className="toolbar-button"
+              onClick={() => this.handleAddBridge()}
+            >
+              Select
+            </button>
+            <button
+              className="toolbar-button black"
+              onClick={() => this.handleDeleteBridge()}
+            >
+              Clear
+            </button>
+            <button
+              className="toolbar-button"
+              onClick={() => this.setState({ newBlogSeriesModal: true })}
+            >
+              New Blog Series
+            </button>
+            <select
+              className="blogInput"
+              onChange={(event) =>
+                this.setState({ currentBlogSeries: event.target.value })
+              }
+            >
+              <option key="null" value="null">
+                None Selected
               </option>
-            );
-          })}
-        </select>
-        <div style={{ marginTop: 16, marginBottom: 16 }}>
+              {this.state.blogSeriesList.map((item) => {
+                return (
+                  <option key={item?.id} value={item?.id}>
+                    {item?.title}
+                  </option>
+                );
+              })}
+            </select>
+          </>
+        ) : null}
+
+        <div
+          style={{
+            marginTop: 16,
+            marginBottom: 16,
+          }}
+        >
           <b>Current blog series: </b>{' '}
           {this.state.selectedBlogSeries.map((item: string, index: number) => (
             <div key={index} style={{ display: 'inline' }}>
@@ -1102,53 +1234,55 @@ class Index extends React.Component<EmptyProps, State> {
           />
         </div>
 
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            flex: 1,
-            marginTop: 16,
-            columnGap: 16,
-          }}
-        >
-          <label style={{ flex: 1, marginBottom: 0 }}>
-            Delete a blog series (enter id):
-            <input
-              className="blogInput"
-              type="text"
-              value={this.state.deleteBlogSeries}
-              onChange={(event) =>
-                this.setState({ deleteBlogSeries: event.target.value })
-              }
-            />
-          </label>
-          <label style={{ flex: 1, marginBottom: 0 }}>
-            Type &quot;{this.deleteConfirmation}&quot;:
-            <input
-              className="blogInput"
-              type="text"
-              value={this.state.understandBlogSeries}
-              onChange={(event) =>
-                this.setState({ understandBlogSeries: event.target.value })
-              }
-            />
-          </label>
-          <label
+        {!this.state.locationAbbr && !this.state.isLoading ? (
+          <div
             style={{
+              display: 'flex',
+              flexDirection: 'row',
               flex: 1,
-              marginBottom: 0,
-              justifyContent: 'flex-end',
-              alignItems: 'flex-start',
+              marginTop: 16,
+              columnGap: 16,
             }}
           >
-            <button
-              className="toolbar-button"
-              onClick={() => this.handleDeleteBlogSeries()}
+            <label style={{ flex: 1, marginBottom: 0 }}>
+              Delete a blog series (enter id):
+              <input
+                className="blogInput"
+                type="text"
+                value={this.state.deleteBlogSeries}
+                onChange={(event) =>
+                  this.setState({ deleteBlogSeries: event.target.value })
+                }
+              />
+            </label>
+            <label style={{ flex: 1, marginBottom: 0 }}>
+              Type &quot;{this.deleteConfirmation}&quot;:
+              <input
+                className="blogInput"
+                type="text"
+                value={this.state.understandBlogSeries}
+                onChange={(event) =>
+                  this.setState({ understandBlogSeries: event.target.value })
+                }
+              />
+            </label>
+            <label
+              style={{
+                flex: 1,
+                marginBottom: 0,
+                justifyContent: 'flex-end',
+                alignItems: 'flex-start',
+              }}
             >
-              DELETE
-            </button>
-          </label>
-        </div>
+              <button
+                className="toolbar-button"
+                onClick={() => this.handleDeleteBlogSeries()}
+              >
+                DELETE
+              </button>
+            </label>
+          </div>
+        ) : null}
       </div>
     );
   }
@@ -1231,35 +1365,37 @@ class Index extends React.Component<EmptyProps, State> {
                 })}
             </select>
           </label>
-          <label style={{ flex: 1 }}>
-            Filter by blog series:
-            <select
-              className="blogInput"
-              onChange={(event) => {
-                this.setState({
-                  blogSeriesFilterList:
-                    event.target.value === ''
-                      ? null
-                      : this.state.blogSeriesList[
-                          parseInt(event.target.value, 10)
-                        ]?.blogs?.items?.flatMap((blog) =>
-                          blog?.blogPostID ? blog.blogPostID : []
-                        ) ?? [],
-                });
-              }}
-            >
-              <option key="" value="">
-                None
-              </option>
-              {this.state.blogSeriesList.map((item, index) => {
-                return (
-                  <option key={index} value={index}>
-                    {item?.title}
-                  </option>
-                );
-              })}
-            </select>
-          </label>
+          {!this.state.locationAbbr || this.state.isLoading ? (
+            <label style={{ flex: 1 }}>
+              Filter by blog series:
+              <select
+                className="blogInput"
+                onChange={(event) => {
+                  this.setState({
+                    blogSeriesFilterList:
+                      event.target.value === ''
+                        ? null
+                        : this.state.blogSeriesList[
+                            parseInt(event.target.value, 10)
+                          ]?.blogs?.items?.flatMap((blog) =>
+                            blog?.blogPostID ? blog.blogPostID : []
+                          ) ?? [],
+                  });
+                }}
+              >
+                <option key="" value="">
+                  None
+                </option>
+                {this.state.blogSeriesList.map((item, index) => {
+                  return (
+                    <option key={index} value={index}>
+                      {item?.title}
+                    </option>
+                  );
+                })}
+              </select>
+            </label>
+          ) : null}
           <label>
             Search all blogs:
             <input
@@ -1311,10 +1447,16 @@ class Index extends React.Component<EmptyProps, State> {
             value={this.state.blogObject.blogTitle ?? ''}
             onChange={(event) => {
               this.updateBlogField('blogTitle', event.target.value);
-              this.setState({
-                selectedBlogSeries: [],
-                editMode: false,
-              });
+              if (!this.state.locationAbbr) {
+                this.setState({
+                  selectedBlogSeries: [],
+                  editMode: false,
+                });
+              } else {
+                this.setState({
+                  editMode: false,
+                });
+              }
             }}
           />
         </label>
@@ -1362,32 +1504,41 @@ class Index extends React.Component<EmptyProps, State> {
             type="text"
             value={this.state.customId}
             onChange={(event) => {
-              this.setState({
-                customId: event.target.value,
-                selectedBlogSeries: [],
-                editMode: false,
-              });
+              if (!this.state.locationAbbr) {
+                this.setState({
+                  customId: event.target.value,
+                  selectedBlogSeries: [],
+                  editMode: false,
+                });
+              } else {
+                this.setState({
+                  customId: event.target.value,
+                  editMode: false,
+                });
+              }
             }}
           />
         </label>
         <small>Lowercase letters and hyphens only (e.g. this-is-a-blog)</small>
         <br />
 
-        <label
-          style={{
-            flexDirection: 'row',
-          }}
-        >
-          Hide from main index
-          <input
-            type="checkbox"
-            style={{ marginLeft: 4 }}
-            checked={this.state.blogObject.hiddenMainIndex ?? false}
-            onChange={(e) =>
-              this.updateBlogField('hiddenMainIndex', e.target.checked)
-            }
-          ></input>
-        </label>
+        {!this.state.locationAbbr && !this.state.isLoading ? (
+          <label
+            style={{
+              flexDirection: 'row',
+            }}
+          >
+            Hide from main index
+            <input
+              type="checkbox"
+              style={{ marginLeft: 4 }}
+              checked={this.state.blogObject.hiddenMainIndex ?? false}
+              onChange={(e) =>
+                this.updateBlogField('hiddenMainIndex', e.target.checked)
+              }
+            ></input>
+          </label>
+        ) : null}
         <hr />
 
         <h5>Preview Images</h5>
@@ -1409,12 +1560,15 @@ class Index extends React.Component<EmptyProps, State> {
               onChange={(e) => this.handleImageUpload(e, size)}
             />
             {blogObject[size]?.src && (
-              <img
-                src={blogObject[size]?.src ?? ''}
-                alt={blogObject[size]?.alt ?? ''}
-                onLoad={(e) => this.validateImageSize(e, size)}
-                style={{ maxWidth: 150 }}
-              />
+              <>
+                <img
+                  src={blogObject[size]?.src ?? ''}
+                  alt={blogObject[size]?.alt ?? ''}
+                  onLoad={(e) => this.validateImageSize(e, size)}
+                  style={{ maxWidth: 150 }}
+                />
+                {blogObject[size]?.src}
+              </>
             )}
           </label>
         ))}
@@ -1572,11 +1726,17 @@ class Index extends React.Component<EmptyProps, State> {
     return (
       <div className="blog-container">
         <div style={{ display: 'flex', flexDirection: 'column', rowGap: 16 }}>
-          {this.renderAlert()}
-          {this.renderConfirmDelete()}
-          {this.renderNewBlogSeriesModal()}
-          {this.renderToolbar()}
-          {this.renderTextInput()}
+          {this.state.errorMessage ? (
+            <div>{this.state.errorMessage}</div>
+          ) : (
+            <>
+              {this.renderAlert()}
+              {this.renderConfirmDelete()}
+              {this.renderNewBlogSeriesModal()}
+              {this.renderToolbar()}
+              {this.renderTextInput()}
+            </>
+          )}
         </div>
 
         <div className="preview">

@@ -67,8 +67,6 @@ export default function MyAccountNav({
   }, [userGroups, navigationItems]);
 
   const { pathname } = useLocation();
-  console.log({ pathname });
-  console.log({ navItems });
   const isAdmin = userGroups?.includes('Admin');
   const isLocationManager = userGroups?.includes('LocationManager') || isAdmin;
   const isNotesManager = userGroups?.includes('Notes') || isAdmin;

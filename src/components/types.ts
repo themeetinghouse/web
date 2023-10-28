@@ -47,7 +47,7 @@ export interface FormItem {
 
 export interface BlogItemContent {
   type: 'blog';
-  style: 'multiImage' | 'hero' | 'featured' | 'watch-page';
+  style: 'multiImage' | 'hero' | 'featured' | 'watch-page' | 'location-page';
   status?: 'Live';
   header1?: string;
   header2?: string;
