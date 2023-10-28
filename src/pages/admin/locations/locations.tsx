@@ -30,21 +30,25 @@ export default function Locations() {
             Locations
             {isLoading ? <Spinner style={{ marginLeft: 8 }} size="sm" /> : null}
           </span>
-          <span className={styles['LocationsSubHeaderText']}>
-            Create and manage locations
-          </span>
+          {!userAccessMessage ? (
+            <span className={styles['LocationsSubHeaderText']}>
+              Create and manage locations
+            </span>
+          ) : null}
         </div>
 
-        <button
-          type="button"
-          onClick={() => setShowModal(true)}
-          className={styles['LocationsCreateButton']}
-        >
-          Create
-        </button>
+        {!isLoading && !userAccessMessage ? (
+          <button
+            type="button"
+            onClick={() => setShowModal(true)}
+            className={styles['LocationsCreateButton']}
+          >
+            Create
+          </button>
+        ) : null}
       </div>
       <div>{!isLoading ? userAccessMessage : null}</div>
-      {!isLoading ? (
+      {!isLoading && !userAccessMessage ? (
         <div className={styles['LocationsListContainer']}>
           <div className={styles['LocationsListHeader']}>
             <span>ID</span>

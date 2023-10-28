@@ -16,6 +16,7 @@ import AdminRoute from './AdminRoute';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import HomePage from '../../pages/HomePage';
+import PermittedRoute from './PermittedRoute';
 const AccountMain = lazy(() => import('../../pages/users/AccountMain'));
 const VideoManager = lazy(
   () => import('../../pages/admin/VideoManager/videos')
@@ -128,21 +129,126 @@ export default function TMHRouter() {
                 </AdminRoute>
               }
             >
-              <Route path="import-video" element={<ImportVideo />} />
-              <Route path="move-video" element={<MoveVideo />} />
-              <Route path="create-blog" element={<CreateBlog />} />
-              <Route path="create-notes" element={<CreateNotes />} />
-              <Route path="livestream" element={<AddLive />} />
-              <Route path="videos" element={<VideoManager />} />
-              <Route path="permissions" element={<PermissionsManager />} />
-              <Route path="instagram" element={<GetInsta />} />
-              <Route path="editor" element={<Editor />} />
-              <Route path="clearCache" element={<ClearCache />} />
-              <Route path="announcements" element={<Announcements />} />
-              <Route path="homechurches" element={<HomeChurch />} />
-              <Route path="locations" element={<LocationsManager />} />
-              <Route path="redirects" element={<Redirect />} />
-              <Route path="people" element={<PeopleManager />} />
+              <Route
+                path="import-video"
+                element={
+                  <PermittedRoute>
+                    <ImportVideo />
+                  </PermittedRoute>
+                }
+              />
+              <Route
+                path="move-video"
+                element={
+                  <PermittedRoute>
+                    <MoveVideo />
+                  </PermittedRoute>
+                }
+              />
+              <Route
+                path="create-blog"
+                element={
+                  <PermittedRoute>
+                    <CreateBlog />
+                  </PermittedRoute>
+                }
+              />
+              <Route
+                path="create-notes"
+                element={
+                  <PermittedRoute>
+                    <CreateNotes />
+                  </PermittedRoute>
+                }
+              />
+              <Route
+                path="livestream"
+                element={
+                  <PermittedRoute>
+                    <AddLive />
+                  </PermittedRoute>
+                }
+              />
+              <Route
+                path="videos"
+                element={
+                  <PermittedRoute>
+                    <VideoManager />
+                  </PermittedRoute>
+                }
+              />
+              <Route
+                path="permissions"
+                element={
+                  <PermittedRoute>
+                    <PermissionsManager />
+                  </PermittedRoute>
+                }
+              />
+              <Route
+                path="instagram"
+                element={
+                  <PermittedRoute>
+                    <GetInsta />
+                  </PermittedRoute>
+                }
+              />
+              <Route
+                path="editor"
+                element={
+                  <PermittedRoute>
+                    <Editor />
+                  </PermittedRoute>
+                }
+              />
+              <Route
+                path="clearCache"
+                element={
+                  <PermittedRoute>
+                    <ClearCache />
+                  </PermittedRoute>
+                }
+              />
+              <Route
+                path="announcements"
+                element={
+                  <PermittedRoute>
+                    <Announcements />
+                  </PermittedRoute>
+                }
+              />
+              <Route
+                path="homechurches"
+                element={
+                  <PermittedRoute>
+                    <HomeChurch />
+                  </PermittedRoute>
+                }
+              />
+              <Route
+                path="locations"
+                element={
+                  <PermittedRoute>
+                    <LocationsManager />
+                  </PermittedRoute>
+                }
+              />
+              <Route
+                path="redirects"
+                element={
+                  <PermittedRoute>
+                    <Redirect />
+                  </PermittedRoute>
+                }
+              />
+              <Route
+                path="people"
+                element={
+                  <PermittedRoute>
+                    <PeopleManager />
+                  </PermittedRoute>
+                }
+              />
             </Route>
           </Route>
 
