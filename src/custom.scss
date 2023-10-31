@@ -5,6 +5,7 @@ a {
 }
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 .VideoPlayer {
@@ -92,26 +93,22 @@ html {
   background: theme.$white;
   opacity: 0.12;
 }
-
+body {
+  font-size: 1rem;
+}
 @media (min-width: 768px) {
   body {
     overflow-x: hidden;
     padding-top: 90px;
     font-family: Graphik Web;
-    font-size: 16px;
-  }
-
-  body {
     padding-top: 0;
     margin-left: 0;
     margin-top: 0;
     margin-right: 0;
     margin-bottom: 0;
   }
-
   .brand {
     position: fixed;
-
     left: 0;
     right: 0;
     width: 16vw;
@@ -119,17 +116,11 @@ html {
     margin: 2vw;
     top: 0vh;
   }
-
   .footer {
     padding-left: 20vw;
     margin-left: 0vw;
   }
 }
-
-/*
-    ##Device = Tablets, Ipads (portrait)
-    ##Screen = B/w 768px to 1024px
-  */
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   body {
@@ -168,6 +159,10 @@ html {
   .tmh-header1 {
     font-size: 2rem;
   }
+  body {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
 }
 
 /*
@@ -180,7 +175,8 @@ html {
     overflow-x: hidden;
     padding-top: 12vw;
     font-family: Graphik Web;
-    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
   .footer {
     margin-left: 0vw;

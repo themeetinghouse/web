@@ -58,7 +58,7 @@
     width: 80vw;
     left: 20vw;
     .TMHCarouselDescription {
-      font-size: 1.5vw;
+      font-size: 1.35rem;
       padding-top: 8px;
       padding-bottom: 0.5vw;
       padding-right: 15px;
@@ -66,10 +66,10 @@
       color: #54565a;
     }
     .TMHCarouselHeader1 {
-      font-size: 3vw;
+      font-size: 2.7rem;
     }
     .TMHCarouselHeader2 {
-      font-size: 1.5vw;
+      font-size: 1.35rem;
     }
     .TMHCarouselItem {
       display: flex;
@@ -77,12 +77,12 @@
       flex-direction: column;
       width: calc(28.33vw + 32px);
       .TMHCarouselItemDescription {
-        font-size: 1.25vw;
+        font-size: 1.125rem;
       }
       .TMHCarouselItemTitle {
         padding-top: 1.5vw;
         padding-bottom: 2.2vw;
-        font-size: 2vw;
+        font-size: 1.8rem;
       }
       .TMHCarouselImage {
         object-fit: cover;
@@ -106,7 +106,7 @@
     padding-left: 5vw;
     padding-right: 5vw;
     .TMHCarouselDescription {
-      font-size: 5vw;
+      font-size: 1.484rem;
       margin-bottom: 12vw;
       line-height: 1.5;
       width: 90vw;
@@ -114,7 +114,8 @@
     .TMHCarouselHeader1,
     .TMHCarouselHeader2 {
       margin-bottom: 16px;
-      font-size: 10vw;
+      font-size: 2.7rem;
+      line-height: 3rem;
     }
     .TMHCarouselItem {
       margin-bottom: 16vw;
@@ -130,15 +131,15 @@
       .TMHCarouselItemDescription {
         padding-top: 5vw;
         padding-bottom: 5vw;
-        line-height: 1.5;
-        font-size: 4.27vw;
+        line-height: 1.75rem;
+        font-size: 1.1rem;
       }
       .TMHCarouselItemTitle {
         display: flex;
         flex-direction: row;
         padding-top: 5vw;
         margin-top: 8px;
-        font-size: 6.4vw;
+        font-size: 1.6rem;
       }
     }
     .TMHCarouselListWrapper {

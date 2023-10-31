@@ -2,8 +2,7 @@
 
 @media (min-width: 768px) {
   .faqText {
-    font-size: 1.5vw;
-    font-family: Graphik Web;
+    font-size: 1rem;
   }
   .FAQFloatLeft {
     float: 'left';
@@ -23,15 +22,15 @@
     float: left;
   }
   .FAQQuestion {
-    font-size: 1.2vw;
-    font-family: Graphik Web;
+    font-size: 1.08rem;
+
     font-weight: bold;
     margin-top: 2vw;
   }
 
   .FAQAnswer {
-    font-size: 1.2vw;
-    font-family: Graphik Web;
+    font-size: 1.08rem;
+
     color: theme.$onyxblacktext;
   }
 
@@ -40,8 +39,7 @@
   }
 
   .faqA {
-    font-size: 1.5vw;
-    font-family: Graphik Web;
+    font-size: 1rem;
   }
 
   .faqImage {
@@ -130,8 +128,8 @@
 
   .faqH1 {
     font-weight: bold;
-    font-size: 3vw;
-    font-family: Graphik Web;
+    font-size: 2.7rem;
+
     color: theme.$onyxblacktext;
   }
   .whiteText {
@@ -169,8 +167,7 @@
     font-weight: bold;
     width: 30vw;
     height: 20vw;
-    font-size: 1.5vw;
-    font-family: Graphik Web;
+    font-size: 1.35rem;
   }
 
   .greyTwoTextText {
@@ -182,8 +179,7 @@
     float: left;
     width: 45vw;
     height: 20vw;
-    font-size: 1.2vw;
-    font-family: Graphik Web;
+    font-size: 1.08rem;
   }
 
   .greyTwoClear {
@@ -208,8 +204,8 @@
     font-weight: bold;
     width: 30vw;
     height: 20vw;
-    font-size: 1.5vw;
-    font-family: Graphik Web;
+    font-size: 1.35rem;
+
     color: #ffffff;
   }
 
@@ -222,8 +218,8 @@
     float: left;
     width: 45vw;
     height: 20vw;
-    font-size: 1.2vw;
-    font-family: Graphik Web;
+    font-size: 1.08rem;
+
     color: #ffffff;
   }
 
@@ -241,7 +237,6 @@
     font-family: Graphik Web !important;
   }
 }
-
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   .FAQFloatLeft {
     float: 'left';
@@ -266,30 +261,25 @@
   }
 
   .FAQQuestion {
-    font-size: 1.2vw;
-    font-family: Graphik Web;
+    font-size: 1.08rem;
     font-weight: bold;
   }
   .FAQAnswer {
-    font-size: 1.2vw;
-    font-family: Graphik Web;
+    font-size: 1.08rem;
     color: theme.$onyxblacktext;
   }
   .faqText {
-    font-size: 1.5vw;
-    font-family: Graphik Web;
+    font-size: 1rem;
   }
 
   .FAQQuestion {
-    font-size: 1.5vw;
-    font-family: Graphik Web;
+    font-size: 1.35rem;
     font-weight: bold;
   }
 
   .faqEventDetails {
-    font-family: Graphik Web;
     color: #ffffff;
-    font-size: 1.5vw;
+    font-size: 1.35rem;
     margin-top: 1vw;
     margin-bottom: 0.5vw;
   }
@@ -299,8 +289,7 @@
   }
 
   .faqA {
-    font-size: 1.5vw;
-    font-family: Graphik Web;
+    font-size: 1.2rem;
   }
 
   .faqImage {
@@ -383,8 +372,8 @@
 
   .faqH1 {
     font-weight: bold;
-    font-size: 3vw;
-    font-family: Graphik Web;
+    font-size: 2.7rem;
+
     color: theme.$onyxblacktext;
   }
 
@@ -422,8 +411,7 @@
     font-weight: bold;
     width: 30vw;
     height: 20vw;
-    font-size: 1.5vw;
-    font-family: Graphik Web;
+    font-size: 0.96rem;
   }
 
   .greyTwoTextText {
@@ -434,8 +422,7 @@
     float: left;
     width: 45vw;
     height: 20vw;
-    font-size: 1.5vw;
-    font-family: Graphik Web;
+    font-size: 0.96rem;
   }
 
   .greyTwoClear {
@@ -461,7 +448,7 @@
     width: 30vw;
     height: 20vw;
     font-size: 1.5vw;
-    font-family: Graphik Web;
+
     color: #ffffff;
   }
 
@@ -474,8 +461,8 @@
     float: left;
     width: 45vw;
     height: 20vw;
-    font-size: 1.2vw;
-    font-family: Graphik Web;
+    font-size: 1.08rem;
+
     color: #ffffff;
   }
 
@@ -512,24 +499,21 @@
     width: 90%;
     float: left;
   }
-  .faqText {
-    font-size: 5vw;
-    font-family: Graphik Web;
-  }
   .FAQQuestion {
-    font-size: 6vw;
-    font-family: Graphik Web;
+    margin-top: 20px;
+    font-size: 1.75rem;
     font-weight: bold;
   }
   .FAQAnswer {
-    font-size: 5vw;
-    font-family: Graphik Web;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.75rem;
+
     color: theme.$onyxblacktext;
   }
   .faqText {
-    font-size: 5vw;
-    font-family: Graphik Web;
-    line-height: 7.5vw;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
   }
 
   .faqText.white {
@@ -537,8 +521,8 @@
   }
 
   .faqA {
-    font-size: 5vw;
-    font-family: Graphik Web;
+    font-size: 1.3rem;
+
     line-height: 7.5vw;
     margin-top: 13vw;
     display: inline-block;
@@ -598,16 +582,15 @@
 
   .faqH1 {
     font-weight: bold;
-    font-size: 10vw;
-    font-family: Graphik Web;
+    font-size: 2.8rem;
+
     line-height: 12.5vw;
     color: theme.$onyxblacktext;
   }
 
   .faqEventDetails {
-    font-family: Graphik Web;
     color: #ffffff;
-    font-size: 3vw;
+    font-size: 2.5rem;
     margin-top: 1vw;
     margin-bottom: 0.5vw;
   }
@@ -656,7 +639,7 @@
     // width: 93vw;
     // height: 20vw;
     // font-size: 6.4vw;
-    font-family: Graphik Web;
+
     text-align: center;
   }
 
@@ -669,9 +652,9 @@
     float: left;
     width: 90%;
     height: 35vw;
-    font-size: 5vw;
+    font-size: 1.3rem;
     line-height: 7.5vw;
-    font-family: Graphik Web;
+
     text-align: center;
   }
 
@@ -698,8 +681,8 @@
     font-weight: bold;
     width: 93vw;
     height: 20vw;
-    font-size: 6.4vw;
-    font-family: Graphik Web;
+    font-size: 1.5rem;
+
     color: #ffffff;
   }
 
@@ -712,9 +695,9 @@
     float: left;
     width: 90%;
     height: 35vw;
-    font-size: 5vw;
+    font-size: 1.3rem;
     line-height: 7.5vw;
-    font-family: Graphik Web;
+
     color: #ffffff;
   }
 

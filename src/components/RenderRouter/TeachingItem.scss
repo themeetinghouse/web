@@ -15,7 +15,7 @@
     margin: 0;
     margin-right: 2vw;
 
-    font-size: 1.1vw;
+    font-size: 0.99rem;
     padding: 1.1vw 1.6vw;
     height: initial;
   }
@@ -24,7 +24,7 @@
     margin: 0;
     margin-right: 5vw;
 
-    font-size: 4.26vw;
+    font-size: 1.265rem;
     line-height: 4.26vw;
     padding: 4.26vw 6.4vw;
   }
@@ -47,14 +47,14 @@ a.teachingButton {
   }
 
   .teachingdescription {
-    font-size: 1vw;
+    font-size: 0.9rem;
     width: 30.625vw;
   }
 
   .teaching-h1 {
     position: relative;
     top: 3vw;
-    font-size: 3vw;
+    font-size: 2.7rem;
     font-weight: bold;
     font-family: Graphik Web;
     color: theme.$onyxblacktext;
@@ -86,7 +86,7 @@ a.teachingButton {
 
   .teaching-episode-title {
     padding: 0.5vw;
-    font-size: 2.5vw;
+    font-size: 2.25rem;
     font-weight: bold;
     color: #ffffff;
     font-family: Graphik Web;
@@ -121,7 +121,7 @@ a.teachingButton {
     font-family: Graphik Web;
     font-weight: bold;
     color: theme.$onyxblacktext;
-    font-size: 1vw;
+    font-size: 0.9rem;
     border-bottom: theme.$onyxblacktext solid;
     padding-bottom: 1px;
   }
@@ -132,7 +132,7 @@ a.teachingButton {
     cursor: pointer;
     color: #646469;
     opacity: 0.54;
-    font-size: 1vw;
+    font-size: 0.9rem;
   }
 
   .teaching-mostrecent {
@@ -143,7 +143,7 @@ a.teachingButton {
     transform-origin: left top 0;
     font-family: Graphik Web;
     color: #646469;
-    font-size: 1vw;
+    font-size: 0.9rem;
   }
 
   .teaching-options {
@@ -165,12 +165,25 @@ a.teachingButton {
     border-top: 1px solid red;
   }
 }
-
+@media (min-width: 768px) and (max-width: 1024px) {
+  .teaching-h1 {
+    font-size: 1.6rem;
+  }
+  .teaching-episode-title {
+    font-size: 1.3rem;
+  }
+  .teachingdescription {
+    font-size: 0.8rem;
+  }
+  .teachingdiv {
+    font-size: 0.8rem;
+  }
+}
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   .teaching-h1 {
     position: relative;
     top: 3vw;
-    font-size: 3vw;
+    font-size: 1.6rem;
     font-weight: bold;
     font-family: Graphik Web;
     color: theme.$onyxblacktext;
@@ -202,7 +215,7 @@ a.teachingButton {
 
   .teaching-episode-title {
     padding: 0.5vw;
-    font-size: 2.5vw;
+    font-size: 1.3rem;
     font-weight: bold;
     color: #ffffff;
     font-family: Graphik Web;
@@ -237,7 +250,7 @@ a.teachingButton {
     font-family: Graphik Web;
     font-weight: bold;
     color: theme.$onyxblacktext;
-    font-size: 1vw;
+    font-size: 0.65rem;
     border-bottom: theme.$onyxblacktext solid;
     padding-bottom: 1px;
     cursor: pointer;
@@ -249,7 +262,7 @@ a.teachingButton {
     cursor: pointer;
     color: #646469;
     opacity: 0.54;
-    font-size: 1vw;
+    font-size: 0.65rem;
   }
 
   .teaching-mostrecent {
@@ -305,7 +318,7 @@ a.teachingButton {
     padding: 7vw 2vw;
     color: #c8c8c8;
     font-family: Graphik Web;
-    font-size: 3.25vw;
+    font-size: 0.965rem;
   }
 
   .teachingdiv2 {
@@ -316,7 +329,7 @@ a.teachingButton {
 
   .teaching-episode-title {
     padding: 0vw 2vw;
-    font-size: 8.55vw;
+    font-size: 2.2rem;
     line-height: 10.7vw;
     font-weight: bold;
     color: #ffffff;
@@ -386,7 +399,7 @@ a.teachingButton {
   }
 
   .teachingdescription {
-    font-size: 4.3vw;
+    font-size: 1.1rem;
     line-height: 6.4vw;
     padding-bottom: 11.2vw;
   }

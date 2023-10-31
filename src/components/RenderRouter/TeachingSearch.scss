@@ -54,7 +54,7 @@
 
   .Header1 {
     font-weight: bold;
-    font-size: 1.67vw;
+    font-size: 1.503rem;
     padding-bottom: 2vw;
   }
 
@@ -153,7 +153,12 @@
     line-height: 3vw;
   }
 }
-
+@media (min-width: 768px) and (max-width: 1024px) {
+  .Header1 {
+    font-size: 1.503rem;
+    padding-bottom: 2vw;
+  }
+}
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
   $scale: 1.4;
 
@@ -181,7 +186,7 @@
 
   .TeachingSearchItemInput {
     font-family: Graphik Web;
-    font-size: $scale * 2vw;
+    font-size: $scale * 1rem;
     font-weight: bolder;
     width: 67.5vw;
     border: none;
@@ -280,7 +285,7 @@
 
   .Header1 {
     font-weight: bold;
-    font-size: 5vw;
+    font-size: 1.484rem;
     padding-bottom: 8vw;
   }
 

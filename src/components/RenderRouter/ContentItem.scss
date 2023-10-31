@@ -65,7 +65,7 @@
     margin-bottom: 2vw;
   }
   .madText {
-    font-size: 1.2vw;
+    font-size: 1rem;
     font-family: Graphik Web;
     margin-bottom: 1vw;
     color: theme.$coolgray11;
@@ -124,26 +124,28 @@
   .pie {
     position: relative;
     text-align: center;
-    width: 21vw;
-    height: 21vw;
+    width: 18.9rem;
+    height: 18.9rem;
     margin-top: 1vw;
   }
   .pieText {
     .amount {
-      font-size: 2.7vw;
+      font-size: 2.43rem;
       font-family: Graphik Web;
       font-weight: bold;
       text-align: center;
     }
     .text {
-      font-size: 1.4vw;
+      font-size: 1.26rem;
       font-family: Graphik Web;
     }
   }
   .pie-chart-flex {
     display: flex;
     flex-direction: row;
+    padding: 30px 0px;
     position: relative;
+    align-items: center;
     justify-content: space-between;
     width: 100vw;
     background-color: #efeff0;
@@ -155,13 +157,12 @@
     margin-top: 3vw;
     width: 45vw;
     height: 20vw;
-    font-size: 1.2vw;
+    font-size: 1.08rem;
     font-family: Graphik Web;
     color: theme.$onyxblacktext;
   }
   .oneImageText {
-    font-size: 1.2vw;
-    font-family: Graphik Web;
+    line-height: 2rem;
     margin-bottom: 1.5vw;
     color: theme.$coolgray11;
   }
@@ -177,9 +178,6 @@
     font-size: 1.5vw;
     margin-top: 1vw;
     margin-bottom: 0.5vw;
-  }
-  .oneImageA {
-    font-size: 1.2vw;
   }
   .oneImageAContainer {
     margin-bottom: 0.5vw;
@@ -282,8 +280,6 @@
   }
   .oneImageH1 {
     font-weight: bold;
-    font-size: 3vw;
-    font-family: Graphik Web;
     color: theme.$onyxblacktext;
   }
   .oneImageH1.black {
@@ -331,34 +327,23 @@
   .greyTwoText {
     left: 0vw;
     position: relative;
-    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    padding: 120px 64px 120px 0px;
+    width: 100%;
     background-color: #efeff0;
-    margin-top: -5vh;
-    margin-bottom: 5vw;
   }
   .greyTwoTextH1 {
+    flex: 1;
     position: relative;
-    float: left;
-    margin: 1vw;
-    margin-top: 3vw;
-    left: 20vw;
     font-weight: bold;
-    width: 30vw;
-    height: 20vw;
-    font-size: 1.5vw;
-    font-family: Graphik Web;
+    left: 20vw;
     color: theme.$onyxblacktext;
   }
   .greyTwoTextText {
-    left: 20vw;
     position: relative;
-    margin: 1vw;
-    margin-top: 3vw;
-    float: left;
-    width: 42vw;
-    height: 20vw;
-    font-size: 1.2vw;
-    font-family: Graphik Web;
+
+    flex: 1;
     color: theme.$onyxblacktext;
   }
   .greyTwoTextJustText {
@@ -432,15 +417,30 @@
     margin-bottom: 0.2vw;
     height: 2.2vw;
   }
-  .oneImageA {
-    font-size: 1vw;
-  }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+@media (min-width: 768px) and (max-width: 1024px) {
+  .pie {
+    width: 13rem;
+    height: 13rem;
+  }
+  .pieText {
+    .amount {
+      font-size: 1.5rem;
+    }
+    .text {
+      font-size: 1rem;
+    }
+  }
+  .greyTwoTextTextPieChart {
+    font-size: 0.9rem;
+  }
+  .oneImageH1 {
+    font-size: 1.75rem;
+  }
   .oneImageText {
-    font-size: 1.2vw;
-    font-family: Graphik Web;
+    line-height: 1.5rem;
+    font-size: 0.75rem;
     color: theme.$coolgray11;
   }
   .oneImageEventDetails {
@@ -457,8 +457,7 @@
     color: #000;
   }
   .oneImageA {
-    font-size: 1.2vw;
-    font-family: Graphik Web;
+    font-size: 0.75rem;
     color: theme.$onyxblacktext;
     &:hover {
       color: inherit;
@@ -552,8 +551,6 @@
   }
   .oneImageH1 {
     font-weight: bold;
-    font-size: 3vw;
-    font-family: Graphik Web;
     color: theme.$onyxblacktext;
   }
   .oneImageH1.white {
@@ -583,34 +580,21 @@
   .greyTwoText {
     left: 0vw;
     position: relative;
-    width: 100vw;
-    background-color: #efeff0;
-    margin-top: -5vh;
-    margin-bottom: 5vw;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
   }
   .greyTwoTextH1 {
+    flex: 1;
     position: relative;
-    float: left;
-    margin: 1vw;
-    margin-top: 3vw;
-    left: 20vw;
     font-weight: bold;
-    width: 30vw;
-    height: 20vw;
-    font-size: 1.5vw;
-    font-family: Graphik Web;
+    left: 20vw;
     color: theme.$onyxblacktext;
   }
   .greyTwoTextText {
-    left: 20vw;
     position: relative;
-    margin: 1vw;
-    margin-top: 3vw;
+    font-size: 0.75rem;
     float: left;
-    width: 45vw;
-    height: 20vw;
-    font-size: 1.2vw;
-    font-family: Graphik Web;
     color: theme.$onyxblacktext;
   }
   .greyTwoTextJustText {
@@ -703,7 +687,7 @@
     margin-bottom: 6vw;
   }
   .madText {
-    font-size: 3.5vw;
+    font-size: 1rem;
     font-family: Graphik Web;
     margin-bottom: 1vw;
     color: theme.$coolgray11;
@@ -764,13 +748,14 @@
   }
   .pieText {
     .amount {
-      font-size: 10vw;
+      font-size: 2.969rem;
       font-family: Graphik Web;
       font-weight: bold;
       text-align: center;
+      line-height: 4rem;
     }
     .text {
-      font-size: 5.5vw;
+      font-size: 1.633rem;
       font-family: Graphik Web;
     }
   }
@@ -794,9 +779,6 @@
     color: theme.$onyxblacktext;
   }
   .oneImageText {
-    font-size: 5vw;
-    font-family: Graphik Web;
-    line-height: 7.5vw;
     color: theme.$coolgray11;
   }
   .oneImageText.white {
@@ -806,10 +788,9 @@
     color: #000;
   }
   .oneImageA {
-    font-size: 4vw;
+    font-size: 1rem;
     font-family: Graphik Web;
-    line-height: 5.5vw;
-    margin-top: 8vw;
+    margin-top: 30px;
     display: inline-block;
     &:hover {
       color: inherit;
@@ -891,9 +872,6 @@
   }
   .oneImageH1 {
     font-weight: bold;
-    font-size: 10vw;
-    font-family: Graphik Web;
-    line-height: 12.5vw;
     color: theme.$onyxblacktext;
   }
   .oneImageEventDetails {
@@ -943,36 +921,24 @@
     margin-bottom: 30vw;
   }
   .greyTwoText {
-    left: 0vw;
+    padding: 5vw;
     position: relative;
-    width: 100vw;
     background-color: #efeff0;
-    margin-bottom: 5vw;
   }
   .greyTwoTextH1 {
+    margin-top: 60px;
     position: relative;
-    float: left;
-    margin: 1vw;
-    margin-top: 16vw;
-    margin-bottom: 10vw;
-    left: 5vw;
     font-weight: bold;
-    width: 93vw;
-    font-size: 6.4vw;
-    font-family: Graphik Web;
+    font-size: 1.75rem;
     color: theme.$onyxblacktext;
   }
   .greyTwoTextText {
-    left: 5vw;
+    margin-bottom: 60px;
+    margin-top: 40px;
     position: relative;
-    margin: 1vw;
-    margin-top: 3vw;
-    margin-bottom: 50%;
     float: left;
     width: 90%;
-    font-size: 5vw;
-    line-height: 7.5vw;
-    font-family: Graphik Web;
+    line-height: 2rem;
     color: theme.$onyxblacktext;
   }
   .greyTwoClear {
