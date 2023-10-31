@@ -1,6 +1,6 @@
 @use '../../theme';
 .HeroItemA2 {
-  font-size: 1.1vw;
+  font-size: 0.99rem;
 }
 
 .heroBlackBoxA {
@@ -27,7 +27,6 @@
   color: white;
 }
 .contactPastorLink {
-  margin-top: 16px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -95,11 +94,11 @@ $no-footer-height: 38vw;
     position: relative;
     left: 20vw;
     width: 80vw;
-    height: 40vw;
+    height: 60vw;
   }
   .partialConnectImage {
     width: 80vw;
-    height: 40vw;
+    height: 60vw;
     z-index: 50;
     object-fit: cover;
     position: absolute;
@@ -125,25 +124,6 @@ $no-footer-height: 38vw;
       color: #54565a;
     }
     .heroButton {
-      font-family: Graphik Web !important;
-      display: flex;
-      color: #646469;
-      flex: 0 !important;
-      margin: 0 !important;
-      background-color: #1a1a1a !important;
-      border: 0 solid #1a1a1a;
-      color: #ffffff !important;
-      font-size: 1vw !important;
-      padding: 0.75rem 1.25rem;
-      &.white {
-        margin-top: 1.5vw;
-        color: black !important;
-        background-color: white !important;
-        border: 1.5px solid black;
-      }
-      &.white:hover {
-        background-color: rgba(0, 0, 0, 0.3) !important;
-      }
     }
     .heroButton:hover {
       background-color: rgba(0, 0, 0, 0.7) !important;
@@ -158,12 +138,13 @@ $no-footer-height: 38vw;
     display: flex;
     color: #646469;
     [type='submit'].heroButton {
+      font-weight: 700;
       flex: 0 !important;
       margin: 0 !important;
       background-color: #1a1a1a !important;
       border: 0 solid #1a1a1a;
       color: #ffffff !important;
-      font-size: 1vw !important;
+
       padding: 0.75rem 1.25rem;
     }
   }
@@ -193,15 +174,13 @@ $no-footer-height: 38vw;
   }
   .heroItem {
     position: relative;
-    width: 100vw;
     height: 105vh;
-    padding-bottom: 5vh;
   }
   .heroH1 {
+    font-size: 2.2rem;
     font-family: Graphik Web;
     font-weight: bold;
     color: #ffffff;
-    font-size: 3vw;
   }
   .heroH2 {
     font-family: Graphik Web;
@@ -274,24 +253,18 @@ $no-footer-height: 38vw;
     background-color: #ffffff;
   }
   .heroHr {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 1.5vw;
-    margin-bottom: 1.5vw;
+    margin-top: 32px;
+    margin-bottom: 32px;
     width: 3vw;
     background-color: #ffffff;
+    color: #fff;
+    opacity: 1;
   }
   .heroText1 {
-    font-family: Graphik Web;
-    width: 32vw;
-    color: #ffffff;
-    font-size: 1.25vw;
+    color: #c8c8c8;
   }
   .heroText2 {
-    font-family: Graphik Web;
-    width: 32vw;
-    color: #ffffff;
-    font-size: 1vw;
+    color: #c8c8c8;
   }
   .partial {
     width: 80vw;
@@ -304,7 +277,6 @@ $no-footer-height: 38vw;
     width: 100vw;
     height: 100vh;
     object-fit: cover;
-    object-position: right;
     position: absolute;
     mask-mode: alpha;
     mask-repeat: no-repeat;
@@ -338,19 +310,11 @@ $no-footer-height: 38vw;
   .heroBlackBox {
     position: relative;
     background-color: theme.$onyxblacktext;
-    padding: 2vw;
+    padding: 40px;
     left: 20vw;
-    width: 36vw;
+    width: 50%;
     top: 30vh;
     z-index: 100;
-  }
-  .heroButton {
-    margin-top: 1.5vw !important;
-    color: theme.$onyxblacktext !important;
-    background-color: #ffffff !important;
-    border-radius: 0 !important;
-    font-weight: 800 !important;
-    font-family: Graphik Web !important;
   }
   .headerItem {
     position: static;
@@ -416,7 +380,40 @@ $no-footer-height: 38vw;
     padding-bottom: 5vh;
   }
 }
-
+@media (min-width: 1400px) {
+  .partialConnect {
+    position: relative;
+    left: 20vw;
+    width: 80vw;
+    height: 40vw;
+  }
+  .partialConnectImage {
+    width: 80vw;
+    height: 40vw;
+    z-index: 50;
+    object-fit: cover;
+    position: absolute;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .heroH1 {
+    font-size: 1.4rem;
+  }
+  .heroText2 {
+    font-size: 0.8rem;
+  }
+  .heroHr {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+  .HeroItemA2 {
+    font-size: 0.9rem;
+  }
+  .heroText1 {
+    line-height: 1.1rem;
+    font-size: 0.8rem;
+  }
+}
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   .covidButtonDetail {
     background-color: #ffc60b !important;
@@ -435,11 +432,11 @@ $no-footer-height: 38vw;
     position: relative;
     left: 20vw;
     width: 80vw;
-    height: 40vw;
+    height: 7vw;
   }
   .partialConnectImage {
     width: 80vw;
-    height: 40vw;
+    height: 60vw;
     z-index: 50;
     object-fit: cover;
     position: absolute;
@@ -470,14 +467,15 @@ $no-footer-height: 38vw;
   .signupButtons {
     font-family: Graphik Web !important;
     display: flex;
+
     color: #646469;
     [type='submit'].heroButton {
+      font-weight: 700;
       flex: 0 !important;
       margin: 0 !important;
       background-color: #1a1a1a !important;
       border: 0 solid #1a1a1a;
       color: #ffffff !important;
-      font-size: 1vw !important;
       padding: 0.75rem 1.25rem;
     }
   }
@@ -521,7 +519,6 @@ $no-footer-height: 38vw;
     font-family: Graphik Web;
     font-weight: bold;
     color: #ffffff;
-    font-size: 3vw;
   }
   .downarrow {
     height: 4vw;
@@ -571,17 +568,17 @@ $no-footer-height: 38vw;
     animation-name: bounce;
   }
   .heroHr {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 1.5vw;
-    margin-bottom: 1.5vw;
+    margin-top: 32px;
+    margin-bottom: 32px;
     width: 3vw;
     background-color: #ffffff;
+    color: #ffffff;
+    opacity: 1;
   }
   .partialNoFooterBox {
     position: absolute;
     padding: 2vw;
-    left: 5vw;
+    left: 18vw;
     width: 46vw;
     top: 6vh;
     z-index: 1000;
@@ -595,16 +592,10 @@ $no-footer-height: 38vw;
     background-color: #ffffff;
   }
   .heroText1 {
-    font-family: Graphik Web;
-    width: 32vw;
-    color: #ffffff;
-    font-size: 1.25vw;
+    color: #c8c8c8;
   }
   .heroText2 {
-    font-family: Graphik Web;
-    width: 32vw;
-    color: #ffffff;
-    font-size: 1vw;
+    color: #c8c8c8;
   }
   .partial {
     width: 80vw;
@@ -650,19 +641,11 @@ $no-footer-height: 38vw;
   .heroBlackBox {
     position: absolute;
     background-color: theme.$onyxblacktext;
-    padding: 2vw;
+    padding: 40px;
     left: 20vw;
-    width: 36vw;
+    width: 50%;
     top: 30vh;
     z-index: 100;
-  }
-  .heroButton {
-    margin-top: 1.5vw !important;
-    color: theme.$onyxblacktext !important;
-    background-color: #ffffff !important;
-    border-radius: 0 !important;
-    font-weight: 800 !important;
-    font-family: Graphik Web !important;
   }
   .headerItem {
     position: static;
@@ -734,13 +717,18 @@ $no-footer-height: 38vw;
     margin-left: 0px;
   }
   .contactPastorLink {
-    margin-top: 16px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
   .contactPastor {
     margin-top: 8px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .heroBlackBox {
+    width: 39%;
   }
 }
 
@@ -800,9 +788,8 @@ $no-footer-height: 38vw;
     display: flex;
     flex-wrap: wrap;
     color: #646469;
-    font-size: 4.3vw;
-    line-height: 6.4vw;
     [type='submit'].heroButton {
+      font-weight: 700;
       flex: 0 !important;
       margin: 0 !important;
       background-color: #1a1a1a !important;
@@ -852,35 +839,25 @@ $no-footer-height: 38vw;
     font-family: Graphik Web;
     font-weight: bold;
     color: #ffffff;
-    font-size: 10vw;
-    line-height: 10.65vw;
   }
   .downarrow {
     display: none;
   }
   .heroHr {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 4.5vw;
-    margin-bottom: 4.5vw;
+    margin-top: 32px;
+    margin-bottom: 32px;
     width: 8.55vw;
     background-color: #ffffff;
+    color: #ffffff;
+    opacity: 1;
   }
   .heroText1 {
-    font-family: Graphik Web;
     font-weight: normal;
-    width: 90vw;
-    color: #ffffff;
-    font-size: 4.3vw;
-    line-height: 6.4vw;
-    margin-bottom: 5vw;
+
+    color: #c8c8c8;
   }
   .heroText2 {
-    font-family: Graphik Web;
-    width: 90vw;
-    color: #ffffff;
-    font-size: 4.3vw;
-    line-height: 6.4vw;
+    color: #c8c8c8;
   }
   .partial {
     width: 100%;
@@ -944,24 +921,13 @@ $no-footer-height: 38vw;
   }
   .heroBlackBox {
     background-color: theme.$onyxblacktext;
-    padding: 2vw;
-    left: 0vw;
-    width: 100vw;
+    padding: 32px 22px;
     z-index: 100;
-    padding: 10vw 5vw 10vw 5vw;
   }
   .heroPartialBlackBox {
     background-color: theme.$onyxblacktext;
     width: 100vw;
     padding: 10vw 6vw 10vw 6vw;
-  }
-  .heroButton {
-    margin-top: 5vw !important;
-    color: theme.$onyxblacktext !important;
-    background-color: #ffffff !important;
-    border-radius: 0 !important;
-    font-weight: 800 !important;
-    font-family: Graphik Web !important;
   }
   .headerItem {
     position: static;

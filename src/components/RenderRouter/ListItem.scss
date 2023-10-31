@@ -295,7 +295,7 @@
 
   .ListItemDiv7 {
     width: 80vw;
-    font-size: 1.5vw;
+    font-size: 1.25rem;
     font-family: Graphik Web;
     padding-bottom: 1vw;
     color: theme.$coolgray11;
@@ -320,12 +320,9 @@
   }
 
   .ListItemDiv11 {
-    width: 31vw;
     &.multi-link {
       width: 36vw;
     }
-    font-size: 1.25vw;
-    font-family: Graphik Web;
     color: theme.$coolgray11;
   }
 
@@ -342,7 +339,7 @@
     left: 0vw;
     width: 80vw;
     font-weight: bold;
-    font-size: 3vw;
+    font-size: 2rem;
     font-family: Graphik Web;
     color: theme.$onyxblacktext;
     &.staff {
@@ -359,7 +356,7 @@
   }
 
   .ListItemH1ImageList {
-    font-size: 3vw;
+    font-size: 2.75rem;
     font-weight: bold;
     font-family: Graphik Web;
     color: theme.$onyxblacktext;
@@ -382,9 +379,9 @@
   }
 
   .ListItemH3 {
-    width: 40vw;
-    font-size: 2vw;
-    font-family: Graphik Web;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
     color: theme.$onyxblacktext;
   }
 
@@ -425,7 +422,7 @@
     position: relative;
     left: 0vw;
     width: 75vw;
-    font-size: 1.25vw;
+    font-size: 1.125rem;
     font-family: Graphik Web;
     color: theme.$coolgray11;
   }
@@ -554,7 +551,7 @@
   .ListItemName {
     width: 18vw;
     font-weight: bold;
-    font-size: 1.1vw;
+    font-size: 0.99rem;
     white-space: normal;
     font-family: Graphik Web;
     color: theme.$onyxblacktext;
@@ -572,7 +569,7 @@
   .ListItemPosition {
     width: 18vw;
     white-space: normal;
-    font-size: 1.1vw;
+    font-size: 0.8rem;
     flex: 1;
     font-family: Graphik Web;
     color: theme.$coolgray11;
@@ -640,7 +637,7 @@
   .ListItemCompassionDescription {
     white-space: normal;
     font-weight: bold;
-    font-size: 2vw;
+    font-size: 1.8rem;
     line-height: 2.3vw;
     margin-top: 1.5vw;
     font-family: Graphik Web;
@@ -651,7 +648,7 @@
   .ListItemCompassionDescription2 {
     margin-top: 1.5vw;
     white-space: normal;
-    font-size: 1.05vw;
+    font-size: 0.945rem;
     font-family: Graphik Web;
     word-wrap: break-word;
     color: theme.$coolgray11;
@@ -660,7 +657,7 @@
   .ListItemEventsDescription {
     white-space: normal;
     font-weight: bold;
-    font-size: 2vw;
+    font-size: 1.8rem;
     line-height: 2.3vw;
     font-family: Graphik Web;
     color: theme.$onyxblacktext;
@@ -669,7 +666,7 @@
   .ListItemEventsDescription2 {
     margin-top: 1.5vw;
     white-space: normal;
-    font-size: 1.05vw;
+    font-size: 0.945rem;
     font-family: Graphik Web;
     color: theme.$coolgray11;
     width: 52vw;
@@ -678,7 +675,7 @@
   .ListItemEventsLocation {
     font-family: Graphik Web;
     font-weight: bold;
-    font-size: 1.5vw;
+    font-size: 1.35rem;
     margin-top: 1.5vw;
     color: theme.$onyxblacktext;
   }
@@ -686,7 +683,7 @@
   .ListItemEventsDuration {
     font-family: Graphik Web;
     font-weight: bold;
-    font-size: 1.3vw;
+    font-size: 1.17rem;
     color: theme.$onyxblacktext;
   }
 
@@ -833,8 +830,8 @@
     position: relative;
     left: 0vw;
     width: 45vw;
-    font-size: 1.25vw;
-    font-family: Graphik Web;
+    font-size: 1.25rem;
+    line-height: 2rem;
     margin-bottom: 4vw;
     color: theme.$coolgray11;
   }
@@ -869,18 +866,18 @@
     color: #54565a;
     margin-top: 1vw;
     width: 50vw;
-    font-size: 1.1vw;
+    font-size: 0.9rem;
   }
 
   .BlogDetails {
     color: #54565a;
-    font-size: 0.83vw;
+    font-size: 0.8rem;
   }
 
   .BlogTitle {
     color: #1a1a1a;
     font-weight: bold;
-    font-size: 1.1vw;
+    font-size: 1rem;
   }
 
   .BlogContentContainer {
@@ -924,7 +921,34 @@
     margin-bottom: 3vw;
   }
 }
-
+@media (min-width: 768px) and (max-width: 1024px) {
+  .ListItemDiv11 {
+    font-size: 0.9rem;
+  }
+  .ListItemDiv7 {
+    font-size: 1.25rem;
+  }
+  .ListItemH1ImageList {
+    font-size: 2.5rem;
+  }
+  .BlogTitle {
+    font-size: 0.9rem;
+  }
+  .BlogDetails {
+    font-size: 0.6rem;
+  }
+  .BlogDesc {
+    font-size: 0.7rem;
+  }
+}
+@media (min-width: 1200px) {
+  .ListItemPosition {
+    font-size: 1rem;
+  }
+  .ListItemName {
+    font-size: 1rem;
+  }
+}
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   .ListItemEventButton {
     background-color: #ffffff00 !important;
@@ -983,10 +1007,7 @@
   }
 
   .ListItemDiv7 {
-    width: 80vw;
-    font-size: 1.5vw;
-    font-family: Graphik Web;
-    padding-bottom: 1vw;
+    padding-bottom: 2rem;
     color: theme.$coolgray11;
   }
 
@@ -1034,7 +1055,7 @@
   }
 
   .ListItemH1ImageList {
-    font-size: 3vw;
+    font-size: 2rem;
     font-weight: bold;
     font-family: Graphik Web;
     color: theme.$onyxblacktext;
@@ -1055,9 +1076,9 @@
   }
 
   .ListItemH3 {
-    width: 40vw;
-    font-size: 2vw;
-    font-family: Graphik Web;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
     color: theme.$onyxblacktext;
   }
 
@@ -1097,7 +1118,7 @@
     position: relative;
     left: 0vw;
     width: 75vw;
-    font-size: 1.25vw;
+    font-size: 0.9rem;
     font-family: Graphik Web;
     color: theme.$coolgray11;
   }
@@ -1304,8 +1325,9 @@
   .CuriousText1 {
     position: relative;
     left: 0vw;
-    font-size: 1.25vw;
-    font-family: Graphik Web;
+
+    font-size: 1.25rem;
+    line-height: 2rem;
     margin-bottom: 4vw;
     color: theme.$coolgray11;
   }
@@ -1394,12 +1416,11 @@
     color: #54565a;
     margin-top: 1vw;
     width: 50vw;
-    font-size: 1.1vw;
+    font-size: 0.9rem;
   }
 
   .BlogDetails {
     color: #54565a;
-    font-size: 0.83vw;
   }
 
   .BlogTitle {
@@ -1471,8 +1492,8 @@
     position: relative;
     left: 0vw;
     width: 75vw;
-    font-size: 2vw;
-    font-family: Graphik Web;
+    font-size: 1.25rem;
+    line-height: 2rem;
     margin-bottom: 4vw;
     color: theme.$coolgray11;
   }
@@ -1548,7 +1569,7 @@
   }
 
   .ListItemText1 {
-    font-size: 2vw;
+    font-size: 0.9rem;
   }
 
   $staffwidth: 18vw;
@@ -1576,7 +1597,7 @@
 
   .ListItemName {
     font-weight: bold;
-    font-size: 1.5vw;
+    font-size: 0.96rem;
     white-space: normal;
     font-family: Graphik Web;
     color: theme.$onyxblacktext;
@@ -1595,7 +1616,7 @@
 
   .ListItemPosition {
     white-space: normal;
-    font-size: 1.5vw;
+    font-size: 0.85rem;
     font-family: Graphik Web;
     color: theme.$coolgray11;
   }
@@ -1727,7 +1748,8 @@
 
   .ListItemDiv7 {
     width: 90vw;
-    font-size: 5vw;
+    font-size: 1.25rem;
+
     font-family: Graphik Web;
     // padding-bottom: 1vw;
     margin-bottom: 30vw;
@@ -1767,9 +1789,8 @@
   // }
 
   .ListItemDiv11 {
-    width: 88.5vw;
-    font-size: 4.27vw;
-    font-family: Graphik Web;
+    line-height: 1.6rem;
+    font-size: 1.1rem;
     color: theme.$coolgray11;
   }
 
@@ -1802,15 +1823,13 @@
   }
 
   .ListItemH1ImageList {
-    font-size: 10vw;
+    font-size: 2.6rem;
     font-weight: bold;
-    font-family: Graphik Web;
     color: theme.$onyxblacktext;
   }
   .ListItemH1ImageListHeader {
-    font-size: 10vw;
+    font-size: 2.6rem;
     font-weight: bold;
-    font-family: Graphik Web;
     color: theme.$onyxblacktext;
   }
   .ListItemH1ImageList2 {
@@ -1823,10 +1842,9 @@
   }
 
   .ListItemH3 {
-    width: 75vw;
-    font-size: 6.4vw;
-    font-weight: bold;
-    font-family: Graphik Web;
+    font-size: 1.7rem;
+    line-height: 2rem;
+    font-weight: 700;
     color: theme.$onyxblacktext;
   }
 
@@ -1868,7 +1886,7 @@
     position: relative;
     left: 0vw;
     width: 90vw;
-    font-size: 5.33vw;
+    font-size: 1.582rem;
     line-height: 7.5vw;
     font-family: Graphik Web;
     margin-bottom: 10vw;
@@ -2157,10 +2175,10 @@
 
   .ListItemCompassion {
     white-space: normal;
-    font-family: Graphik Web;
-    font-size: 6.4vw;
-    line-height: 8.55vw;
-    font-weight: 700;
+
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+    font-weight: 400;
     margin-bottom: 0.5rem;
     width: 73vw;
     color: theme.$onyxblacktext;
@@ -2238,8 +2256,8 @@
     position: relative;
     left: 0vw;
     width: 95vw;
-    font-size: 5.33vw;
-    font-family: Graphik Web;
+    font-size: 1.25rem;
+    line-height: 2rem;
     margin-bottom: 12.8vw;
     color: theme.$coolgray11;
   }
@@ -2296,7 +2314,7 @@
   .WatchPageEpisodeTitle {
     width: 88.53vw;
     font-weight: bold;
-    font-size: 6.4vw;
+    font-size: 1.8rem;
     white-space: normal;
     font-family: Graphik Web;
   }
@@ -2304,7 +2322,7 @@
   .WatchPagePublishedDate {
     width: 80vw;
     white-space: normal;
-    font-size: 4.8vw;
+    font-size: 1.35rem;
     font-family: Graphik Web;
   }
 
@@ -2330,19 +2348,19 @@
     color: #54565a;
     margin-top: 1vw;
     width: 88.5vw;
-    font-size: 4.26vw;
+    font-size: 1.1rem;
     padding-top: 4.26vw;
   }
 
   .BlogDetails {
     color: #54565a;
-    font-size: 3.2vw;
+    font-size: 0.8rem;
   }
 
   .BlogTitle {
     color: #1a1a1a;
     font-weight: bold;
-    font-size: 4.26vw;
+    font-size: 1.1rem;
     width: 75vw;
   }
 

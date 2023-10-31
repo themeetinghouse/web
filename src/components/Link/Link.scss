@@ -25,18 +25,8 @@
     background-color: #fff;
   }
 
-  @media (min-width: 767px) {
-    font-size: 1.1vw;
-    padding: 1.1vw 1.6vw;
-    height: 4vw;
-    margin-top: 3.3vw;
-  }
-
-  @media (max-width: 767px) {
-    font-size: 4.26vw;
-    line-height: 4.26vw;
-    padding: 4.26vw 6.4vw;
-  }
+  padding: 16px 24px;
+  margin-top: 48px;
 }
 
 // A link that looks like a button

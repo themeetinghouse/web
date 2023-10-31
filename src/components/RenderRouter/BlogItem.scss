@@ -237,7 +237,7 @@ $preview-image-ratio: 0.745;
 
     .blog-post-title {
       padding: 0.5vw;
-      font-size: 2.2vw;
+      font-size: 1.98rem;
     }
 
     .blog-image-desktop {
@@ -303,6 +303,15 @@ $preview-image-ratio: 0.745;
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {
+    .blog-post-title {
+      font-size: 1.2rem;
+    }
+    .blogdescription {
+      font-size: 0.9rem;
+    }
+    .blogauthor {
+      font-size: 0.7rem;
+    }
     .suggested-image {
       width: 160px;
       height: 160px;
@@ -423,7 +432,7 @@ $preview-image-ratio: 0.745;
 
     .blog-post-title {
       padding: 0vw 2vw;
-      font-size: 8.55vw;
+      font-size: 2.538rem;
       line-height: 10.7vw;
     }
 
