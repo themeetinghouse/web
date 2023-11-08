@@ -1,5 +1,5 @@
-var aws = require('aws-sdk');
-var ses = new aws.SES();
+const { SES } = require('@aws-sdk/client-ses');
+var ses = new SES();
 
 exports.handler = (event, context, callback) => {
   var message =

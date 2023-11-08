@@ -8,9 +8,12 @@
     "compile": "tsc",
     "build": "tsc"
   },
-"dependencies": { "aws-sdk": "^2.655.0"},
+  "dependencies": {
+    "@aws-sdk/client-cloudfront": "^3.441.0",
+    "@aws-sdk/client-s3": "^3.441.0",
+    "aws-sdk": "^2.655.0"
+  },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.92"
-   
   }
 }

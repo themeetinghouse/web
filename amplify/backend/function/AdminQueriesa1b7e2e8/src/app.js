@@ -178,38 +178,24 @@ app.get('/getUser', async (req, res, next) => {
 
 app.get('/listUsers', async (req, res, next) => {
   try {
-    let response;
-    if (req.query.token) {
-      response = await listUsers(
-        req.query.limit || 25,
-        req.query.token,
-        req.query.filter
-      );
-    } else if (req.query.limit) {
-      response = await listUsers(
-        (Limit = req.query.limit),
-        null,
-        req.query.filter
-      );
-    } else {
-      response = await listUsers(null, null, req.query.filter);
-    }
+    const limit = req.query.limit ? parseInt(req.query.limit, 10) : 25;
+    const token = req.query.token || null;
+    const filter = req.query.filter || null;
+
+    const response = await listUsers(limit, token, filter);
     res.status(200).json(response);
   } catch (err) {
+    console.error('Error in /listUsers:', err);
     next(err);
   }
 });
 
 app.get('/listGroups', async (req, res, next) => {
   try {
-    let response;
-    if (req.query.token) {
-      response = await listGroups(req.query.limit || 25, req.query.token);
-    } else if (req.query.limit) {
-      response = await listGroups((Limit = req.query.limit));
-    } else {
-      response = await listGroups();
-    }
+    const limit = req.query.limit ? parseInt(req.query.limit, 10) : 25;
+    const token = req.query.token;
+
+    const response = await listGroups(limit, token);
     res.status(200).json(response);
   } catch (err) {
     next(err);
@@ -224,21 +210,10 @@ app.get('/listGroupsForUser', async (req, res, next) => {
   }
 
   try {
-    let response;
-    if (req.query.token) {
-      response = await listGroupsForUser(
-        req.query.username,
-        req.query.limit || 25,
-        req.query.token
-      );
-    } else if (req.query.limit) {
-      response = await listGroupsForUser(
-        req.query.username,
-        (Limit = req.query.limit)
-      );
-    } else {
-      response = await listGroupsForUser(req.query.username);
-    }
+    const limit = req.query.limit ? parseInt(req.query.limit, 10) : 25;
+    const token = req.query.token;
+
+    const response = await listGroupsForUser(req.query.username, limit, token);
     res.status(200).json(response);
   } catch (err) {
     next(err);
@@ -253,21 +228,10 @@ app.get('/listUsersInGroup', async (req, res, next) => {
   }
 
   try {
-    let response;
-    if (req.query.token) {
-      response = await listUsersInGroup(
-        req.query.groupname,
-        req.query.limit || 25,
-        req.query.token
-      );
-    } else if (req.query.limit) {
-      response = await listUsersInGroup(
-        req.query.groupname,
-        (Limit = req.query.limit)
-      );
-    } else {
-      response = await listUsersInGroup(req.query.groupname);
-    }
+    const limit = req.query.limit ? parseInt(req.query.limit, 10) : 25;
+    const token = req.query.token;
+
+    const response = await listUsersInGroup(req.query.groupname, limit, token);
     res.status(200).json(response);
   } catch (err) {
     next(err);
@@ -275,25 +239,21 @@ app.get('/listUsersInGroup', async (req, res, next) => {
 });
 
 app.post('/signUserOut', async (req, res, next) => {
-  /**
-   * To prevent rogue actions of users with escalated privilege signing
-   * other users out, we ensure it's the same user making the call
-   * Note that this only impacts actions the user can do in User Pools
-   * such as updating an attribute, not services consuming the JWT
-   */
-  if (
-    req.body.username !=
-      req.apiGateway.event.requestContext.authorizer.claims.username &&
-    req.body.username !=
-      /[^/]*$/.exec(req.apiGateway.event.requestContext.identity.userArn)[0]
-  ) {
+  const { username } = req.body;
+  const claimsUsername =
+    req.apiGateway.event.requestContext.authorizer.claims.username;
+  const userArnUsername = /[^/]*$/.exec(
+    req.apiGateway.event.requestContext.identity.userArn
+  )[0];
+
+  if (username !== claimsUsername && username !== userArnUsername) {
     const err = new Error('only the user can sign themselves out');
     err.statusCode = 400;
     return next(err);
   }
 
   try {
-    const response = await signUserOut(req.body.username);
+    const response = await signUserOut(username);
     res.status(200).json(response);
   } catch (err) {
     next(err);

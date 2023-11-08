@@ -8,16 +8,25 @@ Amplify Params - DO NOT EDIT */
 const fs = require('fs');
 const path = require('path');
 const utils = require('util');
-const chromium = require('chrome-aws-lambda');
+const chromium = require('@sparticuz/chromium');
 const puppeteer = require('puppeteer-core');
 const hb = require('handlebars');
 const readFile = utils.promisify(fs.readFile);
-const AWS = require('aws-sdk');
+
+const {
+  CognitoIdentityProvider,
+} = require('@aws-sdk/client-cognito-identity-provider');
+
+const { S3 } = require('@aws-sdk/client-s3');
+
 const { v4: uuidv4 } = require('uuid');
-const cognito = new AWS.CognitoIdentityServiceProvider({
+const cognito = new CognitoIdentityProvider({
+  // The transformation for apiVersion is not implemented.
+  // Refer to UPGRADING.md on aws-sdk-js-v3 for changes needed.
+  // Please create/upvote feature request on aws-sdk-js-codemod for apiVersion.
   apiVersion: '2016-04-18',
 });
-const s3 = new AWS.S3({
+const s3 = new S3({
   //accessKeyId: process.env.s3AccessKeyId,
   //secretAccessKey: process.env.s3SecretAccessKey,
   region: 'us-east-1',
@@ -28,12 +37,10 @@ exports.handler = async (event) => {
     console.log({
       AUTH_COGNITODEVTMH_USERPOOLID: process.env,
     });
-    const groups = await cognito
-      .adminListGroupsForUser({
-        UserPoolId: process.env.userPoolId,
-        Username: event.arguments.userId,
-      })
-      .promise();
+    const groups = await cognito.adminListGroupsForUser({
+      UserPoolId: process.env.userPoolId,
+      Username: event.arguments.userId,
+    });
 
     let inNotesGroups = false;
 
@@ -84,7 +91,7 @@ exports.handler = async (event) => {
       const browser = await puppeteer.launch({
         args: chromium.args,
         defaultViewport: chromium.defaultViewport,
-        executablePath: await chromium.executablePath,
+        executablePath: await chromium.executablePath(),
         headless: chromium.headless,
       });
 
@@ -111,7 +118,7 @@ exports.handler = async (event) => {
         ContentType: 'application/pdf',
       };
 
-      await s3.putObject(params).promise();
+      await s3.putObject(params);
 
       await browser.close();
 

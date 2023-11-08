@@ -1,21 +1,20 @@
+const { SecretsManager } = require('@aws-sdk/client-secrets-manager');
+
 exports.handler = async (event) => {
   const bibleId = event.arguments.bibleId;
   const passage = event.arguments.passage;
 
-  var AWS = require('aws-sdk'),
-    region = 'us-east-1',
+  var region = 'us-east-1',
     secretName = 'tmhweb/' + process.env.ENV + '/secrets',
     secret,
     decodedBinarySecret;
 
   // Create a Secrets Manager client
-  var client = new AWS.SecretsManager({
+  var client = new SecretsManager({
     region: region,
   });
   try {
-    const data = await client
-      .getSecretValue({ SecretId: secretName })
-      .promise();
+    const data = await client.getSecretValue({ SecretId: secretName });
 
     if ('SecretString' in data) {
       secret = JSON.parse(data.SecretString);

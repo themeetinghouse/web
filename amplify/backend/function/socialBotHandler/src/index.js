@@ -6,12 +6,7 @@
     REGION
 Amplify Params - DO NOT EDIT */
 
-const AWS = require('aws-sdk');
-const s3 = new AWS.S3();
 const axios = require('axios');
-const gql = require('graphql-tag');
-const graphql = require('graphql');
-const { print } = graphql;
 const zlib = require('zlib');
 
 const getVideo = /* GraphQL */ `
@@ -76,10 +71,12 @@ function createMarkup(url, image, description, title, type) {
 }
 
 function success(body) {
+  console.log({ success: body });
   return buildResponse(200, body);
 }
 
 function failure(body) {
+  console.log({ failure: body.toString('base64') });
   return buildResponse(400, body.toString('base64'));
 }
 function buildResponse(statusCode, body) {
@@ -134,13 +131,16 @@ async function readData(url, apiKey, query, id) {
 }
 
 async function readFromS3(bucket, filename) {
-  const params = { Bucket: bucket, Key: filename };
+  const pageKey = filename.split('/').pop();
   try {
-    const data = await s3.getObject(params).promise();
-    const res = data.Body.toString();
-    return JSON.parse(res);
-  } catch (err) {
-    console.error(err);
+    const s3Data = await axios({
+      url: `${bucket}/${pageKey}`,
+      method: 'get',
+    });
+    console.log(s3Data.data);
+    return s3Data.data;
+  } catch (error) {
+    console.error({ error });
   }
 }
 
@@ -155,7 +155,7 @@ exports.handler = async (event, context, callback) => {
   // user agent is known social bot
   if (
     userAgent.match(
-      /twitterbot|facebookexternalhit|linkedinbot|embedly|quora link preview|pinterest|slackbot/i
+      /twitterbot|facebookexternalhit|linkedinbot|embedly|quora link preview|pinterest|slackbot|whatsapp|discordbot/i
     )
   ) {
     prerender = true;
@@ -172,7 +172,8 @@ exports.handler = async (event, context, callback) => {
   ) {
     prerender = false;
   }
-  const bucket = 'heeetingouse-20190312104205-hostingbucket-prodnew';
+  const bucket =
+    'https://themeetinghouse-usercontent221608-prodnew.s3.amazonaws.com/public/savedContent';
   const url =
     'https://ivmnti3f45d2phjrvkx62mxgyi.appsync-api.us-east-1.amazonaws.com/graphql';
   const apiKey = 'da2-e4tke5ydc5hffgrwy5e36qdrmu';

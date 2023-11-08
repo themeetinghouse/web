@@ -1,9 +1,12 @@
-var AWS = require('aws-sdk');
+const { DynamoDB } = require('@aws-sdk/client-dynamodb');
+
 export const handler = async (event) => {
   var results3 = [];
   try {
-    AWS.config.update({ region: event.region });
-    var ddb = new AWS.DynamoDB({ apiVersion: '2012-08-10' });
+    var ddb = new DynamoDB({
+      apiVersion: '2012-08-10',
+      region: process.env.REGION,
+    });
 
     var params = {
       ExpressionAttributeValues: {
@@ -17,7 +20,7 @@ export const handler = async (event) => {
         '-' +
         process.env.ENV,
     };
-    const result = await ddb.query(params).promise();
+    const result = await ddb.query(params);
     console.log(result);
     if (result.Items.length > 0) {
       var params2 = {
@@ -34,7 +37,7 @@ export const handler = async (event) => {
           '-' +
           process.env.ENV,
       };
-      const result2 = await ddb.query(params2).promise();
+      const result2 = await ddb.query(params2);
       results3 = result2.Items.map((e) => {
         return e.type.M.name.S;
       });
