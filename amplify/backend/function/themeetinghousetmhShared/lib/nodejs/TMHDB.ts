@@ -26,7 +26,6 @@ export default class TMHDB {
     var secretName = 'tmhweb/' + process.env.ENV + '/secrets',
       secret,
       decodedBinarySecret;
-    // Create a Secrets Manager client
     var client = new aws.SecretsManager({
       region: process.env.REGION,
     });

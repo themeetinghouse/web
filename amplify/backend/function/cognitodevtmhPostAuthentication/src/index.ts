@@ -6,17 +6,27 @@
 	ENV
 	REGION
 Amplify Params - DO NOT EDIT */
-var AWS = require('aws-sdk');
+const {
+  CognitoIdentityProvider,
+} = require('@aws-sdk/client-cognito-identity-provider');
 
-const cognitoClient = new AWS.CognitoIdentityServiceProvider({
-  //UserPoolId: process.env.AUTH_COGNITODEVTMH_USERPOOLID,
+const { DynamoDB } = require('@aws-sdk/client-dynamodb');
+
+const { Lambda } = require('@aws-sdk/client-lambda');
+
+const { SecretsManager } = require('@aws-sdk/client-secrets-manager');
+
+const cognitoClient = new CognitoIdentityProvider({
+  region: process.env.REGION,
 });
 
 async function getUser(id: string, event: any) {
   try {
     console.log('Starting Get User');
-    AWS.config.update({ region: event.region });
-    var ddb = new AWS.DynamoDB({ apiVersion: '2012-08-10' });
+    var ddb = new DynamoDB({
+      apiVersion: '2012-08-10',
+      region: process.env.REGION,
+    });
 
     var params = {
       ExpressionAttributeValues: {
@@ -30,7 +40,7 @@ async function getUser(id: string, event: any) {
         '-' +
         process.env.ENV,
     };
-    const result = await ddb.query(params).promise();
+    const result = await ddb.query(params);
     console.log({ getUser: result });
     if (result.Items.length > 0) return result.Items[0];
     else return null;
@@ -42,8 +52,10 @@ async function getUser(id: string, event: any) {
 async function updateUser(item, event) {
   console.log('Starting updateUser');
   try {
-    AWS.config.update({ region: event.region });
-    var ddb = new AWS.DynamoDB({ apiVersion: '2012-08-10' });
+    var ddb = new DynamoDB({
+      apiVersion: '2012-08-10',
+      region: process.env.REGION,
+    });
 
     var params = {
       TableName:
@@ -62,7 +74,7 @@ async function updateUser(item, event) {
       ReturnValues: 'UPDATED_NEW',
     };
 
-    const result = await ddb.updateItem(params).promise();
+    const result = await ddb.updateItem(params);
     console.log({ getUser: result });
     if (result.Items.length > 0) return result.Items[0];
     else return null;
@@ -74,8 +86,10 @@ async function updateUser(item, event) {
 async function createUser(item, event) {
   console.log('Starting createUser');
   try {
-    AWS.config.update({ region: event.region });
-    var ddb = new AWS.DynamoDB({ apiVersion: '2012-08-10' });
+    var ddb = new DynamoDB({
+      apiVersion: '2012-08-10',
+      region: process.env.REGION,
+    });
     var date = new Date().toISOString();
     var item: any = {
       id: { S: item.id },
@@ -105,7 +119,7 @@ async function createUser(item, event) {
       Item: item,
     };
 
-    const result = await ddb.putItem(params).promise();
+    const result = await ddb.putItem(params);
     console.log({ getUser: result });
     if (result.Items.length > 0) return result.Items[0];
     else return null;
@@ -123,7 +137,7 @@ async function getCognitoUser(event) {
   };
   console.log(request);
   console.log(process.env);
-  let data = await cognitoClient.listUsers(request).promise();
+  let data = await cognitoClient.listUsers(request);
   if (!data.Users || data.Users.length < 1) {
     return null;
   }
@@ -138,8 +152,8 @@ async function getCognitoUser(event) {
 }
 async function f1SearchPeople(email: string) {
   console.log('f1SearchPeople invoke started');
-  var lambda = new AWS.Lambda({
-    region: process.env.REGION, //change to your region
+  var lambda = new Lambda({
+    region: process.env.REGION,
   });
   const payload = { arguments: { itemId: email } };
 
@@ -148,7 +162,7 @@ async function f1SearchPeople(email: string) {
     Payload: JSON.stringify(payload),
   };
 
-  const LambdaPromise = (params) => lambda.invoke(params).promise();
+  const LambdaPromise = (params) => lambda.invoke(params);
 
   const responseFromLambda2 = await LambdaPromise(params);
   return JSON.parse(responseFromLambda2.Payload.toString());
@@ -158,21 +172,16 @@ export const handler = async (event) => {
   var secretName = 'tmhweb/' + process.env.ENV + '/secrets',
     secret,
     decodedBinarySecret;
-  // Create a Secrets Manager client
-  var client = new AWS.SecretsManager({
+  var client = new SecretsManager({
     region: process.env.REGION,
   });
   try {
-    const data = await client
-      .getSecretValue({ SecretId: secretName })
-      .promise();
-
+    const data = await client.getSecretValue({ SecretId: secretName });
     if ('SecretString' in data) {
       secret = JSON.parse(data.SecretString);
     } else {
       decodedBinarySecret = data.SecretBinary.toString('base64');
     }
-
     console.log('Loading Secret Done');
     if (event.userName == secret.adminUser) {
       console.log('Logged in as Admin - stop here');
@@ -180,7 +189,6 @@ export const handler = async (event) => {
     } else {
       console.log('Not logged in as Admin - continuing');
     }
-
     console.log('Logged in');
     console.log({ event: event });
     var cognitoUser: any = await getCognitoUser(event);

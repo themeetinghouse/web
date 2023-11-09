@@ -1,5 +1,5 @@
-import AWS from 'aws-sdk';
-const S3 = new AWS.S3();
+import { S3 } from '@aws-sdk/client-s3';
+const S3 = new S3();
 
 export const listContentPagesFromS3 = async () => {
   try {
@@ -8,7 +8,7 @@ export const listContentPagesFromS3 = async () => {
       Prefix: 'static/content/',
     };
     // listObjectsV2 is limited to 1000 pages.
-    const data = await S3.listObjectsV2(params).promise();
+    const data = await S3.listObjectsV2(params);
     let pages = [];
     if (data?.Contents?.length) {
       pages = data?.Contents?.filter((page) => page.Key.includes('.json')).map(
@@ -34,7 +34,7 @@ export const readFromS3 = async (key) => {
       Bucket: process.env.HOSTING_S3ANDCLOUDFRONT_HOSTINGBUCKETNAME,
       Key: key,
     };
-    const data = await S3.getObject(params).promise();
+    const data = await S3.getObject(params);
     return data.Body.toString();
   } catch (error) {
     console.error({ 'failed to read from S3': error });
@@ -60,7 +60,7 @@ export const writeToS3 = async (body, path, key, ext) => {
       Body: body,
       ContentType: contentType,
     };
-    await S3.putObject(params).promise();
+    await S3.putObject(params);
   } catch (error) {
     console.error({ 'failed to write to S3': error });
   }

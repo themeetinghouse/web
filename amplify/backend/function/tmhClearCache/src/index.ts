@@ -3,15 +3,21 @@
 	HOSTING_S3ANDCLOUDFRONT_HOSTINGBUCKETNAME
 	REGION
 Amplify Params - DO NOT EDIT */
-const AWS = require('aws-sdk');
-const S3 = new AWS.S3();
-const cloudfront = new AWS.CloudFront();
+
+import {
+  CloudFrontClient,
+  CreateInvalidationCommand,
+} from '@aws-sdk/client-cloudfront';
 import { deleteRecursive } from './deleteRecursive';
+
+const client = new CloudFrontClient({
+  region: process.env.REGION,
+});
+
 export const handler = async (event) => {
   try {
     console.log(event);
     await deleteRecursive(
-      S3,
       process.env.HOSTING_S3ANDCLOUDFRONT_HOSTINGBUCKETNAME,
       'cached'
     );
@@ -21,7 +27,7 @@ export const handler = async (event) => {
       InvalidationBatch: {
         /* required */ CallerReference: Date.now().toString() /* required */,
         Paths: {
-          /* required */ Quantity: '1' /* required */,
+          /* required */ Quantity: 1 /* required */,
           Items: [
             '/*',
             /* more items */
@@ -29,14 +35,9 @@ export const handler = async (event) => {
         },
       },
     };
-
-    const z = await cloudfront.createInvalidation(params).promise();
-    console.log(z);
-    //   cloudfront.createInvalidation(params, function(err, data) {
-    //     if (err) console.log(err, err.stack); // an error occurred
-    //     else     console.log(data);           // successful response
-    //   });
-
+    const command = new CreateInvalidationCommand(params);
+    const createInvalidationResponse = await client.send(command);
+    console.log({ createInvalidationResponse });
     const response = {
       statusCode: 200,
     };
