@@ -224,7 +224,7 @@ export default function PeopleManager() {
             <option value="All">All</option>
             <option value="Coordinators">Coordinators</option>
             <option value="Staff">Staff</option>
-            <option value="Teachers">Teachers</option>
+            {false ? <option value="Teachers">Teachers</option> : null}
             <option value="Overseers">Overseers</option>
           </select>
         ) : null}

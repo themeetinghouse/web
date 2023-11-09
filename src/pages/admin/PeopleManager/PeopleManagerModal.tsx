@@ -497,16 +497,18 @@ export default function PeopleManagerModal({
               />
               Staff
             </label>
-            <label htmlFor="isTeacher" style={{ flexDirection: 'row' }}>
-              <input
-                name={'isTeacher'}
-                style={{ marginRight: 8, scale: 1.2 }}
-                checked={userData?.isTeacher === 'true'}
-                onChange={updateCheckBox}
-                type="checkbox"
-              />
-              Teacher
-            </label>
+            {false ? (
+              <label htmlFor="isTeacher" style={{ flexDirection: 'row' }}>
+                <input
+                  name={'isTeacher'}
+                  style={{ marginRight: 8, scale: 1.2 }}
+                  checked={userData?.isTeacher === 'true'}
+                  onChange={updateCheckBox}
+                  type="checkbox"
+                />
+                Teacher
+              </label>
+            ) : null}
             <label htmlFor="isOverseer" style={{ flexDirection: 'row' }}>
               <input
                 style={{ marginRight: 8, scale: 1.2 }}
