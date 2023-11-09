@@ -188,7 +188,7 @@ export default function TeachingSearch(props: Props) {
                         <div className="Content">
                           <div className="Details">
                             <div className="Title">{item.episodeTitle}</div>
-                            <div className="RightContainer">
+                            <div className="RightContainer1">
                               {item.publishedDate ? (
                                 <div className="Date">{item.publishedDate}</div>
                               ) : null}
@@ -271,7 +271,7 @@ export default function TeachingSearch(props: Props) {
                           <div className="Content">
                             <div className="Details">
                               <div className="Title">{item.blogTitle}</div>
-                              <div className="RightContainer">
+                              <div className="RightContainer1">
                                 {item.publishedDate ? (
                                   <div className="Date">
                                     {item.publishedDate}
