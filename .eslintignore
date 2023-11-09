@@ -4,3 +4,5 @@ native-base-theme
 native-base-theme/components
 cypress
 amplify-codegen-temp/models
+
+amplify-codegen-temp/models/models

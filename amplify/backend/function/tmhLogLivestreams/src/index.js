@@ -4,7 +4,7 @@
 exports.handler = (event) => {
   console.log(`EVENT: ${JSON.stringify(event)}`);
   for (const record of event.Records) {
-    console.log('DynamoDB Record: %j', record.dynamodb);
+    console.log('ADynamoDB Record: %j', record.dynamodb);
     console.log(
       `${record.eventName} was performed on ${
         record.dynamodb.Keys.id.S
