@@ -3980,6 +3980,7 @@ const ImageComponent = ({ url }: { url: string }) => {
 };
 // Hero
 function HeroEditImageComponent({ component, setComponent }: any) {
+  const [errorMessage, setErrorMessage] = React.useState('');
   const [showAddNew, setShowAddNew] = React.useState(false);
   const [newImage, setNewImage] = React.useState({
     src: '',
@@ -3996,7 +3997,12 @@ function HeroEditImageComponent({ component, setComponent }: any) {
     });
   };
   const handleRemoveImage = (index: number) => {
-    if (component.image1.length === 1) return;
+    if (component.image1.length === 1) {
+      setErrorMessage('You must have at least one image');
+      return;
+    } else {
+      setErrorMessage('');
+    }
     const newComponent = { ...component };
     newComponent.image1.splice(index, 1);
     setComponent(newComponent);
@@ -4044,6 +4050,7 @@ function HeroEditImageComponent({ component, setComponent }: any) {
             style={{ display: 'flex', flexDirection: 'row' }}
           >
             <ImageComponent url={image.src} />
+
             <div
               style={{
                 display: 'flex',
@@ -4108,9 +4115,13 @@ function HeroEditImageComponent({ component, setComponent }: any) {
             disabled={showAddNew && !newImage.src}
             link={!showAddNew}
             style={!showAddNew ? { paddingLeft: 0 } : { marginTop: 20 }}
-            onClick={() =>
-              showAddNew ? handleAddNewImage() : setShowAddNew(true)
-            }
+            onClick={() => {
+              if (showAddNew) handleAddNewImage();
+              else {
+                setErrorMessage('');
+                setShowAddNew(true);
+              }
+            }}
           >
             {showAddNew ? 'Add image' : 'Add a new image'}
           </LocationsTMHButton>
@@ -4124,6 +4135,9 @@ function HeroEditImageComponent({ component, setComponent }: any) {
             </LocationsTMHButton>
           ) : null}
         </div>
+        {errorMessage ? (
+          <span style={{ color: 'tomato' }}>{errorMessage}</span>
+        ) : null}
       </div>
     </div>
   );
