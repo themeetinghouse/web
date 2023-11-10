@@ -1656,7 +1656,7 @@ type TMHLocationMeeting {
   location: TMHLocationAddress
 }
 
-type TMHLocation @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Admin"], provider: userPools}]) {
+type TMHLocation @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Admin", "LocationManager"], provider: userPools}]) {
   id: String!
   name: String!
   regionShortName: String

@@ -114,7 +114,7 @@ export default function LocationsModalYouth({
               onChange={handleChange}
               placeholder="Youth | Grades 6 – 12"
               name="description"
-              value={newLocData?.youth?.description as string}
+              value={newLocData?.youth?.description ?? ''}
               type="text"
             />
           </label>
@@ -130,7 +130,7 @@ export default function LocationsModalYouth({
               placeholder="https://www.facebook.com/bramptonyouth.tmh/"
               onChange={handleChange}
               name="facebookLink"
-              value={newLocData?.youth?.facebookLink as string}
+              value={newLocData?.youth?.facebookLink ?? ''}
               type="text"
             />
           </label>
@@ -219,7 +219,7 @@ export default function LocationsModalYouth({
               onChange={handleChange}
               name="instagramLink"
               placeholder='i.e. "https://www.instagram.com/bramptonyouth.tmh/"'
-              value={newLocData?.youth?.instagramLink as string}
+              value={newLocData?.youth?.instagramLink ?? ''}
               type="text"
             />
           </label>
