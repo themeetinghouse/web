@@ -289,7 +289,7 @@ export default function PageComponentEditor() {
         })
       }
     >
-      <div style={{ padding: 16 }}>
+      <div style={{ padding: 16 }} className="EditorConfigurationParent">
         <div
           style={{
             display: 'flex',

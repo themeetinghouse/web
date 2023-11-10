@@ -730,6 +730,11 @@ $no-footer-height: 38vw;
   .heroBlackBox {
     width: 39%;
   }
+  .EditorConfigurationParent {
+    .heroBlackBox {
+      width: 100%;
+    }
+  }
 }
 
 @media (max-width: 767px) {
