@@ -32,7 +32,6 @@ const loadStaff = async ({
     console.log({ groups });
     if (groups?.includes('LocationManager')) {
       const people = (data?.listTMHPeople?.items as TMHPerson[]) ?? [];
-      console.log({ people });
       const currentTMHPerson = (await API.graphql({
         query: queries.TMHPersonByEmail,
         variables: { email: user.username },
@@ -40,7 +39,6 @@ const loadStaff = async ({
       const currentPersonData =
         currentTMHPerson.data?.TMHPersonByEmail?.items ?? [];
       const currentPerson = currentPersonData[0];
-      console.log({ currentPerson });
       if (currentPerson) {
         const selfSites = currentPerson.tmhSites?.items.map(
           (site) => site?.tMHSite?.id
@@ -49,10 +47,9 @@ const loadStaff = async ({
         const selfFilteredLocs = locations.filter((location) => {
           return selfSites?.includes(location.abbreviation ?? '');
         });
-        console.log({ selfFilteredLocs });
         const filteredPeople = people.filter((person) => {
           const personSites = person.tmhSites?.items.map(
-            (site) => site?.tMHSite?.id
+            (site) => site?.tMHSiteID
           );
           const personLocations = locations.filter((location) => {
             return personSites?.includes(location.abbreviation ?? '');
