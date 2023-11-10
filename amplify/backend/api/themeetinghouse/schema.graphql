@@ -815,7 +815,7 @@ type F1ListGroup2A {
   schedule: F1ListEventSchedule2
 }
 
-type HomeChurchInfo @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, operations: [read, update, delete, create], groups: ["Admin", "HomechurchEditor"], provider: userPools}, {allow: owner, operations: [read, update, delete, create]}]) {
+type HomeChurchInfo @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, operations: [read, update, delete, create], groups: ["Admin", "HomechurchEditor", "LocationManager"], provider: userPools}, {allow: owner, operations: [read, update, delete, create]}]) {
   id: String
   elders: [String]
   customPills: [String]
@@ -1320,7 +1320,7 @@ type Redirect @model @auth(rules: [{allow: public, operations: [read]}, {allow: 
   to: String!
 }
 
-type Announcement @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Admin"], provider: userPools}]) {
+type Announcement @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Admin", "LocationManager"], provider: userPools}]) {
   id: ID!
   publishedDate: String!
   expirationDate: String!
