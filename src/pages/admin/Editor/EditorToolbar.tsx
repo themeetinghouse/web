@@ -11,7 +11,8 @@ interface ToolbarProps {
 export default function EditorToolbar(props: ToolbarProps) {
   const { state, dispatch } = useEditorPageContext();
   const { content } = state;
-  return content ? (
+  const isOgTags = content?.page?.content?.[props.index]?.type === 'og-tags';
+  return content && !isOgTags ? (
     <div className={styles['EditorToolbarContainer']}>
       {props.index !== 0 ? (
         <button
