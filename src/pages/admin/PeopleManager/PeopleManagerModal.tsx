@@ -334,11 +334,23 @@ export default function PeopleManagerModal({
   const updateCheckBox = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.persist();
     const value = event.target.checked.toString() ?? '';
+    console.log({ userData });
+    console.log({ [event.target.name]: value });
+    const toggledData: {
+      isCoordinator: TMHPerson['isCoordinator'];
+      isStaff: TMHPerson['isStaff'];
+      isOverseer: TMHPerson['isOverseer'];
+    } = {
+      isCoordinator: 'false',
+      isStaff: 'false',
+      isOverseer: 'false',
+      [event.target.name]: value.toString(),
+    };
     setUserData(
       (prev) =>
         ({
           ...prev,
-          [event.target.name]: value,
+          ...toggledData,
         } as TMHPerson)
     );
   };
