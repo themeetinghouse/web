@@ -5645,11 +5645,144 @@ const EditComponentRouter = ({
         setStep={setStep}
       />
     );
+  } else if (type === 'give2' || type === 'give') {
+    return (
+      <GiveEdit
+        component={component}
+        setComponent={setComponent}
+        step={step}
+        setStep={setStep}
+      />
+    );
   } else {
-    console.log('unknown component', component);
-    return <div>An unknown error occurred.</div>;
+    return <div>This component does not exist.</div>;
   }
 };
+
+function GiveEdit({
+  step,
+  component,
+  setComponent,
+  setStep,
+}: {
+  step: number;
+  component: any;
+  setComponent: any;
+  setStep: any;
+}) {
+  const { state, dispatch } = useEditorPageContext();
+  const { content } = state;
+  const handleChange = (e: any) => {
+    setComponent((prev: any) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+  return (
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 8,
+      }}
+    >
+      {component.type === 'give' ? (
+        <span style={{ color: 'tomato', fontSize: 11 }}>
+          This component will not immediately display updated preview of the
+          changes, however once saved and published, you can refresh the page
+          and the changes will be reflected. Alternatively, visit the page on
+          live website
+        </span>
+      ) : null}
+      <TMHInput
+        label="Main heading"
+        onChange={handleChange}
+        value={component.header1}
+        name="header1"
+      />
+      <TMHInput
+        label="Sub heading"
+        onChange={handleChange}
+        value={component.header2}
+        name="header2"
+      />
+      <TMHInput
+        label="Text 1"
+        onChange={handleChange}
+        value={component.text1}
+        name="text1"
+      />
+      <TMHInput
+        label="Text 2"
+        onChange={handleChange}
+        value={component.text2}
+        name="text2"
+      />
+      <TMHInput
+        label="Text 3"
+        onChange={handleChange}
+        value={component.text3}
+        name="text3"
+      />
+      <TMHInput
+        label="Text 4"
+        onChange={handleChange}
+        value={component.text4}
+        name="text4"
+      />
+      <TMHInput
+        label="Text 5"
+        onChange={handleChange}
+        value={component.text5}
+        name="text5"
+      />
+      <div
+        style={{
+          gap: 8,
+          display: 'flex',
+          marginTop: 20,
+          flex: 1,
+          alignItems: 'flex-end',
+        }}
+      >
+        <LocationsTMHButton
+          onClick={() => {
+            if (step !== 0) setStep((prev: any) => prev - 1);
+          }}
+        >
+          Back
+        </LocationsTMHButton>
+        <LocationsTMHButton
+          onClick={() => {
+            if (step === 0) {
+              const newContent = content;
+              if (
+                state.editIndex !== undefined &&
+                state.editIndex !== null &&
+                state.editIndex >= 0
+              ) {
+                newContent.page.content[state.editIndex] = component;
+              } else {
+                newContent.page.content.push(component);
+              }
+              dispatch({
+                type: EditorPageActionType.UPDATE_CONTENT,
+                payload: newContent,
+              });
+              dispatch({
+                type: EditorPageActionType.SET_SHOW_EDIT_COMPONENT_MODAL,
+                payload: null,
+              });
+            } else setStep((prev: any) => prev + 1);
+          }}
+        >
+          Save
+        </LocationsTMHButton>
+      </div>
+    </div>
+  );
+}
+
 function EditComponent() {
   const { state } = useEditorPageContext();
   const { content } = state;
@@ -5671,6 +5804,8 @@ function EditComponent() {
     <div
       ref={containerRef}
       style={{
+        backgroundColor:
+          content?.page?.pageConfig?.logoColor === 'white' ? '#1a1a1a' : '#FFF',
         height: containerRef.current?.scrollHeight.toString() ?? 0,
         display: 'flex',
         flexDirection: 'row',
@@ -5680,6 +5815,7 @@ function EditComponent() {
     >
       <div
         style={{
+          backgroundColor: '#FFF',
           minWidth: '50%',
           paddingRight: 20,
           display: 'flex',

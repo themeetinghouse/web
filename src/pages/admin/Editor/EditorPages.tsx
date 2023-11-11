@@ -179,6 +179,11 @@ export default function EditorPages() {
         flexDirection: 'column',
         marginLeft: 16,
         flex: 1,
+        backgroundColor:
+          currentPage === EditorPage.EDIT_PAGE &&
+          content?.page?.pageConfig?.logoColor === 'white'
+            ? '#1a1a1a'
+            : '#FFF',
       }}
     >
       {numberOfComponents === 0 && currentPage === EditorPage.EDIT_PAGE ? (

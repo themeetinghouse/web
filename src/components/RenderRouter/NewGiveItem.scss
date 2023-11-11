@@ -33,7 +33,7 @@
     }
   }
   .giveItemDiv2 {
-    background-color: white;
+    background-color: #fff;
     height: 100%;
   }
   .GiveItemHR {
@@ -715,3 +715,14 @@
   }
 }
 */
+
+.AdminPage {
+  .giveItemDiv2 {
+    background-color: transparent;
+  }
+}
+.EditorConfigurationParent {
+  .giveItemDiv2 {
+    background-color: transparent;
+  }
+}
