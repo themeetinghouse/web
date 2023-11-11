@@ -316,6 +316,11 @@ $no-footer-height: 38vw;
     top: 30vh;
     z-index: 100;
   }
+  .EditorConfigurationParent {
+    .heroBlackBox {
+      width: 100%;
+    }
+  }
   .headerItem {
     position: static;
     padding-bottom: 5vw;
@@ -646,6 +651,11 @@ $no-footer-height: 38vw;
     width: 50%;
     top: 30vh;
     z-index: 100;
+  }
+  .EditorConfigurationParent {
+    .heroBlackBox {
+      width: 100%;
+    }
   }
   .headerItem {
     position: static;
