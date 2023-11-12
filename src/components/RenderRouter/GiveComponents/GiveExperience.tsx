@@ -151,11 +151,11 @@ const makePayment = async ({
   startingDate?: number;
 }): Promise<any> => {
   if (!amount) {
-    console.log('No amount');
+    console.debug('No amount');
     return;
   }
   if (!fundID) {
-    console.log('No id');
+    console.debug('No id');
     return;
   }
   const variables = {
@@ -180,7 +180,7 @@ const makePayment = async ({
         },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       })) as GraphQLResult<TmhStripeAddSubscriptionQuery>;
-      console.log({ tmhStripeAddSubscription });
+      console.debug({ tmhStripeAddSubscription });
       return tmhStripeAddSubscription.data?.tmhStripeAddSubscription?.message;
     } else {
       const tmhStripeAddPayment = (await API.graphql({
@@ -193,11 +193,11 @@ const makePayment = async ({
         },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       })) as GraphQLResult<TmhStripeAddPaymentQuery>;
-      console.log({ tmhStripeAddPayment });
+      console.debug({ tmhStripeAddPayment });
       return tmhStripeAddPayment.data?.tmhStripeAddPayment?.message;
     }
   } catch (error) {
-    console.log({ error });
+    console.error({ error });
     return error;
   }
 };
@@ -247,7 +247,7 @@ const PageThree = () => {
       });
       setUserData(TMHUser.data?.getTMHUser as TMHUser);
     } catch (error) {
-      console.log({ error });
+      console.error({ error });
     } finally {
       setIsLoading(false);
     }
@@ -288,16 +288,16 @@ const PageThree = () => {
         },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       })) as GraphQLResult<UpdateTMHUserMutation>;
-      console.log({ updateUser });
+      console.debug({ updateUser });
       try {
         const tmhStripeLinkUser = (await API.graphql({
           query: tmhStripeAddCustomer,
           variables: { idempotency: uuidv4() },
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
         })) as GraphQLResult<TmhStripeAddCustomerQuery>;
-        console.log({ tmhStripeLinkUser: tmhStripeLinkUser });
+        console.debug({ tmhStripeLinkUser: tmhStripeLinkUser });
       } catch (error) {
-        console.log({ error });
+        console.error({ error });
       } finally {
         setIsLoading(false);
       }
@@ -305,15 +305,11 @@ const PageThree = () => {
         type: GEActionType.NAVIGATE_TO_PAYMENT_CARD,
       });
     } catch (error) {
-      console.log({ error });
+      console.error({ error });
     } finally {
       setIsLoading(false);
     }
   };
-
-  useEffect(() => {
-    console.log('Updated form:', form);
-  }, [form]);
   useEffect(() => {
     console.debug({ user: state.user });
   }, [state.user]);
@@ -393,7 +389,7 @@ const PageFour = () => {
           variables: { id: state.user.username },
           authMode: 'AMAZON_COGNITO_USER_POOLS',
         })) as GraphQLResult<GetTMHUserQuery>;
-        console.log({ user7: user });
+        console.debug({ user7: user });
         dispatch({
           type: GEActionType.SET_BILLING_DETAILS,
           payload: { user: user.data?.getTMHUser },
@@ -440,7 +436,7 @@ const PageFour = () => {
             disabled={isLoading}
             onClick={async () => {
               setIsLoading(true);
-              console.log({ state });
+              console.debug({ state });
               const paymentParams: any = {};
               paymentParams.fundID = state?.content?.fund?.id;
               paymentParams.amount = parseFloat(state?.content?.amount);
@@ -453,7 +449,7 @@ const PageFour = () => {
               const result = await makePayment(paymentParams);
               if (result === 'SUCCESS') {
                 setIsLoading(false);
-                console.log({ result });
+                console.debug({ result });
 
                 dispatch({
                   type: GEActionType.NAVIGATE_TO_COMPLETED,
@@ -461,6 +457,7 @@ const PageFour = () => {
                 });
               } else {
                 setIsLoading(false);
+                console.error({ result });
                 setErrorMessage(
                   "We're sorry, something went wrong.. Please contact support."
                 );

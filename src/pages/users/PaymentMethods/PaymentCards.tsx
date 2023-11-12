@@ -79,7 +79,7 @@ export default function PaymentCard() {
       ) : (
         <div>
           <h1>
-            {!state.content.selectedPaymentMethodId
+            {state.content.selectedPaymentMethodId
               ? 'Payment Method'
               : 'Select a payment method'}
           </h1>

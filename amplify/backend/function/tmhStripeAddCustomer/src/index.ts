@@ -25,7 +25,7 @@ export const handler = async (event) => {
     },
   };
   console.log({ customer });
-  var customerResult;
+  let customerResult;
   let message = '';
   if (!userInfo.stripeCustomerID) {
     customerResult = await TMHStripe.createCustomer(customer, idempotency);

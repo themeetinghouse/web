@@ -5,7 +5,6 @@ import GiveVerifyAccount from './GiveVerifyAccount';
 export type GiveAuthManagerPage = 'login' | 'register' | 'verify';
 export default function GiveAuthManager() {
   const [page, setPage] = useState<GiveAuthManagerPage>('login');
-  console.log({ page });
   return (
     <div>
       <AuthProvider>

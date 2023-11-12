@@ -45,7 +45,6 @@ export default function NewGiveItem(props: Props): JSX.Element {
       ReactGA.initialize('UA-4554612-19');
     else ReactGA.initialize('UA-4554612-3');
   }, []);
-  console.log(state);
   const renderGiveButtons = () => {
     return (
       <div className="GEButtonContainer">
