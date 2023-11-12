@@ -67,6 +67,7 @@ export default function LocationsModal({
       setLocationData((prev) => ({
         ...(prev as TMHLocation),
         location: {
+          ...prev?.location,
           [fieldName]: newValue,
         } as any,
       }));
