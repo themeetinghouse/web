@@ -107,6 +107,11 @@ export default function EditorPages() {
       const contentUrl = await Storage.get(filename);
       const response = await fetch(contentUrl);
       const json = await response.json();
+      if (json?.page?.name === 'communities') {
+        alert(
+          'Warning! Any changes made here will apply to all locations. Some components may allow you to select specific locations but this is for previewing purposes only.'
+        );
+      }
       dispatch({
         type: EditorPageActionType.SET_CURRENT_PAGE,
         payload: json,

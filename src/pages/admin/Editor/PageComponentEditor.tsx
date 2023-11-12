@@ -5654,11 +5654,484 @@ const EditComponentRouter = ({
         setStep={setStep}
       />
     );
+  } else if (type === 'simple') {
+    return (
+      <SimpleEdit
+        component={component}
+        setComponent={setComponent}
+        step={step}
+        setStep={setStep}
+      />
+    );
   } else {
     return <div>This component does not exist.</div>;
   }
 };
+const optionsLabels = {
+  SimpleItemTextBold: { label: 'Bold text', type: 'text' },
+  SimpleItemText: { label: 'Body text', type: 'text' },
+  SimpleItemLink: { label: 'Link', type: 'link' },
+  SimpleItemButton: { label: 'Button', type: 'link' },
+};
+function SimpleEditItem({
+  component,
+  setComponent,
+  step,
+  setStep,
+  item,
+}: {
+  step: number;
+  component: any;
+  setComponent: any;
+  setStep: any;
+  item: any;
+}) {
+  const [isFileLink, setIsFileLink] = React.useState(false);
+  const handleRemoveItem = (index: number) => {
+    const newList = component.text.filter(
+      (item: any, i: number) => i !== index
+    );
+    if (index === 0) {
+      setStep(1);
+    } else if (index === component.text.length - 1) {
+      setStep(index);
+    }
+    setComponent((prev: any) => ({
+      ...prev,
+      list: newList,
+    }));
+  };
+  const handleMoveItemUp = (index: number) => {
+    if (index === 0) return;
+    if (index === step - 1) setStep(step - 1);
+    const newList = component.text;
+    const item = newList[index];
+    newList[index] = newList[index - 1];
+    newList[index - 1] = item;
+    setComponent((prev: any) => ({
+      ...prev,
+      text: newList,
+    }));
+  };
+  const handleMoveItemDown = (index: number) => {
+    if (index === component.text.length - 1) return;
+    if (index === step - 1) setStep(step + 1);
+    const newList = component.texxt;
+    const item = newList[index];
+    newList[index] = newList[index + 1];
+    newList[index + 1] = item;
+    setComponent((prev: any) => ({
+      ...prev,
+      text: newList,
+    }));
+  };
+  const [pages, setPages] = React.useState<string[]>([]);
+  React.useEffect(() => {
+    (async function loadPageList() {
+      try {
+        const content = await Storage.list('savedContent/');
+        const pageNames = content.map((item: any) =>
+          item.key.replace('savedContent', '').replace('.json', '')
+        );
+        setPages(pageNames);
+      } catch (error) {
+        console.error({ error });
+      }
+    })();
+  }, []);
+  console.log({ item });
+  return (
+    <div style={{ display: 'flex', flexDirection: 'row', gap: 8 }}>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          gap: 8,
+          flex: 1,
+        }}
+      >
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            flex: 1,
+            gap: 8,
+          }}
+        >
+          {`Simple Item ${step}`}
+          <div style={{ flex: 1, gap: 8 }}>
+            <label>What is the type of this item?</label>
+            <Select
+              value={{
+                label:
+                  optionsLabels[item?.class as keyof typeof optionsLabels]
+                    .label,
+                value: item?.class,
+              }}
+              options={[
+                { label: 'Bold text', value: 'SimpleItemTextBold' },
+                { label: 'Body text', value: 'SimpleItemText' },
+                { label: 'Link', value: 'SimpleItemLink' },
+                { label: 'Button', value: 'SimpleItemButton' },
+              ]}
+              onChange={function (
+                newValue: SingleValue<{
+                  label: string;
+                  value: string;
+                }>
+              ): void {
+                console.log({ newValue });
+                if (!newValue) return;
+                const newList = component.text;
+                newList[step - 1].class = newValue.value;
+                newList[step - 1].type =
+                  optionsLabels[
+                    newValue.value as keyof typeof optionsLabels
+                  ].type;
+                setComponent((prev: any) => ({
+                  ...prev,
+                  text: newList,
+                }));
+              }}
+            ></Select>
+          </div>
+          {item.class === 'SimpleItemText' ||
+          item.class === 'SimpleItemTextBold' ? (
+            <TMHInput
+              label="Text"
+              value={item?.text}
+              onChange={(e: any) => {
+                const newList = component.text;
+                newList[step - 1].text = e.target.value;
+                setComponent((prev: any) => ({
+                  ...prev,
+                  text: newList,
+                }));
+              }}
+            ></TMHInput>
+          ) : item.class === 'SimpleItemButton' ||
+            item.class === 'SimpleItemLink' ? (
+            <>
+              <TMHInput
+                label="Link Label"
+                value={item?.text}
+                onChange={(e: any) => {
+                  const newList = component.text;
+                  newList[step - 1].text = e.target.value;
+                  setComponent((prev: any) => ({
+                    ...prev,
+                    list: newList,
+                  }));
+                }}
+              ></TMHInput>
+              {!isFileLink ? (
+                <div>
+                  <label>Where do you want the button to link to?</label>
+                  <CreatableSelect
+                    formatCreateLabel={(inputValue) =>
+                      `Add external link "${inputValue}"`
+                    }
+                    styles={{
+                      control: (provided: any) => ({
+                        ...provided,
+                        display: 'flex',
+                        flex: 1,
+                        marginTop: 4,
+                      }),
+                      container: (provided: any) => ({
+                        ...provided,
+                        display: 'flex',
+                        flex: 1,
+                      }),
+                    }}
+                    value={{
+                      label: item.href,
+                      value: item.href,
+                    }}
+                    onChange={(newValue) => {
+                      if (!newValue) return;
+                      const newList = component.text;
+                      newList[step - 1].href = newValue.value;
+                      setComponent((prev: any) => ({
+                        ...prev,
+                        text: newList,
+                      }));
+                    }}
+                    placeholder="Select Page/Enter Link"
+                    options={pages.map((item: any) => ({
+                      label: item,
+                      value: item,
+                    }))}
+                  ></CreatableSelect>
+                </div>
+              ) : null}
+              <AddFileComponent
+                setIsFileLink={setIsFileLink}
+                setNewLink={(s) => {
+                  const newList = component.text;
+                  newList[step - 1].href = s;
+                  setComponent((prev: any) => ({
+                    ...prev,
+                    text: newList,
+                  }));
+                }}
+              />
+            </>
+          ) : item?.type === 'button' ? (
+            <>
+              <TMHInput
+                label="Link Label"
+                value={item?.title}
+                onChange={(e: any) => {
+                  const newList = component.text;
+                  newList[step - 1].text = e.target.value;
+                  setComponent((prev: any) => ({
+                    ...prev,
+                    text: newList,
+                  }));
+                }}
+              ></TMHInput>
+            </>
+          ) : null}
+        </div>
 
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 8,
+            justifyContent: 'space-evenly',
+          }}
+        >
+          <button
+            style={{
+              backgroundColor: 'transparent',
+              border: 'none',
+            }}
+            onClick={() => handleRemoveItem(step - 1)}
+          >
+            <img src="/static/svg/Delete.svg"></img>
+          </button>
+          <button
+            style={{
+              backgroundColor: 'transparent',
+              border: 'none',
+            }}
+            onClick={() => handleMoveItemUp(step - 1)}
+          >
+            <img
+              src="/static/svg/Arrow.svg"
+              style={{ transform: 'rotate(-90deg' }}
+            ></img>
+          </button>
+          <button
+            style={{
+              backgroundColor: 'transparent',
+              border: 'none',
+            }}
+            onClick={() => handleMoveItemDown(step - 1)}
+          >
+            <img
+              src="/static/svg/Arrow.svg"
+              style={{ transform: 'rotate(90deg' }}
+            ></img>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+function SimpleEdit({
+  step,
+  component,
+  setComponent,
+  setStep,
+}: {
+  step: number;
+  component: any;
+  setComponent: any;
+  setStep: any;
+}) {
+  const { state, dispatch } = useEditorPageContext();
+  const { content } = state;
+  const [newItem, setNewItem] = React.useState({
+    text: '',
+    class: 'SimpleItemText',
+    href: '',
+    type: 'text',
+  });
+
+  const handleAddItem = () => {
+    const newList = component.text;
+    newList.push(newItem);
+    setComponent((prev: any) => ({
+      ...prev,
+      text: newList,
+    }));
+    setStep(newList.length);
+    setNewItem({
+      text: '',
+      class: '',
+      href: '',
+      type: '',
+    });
+  };
+  console.log({ component });
+  return (
+    <div
+      style={{
+        display: 'flex',
+        flex: 1,
+        flexDirection: 'column',
+      }}
+    >
+      {step === 0 ? (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+          <TMHInput
+            label="What do you want the heading text to say?"
+            maxLength={100}
+            labelStyle={{ flex: 0 }}
+            placeholder='e.g. "All Teaching Series"'
+            value={component.header1}
+            onChange={(e) =>
+              setComponent((prev: any) => ({
+                ...prev,
+                header1: e.target.value,
+              }))
+            }
+          />
+          <TMHInput
+            label="What do you want the sub heading text to say?"
+            maxLength={300}
+            labelStyle={{ flex: 0 }}
+            placeholder='e.g. "Explore the life and teaching of Jesus as well as practical applications for your daily life."'
+            value={component.header2}
+            onChange={(e) =>
+              setComponent((prev: any) => ({
+                ...prev,
+                header2: e.target.value,
+              }))
+            }
+          />
+        </div>
+      ) : (
+        <div
+          style={{
+            paddingTop: 20,
+            paddingBottom: 20,
+          }}
+        >
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div style={{ display: 'flex', flexDirection: 'row' }}>
+              <span style={{ flex: 1 }}>Simple Items</span>
+              <LocationsTMHButton onClick={handleAddItem} link style={{}}>
+                Add a new item
+              </LocationsTMHButton>
+            </div>
+
+            <p style={{ fontSize: 12 }}>
+              Add an item to the list below. You can add as many as you like.
+            </p>
+          </div>
+
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 16,
+            }}
+          >
+            {component.text
+              .slice(step - 1, step - 1 + 1)
+              .map((item: any, index: number) => (
+                <SimpleEditItem
+                  key={index}
+                  item={item}
+                  step={step}
+                  setStep={setStep}
+                  component={component}
+                  setComponent={setComponent}
+                />
+              ))}
+          </div>
+        </div>
+      )}
+      <div
+        style={{
+          gap: 8,
+          display: 'flex',
+          marginTop: 20,
+          flex: 1,
+          alignItems: 'flex-end',
+        }}
+      >
+        {step !== 0 ? (
+          <LocationsTMHButton
+            onClick={() => {
+              if (step !== 0) setStep((prev: any) => prev - 1);
+            }}
+          >
+            Back
+          </LocationsTMHButton>
+        ) : null}
+        {step !== component.text.length - 1 ? (
+          <LocationsTMHButton
+            onClick={() => {
+              if (step === component.text.length) {
+                const newContent = content;
+                if (
+                  state.editIndex !== undefined &&
+                  state.editIndex !== null &&
+                  state.editIndex >= 0
+                ) {
+                  newContent.page.content[state.editIndex] = component;
+                } else {
+                  newContent.page.content.push(component);
+                }
+                dispatch({
+                  type: EditorPageActionType.UPDATE_CONTENT,
+                  payload: newContent,
+                });
+                dispatch({
+                  type: EditorPageActionType.SET_SHOW_EDIT_COMPONENT_MODAL,
+                  payload: null,
+                });
+              } else setStep((prev: any) => prev + 1);
+            }}
+          >
+            {step > 0 && step < component.text?.length ? 'Next Item' : 'Next'}
+          </LocationsTMHButton>
+        ) : null}
+        <LocationsTMHButton
+          outline
+          onClick={() => {
+            const newContent = content;
+            if (
+              state.editIndex !== undefined &&
+              state.editIndex !== null &&
+              state.editIndex >= 0
+            ) {
+              newContent.page.content[state.editIndex] = component;
+            } else {
+              newContent.page.content.push(component);
+            }
+
+            dispatch({
+              type: EditorPageActionType.UPDATE_CONTENT,
+              payload: newContent,
+            });
+            dispatch({
+              type: EditorPageActionType.SET_SHOW_EDIT_COMPONENT_MODAL,
+              payload: null,
+            });
+          }}
+        >
+          {'Save'}
+        </LocationsTMHButton>
+      </div>
+    </div>
+  );
+}
 function GiveEdit({
   step,
   component,
@@ -5691,7 +6164,7 @@ function GiveEdit({
           This component will not immediately display updated preview of the
           changes, however once saved and published, you can refresh the page
           and the changes will be reflected. Alternatively, visit the page on
-          live website
+          the live website
         </span>
       ) : null}
       <TMHInput
