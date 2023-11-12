@@ -20,7 +20,7 @@
     }
   },
   "Resources": {
-    "LambdaLayerVersion8ffe2d82": {
+    "LambdaLayerVersionc56f0e33": {
       "Type": "AWS::Lambda::LayerVersion",
       "Properties": {
         "CompatibleRuntimes": {
@@ -51,13 +51,50 @@
       "DeletionPolicy": "Delete",
       "UpdateReplacePolicy": "Retain"
     },
-    "LambdaLayerPermissionPrivate8ffe2d82": {
+    "LambdaLayerPermissionPrivatec56f0e33": {
       "Type": "AWS::Lambda::LayerVersionPermission",
       "Properties": {
         "Action": "lambda:GetLayerVersion",
         "LayerVersionArn": {
-          "Ref": "LambdaLayerVersion8ffe2d82"
+          "Ref": "LambdaLayerVersionc56f0e33"
         },
+        "Principal": {
+          "Ref": "AWS::AccountId"
+        }
+      }
+    },
+    "LambdaLayerVersion8ffe2d82": {
+      "Type": "AWS::Lambda::LayerVersion",
+      "Properties": {
+        "CompatibleRuntimes": [
+          "nodejs14.x"
+        ],
+        "Content": {
+          "S3Bucket": {
+            "Ref": "deploymentBucketName"
+          },
+          "S3Key": "amplify-builds/themeetinghousetmhShared-LambdaLayerVersion8ffe2d82-build.zip"
+        },
+        "Description": "Updated layer version 2023-11-09T05:33:46.358Z",
+        "LayerName": {
+          "Fn::Sub": [
+            "themeetinghousetmhShared-${env}",
+            {
+              "env": {
+                "Ref": "env"
+              }
+            }
+          ]
+        }
+      },
+      "DeletionPolicy": "Delete",
+      "UpdateReplacePolicy": "Retain"
+    },
+    "LambdaLayerPermissionPrivate8ffe2d82": {
+      "Type": "AWS::Lambda::LayerVersionPermission",
+      "Properties": {
+        "Action": "lambda:GetLayerVersion",
+        "LayerVersionArn": "arn:aws:lambda:us-east-1:536749583917:layer:themeetinghousetmhShared-prodnew:35",
         "Principal": {
           "Ref": "AWS::AccountId"
         }
@@ -1039,7 +1076,7 @@
   "Outputs": {
     "Arn": {
       "Value": {
-        "Ref": "LambdaLayerVersion8ffe2d82"
+        "Ref": "LambdaLayerVersionc56f0e33"
       }
     }
   }

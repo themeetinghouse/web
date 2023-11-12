@@ -91,7 +91,7 @@
         },
         "themeetinghousetmhShared": {
           "deploymentBucketName": "amplify-themeetinghouse-prodnew-221608-deployment",
-          "s3Key": "amplify-builds/themeetinghousetmhShared-LambdaLayerVersion8ffe2d82-build.zip"
+          "s3Key": "amplify-builds/themeetinghousetmhShared-LambdaLayerVersionc56f0e33-build.zip"
         },
         "tmhStripeListPaymentMethods": {
           "userPoolId": "us-east-1_SuPgaibT1",
