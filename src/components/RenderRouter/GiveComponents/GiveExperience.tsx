@@ -223,7 +223,7 @@ const PageThree = () => {
     return errors;
   };
   const loadUserData = useCallback(async () => {
-    console.log('Loading user data');
+    console.debug('Loading user data');
     try {
       setIsLoading(true);
       const TMHUser = (await API.graphql({
@@ -231,7 +231,7 @@ const PageThree = () => {
         variables: { id: state.user.username },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       })) as GraphQLResult<GetTMHUserQuery>;
-      console.log({ TMHUser });
+      console.debug({ TMHUser });
       setForm({
         phone: TMHUser.data?.getTMHUser?.phone,
         given_name: TMHUser.data?.getTMHUser?.given_name,
@@ -315,7 +315,7 @@ const PageThree = () => {
     console.log('Updated form:', form);
   }, [form]);
   useEffect(() => {
-    console.log({ user: state.user });
+    console.debug({ user: state.user });
   }, [state.user]);
   const determineRecurring = () => {
     if (state.content.giftType === 'Recurring') {
@@ -385,7 +385,7 @@ const PageFour = () => {
   isPaymentValid();
   isProfileValid();
   useEffect(() => {
-    console.log({ user: state.user });
+    console.debug({ user: state.user });
     const loadUserData = async () => {
       try {
         const user = (await API.graphql({

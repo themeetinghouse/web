@@ -35,7 +35,7 @@ export default function PaymentCard() {
         query: queries.tmhStripeListPaymentMethods,
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       })) as GraphQLResult<TmhStripeListPaymentMethodsQuery>;
-      console.log(tmhStripeListPaymentMethods);
+      console.debug(tmhStripeListPaymentMethods);
       const creditCards =
         tmhStripeListPaymentMethods.data?.tmhStripeListPaymentMethods?.data ??
         [];
@@ -45,7 +45,7 @@ export default function PaymentCard() {
       setCards(creditCards);
       return creditCards;
     } catch (e: any) {
-      console.log({ Error: e });
+      console.error({ Error: e });
       setCards(e.data.tmhStripeListPaymentMethods?.data);
     } finally {
       setIsInitialLoading(false);
@@ -92,17 +92,14 @@ export default function PaymentCard() {
               }
             })
             ?.map((card) => {
-              return (
-                card &&
-                card.card && (
-                  <CardCard
-                    key={card.id}
-                    closeCard={() => setShowCardForm(false)}
-                    listPaymentMethods={getStripePaymentMethods}
-                    card={card}
-                  />
-                )
-              );
+              return card && card.card ? (
+                <CardCard
+                  key={card.id}
+                  closeCard={() => setShowCardForm(false)}
+                  listPaymentMethods={getStripePaymentMethods}
+                  card={card}
+                />
+              ) : null;
             })}
           {!shouldShowForm ? (
             state.content.selectedPaymentMethodId ? (
@@ -254,9 +251,9 @@ const CardCard = ({
         }}
       >
         <div className="CardImageContainer">
-          {card.card.brand && (
+          {card.card.brand ? (
             <img src={`/static/svg/${card.card.brand}.svg`}></img>
-          )}
+          ) : null}
         </div>
 
         <span style={{ justifyContent: 'center', flex: 1 }}>

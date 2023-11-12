@@ -118,7 +118,7 @@ export default function ProfilePage(props: ProfilePageProps) {
     }
   };
   const loadUserData = useCallback(async () => {
-    console.log('Loading user data');
+    console.debug('Loading user data');
     if (!userState.tmhUserData?.id) return;
     try {
       setIsLoading(true);
@@ -127,7 +127,7 @@ export default function ProfilePage(props: ProfilePageProps) {
         variables: { id: userState.user.username },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       })) as GraphQLResult<GetTMHUserQuery>;
-      console.log({ TMHUser });
+      console.debug({ TMHUser });
       const TMHUserData = TMHUser.data?.getTMHUser;
       if (!TMHUserData) {
         console.log('No user data');

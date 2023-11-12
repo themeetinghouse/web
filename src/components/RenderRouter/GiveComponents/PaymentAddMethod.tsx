@@ -52,7 +52,7 @@ export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
     } else {
       setStripeValidation({ ...stripeValidation, [name]: false });
     }
-    console.log(stripeValidation);
+    console.debug(stripeValidation);
   };
   const CARD_ELEMENT_OPTIONS = {
     classes: { base: 'NewCardInput' },
@@ -80,7 +80,7 @@ export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
     cardType: '',
   });
   const isCardFormValid = (): boolean => {
-    console.log(
+    console.debug(
       stripeValidation.cardNumber &&
         stripeValidation.expiryDate &&
         stripeValidation.cvc &&

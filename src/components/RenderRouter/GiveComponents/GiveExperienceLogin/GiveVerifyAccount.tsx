@@ -72,7 +72,7 @@ export default function GiveVerifyAccount(props: {
           'There was an error verifying your account. Please try again.'
         );
       }
-      console.log({ user });
+      console.debug({ user });
     } catch (error) {
       console.log(error);
     } finally {

@@ -74,10 +74,10 @@ export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
     } else {
       setStripeValidation({ ...stripeValidation, [name]: false });
     }
-    console.log(stripeValidation);
+    console.debug(stripeValidation);
   };
   const isCardFormValid = (): boolean => {
-    console.log(
+    console.debug(
       stripeValidation.cardNumber &&
         stripeValidation.expiryDate &&
         stripeValidation.cvc &&
@@ -161,7 +161,7 @@ export default function PaymentAddMethod(props: AddPaymentMethodCardProps) {
     setAddingCard(false);
     closeCard(cardDataForm);
   };
-  console.log({ state });
+  console.debug({ state });
   return (
     <>
       <div className="SecurePaymentContainer">
