@@ -8,7 +8,7 @@ import DataLoader, { LocationQuery } from './DataLoader';
 import AddToCalendar, { Event } from '../AddToCalendar/AddToCalendar';
 import FadeImage from 'components/ScaledImage/FadeImage';
 import React from 'react';
-import { Storage } from 'aws-amplify';
+import { Storage } from '@aws-amplify/storage';
 import { TMHLocation } from 'API';
 
 type ContentList = Array<
@@ -40,7 +40,7 @@ type ContentList = Array<
       type: 'downArrow';
     }
 >;
-function ContentImage({
+export function ContentImage({
   className,
   image,
   noShowOnStartup,

@@ -36,12 +36,14 @@ import {
   ListF1ListGroup2sQueryVariables,
   ListSpeakersQuery,
   ListSpeakersQueryVariables,
+  ListTMHCompassionsQuery,
   ListTMHLocationsQuery,
   ModelSortDirection,
   SearchBlogsQuery,
   SearchBlogsQueryVariables,
   SearchTMHPeopleQuery,
   SearchVideosQuery,
+  TMHCompassion,
   TMHLocation,
   TMHPerson,
   TMHPersonByIsCoordinatorQuery,
@@ -1125,10 +1127,15 @@ export default class DataLoader {
       return null;
     }
   }
-  static async loadCompassion(): Promise<CompassionData[]> {
+  static async loadCompassion(): Promise<TMHCompassion[]> {
     try {
-      const response = await fetch('/static/data/compassion.json');
-      return response.json();
+      const responseFromAPI = (await API.graphql({
+        query: queries.listTMHCompassions,
+        authMode: GRAPHQL_AUTH_MODE.API_KEY,
+      })) as GraphQLResult<ListTMHCompassionsQuery>;
+      const items = responseFromAPI?.data?.listTMHCompassions?.items ?? [];
+      console.log({ responseFromAPI: items });
+      return items as TMHCompassion[];
     } catch (error) {
       console.log(error);
       return [];

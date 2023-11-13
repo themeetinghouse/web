@@ -4,7 +4,6 @@ import VideoOverlay from '../VideoOverlay/VideoOverlay';
 import DataLoader, {
   PeopleData,
   EventData,
-  CompassionData,
   DataQuery,
   VideoByVideoTypeData,
   SpeakerData,
@@ -33,7 +32,7 @@ import { ScaledImage, BlogImage } from 'components/ScaledImage';
 import { fallbackToImage } from 'components/ScaledImage/ScaledImage';
 import { Link, ArrowLink } from 'components/Link/Link';
 import moment from 'moment';
-import { ModelSortDirection, TMHPerson } from 'API';
+import { ModelSortDirection, TMHCompassion, TMHPerson } from 'API';
 import { Margin } from '../types';
 import FadeImage from 'components/ScaledImage/FadeImage';
 import { Storage } from 'aws-amplify';
@@ -169,7 +168,7 @@ type ListData =
   | VideoData
   | PeopleData
   | EventData
-  | CompassionData
+  | TMHCompassion
   | SeriesByTypeData
   | BlogData
   | PeopleData[]
@@ -942,27 +941,18 @@ class ListItem extends React.Component<ListItemProps, State> {
       </div>
     );
   }
-  renderCompassion(item: CompassionData) {
+  renderCompassion(item: TMHCompassion) {
     const image = {
       src: item.image,
       alt: item.imagealt,
     };
     return (
       <div key={item.id} className="ListItemCompassion">
-        <ScaledImage
-          image={image}
+        <ListImage
           className="ListItemCompassionLogo"
-          fallbackUrl="/static/NoCompassionLogo.png"
-          breakpointSizes={{
-            320: 80,
-            480: 120,
-            640: 180,
-            1280: 320,
-            1920: 480,
-            2560: 640,
-          }}
+          fallbackImageUrl="/static/NoCompassionLogo.png"
+          image={image}
         />
-
         <div className="ListItemCompassionDescription">{item.name}</div>
         <div className="ListItemCompassionDescription2">{item.description}</div>
 
@@ -1114,7 +1104,7 @@ class ListItem extends React.Component<ListItemProps, State> {
       case 'instagram':
         return this.renderInstaTile(item as any);
       case 'compassion':
-        return this.renderCompassion(item as CompassionData);
+        return this.renderCompassion(item as TMHCompassion);
       case 'series':
         return this.renderSeries(item as SeriesByTypeData);
       case 'playlists':
