@@ -26,6 +26,7 @@ import { getTMHUserForGiveNow } from 'graphql-custom/customQueries';
 import { updateTMHUser } from 'graphql/mutations';
 import GiveAuthManager from './GiveExperienceLogin/GiveAuthManager';
 import moment from 'moment';
+import { Spinner } from 'reactstrap';
 
 const PageOne = () => {
   const { dispatch, state } = useContext(GEContext);
@@ -362,7 +363,14 @@ const PageThree = () => {
           className="GENextButton"
           type="button"
         >
-          {isLoading ? <span>Loading...</span> : <span>Next</span>}
+          {isLoading ? (
+            <div>
+              <Spinner size="sm" />
+              <span>Loading</span>
+            </div>
+          ) : (
+            <span>Next</span>
+          )}
         </button>
       </div>
     </div>
@@ -466,11 +474,16 @@ const PageFour = () => {
             className="GENextButton"
             style={{ width: 'unset', padding: '0px 24px' }}
           >
-            {isLoading
-              ? 'Loading...'
-              : state.content.giftType === 'Recurring'
-              ? 'Set up recurring giving'
-              : 'Give now'}
+            {isLoading ? (
+              <div>
+                <Spinner size="sm" />
+                <span>Loading</span>
+              </div>
+            ) : state.content.giftType === 'Recurring' ? (
+              'Set up recurring giving'
+            ) : (
+              'Give now'
+            )}
           </button>
         ) : null}
       </div>

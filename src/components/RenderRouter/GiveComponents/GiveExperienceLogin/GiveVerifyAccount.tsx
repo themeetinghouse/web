@@ -11,6 +11,7 @@ import {
 import * as queries from '../../../../graphql/queries';
 import * as mutations from '../../../../graphql/mutations';
 import moment from 'moment';
+import { Spinner } from 'reactstrap';
 
 export default function GiveVerifyAccount(props: {
   setPage: React.Dispatch<React.SetStateAction<GiveAuthManagerPage>>;
@@ -213,7 +214,14 @@ export default function GiveVerifyAccount(props: {
             className="GENextButton"
             type="button"
           >
-            {isLoading ? <span>Loading...</span> : <span>Verify</span>}
+            {isLoading ? (
+              <div>
+                <Spinner size="sm" />
+                <span>Loading</span>
+              </div>
+            ) : (
+              <span>Verify</span>
+            )}
           </button>
         </div>
       </form>

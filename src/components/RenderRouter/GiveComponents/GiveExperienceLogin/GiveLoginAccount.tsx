@@ -235,7 +235,14 @@ export default function GiveLoginAccount(props: {
             className="GENextButton"
             type="button"
           >
-            {isLoading ? <span>Loading...</span> : <span>Next</span>}
+            {isLoading ? (
+              <div>
+                <Spinner size="sm" />
+                <span>Loading</span>
+              </div>
+            ) : (
+              <span>Next</span>
+            )}
           </button>
         </div>
       </form>
