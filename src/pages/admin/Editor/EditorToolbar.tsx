@@ -11,7 +11,10 @@ interface ToolbarProps {
 export default function EditorToolbar(props: ToolbarProps) {
   const { state, dispatch } = useEditorPageContext();
   const { content } = state;
-  return content ? (
+  const contentItem = content?.page?.content?.[props?.index ?? 0];
+  const isOgTags = contentItem?.type === 'og-tags';
+  const isEditable = shouldShowToolBar(contentItem, content?.page?.name);
+  return content && !isOgTags && isEditable ? (
     <div className={styles['EditorToolbarContainer']}>
       {props.index !== 0 ? (
         <button
@@ -95,3 +98,57 @@ export default function EditorToolbar(props: ToolbarProps) {
     </div>
   ) : null;
 }
+
+const shouldShowToolBar = (contentItem: any, pageName: string) => {
+  const { type, style, class: componentClass } = contentItem || {};
+  const isEditable =
+    (type === 'hero' && style === 'full') ||
+    (type === 'hero' && style === 'partial') ||
+    (type === 'blog' && style === 'hero') ||
+    (type === 'teaching' && style === 'hero') ||
+    (type === 'hero' && style === 'locationPage') ||
+    (type === 'hero' && style === 'connect') ||
+    (type === 'content' && style === 'mad') ||
+    (type === 'content' && style === 'greyTwoText') ||
+    (type === 'content' && style === 'oneImageBlackRight') ||
+    (type === 'content' && style === 'oneImageBlackRightExtended') ||
+    (type === 'content' && style === 'oneImage') ||
+    (type === 'teachingsearch' && style === 'blog') ||
+    (type === 'content' && style === 'pieChart') ||
+    (type === 'hero' && style === 'partialNoFooter') ||
+    (type === 'list' && style === 'staff') ||
+    (type === 'blog' && style === 'multiImage') ||
+    (type === 'list' && style === 'grid' && componentClass === 'instagram') ||
+    (type === 'list' && style === 'curious-ui') ||
+    (type === 'list' &&
+      style === 'vertical' &&
+      componentClass === 'compassion') ||
+    (type === 'list' && style === 'ladder' && componentClass === 'events') ||
+    (type === 'list' && style === 'blogs' && componentClass === 'blogs') ||
+    (type === 'list' && style === 'horizontalBig') ||
+    (type === 'list' && style === 'horizontal') ||
+    (type === 'list' && style === 'imageList') ||
+    type === 'horizontal-list' ||
+    type === 'faq' ||
+    type === 'give2' ||
+    type === 'give' ||
+    type === 'simple';
+  const shouldHideInLocationsPage =
+    (pageName === 'communities' &&
+      type === 'list' &&
+      style === 'grid' &&
+      componentClass === 'instagram') ||
+    (pageName === 'communities' &&
+      type === 'list' &&
+      style === 'vertical' &&
+      componentClass === 'compassion') ||
+    (pageName === 'communities' &&
+      type === 'list' &&
+      style === 'ladder' &&
+      componentClass === 'events') ||
+    (pageName === 'communities' &&
+      type === 'list' &&
+      style === 'blogs' &&
+      componentClass === 'blogs');
+  return isEditable && !shouldHideInLocationsPage;
+};

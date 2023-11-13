@@ -105,7 +105,10 @@ export default function EditorMenu() {
             <button
               type="button"
               style={
-                currentPage === EditorPage.EDIT_PAGE && !isBackup && !isDraft
+                currentPage === EditorPage.EDIT_PAGE &&
+                !isBackup &&
+                !isDraft &&
+                !isScheduled
                   ? { fontWeight: 600, paddingLeft: 20 }
                   : { paddingLeft: 20 }
               }
@@ -536,7 +539,8 @@ function SaveAsDraftModal() {
       const newEditModeObject: any = {};
 
       newEditModeObject.isBackup = false;
-      newEditModeObject.isDraft = true;
+      newEditModeObject.isDraft = false;
+      newEditModeObject.isScheduled = false;
 
       dispatch({
         type: EditorPageActionType.SET_EDIT_MODE,
@@ -707,7 +711,7 @@ function SaveAsScheduled() {
       const newEditModeObject: any = {};
       newEditModeObject.isBackup = false;
       newEditModeObject.isDraft = false;
-
+      newEditModeObject.isScheduled = false;
       dispatch({
         type: EditorPageActionType.SET_EDIT_MODE,
         payload: newEditModeObject,
@@ -715,6 +719,10 @@ function SaveAsScheduled() {
       dispatch({
         type: EditorPageActionType.UPDATE_SAVED_STATUS,
         payload: true,
+      });
+      dispatch({
+        type: EditorPageActionType.NAVIGATE_TO,
+        payload: EditorPage.SCHEDULED_PAGE,
       });
       setResultMessage('Successfully saved!');
     } catch (e) {
@@ -924,6 +932,7 @@ function SaveModal() {
       const newEditModeObject: any = {};
       newEditModeObject.isDraft = false;
       newEditModeObject.isBackup = false;
+      newEditModeObject.isScheduled = false;
       dispatch({
         type: EditorPageActionType.SET_EDIT_MODE,
         payload: newEditModeObject,
@@ -932,10 +941,7 @@ function SaveModal() {
         type: EditorPageActionType.UPDATE_SAVED_STATUS,
         payload: true,
       });
-      dispatch({
-        type: EditorPageActionType.NAVIGATE_TO,
-        payload: EditorPage.SCHEDULED_PAGE,
-      });
+      console.log({ newEditModeObject });
       setResultMessage('Successfully saved!');
     } catch (e) {
       console.log({ e: e });

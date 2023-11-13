@@ -32,9 +32,9 @@ export default function GiveLoginAccount(props: {
             variables: { id: user.username },
             authMode: 'AMAZON_COGNITO_USER_POOLS',
           })) as GraphQLResult<GetTMHUserQuery>;
-          console.log({ TMHUser });
+          console.debug({ TMHUser });
           const stripeCustomerID = TMHUser.data?.getTMHUser?.stripeCustomerID;
-          console.log({ stripeCustomerID });
+          console.debug({ stripeCustomerID });
           // this runs every time because the function handles creating and updating the customer on stripe
           try {
             const tmhStripeLinkUser = (await API.graphql({
@@ -42,9 +42,9 @@ export default function GiveLoginAccount(props: {
               variables: { idempotency: uuidv4() },
               authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
             })) as GraphQLResult<TmhStripeAddCustomerQuery>;
-            console.log({ tmhStripeLinkUser: tmhStripeLinkUser });
+            console.debug({ tmhStripeLinkUser: tmhStripeLinkUser });
           } catch (e: any) {
-            console.log({ Error: e });
+            console.error({ Error: e });
           } finally {
             dispatch({
               type: GEActionType.NAVIGATE_TO_PAYMENT_INFO,
@@ -53,7 +53,7 @@ export default function GiveLoginAccount(props: {
           }
         }
       } catch (error) {
-        console.log(error);
+        console.error({ error });
       } finally {
         setIsLoadingInitial(false);
       }
@@ -65,16 +65,16 @@ export default function GiveLoginAccount(props: {
       setIsLoading(true);
       setErrorMessage('');
       const user = await Auth.signIn(form.email, form.password);
-      console.log({ user });
+      console.debug({ user });
       if (user) {
         const TMHUser = (await API.graphql({
           query: getTMHUserForGiveNow,
           variables: { id: user.username },
           authMode: 'AMAZON_COGNITO_USER_POOLS',
         })) as GraphQLResult<GetTMHUserQuery>;
-        console.log({ TMHUser });
+        console.debug({ TMHUser });
         const stripeCustomerID = TMHUser.data?.getTMHUser?.stripeCustomerID;
-        console.log({ stripeCustomerID });
+        console.debug({ stripeCustomerID });
         if (!stripeCustomerID) {
           try {
             const tmhStripeLinkUser = (await API.graphql({
@@ -82,12 +82,12 @@ export default function GiveLoginAccount(props: {
               variables: { idempotency: uuidv4() },
               authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
             })) as GraphQLResult<TmhStripeAddCustomerQuery>;
-            console.log({ tmhStripeLinkUser: tmhStripeLinkUser });
+            console.debug({ tmhStripeLinkUser: tmhStripeLinkUser });
           } catch (e: any) {
-            console.log({ Error: e });
+            console.error({ Error: e });
           }
         } else {
-          console.log(
+          console.debug(
             'User already has a stripe customer ID',
             stripeCustomerID
           );
@@ -97,9 +97,9 @@ export default function GiveLoginAccount(props: {
           payload: { user },
         });
       } else setErrorMessage('An error occurred. No user found');
-      console.log({ user });
+      console.debug({ user });
     } catch (error1: any) {
-      console.log({ error1 });
+      console.error({ error1 });
       setErrorMessage(error1.message || 'An error occurred');
     } finally {
       setIsLoading(false);
@@ -235,7 +235,14 @@ export default function GiveLoginAccount(props: {
             className="GENextButton"
             type="button"
           >
-            {isLoading ? <span>Loading...</span> : <span>Next</span>}
+            {isLoading ? (
+              <div>
+                <Spinner size="sm" />
+                <span>Loading</span>
+              </div>
+            ) : (
+              <span>Next</span>
+            )}
           </button>
         </div>
       </form>

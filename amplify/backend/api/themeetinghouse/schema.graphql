@@ -815,7 +815,7 @@ type F1ListGroup2A {
   schedule: F1ListEventSchedule2
 }
 
-type HomeChurchInfo @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, operations: [read, update, delete, create], groups: ["Admin", "HomechurchEditor"], provider: userPools}, {allow: owner, operations: [read, update, delete, create]}]) {
+type HomeChurchInfo @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, operations: [read, update, delete, create], groups: ["Admin", "HomechurchEditor", "LocationManager"], provider: userPools}, {allow: owner, operations: [read, update, delete, create]}]) {
   id: String
   elders: [String]
   customPills: [String]
@@ -1320,7 +1320,7 @@ type Redirect @model @auth(rules: [{allow: public, operations: [read]}, {allow: 
   to: String!
 }
 
-type Announcement @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Admin"], provider: userPools}]) {
+type Announcement @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Admin", "LocationManager"], provider: userPools}]) {
   id: ID!
   publishedDate: String!
   expirationDate: String!
@@ -1623,7 +1623,7 @@ type TMHSite @model @auth(rules: [{allow: public, operations: [read]}, {allow: p
   tmhPeople: [TMHPerson] @manyToMany(relationName: "SitePerson")
 }
 
-type TMHPerson @model @searchable @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Admin"], provider: userPools}]) {
+type TMHPerson @model @searchable @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Admin", "LocationManager"], provider: userPools}]) {
   id: ID!
   email: AWSEmail @index(name: "byEmail", queryField: "TMHPersonByEmail")
   firstName: String
@@ -1656,7 +1656,7 @@ type TMHLocationMeeting {
   location: TMHLocationAddress
 }
 
-type TMHLocation @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Admin"], provider: userPools}]) {
+type TMHLocation @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Admin", "LocationManager"], provider: userPools}]) {
   id: String!
   name: String!
   regionShortName: String

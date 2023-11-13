@@ -45,7 +45,6 @@ export default function NewGiveItem(props: Props): JSX.Element {
       ReactGA.initialize('UA-4554612-19');
     else ReactGA.initialize('UA-4554612-3');
   }, []);
-  console.log(state);
   const renderGiveButtons = () => {
     return (
       <div className="GEButtonContainer">
@@ -111,7 +110,7 @@ export default function NewGiveItem(props: Props): JSX.Element {
       <div className="giveItemDiv2">
         <div className="giveItemDiv3">
           {state.currentPage ? <GiveExperience /> : null}
-          {renderGiveOtherWays()}
+          {false ? renderGiveOtherWays() : null}
         </div>
       </div>
     </>

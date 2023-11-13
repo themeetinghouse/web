@@ -26,6 +26,7 @@ import { getTMHUserForGiveNow } from 'graphql-custom/customQueries';
 import { updateTMHUser } from 'graphql/mutations';
 import GiveAuthManager from './GiveExperienceLogin/GiveAuthManager';
 import moment from 'moment';
+import { Spinner } from 'reactstrap';
 
 const PageOne = () => {
   const { dispatch, state } = useContext(GEContext);
@@ -151,11 +152,11 @@ const makePayment = async ({
   startingDate?: number;
 }): Promise<any> => {
   if (!amount) {
-    console.log('No amount');
+    console.debug('No amount');
     return;
   }
   if (!fundID) {
-    console.log('No id');
+    console.debug('No id');
     return;
   }
   const variables = {
@@ -180,7 +181,7 @@ const makePayment = async ({
         },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       })) as GraphQLResult<TmhStripeAddSubscriptionQuery>;
-      console.log({ tmhStripeAddSubscription });
+      console.debug({ tmhStripeAddSubscription });
       return tmhStripeAddSubscription.data?.tmhStripeAddSubscription?.message;
     } else {
       const tmhStripeAddPayment = (await API.graphql({
@@ -193,11 +194,11 @@ const makePayment = async ({
         },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       })) as GraphQLResult<TmhStripeAddPaymentQuery>;
-      console.log({ tmhStripeAddPayment });
+      console.debug({ tmhStripeAddPayment });
       return tmhStripeAddPayment.data?.tmhStripeAddPayment?.message;
     }
   } catch (error) {
-    console.log({ error });
+    console.error({ error });
     return error;
   }
 };
@@ -223,7 +224,7 @@ const PageThree = () => {
     return errors;
   };
   const loadUserData = useCallback(async () => {
-    console.log('Loading user data');
+    console.debug('Loading user data');
     try {
       setIsLoading(true);
       const TMHUser = (await API.graphql({
@@ -231,7 +232,7 @@ const PageThree = () => {
         variables: { id: state.user.username },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       })) as GraphQLResult<GetTMHUserQuery>;
-      console.log({ TMHUser });
+      console.debug({ TMHUser });
       setForm({
         phone: TMHUser.data?.getTMHUser?.phone,
         given_name: TMHUser.data?.getTMHUser?.given_name,
@@ -247,7 +248,7 @@ const PageThree = () => {
       });
       setUserData(TMHUser.data?.getTMHUser as TMHUser);
     } catch (error) {
-      console.log({ error });
+      console.error({ error });
     } finally {
       setIsLoading(false);
     }
@@ -288,16 +289,16 @@ const PageThree = () => {
         },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       })) as GraphQLResult<UpdateTMHUserMutation>;
-      console.log({ updateUser });
+      console.debug({ updateUser });
       try {
         const tmhStripeLinkUser = (await API.graphql({
           query: tmhStripeAddCustomer,
           variables: { idempotency: uuidv4() },
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
         })) as GraphQLResult<TmhStripeAddCustomerQuery>;
-        console.log({ tmhStripeLinkUser: tmhStripeLinkUser });
+        console.debug({ tmhStripeLinkUser: tmhStripeLinkUser });
       } catch (error) {
-        console.log({ error });
+        console.error({ error });
       } finally {
         setIsLoading(false);
       }
@@ -305,17 +306,13 @@ const PageThree = () => {
         type: GEActionType.NAVIGATE_TO_PAYMENT_CARD,
       });
     } catch (error) {
-      console.log({ error });
+      console.error({ error });
     } finally {
       setIsLoading(false);
     }
   };
-
   useEffect(() => {
-    console.log('Updated form:', form);
-  }, [form]);
-  useEffect(() => {
-    console.log({ user: state.user });
+    console.debug({ user: state.user });
   }, [state.user]);
   const determineRecurring = () => {
     if (state.content.giftType === 'Recurring') {
@@ -366,7 +363,14 @@ const PageThree = () => {
           className="GENextButton"
           type="button"
         >
-          {isLoading ? <span>Loading...</span> : <span>Next</span>}
+          {isLoading ? (
+            <div>
+              <Spinner size="sm" />
+              <span>Loading</span>
+            </div>
+          ) : (
+            <span>Next</span>
+          )}
         </button>
       </div>
     </div>
@@ -385,7 +389,7 @@ const PageFour = () => {
   isPaymentValid();
   isProfileValid();
   useEffect(() => {
-    console.log({ user: state.user });
+    console.debug({ user: state.user });
     const loadUserData = async () => {
       try {
         const user = (await API.graphql({
@@ -393,7 +397,7 @@ const PageFour = () => {
           variables: { id: state.user.username },
           authMode: 'AMAZON_COGNITO_USER_POOLS',
         })) as GraphQLResult<GetTMHUserQuery>;
-        console.log({ user7: user });
+        console.debug({ user7: user });
         dispatch({
           type: GEActionType.SET_BILLING_DETAILS,
           payload: { user: user.data?.getTMHUser },
@@ -440,7 +444,7 @@ const PageFour = () => {
             disabled={isLoading}
             onClick={async () => {
               setIsLoading(true);
-              console.log({ state });
+              console.debug({ state });
               const paymentParams: any = {};
               paymentParams.fundID = state?.content?.fund?.id;
               paymentParams.amount = parseFloat(state?.content?.amount);
@@ -453,7 +457,7 @@ const PageFour = () => {
               const result = await makePayment(paymentParams);
               if (result === 'SUCCESS') {
                 setIsLoading(false);
-                console.log({ result });
+                console.debug({ result });
 
                 dispatch({
                   type: GEActionType.NAVIGATE_TO_COMPLETED,
@@ -461,6 +465,7 @@ const PageFour = () => {
                 });
               } else {
                 setIsLoading(false);
+                console.error({ result });
                 setErrorMessage(
                   "We're sorry, something went wrong.. Please contact support."
                 );
@@ -469,11 +474,16 @@ const PageFour = () => {
             className="GENextButton"
             style={{ width: 'unset', padding: '0px 24px' }}
           >
-            {isLoading
-              ? 'Loading...'
-              : state.content.giftType === 'Recurring'
-              ? 'Set up recurring giving'
-              : 'Give now'}
+            {isLoading ? (
+              <div>
+                <Spinner size="sm" />
+                <span>Loading</span>
+              </div>
+            ) : state.content.giftType === 'Recurring' ? (
+              'Set up recurring giving'
+            ) : (
+              'Give now'
+            )}
           </button>
         ) : null}
       </div>

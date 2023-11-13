@@ -1,10 +1,11 @@
-import { TMHPerson, UpdateTMHPersonInput } from 'API';
+import { TMHPerson, TMHPersonByEmailQuery, UpdateTMHPersonInput } from 'API';
 import React from 'react';
-import { API } from 'aws-amplify';
-import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
+import { Auth } from '@aws-amplify/auth';
+import { API, GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import * as mutations from '../../../graphql/mutations';
 import * as customMutations from '../../../graphql-custom/customMutations';
-
+import * as customQueries from '../../../graphql-custom/customQueries';
+import * as queries from '../../../graphql/queries';
 import { Modal, Spinner } from 'reactstrap';
 import {
   CreateTMHPersonInput,
@@ -15,6 +16,7 @@ import {
 import { Storage } from 'aws-amplify';
 import './PeopleManager.scss';
 import TMHSitesDropdown from './TMHSitesDropdown';
+import DataLoader from 'components/RenderRouter/DataLoader';
 
 type EditModalProps = {
   selectedUser: TMHPerson | null;
@@ -190,6 +192,41 @@ export default function PeopleManagerModal({
   };
   const createTMHPerson = async (newUser: TMHPerson) => {
     setIsLoading(true);
+    const user = await Auth.currentAuthenticatedUser();
+    const groups = user.signInUserSession.accessToken.payload['cognito:groups'];
+    let userSiteToAdd = '';
+    if (groups?.includes('LocationManager')) {
+      const currentTMHPerson = (await API.graphql({
+        query: queries.TMHPersonByEmail,
+        variables: { email: user.username },
+      })) as GraphQLResult<TMHPersonByEmailQuery>;
+      const currentPersonData =
+        currentTMHPerson.data?.TMHPersonByEmail?.items ?? [];
+      const currentPerson = currentPersonData[0];
+      if (currentPerson) {
+        const selfSites = currentPerson.tmhSites?.items.map(
+          (site) => site?.tMHSite?.id
+        );
+        const locations = await DataLoader.loadLocations();
+        const usersLocation = locations.filter((location) => {
+          return selfSites?.includes(location.abbreviation ?? '');
+        });
+        if (!usersLocation.length) {
+          setError([
+            'You are not currently assigned to a location. Please contact an admin to be assigned to a location.',
+          ]);
+          setIsLoading(false);
+          return;
+        }
+        userSiteToAdd = usersLocation[0].abbreviation ?? '';
+      } else {
+        setError([
+          'There was an error retrieving your user data. Please try again later or contact an admin.',
+        ]);
+        setIsLoading(false);
+        return;
+      }
+    }
     if (!newUser.firstName && !newUser.lastName) return;
     const fullName = `${newUser.firstName}_${newUser.lastName}`;
     const fieldsThatExist = Object.keys(newUser).filter(
@@ -213,8 +250,41 @@ export default function PeopleManagerModal({
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       })) as GraphQLResult<CreateTMHPersonMutation>;
       console.log({ newTMHPerson });
+      let newData = newTMHPerson?.data?.createTMHPerson as TMHPerson;
       if (newTMHPerson?.data?.createTMHPerson) {
-        const newData = newTMHPerson?.data?.createTMHPerson;
+        if (userSiteToAdd) {
+          // this only runs for location managers
+          try {
+            console.log(`creating site person for ${userSiteToAdd}`);
+            const createSitePerson = (await API.graphql({
+              query: customMutations.createSitePerson,
+              variables: {
+                input: {
+                  tMHSiteID: userSiteToAdd,
+                  tMHPersonID: newTMHPerson?.data?.createTMHPerson.id,
+                },
+              },
+              authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+            })) as GraphQLResult<UpdateTMHPersonMutation>;
+            console.log({ createSitePerson });
+            const getUpdatedTMHUserData = (await API.graphql({
+              query: customQueries.getTMHPerson,
+              variables: {
+                id: newTMHPerson?.data?.createTMHPerson.id,
+              },
+              authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
+            })) as GraphQLResult<{ getTMHPerson: TMHPerson }>;
+            if (getUpdatedTMHUserData?.data?.getTMHPerson) {
+              newData = {
+                ...userData,
+                ...getUpdatedTMHUserData?.data?.getTMHPerson,
+              };
+            }
+          } catch (error5) {
+            console.log({ error5 });
+          }
+        }
+        console.log({ newData });
         setUserData(newData);
         setCreated(true);
         updateCallback(newData);
@@ -334,11 +404,23 @@ export default function PeopleManagerModal({
   const updateCheckBox = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.persist();
     const value = event.target.checked.toString() ?? '';
+    console.log({ userData });
+    console.log({ [event.target.name]: value });
+    const toggledData: {
+      isCoordinator: TMHPerson['isCoordinator'];
+      isStaff: TMHPerson['isStaff'];
+      isOverseer: TMHPerson['isOverseer'];
+    } = {
+      isCoordinator: 'false',
+      isStaff: 'false',
+      isOverseer: 'false',
+      [event.target.name]: value.toString(),
+    };
     setUserData(
       (prev) =>
         ({
           ...prev,
-          [event.target.name]: value,
+          ...toggledData,
         } as TMHPerson)
     );
   };
@@ -497,16 +579,18 @@ export default function PeopleManagerModal({
               />
               Staff
             </label>
-            <label htmlFor="isTeacher" style={{ flexDirection: 'row' }}>
-              <input
-                name={'isTeacher'}
-                style={{ marginRight: 8, scale: 1.2 }}
-                checked={userData?.isTeacher === 'true'}
-                onChange={updateCheckBox}
-                type="checkbox"
-              />
-              Teacher
-            </label>
+            {false ? (
+              <label htmlFor="isTeacher" style={{ flexDirection: 'row' }}>
+                <input
+                  name={'isTeacher'}
+                  style={{ marginRight: 8, scale: 1.2 }}
+                  checked={userData?.isTeacher === 'true'}
+                  onChange={updateCheckBox}
+                  type="checkbox"
+                />
+                Teacher
+              </label>
+            ) : null}
             <label htmlFor="isOverseer" style={{ flexDirection: 'row' }}>
               <input
                 style={{ marginRight: 8, scale: 1.2 }}

@@ -28,8 +28,6 @@ export default function PaymentMethodsCard(): JSX.Element {
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
         }) as Promise<GraphQLResult<TmhStripeListPaymentMethodsQuery>>;
 
-        console.log(tmhStripeListPaymentMethods);
-
         const response = await tmhStripeListPaymentMethods;
         const cc = response.data?.tmhStripeListPaymentMethods?.data?.[0];
         if (mounted) {
@@ -38,7 +36,7 @@ export default function PaymentMethodsCard(): JSX.Element {
           }
         }
       } catch (e: any) {
-        console.log({ Error: e });
+        console.error({ Error: e });
         const cc = e.data?.tmhStripeListPaymentMethods?.data?.[0];
         if (mounted) {
           if (cc) {
@@ -55,7 +53,6 @@ export default function PaymentMethodsCard(): JSX.Element {
       if (tmhStripeListPaymentMethods) API.cancel(tmhStripeListPaymentMethods);
     };
   }, []);
-  console.log({ card });
   return (
     <div className="Payments">
       <h3>Payment Methods</h3>

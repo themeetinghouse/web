@@ -19,7 +19,6 @@ export const getTMHUser = /* GraphQL */ `
         line2
         postal_code
         state
-        __typename
       }
       profileImage {
         userId
@@ -27,7 +26,6 @@ export const getTMHUser = /* GraphQL */ `
         filenameMedium
         filenameLarge
         filenameUpload
-        __typename
       }
       joined
       f1PersonId
@@ -35,7 +33,6 @@ export const getTMHUser = /* GraphQL */ `
       total
       createdAt
       updatedAt
-      __typename
     }
   }
 `;

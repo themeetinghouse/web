@@ -31,12 +31,14 @@ export default function ConfirmDeleteModal({
     setIsDeleting(false);
   };
   const handleClear = () => {
-    clearDeleteKey();
     setResultMessage('');
+    setIsDeleting(false);
+    setResultMessage('');
+    clearDeleteKey();
   };
 
   return (
-    <Modal isOpen={Boolean(contentKey)}>
+    <Modal isOpen={Boolean(contentKey)} onClosed={handleClear}>
       <div
         style={{
           margin: 16,

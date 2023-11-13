@@ -55,6 +55,221 @@ export const listTMHPeople = /* GraphQL */ `
     }
   }
 `;
+
+export const listTMHLocations = /* GraphQL */ `
+  query ListTMHLocations(
+    $filter: ModelTMHLocationFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listTMHLocations(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        regionShortName
+        homeChurchGroupID
+        abbreviation
+        region
+        contact {
+          name
+          email
+          phone
+          extension
+        }
+        meetings {
+          date
+          startTime
+          endTime
+          name
+          description
+          frequency
+          location {
+            name
+            latitude
+            longitude
+            address1
+            address2
+            city
+            state
+            zip
+            country
+            url
+          }
+        }
+        youth {
+          name
+          description
+          age
+          location {
+            name
+            latitude
+            longitude
+            address1
+            address2
+            city
+            state
+            zip
+            country
+            url
+          }
+          time
+          facebookLink
+          instagramLink
+          contact {
+            name
+            email
+            phone
+            extension
+          }
+        }
+        socials {
+          facebook {
+            name
+            pageId
+            link
+          }
+          instagram {
+            name
+            username
+            pageId
+            link
+          }
+          discord
+          twitter
+        }
+        location {
+          name
+          latitude
+          longitude
+          address1
+          address2
+          city
+          state
+          zip
+          country
+          url
+        }
+        pastors {
+          id
+          email
+          firstName
+          lastName
+          image
+          phone
+          extension
+          sites
+          tmhSites {
+            items {
+              id
+              tMHSiteID
+              tMHPersonID
+              tMHSite {
+                id
+                tmhPeople {
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              tMHPerson {
+                id
+                email
+                firstName
+                lastName
+                image
+                phone
+                extension
+                sites
+                tmhSites {
+                  nextToken
+                }
+                position
+                isTeacher
+                isStaff
+                isCoordinator
+                isOverseer
+                createdAt
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          position
+          isTeacher
+          isStaff
+          isCoordinator
+          isOverseer
+          createdAt
+          updatedAt
+        }
+        pastorEmail
+        staff {
+          id
+          email
+          firstName
+          lastName
+          image
+          phone
+          extension
+          sites
+          tmhSites {
+            items {
+              id
+              tMHSiteID
+              tMHPersonID
+              tMHSite {
+                id
+                tmhPeople {
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              tMHPerson {
+                id
+                email
+                firstName
+                lastName
+                image
+                phone
+                extension
+                sites
+                tmhSites {
+                  nextToken
+                }
+                position
+                isTeacher
+                isStaff
+                isCoordinator
+                isOverseer
+                createdAt
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          position
+          isTeacher
+          isStaff
+          isCoordinator
+          isOverseer
+          createdAt
+          updatedAt
+        }
+        showInLocationMap
+        showInLocationList
+        locationType
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const getTMHPerson = /* GraphQL */ `
   query GetTMHPerson($id: ID!) {
     getTMHPerson(id: $id) {

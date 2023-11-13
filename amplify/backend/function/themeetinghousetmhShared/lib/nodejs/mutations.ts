@@ -23,7 +23,6 @@ export const createTMHUser = /* GraphQL */ `
         line2
         postal_code
         state
-        __typename
       }
       profileImage {
         userId
@@ -31,7 +30,6 @@ export const createTMHUser = /* GraphQL */ `
         filenameMedium
         filenameLarge
         filenameUpload
-        __typename
       }
       joined
       f1PersonId
@@ -39,7 +37,6 @@ export const createTMHUser = /* GraphQL */ `
       total
       createdAt
       updatedAt
-      __typename
     }
   }
 `;
@@ -64,7 +61,6 @@ export const updateTMHUser = /* GraphQL */ `
         line2
         postal_code
         state
-        __typename
       }
       profileImage {
         userId
@@ -72,7 +68,6 @@ export const updateTMHUser = /* GraphQL */ `
         filenameMedium
         filenameLarge
         filenameUpload
-        __typename
       }
       joined
       f1PersonId
@@ -80,7 +75,6 @@ export const updateTMHUser = /* GraphQL */ `
       total
       createdAt
       updatedAt
-      __typename
     }
   }
 `;

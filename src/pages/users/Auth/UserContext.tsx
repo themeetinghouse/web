@@ -18,6 +18,7 @@ import { Hub } from 'aws-amplify';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 import * as mutations from 'graphql/mutations';
+import LoadingPage from 'components/TMHRouter/LoadingPage';
 type UserState = {
   user: any | null; // should be cognitoUser
   tmhUserData: TMHUser | null;
@@ -45,16 +46,16 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const getAndSetUser = useCallback(async () => {
     try {
       const user = await Auth.currentAuthenticatedUser();
-      console.log({ user });
+      console.debug({ user });
       const tmhUser = (await API.graphql({
         query: getTMHUserForGiveNow,
         variables: { id: user.username },
         authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
       })) as GraphQLResult<GetTMHUserQuery>;
       const tmhUserData = tmhUser.data?.getTMHUser;
-      console.log({ tmhUserData });
+      console.debug({ tmhUserData });
       if (!tmhUserData) {
-        console.log('user data doesnt exist. must create');
+        console.debug('user data doesnt exist. must create');
         const inputData: CreateTMHUserInput = {
           id: user.username,
           given_name: user?.attributes?.given_name ?? '',
@@ -65,7 +66,7 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
           owner: user.username,
           joined: moment().format(),
         };
-        console.log({ inputData: inputData });
+        console.debug({ inputData: inputData });
         try {
           const createUser = (await API.graphql({
             query: mutations.createTMHUser,
@@ -74,7 +75,7 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
             },
             authMode: 'AMAZON_COGNITO_USER_POOLS',
           })) as GraphQLResult<CreateTMHUserMutation>;
-          console.log({ createUser: createUser });
+          console.debug({ createUser: createUser });
           const newTMHUser = (await API.graphql({
             query: getTMHUserForGiveNow,
             variables: { id: user.username },
@@ -93,10 +94,14 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
           );
           dispatch({
             type: 'SET_USER',
-            payload: { isProfileComplete, tmhUserData: newTMHUserData, user },
+            payload: {
+              isProfileComplete,
+              tmhUserData: newTMHUserData,
+              user,
+            },
           });
         } catch (e) {
-          console.log({ error: e });
+          console.error({ error: e });
         }
       } else {
         const isProfileComplete = Boolean(
@@ -111,10 +116,22 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
         );
         dispatch({
           type: 'SET_USER',
-          payload: { isProfileComplete, tmhUserData, user },
+          payload: {
+            isProfileComplete,
+            tmhUserData,
+            user,
+          },
         });
       }
     } catch (error) {
+      dispatch({
+        type: 'SET_USER',
+        payload: {
+          isProfileComplete: false,
+          tmhUserData: null,
+          user: null,
+        },
+      });
       console.error({ errorAuthing: error });
     }
   }, []);
@@ -126,34 +143,21 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
       console.log({ HubEvent: data });
       switch (data.payload.event) {
         case 'signIn':
-          console.log('user signed in');
           await getAndSetUser();
           if (state.isProfileComplete) {
-            console.log('navigating to /');
             navigate('/account');
           } else {
-            if (state.tmhUserData) navigate('account/profile');
-            else console.log('incomplete');
+            // if (state.tmhUserData) navigate('account/profile');
+            // else console.log('incomplete');
           }
           break;
-        case 'signUp':
-          console.log('user signed up');
-          break;
-        case 'signOut':
-          console.log('user signed out');
-          break;
-        case 'signIn_failure':
-          console.log('user sign in failed');
-          break;
-        case 'configured':
-          console.log('the Auth module is configured');
       }
     };
+    //if (!state.isProfileComplete) navigate('/account/profile');
     Hub.listen('auth', listenerFunc);
     return () => Hub.remove('auth', listenerFunc);
   }, [state.isProfileComplete, state.tmhUserData]);
-  console.log({ state });
-  if (isInitialLoading) return <div>Loading...</div>;
+  if (isInitialLoading) return <LoadingPage />;
   return (
     <UserContext.Provider value={{ state, dispatch }}>
       {children}

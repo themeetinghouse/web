@@ -385,7 +385,12 @@ export default function SearchItem(props: SearchItemProps) {
   ]);
   return (
     <div style={{ minHeight: '90vh' }}>
-      <form id="search" role="search" className="SearchItem">
+      <form
+        id="search"
+        role="search"
+        className="SearchItem"
+        onSubmit={(e) => e.preventDefault()}
+      >
         <div style={{ position: 'relative' }}>
           <input
             value={searchString}

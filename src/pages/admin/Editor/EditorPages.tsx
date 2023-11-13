@@ -107,6 +107,11 @@ export default function EditorPages() {
       const contentUrl = await Storage.get(filename);
       const response = await fetch(contentUrl);
       const json = await response.json();
+      if (json?.page?.name === 'communities') {
+        alert(
+          'Warning! Any changes made here will apply to all locations. Some components may allow you to select specific locations but this is for previewing purposes only.'
+        );
+      }
       dispatch({
         type: EditorPageActionType.SET_CURRENT_PAGE,
         payload: json,
@@ -179,6 +184,11 @@ export default function EditorPages() {
         flexDirection: 'column',
         marginLeft: 16,
         flex: 1,
+        backgroundColor:
+          currentPage === EditorPage.EDIT_PAGE &&
+          content?.page?.pageConfig?.logoColor === 'white'
+            ? '#1a1a1a'
+            : '#FFF',
       }}
     >
       {numberOfComponents === 0 && currentPage === EditorPage.EDIT_PAGE ? (
@@ -303,7 +313,19 @@ export default function EditorPages() {
                                         backgroundColor: 'transparent',
                                       }}
                                       onClick={async () => {
-                                        null;
+                                        await loadFile(item.key ?? 'unknown');
+                                        const editModeObj: any = {};
+
+                                        editModeObj['isBackup'] = true;
+                                        editModeObj['isDraft'] = false;
+                                        editModeObj['isScheduled'] = false;
+
+                                        dispatch({
+                                          type: EditorPageActionType.SET_EDIT_MODE,
+                                          payload: {
+                                            ...editModeObj,
+                                          },
+                                        });
                                       }}
                                     >
                                       <img

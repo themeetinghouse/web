@@ -32,7 +32,7 @@ export default function RecentTransactionsCard(): JSX.Element {
           setTransactions(
             response.data?.tmhStripeListCustomerTransactions?.transactions ?? []
           );
-          console.log({ response });
+          console.debug({ response });
         }
       } catch (error) {
         console.log({ failedToFetchTransactions: error });

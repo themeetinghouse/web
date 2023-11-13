@@ -19,9 +19,18 @@ function AccountMainContent(): JSX.Element {
     { label: 'Profile', link: 'profile' },
     { label: 'Admin', link: 'admin' },
   ];
-  console.log({ location });
+  console.debug({ location });
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense
+      fallback={
+        <div className="MyAccountContainer">
+          <div
+            className="DashboardContent"
+            style={open ? { display: 'none' } : {}}
+          ></div>
+        </div>
+      }
+    >
       <div className="MyAccountContainer">
         <MyAccountNav
           navigationItems={navLinks}

@@ -19,7 +19,6 @@ export default function TransactionsPage(): JSX.Element {
     function fetchUserTransactionsFromStripe() {
       (async () => {
         if (!state.tmhUserData?.stripeCustomerID) {
-          console.log('NO USER');
           return;
         } else {
           try {
@@ -32,7 +31,7 @@ export default function TransactionsPage(): JSX.Element {
               response.data?.tmhStripeListCustomerTransactions?.transactions ??
                 []
             );
-            console.log({ response });
+            console.debug({ response });
           } catch (error) {
             console.log({ failedToFetchTransactions: error });
           } finally {

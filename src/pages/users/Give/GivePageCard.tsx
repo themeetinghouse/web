@@ -209,7 +209,7 @@ export default function GivePageCard() {
             <option value="Every month">Every month</option>
             {/*<option value={`1st & 15th monthly`}>{'1st & 15th monthly'}</option>*/}
           </select>
-          <label htmlFor="date">Starting {state.content.startDate}</label>
+          <label htmlFor="date">Starting</label>
           <input
             min={today}
             data-testid="StartDate"

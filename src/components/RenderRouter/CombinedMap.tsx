@@ -463,10 +463,10 @@ export function ContentItem(props: Props) {
           lng: compassion.location?.longitude ?? 0,
         }));
       const combinedMarkers = [
-        ...locationMarkers,
         ...homeChurchMarkers,
         ...compassionMarkers,
         ...youthMarkers,
+        ...locationMarkers,
       ];
 
       combinedMarkers.forEach((marker) => {
@@ -646,30 +646,7 @@ export function ContentItem(props: Props) {
                     );
                   })
               : null}
-            {sundayVisible
-              ? locations
-                  .filter((loc) =>
-                    currentLocation ? loc.id === currentLocation.id : true
-                  )
-                  .map((location, index) => {
-                    return (
-                      <Marker
-                        onClick={(a, b, c) => {
-                          onMarkerClickSunday(a, b, location);
-                        }}
-                        key={'loc' + location.id + index}
-                        anchorPoint={new google.maps.Point(0, 0)}
-                        icon={
-                          selectedPlace ? SITE_PIN_SELECTED_URL : SITE_PIN_URL
-                        }
-                        position={{
-                          lat: location?.location?.latitude ?? 0,
-                          lng: location?.location?.longitude ?? 0,
-                        }}
-                      />
-                    );
-                  })
-              : null}
+
             {homeChurchVisible
               ? groups
                   .filter((loc) => {
@@ -721,6 +698,31 @@ export function ContentItem(props: Props) {
                     />
                   );
                 })
+              : null}
+            {sundayVisible
+              ? locations
+                  .filter((loc) =>
+                    currentLocation ? loc.id === currentLocation.id : true
+                  )
+                  .map((location, index) => {
+                    return (
+                      <Marker
+                        zIndex={1000000}
+                        key={'loc' + location.id + index}
+                        onClick={(a, b, c) => {
+                          onMarkerClickSunday(a, b, location);
+                        }}
+                        anchorPoint={new google.maps.Point(0, 0)}
+                        icon={
+                          selectedPlace ? SITE_PIN_SELECTED_URL : SITE_PIN_URL
+                        }
+                        position={{
+                          lat: location?.location?.latitude ?? 0,
+                          lng: location?.location?.longitude ?? 0,
+                        }}
+                      />
+                    );
+                  })
               : null}
           </Map>
         </div>

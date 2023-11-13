@@ -109,7 +109,7 @@ function CreateNewInstagram({
               onChange={handleChange}
               placeholder="e.g. Oakville Location"
               name="name"
-              value={newInstaData?.name as string}
+              value={newInstaData?.name ?? ''}
               type="text"
             />
           </label>
@@ -123,7 +123,7 @@ function CreateNewInstagram({
               onChange={handleChange}
               name="pageId"
               placeholder='e.g. "17841400000000000"'
-              value={newInstaData?.pageId as string}
+              value={newInstaData?.pageId ?? ''}
               type="text"
             />
           </label>
@@ -148,7 +148,7 @@ function CreateNewInstagram({
               onChange={handleChange}
               placeholder="e.g. @tmhoakville"
               name="username"
-              value={newInstaData?.username as string}
+              value={newInstaData?.username ?? ''}
               type="text"
             />
           </label>
@@ -164,7 +164,7 @@ function CreateNewInstagram({
               onChange={handleChange}
               placeholder='e.g. "https://www.instagram.com/tmhoakville/"'
               name="link"
-              value={newInstaData?.link as string}
+              value={newInstaData?.link ?? ''}
               type="text"
             />
           </label>
@@ -286,7 +286,7 @@ function CreateNewFacebook({
             <input
               onChange={handleChange}
               name="name"
-              value={newFacebookData?.name as string}
+              value={newFacebookData?.name ?? ''}
               type="text"
             />
           </label>
@@ -299,7 +299,7 @@ function CreateNewFacebook({
             <input
               onChange={handleChange}
               name="pageId"
-              value={newFacebookData?.pageId as string}
+              value={newFacebookData?.pageId ?? ''}
               type="text"
             />
           </label>
@@ -316,7 +316,7 @@ function CreateNewFacebook({
           <input
             onChange={handleChange}
             name="link"
-            value={newFacebookData?.link as string}
+            value={newFacebookData?.link ?? ''}
             type="text"
           />
         </label>
@@ -512,7 +512,7 @@ export default function LocationsModalSocials({
                       onChange={(e) => handleChangeInstagram(e, index)}
                       name="name"
                       placeholder='E.g. "Oakville Location", "tmhoakville"'
-                      value={instagramData?.name as string}
+                      value={instagramData?.name ?? ''}
                       type="text"
                     />
                   </label>
@@ -528,7 +528,7 @@ export default function LocationsModalSocials({
                       onChange={(e) => handleChangeInstagram(e, index)}
                       placeholder="E.g. @tmhoakville"
                       name="username"
-                      value={instagramData?.username as string}
+                      value={instagramData?.username ?? ''}
                       type="text"
                     />
                   </label>
@@ -545,7 +545,7 @@ export default function LocationsModalSocials({
                       onChange={(e) => handleChangeInstagram(e, index)}
                       name="pageId"
                       placeholder='E.g. "1234567890"'
-                      value={instagramData?.pageId as string}
+                      value={instagramData?.pageId ?? ''}
                       type="text"
                     />
                   </label>
@@ -561,7 +561,7 @@ export default function LocationsModalSocials({
                       placeholder='E.g. "https://www.instagram.com/tmhoakville/"'
                       onChange={(e) => handleChangeInstagram(e, index)}
                       name="link"
-                      value={instagramData?.link as string}
+                      value={instagramData?.link ?? ''}
                       type="text"
                     />
                   </label>
@@ -665,7 +665,7 @@ export default function LocationsModalSocials({
                         placeholder='E.g. "Oakville Location"'
                         onChange={(e) => handleChangeFacebook(e, index)}
                         name="name"
-                        value={facebookData?.name as string}
+                        value={facebookData?.name ?? ''}
                         type="text"
                       />
                     </label>
@@ -681,7 +681,7 @@ export default function LocationsModalSocials({
                         onChange={(e) => handleChangeFacebook(e, index)}
                         placeholder='E.g. "1234567890"'
                         name="pageId"
-                        value={facebookData?.pageId as string}
+                        value={facebookData?.pageId ?? ''}
                         type="text"
                       />
                     </label>
@@ -697,7 +697,7 @@ export default function LocationsModalSocials({
                         onChange={(e) => handleChangeFacebook(e, index)}
                         name="link"
                         placeholder='E.g. "https://www.facebook.com/tmhoakville/"'
-                        value={facebookData?.link as string}
+                        value={facebookData?.link ?? ''}
                         type="text"
                       />
                     </label>

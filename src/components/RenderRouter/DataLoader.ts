@@ -980,7 +980,7 @@ export default class DataLoader {
     let locations: TMHLocation[] = [];
     try {
       const response = (await API.graphql({
-        query: queries.listTMHLocations,
+        query: customQueries.listTMHLocations,
         authMode: GRAPHQL_AUTH_MODE.API_KEY,
       })) as GraphQLResult<ListTMHLocationsQuery>;
       locations =

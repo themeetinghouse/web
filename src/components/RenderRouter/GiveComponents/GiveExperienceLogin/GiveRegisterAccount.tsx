@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { GiveAuthManagerPage, useAuth } from './GiveAuthManager';
 import { Auth } from 'aws-amplify';
+import { Spinner } from 'reactstrap';
 
 export default function GiveRegisterAccount(props: {
   setPage: React.Dispatch<React.SetStateAction<GiveAuthManagerPage>>;
@@ -251,7 +252,13 @@ export default function GiveRegisterAccount(props: {
               className="GENextButton"
               type="button"
             >
-              {isLoading ? <span>Loading...</span> : <span>Register</span>}
+              {isLoading ? (
+                <div>
+                  <Spinner size="sm" /> <span>Loading</span>
+                </div>
+              ) : (
+                <span>Register</span>
+              )}
             </button>
           </div>
         </div>

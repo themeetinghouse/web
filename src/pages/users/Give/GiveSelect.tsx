@@ -19,7 +19,7 @@ export default function GiveSelect() {
         if (result.data?.tmhStripeListProducts?.error)
           throw result.data?.tmhStripeListProducts?.error;
         const products = result.data?.tmhStripeListProducts?.products ?? [];
-        console.log({ products });
+        console.debug({ products });
         const productOptions = products.map((product: any) => ({
           name: product.name,
           value: product.id,

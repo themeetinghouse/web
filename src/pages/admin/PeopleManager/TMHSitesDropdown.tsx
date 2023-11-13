@@ -31,6 +31,7 @@ export default function TMHSitesDropdown({
   React.useEffect(() => {
     (async () => {
       try {
+        setIsLoading(true);
         const sites = (await API.graphql({
           query: customQueries.listTMHSites,
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
@@ -55,6 +56,8 @@ export default function TMHSitesDropdown({
         const newUserSites =
           siteItems.filter((site: any) => siteIds?.includes(site?.id)) ?? [];
         setUserSites(newUserSites);
+      } finally {
+        setIsLoading(false);
       }
     })();
   }, []);
