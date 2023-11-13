@@ -161,6 +161,11 @@ export default function MyAccountNav({
                       Locations
                     </DropdownItem>
                   ) : null}
+                  {isLocationManager ? (
+                    <DropdownItem onClick={() => navigate(`admin/compassion`)}>
+                      Compassion Partners
+                    </DropdownItem>
+                  ) : null}
                   {isAdmin ? (
                     <DropdownItem onClick={() => navigate(`admin/permissions`)}>
                       User Permissions

@@ -7,12 +7,20 @@ import { API } from 'aws-amplify';
 import { deleteTMHCompassion } from 'graphql/mutations';
 import CompassionPartnersModal from './CompassionPartnersModal';
 import { TMHCompassion } from 'API';
+import Select from 'react-select';
 
 export default function CompassionPartnersPage() {
   const [selectedPartner, setSelectedPartner] = useState<TMHCompassion | null>(
     null
   );
-  const { partners, isLoading, setPartners } = useCompassionPartners();
+  const {
+    partners,
+    isLoading,
+    setPartners,
+    locations,
+    selectedLocation,
+    setSelectedLocation,
+  } = useCompassionPartners();
   const [errorMessage, setErrorMessage] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10; // Number of items you want per page
@@ -40,7 +48,6 @@ export default function CompassionPartnersPage() {
       );
     }
   };
-  console.log(partners.length);
   return (
     <div className={styles.CompassionPartnersPageWrapper}>
       <CompassionPartnersModal
@@ -48,6 +55,19 @@ export default function CompassionPartnersPage() {
         onClose={() => setSelectedPartner(null)}
       />
       <h1>Compassion Partners Page</h1>
+      <Select
+        value={selectedLocation}
+        options={[
+          { value: 'All', label: 'All' },
+          ...(locations.map((location) => ({
+            value: location.id,
+            label: location.name,
+          })) as any),
+        ]}
+        onChange={({ value }: any) => {
+          setSelectedLocation(value);
+        }}
+      />
       <div>
         {isLoading ? (
           <Spinner size="sm" />
@@ -87,7 +107,11 @@ export default function CompassionPartnersPage() {
                                 height={25}
                               />
                             </button>
-                            <button onClick={() => handleDelete(partner.id)}>
+                            <button
+                              onClick={() => {
+                                if (false) handleDelete(partner.id);
+                              }}
+                            >
                               <img
                                 src="/static/svg/Delete.svg"
                                 width={25}
@@ -120,7 +144,7 @@ export default function CompassionPartnersPage() {
                 </div>
               </>
             ) : (
-              <span>No Compassion Partners yet. Click here to add one.</span>
+              <span>No Compassion Partners found for this location.</span>
             )}
           </div>
         )}
