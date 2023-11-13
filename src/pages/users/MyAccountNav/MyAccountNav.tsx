@@ -34,21 +34,15 @@ export default function MyAccountNav({
   const [navItems, setNavItems] = useState<NavItems>(navigationItems);
   const [userGroups, setUserGroups] = useState<any>([]);
   useEffect(() => {
-    (async () => {
-      try {
-        const user1 = await Auth.currentAuthenticatedUser();
-
-        const groups =
-          user1.signInUserSession.accessToken.payload['cognito:groups'];
-        setUserGroups(groups);
-      } catch (error6) {
-        console.log({ error6 });
-      }
-    })();
-  }, []);
-  useEffect(() => {
+    console.log('getting nav');
     const fetchNavItems = async () => {
       try {
+        const user1 = await Auth.currentAuthenticatedUser();
+        console.log({ user1 });
+        const groups =
+          user1.signInUserSession.accessToken.payload['cognito:groups'];
+        console.log({ groups });
+        setUserGroups(groups);
         const response = await fetch(
           '/static/content/account-portal/custom-nav-items.json'
         );
@@ -60,11 +54,11 @@ export default function MyAccountNav({
           setNavItems((prev) => [...prev, ...filterMalformed]);
         }
       } catch (err) {
-        console.log(err);
+        console.error({ err });
       }
     };
-    if (navigationItems.length) fetchNavItems();
-  }, [userGroups, navigationItems]);
+    fetchNavItems();
+  }, [navigationItems]);
 
   const { pathname } = useLocation();
   const isAdmin = userGroups?.includes('Admin');
