@@ -1,4 +1,9 @@
-import { F1ListGroup2, ListHomeChurchInfosQuery, TMHLocation } from 'API';
+import {
+  F1ListGroup2,
+  ListHomeChurchInfosQuery,
+  TMHCompassion,
+  TMHLocation,
+} from 'API';
 import API from '@aws-amplify/api';
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import * as queries from '../../graphql/queries';
@@ -11,7 +16,7 @@ import {
   Marker,
 } from 'google-maps-react';
 import { useRef, useEffect, useState } from 'react';
-import DataLoader, { CompassionData, RegionData } from './DataLoader';
+import DataLoader, { RegionData } from './DataLoader';
 import './CombinedMap.scss';
 import { useLocation } from 'react-router-dom';
 import Badge from 'components/Badge/Badge';
@@ -86,7 +91,7 @@ export function ContentItem(props: Props) {
   const [activeMarker, setActiveMarker] = useState<any>({});
   const [selectedPlace2Type, setSelectedPlace2Type] = useState<string>('');
   const [selectedPlace2, setSelectedPlace2] = useState<
-    | CompassionData
+    | TMHCompassion
     | TMHLocation
     | F1ListGroup2
     | TMHLocation['youth']
@@ -105,7 +110,7 @@ export function ContentItem(props: Props) {
   const [allLocationsLoaded, setAllLocationsLoaded] = useState(false);
   const [locations, setLocations] = useState<TMHLocation[]>([]);
   const [regions, setRegions] = useState<RegionData[]>([]);
-  const [compassion, setCompassion] = useState<CompassionData[]>([]);
+  const [compassion, setCompassion] = useState<TMHCompassion[]>([]);
   const [currentLocation, setCurrentLocation] = useState<TMHLocation | null>(
     null
   );
@@ -346,15 +351,15 @@ export function ContentItem(props: Props) {
         </div>
       );
     } else if (selectedPlace2Type == 'Compassion') {
-      const compassion = selectedPlace2 as CompassionData;
+      const compassion = selectedPlace2 as TMHCompassion;
       return (
         <div className="HomeChurchItem">
           <div>Compassion Partner</div>
           <div>{compassion?.name}</div>
           <div>{compassion?.location?.address}</div>
           <div>
-            <a href={compassion?.website}>
-              <img style={{ width: '10vw' }} src={compassion.image} />
+            <a href={compassion?.website ?? ''}>
+              <img style={{ width: '10vw' }} src={compassion.image ?? ''} />
             </a>
           </div>
         </div>
@@ -639,8 +644,8 @@ export function ContentItem(props: Props) {
                             : HOME_CHURCH_PIN_URL
                         }
                         position={{
-                          lat: compassion?.location?.latitude,
-                          lng: compassion?.location?.longitude,
+                          lat: compassion?.location?.latitude ?? 0,
+                          lng: compassion?.location?.longitude ?? 0,
                         }}
                       ></Marker>
                     );

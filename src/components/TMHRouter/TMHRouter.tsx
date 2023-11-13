@@ -17,6 +17,7 @@ import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import HomePage from '../../pages/HomePage';
 import PermittedRoute from './PermittedRoute';
+import CompassionPartnersPage from 'pages/admin/compassion/CompassionPartnersPage';
 const AccountMain = lazy(() => import('../../pages/users/AccountMain'));
 const VideoManager = lazy(
   () => import('../../pages/admin/VideoManager/videos')
@@ -230,6 +231,14 @@ export default function TMHRouter() {
                 element={
                   <PermittedRoute>
                     <LocationsManager />
+                  </PermittedRoute>
+                }
+              />
+              <Route
+                path="compassion"
+                element={
+                  <PermittedRoute>
+                    <CompassionPartnersPage />
                   </PermittedRoute>
                 }
               />

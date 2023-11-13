@@ -8,19 +8,19 @@ import {
   CustomPlaylist,
   F1ListGroup2,
   GetNotesQuery,
-  //ListNotesQuery,
   Notes,
   SearchBlogsQuery,
   SearchF1ListGroup2sQuery,
   SearchSeriesQuery,
   Series,
+  TMHCompassion,
   TMHPerson,
   Video,
 } from 'API';
 import { Spinner } from 'reactstrap';
 import * as queries from '../../../graphql/queries';
 import * as customQueries from '../../../graphql-custom/customQueries';
-import DataLoader, { CompassionData } from '../DataLoader';
+import DataLoader from '../DataLoader';
 import RenderRouter from '../RenderRouter';
 import { useDebounce } from 'hooks/useDebounce';
 import SearchNoResults from './SearchNoResults';
@@ -62,7 +62,7 @@ export default function SearchItem(props: SearchItemProps) {
     SearchType.All
   );
 
-  const [compassionData, setCompassionData] = useState<CompassionData[]>([]);
+  const [compassionData, setCompassionData] = useState<TMHCompassion[]>([]);
   const [staffData, setStaffData] = useState<TMHPerson[]>([]);
   const [overseersData, setOverseersData] = useState<TMHPerson[]>([]);
   const [homeChurchData, setHomeChurchData] = useState<F1ListGroup2[]>([]);
@@ -110,10 +110,10 @@ export default function SearchItem(props: SearchItemProps) {
     const response = await DataLoader.loadCompassion();
     const compassionData =
       response.filter(
-        (compassion: CompassionData) =>
-          (compassion.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (compassion) =>
+          (compassion.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
             compassion.description
-              .toLowerCase()
+              ?.toLowerCase()
               .includes(searchTerm.toLowerCase())) &&
           searchString.length > 3
       ) ?? [];
@@ -513,7 +513,7 @@ export default function SearchItem(props: SearchItemProps) {
             {compassionData &&
             compassionData.length > 0 &&
             currentSearchType === SearchType.All
-              ? compassionData.map((compassion: CompassionData) => (
+              ? compassionData.map((compassion) => (
                   <SearchItemCompassion
                     key={`compassion-${compassion.id}`}
                     compassion={compassion}

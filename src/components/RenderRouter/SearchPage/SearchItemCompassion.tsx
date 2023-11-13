@@ -1,13 +1,13 @@
-import { ScaledImage } from 'components/ScaledImage';
-import { CompassionData } from '../DataLoader';
 import Pill from './SearchItemPill';
 import Highlighter from 'react-highlight-words';
 import './SearchItem.scss';
+import { ListImage } from '../ListItem';
+import { TMHCompassion } from 'API';
 export default function SearchItemCompassion({
   compassion,
   searchString,
 }: {
-  compassion: CompassionData;
+  compassion: TMHCompassion;
   searchString: string;
 }) {
   const image = {
@@ -18,21 +18,14 @@ export default function SearchItemCompassion({
     <button
       type="button"
       className="SearchResultItem"
-      onClick={() => (window.location.href = compassion.website)}
+      onClick={() => (window.location.href = compassion.website ?? '')}
     >
-      <ScaledImage
+      <ListImage
         image={image}
         className="SearchThumb"
-        fallbackUrl="/static/NoCompassionLogo.png"
-        breakpointSizes={{
-          320: 80,
-          480: 120,
-          640: 180,
-          1280: 320,
-          1920: 480,
-          2560: 640,
-        }}
+        fallbackImageUrl="/static/NoCompassionLogo.png"
       />
+
       <div className="Content">
         <div style={{ marginBottom: 16 }}>
           <Pill title="Compassion" />

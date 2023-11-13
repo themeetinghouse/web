@@ -32577,6 +32577,83 @@ export const searchTMHPeople = /* GraphQL */ `query SearchTMHPeople(
   APITypes.SearchTMHPeopleQueryVariables,
   APITypes.SearchTMHPeopleQuery
 >;
+export const getTMHCompassion =
+  /* GraphQL */ `query GetTMHCompassion($id: ID!) {
+  getTMHCompassion(id: $id) {
+    id
+    sites
+    region
+    name
+    description
+    website
+    image
+    imagealt
+    address
+    Phone
+    email
+    social {
+      twitter
+      facebook
+      instagram
+      __typename
+    }
+    location {
+      longitude
+      latitude
+      address
+      __typename
+    }
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedQuery<
+    APITypes.GetTMHCompassionQueryVariables,
+    APITypes.GetTMHCompassionQuery
+  >;
+export const listTMHCompassions = /* GraphQL */ `query ListTMHCompassions(
+  $filter: ModelTMHCompassionFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listTMHCompassions(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      sites
+      region
+      name
+      description
+      website
+      image
+      imagealt
+      address
+      Phone
+      email
+      social {
+        twitter
+        facebook
+        instagram
+        __typename
+      }
+      location {
+        longitude
+        latitude
+        address
+        __typename
+      }
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.ListTMHCompassionsQueryVariables,
+  APITypes.ListTMHCompassionsQuery
+>;
 export const getTMHLocation = /* GraphQL */ `query GetTMHLocation($id: ID!) {
   getTMHLocation(id: $id) {
     id

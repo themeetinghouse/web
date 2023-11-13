@@ -1656,6 +1656,34 @@ type TMHLocationMeeting {
   location: TMHLocationAddress
 }
 
+type TMHCompassion @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Admin", "LocationManager"], provider: userPools}]){
+  id: ID!
+  sites: [String]
+  region: String
+  name: String
+  description: String
+  website: String
+  image: String
+  imagealt: String
+  address: String
+  Phone: String
+  email: String
+  social: CompassionSocial
+  location: CompassionLocation
+}
+
+type CompassionSocial {
+  twitter: String
+  facebook: String
+  instagram: String
+}
+
+type CompassionLocation {
+  longitude: Float
+  latitude: Float
+  address: String
+}
+
 type TMHLocation @model @auth(rules: [{allow: public, operations: [read]}, {allow: private, operations: [read], provider: iam}, {allow: groups, groups: ["Admin", "LocationManager"], provider: userPools}]) {
   id: String!
   name: String!

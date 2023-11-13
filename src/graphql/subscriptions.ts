@@ -46949,6 +46949,117 @@ export const onDeleteTMHPerson =
     APITypes.OnDeleteTMHPersonSubscriptionVariables,
     APITypes.OnDeleteTMHPersonSubscription
   >;
+export const onCreateTMHCompassion =
+  /* GraphQL */ `subscription OnCreateTMHCompassion(
+  $filter: ModelSubscriptionTMHCompassionFilterInput
+) {
+  onCreateTMHCompassion(filter: $filter) {
+    id
+    sites
+    region
+    name
+    description
+    website
+    image
+    imagealt
+    address
+    Phone
+    email
+    social {
+      twitter
+      facebook
+      instagram
+      __typename
+    }
+    location {
+      longitude
+      latitude
+      address
+      __typename
+    }
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+    APITypes.OnCreateTMHCompassionSubscriptionVariables,
+    APITypes.OnCreateTMHCompassionSubscription
+  >;
+export const onUpdateTMHCompassion =
+  /* GraphQL */ `subscription OnUpdateTMHCompassion(
+  $filter: ModelSubscriptionTMHCompassionFilterInput
+) {
+  onUpdateTMHCompassion(filter: $filter) {
+    id
+    sites
+    region
+    name
+    description
+    website
+    image
+    imagealt
+    address
+    Phone
+    email
+    social {
+      twitter
+      facebook
+      instagram
+      __typename
+    }
+    location {
+      longitude
+      latitude
+      address
+      __typename
+    }
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+    APITypes.OnUpdateTMHCompassionSubscriptionVariables,
+    APITypes.OnUpdateTMHCompassionSubscription
+  >;
+export const onDeleteTMHCompassion =
+  /* GraphQL */ `subscription OnDeleteTMHCompassion(
+  $filter: ModelSubscriptionTMHCompassionFilterInput
+) {
+  onDeleteTMHCompassion(filter: $filter) {
+    id
+    sites
+    region
+    name
+    description
+    website
+    image
+    imagealt
+    address
+    Phone
+    email
+    social {
+      twitter
+      facebook
+      instagram
+      __typename
+    }
+    location {
+      longitude
+      latitude
+      address
+      __typename
+    }
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+    APITypes.OnDeleteTMHCompassionSubscriptionVariables,
+    APITypes.OnDeleteTMHCompassionSubscription
+  >;
 export const onCreateTMHLocation =
   /* GraphQL */ `subscription OnCreateTMHLocation(
   $filter: ModelSubscriptionTMHLocationFilterInput

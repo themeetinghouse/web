@@ -6,6 +6,8 @@ import { Navigate, useLocation } from 'react-router-dom';
 const determinePermittedPage = (pathname: string, permissions: string[]) => {
   if (permissions.includes('Admin')) return true;
   switch (pathname) {
+    case 'compassion':
+      return permissions.includes('LocationManager');
     case 'announcements':
       return (
         permissions.includes('LocationManager') ||

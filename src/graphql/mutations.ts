@@ -47039,6 +47039,117 @@ export const deleteTMHPerson = /* GraphQL */ `mutation DeleteTMHPerson(
   APITypes.DeleteTMHPersonMutationVariables,
   APITypes.DeleteTMHPersonMutation
 >;
+export const createTMHCompassion = /* GraphQL */ `mutation CreateTMHCompassion(
+  $input: CreateTMHCompassionInput!
+  $condition: ModelTMHCompassionConditionInput
+) {
+  createTMHCompassion(input: $input, condition: $condition) {
+    id
+    sites
+    region
+    name
+    description
+    website
+    image
+    imagealt
+    address
+    Phone
+    email
+    social {
+      twitter
+      facebook
+      instagram
+      __typename
+    }
+    location {
+      longitude
+      latitude
+      address
+      __typename
+    }
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreateTMHCompassionMutationVariables,
+  APITypes.CreateTMHCompassionMutation
+>;
+export const updateTMHCompassion = /* GraphQL */ `mutation UpdateTMHCompassion(
+  $input: UpdateTMHCompassionInput!
+  $condition: ModelTMHCompassionConditionInput
+) {
+  updateTMHCompassion(input: $input, condition: $condition) {
+    id
+    sites
+    region
+    name
+    description
+    website
+    image
+    imagealt
+    address
+    Phone
+    email
+    social {
+      twitter
+      facebook
+      instagram
+      __typename
+    }
+    location {
+      longitude
+      latitude
+      address
+      __typename
+    }
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdateTMHCompassionMutationVariables,
+  APITypes.UpdateTMHCompassionMutation
+>;
+export const deleteTMHCompassion = /* GraphQL */ `mutation DeleteTMHCompassion(
+  $input: DeleteTMHCompassionInput!
+  $condition: ModelTMHCompassionConditionInput
+) {
+  deleteTMHCompassion(input: $input, condition: $condition) {
+    id
+    sites
+    region
+    name
+    description
+    website
+    image
+    imagealt
+    address
+    Phone
+    email
+    social {
+      twitter
+      facebook
+      instagram
+      __typename
+    }
+    location {
+      longitude
+      latitude
+      address
+      __typename
+    }
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeleteTMHCompassionMutationVariables,
+  APITypes.DeleteTMHCompassionMutation
+>;
 export const createTMHLocation = /* GraphQL */ `mutation CreateTMHLocation(
   $input: CreateTMHLocationInput!
   $condition: ModelTMHLocationConditionInput

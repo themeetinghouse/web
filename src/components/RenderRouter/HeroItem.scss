@@ -316,6 +316,11 @@ $no-footer-height: 38vw;
     top: 30vh;
     z-index: 100;
   }
+  .AdminPage {
+    .heroBlackBox {
+      width: 50vw;
+    }
+  }
   .EditorConfigurationParent {
     .heroBlackBox {
       width: 100%;
@@ -739,6 +744,11 @@ $no-footer-height: 38vw;
 @media (min-width: 1200px) {
   .heroBlackBox {
     width: 39%;
+  }
+  .AdminPage {
+    .heroBlackBox {
+      width: 39vw;
+    }
   }
   .EditorConfigurationParent {
     .heroBlackBox {

@@ -1,0 +1,78 @@
+.CompassionPartnersPageWrapper {
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
+.tableWrapper {
+  table {
+    width: 100%;
+    border-collapse: collapse; // Ensures borders collapse into a single border
+    margin: 20px 0; // Adjusts the spacing around the table
+
+    th,
+    td {
+      padding: 15px; // Adds padding inside cells
+      text-align: left; // Aligns text to the left
+      border-bottom: 1px solid #ddd; // Adds a bottom border to each cell
+
+      &:first-child {
+        padding-left: 20px; // Additional padding for the first cell
+      }
+    }
+
+    th {
+      background-color: #f4f4f4; // Background color for the header
+      color: #333; // Text color for the header
+    }
+
+    tbody tr:hover {
+      background-color: #f9f9f9; // Background color when hovering over a row
+    }
+  }
+
+  .contentImage {
+    // Specific styles for the ContentImage component if needed
+    display: block;
+    margin: 0 auto; // Centers the image in the cell
+    &:hover {
+      transform: scale(1.5);
+    }
+  }
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+
+    img {
+      // Styles for the edit image in the button
+    }
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    background-color: #f4f4f4;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #e2e2e2;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
