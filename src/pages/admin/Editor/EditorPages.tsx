@@ -313,7 +313,19 @@ export default function EditorPages() {
                                         backgroundColor: 'transparent',
                                       }}
                                       onClick={async () => {
-                                        null;
+                                        await loadFile(item.key ?? 'unknown');
+                                        const editModeObj: any = {};
+
+                                        editModeObj['isBackup'] = true;
+                                        editModeObj['isDraft'] = false;
+                                        editModeObj['isScheduled'] = false;
+
+                                        dispatch({
+                                          type: EditorPageActionType.SET_EDIT_MODE,
+                                          payload: {
+                                            ...editModeObj,
+                                          },
+                                        });
                                       }}
                                     >
                                       <img
