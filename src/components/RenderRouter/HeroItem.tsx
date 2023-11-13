@@ -88,7 +88,6 @@ function HeroImage({
     const image =
       content.image1[Math.floor(Math.random() * content.image1.length)];
     if (image?.src?.includes('editor')) {
-      console.log('isEditor');
       const imageKey = image.src[0] === '/' ? image.src.slice(1) : image.src;
       Storage.get(imageKey, { expires: 3600 }).then(async (url) => {
         console.log({ url });
