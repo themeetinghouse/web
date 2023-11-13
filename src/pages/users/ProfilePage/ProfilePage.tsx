@@ -191,7 +191,10 @@ export default function ProfilePage(props: ProfilePageProps) {
               className="ProfileButton"
             >
               {isUpdating || props.isLoading ? (
-                <>Updating...</>
+                <div>
+                  <Spinner size="sm" />
+                  <span>Updating</span>
+                </div>
               ) : !userState.isProfileComplete ? (
                 'Complete your profile'
               ) : (
