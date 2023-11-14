@@ -6161,10 +6161,10 @@ function GiveEdit({
     >
       {component.type === 'give' ? (
         <span style={{ color: 'tomato', fontSize: 11 }}>
-          This component will not immediately display updated preview of the
-          changes, however once saved and published, you can refresh the page
-          and the changes will be reflected. Alternatively, visit the page on
-          the live website
+          Preview may not reflect actual component. This component will not
+          immediately display updated preview of the changes, however once saved
+          and published, you can refresh the page and the changes will be
+          reflected. Alternatively, visit the page on the live website
         </span>
       ) : null}
       <TMHInput
@@ -6208,6 +6208,175 @@ function GiveEdit({
         onChange={handleChange}
         value={component.text5}
         name="text5"
+      />
+      <TMHInput
+        label="CTA Label"
+        onChange={handleChange}
+        value={component.giveButtonText}
+        name="giveButtonText"
+      />
+      <TMHInput
+        label="CTA Link"
+        onChange={handleChange}
+        value={component.giveButtonUrl}
+        name="giveButtonUrl"
+      />
+      <TMHInput
+        label="Give to Extended Title"
+        onChange={handleChange}
+        value={component.giveToExtendedTitle}
+        name="giveToExtendedTitle"
+      />
+      <TMHInput
+        label="Give to Extended Label"
+        onChange={handleChange}
+        value={component.giveExtendedLabel}
+        name="giveExtendedLabel"
+      />
+      <TMHInput
+        label="Give to Extended URL"
+        onChange={handleChange}
+        value={component.giveExtendedUrl}
+        name="giveExtendedUrl"
+      />
+      <TMHInput
+        label="Give to Extended Label 2"
+        onChange={handleChange}
+        value={component.giveExtendedLabel2}
+        name="giveExtendedLabel2"
+      />
+      <TMHInput
+        label="Give to Extended URL 2"
+        onChange={handleChange}
+        value={component.giveExtendedUrl2}
+        name="giveExtendedUrl2"
+      />
+      <TMHInput
+        label="Give to Extended Label 3"
+        onChange={handleChange}
+        value={component.giveExtendedLabel3}
+        name="giveExtendedLabel3"
+      />
+      <TMHInput
+        label="Give to Extended URL 3"
+        onChange={handleChange}
+        value={component.giveExtendedUrl3}
+        name="giveExtendedUrl3"
+      />
+      <div
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          flexDirection: 'row',
+          gap: 8,
+        }}
+      >
+        <TMHInput
+          label="Need Help Label"
+          onChange={handleChange}
+          value={component.needHelpLabel}
+          name="needHelpLabel"
+        />
+        <TMHInput
+          label="Need Help Text"
+          onChange={handleChange}
+          value={component.needHelpText}
+          name="needHelpText"
+        />
+      </div>
+      <TMHInput
+        label="Need Help Link"
+        onChange={handleChange}
+        value={component.needHelpLink}
+        name="needHelpLink"
+      />
+      <div
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          flexDirection: 'row',
+          gap: 8,
+        }}
+      >
+        <TMHInput
+          label="Tax Receipt Label"
+          onChange={handleChange}
+          value={component.taxReceiptLabel}
+          name="taxReceiptLabel"
+        />
+        <TMHInput
+          label="Tax Receipt Text"
+          onChange={handleChange}
+          value={component.taxReceiptText}
+          name="taxReceiptText"
+        />
+      </div>
+      <TMHInput
+        label="Tax Receipt Link"
+        onChange={handleChange}
+        value={component.taxReceiptLink}
+        name="taxReceiptLink"
+      />
+      <div
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          flexDirection: 'row',
+          gap: 8,
+        }}
+      >
+        <TMHInput
+          label="Tax Receipt Label 2"
+          onChange={handleChange}
+          value={component.taxReceiptLabel2}
+          name="taxReceiptLabel2"
+        />
+        <TMHInput
+          label="Tax Receipt Text 2"
+          onChange={handleChange}
+          value={component.taxReceiptText2}
+          name="taxReceiptText2"
+        />
+      </div>
+      <TMHInput
+        label="Tax Receipt Link 2"
+        onChange={handleChange}
+        value={component.taxReceiptLink2}
+        name="taxReceiptLink2"
+      />
+      <div
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          flexDirection: 'row',
+          gap: 8,
+        }}
+      >
+        <TMHInput
+          label="Tax Receipt Label 3"
+          onChange={handleChange}
+          value={component.taxReceiptLabel3}
+          name="taxReceiptLabel3"
+        />
+        <TMHInput
+          label="Tax Receipt Text 3"
+          onChange={handleChange}
+          value={component.taxReceiptText3}
+          name="taxReceiptText3"
+        />
+      </div>
+
+      <TMHInput
+        label="Tax Receipt Link 3"
+        onChange={handleChange}
+        value={component.taxReceiptLink3}
+        name="taxReceiptLink3"
+      />
+      <TMHInput
+        label="CRA Number"
+        onChange={handleChange}
+        value={component.CRA}
+        name="CRA"
       />
       <div
         style={{

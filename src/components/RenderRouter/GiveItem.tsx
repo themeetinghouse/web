@@ -314,7 +314,6 @@ export default class ContentItem extends React.Component<Props, State> {
                 </button>
               </div>
             )}
-
             {this.state.currentPage === 'FellowshipOne' ? (
               <div className="GiveItemOtherWay">
                 <button
@@ -342,50 +341,132 @@ export default class ContentItem extends React.Component<Props, State> {
               </div>
             )}
           </div>
-          <div className="GiveItemNeedHelpGroup">
-            <div className="GiveItemOtherWays">Tax Receipt</div>
-            <div className="GiveItemOtherWay">
-              <Link
-                className="inverted"
-                newWindow
-                to="https://meetinghouse.infellowship.com/UserLogin"
-              >
-                Login &amp; Download
-              </Link>
+          {this.props?.content?.taxReceiptLabel ? (
+            <div className="GiveItemNeedHelpGroup">
+              <div className="GiveItemOtherWays">
+                {this.props?.content?.taxReceiptLabel}
+              </div>
+              <div className="GiveItemOtherWay">
+                <Link
+                  className="inverted"
+                  newWindow
+                  to={this.props?.content?.taxReceiptLink}
+                >
+                  {this.props?.content?.taxReceiptText}
+                </Link>
+              </div>
+            </div>
+          ) : null}
+
+          <div style={{ clear: 'both' }}></div>
+          {this.props.content?.needHelpLink ? (
+            <div className="GiveItemNeedHelpGroup">
+              <div className="GiveItemNeedHelp">
+                {this.props?.content?.needHelpLabel}
+              </div>
+              <div className="GiveItemNeedHelpEmail">
+                {this.props?.content?.needHelpText}{' '}
+                <a
+                  className="inverted"
+                  href={`mailto:${this.props?.content?.needHelpLink}`}
+                >
+                  {this.props?.content?.needHelpLink}
+                </a>
+              </div>
+            </div>
+          ) : null}
+          {this.props?.content?.taxReceiptLink2 ? (
+            <div className="GiveItemNeedHelpGroup">
+              <div className="GiveItemOtherWays">
+                {this.props?.content?.taxReceiptLabel2}
+              </div>
+              <div className="GiveItemOtherWay">
+                <Link
+                  className="inverted"
+                  newWindow
+                  to={this.props?.content?.taxReceiptLink2}
+                >
+                  {this.props?.content?.taxReceiptText2}
+                </Link>
+              </div>
+            </div>
+          ) : null}
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+            }}
+          >
+            {this.props?.content?.taxReceiptLink3 ? (
+              <div className="GiveItemOtherWayGroup">
+                <div className="GiveItemOtherWays">
+                  {this.props?.content?.taxReceiptLabel3}
+                </div>
+                <div className="GiveItemOtherWay">
+                  <Link
+                    className="inverted"
+                    newWindow
+                    to={this.props?.content?.taxReceiptLink3}
+                  >
+                    {this.props?.content?.taxReceiptText3}
+                  </Link>
+                </div>
+              </div>
+            ) : null}
+            {this.props.content?.giveToExtendedTitle ? (
+              <div className="GiveItemOtherWayGroup">
+                <div className="GiveItemOtherWays">
+                  {this.props.content?.giveToExtendedTitle}
+                </div>
+                <div
+                  className="GiveItemOtherWay"
+                  key={this.props.content?.giveExtendedLabel}
+                >
+                  <Link
+                    className="inverted"
+                    newWindow
+                    to={this.props.content?.giveExtendedUrl}
+                  >
+                    {this.props.content?.giveExtendedLabel}
+                  </Link>
+                </div>
+                {this.props.content?.giveExtendedUrl2 ? (
+                  <div
+                    className="GiveItemOtherWay"
+                    key={this.props.content?.giveExtendedUrl2}
+                  >
+                    <Link
+                      className="inverted"
+                      newWindow
+                      to={this.props.content?.giveExtendedUrl2}
+                    >
+                      {this.props.content?.giveExtendedLabel2}
+                    </Link>
+                  </div>
+                ) : null}
+                {this.props.content?.giveExtendedUrl3 ? (
+                  <div
+                    className="GiveItemOtherWay"
+                    key={this.props.content?.giveExtendedUrl3}
+                  >
+                    <Link
+                      className="inverted"
+                      newWindow
+                      to={this.props.content?.giveExtendedUrl3}
+                    >
+                      {this.props.content?.giveExtendedLabel3}
+                    </Link>
+                  </div>
+                ) : null}
+              </div>
+            ) : null}
+            <div className="GiveItemOtherWayGroup" style={{ marginTop: 60 }}>
+              <div style={{ color: 'white', fontWeight: '600' }}>
+                {this.props?.content?.CRA}
+              </div>
             </div>
           </div>
 
-          <div style={{ clear: 'both' }}></div>
-          <div className="GiveItemNeedHelpGroup">
-            <div className="GiveItemNeedHelp">Need help?</div>
-            <div className="GiveItemNeedHelpEmail">
-              Please email Rachel at{' '}
-              <a className="inverted" href="mailto:donate@themeetinghouse.com">
-                donate@themeetinghouse.com
-              </a>
-            </div>
-          </div>
-          <div className="GiveItemOtherWayGroup">
-            <div className="GiveItemOtherWays">Give To Extended Family</div>
-            <div className="GiveItemOtherWay">
-              <Link
-                className="inverted"
-                newWindow
-                to="https://tithe.ly/give_new/www/#/tithely/give-one-time/674673"
-              >
-                Alliston
-              </Link>
-            </div>
-            <div className="GiveItemOtherWay">
-              <Link
-                className="inverted"
-                newWindow
-                to="https://www.canadahelps.org/en/charities/west-lake-community-church/"
-              >
-                Sandbanks
-              </Link>
-            </div>
-          </div>
           <div className="GiveItemBottom"></div>
         </form>
       </div>
