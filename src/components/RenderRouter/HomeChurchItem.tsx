@@ -117,7 +117,10 @@ export class ContentItem extends React.Component<HomeChurchItemProps, State> {
     };
 
     DataLoader.getLocations({ class: 'locations' }).then((locations) => {
-      console.log('HomeChurchItem.constructor(): Got locations: %o', locations);
+      console.debug(
+        'HomeChurchItem.constructor(): Got locations: %o',
+        locations
+      );
       this.setState({ locations });
     });
 
@@ -131,7 +134,7 @@ export class ContentItem extends React.Component<HomeChurchItemProps, State> {
               variables: { nextToken: next },
               authMode: GRAPHQL_AUTH_MODE.API_KEY,
             })) as GraphQLResult<ListHomeChurchInfosQuery>;
-            console.log({
+            console.debug({
               'Success queries.listHomeChurchInfos': json,
             });
             if (json?.data?.listHomeChurchInfos?.items?.length) {
@@ -172,7 +175,7 @@ export class ContentItem extends React.Component<HomeChurchItemProps, State> {
               this.state.groups,
               this.state.groupsExtra
             );
-            console.log({ injected });
+            console.debug({ injected });
             injectHomeChurchInfoData(this.state.groups, this.state.groupsExtra);
             this.setState({ allLocationsLoaded: true });
             await this.updateGeoLocation(false);
@@ -204,7 +207,7 @@ export class ContentItem extends React.Component<HomeChurchItemProps, State> {
       const hcListingDOM = document.getElementById(
         'HC-' + this.state.selectedPlace.id
       );
-      console.log(
+      console.debug(
         'hcListingDOM = %o, selectedPlace.id = %o',
         hcListingDOM,
         this.state.selectedPlace.id
@@ -249,7 +252,7 @@ export class ContentItem extends React.Component<HomeChurchItemProps, State> {
   ): Promise<google.maps.LatLngLiteral> {
     return new Promise((resolve, reject) => {
       if (!('geolocation' in navigator)) {
-        console.log('Could not get current location. Using default');
+        console.debug('Could not get current location. Using default');
         resolve(DEFAULT_LAT_LNG);
         return;
       }
@@ -306,7 +309,7 @@ export class ContentItem extends React.Component<HomeChurchItemProps, State> {
     item: F1Group
   ): (props?: IMarkerProps, marker?: google.maps.Marker) => void {
     return (_props?: IMarkerProps, marker?: google.maps.Marker) => {
-      console.log('Marker clicked: %o', marker);
+      console.debug('Marker clicked: %o', marker);
       this.setState({ selectedPlaceMarker: marker, selectedPlace: item });
     };
   }

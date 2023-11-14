@@ -90,13 +90,11 @@ function HeroImage({
     if (image?.src?.includes('editor')) {
       const imageKey = image.src[0] === '/' ? image.src.slice(1) : image.src;
       Storage.get(imageKey, { expires: 3600 }).then(async (url) => {
-        console.log({ url });
         setImage1({
           src: url?.split('?')?.[0],
           alt: image.alt,
         });
       });
-      console.log;
     } else {
       setImage1({
         src: image.src,
@@ -194,7 +192,7 @@ class HeroItem extends React.Component<HeroItemProps, State> {
     const query = this.props.content;
     if (query.class === 'locations' || query.class === 'region') {
       if (query.style === 'locationPage') {
-        console.log('location', query);
+        console.debug('location', query);
         if (!query.filterValue) return;
         const data = await DataLoader.getTMHLocation(query.filterValue);
         if (data?.data?.getTMHLocation) {
@@ -514,7 +512,7 @@ class HeroItem extends React.Component<HeroItemProps, State> {
               <div style={{ width: '32vw' }}>
                 {this.state.locationData.map((z) => {
                   return (
-                    <div key={z.id} className="heroHover">
+                    <div key={`hero-${z.id}-${z.name}`} className="heroHover">
                       <div
                         style={{
                           width: '32vw',
@@ -700,7 +698,7 @@ class HeroItem extends React.Component<HeroItemProps, State> {
         </div>
       );
     } else if (this.state.content.style === 'locationPage') {
-      console.log({ a1: this.state.content });
+      console.debug({ a1: this.state.content });
       return (
         <div className="headerItem heroItem">
           <div
@@ -771,15 +769,17 @@ class HeroItem extends React.Component<HeroItemProps, State> {
                       meetingBDate.startingDateTime.diff(today)
                     );
                   })
-                  .map((meeting) => {
-                    console.log({ meeting });
+                  .map((meeting, index) => {
+                    console.debug({ meeting });
                     if (!meeting) return;
                     const nextMeetingDate = this.getNextMeetingDate(meeting);
-                    console.log({ nextMeetingDate });
+                    console.debug({ nextMeetingDate });
                     const numMeetings =
                       this.state.currentLocation?.meetings?.length ?? 0;
                     return (
-                      <>
+                      <React.Fragment
+                        key={`meeting-time-${meeting.name}-${index}-${meeting.startTime}`}
+                      >
                         <div
                           className="heroText2"
                           style={{
@@ -852,7 +852,7 @@ class HeroItem extends React.Component<HeroItemProps, State> {
                             />
                           ) : null}
                         </div>
-                      </>
+                      </React.Fragment>
                     );
                   })}
               </>

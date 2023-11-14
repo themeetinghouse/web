@@ -67,7 +67,7 @@ async function Execute(event) {
             { itemId: eventIdsForLocation },
             5
           );
-        //console.log("HomeChurchItem.constructor(): eventScheduleResponse = %o", listEventSchedulesResponse);
+        //console.debug("HomeChurchItem.constructor(): eventScheduleResponse = %o", listEventSchedulesResponse);
         for (const group of openGroupsForLocation) {
           var eventSchedule;
           if (listEventSchedulesResponse.data.F1ListEventSchedules)

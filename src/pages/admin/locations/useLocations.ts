@@ -21,7 +21,7 @@ export default function useLocations() {
         const groups =
           user1.signInUserSession.accessToken.payload['cognito:groups'];
         if (groups.includes('LocationManager')) {
-          console.log('getting user', user1.username);
+          console.debug('getting user', user1.username);
           const currentTMHPerson = (await API.graphql({
             query: TMHPersonByEmail,
             variables: { email: user1.username },
@@ -34,10 +34,10 @@ export default function useLocations() {
               (site) => site?.tMHSite?.id
             );
             const filteredLocs = locations.filter((location) => {
-              console.log({ location }, { personSites });
+              console.debug({ location }, { personSites });
               return personSites?.includes(location.abbreviation ?? '');
             });
-            console.log({ filteredLocs });
+            console.debug({ filteredLocs });
             if (!filteredLocs.length)
               setUserAccessMessage(
                 'You are not currently assigned to a location. Please contact an admin to be assigned to a location.'
@@ -49,7 +49,7 @@ export default function useLocations() {
             );
           }
         } else {
-          console.log({ locations });
+          console.debug({ locations });
           setLocations(locations.sort((a, b) => a.name.localeCompare(b.name)));
         }
       } catch (error) {

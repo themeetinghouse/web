@@ -111,9 +111,9 @@ export default function EventPage(): JSX.Element {
   const [isLoading, setIsLoading] = useState(!Boolean(location?.state?.event));
   useEffect(
     function fetchEventData() {
-      console.log({ location });
+      console.debug({ location });
       if (!location.state || !location?.state?.event?.id) {
-        console.log(window.location.pathname);
+        console.debug(window.location.pathname);
       }
       const load = async () => {
         if (location.hash) {

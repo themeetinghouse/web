@@ -51,7 +51,7 @@ export default function ContentPage(): ReactElement | null {
         const location = await Storage.get(
           'savedContent/' + jsonFile.toLowerCase() + '.json'
         );
-        console.log({ location });
+        console.debug({ location });
         try {
           const response2 = await fetch(location);
           content = await response2.json();
@@ -61,13 +61,13 @@ export default function ContentPage(): ReactElement | null {
           });
           return;
         } catch (error) {
-          console.log('error');
+          console.debug('error');
           if (window.location.href.includes('communities')) {
             const locationId = window.location.href
               .split('communities/')
               .at(-1)
               ?.toLowerCase();
-            console.log({ locationId });
+            console.debug({ locationId });
             if (!locationId) {
               const response3 = await fetch(errorUrl);
               content = await response3.json();
@@ -87,7 +87,7 @@ export default function ContentPage(): ReactElement | null {
               });
               return;
             }
-            console.log({ TMHLocationData });
+            console.debug({ TMHLocationData });
             const communitiesUrl = await Storage.get(
               'savedContent/communities.json'
             );

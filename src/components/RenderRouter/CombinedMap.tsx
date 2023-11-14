@@ -127,7 +127,7 @@ export function ContentItem(props: Props) {
   //const [contactHomeChurchId, setContactHomeChurchId] = useState(null);
   useEffect(() => {
     DataLoader.getLocations({ class: 'locations' }).then((locationsRet) => {
-      console.log(
+      console.debug(
         'HomeChurchItem.constructor(): Got locations: %o',
         locationsRet
       );
@@ -177,7 +177,7 @@ export function ContentItem(props: Props) {
             variables: { nextToken: next, limit: 100 },
             authMode: GRAPHQL_AUTH_MODE.API_KEY,
           })) as GraphQLResult<ListHomeChurchInfosQuery>;
-          console.log({
+          console.debug({
             'Success queries.listHomeChurchInfos': json,
           });
           if (json?.data?.listHomeChurchInfos?.items?.length) {
@@ -216,7 +216,7 @@ export function ContentItem(props: Props) {
             });
           };
           const injected = injectHomeChurchInfoData(groups, groupsExtra);
-          console.log({ injected });
+          console.debug({ injected });
           injectHomeChurchInfoData(groups, groupsExtra);
           setAllLocationsLoaded(true);
           await updateGeoLocation(false);
@@ -230,7 +230,7 @@ export function ContentItem(props: Props) {
   ): Promise<google.maps.LatLngLiteral> => {
     return new Promise((resolve, reject) => {
       if (!('geolocation' in navigator)) {
-        console.log('Could not get current location. Using default');
+        console.debug('Could not get current location. Using default');
         resolve(DEFAULT_LAT_LNG);
         return;
       }
@@ -271,7 +271,7 @@ export function ContentItem(props: Props) {
     setSelectedPlace2Type('Youth');
     setActiveMarker(marker);
     setShowingInfoWindow(true);
-    console.log(props, marker, e);
+    console.debug(props, marker, e);
   };
   const onMarkerClickSunday = (props: any, marker: any, e: any) => {
     setSelectedPlace2Type('');
@@ -279,7 +279,7 @@ export function ContentItem(props: Props) {
     setSelectedPlace2Type('Sunday');
     setActiveMarker(marker);
     setShowingInfoWindow(true);
-    console.log(props, marker, e);
+    console.debug(props, marker, e);
   };
   const onMarkerClickHomeChurch = (props: any, marker: any, e: any) => {
     setSelectedPlace2Type('');
@@ -287,7 +287,7 @@ export function ContentItem(props: Props) {
     setSelectedPlace2Type('HomeChurch');
     setActiveMarker(marker);
     setShowingInfoWindow(true);
-    console.log(props, marker, e);
+    console.debug(props, marker, e);
   };
   const onMarkerClickCompassion = (props: any, marker: any, e: any) => {
     setSelectedPlace2Type('');
@@ -295,7 +295,7 @@ export function ContentItem(props: Props) {
     setSelectedPlace2Type('Compassion');
     setActiveMarker(marker);
     setShowingInfoWindow(true);
-    console.log(props, marker, e);
+    console.debug(props, marker, e);
   };
   const onMapClicked = (props: any) => {
     if (showingInfoWindow) {
@@ -318,7 +318,6 @@ export function ContentItem(props: Props) {
   };
 
   const renderInfoWindowContent = () => {
-    console.log({ selectedPlace });
     if (selectedPlace2 == undefined) {
       return <></>;
     } else if (selectedPlace2Type == '') {

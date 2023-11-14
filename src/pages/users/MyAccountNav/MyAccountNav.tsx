@@ -106,11 +106,11 @@ export default function MyAccountNav({
           })
           .map(({ label, link, custom }) => {
             return custom ? (
-              <a href={link} className="navItem">
+              <a key={`custom-${link}`} href={link} className="navItem">
                 {label}
               </a>
             ) : label === 'Admin' ? (
-              <UncontrolledDropdown nav inNavbar>
+              <UncontrolledDropdown nav inNavbar key={`admin-dropdown-${link}`}>
                 <DropdownToggle className="navItem" nav>
                   {'Website Management'}
                 </DropdownToggle>
@@ -190,7 +190,7 @@ export default function MyAccountNav({
               </UncontrolledDropdown>
             ) : (
               <Link
-                key={label}
+                key={`menu-${link}-${label}`}
                 className={
                   pathname === '/account' + link ||
                   (pathname === '/account' && link === '/')
