@@ -1,5 +1,12 @@
 /* tslint:disable */
 /* eslint-disable */
+
+import * as APITypes from '../API';
+type GeneratedMutation<InputType, OutputType> = string & {
+  __generatedMutationInput: InputType;
+  __generatedMutationOutput: OutputType;
+};
+
 export const createSpeakerVideosCustom = /* GraphQL */ `
   mutation CreateSpeakerVideos($input: CreateSpeakerVideosInput!) {
     createSpeakerVideos(input: $input) {
@@ -8,6 +15,85 @@ export const createSpeakerVideosCustom = /* GraphQL */ `
     }
   }
 `;
+
+export const deleteTMHCompassion = /* GraphQL */ `mutation DeleteTMHCompassion(
+  $input: DeleteTMHCompassionInput!
+  $condition: ModelTMHCompassionConditionInput
+) {
+  deleteTMHCompassion(input: $input, condition: $condition) {
+    id
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeleteTMHCompassionMutationVariables,
+  APITypes.DeleteTMHCompassionMutation
+>;
+
+export const updateTMHCompassion = /* GraphQL */ `mutation UpdateTMHCompassion(
+  $input: UpdateTMHCompassionInput!
+  $condition: ModelTMHCompassionConditionInput
+) {
+  updateTMHCompassion(input: $input, condition: $condition) {
+    id
+    sites
+    region
+    name
+    description
+    website
+    image
+    imagealt
+    address
+    Phone
+    email
+    social {
+      twitter
+      facebook
+      instagram
+    }
+    location {
+      longitude
+      latitude
+      address
+    }
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdateTMHCompassionMutationVariables,
+  APITypes.UpdateTMHCompassionMutation
+>;
+
+export const createTMHCompassion = /* GraphQL */ `mutation CreateTMHCompassion(
+  $input: CreateTMHCompassionInput!
+  $condition: ModelTMHCompassionConditionInput
+) {
+  createTMHCompassion(input: $input, condition: $condition) {
+    id
+    sites
+    region
+    name
+    description
+    website
+    image
+    imagealt
+    address
+    Phone
+    email
+    social {
+      twitter
+      facebook
+      instagram
+    }
+    location {
+      longitude
+      latitude
+      address
+    }
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreateTMHCompassionMutationVariables,
+  APITypes.CreateTMHCompassionMutation
+>;
 
 export const createTMHSite = /* GraphQL */ `
   mutation CreateTMHSite(

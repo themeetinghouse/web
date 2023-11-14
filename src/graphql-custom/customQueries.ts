@@ -1,3 +1,9 @@
+import * as APITypes from '../API';
+type GeneratedQuery<InputType, OutputType> = string & {
+  __generatedQueryInput: InputType;
+  __generatedQueryOutput: OutputType;
+};
+
 export const listNotes = /* GraphQL */ `
   query ListNotes(
     $filter: ModelNotesFilterInput
@@ -21,6 +27,42 @@ export const listNotes = /* GraphQL */ `
     }
   }
 `;
+export const listTMHCompassions = /* GraphQL */ `query ListTMHCompassions(
+  $filter: ModelTMHCompassionFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listTMHCompassions(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      sites
+      region
+      name
+      description
+      website
+      image
+      imagealt
+      address
+      Phone
+      email
+      social {
+        twitter
+        facebook
+        instagram
+      }
+      location {
+        longitude
+        latitude
+        address
+      }
+    }
+    nextToken
+  }
+}
+` as GeneratedQuery<
+  APITypes.ListTMHCompassionsQueryVariables,
+  APITypes.ListTMHCompassionsQuery
+>;
 
 export const listTMHPeople = /* GraphQL */ `
   query ListTMHPeople(

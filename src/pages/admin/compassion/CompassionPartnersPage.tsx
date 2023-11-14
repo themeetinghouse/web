@@ -2,17 +2,20 @@ import { useState } from 'react';
 import { Spinner } from 'reactstrap';
 import styles from './CompassionPartnersPage.module.scss';
 import useCompassionPartners from './useCompassionPartners';
-import { ContentImage } from 'components/RenderRouter/ContentItem';
-import { API } from 'aws-amplify';
-import { deleteTMHCompassion } from 'graphql/mutations';
-import CompassionPartnersModal from './CompassionPartnersModal';
+import {
+  CompassionEditPartnersModal,
+  CompassionCreatePartnersModal,
+} from './CompassionPartnersModal';
 import { TMHCompassion } from 'API';
 import Select from 'react-select';
+import LocationsTMHButton from '../locations/LocationsTMHButton';
+import FadeImage from 'components/ScaledImage/FadeImage';
 
 export default function CompassionPartnersPage() {
   const [selectedPartner, setSelectedPartner] = useState<TMHCompassion | null>(
     null
   );
+  const [createParner, setCreatePartner] = useState<boolean>(false);
   const {
     partners,
     isLoading,
@@ -20,10 +23,11 @@ export default function CompassionPartnersPage() {
     locations,
     selectedLocation,
     setSelectedLocation,
+    isLocationManager,
+    error,
   } = useCompassionPartners();
-  const [errorMessage, setErrorMessage] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10; // Number of items you want per page
+  const itemsPerPage = 20; // Number of items you want per page
 
   // Calculate the currently displayed items
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -32,123 +36,162 @@ export default function CompassionPartnersPage() {
 
   // Change page
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
-  const handleDelete = async (id: string) => {
-    try {
-      await API.graphql({
-        query: deleteTMHCompassion,
-        variables: { input: { id } },
-        authMode: 'AMAZON_COGNITO_USER_POOLS',
-      });
-      setPartners(partners.filter((partner) => partner.id !== id));
-    } catch (e: unknown) {
-      const error = e as { message?: string; errors?: { message?: string }[] };
-      console.error(error);
-      setErrorMessage(
-        error.message ?? error.errors?.[0].message ?? 'Unknown error'
-      );
-    }
-  };
+  console.log({ selectedLocation });
   return (
     <div className={styles.CompassionPartnersPageWrapper}>
-      <CompassionPartnersModal
-        selectedPartner={selectedPartner}
-        onClose={() => setSelectedPartner(null)}
-      />
-      <h1>Compassion Partners Page</h1>
-      <Select
-        value={selectedLocation}
-        options={[
-          { value: 'All', label: 'All' },
-          ...(locations.map((location) => ({
-            value: location.id,
-            label: location.name,
-          })) as any),
-        ]}
-        onChange={({ value }: any) => {
-          setSelectedLocation(value);
-        }}
-      />
-      <div>
-        {isLoading ? (
-          <Spinner size="sm" />
-        ) : (
-          <div>
-            {partners.length ? (
-              <>
-                <div className={styles.tableWrapper}>
-                  <table>
-                    <thead>
-                      <tr>
-                        <th></th>
-                        <th>Name</th>
-                        <th>Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {currentItems.map((partner) => (
-                        <tr key={partner.id}>
-                          <td>
-                            <ContentImage
-                              className="contentImage"
-                              image={{ src: partner.image }}
-                              style={{
-                                height: 30,
+      {error ? (
+        <>
+          <h1>Compassion Partners Page</h1>
+          <span>{error}</span>
+        </>
+      ) : (
+        <>
+          <CompassionEditPartnersModal
+            isLocationManager={isLocationManager}
+            setPartners={setPartners}
+            locations={locations}
+            selectedPartner={selectedPartner}
+            setSelectedPartner={setSelectedPartner}
+          />
+          <CompassionCreatePartnersModal
+            isLocationManager={isLocationManager}
+            setPartners={setPartners}
+            setIsOpen={setCreatePartner}
+            isOpen={createParner}
+            locations={locations}
+          />
 
-                                objectFit: 'contain',
-                              }}
-                            />
-                          </td>
-                          <td>{partner.name}</td>
-                          <td>
-                            <button onClick={() => setSelectedPartner(partner)}>
-                              <img
-                                src="/static/svg/Edit.svg"
-                                width={25}
-                                height={25}
-                              />
-                            </button>
-                            <button
-                              onClick={() => {
-                                if (false) handleDelete(partner.id);
-                              }}
-                            >
-                              <img
-                                src="/static/svg/Delete.svg"
-                                width={25}
-                                height={25}
-                              />
-                            </button>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                    {errorMessage ? (
-                      <tfoot>
-                        <tr>
-                          <td style={{ color: 'tomato' }} colSpan={3}>
-                            {errorMessage}
-                          </td>
-                        </tr>
-                      </tfoot>
-                    ) : null}
-                  </table>
-                </div>
-                <div className={styles.pagination}>
-                  {[
-                    ...Array(Math.ceil(partners.length / itemsPerPage)).keys(),
-                  ].map((number) => (
-                    <button key={number} onClick={() => paginate(number + 1)}>
-                      {number + 1}
-                    </button>
-                  ))}
-                </div>
-              </>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              flex: 1,
+              alignSelf: 'center',
+            }}
+          >
+            <h1>Compassion Partners Page</h1>
+
+            <Select
+              styles={{
+                control: (provided) => ({
+                  ...provided,
+                  marginLeft: 40,
+                  width: 250,
+                  minHeight: 46,
+                  marginRight: 8,
+                }),
+              }}
+              placeholder={'Select Location'}
+              value={{
+                label: locations.find((l) => l.id === selectedLocation)?.name,
+                value: selectedLocation,
+              }}
+              options={
+                isLocationManager
+                  ? [
+                      ...(locations.map((location) => ({
+                        value: location.id,
+                        label: location.name,
+                      })) as any),
+                    ]
+                  : [
+                      { value: 'All', label: 'All' },
+                      ...(locations.map((location) => ({
+                        value: location.id,
+                        label: location.name,
+                      })) as any),
+                    ]
+              }
+              onChange={(newValue) => {
+                const { value } = newValue as any;
+                if (value === 'All') setSelectedLocation(null);
+                else setSelectedLocation(value);
+                setCurrentPage(1);
+              }}
+            />
+            <div style={{ flex: 1 }}></div>
+            <LocationsTMHButton
+              style={{ alignSelf: 'flex-start' }}
+              onClick={() => setCreatePartner(true)}
+            >
+              Create
+            </LocationsTMHButton>
+          </div>
+
+          <div>
+            {isLoading ? (
+              <Spinner size="sm" />
             ) : (
-              <span>No Compassion Partners found for this location.</span>
+              <div>
+                {partners.length ? (
+                  <>
+                    <div className={styles.tableWrapper}>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th></th>
+                            <th>Partner Name</th>
+                            <th>Update</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {currentItems.map((partner) => (
+                            <tr key={partner.id}>
+                              <td>
+                                <FadeImage
+                                  onError={() => console.log(partner.image)}
+                                  style={{
+                                    boxShadow: '0px 0px 3px rgba(0, 0, 0, 0.2)',
+                                    height: 30,
+                                    objectFit: 'contain',
+                                  }}
+                                  className="contentImage"
+                                  imageSrc={partner?.image ?? ''}
+                                  fallbackUrl={'/static/NoCompassionLogo.png'}
+                                />
+                              </td>
+                              <td>{partner.name}</td>
+                              <td>
+                                <button
+                                  onClick={() => setSelectedPartner(partner)}
+                                  type="button"
+                                >
+                                  <img
+                                    src="/static/svg/Edit.svg"
+                                    width={25}
+                                    height={25}
+                                  />
+                                </button>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                    <div className={styles.pagination}>
+                      {[
+                        ...Array(
+                          Math.ceil(partners.length / itemsPerPage)
+                        ).keys(),
+                      ].map((number) => (
+                        <button
+                          type="button"
+                          key={number}
+                          onClick={() => paginate(number + 1)}
+                        >
+                          {number + 1}
+                        </button>
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  <span>No Compassion Partners found for this location.</span>
+                )}
+              </div>
             )}
           </div>
-        )}
-      </div>
+        </>
+      )}
     </div>
   );
 }
