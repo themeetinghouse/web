@@ -559,7 +559,7 @@ export default class DataLoader {
       graphqlOperation(customQueries.getBlogForSearch, { id: postId })
     )) as GraphQLResult<GetBlogQuery>;
 
-    console.log({ getBlogInSeries: getBlog });
+    console.debug({ getBlogInSeries: getBlog });
     const blogData = getBlog.data?.getBlog;
     if (
       blogData?.blogSeriesId === 'NullValueString' ||
@@ -576,7 +576,7 @@ export default class DataLoader {
           },
           authMode: GRAPHQL_AUTH_MODE.API_KEY,
         })) as GraphQLResult<BlogBridgeBySeriesQuery>;
-        console.log({ blogBridgeSeries });
+        console.debug({ blogBridgeSeries });
         const blogsInSeries =
           blogBridgeSeries.data?.blogBridgeBySeries?.items
             ?.map((bridge) => bridge?.blogPost)
@@ -598,7 +598,7 @@ export default class DataLoader {
       graphqlOperation(customQueries.getBlogForSearch, { id: postId })
     )) as GraphQLResult<GetBlogQuery>;
 
-    console.log({ getBlog });
+    console.debug({ getBlog });
     const blogData = getBlog.data?.getBlog;
     if (
       blogData?.blogSeriesId === 'NullValueString' ||
@@ -622,7 +622,7 @@ export default class DataLoader {
       blogTags?.forEach((tag) => {
         vars.filter?.or?.push({ tags: { match: tag } });
       });
-      console.log({ searchingOptions: vars });
+      console.debug({ searchingOptions: vars });
 
       try {
         const searchBlogs = API.graphql(
@@ -931,7 +931,7 @@ export default class DataLoader {
       const json = await getFbEvent;
       return json.data?.getFBEvent as FBEvent;
     } catch (error) {
-      console.log(error);
+      console.error(error);
       return null;
     }
   }
@@ -987,10 +987,10 @@ export default class DataLoader {
       })) as GraphQLResult<ListTMHLocationsQuery>;
       locations =
         (response.data?.listTMHLocations?.items as TMHLocation[]) ?? [];
-      console.log({ locations });
+      console.debug({ locations });
       return locations;
     } catch (error) {
-      console.log({ error });
+      console.error({ error });
       return [];
     }
   }
@@ -1009,7 +1009,7 @@ export default class DataLoader {
       if (staffMembers?.length) staff = staffMembers;
       returnData = [...staff];
     } catch (error) {
-      console.log({ error });
+      console.error({ error });
     }
     if (query.filterField === 'sites') {
       try {
@@ -1024,7 +1024,7 @@ export default class DataLoader {
 
         returnData = [...returnData, ...coordinators];
       } catch (error) {
-        console.log({ error });
+        console.error({ error });
       }
     }
     const sortedReturnData = this.sortStaff(returnData);
@@ -1032,18 +1032,20 @@ export default class DataLoader {
   }
 
   static async loadInsta(query: InstaQuery): Promise<InstaData> {
-    console.log({ query });
+    console.debug({ query });
 
     try {
       const location = await this.getTMHLocation(query.filterValue);
-      console.log({ igs: location?.data?.getTMHLocation?.socials?.instagram });
-      console.log({ location });
+      console.debug({
+        igs: location?.data?.getTMHLocation?.socials?.instagram,
+      });
+      console.debug({ location });
       let id = '17841400321603203';
 
       if (location?.data?.getTMHLocation?.socials?.instagram?.[0]?.pageId) {
         id = location.data.getTMHLocation.socials.instagram[0].pageId;
       }
-      console.log({ instaId: id });
+      console.debug({ instaId: id });
       const variables: GetInstaPhotosQueryVariables = {
         pageId: id,
       };
@@ -1095,13 +1097,13 @@ export default class DataLoader {
         variables: { isOverseer: 'true' },
         authMode: GRAPHQL_AUTH_MODE.API_KEY,
       })) as GraphQLResult<TMHPersonByIsOverseerQuery>;
-      console.log({ response });
+      console.debug({ response });
       const overseerMembers =
         (response.data?.TMHPersonByIsOverseer?.items as TMHPerson[]) ?? [];
       if (overseerMembers?.length) overseers = overseerMembers;
-      console.log({ overseerMembers });
+      console.debug({ overseerMembers });
     } catch (overSeerError) {
-      console.log({ overSeerError });
+      console.debug({ overSeerError });
     }
     return overseers;
   }
@@ -1123,7 +1125,7 @@ export default class DataLoader {
       const event = await this.getEvent(eventId);
       return event;
     } catch (error) {
-      console.log(error);
+      console.error(error);
       return null;
     }
   }
@@ -1134,10 +1136,10 @@ export default class DataLoader {
         authMode: GRAPHQL_AUTH_MODE.API_KEY,
       })) as GraphQLResult<ListTMHCompassionsQuery>;
       const items = responseFromAPI?.data?.listTMHCompassions?.items ?? [];
-      console.log({ responseFromAPI: items });
+      console.debug({ responseFromAPI: items });
       return items as TMHCompassion[];
     } catch (error) {
-      console.log(error);
+      console.error(error);
       return [];
     }
   }
@@ -1147,7 +1149,7 @@ export default class DataLoader {
       const data: RegionData[] = await response.json();
       return data;
     } catch (error) {
-      console.log(error);
+      console.error(error);
       return [];
     }
   }
