@@ -231,7 +231,7 @@ function ContentItem({ content, nextItem }: Props) {
       switch (item.type) {
         case 'button':
           return (
-            <div key={id}>
+            <div key={`content-button-${item.navigateTo}`}>
               <ContentButton
                 hideArrow
                 buttonClass={`contentButton ${item.buttonColor ?? ''}`}
@@ -242,7 +242,10 @@ function ContentItem({ content, nextItem }: Props) {
 
         case 'link':
           return (
-            <div className="oneImageAContainer" key={id}>
+            <div
+              className="oneImageAContainer"
+              key={`content-link-${item.navigateTo}`}
+            >
               <ContentLink
                 item={item}
                 buttonClass={`oneImageA ${
@@ -253,11 +256,14 @@ function ContentItem({ content, nextItem }: Props) {
           );
 
         case 'text':
-          return <div key={id}>{item.title}</div>;
+          return <div key={`content-text-${item.title}`}>{item.title}</div>;
 
         case 'event':
           return (
-            <div className="oneImageEventDetails" key={id}>
+            <div
+              className="oneImageEventDetails"
+              key={`content-event-${item.location}`}
+            >
               <div>{item.date}</div>
               <div>{item.location}</div>
             </div>
@@ -266,6 +272,7 @@ function ContentItem({ content, nextItem }: Props) {
         case 'arrow':
           return (
             <ContentButton
+              key={`content-arrow-${item.navigateTo}`}
               onMouseEnter={() => {
                 // needed to display last image if mismatched number of links and images
                 if (content?.image1?.length && id > content?.image1?.length - 1)
@@ -283,6 +290,7 @@ function ContentItem({ content, nextItem }: Props) {
                 if (nextItem)
                   document.getElementById(`item-${nextItem}`)?.scrollIntoView();
               }}
+              key={`content-down-arrow-${id}`}
               className="downArrow"
               src="/static/svg/DownArrow.svg"
               width={25}
@@ -618,10 +626,10 @@ function ContentItem({ content, nextItem }: Props) {
     case 'banner-cards':
       return content.images?.length === 2 ? (
         <div className="ContentItem bannerCards">
-          {content.images.map((img: BannerImage, index) => {
+          {content.images.map((img: BannerImage) => {
             return img.linkto ? (
               <Link
-                key={img.linkto}
+                key={`banner-cards${img.linkto}`}
                 to={img.linkto}
                 newWindow={img.linkto.includes('http')}
               >
@@ -630,7 +638,7 @@ function ContentItem({ content, nextItem }: Props) {
             ) : (
               <img
                 className="bannerCardImage"
-                key={index}
+                key={`banner-cards${img.src}`}
                 src={img.src}
                 alt={img.alt}
               />
@@ -693,7 +701,7 @@ function ContentItem({ content, nextItem }: Props) {
                     if (content.reverse) fadeStyle.left = '4vw';
                     return (
                       <ContentImage
-                        key={image.src}
+                        key={`content-image-${image.src}`}
                         image={image1}
                         className="madImage"
                         style={fadeStyle}

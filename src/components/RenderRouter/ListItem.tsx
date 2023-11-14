@@ -410,9 +410,10 @@ class ListItem extends React.Component<ListItemProps, State> {
       case 'user-defined':
         return;
       default:
-        console.error(`unknown list data type ${this.state.content.class}`, {
-          content: this.state.content,
-        });
+        if (this.state.content.style !== 'imageList')
+          console.error(`unknown list data type ${this.state.content.class}`, {
+            content: this.state.content,
+          });
         return;
     }
     this.setData(data);
@@ -745,7 +746,10 @@ class ListItem extends React.Component<ListItemProps, State> {
       return null;
     }
     return (
-      <div key={item.id} className="ListItemTeachingImageDiv">
+      <div
+        key={`speaker-${item.id}-${item.name}`}
+        className="ListItemTeachingImageDiv"
+      >
         <img
           alt="TBD"
           className="ListItemTeachingImage"
@@ -817,7 +821,7 @@ class ListItem extends React.Component<ListItemProps, State> {
 
     return (
       <Link
-        key={item.id ?? ''}
+        key={`event-${item.name}-${item.id}-${item.start_time}`}
         className="container"
         to={{
           pathname: '/event',
@@ -900,7 +904,7 @@ class ListItem extends React.Component<ListItemProps, State> {
             item.extension ? ',,,' + item.extension : ''
           }`;
           return (
-            <div key={item.id} className="StaffItem">
+            <div key={`staff-item-${item.id}`} className="StaffItem">
               <FadeImage
                 alt={`Head shot of ${item.firstName} ${item.lastName}`}
                 className="StaffImage"
