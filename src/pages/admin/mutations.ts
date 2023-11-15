@@ -1,3 +1,9 @@
+import * as APITypes from '../../API';
+type GeneratedMutation<InputType, OutputType> = string & {
+  __generatedMutationInput: InputType;
+  __generatedMutationOutput: OutputType;
+};
+
 export const createVerse = /* GraphQL */ `
   mutation CreateVerse(
     $input: CreateVerseInput!
@@ -9,6 +15,139 @@ export const createVerse = /* GraphQL */ `
     }
   }
 `;
+
+export const deleteLivestream = /* GraphQL */ `mutation DeleteLivestream(
+  $input: DeleteLivestreamInput!
+  $condition: ModelLivestreamConditionInput
+) {
+  deleteLivestream(input: $input, condition: $condition) {
+    id
+    date
+    startTime
+    videoStartTime
+    endTime
+    prerollYoutubeId
+    liveYoutubeId
+    liveVimeoId
+    showChat
+    showKids
+    eventTitle
+    externalEventUrl
+    menu {
+      title
+      link
+      linkType
+    }
+    zoom {
+      title
+      link
+    }
+    livestreamSections {
+      title
+      links {
+        title
+        link
+      }
+    }
+    titles
+    homepageLink
+    createdAt
+    updatedAt
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeleteLivestreamMutationVariables,
+  APITypes.DeleteLivestreamMutation
+>;
+
+export const createLivestream = /* GraphQL */ `mutation CreateLivestream(
+  $input: CreateLivestreamInput!
+  $condition: ModelLivestreamConditionInput
+) {
+  createLivestream(input: $input, condition: $condition) {
+    id
+    date
+    startTime
+    videoStartTime
+    endTime
+    prerollYoutubeId
+    liveYoutubeId
+    liveVimeoId
+    showChat
+    showKids
+    eventTitle
+    externalEventUrl
+    menu {
+      title
+      link
+      linkType
+    }
+    zoom {
+      title
+      link
+    }
+    livestreamSections {
+      title
+      links {
+        title
+        link
+      }
+    }
+    titles
+    homepageLink
+    createdAt
+    updatedAt
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreateLivestreamMutationVariables,
+  APITypes.CreateLivestreamMutation
+>;
+
+export const updateLivestream = /* GraphQL */ `mutation UpdateLivestream(
+  $input: UpdateLivestreamInput!
+  $condition: ModelLivestreamConditionInput
+) {
+  updateLivestream(input: $input, condition: $condition) {
+    id
+    date
+    startTime
+    videoStartTime
+    endTime
+    prerollYoutubeId
+    liveYoutubeId
+    liveVimeoId
+    showChat
+    showKids
+    eventTitle
+    externalEventUrl
+    menu {
+      title
+      link
+      linkType
+    }
+    zoom {
+      title
+      link
+    }
+    livestreamSections {
+      title
+      links {
+        title
+        link
+      }
+    }
+    titles
+    homepageLink
+    createdAt
+    updatedAt
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdateLivestreamMutationVariables,
+  APITypes.UpdateLivestreamMutation
+>;
+
 export const updateSeries = /* GraphQL */ `
   mutation UpdateSeries(
     $input: UpdateSeriesInput!
