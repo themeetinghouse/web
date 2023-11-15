@@ -1,3 +1,9 @@
+import * as APITypes from '../../API';
+type GeneratedQuery<InputType, OutputType> = string & {
+  __generatedQueryInput: InputType;
+  __generatedQueryOutput: OutputType;
+};
+
 export const getInstagram = /* GraphQL */ `
   query GetInstagram($id: ID!) {
     getInstagram(id: $id) {
@@ -5,6 +11,55 @@ export const getInstagram = /* GraphQL */ `
     }
   }
 `;
+
+export const listLivestreams = /* GraphQL */ `query ListLivestreams(
+  $filter: ModelLivestreamFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listLivestreams(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      date
+      startTime
+      videoStartTime
+      endTime
+      prerollYoutubeId
+      liveYoutubeId
+      liveVimeoId
+      showChat
+      showKids
+      eventTitle
+      externalEventUrl
+      menu {
+        title
+        link
+        linkType
+      }
+      zoom {
+        title
+        link
+      }
+      livestreamSections {
+        title
+        links {
+          title
+          link
+        }
+      }
+      titles
+      homepageLink
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+` as GeneratedQuery<
+  APITypes.ListLivestreamsQueryVariables,
+  APITypes.ListLivestreamsQuery
+>;
+
 export const listTMHUsers = /* GraphQL */ `
   query ListTMHUsers(
     $filter: ModelTMHUserFilterInput

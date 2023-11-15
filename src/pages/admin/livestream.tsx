@@ -12,8 +12,12 @@ import React, { ReactNode } from 'react';
 import { isSafari } from 'react-device-detect';
 import { Modal, ModalHeader, Spinner } from 'reactstrap';
 import { v4 as uuidv4 } from 'uuid';
-import * as mutations from '../../graphql/mutations';
-import * as queries from '../../graphql/queries';
+import {
+  updateLivestream,
+  createLivestream,
+  deleteLivestream,
+} from './mutations';
+import { listLivestreams } from './queries';
 import { EmptyProps } from '../../utils';
 import './livestream.scss';
 
@@ -413,19 +417,19 @@ class Index extends React.Component<EmptyProps, State> {
         limit: 200,
         nextToken,
       };
-      const listLivestreams = (await API.graphql({
-        query: queries.listLivestreams,
+      const listLivestreamsData = (await API.graphql({
+        query: listLivestreams,
         variables,
         authMode: GRAPHQL_AUTH_MODE.API_KEY,
       })) as GraphQLResult<ListLivestreamsQuery>;
       console.log(
-        { 'Success queries.listLivestreams': listLivestreams },
+        { 'Success queries.listLivestreams': listLivestreamsData },
         liveStreams.length
       );
       liveStreams.push(
-        ...(listLivestreams.data?.listLivestreams?.items as Livestream[])
+        ...(listLivestreamsData.data?.listLivestreams?.items as Livestream[])
       );
-      next = listLivestreams.data?.listLivestreams?.nextToken;
+      next = listLivestreamsData.data?.listLivestreams?.nextToken;
       if (next && this.state.loadAll) {
         await loadNext(next);
       }
@@ -621,7 +625,7 @@ class Index extends React.Component<EmptyProps, State> {
         delete (input as any)['updatedAt'];
         console.log(input);
         const json = (await API.graphql({
-          query: mutations.updateLivestream,
+          query: updateLivestream,
           variables: { input },
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
         })) as GraphQLResult<UpdateLivestreamMutation>;
@@ -661,7 +665,7 @@ class Index extends React.Component<EmptyProps, State> {
       console.log(input);
       try {
         const json = (await API.graphql({
-          query: mutations.createLivestream,
+          query: createLivestream,
           variables: { input },
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
         })) as GraphQLResult<CreateLivestreamMutation>;
@@ -762,7 +766,7 @@ class Index extends React.Component<EmptyProps, State> {
       this.setState({ disableAsyncButtons: true });
       try {
         const json = (await API.graphql({
-          query: mutations.deleteLivestream,
+          query: deleteLivestream,
           variables: { input: { id: this.state.toDelete } },
           authMode: GRAPHQL_AUTH_MODE.AMAZON_COGNITO_USER_POOLS,
         })) as GraphQLResult<DeleteLivestreamMutation>;
