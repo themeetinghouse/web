@@ -54,7 +54,7 @@ export function ListImage({
     alt: '',
   });
   React.useEffect(() => {
-    if (image?.src?.includes('editor' && !image.src?.includes('https://'))) {
+    if (image?.src?.includes('editor') && !image.src?.includes('https://')) {
       const imageKey = image.src[0] === '/' ? image.src.slice(1) : image.src;
       Storage.get(imageKey)
         .then(async (url) => {
