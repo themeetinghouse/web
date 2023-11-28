@@ -6,7 +6,10 @@
 	ENV
 	REGION
 Amplify Params - DO NOT EDIT */
-var AWS = require('aws-sdk');
+
+import { CognitoIdentityProvider } from '@aws-sdk/client-cognito-identity-provider';
+import { Lambda } from '@aws-sdk/client-lambda';
+import { SecretsManager } from '@aws-sdk/client-secrets-manager';
 import { API, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import Amplify from '@aws-amplify/core';
 import * as queries from './queries';
@@ -27,9 +30,7 @@ Amplify.configure({
     identityPoolId: process.env.identityPoolId,
   },
 });
-const cognitoClient = new AWS.CognitoIdentityServiceProvider({
-  //UserPoolId: process.env.AUTH_COGNITODEVTMH_USERPOOLID,
-});
+const cognitoClient = new CognitoIdentityProvider({});
 
 async function getUser(id: string) {
   try {
@@ -68,7 +69,7 @@ async function getCognitoUser(event) {
     Filter: `username = "${username}"`,
     Limit: 1,
   };
-  let data = await cognitoClient.listUsers(request).promise();
+  let data = await cognitoClient.listUsers(request);
   if (!data.Users || data.Users.length < 1) {
     return null;
   }
@@ -83,8 +84,9 @@ async function getCognitoUser(event) {
 }
 async function f1SearchPeople(email: string) {
   console.log('f1SearchPeople invoke started');
-  var lambda = new AWS.Lambda({
-    region: process.env.REGION, //change to your region
+  var lambda = new Lambda({
+    //change to your region
+    region: process.env.REGION,
   });
   const payload = { arguments: { itemId: email } };
 
@@ -93,7 +95,7 @@ async function f1SearchPeople(email: string) {
     Payload: JSON.stringify(payload),
   };
 
-  const LambdaPromise = (params) => lambda.invoke(params).promise();
+  const LambdaPromise = (params) => lambda.invoke(params);
 
   const responseFromLambda2 = await LambdaPromise(params);
   return JSON.parse(responseFromLambda2.Payload.toString());
@@ -103,18 +105,16 @@ export const handler = async (event) => {
     secret,
     decodedBinarySecret;
   // Create a Secrets Manager client
-  var client = new AWS.SecretsManager({
+  var client = new SecretsManager({
     region: process.env.REGION,
   });
   try {
-    const data = await client
-      .getSecretValue({ SecretId: secretName })
-      .promise();
+    const data = await client.getSecretValue({ SecretId: secretName });
 
     if ('SecretString' in data) {
       secret = JSON.parse(data.SecretString);
     } else {
-      decodedBinarySecret = data.SecretBinary.toString('base64');
+      decodedBinarySecret = Buffer.from(data.SecretBinary).toString('base64');
     }
     console.log('Loading Secret Done');
 

@@ -9,7 +9,6 @@ export const handler = async (event) => {
     const subscriptionID = event.arguments.subscriptionID;
     const user = await TMHDB.getUser(event.identity.username);
     console.log({ subscriptionID });
-    console.log({ user });
     if (!subscriptionID) {
       console.error('Subscription ID not provided');
       return { message: 'FAILED' };

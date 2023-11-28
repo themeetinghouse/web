@@ -15,7 +15,7 @@ export const handler = async (event) => {
   const fund = event.arguments.fund;
   const paymentMethodId = event.arguments.paymentMethodId;
   const user = await TMHDB.getUser(event.identity.username);
-
+  console.log({ amount, fund, paymentMethodId });
   const isAmountValid =
     amount &&
     RegExp('^[0-9]*.?[0-9]*$').test(amount) &&

@@ -13,7 +13,6 @@ export const handler = async (event) => {
   // TODO implement
   try {
     const user = await TMHDB.getUser(event.identity.username);
-    console.log({ user });
     let params: Stripe.SubscriptionListParams = {
       customer: user.stripeCustomerID,
       expand: ['data.plan.product', 'data.default_payment_method'],

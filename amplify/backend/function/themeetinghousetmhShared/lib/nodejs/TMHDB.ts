@@ -2,7 +2,10 @@ import { API, GRAPHQL_AUTH_MODE, GraphQLResult } from '@aws-amplify/api';
 import Amplify from '@aws-amplify/core';
 import * as queries from './queries';
 import * as mutations from './mutations';
-const aws = require('aws-sdk');
+
+const { Lambda } = require('@aws-sdk/client-lambda');
+const { SecretsManager } = require('@aws-sdk/client-secrets-manager');
+
 const apiKey = 'da2-e4tke5ydc5hffgrwy5e36qdrmu';
 
 Amplify.configure({
@@ -26,13 +29,11 @@ export default class TMHDB {
     var secretName = 'tmhweb/' + process.env.ENV + '/secrets',
       secret,
       decodedBinarySecret;
-    var client = new aws.SecretsManager({
+    var client = new SecretsManager({
       region: process.env.REGION,
     });
     try {
-      const data = await client
-        .getSecretValue({ SecretId: secretName })
-        .promise();
+      const data = await client.getSecretValue({ SecretId: secretName });
 
       if ('SecretString' in data) {
         secret = JSON.parse(data.SecretString);
@@ -291,8 +292,9 @@ export default class TMHDB {
   }
   static async f1SearchContributionReceipts(householdId: string) {
     console.log('f1SearchContributionReceipts invoke started');
-    var lambda = new aws.Lambda({
-      region: process.env.REGION, //change to your region
+    var lambda = new Lambda({
+      //change to your region
+      region: process.env.REGION,
     });
     const payload = { arguments: { itemId: householdId } };
 
@@ -301,7 +303,7 @@ export default class TMHDB {
       Payload: JSON.stringify(payload),
     };
 
-    const LambdaPromise = (params) => lambda.invoke(params).promise();
+    const LambdaPromise = (params) => lambda.invoke(params);
 
     const responseFromLambda2 = await LambdaPromise(params);
     console.log({ responseFromLambda2: responseFromLambda2 });

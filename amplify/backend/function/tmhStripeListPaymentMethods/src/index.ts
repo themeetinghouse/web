@@ -13,7 +13,6 @@ export const handler = async (event) => {
   // TODO implement
 
   const user = await TMHDB.getUser(event.identity.username);
-  console.log({ userExists: user });
   if (user.stripeCustomerID) {
     const customerResult = await TMHStripe.listPaymentMethods(
       user.stripeCustomerID,

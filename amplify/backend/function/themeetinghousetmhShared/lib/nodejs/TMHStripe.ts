@@ -1,27 +1,24 @@
-import { set } from 'date-fns';
 import Stripe from 'stripe';
+import { SecretsManager } from '@aws-sdk/client-secrets-manager';
 export default class TMHStripe {
   static async getSecret(name: string) {
     try {
       console.log('Loading Secret ', name);
-      var AWS = require('aws-sdk'),
-        region = 'us-east-1',
+      var region = 'us-east-1',
         secretName = 'tmhweb/' + process.env.ENV + '/secrets',
         secret,
         decodedBinarySecret;
 
       // Create a Secrets Manager client
-      var client = new AWS.SecretsManager({
+      var client = new SecretsManager({
         region: region,
       });
-      const data = await client
-        .getSecretValue({ SecretId: secretName })
-        .promise();
+      const data = await client.getSecretValue({ SecretId: secretName });
 
       if ('SecretString' in data) {
         secret = JSON.parse(data.SecretString);
       } else {
-        let buff = new Buffer(data.SecretBinary, 'base64');
+        let buff = Buffer.from(data.SecretBinary);
         decodedBinarySecret = buff.toString('ascii');
       }
       console.log('Loading Secret Done!');
