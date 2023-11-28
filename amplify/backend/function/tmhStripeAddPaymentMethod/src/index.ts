@@ -20,6 +20,7 @@ export const handler = async (event) => {
     payment_method: paymentId,
   };
   let message = '';
+  console.log({ setupIntent });
   if (user.stripeCustomerID) {
     try {
       const setupIntentResult = await TMHStripe.createSetupIntent(

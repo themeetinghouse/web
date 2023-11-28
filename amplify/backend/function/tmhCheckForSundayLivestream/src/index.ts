@@ -13,9 +13,9 @@ Amplify Params - DO NOT EDIT */
 import TMHDB from '../../themeetinghousetmhShared/lib/nodejs/TMHDB';
 import { addDays, format, startOfWeek } from 'date-fns';
 import { utcToZonedTime } from 'date-fns-tz';
-const aws = require('aws-sdk');
+const { SES } = require('@aws-sdk/client-ses');
 
-const ses = new aws.SES();
+const ses = new SES();
 const region = process.env.REGION;
 if (!region) throw new Error('REGION is not defined');
 
@@ -37,7 +37,7 @@ async function sendEmail(to: string, subject: string, body: string) {
     },
     Source: 'donot-reply@themeetinghouse.com',
   };
-  return ses.sendEmail(params).promise();
+  return ses.sendEmail(params);
 }
 
 export const handler = async (event) => {

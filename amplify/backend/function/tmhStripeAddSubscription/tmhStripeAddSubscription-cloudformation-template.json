@@ -128,7 +128,7 @@
             "Arn"
           ]
         },
-        "Runtime": "nodejs14.x",
+        "Runtime": "nodejs18.x",
         "MemorySize": 1024,
         "Layers": [
           {

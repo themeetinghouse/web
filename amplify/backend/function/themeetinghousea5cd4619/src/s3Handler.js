@@ -1,7 +1,9 @@
-const AWS = require('aws-sdk');
+const { Upload } = require('@aws-sdk/lib-storage');
+const { S3 } = require('@aws-sdk/client-s3');
+
 const stream = require('stream');
 
-const S3 = new AWS.S3();
+const S3 = new S3();
 
 class S3Handler {
   constructor() {}
@@ -33,16 +35,20 @@ class S3Handler {
     const passThrough = new stream.PassThrough();
     return {
       writeStream: passThrough,
-      uploaded: S3.upload({
-        ACL: 'public-read',
-        ContentType: 'image/' + format,
-        CacheControl: 'public, s-max-age=604800, max-age=604800, immutable',
+      uploaded: new Upload({
+        client: S3,
 
-        Body: passThrough,
-        Bucket: Bucket,
-        Key: decodeURIComponent(Key),
+        params: {
+          ACL: 'public-read',
+          ContentType: 'image/' + format,
+          CacheControl: 'public, s-max-age=604800, max-age=604800, immutable',
+
+          Body: passThrough,
+          Bucket: Bucket,
+          Key: decodeURIComponent(Key),
+        },
       })
-        .promise()
+        .done()
         .catch((error) => {
           //console.log("writeStream Error");
           console.log(error);

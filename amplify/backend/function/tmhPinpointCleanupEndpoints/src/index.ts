@@ -4,15 +4,20 @@
 	ENV
 	REGION
 Amplify Params - DO NOT EDIT */
-var AWS = require('aws-sdk');
+
+const {
+  CognitoIdentityProvider,
+} = require('@aws-sdk/client-cognito-identity-provider');
+const { Pinpoint } = require('@aws-sdk/client-pinpoint');
+
 async function getUsers(nextToken) {
-  const cognito = new AWS.CognitoIdentityServiceProvider();
+  const cognito = new CognitoIdentityProvider();
   var params = {
     UserPoolId: process.env.AUTH_COGNITODEVTMH_USERPOOLID,
     Limit: 60,
     PaginationToken: nextToken,
   };
-  const users = await cognito.listUsers(params).promise();
+  const users = await cognito.listUsers(params);
 
   return users;
 }
@@ -31,12 +36,16 @@ async function getAllUsers() {
 }
 
 async function getInactiveEndpoints(user) {
-  const pinpoint = new AWS.Pinpoint({ apiVersion: '2016-12-01' });
+  const pinpoint = new Pinpoint({
+    // The key apiVersion is no longer supported in v3, and can be removed.
+    // @deprecated The client uses the "latest" apiVersion.
+    apiVersion: '2016-12-01',
+  });
   var params = {
     ApplicationId: process.env.ANALYTICS_THEMEETINGHOUSE_ID,
     UserId: user.Attributes.filter((e) => e.Name == 'sub')[0].Value,
   };
-  const endpoints = await pinpoint.getUserEndpoints(params).promise();
+  const endpoints = await pinpoint.getUserEndpoints(params);
   const inactiveEndpoints = endpoints.EndpointsResponse.Item.filter(
     (e) => e.EndpointStatus == 'INACTIVE'
   );
@@ -44,12 +53,16 @@ async function getInactiveEndpoints(user) {
   return inactiveEndpoints;
 }
 async function deleteEndpoint(endpointId) {
-  const pinpoint = new AWS.Pinpoint({ apiVersion: '2016-12-01' });
+  const pinpoint = new Pinpoint({
+    // The key apiVersion is no longer supported in v3, and can be removed.
+    // @deprecated The client uses the "latest" apiVersion.
+    apiVersion: '2016-12-01',
+  });
   var params = {
     ApplicationId: process.env.ANALYTICS_THEMEETINGHOUSE_ID,
     EndpointId: endpointId,
   };
-  const endpoint = await pinpoint.deleteEndpoint(params).promise();
+  const endpoint = await pinpoint.deleteEndpoint(params);
   return endpoint;
 }
 export const handler = async (event) => {

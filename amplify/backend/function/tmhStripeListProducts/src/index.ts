@@ -10,7 +10,6 @@ import TMHStripe from '../../themeetinghousetmhShared/lib/nodejs/TMHStripe';
 export const handler = async (event) => {
   try {
     const products = await TMHStripe.listProducts();
-    console.log({ products });
     return { products };
   } catch (error) {
     console.error({ error });

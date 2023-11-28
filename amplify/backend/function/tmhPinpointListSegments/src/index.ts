@@ -4,17 +4,23 @@
 	ENV
 	REGION
 Amplify Params - DO NOT EDIT */
-var AWS = require('aws-sdk');
+
+const { Pinpoint } = require('@aws-sdk/client-pinpoint');
+
 export const handler = async (event) => {
   try {
-    const pinpoint = new AWS.Pinpoint({ apiVersion: '2016-12-01' });
+    const pinpoint = new Pinpoint({
+      // The key apiVersion is no longer supported in v3, and can be removed.
+      // @deprecated The client uses the "latest" apiVersion.
+      apiVersion: '2016-12-01',
+    });
     var params = {
       ApplicationId: process.env.ANALYTICS_THEMEETINGHOUSE_ID /* required */,
       PageSize: '20',
       Token: event.arguments.nextToken,
     };
 
-    const segments = await pinpoint.getSegments(params).promise();
+    const segments = await pinpoint.getSegments(params);
     console.log(segments);
     console.log(segments.SegmentsResponse.Item);
     const response = {

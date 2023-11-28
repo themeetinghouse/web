@@ -11,8 +11,6 @@ import TMHStripe from '../../themeetinghousetmhShared/lib/nodejs/TMHStripe';
 export const handler = async (event) => {
   // TODO implement
   const paymentMethodId = event.arguments.paymentMethodId;
-  console.log({ paymentMethodId });
-
   try {
     const user = await TMHDB.getUser(event.identity.username);
     if (user.stripeCustomerID) {

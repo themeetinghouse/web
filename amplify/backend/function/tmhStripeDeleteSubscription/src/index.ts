@@ -13,6 +13,7 @@ export const handler = async (event) => {
   const subscriptionId = event.arguments.subscriptionId;
   try {
     const user = await TMHDB.getUser(event.identity.username);
+    console.log({ user });
     if (!user.stripeCustomerID) return { message: 'FAILED' };
     if (
       (await TMHStripe.getSubscription(subscriptionId)).customer ==

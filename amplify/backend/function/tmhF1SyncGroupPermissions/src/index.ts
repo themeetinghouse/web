@@ -4,7 +4,9 @@
 	REGION
 Amplify Params - DO NOT EDIT */
 
-var AWS = require('aws-sdk');
+import { Lambda } from '@aws-sdk/client-lambda';
+import { SecretsManager } from '@aws-sdk/client-secrets-manager';
+
 import { API, GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
 import Amplify from '@aws-amplify/core';
 import * as queries from './queries';
@@ -27,8 +29,9 @@ Amplify.configure({
 
 async function f1ListPeopleGroups(personId: string) {
   console.log('f1ListPeopleGroups invoke started');
-  var lambda = new AWS.Lambda({
-    region: process.env.REGION, //change to your region
+  var lambda = new Lambda({
+    //change to your region
+    region: process.env.REGION,
   });
   const payload = { arguments: { itemId: personId } };
 
@@ -37,7 +40,7 @@ async function f1ListPeopleGroups(personId: string) {
     Payload: JSON.stringify(payload),
   };
 
-  const LambdaPromise = (params) => lambda.invoke(params).promise();
+  const LambdaPromise = (params) => lambda.invoke(params);
 
   const responseFromLambda2 = await LambdaPromise(params);
   console.log({ responseFromLambda2: responseFromLambda2 });
@@ -63,18 +66,16 @@ export const handler = async (event) => {
     secret,
     decodedBinarySecret;
   // Create a Secrets Manager client
-  var client = new AWS.SecretsManager({
+  var client = new SecretsManager({
     region: process.env.REGION,
   });
   try {
-    const data = await client
-      .getSecretValue({ SecretId: secretName })
-      .promise();
+    const data = await client.getSecretValue({ SecretId: secretName });
 
     if ('SecretString' in data) {
       secret = JSON.parse(data.SecretString);
     } else {
-      decodedBinarySecret = data.SecretBinary.toString('base64');
+      decodedBinarySecret = Buffer.from(data.SecretBinary).toString('base64');
     }
     console.log('Loading Secret Done');
     try {

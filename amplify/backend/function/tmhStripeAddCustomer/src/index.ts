@@ -13,7 +13,7 @@ export const handler = async (event) => {
   const userID = event.identity.username;
   const userInfo = await TMHDB.getUser(userID);
   console.log({ userInfo });
-
+  console.log({ userID });
   const customer: Stripe.CustomerCreateParams = {
     name: userInfo.given_name + ' ' + userInfo.family_name,
     phone: userInfo.phone,

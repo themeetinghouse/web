@@ -16,6 +16,7 @@ export const handler = async (event) => {
   const frequency = event.arguments.frequency;
   const paymentMethodId = event.arguments.paymentMethodId;
   let startDate = event.arguments.startDate;
+  console.log({ startDate });
   console.log({ amount, fund, frequency, paymentMethodId, startDate });
   if (!amount || !fund || !frequency)
     return { message: 'Unable to validate donation details.' };

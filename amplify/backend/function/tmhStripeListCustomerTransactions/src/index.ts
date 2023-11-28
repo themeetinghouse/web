@@ -22,7 +22,6 @@ export const handler = async (event) => {
   }
   try {
     const response = await TMHStripe.listCustomerTransactions(stripeCustomerID);
-    console.log({ response });
     const transactions = response.data
       .filter(
         (invoice: Stripe.Invoice & { charge: any }) => invoice?.charge?.amount
