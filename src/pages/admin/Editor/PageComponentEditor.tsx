@@ -3241,7 +3241,7 @@ function GreyContainerWithImageEdit({
           />
           <TMHInput
             maxLength={400}
-            label="What do you want the body text to say?"
+            label="What do you want first paragraph to say?"
             labelStyle={{ flex: 0 }}
             placeholder='e.g. "We are a church that believes in Jesus & loves God & people"'
             value={component?.text1}
@@ -3250,6 +3250,34 @@ function GreyContainerWithImageEdit({
               setComponent((prev: any) => ({
                 ...prev,
                 text1: e.target.value,
+              }));
+            }}
+          />
+          <TMHInput
+            maxLength={400}
+            label="What do you want the second paragraph to say?"
+            labelStyle={{ flex: 0 }}
+            placeholder='e.g. "We are a church that believes in Jesus & loves God & people"'
+            value={component?.text2}
+            onChange={(e) => {
+              console.log(e.target.value, ' setting ', component);
+              setComponent((prev: any) => ({
+                ...prev,
+                text2: e.target.value,
+              }));
+            }}
+          />
+          <TMHInput
+            maxLength={400}
+            label="What do you want the third paragraph to say?"
+            labelStyle={{ flex: 0 }}
+            placeholder='e.g. "We are a church that believes in Jesus & loves God & people"'
+            value={component?.text3}
+            onChange={(e) => {
+              console.log(e.target.value, ' setting ', component);
+              setComponent((prev: any) => ({
+                ...prev,
+                text3: e.target.value,
               }));
             }}
           />
