@@ -4,8 +4,8 @@
     "serviceName": "AppSync",
     "defaultAuthType": {
       "mode": "API_KEY",
-      "expirationTime": 180,
-      "apiKeyExpirationDate": "2023-01-08T02:05:04.868Z",
+      "expirationTime": 365,
+      "apiKeyExpirationDate": "2025-05-12T13:12:26.784Z",
       "keyDescription": "website"
     },
     "additionalAuthTypes": [
@@ -18,7 +18,6 @@
       }
     ],
     "conflictResolution": {},
-    "apiName": "themeetinghouse",
-    "gqlSchemaPath": "/Users/georgebell/Code/tmh-web-prod/web/amplify/backend/api/themeetinghouse/schema.graphql"
+    "apiName": "themeetinghouse"
   }
 }
